@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/identity",
+  "title": "Portal: Identity",
+  "description": "Display portal identity.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "smiley",
+  "example": {},
+  "attributes": {
+    "elements": {
+      "type": "string",
+      "default": "both"
+    },
+    "logo": {
+      "type": "string",
+      "default": ""
+    },
+    "logoDark": {
+      "type": "string",
+      "default": ""
+    },
+    "width": {
+      "type": "string",
+      "default": ""
+    },
+    "stacked": {
+      "type": "boolean",
+      "default": false
+    },
+    "responsivesidenavigation": {
+      "type": "boolean",
+      "default": false
+    },
+    "border": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "interactivity": false,
+    "layout": false,
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontWeight": true,
+      "textAlign": true
+    }
+  },
+  "render": "file:./view.php",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-blocks",
+    "portal-utility",
+    "portal-global",
+    "portal-archive",
+    "portal-jodit",
+    "portal-search",
+    "portal-single",
+    "file:./style-index.css"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

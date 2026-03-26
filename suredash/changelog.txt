@@ -1,0 +1,421 @@
+*** SureDash Changelog ***
+= 2026-03-25 - version 1.7.0 =
+* New: Introduced sorting options for Discussions and Feeds to help users organize content more efficiently.
+* New: Added a List view layout for Discussions and Feeds, providing an alternative and more structured browsing experience.
+* New: Added customization options for Login and Registration block titles.
+* New: Introduced new action hooks 'suredash_before_file_delete' and 'suredash_after_file_upload', allowing developers to execute custom logic before file deletion and after file upload.
+* Improvement: Enhanced UI for post comments along with overall UI enhancements.
+* Improvement: Repositioned Bookmark and Post action menu to the top with UI/UX enhancements.
+* Improvement: Responsive CSS improvements.
+* Improvement: Re-generate fonts on Site URL or Home URL change.
+* Improvement: The “Copy URL” option is now hidden from the post action menu if the Share Button is disabled.
+* Improvement: Space groups will no longer be displayed if they are empty or if all spaces inside them are hidden.
+* Improvement: Added pre-compatibility support for SureMembers Core plugin.
+* Improvement: Added WebP support for profile photo uploads.
+* Fix: Feed and user profile posts were not being restricted when the Portal was restricted via SureMembers.
+* Fix: Fixed sidebar height CSS issue in the Modern layout to ensure proper alignment and full-height rendering.
+* Fix: Fixed an issue in Safari where the cursor position was lost when opening the emoji picker popup.
+
+= 2026-03-12 - version 1.6.3 =
+* Improvement: Hardened the security of the plugin.
+* Fix: Fixed an issue where email notifications were not being saved correctly.
+
+= 2026-02-24 - version 1.6.2 =
+* Improvement: Sidebar can now be used with all container width options. Previously, enabling the sidebar forced the layout to full width.
+* Improvement: Feeds now display the discussion space from which each post originates for better context and clarity.
+* Fix: Resolved an issue where the unboxed container style was being applied incorrectly to discussion spaces.
+* Fix: Reduced Google OAuth scopes to only request necessary permissions (openid, email, profile).
+* Fix: Prevent false password mismatch error from browser autofill.
+
+= 2026-02-12 - version 1.6.1 =
+* New: Added 'suredash_identity_block_url' filter to customize the identity block redirect URL.
+* Fix: Kadence theme styles incorrectly loading on auth pages, leading to layout issues.
+* Fix: Reverted the default template assignment to the portal layout for newly created pages.
+
+= 2026-02-09 - version 1.6.0 =
+* New: Introduced Portal Layout template for posts and custom post types to ensure a consistent portal experience across all pages. (https://suredash.com/docs/use-portal-layout-template-for-site-wide-pages/)
+* New: Added a Space Sidebar feature that provides quick access to relevant sections within a space. (https://suredash.com/docs/space-sidebar-layout/)
+* New: Unread post count is now displayed for Discussion Post spaces in the portal.
+* New: SureMembers Compatibility – Configure SureMembers memberships to send notifications to targeted users within selected memberships.
+* New: SureMembers Compatibility – Added an Access Group selection option in Integration settings to automatically assign newly registered users to the selected group.
+* New: Introduced an option to reset the cover image under Edit Profile settings.
+* Improvement: Fixed ACSS-related CSS compatibility issues on Portal pages.
+* Improvement: Separated Profile and Cover Image upload limits from the general Assets Upload Limit for better control.
+* Improvement: UI tweaks and refinements for an improved user experience.
+* Improvement: Portal notifications for post and comment replies now redirect directly to the relevant comment.
+* Fix: Removed the visual flicker on the frontend where the site briefly appeared in dark mode before switching to light mode on page load.
+* Fix: Resolved social login button spacing issues and fixed the social button position option in the login form.
+* Fix: Fixed an issue where the emoji selector was not working on the portal frontend.
+* Fix: Resolved an issue where the search modal opened when typing a forward slash while writing a post or comment.
+
+= 2025-12-29 - version 1.5.4 =
+* New: Added 'suredash_post_content' filter to modify post content before it's returned.
+* Improvement: Showing Post Edit and Delete options for Discussion posts only.
+* Improvement: Clicking on a comment author now redirects to the author’s profile.
+* Improvement: Disabled rendering of the SureCart floating cart icon on Portal pages.
+* Fix: Resolved translation word order issue for relative time stamps (e.g., "5 days ago") in non-English languages like French.
+* Fix: Resolved a compatibility issue that prevented SureCart onboarding from completing successfully.
+* Fix: Resolved WordPress import errors caused by a missing SureDash method.
+* Fix: Resolved block editor console errors caused by the 'Back to SureDash' button.
+* Fix: Fixed Notification & Profile menu drawer position for RTL languages.
+* Fix: Resolved an issue where the Turnstile captcha was not refreshing after a failed login attempt.
+* Fix: Fixed special characters (š, č, ž, etc.) appearing bold by including extended Latin subset in Google Fonts loading.
+* Fix: Corrected the “Lost Password” link to redirect to the portal’s password reset screen instead of the default WordPress page.
+
+= 2025-12-01 - version 1.5.3 =
+* Fix: Added compatibility for WordPress 6.9.
+* Fix: Updated Portal 'Remember Me' to store cookies for 14 days instead of session-only.
+* Fix: Fixed issue where email notification status was not updating.
+* Fix: Resolved missing first/last name in Portal Google registration and login flow clearing user names.
+* Fix: Fixed Quick View modal content height issue in Zen Browser.
+* Fix: Improved Breakdance compatibility for the Space Editor.
+* Fix: Fixed button alignment issue in Classic Layout header where it was incorrectly aligned to the left.
+
+
+= 2025-11-24 - version 1.5.2 =
+* New: Added "Preserve HTML in Excerpts" option in Community Settings to maintain formatting (bold, italic, links, line breaks) in post excerpts. Enabled by default for new installations. ( https://suredash.com/docs/preserve-html-formatting-in-excerpts/ )
+* Improvement: Post likes available with tooltip support in Quick View post modal.
+* Fix: Post author badges displaying twice in the Quick View post modal.
+* Fix: SureMembers Compatibility - The protected media URL from SureMembers was redirecting to a discussion space in some edge cases.
+
+2025-11-19 - version 1.5.1
+* Fix: Quick View post modal was not working for SureDash User role users.
+* Fix: Duplicated More options menu visible on single post view.
+* Fix: Reverted back "Preserve HTML in Excerpts" option due to compatibility issues, until next update.
+
+2025-11-19 - version 1.5.0
+* New: Introducing Notifications for portal users for various purposes. ( https://suredash.com/docs/notifications-system-in-suredash/ )
+* New: Introduced the Badges system for community gamification.
+* New: Administrator users can also be listed from Users > User Roles filter, for assigning badges to admin portal managers.
+* New: Introducing emoji support for space icons to enhance visual communication and express emotions more effectively.
+* New: Introducing "Reset" ability for Light-Dark color palettes to get back to the default configuration.
+* New: Added "Preserve HTML in Excerpts" option in Community Settings to maintain formatting (bold, italic, links, line breaks) in post excerpts. Enabled by default for new installations. ( https://suredash.com/docs/preserve-html-formatting-in-excerpts/ )
+* New: Introduced "Website" & "Headline" fields under user profile settings.
+* New: Introducing Social links for the user profile to showcase on the user view page. ( https://suredash.com/docs/add-social-links-to-your-profile/ )
+* New: Introduced a "Thumbnail Image" option for link space for showcasing on the home page view.
+* Improvement: Improved the design UI for like-comment-share trigger buttons under spaces and posts for better responsive handling and user interaction.
+* Fix: Private community now redirects users back to the originally requested portal space URL after login.
+* Fix: Log out from the portal now redirects to the portal login page instead of the main site URL.
+* Fix: Flushing rewrite rule after post type registration, causing 404 for portal posts.
+* Tweak: The  Comment box with a big-sized image now has a scroll to reach the end.
+* Tweak: The Quick View post modal no longer has a fixed height.
+* Tweak: Allowed all space types to be selected in SureCart integration.
+* Tweak: Previously, a large-sized image upload in the comment box was causing a scrolling UI glitch.
+* Tweak: When navigating from a space edit screen back to the spaces list, the view now automatically scrolls to the recently edited space instead of staying at the top.
+* Tweak: All portal templates adjusted for better mobile responsiveness. ( https://suredash.com/docs/suredash-portal-template-patterns/ )
+
+2025-11-04 - version 1.4.3
+* New: Introducing integration with OttoKit to manage your portal with automation. ( https://suredash.com/docs/integrate-ottokit-with-suredash/ )
+* Improvement: Introducing some helpful developer hooks to extend SureDash functionality by custom or third-party app owners. ( https://suredash.com/docs/ottokit-hooks-reference/#suredash-core-hooks )
+* Improvement: Introduced 'suredash_customize_portal_link' filter to allow customization of the portal link.
+* Improvement: SureForms compatibility has improved.
+* Fix: The Thumbnail Image option for the space setting was not synced properly with the post featured image option.
+
+2025-10-15 - version 1.4.2
+* Fix: Fatal error when for settings page if Bypass WordPress Interactions option is disabled.
+* Fix: Login-Register page misaligned with Kadence theme after 1.4.0 update.
+
+2025-10-14 - version 1.4.1
+* Fix: Authors unable to edit posts if "Allow Members to Post" option disabled from Discussions space.
+
+2025-10-14 - version 1.4.0
+* New: The "Enable Like & Share" option has been separated into two individual settings: "Enable Like Button" and "Enable Share Button".
+* New: Introduced 2-column layout patterns for Login and Registration form blocks.
+* New: SureCart Integration - You can now select a space in SureDash settings to link with SureCart's Customer Area page. Customers will be automatically redirected to this selected space after their purchase.
+* New: Portal Identity Block - Added dark mode logo support with separate logo upload options for light and dark themes.
+* New: Blank avatar gets replaced with the user's initials for users without avatars, for a more personalized experience.
+* New: Introducing "Edit" functionality for posts, allowing authors to edit the post.
+* New: Introducing "Delete" functionality for posts, allowing authors to delete their own post.
+* New: Administrator users can also be listed from the Users > User Roles filter, for better filtering.
+* Improvement: Hardened the security of the plugin.
+* Improvement: Added support for the profile block under the responsive navigation flyout, if it's being used on the desktop portal-sidebar version.
+* Improvement: Improvised the SureDash post editing flow from the space editor to make it more user-friendly.
+* Improvement: Private community space links now redirect users back to the originally requested space URL once they log in.
+* Fix: Resolved blank screen issue on Portal login & registration pages caused by a conflict with Breakdance.
+* Fix: Spectra block editor icons conflict with SureDash, and block-level icons are not visible in the editor.
+* Fix: Fixed incorrect post count in admin users list after post type change to 'community-post'.
+* Fix: Logging out from the portal now redirects to the portal-login page instead of the main site URL.
+* Tweak: Link space single view now automatically redirects to the assigned custom URL.
+* Tweak: Lesson name gets encoded from SureDash Pro.
+* Tweak: Corrected singular-plural like(s) message text for instant likes on a community post.
+* Tweak: Added "Premium" badge for "Allow Members to Post" setting from the free version for clear visibility.
+
+2025-09-16 - version 1.3.2
+* New: Login Block - Added a centralized Form Texts section in the block for easier customization of all text options, including new texts for lost password and reset forms.
+* New: Added Breakdance page builder compatibility for SureDash Spaces.
+* New: Introduced an option to remove the uploaded profile photo.
+* Improvement: Portal managers' validation now only allows users with administrator or editor roles.
+* Improvement: Refined the space creation modal for better user experience.
+* Improvement: Commenting options dropdown UI updated for better user experience.
+* Improvement: Displaying all user comments in the user detail view. Previously, only a limited number of comments were shown.
+* Improvement: Introduced 'suredash_community_post_slug' and 'suredash_community_content_slug' filters fo updating URL slug for SureDash Posts and Community Content respectively.
+* Fix: When a SureDash user role user tags someone, the mentioned user's name is not getting highlighted.
+* Fix: Fixed Breakdance conflicts with SureDash portal routes.
+* Fix: Browser tab title now shows correct page names for Profile and Bookmarks pages instead of "Portal Space - SureDash".
+* Fix: Portal Identity Block - When elements' visibility set to both as "Title + Logo", then the title is not visible on the frontend.
+* Tweak: Mentioned user tag highlight color was not linked to the global color palette.
+
+2025-09-03 - version 1.3.1
+* Improvement: Color Switcher block added by default to Classic and Modern portal patterns.
+* Improvement: Post dates are now displayed in the relative time format (e.g., "2 days ago", "2 weeks ago") for better readability.
+* Improvement: On user's view page, posts are now shown in reverse chronological order.
+* Fix: After instant update from 1.2 to 1.3 the post submit button is not visible on the discussion posts.
+
+2025-08-29 - version 1.3.0
+* New: Compatibility of Resource Library Space with the SureDash premium plugin. (https://suredash.com/docs/setup-resource-library/)
+* New: Introducing the Default Colour Palette, Light-Dark Colours setting under the Customize Portal. (https://suredash.com/docs/global-color-palette-explained/)
+* New: Introducing Colour Switcher block to allow user to switch between light and dark color modes. (https://suredash.com/docs/fix-global-color-palette-missing-message/)
+* New: Introducing "Enable Like & Share Buttons" space-level option to control the visibility of like and share buttons for a frontend space view.
+* New: Introducing "Custom CSS" settings in the dashboard to allow users to add custom CSS for the portal.
+* New: Added "Show Hidden Spaces" option in the dashboard, allowing users to restore spaces they previously hid for a cleaner and more concise listing view.
+* New: Introduced a new Feeds Icon for the Feeds Page in the side navigation.
+* Improvement: Adjusted the entire portal with SureDash default colours for better consistency with light-dark modes.
+* Improvement: Updated the single post/page space editor flow fora  better user experience.
+* Improvement: Excluded portal login & registration pages from WordPress home page display settings to avoid conflict.
+* Improvement: Introduced new filters 'suredashboard_uploads_base', 'suredash_user_avatar_markup', 'suredash_inserting_default_post_status' for better customization.
+* Improvement: Updated responsive side navigation icon for a better visual experience.
+* Fix: Bricks Compatibility - Themify, Font Awesome icon showing broken on the space frontend view.
+* Fix: Link Space - Resolved 404 error when opening Link Space in a new tab from the admin dashboard.
+* Fix: Notifications - New registered users are getting notifications since the beginning of the portal instead of the registered date.
+* Fix: Elementor Pro compatibility: Page transitions causes user logout issue when visiting profile or bookmarks sub-page.
+* Fix: Resolved issue where newly uploaded Profile Photo and Cover Image were not showing correctly.
+* Fix: Reset password emails now correctly use the updated login page slug/URL instead of always defaulting to portal-login.
+* Fix: PHP Error - "Uncaught TypeError: array_key_exists(): Argument #2 ($array) must be of type array, bool given".
+* Fix: Single post preview and portal content now correctly use space-specific layout settings instead of global layout settings.
+* Fix: Modern Layout - Notification count showing double count.
+* Tweak: Removed bookmark icon for Space for non-logged-in users.
+* Tweak: Improved the dynamic tags drag-drop behaviour to copy the shorthand properties flow.
+* Tweak: Smoothen the Portal manager selection & removal workflow from User Roles settings.
+
+2025-07-31 - version 1.2.1
+* Improvement: Default Rest Password mail template updated with the new {{password_reset_url}} variable.
+* Fix: Removing "Space Thumbnail Image" still be visible in the space collection frontend.
+* Fix: Opened image Lightbox able to scrolls beneath portal view.
+* Fix: "Login to Contribute" CTA notice visible for non logged-in users even if post comments are disabled.
+* Fix: SureCart Compatibility - Customer dashboard areas are not rendering.
+* Fix: Kadence Compatibility - Global theme palette vars not loading on the portal frontend.
+* Fix: User Profile - Updating profile from the portal frontend fails due to a console error.
+
+2025-07-25 - version 1.2.0
+* New: Introducing "Copy URL" functionality for comments, allowing users to easily copy the URL of a specific comment.
+* New: Introducing "Edit" functionality for comments, allowing users to edit the comment.
+* New: Introducing "Delete" functionality for comments, allowing users to delete their own comments.
+* New: Compatibility of Collection Space with the SureDash premium plugin. (https://suredash.com/docs/create-collection-space/)
+* Improvement: The flow of space creation and setting up has been improved with better user experience.
+* Improved codebase with best coding practices.
+* Improvement: Separated the Space Title & Space Icon fields in the Space creation flow for better user experience.
+* Improvement: Duplicated space name for Posts Discussion space type is restricted for avoiding same forum name conflicting issue.
+* Fix: Compatibility for Presto Player for their future update to fix paginated posts with media blocks are not rendering properly on the frontend.
+* Fix: Comments separator line not appearing properly in continuous comment threads.
+* Fix: Duplicated SureDash post falls under the last paginated page of the post list.
+* Fix: Google GSI login not working properly in the SureDash Login/Register block.
+* Fix: Portal spaces & community content's post comments are not appearing under the user profile view.
+* Fix: Hidden space creation notification is suppressed.
+* Fix: SureDash capability user unable to upload image/video from comment box.
+* Fix: Query Monitor shows "Function _load_textdomain_just_in_time was called incorrectly" error.
+* Tweak: Updated "Failed to Save" error message when non portal-manager user tries to save the space settings.
+* Tweak: A portal-manager user is deleted from the WordPress user list, then this user is removed from the portal manager list.
+* This update addressed a security bug. Props to PatchStack for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
+2025-07-08 - version 1.1.0
+* New: Introducing "User Roles" filter for Users table in the admin dashboard to filter users based on their roles.
+* New: Introduced "Override WordPress Registration Setting" option in the Login/Registration settings to allow registration even if the WordPress registration is disabled.
+* New: Introduced new keyboard shortcut (CTRL+S / CMD+S) to save the space editor & space group settings.
+* New: Added lost-password & reset-password support for the SureDash Login block.
+* Improvement: Separated space icon field from space name in space creation flow for better user experience.
+* Improvement: Added better validation notices for images upload in the frontend post editor if image size exceeds the limit.
+* Improvement: Introduced "Link" option for Reset Password email template setting to allow users to put a custom links in the email.
+* Improvement: Refactored the code for dashboard app icon library for better performance.
+* Improvement: Added support for searching posts and pages by their ID in the single space post search.
+* Improvement: Improvised the flow of user profile form updating and saving process with better user experience.
+* Improvement: Optimized dashboard application performance for better user experience with improved codebase.
+* Fix: SureForms form CPT posts getting listed in single space post search results.
+* Fix: Kadence compatibility: The scroll to top buttons appear weirdly on the portal frontend.
+* Fix: Profile's Save button isn't working on Safari browser.
+* This update addressed a security bug. Props to PatchStack for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
+2025-06-26 - version 1.0.3
+* Improvement: Added settings notice for Login/Registration page if site's User Registration is disabled.
+* Fix: Profile photo's "Upload" button wraps to the next line with word wrap.
+* Fix: Like & Share buttons getting hidden if comments disabled for the single space.
+* Fix: GIF posting always come aside to the description text.
+
+2025-06-24 - version 1.0.2
+* New: Introduced Date column for SureDash Posts with sortable support in the admin dashboard.
+* New: Introduced Cloudflare Turnstile reCAPTCHA support for the login and registration forms.
+* Improvement: Search Block - Added default SureDash Contents & Posts search support.
+* Improvement: Introduced "suredash_searchable_post_types" filter to add custom post types support in the SureDash search block.
+* Fix: Spectra editor assets conflicts with SureDash site-editor design setting controls.
+* Fix: Single view of SureDash posts built with page builder are not appearing properly on the frontend.
+* Fix: There is scroll conflicting jerk with sidebar navigation and content area.
+* Fix: Button anchor link tags getting underlined with the portal styles.
+* Fix: The portal homepage grid items are not center aligned on the responsive devices.
+* Fix: The GIF submission in the comment section was failing.
+* Fix: There was a jerk on hover transition for Home Grid card item description.
+* Fix: Special and language characters were stripped from the space URL slug.
+* Fix: Notification block - Drawer not opening properly on the frontend for the responsive devices.
+* Fix: Opened Quick Post in new tab, refers to the improper "Back to" URL.
+
+2025-06-18 - version 1.0.1
+* Fix: Bricks compatibility: WordPress post/pages build with Bricks are not viewable inside the space content.
+* Kadence compatibility: Theme styles overriding the portal styles which disturbs the portal frontend design.
+* Fix: Under Login/Registration admin settings the reCAPTCHA secret keys were hidden.
+* Fix: Prevent video shortcodes from rendering in lesson excerpts on the course page.
+* Fix: Portal frontend styles conflicts with the page builder styles, which was causing the page builder built design to break.
+
+2025-06-17 - version 1.0.0
+* New: Brand new admin dashboard with better UI/UX and with lot of new features, improvements.
+* New: "Enable Feeds" community setting to showcase your latest posts.
+* New: "SureDash User" role introduced for the community.
+* New: Introduced "Users" screen in the admin dashboard to check SureDash community users and their activities.
+* New: Tightening the SureMembers <> SureDash Integration.
+* New: Lesson URL is now cleaner than previous query sd-lesson parameter based URL.
+* New: Introducing "Feeds" option for getting the latest updates from community portal.
+* New: Layout width-style options like Normal, Full Width with Boxed, Unboxed styles.
+* New: Introduced filter 'suredash_portal_slug' to change the 'portal' slug from frontend URL. (https://suredash.com/docs/customizing-the-portal-slug/)
+* New: Introduced filter 'suredash_posts_forum_prefix' to change the prefix 'Forum' of posts categories.
+* Improved codebase with best coding practices.
+* Improvement: Enhanced accessibility in entire portal area.
+* Improvement: Admin bar enabled for admin user with SureDash quick menu links.
+* Improvement: Straight forward & clutter free 4 space types: Single Post/Page, Posts/Discussions, Course, Link.
+* Improvement: Design options like logo setting, colors, layouts are moved to site portal-template editor.
+* Improvement: Code refactor for better performance & maintainability.
+* Improvement: Post submission popup improved, which gives extra room for the user to add content.
+* Improvement: Refined the UI of post like, comment, share options for better user experience.
+* Improvement: Refined settings, options & features for better user experience.
+* Improvement: New register user is getting "SureDash User" role assigned.
+* Improvement: Have 'user-view/{user_id}' proper URL structure for user profile view instead of 'user-view/?id={user_id}'.
+* Improvement: Design of Portal Register & Portal Login page has been improved. (https://suredash.com/docs/regenerate-default-suredash-pages/)
+* Improvement: Improved design UI of cover image & cover embed showcase in posts list frontend.
+* Improvement: Notification Block - Introduced a color option for the notification bell icon.
+* Improvement: Added "Edit in Full Screen" button in the post-space-lesson editor to open the post in the full screen editor, which will allow third-party page builder plugins to edit the post.
+* Improvement: Improved overall compatibility with Bricks theme builder, Divi, Elementor page builders.
+* Improvement: For commenting, sticky login notice for non-logged in users in post quick view modal for better user experience.
+* Refactor: Flows of creation spaces, space groups, content posts generation has been simplified.
+* Refactor: Getting rid of "Content" & "Topic" CPTs & completely relying on single CPT "Community Posts", which reduces the complexity of the plugin & ease for users to create community posts.
+* Tweak: Highlighted content area links for better user experience.
+* Fix: Portal Editor - User profile looks middle in the editor screen.
+* Fix: After submitting a post, the post creation modal is not closing.
+* Fix: Notification Block - 'px' unit added twice for notification drawer position size.
+* Fix: Resolved a CSS conflict with Spectra that was causing Design Library elements to be hidden.
+* Fix: Notification drawer position set out of screen in some cases.
+* Fix: Post Quick View opens entire portal in iframe when post URL has ? query parameter already.
+* Fix: Register & Login form input field icons not visible in logged out state.
+* Fix: Register Form: Validation success & error messages overlapping with the form fields.
+* Fix: On browser language change, frontend some UI item's colors changed to default.
+* Fix: Compatibility: Course grid lesson description gets dropped with GeneratePress theme.
+* Fix: SureDash Posts: Cover Media Embed & Cover Media Image fields disappeared from the post editor & can't be set.
+* Fix: Astra compatibility: Blog archive Site Builder layout prevents loading of portal profile and bookmarks screens.
+
+2025-04-18 - version 0.0.7
+* Fix: The home grid layout is narrow when the portal is set as the homepage.
+* Fix: Some UI glitches were fixed with an inline comment box.
+* Fix: The portal template parts have links which open the frontend in the editor.
+* Fix: The console error is related to the Giphy API URL targeting 'http' instead of 'https'.
+* Fix: User Profile & Bookmark links are visible for non-logged-in users under the search quick links.
+
+2025-04-17 - version 0.0.6
+* New: Introducing Identity, Navigation, Notification, Profile, Search, Title, Content blocks for designing the portal.
+* New: Introducing Classic & Modern layouts for the portal through the block patterns.
+* New: Introducing "Portal" template part for designing the entire portal.
+* New: Ability to reply via inline commenting using the minimal comment box.
+* Improved codebase with best coding practices.
+* Improvement: Added Giphy integration for the comment section.
+* Improvement: Introduce a new filter "suredash_post_restriction" to adjust the restriction of the post.
+* Improvement: Animation improvements and bug fixes for inline comment box under posts.
+* Improvement: The inline comments now show the comment liked by Author and the logged in user's latest comment.
+* Improvement: Updated the centre position of active space in the side navigation for better UI/UX.
+* Improvement: Bricks compatibility: Post/Page built with Bricks will be displayed on the portal.
+* Improvement: The course thumbnail is now aligned with the homepage grid instead of the featured image for better visual consistency and user experience.
+* Improvement: Ensured compatibility with WordPress 6.8.
+* Fix: Presto Player compatibility: Media blocks are not working properly in the portal when FSE theme is active.
+* Fix: Presto Player compatibility: Video space Playlist selection points to community_content posts instead of PP's media library posts.
+* Fix: Divi compatibility: There was some HTML markup printed on the frontend while builder post/page/template loaded.
+* Fix: If custom Home Page sets, it results in a blank content area on the frontend.
+* Fix: Marking as Read not working properly & status remains same even after refreshing the page.
+* Fix: If a page designed with Spectra & set as portal homepage, their dynamic styling is not applied on the frontend.
+* Fix: Prefetching space on hover of the side navigation gets tracked in the search's Recently Viewed section.
+
+2025-03-12 - version 0.0.5
+* New: Showcasing comment liked users names on hover in a tooltip format for better user experience.
+* Improvement: The single page container size can be managed through the Global Container Type setting.
+* Improvement: Added a login menu item to the user profile dropdown if a user is not logged in.
+* Fix: Incorrect login URL showing on topic feeds for the non-logged-in users.
+* Fix: There were some UI glitches on the user-view page while accessing cover photo field.
+* Fix: In user view, on a existing profile photo new uploaded photo doesn't appear in the field.
+* Fix: User view missed with user's respective posts & comments.
+* Fix: On space creation the default space group field shows unselected.
+* Fix: There was a jerk in space icon search.
+* Fix: The long titled portal name was not displaying properly on the frontend.
+
+2025-02-10 - version 0.0.4
+* Improved codebase for improved security.
+* Improved codebase with improved best coding practices.
+* Improvement: Improved compatibility for the Bricks Builder Theme.
+* Fix: Bricks compatibility: Editing SureDash CPT posts with Bricks opens portal dashboard.
+* Fix: There is weird aside space appearing to portal container when ACSS and Bricks work together.
+* Fix: Latest feed/topic posts should be displayed first on the frontend.
+* Fix: After creating a space group, newly added spaces immediately disappear from the dashboard area.
+* Fix: Once a Space Group is created, a placeholder Space is automatically added under it.
+* Fix: Beaver Builder & Divi Compatibility: There were some PHP errors on the frontend while using the Beaver Builder or Divi Builder.
+* Fix: PHP Error - "Uncaught TypeError: SureDashboard\\Admin\\Editor::register_block_category(): Argument #2 ($post) must be of type object, string given".
+* Fix: The admin setup language is directly updated after the update, conflict with German language.
+* Fix: Timestamp was not displaying correctly when the timezone was set to something other than UTC.
+* Fix: HTML tags were displaying in the notification panel.
+* Fix: Deleted comment notifications showing under the notification panel.
+
+2025-01-28 - version 0.0.3
+* New: Introducing translations for the Swedish, Polish, Hebrew, French, Dutch and Dutch (Belgium) languages.
+* Improved codebase for improved security best practices.
+* Improvement: Displaying premium plugin incompatibility admin notice on all dashboard screens instead of the only plugins page.
+* Fix: Draft spaces are getting displayed on the frontend after the 0.0.2 update.
+* Fix: Breakdance compatibility: The entire portal dashboard appearing under Breakdance admin pages.
+* Fix: Oxygen & Breakdance compatibility: Some portal spaces loading their content twice on the frontend.
+* Fix: After the update of 0.0.2 admin setup translated to the Spanish language.
+
+2025-01-24 - version 0.0.2
+* New: Introducing performing measures for the portal, which includes custom ORM structure, own REST APIs, optimized native function callbacks and many more.
+* New: Introducing option to "Set Portal as Homepage" in the plugin settings.
+* New: Introducing Font settings under "Display Settings" in the plugin settings.
+* New: Introducing translations for the Hindi, German, Spanish, and Dutch languages.
+* New: Introducing utility based CSS classes for the portal for better customization.
+* New: Under social sharing, added "Copy" link support for Content and Topic feeds.
+* New: Introducing inline commenting for the content & topic feeds for easy interaction.
+* Improvement: Introduced minimum version notice setup for compatibility with the SureDash Premium plugin.
+* Improvement: Updated skeleton loaders for better user experience.
+* Improvement: Post comment button scrolls to comment editor for better user experience.
+* Improvement: Enabled "Fullscreen Mode" by default for the iframe post editor in the portal dashboard for better user experience.
+* Improvement: The UI of content and topic feed has been improved for better user experience.
+* Improvement: The "Back to" button from single content or topic feed redirects to the referring space area instead of the portal home.
+* Fix: Bookmark, Like-Dislike buttons looks steady till the update.
+* Fix: Like trigger not working on the immediate submitted comment.
+* Fix: Getting double header issue on the frontend once a custom page assigned as the portal homepage.
+
+2025-01-07 - version 0.0.1
+* Fix: Empty p tags were added in the content of the WordPress post space content.
+* Fix: Admin page showing "PRO" tooltip even if the SureDash Pro is of type either "Starter" or "Business".
+* Fix: PHP error due to "undefined function portal_sub_queries()" while accessing the bookmarks or profile page.
+
+2025-01-02 - version 0.0.1-alpha.3
+* Improvement: Introduced a "What's New" notifier to highlight updates.
+* Improvement: Introduced new "Performance Measures" settings for the plugin.
+* Fix: Settings: Color reset option not working.
+* Fix: There is line break in the topic creation & comment submission textarea.
+* Fix: Video Space - Embedded video not working on the frontend.
+* Fix: Console error for scrollIntoViewIfNeeded function incompatible with cross-browsers.
+* Fix: Forgot password not working on the portal login page.
+* Fix: Login & Register Block - Refactor codebase for socially on tap login.
+* Fix: Link Space - Link target conflicts with opening in new and same tab.
+* Fix: Login Block - Lost password URL missing in the form.
+* Fix: Coding standards followed as per WordPress guidelines.
+* Fix: Admin Portal Page - There is jerk while accessing More settings in space or space group edit.
+
+2024-12-02 - version 0.0.1-alpha.2
+* Improvement: RTL support added for portal.
+* Improvement: Introducing nested collapsible comments UI.
+* Fix: Shortcodes printed directly on the lesson front page.
+* Fix: SureMembers Integration - Spaces of SureDash won't be restricting.
+* Fix: Possible PHP errors with undefined variable of $base_post_id & $is_pinned.
+
+2024-11-28 - version 0.0.1-alpha.1
+* Initial Release.

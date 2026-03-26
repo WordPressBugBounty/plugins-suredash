@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/content",
+  "title": "Portal: Content",
+  "description": "Display portal content.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "text",
+  "example": {},
+  "attributes": {},
+  "supports": {
+    "interactivity": false,
+    "layout": false,
+    "html": false,
+    "multiple": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "shadow": true,
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalSkipSerialization": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": false,
+      "__experimentalFontWeight": true
+    }
+  },
+  "render": "file:./view.php",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-utility",
+    "portal-global",
+    "portal-archive",
+    "portal-jodit",
+    "portal-search",
+    "portal-single",
+    "file:./style-index.css"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

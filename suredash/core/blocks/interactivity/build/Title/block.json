@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/title",
+  "title": "Portal: Space Title",
+  "description": "Display portal title.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "heading",
+  "example": {},
+  "attributes": {
+    "responsivesidenavigation": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "interactivity": false,
+    "layout": false,
+    "html": false,
+    "multiple": false,
+    "color": {
+      "gradient": false,
+      "link": false,
+      "text": true,
+      "background": false
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true,
+      "__experimentalFontWeight": true
+    }
+  },
+  "render": "file:./view.php",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-utility",
+    "portal-global",
+    "portal-archive",
+    "portal-jodit",
+    "portal-search",
+    "portal-single",
+    "file:./style-index.css"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

@@ -1,0 +1,94 @@
+<?php
+/**
+ * Comment Management Stuff
+ *
+ * This class will holds the Comment related handling.
+ *
+ * @package SureDash
+ * @since 0.0.6
+ */
+
+namespace SureDashboard\Inc\Compatibility;
+
+use SureDashboard\Inc\Traits\Get_Instance;
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Comment & Post Handler
+ *
+ * @since 0.0.6
+ */
+class Comment {
+	use Get_Instance;
+
+	/**
+	 * Constructor
+	 *
+	 * @since 0.0.6
+	 * @return void
+	 */
+	public function __construct() {
+		add_action(
+			'deleted_comment',
+			function ( $comment_id, $comment ): void {
+				if ( $comment_id && $comment ) {
+					$this->delete_related_media( $comment->comment_content );
+				}
+			},
+			10,
+			2
+		);
+
+		add_action(
+			'deleted_post',
+			function ( $post_id, $post ): void {
+				if ( $post_id && $post && $post->post_type === SUREDASHBOARD_FEED_POST_TYPE ) {
+					$this->delete_related_media( $post->post_content );
+				}
+			},
+			10,
+			2
+		);
+	}
+
+	/**
+	 * Delete media files associated with content.
+	 *
+	 * @param string $content The content containing media URLs.
+	 * @since 0.0.6
+	 * @return void
+	 */
+	public function delete_related_media( $content ): void {
+		// Extract image URLs from the content.
+		preg_match_all( '/<img[^>]+src="([^">]+)"/', $content, $matched_images );
+
+		if ( ! empty( $matched_images[1] ) ) {
+			// Get the upload directory paths.
+			$upload_dir  = wp_upload_dir();
+			$upload_path = $upload_dir['basedir'];
+			$upload_url  = $upload_dir['baseurl'];
+
+			// Loop through each image URL and delete the corresponding file.
+			foreach ( $matched_images[1] as $image_url ) {
+				$image_path = str_replace( $upload_url, $upload_path, $image_url );
+				if ( file_exists( $image_path ) ) {
+					/**
+					 * Fires before a SureDash-managed file is deleted.
+					 *
+					 * This hook allows developers to perform cleanup on associated resources,
+					 * such as removing the file from remote storage (e.g., S3, Cloudflare R2)
+					 * or deleting the corresponding WordPress attachment post.
+					 *
+					 * @since 1.6.3
+					 *
+					 * @param string $image_path The absolute server path of the file being deleted.
+					 * @param string $image_url  The URL of the file being deleted.
+					 */
+					do_action( 'suredash_before_file_delete', $image_path, $image_url );
+					unlink( $image_path ); // phpcs:ignore -- This is a safe operation.
+				}
+			}
+		}
+	}
+}

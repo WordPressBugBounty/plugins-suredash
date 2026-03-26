@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/search",
+  "title": "Portal: Search",
+  "description": "Display portal search.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "search",
+  "example": {},
+  "attributes": {
+    "inputborderradius": {
+      "type": "string",
+      "default": ""
+    },
+    "responsiveonlyicon": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "interactivity": false,
+    "layout": false,
+    "html": false,
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false,
+      "textAlign": false
+    }
+  },
+  "render": "file:./view.php",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-utility",
+    "portal-global",
+    "portal-archive",
+    "portal-jodit",
+    "portal-search",
+    "portal-single",
+    "file:./style-index.css"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

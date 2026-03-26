@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/dynamic-icon",
+  "title": "Portal: Dynamic Icon",
+  "category": "suredash",
+  "parent": [
+    "suredash/dynamic-icons"
+  ],
+  "description": "Display an icon linking to a social profile or site.",
+  "textdomain": "suredash",
+  "attributes": {
+    "url": {
+      "type": "string",
+      "role": "content"
+    },
+    "service": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "role": "content"
+    },
+    "rel": {
+      "type": "string"
+    }
+  },
+  "usesContext": [
+    "openInNewTab",
+    "showLabels",
+    "stackIconText",
+    "iconColor",
+    "iconColorValue",
+    "iconBackgroundColor",
+    "iconBackgroundColorValue"
+  ],
+  "supports": {
+    "reusable": false,
+    "html": false,
+    "interactivity": {
+      "clientNavigation": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./view.php",
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

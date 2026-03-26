@@ -1,0 +1,123 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/color-switcher",
+  "title": "Portal: Color Switcher",
+  "description": "Switch between light and dark color palettes.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "admin-appearance",
+  "example": {},
+  "attributes": {
+    "switcherType": {
+      "type": "string",
+      "default": "icon",
+      "enum": [
+        "icon",
+        "text",
+        "icon_text"
+      ]
+    },
+    "forceReload": {
+      "type": "boolean",
+      "default": false
+    },
+    "systemPreferenceMode": {
+      "type": "boolean",
+      "default": false
+    },
+    "lightIcon": {
+      "type": "string",
+      "default": "sun",
+      "enum": [
+        "sun",
+        "moon",
+        "lightbulb",
+        "lightbulboff",
+        "sunmoon",
+        "sunrise",
+        "sunset"
+      ]
+    },
+    "darkIcon": {
+      "type": "string",
+      "default": "moon",
+      "enum": [
+        "sun",
+        "moon",
+        "lightbulb",
+        "lightbulboff",
+        "sunmoon",
+        "sunrise",
+        "sunset"
+      ]
+    },
+    "iconSize": {
+      "type": "string",
+      "default": "md",
+      "enum": [
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ]
+    },
+    "lightText": {
+      "type": "string",
+      "default": "Light Mode"
+    },
+    "darkText": {
+      "type": "string",
+      "default": "Dark Mode"
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": true
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    }
+  },
+  "supports": {
+    "interactivity": true,
+    "layout": false,
+    "html": false,
+    "multiple": true,
+    "color": {
+      "gradient": false,
+      "link": false,
+      "text": true,
+      "background": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontWeight": true
+    }
+  },
+  "render": "file:./view.php",
+  "viewScript": "file:./view.js",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-utility",
+    "portal-global"
+  ],
+  "editorStyle": []
+}

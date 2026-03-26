@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/notification",
+  "title": "Portal: Notification",
+  "description": "Display portal notification.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "bell",
+  "example": {},
+  "attributes": {
+    "draweropenverposition": {
+      "type": "string",
+      "default": "top"
+    },
+    "draweropenhorposition": {
+      "type": "string",
+      "default": "right"
+    },
+    "drawerhorpositionoffset": {
+      "type": "string",
+      "default": "12"
+    },
+    "drawerverpositionoffset": {
+      "type": "string",
+      "default": "50"
+    }
+  },
+  "supports": {
+    "interactivity": false,
+    "layout": false,
+    "html": false,
+    "typography": {
+      "fontSize": false,
+      "lineHeight": false,
+      "textAlign": false
+    },
+    "color": {
+      "gradient": false,
+      "link": false,
+      "text": false,
+      "background": false
+    }
+  },
+  "render": "file:./view.php",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-utility",
+    "portal-global",
+    "portal-archive",
+    "portal-jodit",
+    "portal-search",
+    "portal-single",
+    "file:./style-index.css"
+  ],
+  "editorStyle": [
+    "file:./index.css"
+  ]
+}

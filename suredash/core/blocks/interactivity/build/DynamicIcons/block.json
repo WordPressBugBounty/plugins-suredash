@@ -1,0 +1,177 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/dynamic-icons",
+  "title": "Portal: Dynamic Icons",
+  "description": "Display customizable dynamic icons for portal navigation.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "admin-links",
+  "allowedBlocks": [
+    "suredash/dynamic-icon"
+  ],
+  "example": {},
+  "keywords": [
+    "navigation",
+    "icons"
+  ],
+  "textdomain": "suredash",
+  "attributes": {
+    "size": {
+      "type": "string",
+      "default": "portal-icon-md"
+    },
+    "iconColor": {
+      "type": "string"
+    },
+    "iconColorValue": {
+      "type": "string"
+    },
+    "iconBackgroundColor": {
+      "type": "string"
+    },
+    "iconBackgroundColorValue": {
+      "type": "string"
+    },
+    "showLabels": {
+      "type": "boolean",
+      "default": false
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "stackIconText": {
+      "type": "boolean",
+      "default": false
+    },
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "spacing": {
+      "type": "string",
+      "default": "8px"
+    },
+    "borderRadius": {
+      "type": "string",
+      "default": "6px"
+    },
+    "icons": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "Home",
+          "label": "Home",
+          "url": "#home",
+          "id": "icon-1"
+        },
+        {
+          "icon": "User",
+          "label": "Profile",
+          "url": "#profile",
+          "id": "icon-2"
+        },
+        {
+          "icon": "Settings",
+          "label": "Settings",
+          "url": "#settings",
+          "id": "icon-3"
+        }
+      ]
+    }
+  },
+  "providesContext": {
+    "showLabels": "showLabels",
+    "openInNewTab": "openInNewTab",
+    "stackIconText": "stackIconText",
+    "iconColor": "iconColor",
+    "iconColorValue": "iconColorValue",
+    "iconBackgroundColor": "iconBackgroundColor",
+    "iconBackgroundColorValue": "iconBackgroundColorValue"
+  },
+  "supports": {
+    "interactivity": false,
+    "layout": {
+      "allowSwitching": false,
+      "allowInheriting": false,
+      "allowVerticalAlignment": false,
+      "default": {
+        "type": "flex"
+      }
+    },
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": false,
+      "__experimentalFontWeight": true
+    },
+    "color": {
+      "enableContrastChecker": false,
+      "background": true,
+      "gradients": true,
+      "text": true,
+      "__experimentalDefaultControls": {
+        "background": false,
+        "text": true
+      }
+    },
+    "spacing": {
+      "blockGap": [
+        "horizontal",
+        "vertical"
+      ],
+      "margin": true,
+      "padding": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw"
+      ],
+      "__experimentalDefaultControls": {
+        "blockGap": true,
+        "margin": false,
+        "padding": false
+      }
+    },
+    "__experimentalBorder": {
+      "radius": true,
+      "color": true,
+      "width": true,
+      "style": true,
+      "__experimentalDefaultControls": {
+        "radius": true,
+        "color": false,
+        "width": false,
+        "style": false
+      }
+    }
+  },
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "logos-only",
+      "label": "Logos Only"
+    },
+    {
+      "name": "pill-shape",
+      "label": "Pill Shape"
+    }
+  ],
+  "render": "file:./view.php",
+  "editorScript": "file:./index.js",
+  "viewScript": [],
+  "editorStyle": [
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css"
+  ]
+}

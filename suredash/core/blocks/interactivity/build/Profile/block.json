@@ -1,0 +1,77 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/profile",
+  "title": "Portal: Profile",
+  "description": "Display portal profile.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "icon": "id-alt",
+  "example": {},
+  "attributes": {
+    "makefixed": {
+      "type": "boolean",
+      "default": false
+    },
+    "blockstickyverposition": {
+      "type": "string",
+      "default": "bottom"
+    },
+    "blockstickyverpositionoffset": {
+      "type": "string",
+      "default": "0"
+    },
+    "blockmaxwidth": {
+      "type": "string",
+      "default": "300px"
+    },
+    "onlyavatar": {
+      "type": "boolean",
+      "default": false
+    },
+    "avatarsize": {
+      "type": "string",
+      "default": 40
+    },
+    "menuopenverposition": {
+      "type": "string",
+      "default": "top"
+    },
+    "menuopenhorposition": {
+      "type": "string",
+      "default": "left"
+    },
+    "menuhorpositionoffset": {
+      "type": "string",
+      "default": ""
+    },
+    "menuverpositionoffset": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "interactivity": false,
+    "layout": false,
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": false,
+      "__experimentalFontWeight": true
+    }
+  },
+  "render": "file:./view.php",
+  "textdomain": "suredash",
+  "editorScript": "file:./index.js",
+  "style": [
+    "portal-utility",
+    "portal-global",
+    "portal-archive",
+    "portal-jodit",
+    "portal-search",
+    "portal-single"
+  ],
+  "viewScript": [],
+  "editorStyle": []
+}
