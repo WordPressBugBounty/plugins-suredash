@@ -1,4 +1,8 @@
 *** SureDash Changelog ***
+= 2026-03-27 - version 1.7.1 =
+* Fix: Resolved issue where multi-paragraph comments displayed incorrectly in a horizontal layout.
+* Fix: Addressed 'headers already sent' warning impacting portal login page.
+
 = 2026-03-25 - version 1.7.0 =
 * New: Introduced sorting options for Discussions and Feeds to help users organize content more efficiently.
 * New: Added a List view layout for Discussions and Feeds, providing an alternative and more structured browsing experience.

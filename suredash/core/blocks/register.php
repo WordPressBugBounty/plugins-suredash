@@ -414,7 +414,15 @@ class Register {
 				});
 			</script>
 		<?php
-		echo do_shortcode( ob_get_clean() ); // @phpstan-ignore-line
+		$block_output = do_shortcode( (string) ob_get_clean() );
+
+		// Defer output to wp_footer to avoid "headers already sent" when redirect_canonical runs.
+		add_action(
+			'wp_footer',
+			static function () use ( $block_output ): void {
+				echo $block_output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		);
 	}
 
 	/**

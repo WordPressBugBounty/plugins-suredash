@@ -4,7 +4,7 @@ Tags: dashboard, customer, user dashboard
 Requires at least: 5.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,10 @@ We take plugin security extremely seriously. If you discover a security vulnerab
 You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/).
 
 == Changelog ==
+= 2026-03-27 - version 1.7.1 =
+* Fix: Resolved issue where multi-paragraph comments displayed incorrectly in a horizontal layout.
+* Fix: Addressed 'headers already sent' warning impacting portal login page.
+
 = 2026-03-25 - version 1.7.0 =
 * New: Introduced sorting options for Discussions and Feeds to help users organize content more efficiently.
 * New: Added a List view layout for Discussions and Feeds, providing an alternative and more structured browsing experience.

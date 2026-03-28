@@ -836,9 +836,11 @@ function suredash_comments_list_callback( $comment, $args, $depth ) {
 
 								<section class="portal-comment-content comment">
 									<?php
+										remove_filter( 'comment_text', 'wpautop', 30 );
 										add_filter( 'comment_text', 'suredash_update_mention_links', 10, 3 );
 										comment_text();
 										remove_filter( 'comment_text', 'suredash_update_mention_links' );
+										add_filter( 'comment_text', 'wpautop', 30 );
 									?>
 									<?php if ( property_exists( $comment, 'comment_approved' ) && $comment->comment_approved === '0' ) { ?>
 										<em class="comment-awaiting-moderation" aria-label="<?php echo esc_attr__( 'Your comment is awaiting moderation.', 'suredash' ); ?>">

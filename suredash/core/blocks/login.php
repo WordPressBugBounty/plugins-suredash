@@ -935,9 +935,6 @@ class Login {
 		$selector   = '.uagb-block-' . $block_id;  // Block selector.
 		$block_attr = $this->get_block_parsed_values( $block_attr );
 
-		// Generate and output dynamic block CSS.
-		$block_css = $this->get_dynamic_block_css( $block_attr, $block_id );
-
 		$this_field_error_msg = [
 			'username' => sprintf(
 				// translators: %1$s: User Name Field.
@@ -1082,18 +1079,15 @@ class Login {
 				});
 			</script>
 		<?php
-		if ( ! empty( $block_css ) ) {
-			// Handle both string and array returns from generate_all_css.
-			$css_output = is_array( $block_css ) ? implode( ' ', $block_css ) : $block_css;
-			if ( ! empty( $css_output ) ) {
-				?>
-				<style>
-					<?php echo $css_output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				</style>
-				<?php
+		$block_output = do_shortcode( (string) ob_get_clean() );
+
+		// Defer output to wp_footer to avoid "headers already sent" when redirect_canonical runs.
+		add_action(
+			'wp_footer',
+			static function () use ( $block_output ): void {
+				echo $block_output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
-		}
-		echo do_shortcode( ob_get_clean() ); // @phpstan-ignore-line
+		);
 	}
 
 	/**

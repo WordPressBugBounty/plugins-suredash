@@ -1063,6 +1063,15 @@ class Misc {
 		// Process iframe placeholders using common method.
 		$filtered_comment = $this->process_iframe_placeholders( $comment_data );
 
+		// Collapse 3+ consecutive <br> tags to 2 (max one empty line).
+		$filtered_comment = (string) preg_replace_callback(
+			'/(<br\s*\/?>[\s]*){3,}/i',
+			static function (): string {
+				return '<br><br>';
+			},
+			$filtered_comment
+		);
+
 		$comment_parent_id = isset( $_POST['comment_parent'] ) ? absint( $_POST['comment_parent'] ) : 0;
 		$depth             = isset( $_POST['depth'] ) ? absint( $_POST['depth'] ) : 0;
 
@@ -1220,6 +1229,15 @@ class Misc {
 
 		// Process iframe placeholders using common method.
 		$filtered_comment = $this->process_iframe_placeholders( $comment_content );
+
+		// Collapse 3+ consecutive <br> tags to 2 (max one empty line).
+		$filtered_comment = (string) preg_replace_callback(
+			'/(<br\s*\/?>[\s]*){3,}/i',
+			static function (): string {
+				return '<br><br>';
+			},
+			$filtered_comment
+		);
 
 		// Update the comment.
 		$result = wp_update_comment(
