@@ -388,6 +388,11 @@ class Portals_Loader {
 		delete_option( 'rewrite_rules' );
 		update_option( '__suredash_do_redirect', true );
 
+		// Store install timestamp for days_since_install calculation on activation event.
+		if ( ! get_option( 'suredash_usage_installed_time' ) ) {
+			update_option( 'suredash_usage_installed_time', time() );
+		}
+
 		flush_rewrite_rules();
 	}
 
@@ -421,6 +426,12 @@ class Portals_Loader {
 	 */
 	public function deactivation_actions(): void {
 		remove_role( 'suredash_user' );
+
+		// Clean up temporary analytics data only — keep _pushed (dedup) so
+		// milestone events don't re-fire on reactivation.
+		delete_option( 'suredash_usage_events_pending' );
+		delete_option( 'suredash_onboarding_analytics' );
+		delete_transient( 'suredash_state_events_checked' );
 	}
 
 	/**

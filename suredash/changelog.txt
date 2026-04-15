@@ -1,4 +1,13 @@
 *** SureDash Changelog ***
+= 2026-04-15 - version 1.7.2 =
+* New: Added customizable title options for the About Space and Recent Activities widgets.
+* Improvement: Sorting and view preferences are now saved per space instead of globally.
+* Improvement: Made plugin strings fully translatable for better localization support.
+* Improvement: Improved error handling and client-side validation for Login and Registration blocks.
+* Fix: Disabled default WordPress comment notification emails for SureDash post types to prevent duplicate or unwanted emails.
+* Fix: Notification emails now use the "From Email" configured in SureDash Settings instead of the WordPress admin email.
+* Fix: Posts with restricted visibility are no longer shown to unauthorized users in the feeds list view.
+
 = 2026-03-27 - version 1.7.1 =
 * Fix: Resolved issue where multi-paragraph comments displayed incorrectly in a horizontal layout.
 * Fix: Addressed 'headers already sent' warning impacting portal login page.

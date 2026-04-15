@@ -421,7 +421,7 @@ class Feeds extends Base {
 
 			// Get validated sort preference using helper.
 			// Skip passing default sort preference as settings not present on admin dashboard.
-			$feeds_sort = Helper::get_feeds_sort_preference();
+			$feeds_sort = Helper::get_feeds_sort_preference( 'date_desc', $base_id );
 
 			// Parse sort parameters using helper.
 			$sort_params = Helper::parse_feeds_sort_params( $feeds_sort );
@@ -433,10 +433,61 @@ class Feeds extends Base {
 			// Space default is the fallback; user cookie/request preference takes priority.
 			$space_default_list_view = PostMeta::get_post_meta_value( $base_id, 'default_list_view' );
 			$space_default_view      = $space_default_list_view ? 'list' : 'grid';
-			$initial_view            = Helper::get_feeds_view_preference( $space_default_view );
+			$initial_view            = Helper::get_feeds_view_preference( $space_default_view, $base_id );
 
 			$pinned_posts = Helper::get_pinned_posts( $base_id );
 			$query_posts  = $this->get_query( $feed_group_id, $order_by, $order, $meta_key );
+
+			/**
+			 * Pre-filter restricted posts so the empty state banner shows correctly.
+			 *
+			 * Without this, a space where ALL posts are visibility-restricted for the
+			 * current user would show filter controls + empty container + "all caught up"
+			 * instead of the proper empty state banner.
+			 *
+			 * Cache priming runs first so visibility checks don't cause N+1 queries.
+			 */
+			if ( ! empty( $query_posts ) && is_array( $query_posts ) ) {
+				$all_posts_to_prime = $query_posts;
+
+				if ( ! empty( $pinned_posts ) ) {
+					foreach ( $pinned_posts as $pinned_post_id ) {
+						if ( sd_post_exists( $pinned_post_id ) ) {
+							$all_posts_to_prime[] = (array) sd_get_post( $pinned_post_id );
+						}
+					}
+				}
+
+				$post_ids   = array_filter( wp_list_pluck( $all_posts_to_prime, 'ID' ) );
+				$author_ids = array_filter( array_unique( wp_list_pluck( $all_posts_to_prime, 'post_author' ) ) );
+
+				if ( ! empty( $post_ids ) ) {
+					update_meta_cache( 'post', $post_ids );
+				}
+
+				if ( ! empty( $author_ids ) ) {
+					update_meta_cache( 'user', $author_ids );
+				}
+
+				// Remove posts the current user cannot see.
+				$query_posts = array_values(
+					array_filter(
+						$query_posts,
+						static function ( $post ) {
+							return ! suredash_is_post_protected( absint( $post['ID'] ) );
+						}
+					)
+				);
+
+				$pinned_posts = array_values(
+					array_filter(
+						$pinned_posts,
+						static function ( $pinned_post_id ) {
+							return sd_post_exists( $pinned_post_id ) && ! suredash_is_post_protected( $pinned_post_id );
+						}
+					)
+				);
+			}
 
 			// Render controls (sort + view toggle).
 			if ( ! empty( $query_posts ) && is_array( $query_posts ) ) {
@@ -461,36 +512,6 @@ class Feeds extends Base {
 			<?php
 
 			if ( ! empty( $query_posts ) && is_array( $query_posts ) ) {
-				/**
-				 * Performance optimization: Prime caches to prevent N+1 queries.
-				 * This fetches all post meta and user meta in 2 queries instead of 5-10 per post.
-				 *
-				 * @since 1.6.3
-				 */
-				$all_posts_to_render = $query_posts;
-
-				// Add pinned posts to the priming list.
-				if ( ! empty( $pinned_posts ) ) {
-					foreach ( $pinned_posts as $pinned_post_id ) {
-						if ( sd_post_exists( $pinned_post_id ) ) {
-							$all_posts_to_render[] = (array) sd_get_post( $pinned_post_id );
-						}
-					}
-				}
-
-				$post_ids   = array_filter( wp_list_pluck( $all_posts_to_render, 'ID' ) );
-				$author_ids = array_filter( array_unique( wp_list_pluck( $all_posts_to_render, 'post_author' ) ) );
-
-				if ( ! empty( $post_ids ) ) {
-					// Prime post meta cache (bookmarks, content type, edited time, etc.).
-					update_meta_cache( 'post', $post_ids );
-				}
-
-				if ( ! empty( $author_ids ) ) {
-					// Prime user meta cache (headlines, badges, display names, etc.).
-					update_meta_cache( 'user', $author_ids );
-				}
-
 				// Only show discussion space name on the main feeds page, not inside a specific discussion space.
 				$is_feeds_page = suredash_get_sub_queried_page() === 'feeds';
 
@@ -503,6 +524,11 @@ class Feeds extends Base {
 					if ( ! empty( $pinned_posts ) ) {
 						foreach ( $pinned_posts as $pinned_post_id ) {
 							if ( sd_post_exists( $pinned_post_id ) ) {
+								// Skip posts the current user is not allowed to see (matches grid view behavior).
+								if ( suredash_is_post_protected( $pinned_post_id ) ) {
+									continue;
+								}
+
 								$post_link   = get_permalink( $pinned_post_id );
 								$author_id   = get_post_field( 'post_author', $pinned_post_id );
 								$author_name = suredash_get_user_display_name( (int) $author_id );
@@ -543,6 +569,11 @@ class Feeds extends Base {
 
 						// Skip if already rendered as pinned.
 						if ( in_array( $post_id, $pinned_posts, true ) ) {
+							continue;
+						}
+
+						// Skip posts the current user is not allowed to see (matches grid view behavior).
+						if ( suredash_is_post_protected( $post_id ) ) {
 							continue;
 						}
 

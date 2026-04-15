@@ -60,7 +60,7 @@ $hide_fullscreen = $integration_resource_library && empty( trim( $post_content )
 
 											<div class="portal-post-author sd-flex-col sd-gap-6 sd-font-base sd-line-20">
 												<a href="<?php echo esc_url( $user_view ); ?>" target="_blank" class="sd-mobile-flex-wrap">
-													<span class="portal-store-post-author" aria-label="<?php echo 'Post author ' . esc_attr( suredash_get_author_name( get_the_author_meta( 'display_name', $author_id ) ) ); ?>" ><?php echo esc_html( suredash_get_author_name( get_the_author_meta( 'display_name', $author_id ) ) ); ?></span>
+													<span class="portal-store-post-author" aria-label="<?php /* translators: %s: author name */ echo esc_attr( sprintf( __( 'Post author %s', 'suredash' ), suredash_get_author_name( get_the_author_meta( 'display_name', $author_id ) ) ) ); ?>" ><?php echo esc_html( suredash_get_author_name( get_the_author_meta( 'display_name', $author_id ) ) ); ?></span>
 												<?php
 												do_action( 'suredash_before_user_badges', $author_id );
 												suredash_get_user_badges( $author_id, 2 );

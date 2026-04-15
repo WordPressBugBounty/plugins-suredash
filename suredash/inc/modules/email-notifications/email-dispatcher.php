@@ -9,6 +9,7 @@
 namespace SureDashboard\Inc\Modules\EmailNotifications;
 
 use SureDashboard\Inc\Traits\Get_Instance;
+use SureDashboard\Inc\Utils\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -372,7 +373,7 @@ class Email_Dispatcher {
 		// Set up email headers.
 		$headers = [
 			'Content-Type: text/html; charset=UTF-8',
-			'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>',
+			'From: ' . Helper::get_option( 'portal_name', get_bloginfo( 'name' ) ) . ' <' . Helper::get_option( 'email_from_mail_id', get_option( 'admin_email' ) ) . '>',
 		];
 
 		// Send the email.
@@ -398,7 +399,7 @@ class Email_Dispatcher {
 			'{{user_first_name}}'   => sd_get_user_meta( $user->ID, 'first_name', true ),
 			'{{user_last_name}}'    => sd_get_user_meta( $user->ID, 'last_name', true ),
 			'{{user_registered}}'   => date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ),
-			'{{portal_name}}'       => get_bloginfo( 'name' ),
+			'{{portal_name}}'       => Helper::get_option( 'portal_name', get_bloginfo( 'name' ) ),
 			'{{portal_url}}'        => home_url(),
 		];
 

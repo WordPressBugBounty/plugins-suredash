@@ -510,7 +510,7 @@ function suredash_render_item_title_description( $item_data = [], $args = [] ): 
 						$integration_label = __( 'Post', 'suredash' );
 						break;
 					case 'course':
-						$integration_label = __( 'Course', 'suredash' );
+						$integration_label = suredash_is_pro_active() && class_exists( '\SureDashboardPro\Inc\Utils\Labels' ) ? \SureDashboardPro\Inc\Utils\Labels::get_label( 'course_singular_text' ) : __( 'Course', 'suredash' );
 						break;
 					case 'resource_library':
 						$integration_label = __( 'Resource Library', 'suredash' );
@@ -810,7 +810,7 @@ function suredash_render_list_item( $args = [] ): void {
 	?>
 		<!-- Single wrapper link for entire list item -->
 		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-list-wrapper" data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>" data-post_id="<?php echo esc_attr( $args['id'] ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>">
-			<div class="portal-list-item portal-store-list-post portal-content sd-flex sd-items-center sd-gap-16 sd-m-0 sd-p-16 sd-border sd-radius-8 sd-hover-shadow-md"
+			<div class="portal-list-item portal-store-list-post portal-content sd-flex sd-items-center sd-gap-16 sd-m-0 sd-p-16 sd-radius-8 sd-hover-shadow-md"
 			id="portal-post-<?php echo esc_attr( $args['id'] ); ?>"
 			>
 				<?php if ( ! empty( $args['avatar'] ) ) { ?>
@@ -941,7 +941,7 @@ function suredash_render_list( $items = [], $list_args = [] ): void {
 					// Modify the item output to remove individual styling and add group styling.
 					if ( ! empty( $item_output ) ) {
 						$item_output = str_replace(
-							'class="portal-list-item portal-store-list-post portal-content sd-flex sd-items-center sd-gap-16 sd-m-0 sd-p-16 sd-border sd-radius-8 sd-hover-shadow-md"',
+							'class="portal-list-item portal-store-list-post portal-content sd-flex sd-items-center sd-gap-16 sd-m-0 sd-p-16 sd-radius-8 sd-hover-shadow-md"',
 							'class="' . esc_attr( $item_classes ) . '"',
 							$item_output
 						);

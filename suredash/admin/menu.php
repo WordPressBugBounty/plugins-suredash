@@ -204,7 +204,7 @@ class Menu {
 
 			add_submenu_page(
 				'',
-				'SureDash ' . __( 'Onboarding', 'suredash' ),
+				__( 'SureDash Onboarding', 'suredash' ),
 				'',
 				$capability,
 				'portal-onboarding',
@@ -388,6 +388,8 @@ class Menu {
 					'upgrade_link'                 => SUREDASHBOARD_UPGRADE_LINK,
 					'username'                     => suredash_get_user_display_name(),
 					'email'                        => wp_get_current_user()->user_email,
+					'first_name'                   => wp_get_current_user()->first_name,
+					'last_name'                    => wp_get_current_user()->last_name,
 					'is_user_onboarded'            => get_option( 'suredash_onboarding_completed', false ) === 'yes' || get_option( 'suredash_onboarding_skipped' ) === 'yes' ? true : false,
 					'portal_url'                   => esc_url_raw( home_url( suredash_get_community_slug() ) ),
 					'suremembers_status'           => $this->get_plugin_status( 'suremembers/suremembers.php' ),

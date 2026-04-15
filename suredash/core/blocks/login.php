@@ -62,7 +62,7 @@ class Login {
 		$email = isset( $_POST['email'] ) ? sanitize_email( $_POST['email'] ) : '';
 
 		if ( empty( $email ) || ! is_email( $email ) ) {
-			wp_send_json_error( [ 'message' => 'Please enter a valid email address.' ] );
+			wp_send_json_error( [ 'message' => __( 'Please enter a valid email address.', 'suredash' ) ] );
 		}
 
 		// Make sure the username field is present for block_login_forgot_password.

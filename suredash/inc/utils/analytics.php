@@ -21,11 +21,49 @@ class Analytics {
 	use Get_Instance;
 
 	/**
+	 * Shared BSF_Analytics_Events instance.
+	 *
+	 * @var \BSF_Analytics_Events|null
+	 */
+	private static $events = null;
+
+	/**
 	 *  Constructor
 	 */
 	public function __construct() {
 		$this->set_bsf_analytics_entity();
 		add_filter( 'bsf_core_stats', [ $this, 'add_suredash_analytics_data' ] );
+
+		// Hook-based events.
+		add_action( 'suredash_update_after', [ $this, 'track_plugin_updated' ] );
+		add_action( 'transition_post_status', [ $this, 'track_first_space_published' ], 10, 3 );
+		add_action( 'transition_post_status', [ $this, 'track_first_community_post_created' ], 10, 3 );
+
+		// Capture previous version before maintenance overwrites it.
+		add_action( 'admin_init', [ $this, 'capture_previous_version' ], 1 );
+
+		// State-based events — run on init at priority 98 (after BSF Analytics library loads
+		// at default priority, but before maybe_track_analytics sends at priority 99).
+		if ( get_transient( 'suredash_state_events_checked' ) === false ) {
+			add_action( 'init', [ $this, 'detect_state_events' ], 98 );
+		}
+	}
+
+	/**
+	 * Get shared BSF_Analytics_Events instance.
+	 *
+	 * @return \BSF_Analytics_Events|null
+	 */
+	public static function events() {
+		if ( ! class_exists( 'BSF_Analytics_Events' ) ) {
+			return null;
+		}
+
+		if ( self::$events === null ) {
+			self::$events = new \BSF_Analytics_Events( 'suredash' );
+		}
+
+		return self::$events;
 	}
 
 	/**
@@ -66,6 +104,141 @@ class Analytics {
 	}
 
 	/**
+	 * Capture the currently-saved version before maintenance.php overwrites it.
+	 * Stored for use in track_plugin_updated() to populate the from_version property.
+	 *
+	 * Runs on admin_init at priority 1, before maintenance.php runs.
+	 *
+	 * @since x.x.x
+	 */
+	public function capture_previous_version(): void {
+		$saved = get_option( 'suredash_saved_version', '' );
+		$prev  = get_option( 'suredash_usage_prev_version', '' );
+		if ( $saved && $saved !== $prev && version_compare( (string) $saved, SUREDASHBOARD_VER, '<' ) ) {
+			update_option( 'suredash_usage_prev_version', $saved );
+		}
+	}
+
+	/**
+	 * Detect and track one-time state-based events.
+	 *
+	 * Called on init when the daily transient is absent.
+	 * BSF_Analytics_Events dedup prevents duplicate tracking across calls.
+	 *
+	 * @since x.x.x
+	 */
+	public function detect_state_events(): void {
+		$events = self::events();
+		if ( $events === null ) {
+			return;
+		}
+
+		set_transient( 'suredash_state_events_checked', true, DAY_IN_SECONDS );
+
+		$this->track_plugin_activated_state( $events );
+		$this->track_onboarding_events( $events );
+		$this->track_feature_events( $events );
+		$this->track_integration_events( $events );
+
+		// pro_license_activated, leaderboard_enabled — handled by suredash-pro via detect_pro_state_events().
+	}
+
+	/**
+	 * Track plugin_updated event when the plugin version changes.
+	 *
+	 * Hooked to suredash_update_after (fired by maintenance.php after version bump).
+	 * Uses flush_pushed so the event re-tracks on each upgrade.
+	 *
+	 * @since x.x.x
+	 */
+	public function track_plugin_updated(): void {
+		if ( self::events() === null ) {
+			return;
+		}
+
+		$prev_version = (string) get_option( 'suredash_usage_prev_version', '' );
+
+		self::events()->flush_pushed( [ 'plugin_updated' ] );
+		self::events()->track(
+			'plugin_updated',
+			SUREDASHBOARD_VER,
+			[
+				'from_version' => $prev_version,
+			]
+		);
+	}
+
+	/**
+	 * Track first_space_published when the first portal space is published.
+	 *
+	 * This is the activation event — the moment SureDash delivers its core value.
+	 *
+	 * @param string   $new_status New post status.
+	 * @param string   $old_status Previous post status.
+	 * @param \WP_Post $post       Post object.
+	 *
+	 * @since x.x.x
+	 */
+	public function track_first_space_published( $new_status, $old_status, $post ): void {
+		if ( $new_status !== 'publish' || $old_status === 'publish' ) {
+			return;
+		}
+
+		if ( ! ( $post instanceof \WP_Post ) || $post->post_type !== SUREDASHBOARD_POST_TYPE ) {
+			return;
+		}
+
+		if ( self::events() === null ) {
+			return;
+		}
+
+		$space_type = (string) get_post_meta( $post->ID, 'integration', true );
+		if ( empty( $space_type ) ) {
+			$space_type = 'unknown';
+		}
+
+		self::events()->track(
+			'first_space_published',
+			'yes',
+			[
+				'space_type'         => $space_type,
+				'days_since_install' => (string) $this->get_days_since_install(),
+			]
+		);
+	}
+
+	/**
+	 * Track first_community_post_created when the first community post is published.
+	 *
+	 * @param string   $new_status New post status.
+	 * @param string   $old_status Previous post status.
+	 * @param \WP_Post $post       Post object.
+	 *
+	 * @since x.x.x
+	 */
+	public function track_first_community_post_created( $new_status, $old_status, $post ): void {
+		if ( $new_status !== 'publish' || $old_status === 'publish' ) {
+			return;
+		}
+
+		if ( ! ( $post instanceof \WP_Post ) || $post->post_type !== SUREDASHBOARD_FEED_POST_TYPE ) {
+			return;
+		}
+
+		if ( self::events() === null ) {
+			return;
+		}
+
+		self::events()->track(
+			'first_community_post_created',
+			'yes',
+			[
+				'days_since_install' => (string) $this->get_days_since_install(),
+			]
+		);
+	}
+
+	/**
 	 * Callback function to add SureDash specific analytics data.
 	 *
 	 * @param array<mixed> $stats_data existing stats_data.
@@ -100,6 +273,14 @@ class Analytics {
 			'recent_community_posts_content_30d' => $recent_activity['recent_posts'] + $recent_activity['recent_content'],
 		];
 
+		// Add events record.
+		if ( self::events() !== null ) {
+			$events_record = self::events()->flush_pending();
+			if ( ! empty( $events_record ) ) {
+				$stats_data['plugin_data']['suredash']['events_record'] = $events_record;
+			}
+		}
+
 		// Add KPI tracking data.
 		$kpi_data = $this->get_kpi_tracking_data();
 		if ( ! empty( $kpi_data ) ) {
@@ -110,6 +291,130 @@ class Analytics {
 	}
 
 	/**
+	 * Track plugin_activated (once per install).
+	 *
+	 * @param \BSF_Analytics_Events $events Event tracker.
+	 *
+	 * @since x.x.x
+	 */
+	private function track_plugin_activated_state( \BSF_Analytics_Events $events ): void {
+		$installed_time = get_option( 'suredash_usage_installed_time', 0 );
+		if ( ! $installed_time ) {
+			return;
+		}
+
+		$bsf_referrers = get_option( 'bsf_product_referers', [] );
+		$source        = ! empty( $bsf_referrers['suredash'] )
+			? sanitize_text_field( $bsf_referrers['suredash'] )
+			: 'self';
+
+		$events->track( 'plugin_activated', SUREDASHBOARD_VER, [ 'source' => $source ] );
+	}
+
+	/**
+	 * Track onboarding completed/skipped state events.
+	 *
+	 * @param \BSF_Analytics_Events $events Event tracker.
+	 *
+	 * @since x.x.x
+	 */
+	private function track_onboarding_events( \BSF_Analytics_Events $events ): void {
+		$completed = get_option( 'suredash_onboarding_completed' ) === 'yes';
+		$skipped   = get_option( 'suredash_onboarding_skipped' ) === 'yes';
+
+		if ( ! $completed && ! $skipped ) {
+			return;
+		}
+
+		$properties = [];
+
+		if ( $skipped ) {
+			$skipped_on_step = get_option( 'suredash_onboarding_skipped_step', '' );
+			if ( ! empty( $skipped_on_step ) ) {
+				$properties['skipped_on_step'] = $skipped_on_step;
+			}
+		}
+
+		$events->track(
+			'onboarding_completed',
+			$completed ? 'yes' : 'no',
+			$properties
+		);
+	}
+
+	/**
+	 * Track integration connected events.
+	 *
+	 * @param \BSF_Analytics_Events $events Event tracker.
+	 *
+	 * @since x.x.x
+	 */
+	private function track_integration_events( \BSF_Analytics_Events $events ): void {
+		$settings = Settings::get_suredash_settings();
+		$enabled  = [];
+
+		if ( ! empty( $settings['google_token_id'] ) ) {
+			$enabled[] = 'google_login';
+		}
+
+		if ( ! empty( $settings['facebook_token_id'] ) ) {
+			$enabled[] = 'facebook_login';
+		}
+
+		$surecart_space = absint( $settings['surecart_customer_dashboard_space'] ?? 0 );
+		if ( defined( 'SURECART_PLUGIN_FILE' ) && $surecart_space > 0 ) {
+			$enabled[] = 'surecart';
+		}
+
+		if ( function_exists( 'suredash_is_suremembers_active' ) && suredash_is_suremembers_active() ) {
+			$enabled[] = 'suremembers';
+		}
+
+		if ( ! empty( $enabled ) ) {
+			$events->track(
+				'integration_enabled',
+				implode( ',', $enabled )
+			);
+		}
+	}
+
+	/**
+	 * Track feature-level adoption events.
+	 *
+	 * @param \BSF_Analytics_Events $events Event tracker.
+	 *
+	 * @since x.x.x
+	 */
+	private function track_feature_events( \BSF_Analytics_Events $events ): void {
+		$settings = Settings::get_suredash_settings();
+
+		// global_sidebar_enabled — at least one widget configured.
+		$sidebar_widgets = $settings['global_sidebar_widgets'] ?? [];
+		if ( is_array( $sidebar_widgets ) && ! empty( $sidebar_widgets ) ) {
+			$events->track( 'global_sidebar_enabled', 'yes' );
+		}
+
+		// feeds_enabled.
+		if ( ! empty( $settings['enable_feeds'] ) ) {
+			$events->track( 'feeds_enabled', 'yes' );
+		}
+	}
+
+	/**
+	 * Get days since plugin install.
+	 *
+	 * @since x.x.x
+	 * @return int
+	 */
+	private function get_days_since_install(): int {
+		$install_time = (int) get_option( 'suredash_usage_installed_time', 0 );
+		if ( $install_time <= 0 ) {
+			return 0;
+		}
+		return (int) floor( ( time() - $install_time ) / DAY_IN_SECONDS );
+	}
+
+	/**
 	 * Get recent activity counts for last 30 days.
 	 *
 	 * @since 1.6.0
@@ -117,7 +422,7 @@ class Analytics {
 	 */
 	private function get_recent_activity_counts(): array {
 		global $wpdb;
-		$thirty_days_ago = gmdate( 'Y-m-d H:i:s', strtotime( '-30 days' ) );
+		$thirty_days_ago = (string) wp_date( 'Y-m-d H:i:s', (int) strtotime( '-30 days' ) );
 
 		// Get community posts count from last 30 days.
 		$recent_posts = (int) $wpdb->get_var(
@@ -157,11 +462,11 @@ class Analytics {
 	 */
 	private function get_kpi_tracking_data(): array {
 		$kpi_data = [];
-		$today    = current_time( 'Y-m-d' );
+		$today    = (string) wp_date( 'Y-m-d' );
 
 		// Get data for yesterday and day before yesterday.
 		for ( $i = 1; $i <= 2; $i++ ) {
-			$date = gmdate( 'Y-m-d', strtotime( $today . ' -' . $i . ' days' ) ); // @phpstan-ignore-line
+			$date = (string) wp_date( 'Y-m-d', (int) strtotime( $today . ' -' . $i . ' days' ) );
 
 			$kpi_data[ $date ] = [
 				'numeric_values' => [

@@ -649,6 +649,24 @@ class HomeContent {
 
 		$feeds_posts = Controller::get_query_data( 'Feeds', $query_args );
 
+		// Pre-filter restricted posts so the empty state banner shows correctly
+		// when all posts are visibility-restricted for the current user.
+		if ( ! empty( $feeds_posts ) ) {
+			$post_ids = array_filter( wp_list_pluck( $feeds_posts, 'ID' ) );
+			if ( ! empty( $post_ids ) ) {
+				update_meta_cache( 'post', $post_ids );
+			}
+
+			$feeds_posts = array_values(
+				array_filter(
+					$feeds_posts,
+					static function ( $post ) {
+						return ! suredash_is_post_protected( absint( $post['ID'] ) );
+					}
+				)
+			);
+		}
+
 		// Get validated view preference using helper.
 		$admin_default_view = Helper::get_option( 'feeds_default_view', 'grid' );
 		$initial_view       = Helper::get_feeds_view_preference( $admin_default_view );
@@ -687,7 +705,13 @@ class HomeContent {
 						// List view rendering.
 						$list_items = [];
 						foreach ( $feeds_posts as $post ) {
-							$post_id   = absint( $post['ID'] );
+							$post_id = absint( $post['ID'] );
+
+							// Skip posts the current user is not allowed to see (matches grid view behavior).
+							if ( suredash_is_post_protected( $post_id ) ) {
+								continue;
+							}
+
 							$post_link = get_permalink( $post_id );
 
 							// Build description: excerpt if available, or author name and date.

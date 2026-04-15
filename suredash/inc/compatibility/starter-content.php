@@ -39,7 +39,7 @@ class Starter_Content {
 		$login_page            = Helper::get_option( 'login_page' );
 		$login_setting_page_id = is_array( $login_page ) && ! empty( $login_page['value'] ) ? absint( $login_page['value'] ) : 0;
 		if ( ! $login_setting_page_id ) {
-			$page_title    = 'Portal Login';
+			$page_title    = __( 'Portal Login', 'suredash' );
 			$login_content = $layout_type === 'two-column' ? suredash_login_two_columns_pattern() : suredash_login_single_column_centered_pattern();
 			$login_page    = [
 				'post_title'   => $page_title,
@@ -75,7 +75,7 @@ class Starter_Content {
 		$register_page            = Helper::get_option( 'register_page' );
 		$register_setting_page_id = is_array( $register_page ) && ! empty( $register_page['value'] ) ? absint( $register_page['value'] ) : 0;
 		if ( ! $register_setting_page_id ) {
-			$page_title       = 'Portal Register';
+			$page_title       = __( 'Portal Register', 'suredash' );
 			$register_content = $layout_type === 'two-column' ? suredash_register_two_columns_pattern() : suredash_register_single_column_centered_pattern();
 			$register_page    = [
 				'post_title'   => $page_title,

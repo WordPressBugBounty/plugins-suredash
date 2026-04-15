@@ -127,7 +127,7 @@ class Labels {
 				'mark_as_complete'                  => Helper::get_option( 'mark_as_complete_text' ),
 
 				'share_on_facebook'                 => __( 'Share on Facebook', 'suredash' ),
-				'share_on_twitter'                  => __( 'Share on Twitter', 'suredash' ),
+				'share_on_twitter'                  => __( 'Share on X', 'suredash' ),
 				'share_on_linkedin'                 => __( 'Share on LinkedIn', 'suredash' ),
 				'share_on_pinterest'                => __( 'Share on Pinterest', 'suredash' ),
 

@@ -310,6 +310,11 @@ class Misc {
 				if ( $is_first_page && ! empty( $pinned_posts ) ) {
 					foreach ( $pinned_posts as $pinned_post_id ) {
 						if ( sd_post_exists( $pinned_post_id ) ) {
+							// Skip posts the current user is not allowed to see (matches grid view behavior).
+							if ( suredash_is_post_protected( $pinned_post_id ) ) {
+								continue;
+							}
+
 							$post_link   = get_permalink( $pinned_post_id );
 							$author_id   = get_post_field( 'post_author', $pinned_post_id );
 							$author_name = suredash_get_user_display_name( (int) $author_id );
@@ -354,7 +359,13 @@ class Misc {
 						continue;
 					}
 
-					$post_id   = absint( $post['ID'] );
+					$post_id = absint( $post['ID'] );
+
+					// Skip posts the current user is not allowed to see (matches grid view behavior).
+					if ( suredash_is_post_protected( $post_id ) ) {
+						continue;
+					}
+
 					$post_link = get_permalink( $post_id );
 
 					// Build description: author name and relative date.
@@ -467,7 +478,7 @@ class Misc {
 		$paged   = ! empty( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
 
 		if ( ! $user_id ) {
-			wp_send_json_error( [ 'message' => 'User ID is required' ] );
+			wp_send_json_error( [ 'message' => __( 'User ID is required.', 'suredash' ) ] );
 		}
 
 		$no_of_comments = 8;

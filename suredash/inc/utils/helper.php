@@ -1181,15 +1181,15 @@ class Helper {
 					'icon'  => '<span class="portal-svg-icon portal-icon-sm" aria-hidden="true" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill: currentColor;"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.69 226.4 209.3 245V327.7h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.3 482.4 504 379.8 504 256z"></path></svg></span>',
 					'link'  => 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode( $post_link ),
 				],
-				'twitter'  => [
+				'x'        => [
 					'label' => Labels::get_label( 'share_on_twitter' ),
-					'icon'  => '<span class="portal-svg-icon portal-icon-sm" aria-hidden="true" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill: currentColor;"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></span>',
+					'icon'  => '<span class="portal-svg-icon portal-icon-sm" aria-hidden="true" aria-label="X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill: currentColor;"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></span>',
 					'link'  => add_query_arg(
 						[
 							'url'  => $post_link,
 							'text' => rawurlencode( html_entity_decode( wp_strip_all_tags( $post_title ), ENT_COMPAT, 'UTF-8' ) ),
 						],
-						'http://twitter.com/share'
+						'https://x.com/intent/tweet'
 					),
 				],
 				'linkedin' => [
@@ -2698,22 +2698,29 @@ class Helper {
 	 * Reads from cookies (for page loads) or AJAX request parameters.
 	 *
 	 * @param string $default_sort Admin default sort option.
+	 * @param int    $space_id     Space ID for per-space preference (0 for global feed).
 	 * @return string Validated sort option.
 	 * @since 1.5.0
 	 */
-	public static function get_feeds_sort_preference( $default_sort = 'date_desc' ): string {
+	public static function get_feeds_sort_preference( string $default_sort = 'date_desc', int $space_id = 0 ): string {
 		// Valid sort options.
 		$valid_sorts = [ 'date_desc', 'date_asc', 'popular', 'likes', 'new_activity', 'alphabetical' ];
 
-		// Priority: AJAX request parameter > Cookie > Admin default > Fallback.
+		// Priority: AJAX request parameter > Space-scoped cookie > Legacy global cookie > Admin default > Fallback.
 		$user_preference = '';
 
 		// Check AJAX request first (takes precedence for dynamic updates).
 		if ( ! empty( $_REQUEST['feeds_sort'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$user_preference = sanitize_text_field( wp_unslash( $_REQUEST['feeds_sort'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		} elseif ( ! empty( $_COOKIE['suredash_feeds_sort'] ) ) {
-			// Check cookie for page load preference.
-			$user_preference = sanitize_text_field( wp_unslash( $_COOKIE['suredash_feeds_sort'] ) );
+		} else {
+			// Check space-scoped cookie (works for both specific spaces and feed page with space_id=0).
+			$cookie_key = 'suredash_feeds_sort_' . (int) $space_id;
+			if ( ! empty( $_COOKIE[ $cookie_key ] ) ) {
+				$user_preference = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_key ] ) );
+			} elseif ( ! empty( $_COOKIE['suredash_feeds_sort'] ) ) {
+				// Fallback to legacy global cookie for backwards compatibility.
+				$user_preference = sanitize_text_field( wp_unslash( $_COOKIE['suredash_feeds_sort'] ) );
+			}
 		}
 
 		// Validate user preference.
@@ -2735,21 +2742,28 @@ class Helper {
 	 * Reads from cookies (for page loads) or AJAX request parameters.
 	 *
 	 * @param string $default_view Admin default view option.
+	 * @param int    $space_id     Space ID for per-space preference (0 for global feed).
 	 * @return string Validated view option ('grid' or 'list').
 	 * @since 1.5.0
 	 */
-	public static function get_feeds_view_preference( $default_view = 'grid' ): string {
+	public static function get_feeds_view_preference( string $default_view = 'grid', int $space_id = 0 ): string {
 		$valid_views = [ 'grid', 'list' ];
 
-		// Priority: AJAX request parameter > Cookie > Admin default > Fallback.
+		// Priority: AJAX request parameter > Space-scoped cookie > Legacy global cookie > Admin default > Fallback.
 		$user_preference = '';
 
 		// Check AJAX request first (takes precedence for dynamic updates).
 		if ( ! empty( $_REQUEST['feeds_view'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$user_preference = sanitize_text_field( wp_unslash( $_REQUEST['feeds_view'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		} elseif ( ! empty( $_COOKIE['suredash_feeds_view'] ) ) {
-			// Check cookie for page load preference.
-			$user_preference = sanitize_text_field( wp_unslash( $_COOKIE['suredash_feeds_view'] ) );
+		} else {
+			// Check space-scoped cookie (works for both specific spaces and feed page with space_id=0).
+			$cookie_key = 'suredash_feeds_view_' . (int) $space_id;
+			if ( ! empty( $_COOKIE[ $cookie_key ] ) ) {
+				$user_preference = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_key ] ) );
+			} elseif ( ! empty( $_COOKIE['suredash_feeds_view'] ) ) {
+				// Fallback to legacy global cookie for backwards compatibility.
+				$user_preference = sanitize_text_field( wp_unslash( $_COOKIE['suredash_feeds_view'] ) );
+			}
 		}
 
 		// Validate user preference.

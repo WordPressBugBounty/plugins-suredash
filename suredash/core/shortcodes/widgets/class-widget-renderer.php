@@ -57,11 +57,11 @@ class Widget_Renderer {
 
 		switch ( $widget_slug ) {
 			case 'about-space':
-				self::render_about_space( $space_id );
+				self::render_about_space( $space_id, $settings );
 				break;
 
 			case 'recent-activities':
-				self::render_recent_activities( $space_id );
+				self::render_recent_activities( $space_id, $settings );
 				break;
 
 			case 'content-list':
@@ -85,25 +85,27 @@ class Widget_Renderer {
 	/**
 	 * Render About Space widget.
 	 *
-	 * @param int $space_id Space ID.
+	 * @param int          $space_id Space ID.
+	 * @param array<mixed> $settings Widget settings.
 	 * @return void
 	 * @since 1.6.0
 	 */
-	private static function render_about_space( $space_id ): void {
+	private static function render_about_space( $space_id, $settings = [] ): void {
 		require_once __DIR__ . '/about-space.php';
-		About_Space::render( $space_id );
+		About_Space::render( $space_id, $settings );
 	}
 
 	/**
 	 * Render Recent Activities widget.
 	 *
-	 * @param int $space_id Space ID.
+	 * @param int          $space_id Space ID.
+	 * @param array<mixed> $settings Widget settings.
 	 * @return void
 	 * @since 1.6.0
 	 */
-	private static function render_recent_activities( $space_id ): void {
+	private static function render_recent_activities( $space_id, $settings = [] ): void {
 		require_once __DIR__ . '/recent-activities.php';
-		Recent_Activities::render( $space_id );
+		Recent_Activities::render( $space_id, $settings );
 	}
 
 	/**

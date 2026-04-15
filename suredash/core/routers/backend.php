@@ -169,7 +169,7 @@ class Backend {
 		$integration_type = ! empty( $_POST['integration_type'] ) ? sanitize_text_field( wp_unslash( $_POST['integration_type'] ) ) : '';
 
 		if ( empty( $space_name ) || empty( $integration_type ) ) {
-			wp_send_json_error( [ 'message' => 'Space name and integration type are required.' ] );
+			wp_send_json_error( [ 'message' => __( 'Space name and integration type are required.', 'suredash' ) ] );
 		}
 
 		$is_duplicate = $this->check_duplicate_space( $space_name, $integration_type );
@@ -263,7 +263,7 @@ class Backend {
 
 		$term_id   = 0;
 		$post_attr = [
-			'post_title'  => 'Untitled',
+			'post_title'  => __( 'Untitled', 'suredash' ),
 			'post_type'   => SUREDASHBOARD_POST_TYPE,
 			'post_status' => 'draft',
 			'post_author' => get_current_user_id(),
@@ -273,7 +273,7 @@ class Backend {
 			$value = $space_data['category'];
 
 			if ( $value === 'create' ) {
-				$custom_category_name = ! empty( $space_data['custom_category_title'] ) ? $space_data['custom_category_title'] : 'Untitled';
+				$custom_category_name = ! empty( $space_data['custom_category_title'] ) ? $space_data['custom_category_title'] : __( 'Untitled', 'suredash' );
 				$term_id              = $this->create_portal_group( $custom_category_name );
 			} else {
 				$term_id = absint( $value );
@@ -300,7 +300,7 @@ class Backend {
 			$integration_type = $space_data['integration'];
 
 			if ( $this->check_duplicate_space( $space_name, $integration_type ) ) {
-				wp_send_json_error( [ 'message' => 'A space with this name and type already exists.' ] );
+				wp_send_json_error( [ 'message' => __( 'A space with this name and type already exists.', 'suredash' ) ] );
 			}
 		}
 
@@ -406,7 +406,11 @@ class Backend {
 			$prefix . $category_name,
 			SUREDASHBOARD_FEED_TAXONOMY,
 			[
-				'description' => 'This forum group is created for the space: ' . $category_name,
+				'description' => sprintf(
+					/* translators: %s: space name */
+					__( 'This forum group is created for the space: %s', 'suredash' ),
+					$category_name
+				),
 			]
 		);
 
@@ -1385,7 +1389,8 @@ class Backend {
 				$error_message   = __( 'Failed to duplicate.', 'suredash' );
 				$updated         = \wp_insert_post(
 					[
-						'post_title'     => isset( $post->post_title ) ? $post->post_title . ' - Copy' : '',
+						/* translators: %s: original post title */
+						'post_title'     => isset( $post->post_title ) ? sprintf( __( '%s - Copy', 'suredash' ), $post->post_title ) : '',
 						'post_type'      => $post_type,
 						'post_status'    => 'draft',
 						'post_author'    => get_current_user_id(),

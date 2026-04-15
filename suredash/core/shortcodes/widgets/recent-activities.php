@@ -19,11 +19,12 @@ class Recent_Activities {
 	/**
 	 * Render the Recent Activities widget.
 	 *
-	 * @param int $space_id Space ID.
+	 * @param int          $space_id Space ID.
+	 * @param array<mixed> $settings Widget settings.
 	 * @return void
 	 * @since 1.6.0
 	 */
-	public static function render( $space_id ): void {
+	public static function render( $space_id, $settings = [] ): void {
 		// Don't show Recent Activity widget if discussions are private.
 		if ( function_exists( 'suredash_is_private_discussion_area' ) && suredash_is_private_discussion_area( $space_id ) ) {
 			return;
@@ -32,8 +33,13 @@ class Recent_Activities {
 		// Get space integration type to determine what to show.
 		$integration_type = get_post_meta( $space_id, 'integration', true );
 
+		// Resolve widget title (custom or default).
+		$title = ! empty( $settings['customTitle'] )
+			? $settings['customTitle']
+			: __( 'Recent Activities', 'suredash' );
+
 		// Render based on space integration type.
-		self::render_space_activities( $space_id, $integration_type );
+		self::render_space_activities( $space_id, $integration_type, $title );
 	}
 
 	/**
@@ -120,10 +126,14 @@ class Recent_Activities {
 	 *
 	 * @param int    $space_id         Space ID.
 	 * @param string $integration_type Space integration type.
+	 * @param string $title            Widget title.
 	 * @return void
 	 * @since 1.6.0
 	 */
-	private static function render_space_activities( $space_id, $integration_type ): void {
+	private static function render_space_activities( $space_id, $integration_type, $title = '' ): void {
+		if ( empty( $title ) ) {
+			$title = __( 'Recent Activities', 'suredash' );
+		}
 		// Buffer the activities content to check if there's any data.
 		ob_start();
 
@@ -176,7 +186,7 @@ class Recent_Activities {
 			?>
 			<div class="portal-widget-recent-activities">
 				<span class="portal-widget-section-title">
-					<?php esc_html_e( 'Recent Activities', 'suredash' ); ?>
+					<?php echo esc_html( $title ); ?>
 				</span>
 				<div class="portal-widget-empty">
 					<p><?php esc_html_e( 'No recent activities.', 'suredash' ); ?></p>
@@ -190,7 +200,7 @@ class Recent_Activities {
 		?>
 		<div class="portal-widget-recent-activities">
 			<span class="portal-widget-section-title">
-				<?php esc_html_e( 'Recent Activities', 'suredash' ); ?>
+				<?php echo esc_html( $title ); ?>
 			</span>
 			<div class="portal-widget-activities">
 				<?php echo $activities_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

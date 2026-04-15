@@ -29,6 +29,9 @@ class Comment {
 	 * @return void
 	 */
 	public function __construct() {
+		add_filter( 'comment_notification_recipients', [ $this, 'disable_wp_comment_emails' ], 10, 2 );
+		add_filter( 'comment_moderation_recipients', [ $this, 'disable_wp_comment_emails' ], 10, 2 );
+
 		add_action(
 			'deleted_comment',
 			function ( $comment_id, $comment ): void {
@@ -50,6 +53,42 @@ class Comment {
 			10,
 			2
 		);
+	}
+
+	/**
+	 * Disable default WordPress comment notification emails for SureDash post types.
+	 *
+	 * SureDash has its own notification system, so WordPress default comment
+	 * emails should not be sent for community posts, content, or portal spaces.
+	 *
+	 * @param array<string> $emails     Array of email addresses to notify.
+	 * @param int           $comment_id The comment ID.
+	 *
+	 * @since x.x.x
+	 * @return array<string> Filtered array of email addresses.
+	 */
+	public function disable_wp_comment_emails( array $emails, $comment_id ): array {
+		$comment = get_comment( $comment_id );
+
+		if ( ! $comment || ! $comment->comment_post_ID ) {
+			return $emails;
+		}
+
+		$post_type = get_post_type( (int) $comment->comment_post_ID );
+		/**
+		 * Filter the post types for which WordPress default comment emails are disabled.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param array<string> $post_types Array of post type slugs.
+		 */
+		$sd_cpt_types = apply_filters( 'suredash_disable_comment_email_post_types', [ SUREDASHBOARD_POST_TYPE, SUREDASHBOARD_FEED_POST_TYPE, SUREDASHBOARD_SUB_CONTENT_POST_TYPE ] );
+
+		if ( in_array( $post_type, $sd_cpt_types, true ) ) {
+			return [];
+		}
+
+		return $emails;
 	}
 
 	/**

@@ -19,20 +19,25 @@ class About_Space {
 	/**
 	 * Render the About Space widget.
 	 *
-	 * @param int $space_id Space ID.
+	 * @param int          $space_id Space ID.
+	 * @param array<mixed> $settings Widget settings.
 	 * @return void
 	 * @since 1.6.0
 	 */
-	public static function render( $space_id ): void {
+	public static function render( $space_id, $settings = [] ): void {
 		// Get space description from meta.
 		$space_description = function_exists( 'sd_get_post_meta' )
 			? sd_get_post_meta( $space_id, 'space_description', true )
 			: get_post_meta( $space_id, 'space_description', true );
 
+		$title = ! empty( $settings['customTitle'] )
+			? $settings['customTitle']
+			: __( 'About Space', 'suredash' );
+
 		?>
 		<div class="portal-widget-about-space">
 			<span class="portal-widget-section-title">
-				<?php esc_html_e( 'About Space', 'suredash' ); ?>
+				<?php echo esc_html( $title ); ?>
 			</span>
 			<div class="portal-widget-content sd-flex-col sd-gap-8">
 				<?php

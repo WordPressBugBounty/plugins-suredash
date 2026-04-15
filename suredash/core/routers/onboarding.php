@@ -36,6 +36,12 @@ class Onboarding {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
 		}
 
+		$valid_steps     = [ 'welcome', 'setup_community', 'integration', 'optin' ];
+		$skipped_on_step = sanitize_text_field( (string) $request->get_param( 'skipped_on_step' ) );
+		if ( ! empty( $skipped_on_step ) && in_array( $skipped_on_step, $valid_steps, true ) ) {
+			update_option( 'suredash_onboarding_skipped_step', $skipped_on_step );
+		}
+
 		update_option( 'suredash_onboarding_skipped', 'yes' );
 
 		wp_send_json_success( [ 'message' => __( 'Onboarding skipped successfully.', 'suredash' ) ] );
@@ -118,11 +124,13 @@ class Onboarding {
 		$last_name    = isset( $_POST['last_name'] ) ? sanitize_text_field( $_POST['last_name'] ) : '';
 		$is_subscribe = isset( $_POST['subscribe_to_newsletter'] ) && sanitize_text_field( $_POST['subscribe_to_newsletter'] ) === 'on' ? true : false;
 		$share_data   = isset( $_POST['share_non_sensitive_data'] ) && sanitize_text_field( $_POST['share_non_sensitive_data'] ) === 'on' ? true : false;
-		// phpcs:enable WordPress.Security.NonceVerification.Missing
+		// phpcs:enable WordPress.Security.NonceVerification
 
-		// Enable BSF analytics optin.
+		// Set BSF analytics optin based on user choice.
 		if ( $share_data ) {
-			update_option( '$suredash_usage_optin', 'yes' );
+			update_option( 'suredash_usage_optin', 'yes' );
+		} else {
+			update_option( 'suredash_usage_optin', 'no' );
 		}
 
 		if ( ! $is_subscribe ) {
@@ -267,4 +275,5 @@ class Onboarding {
 
 		wp_send_json_success( [ 'message' => __( 'Plugin activated successfully.', 'suredash' ) ] );
 	}
+
 }

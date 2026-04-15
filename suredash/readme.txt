@@ -1,72 +1,152 @@
-=== SureDash ===
+=== SureDash - Community, Courses & Member Dashboard ===
 Contributors: brainstormforce
-Tags: dashboard, customer, user dashboard
+Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-SureDash makes WordPress a community hub with unified login, custom dashboard, and total control over your data.
+Build a community right inside WordPress. Discussion spaces, courses, member profiles, and a beautiful dashboard — no coding needed.
 
 == Description ==
 
-SureDash transforms your WordPress site into a vibrant community hub. Create a unified login and dashboard experience to boost user engagement—all within your WordPress environment.
+**SureDash turns your WordPress site into a full community platform.**
 
-Unlike standalone platforms like Circle, SureDash integrates seamlessly with your existing WordPress setup. Keep full control over your data and customize the experience to fit your brand.
+No need to send your members to another app. No monthly per-member fees. Everything lives on your site, under your brand, with your data.
+
+Set it up in minutes. Create spaces for discussions, courses, resources, and events. Your members get a clean dashboard, their own profiles, and real-time notifications — all without leaving your website.
 
 [youtube https://www.youtube.com/watch?v=7syWO6epxnE]
 
-<a href="https://app.zipwp.com/blueprint/suredash-demo-t6s" target="_blank" rel="">Try the live demo of SureDash.</a>
+**[Try the live demo](https://app.zipwp.com/blueprint/suredash-demo-t6s)** — no signup required.
 
-== Key Benefits ==
-* **Seamless Integration:** Enhance your WordPress site with community features.
-* **Customizable Design:** Tailor the dashboard and features to match your brand’s look and feel.
-* **Scalable Solution:** Add new spaces as needed.
+== Why SureDash? ==
+
+Most community tools make you choose: pay monthly fees to a third-party platform, or spend weeks building something custom.
+
+SureDash gives you a third option — a ready-to-go community platform built right into WordPress. You keep full ownership of your content, your members, and your brand.
+
+== What You Can Build ==
+
+**Discussion Spaces** — Give your members a place to talk, ask questions, and share ideas. Threaded replies, rich text, reactions, bookmarks, and GIF support included.
+
+**Online Courses** — Build structured courses with sections, lessons, and progress tracking. Members pick up where they left off.
+
+**Member Dashboard** — A clean, branded home base for your members. They see their spaces, activity, and notifications in one place.
+
+**Resource Libraries** — Share files, guides, links, and downloads in organized collections.
+
+**Events** — Schedule and display upcoming events, webinars, and meetups.
+
+**User Profiles** — Each member gets a profile with a bio, social links, activity history, and badges.
 
 == Free Features ==
-* Custom login and registration forms
-* Visual customizer for dashboard layout
-* User profiles
-* Activity feeds for updates and engagement
-* Discussion forums with threaded replies (only site admin can post, but all members can comment)
-* Multiple discussions for focused sub-communities
-* Giphy integration for animated GIFs
 
-== SureDash Premium ==
-* Learning management system course builder
-* Enable users to post in discussion feeds
-* Private discussion feeds
-* Resource library
-* Events
-* Support from our team
+* Beautiful member dashboard with light and dark mode
+* Custom login and registration pages (with Google and Facebook sign-in)
+* Discussion forums with threaded comments and reactions
+* Multiple spaces to organize your community
+* User profiles with social links and activity feeds
+* Badges to reward active members
+* Real-time notifications
+* Giphy integration
+* List and grid view layouts
+* Sorting and filtering options
+* Visual customizer — match your brand colors and style
+* Mobile-friendly responsive design
+* Works with any WordPress theme
+
+== SureDash Pro ==
+
+Take your community further:
+
+* **Course Builder** — Create full courses with sections, lessons, and progress tracking
+* **Member-Created Posts** — Let your members start discussions, not just comment
+* **Private Spaces** — Restrict spaces to specific members or groups
+* **Resource Library** — Organize and share files, documents, and links
+* **Events** — Schedule events and display them beautifully
+* **Email Notifications** — Keep members engaged with automatic email updates
+* **Leaderboard** — Gamify your community with points, levels, and member rankings
+* **Priority Support** — Get help directly from our team
+
+[Learn more about SureDash Pro](https://suredash.com)
+
+== Works Great With ==
+
+SureDash is part of a powerful WordPress ecosystem:
+
+* **[SureMembers](https://surememberships.com/)** — Protect content, create membership tiers, and control who sees what. Assign new registrations to access groups automatically.
+* **[SureCart](https://surecart.com/)** — Sell memberships, courses, and digital products. SureDash integrates directly with your SureCart store.
+* **[Astra Theme](https://wpastra.com/)** — The most popular WordPress theme, fully compatible with SureDash layouts.
+
+Each works independently, but together they give you a complete membership and community business — all on WordPress.
 
 == Perfect For ==
-* Membership sites
-* Online courses
-* Customer support hubs
-* Niche communities
+
+* Coaches and educators building a learning community
+* Creators who want to own their audience (not rent it)
+* Membership sites that need a member-facing dashboard
+* Businesses building a customer community or support hub
+* Anyone moving away from expensive monthly community platforms
 
 == Installation ==
-1. Upload the plugin files to the `/wp-content/plugins/suredash` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Navigate to **SureDash > Settings** to configure your dashboard.
 
-== Links ==
-* Visit [SureDash](https://suredash.com)
-* Get [Support](https://suredash.com/support)
-* Try [Test Drive](https://zipwp.org/plugins/suredash/)
+1. Go to **Plugins > Add New** in your WordPress dashboard
+2. Search for **SureDash**
+3. Click **Install Now**, then **Activate**
+4. Follow the setup wizard — your community is ready in minutes
+
+Or upload the plugin zip file via **Plugins > Add New > Upload Plugin**.
 
 == Frequently Asked Questions ==
 
+= Do I need any coding skills? =
+
+Not at all. SureDash works out of the box. Install it, follow the setup wizard, and your community is ready. Everything is point-and-click.
+
+= Will it work with my theme? =
+
+Yes. SureDash is designed to work with any standard WordPress theme. It works especially well with Astra, Kadence, and other popular themes.
+
+= Can members create their own posts? =
+
+In the free version, admins create posts and members can comment. With SureDash Pro, you can let members create posts too.
+
+= Is my data safe? =
+
+Your data stays on your WordPress site. Unlike third-party platforms, you own everything — your content, your member data, your community. Nothing is stored on external servers.
+
+= Can I restrict access to certain spaces? =
+
+Yes. With SureDash Pro and SureMembers, you can create membership tiers and control exactly who has access to which spaces.
+
+= Does it support social login? =
+
+Yes. Google and Facebook sign-in are included in the free version.
+
 = How can I report a security bug? =
 
-We take plugin security extremely seriously. If you discover a security vulnerability, please report it in a safe and responsible manner.
+We take plugin security seriously. Report vulnerabilities through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/).
 
-You can report the issue through our [Bug Bounty Program](https://brainstormforce.com/bug-bounty-program/).
+== Links ==
+
+* [SureDash Website](https://suredash.com)
+* [Documentation](https://suredash.com/docs)
+* [Support](https://suredash.com/support)
+* [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-04-15 - version 1.7.2 =
+* New: Added customizable title options for the About Space and Recent Activities widgets.
+* Improvement: Sorting and view preferences are now saved per space instead of globally.
+* Improvement: Made plugin strings fully translatable for better localization support.
+* Improvement: Improved error handling and client-side validation for Login and Registration blocks.
+* Fix: Disabled default WordPress comment notification emails for SureDash post types to prevent duplicate or unwanted emails.
+* Fix: Notification emails now use the "From Email" configured in SureDash Settings instead of the WordPress admin email.
+* Fix: Posts with restricted visibility are no longer shown to unauthorized users in the feeds list view.
+
 = 2026-03-27 - version 1.7.1 =
 * Fix: Resolved issue where multi-paragraph comments displayed incorrectly in a horizontal layout.
 * Fix: Addressed 'headers already sent' warning impacting portal login page.
@@ -140,15 +220,18 @@ You can report the issue through our [Bug Bounty Program](https://brainstormforc
 * Fix: Resolved missing first/last name in Portal Google registration and login flow clearing user names.
 * Fix: Fixed Quick View modal content height issue in Zen Browser.
 * Fix: Improved Breakdance compatibility for the Space Editor.
+
 = 1.5.2 - 24th November 2025 =
 * New: Added "Preserve HTML in Excerpts" option in Community Settings to maintain formatting (bold, italic, links, line breaks) in post excerpts. Enabled by default for new installations. ( https://suredash.com/docs/preserve-html-formatting-in-excerpts/ )
 * Improvement: Post likes available with tooltip support in Quick View post modal.
 * Fix: Post author badges displaying twice in the Quick View post modal.
 * Fix: SureMembers Compatibility - The protected media URL from SureMembers was redirecting to a discussion space in some edge cases.
+
 = 1.5.1 - 19th November 2025 =
 * Fix: Quick View post modal was not working for SureDash User role users.
 * Fix: Duplicated More options menu visible on single post view.
 * Fix: Reverted back "Preserve HTML in Excerpts" option due to compatibility issues, until next update.
+
 = 1.5.0 - 19th November 2025 =
 * New: Introducing Notifications for portal users for various purposes. ( https://suredash.com/docs/notifications-system-in-suredash/ )
 * New: Introduced the Badges system for community gamification.
