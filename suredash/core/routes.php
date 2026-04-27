@@ -43,6 +43,9 @@ class Routes {
 				}
 			}
 		);
+
+		// Filter restricted content from frontend REST search results.
+		add_filter( 'rest_post_dispatch', [ $this, 'filter_search_results' ], 10, 3 );
 	}
 
 	/**
@@ -174,6 +177,11 @@ class Routes {
 				'mark-space-read'                    => [
 					'method'              => 'POST',
 					'callback'            => [ MiscRoute::get_instance(), 'mark_space_read' ],
+					'permission_callback' => 'user',
+				],
+				'oembed'                             => [
+					'method'              => 'GET',
+					'callback'            => [ MiscRoute::get_instance(), 'get_oembed' ],
 					'permission_callback' => 'user',
 				],
 
@@ -494,5 +502,69 @@ class Routes {
 			$permission_callback, // @phpstan-ignore-line
 			$args
 		);
+	}
+
+	/**
+	 * Filter restricted content from WordPress REST search results.
+	 *
+	 * Removes SureDash posts that the current user cannot access (protected
+	 * by visibility_scope or SureMembers access groups) from the core
+	 * /wp/v2/search endpoint response. Admins see all results.
+	 *
+	 * @param \WP_REST_Response $result  Response object.
+	 * @param \WP_REST_Server   $server  Server instance.
+	 * @param \WP_REST_Request  $request Request used to generate the response.
+	 * @return \WP_REST_Response Filtered response.
+	 * @since x.x.x
+	 */
+	public function filter_search_results( $result, $server, $request ) {
+		// Only filter the core search endpoint.
+		$route = $request->get_route();
+		if ( strpos( $route, '/wp/v2/search' ) === false ) {
+			return $result;
+		}
+
+		// Admins see everything.
+		if ( function_exists( 'suredash_is_user_manager' ) && suredash_is_user_manager() ) {
+			return $result;
+		}
+
+		$suredash_types = [
+			SUREDASHBOARD_POST_TYPE,
+			SUREDASHBOARD_FEED_POST_TYPE,
+			SUREDASHBOARD_SUB_CONTENT_POST_TYPE,
+		];
+
+		$data     = $result->get_data();
+		$filtered = [];
+
+		foreach ( $data as $item ) {
+			// Only filter SureDash post types; pass through everything else.
+			$subtype = $item['subtype'] ?? '';
+			if ( ! in_array( $subtype, $suredash_types, true ) ) {
+				$filtered[] = $item;
+				continue;
+			}
+
+			$post_id = absint( $item['id'] ?? 0 );
+			if ( ! $post_id ) {
+				$filtered[] = $item;
+				continue;
+			}
+
+			// Skip protected posts (SureMembers, visibility_scope, etc.).
+			if ( function_exists( 'suredash_is_post_protected' ) && suredash_is_post_protected( $post_id ) ) {
+				continue;
+			}
+
+			$filtered[] = $item;
+		}
+
+		$result->set_data( $filtered );
+
+		// Update total count in headers.
+		$result->header( 'X-WP-Total', (string) count( $filtered ) );
+
+		return $result;
 	}
 }

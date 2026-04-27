@@ -119,7 +119,11 @@ $hide_fullscreen = $integration_resource_library && empty( trim( $post_content )
 					}
 					if ( ! $hide_fullscreen ) {
 						?>
-						<a href="<?php echo esc_url( $permalink ); ?>" id="ast-quick-view-fullscreen" role="button" class="ast-quick-view-fullscreen-btn portal-button button-ghost sd-flex sd-items-center sd-text-color tooltip-trigger" target="_blank" rel="noopener noreferrer" data-tooltip-description="<?php echo esc_attr__( 'Open in full page', 'suredash' ); ?>" data-tooltip-position="bottom">
+						<?php
+						$ref_param  = ! empty( $_GET['ref'] ) ? esc_url_raw( sanitize_text_field( wp_unslash( $_GET['ref'] ) ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+						$expand_url = $ref_param ? add_query_arg( 'ref', rawurlencode( $ref_param ), $permalink ) : $permalink;
+						?>
+						<a href="<?php echo esc_url( $expand_url ); ?>" id="ast-quick-view-fullscreen" role="button" class="ast-quick-view-fullscreen-btn portal-button button-ghost sd-flex sd-items-center sd-text-color tooltip-trigger" target="_top" data-tooltip-description="<?php echo esc_attr__( 'Open in full page', 'suredash' ); ?>" data-tooltip-position="bottom">
 							<?php Helper::get_library_icon( 'Maximize', true, 'sm' ); ?>
 						</a>
 						<?php

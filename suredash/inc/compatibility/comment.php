@@ -64,7 +64,7 @@ class Comment {
 	 * @param array<string> $emails     Array of email addresses to notify.
 	 * @param int           $comment_id The comment ID.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 * @return array<string> Filtered array of email addresses.
 	 */
 	public function disable_wp_comment_emails( array $emails, $comment_id ): array {
@@ -78,7 +78,7 @@ class Comment {
 		/**
 		 * Filter the post types for which WordPress default comment emails are disabled.
 		 *
-		 * @since x.x.x
+		 * @since 1.7.3
 		 *
 		 * @param array<string> $post_types Array of post type slugs.
 		 */

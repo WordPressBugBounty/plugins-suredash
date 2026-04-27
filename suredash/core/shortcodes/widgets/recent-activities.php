@@ -43,6 +43,42 @@ class Recent_Activities {
 	}
 
 	/**
+	 * Filter a list of post IDs down to posts the current user is allowed to see.
+	 *
+	 * Portal managers see everything. Regular users lose posts that are protected
+	 * by visibility_scope, SureMembers access groups, private forums, or any other
+	 * restriction evaluated by `suredash_is_post_protected()`.
+	 *
+	 * @param array<int|string> $post_ids Candidate post IDs.
+	 * @return array<int, int> Visible post IDs, re-indexed.
+	 * @since x.x.x
+	 */
+	private static function filter_visible_post_ids( array $post_ids ): array {
+		if ( empty( $post_ids ) ) {
+			return [];
+		}
+
+		$post_ids = array_values( array_filter( array_map( 'absint', $post_ids ) ) );
+
+		if ( function_exists( 'suredash_is_user_manager' ) && suredash_is_user_manager() ) {
+			return $post_ids;
+		}
+
+		if ( ! function_exists( 'suredash_is_post_protected' ) ) {
+			return $post_ids;
+		}
+
+		return array_values(
+			array_filter(
+				$post_ids,
+				static function ( $post_id ) {
+					return ! suredash_is_post_protected( (int) $post_id );
+				}
+			)
+		);
+	}
+
+	/**
 	 * Format time difference for display.
 	 *
 	 * @param string $date_string Date string to format.
@@ -70,6 +106,11 @@ class Recent_Activities {
 	 * @since 1.6.0
 	 */
 	private static function render_latest_comment( $post_id ): void {
+		// Don't expose comments from a post the current user cannot see.
+		if ( empty( self::filter_visible_post_ids( [ $post_id ] ) ) ) {
+			return;
+		}
+
 		$comments = get_comments(
 			[
 				'post_id' => $post_id,
@@ -224,14 +265,16 @@ class Recent_Activities {
 			return;
 		}
 
-		// Query posts by category, not by space_id meta.
-		$posts = get_posts(
+		// Fetch a small batch so we can skip protected posts and still surface the
+		// newest one the current user is allowed to see.
+		$post_ids = get_posts(
 			[
 				'post_type'      => SUREDASHBOARD_FEED_POST_TYPE,
-				'posts_per_page' => 1,
+				'posts_per_page' => 20,
 				'post_status'    => 'publish',
 				'orderby'        => 'date',
 				'order'          => 'DESC',
+				'fields'         => 'ids',
 				'tax_query'      => [
 					[
 						'taxonomy' => SUREDASHBOARD_FEED_TAXONOMY,
@@ -242,11 +285,17 @@ class Recent_Activities {
 			]
 		);
 
-		if ( empty( $posts ) ) {
+		$visible_post_ids = self::filter_visible_post_ids( $post_ids );
+
+		if ( empty( $visible_post_ids ) ) {
 			return;
 		}
 
-		$post = $posts[0];
+		$post = get_post( $visible_post_ids[0] );
+
+		if ( ! $post instanceof \WP_Post ) {
+			return;
+		}
 		?>
 		<div class="portal-widget-activity-item">
 			<div class="portal-widget-activity-avatar sd-pt-4">
@@ -303,6 +352,8 @@ class Recent_Activities {
 				],
 			]
 		);
+
+		$post_ids = self::filter_visible_post_ids( $post_ids );
 
 		if ( empty( $post_ids ) ) {
 			return;
@@ -367,6 +418,12 @@ class Recent_Activities {
 			return;
 		}
 
+		$event_ids = self::filter_visible_post_ids( $event_ids );
+
+		if ( empty( $event_ids ) ) {
+			return;
+		}
+
 		// Get the latest event.
 		$events = get_posts(
 			[
@@ -416,6 +473,12 @@ class Recent_Activities {
 		$resource_ids = get_post_meta( $space_id, 'resource_ids', true );
 
 		if ( empty( $resource_ids ) || ! is_array( $resource_ids ) ) {
+			return;
+		}
+
+		$resource_ids = self::filter_visible_post_ids( $resource_ids );
+
+		if ( empty( $resource_ids ) ) {
 			return;
 		}
 
@@ -476,6 +539,12 @@ class Recent_Activities {
 			return;
 		}
 
+		$resource_ids = self::filter_visible_post_ids( $resource_ids );
+
+		if ( empty( $resource_ids ) ) {
+			return;
+		}
+
 		// Get latest comment from resources.
 		$comments = get_comments(
 			[
@@ -533,6 +602,12 @@ class Recent_Activities {
 		$event_ids = get_post_meta( $space_id, 'event_ids', true );
 
 		if ( empty( $event_ids ) || ! is_array( $event_ids ) ) {
+			return;
+		}
+
+		$event_ids = self::filter_visible_post_ids( $event_ids );
+
+		if ( empty( $event_ids ) ) {
 			return;
 		}
 
@@ -603,6 +678,12 @@ class Recent_Activities {
 			return;
 		}
 
+		$lesson_ids = self::filter_visible_post_ids( $lesson_ids );
+
+		if ( empty( $lesson_ids ) ) {
+			return;
+		}
+
 		// Get latest comment from lessons.
 		$comments = get_comments(
 			[
@@ -660,6 +741,12 @@ class Recent_Activities {
 		$collection_spaces = get_post_meta( $space_id, 'collection_spaces', true );
 
 		if ( empty( $collection_spaces ) || ! is_array( $collection_spaces ) ) {
+			return;
+		}
+
+		$collection_spaces = self::filter_visible_post_ids( $collection_spaces );
+
+		if ( empty( $collection_spaces ) ) {
 			return;
 		}
 

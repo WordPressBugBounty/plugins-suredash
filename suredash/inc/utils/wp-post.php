@@ -53,7 +53,7 @@ class WpPost {
 			PageBuilder::get_instance()->get_page_content( $remote_post );
 			$content = ob_get_clean();
 
-			if ( $content !== null && $content !== '' ) {
+			if ( is_string( $content ) && $content !== '' ) {
 				echo do_shortcode( apply_filters( 'the_content', $content ) );
 			}
 		}

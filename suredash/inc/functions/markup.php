@@ -637,8 +637,10 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 	$config  = array_merge( $defaults, $config );
 	$post_id = absint( $args['id'] ?? $config['post_id'] ?? 0 );
 
-	// Show pinned badge for pinned posts.
-	if ( ! empty( $args['is_pinned'] ) ) {
+	$is_list_layout = ( $config['layout_type'] ?? '' ) === 'list';
+
+	// Show pinned badge for non-list layouts (grid view etc).
+	if ( ! empty( $args['is_pinned'] ) && ! $is_list_layout ) {
 		Helper::show_badge( 'neutral', 'Pin', Labels::get_label( 'pinned_post' ), 'sm', 'sd-color-text-tertiary' );
 	}
 
@@ -662,6 +664,14 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 			$likes_enabled = (bool) sd_get_post_meta( $space_id, 'show_like_button', true );
 		} elseif ( metadata_exists( 'post', $space_id, 'show_like_share' ) ) {
 			$likes_enabled = (bool) sd_get_post_meta( $space_id, 'show_like_share', true );
+		}
+	}
+
+	if ( $is_list_layout ) {
+		echo '<div class="portal-list-reactions sd-flex sd-items-center sd-gap-4 sd-shrink-0">';
+		// Show pinned badge inside reactions wrapper for list view.
+		if ( ! empty( $args['is_pinned'] ) ) {
+			Helper::show_badge( 'neutral', 'Pin', Labels::get_label( 'pinned_post' ), 'sm', 'sd-color-text-tertiary' );
 		}
 	}
 
@@ -701,6 +711,10 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 			<span class="portal-comments-count sd-pr-2 sd-font-14 sd-line-16 sd-font-semibold" data-count="<?php echo esc_attr( (string) $comments_count ); ?>" data-type="comment" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>">
 				<span class="counter"><?php echo esc_html( (string) $comments_count ); ?></span>
 			</span>
+		</div>
+	<?php } ?>
+
+	<?php if ( $is_list_layout ) { ?>
 		</div>
 	<?php } ?>
 
@@ -900,7 +914,7 @@ function suredash_render_list( $items = [], $list_args = [] ): void {
 				</h3>
 			<?php } ?>
 
-			<div class="portal-list-items sd-my-32 sd-border sd-radius-12 sd-overflow-hidden">
+			<div class="portal-list-items sd-my-32 sd-radius-12 sd-overflow-hidden">
 				<?php
 				foreach ( $items as $index => $item ) {
 					$item_classes = 'portal-list-item portal-content sd-flex sd-items-center sd-gap-16 sd-m-0 sd-p-16 sd-radius-0 sd-border-none sd-border-b sd-hover-shadow-md';

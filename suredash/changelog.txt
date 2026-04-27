@@ -1,4 +1,19 @@
 *** SureDash Changelog ***
+= 2026-04-27 - version 1.8.0 =
+* New: Added support for the WordPress Abilities API for portal creation and analytics.
+* New: Added MCP integration to support AI-powered portal management.
+* Improvement: Better mobile responsiveness for a smoother experience on phones and tablets.
+* Improvement: Improved translations for a more consistent experience across languages.
+* Improvement: Improved content sanitization for posts and comments.
+* Improvement: Posts opened from popups now load in the same tab to avoid multiple tabs.
+* Improvement: Email address on the profile page is now private by default and only shown if the user chooses to add it.
+* Fix: Fixed duplicate YouTube thumbnails in discussion posts.
+* Fix: Assigning a portal layout template from Quick Edit was not working.
+* Fix: Corrected back button behavior to return users to the original feed after viewing a post.
+* Fix: Discussion unread counter no longer counts posts the user has no permission to view (visibility_scope and SureMembers access groups).
+* Fix: Frontend search results no longer include restricted content that the user cannot access.
+* Fix: Space sidebar widgets (Post, Recent Activities) no longer show posts, comments & content the current user does not have access to.
+
 = 2026-04-15 - version 1.7.2 =
 * New: Added customizable title options for the About Space and Recent Activities widgets.
 * Improvement: Sorting and view preferences are now saved per space instead of globally.

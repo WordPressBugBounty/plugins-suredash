@@ -57,12 +57,12 @@ class Notices {
 			return;
 		}
 
-		if ( version_compare( SUREDASH_PRO_VER, SUREDASH_PRO_MINIMUM_VER, '<' ) && class_exists( 'Astra_Notices' ) ) {
+		if ( version_compare( SUREDASH_PRO_VER, SUREDASH_PRO_MINIMUM_VER, '<' ) && class_exists( 'BSF_Admin_Notices' ) ) {
 			/* translators: %s: html tags */
 			$notice_message = sprintf( __( 'The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!', 'suredash' ), '<strong>', 'SureDash', '</strong>', SUREDASH_PRO_PRODUCT, SUREDASH_PRO_MINIMUM_VER );
 
-			if ( class_exists( 'Astra_Notices' ) ) {
-				\Astra_Notices::add_notice(
+			if ( class_exists( 'BSF_Admin_Notices' ) ) {
+				\BSF_Admin_Notices::add_notice(
 					[
 						'id'                         => 'suredash-free-version-requirement-notice',
 						'type'                       => 'warning',
@@ -105,12 +105,12 @@ class Notices {
 			Helper::update_option( 'show_alpha_to_stable_migrator_notice', true );
 		}
 
-		if ( $show_notice && class_exists( 'Astra_Notices' ) ) {
+		if ( $show_notice && class_exists( 'BSF_Admin_Notices' ) ) {
 			/* translators: %1$s: html tags, %2$s: plugin name, %3$s: html tags, %4$s: link to document, %5$s: html tags */
 			$notice_message = sprintf( __( 'The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your settings. Ignore if already migrated.', 'suredash' ), '<strong>', 'SureDash', '</strong>', '<a href="https://suredash.com/docs/how-to-migrate-from-alpha-to-final-version/" target="_blank" title="How To Migrate From Alpha To Final Version">', '</a>' );
 
-			if ( class_exists( 'Astra_Notices' ) ) {
-				\Astra_Notices::add_notice(
+			if ( class_exists( 'BSF_Admin_Notices' ) ) {
+				\BSF_Admin_Notices::add_notice(
 					[
 						'id'                         => 'suredash-alpha-to-stable-migrator-notice',
 						'type'                       => 'warning',

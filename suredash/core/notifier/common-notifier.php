@@ -380,6 +380,11 @@ class Common_Notifier extends Base {
 				return ob_get_clean();
 			}
 
+			// Skip if the current user does not have access to the space.
+			if ( $space_id && suredash_is_post_protected( $space_id ) ) {
+				return ob_get_clean();
+			}
+
 			$space_title = '<a href="' . get_permalink( $space_id ) . '"><strong>' . get_the_title( $space_id ) . '</strong></a>';
 
 			$description = str_replace( '{{SPACE}}', $space_title, $description );
@@ -424,6 +429,12 @@ class Common_Notifier extends Base {
 
 			$comment_parent = get_comment( $comment->comment_parent );
 			if ( ! $comment_parent ) {
+				return ob_get_clean();
+			}
+
+			// Skip if the current user does not have access to the post the comment belongs to.
+			$comment_post_id = absint( $comment->comment_post_ID );
+			if ( $comment_post_id && suredash_is_post_protected( $comment_post_id ) ) {
 				return ob_get_clean();
 			}
 
@@ -482,6 +493,11 @@ class Common_Notifier extends Base {
 			$topic_id = absint( $value['topic_id'] ?? 0 );
 
 			if ( ! $topic_id || ! get_post_status( $topic_id ) ) {
+				return ob_get_clean();
+			}
+
+			// Skip if the current user does not have access to the topic.
+			if ( suredash_is_post_protected( $topic_id ) ) {
 				return ob_get_clean();
 			}
 
@@ -555,6 +571,12 @@ class Common_Notifier extends Base {
 			}
 
 			if ( ! $entity_id || ! $status ) {
+				return ob_get_clean();
+			}
+
+			// Skip if the current user does not have access to the entity's post.
+			$entity_post_id = $entity === 'post' ? $entity_id : absint( $comment->comment_post_ID ?? 0 );
+			if ( $entity_post_id && suredash_is_post_protected( $entity_post_id ) ) {
 				return ob_get_clean();
 			}
 

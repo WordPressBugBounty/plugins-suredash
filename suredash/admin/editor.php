@@ -225,29 +225,6 @@ class Editor {
 
 			wp_localize_script( 'portal-meta-editor', 'portal_meta', $localize_data );
 
-			if ( $is_sd_post ) {
-				$localize_data = apply_filters(
-					'portal_localized_core_editor_data',
-					[
-						'ajax_url'         => admin_url( 'admin-ajax.php' ),
-						'content_id'       => $post_id,
-						'cover_image_text' => __( 'Cover Image', 'suredash' ),
-						'media_embed_text' => __( 'Media Embeds', 'suredash' ),
-						'cover_image_val'  => sd_get_post_meta( absint( $post_id ), 'custom_post_cover_image', true ),
-						'media_embed_val'  => sd_get_post_meta( absint( $post_id ), 'custom_post_embed_media', true ),
-					]
-				);
-
-				wp_enqueue_script(
-					'portal-core-editor',
-					esc_url( SUREDASHBOARD_JS_ASSETS_FOLDER . 'core-editor' . SUREDASHBOARD_JS_SUFFIX ),
-					[ 'wp-data', 'wp-element', 'wp-editor', 'wp-util', 'wp-hooks', 'wp-blocks' ],
-					$script_info['version'],
-					true
-				);
-
-				wp_localize_script( 'portal-core-editor', 'portal_editor', $localize_data );
-			}
 		}
 
 		// Global necessary assets.

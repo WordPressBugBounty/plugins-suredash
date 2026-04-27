@@ -57,17 +57,45 @@ class Content_Header {
 		<div class="portal-item-title-area portal-content sd-flex sd-justify-between sd-items-center sd-gap-8 sd-py-12 sd-px-20 sd-border-b sd-m-0">
 			<?php
 			if ( suredash_cpt() ) {
-				$is_referer = ! empty( $_SERVER['HTTP_REFERER'] ) ? true : false;
-				$back_link  = $is_referer ? esc_url_raw( $_SERVER['HTTP_REFERER'] ) : home_url( '/' . suredash_get_community_slug() . '/' );
+				$current_post_id = get_the_ID();
+				$space_id        = $current_post_id ? absint( sd_get_space_id_by_post( $current_post_id ) ) : 0;
+				$default_url     = home_url( '/' . suredash_get_community_slug() . '/' );
+				$space_link      = $space_id ? get_permalink( $space_id ) . '#portal-post-' . $current_post_id : $default_url;
+				$space_title     = $space_id ? get_the_title( $space_id ) : '';
+
+				// Priority 1: Use ?ref= param (passed from quick-view expand).
+				// Priority 2: Use HTTP_REFERER (direct navigation).
+				// Priority 3: Fall back to space permalink.
+				$ref_param     = ! empty( $_GET['ref'] ) ? esc_url_raw( rawurldecode( sanitize_text_field( wp_unslash( $_GET['ref'] ) ) ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$referer       = $ref_param ? $ref_param : ( ! empty( $_SERVER['HTTP_REFERER'] ) ? esc_url_raw( $_SERVER['HTTP_REFERER'] ) : '' );
+				$referer_clean = $referer ? strtok( $referer, '?' ) : '';
+				$is_same_site  = $referer_clean && strpos( $referer_clean, home_url() ) === 0;
+				$is_self       = $is_same_site && $current_post_id && strpos( $referer_clean, (string) $current_post_id ) !== false;
+				$use_referer   = $is_same_site && ! $is_self;
+				$back_link     = $use_referer ? $referer_clean . '#portal-post-' . $current_post_id : $space_link;
+
+				// Resolve back link title from referer or space.
+				$back_title = '';
+				if ( $use_referer ) {
+					$slug = basename( rtrim( $referer_clean, '/' ) );
+					if ( $slug === 'feeds' ) {
+						$back_title = __( 'Feeds', 'suredash' );
+					} else {
+						$ref_post   = suredash_get_referer_post();
+						$back_title = ! empty( $ref_post['post_title'] ) ? $ref_post['post_title'] : '';
+					}
+				}
+				if ( empty( $back_title ) ) {
+					$back_title = $space_title;
+				}
 				?>
 				<a href="<?php echo esc_url( $back_link ); ?>" class="portal-sub-item-link">
 					<?php
 						Helper::get_library_icon( 'ChevronLeft', true );
-						$ref_post = suredash_get_referer_post();
 
-					if ( $is_referer && ! empty( $ref_post['post_title'] ) ) {
+					if ( ! empty( $back_title ) ) {
 						Labels::get_label( 'back_to_cpt', true );
-						echo esc_html( $ref_post['post_title'] );
+						echo esc_html( $back_title );
 					} else {
 						Labels::get_label( 'back_to_portal', true );
 					}

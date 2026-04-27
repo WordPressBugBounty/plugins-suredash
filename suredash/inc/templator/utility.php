@@ -71,7 +71,13 @@ class Utility {
 	 */
 	public function is_template_active() {
 		$template = get_page_template_slug();
-		return $template !== false && array_key_exists( $template, $this->plugin_template_types );
+		if ( $template === false ) {
+			return false;
+		}
+
+		// Check both block template slugs and classic template path.
+		return array_key_exists( $template, $this->plugin_template_types )
+			|| $template === 'templates/pages/template-portal-container.php';
 	}
 
 	/**

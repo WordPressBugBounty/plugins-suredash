@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.7.2
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,18 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-04-27 - version 1.8.0 =
+* New: Added support for the WordPress Abilities API for portal creation and analytics.
+* New: Added MCP integration to support AI-powered portal management.
+* Improvement: Better mobile responsiveness for a smoother experience on phones and tablets.
+* Improvement: Improved translations for a more consistent experience across languages.
+* Improvement: Improved content sanitization for posts and comments.
+* Improvement: Posts opened from popups now load in the same tab to avoid multiple tabs.
+* Improvement: Email address on the profile page is now private by default and only shown if the user chooses to add it.
+* Fix: Fixed duplicate YouTube thumbnails in discussion posts.
+* Fix: Assigning a portal layout template from Quick Edit was not working.
+* Fix: Corrected back button behavior to return users to the original feed after viewing a post.
+
 = 2026-04-15 - version 1.7.2 =
 * New: Added customizable title options for the About Space and Recent Activities widgets.
 * Improvement: Sorting and view preferences are now saved per space instead of globally.

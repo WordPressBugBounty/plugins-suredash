@@ -2624,9 +2624,6 @@ function suredash_get_user_profile_social_links( $user_id = 0 ) {
 		$user_id = get_current_user_id();
 	}
 
-	$user       = get_userdata( $user_id );
-	$user_email = ! empty( $user->user_email ) ? $user->user_email : '';
-
 	$social_links = sd_get_user_meta( $user_id, 'portal_social_links', true );
 
 	return apply_filters(
@@ -2634,7 +2631,7 @@ function suredash_get_user_profile_social_links( $user_id = 0 ) {
 		[
 			'mail'      => [
 				'label'       => 'E-mail',
-				'value'       => $social_links['mail'] ?? $user_email,
+				'value'       => $social_links['mail'] ?? '',
 				'placeholder' => 'username@example.com',
 				'icon'        => 'Mail',
 			],

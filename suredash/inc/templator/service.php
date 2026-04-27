@@ -76,6 +76,11 @@ class Service {
 		add_action( 'init', [ $this, 'register_classic_templates_for_all_post_types' ], 999 );
 		add_filter( 'template_include', [ $this, 'load_classic_template' ], 99 );
 
+		// Normalize classic template slug to block slug on block themes.
+		// This ensures Quick Edit and other admin UI correctly recognize the template
+		// when switching from a classic theme to a block theme.
+		add_filter( 'get_post_metadata', [ $this, 'normalize_template_slug' ], 10, 4 );
+
 		// Replace post ID placeholder during content rendering.
 		add_filter( 'the_content', [ $this, 'replace_post_id_placeholder' ], 1 );
 		add_filter( 'render_block', [ $this, 'replace_post_id_in_block' ], 10, 2 );
@@ -442,6 +447,11 @@ class Service {
 	 * @since 1.6.0
 	 */
 	public function load_classic_template( $template ) {
+		// Block themes use the block template system — don't override with classic PHP template.
+		if ( function_exists( 'wp_is_block_theme' ) && wp_is_block_theme() ) {
+			return $template;
+		}
+
 		// Get the selected template.
 		$page_template = get_page_template_slug();
 
@@ -455,6 +465,47 @@ class Service {
 		}
 
 		return $template;
+	}
+
+	/**
+	 * Normalize the portal-container template slug based on context.
+	 *
+	 * The block editor saves templates as 'portal-container', while Quick Edit uses
+	 * 'templates/pages/template-portal-container.php'. This filter ensures consistency:
+	 * - Admin: converts block slug → classic path (for Quick Edit dropdown matching)
+	 * - Frontend (block theme): converts classic path → block slug (for block template system)
+	 *
+	 * @param mixed  $value     The meta value to return.
+	 * @param int    $object_id The object ID.
+	 * @param string $meta_key  The meta key.
+	 * @param bool   $single    Whether to return a single value.
+	 *
+	 * @since 1.7.3
+	 * @return mixed The filtered meta value.
+	 */
+	public function normalize_template_slug( $value, $object_id, $meta_key, $single ) {
+		if ( '_wp_page_template' !== $meta_key || ! $single ) {
+			return $value;
+		}
+
+		// Avoid infinite loop — unhook before calling get_post_meta.
+		remove_filter( 'get_post_metadata', [ $this, 'normalize_template_slug' ], 10 );
+		$raw = get_post_meta( $object_id, '_wp_page_template', true );
+		add_filter( 'get_post_metadata', [ $this, 'normalize_template_slug' ], 10, 4 );
+
+		if ( is_admin() ) {
+			// Admin: convert block slug to classic path so Quick Edit dropdown matches.
+			if ( 'portal-container' === $raw ) {
+				return 'templates/pages/template-portal-container.php';
+			}
+		} elseif ( function_exists( 'wp_is_block_theme' ) && wp_is_block_theme() ) {
+			// Frontend (block theme): convert classic path to block slug so block template system picks it up.
+			if ( 'templates/pages/template-portal-container.php' === $raw ) {
+				return 'portal-container';
+			}
+		}
+
+		return $value;
 	}
 
 	/**

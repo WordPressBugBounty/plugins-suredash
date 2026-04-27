@@ -119,8 +119,8 @@ class Labels {
 				'close_button'                      => __( 'Close', 'suredash' ),
 				'pinned_post'                       => Helper::get_option( 'pinned_post_text' ),
 				'no_posts_found'                    => Helper::get_option( 'no_posts_found' ),
-				'no_more_posts_to_load'             => __( 'All caught up. No more posts to display.', 'suredash' ),
-				'no_more_comments_to_load'          => __( 'All caught up. No more comments to display.', 'suredash' ),
+				'no_more_posts_to_load'             => __( "You're all caught up — happy posting! 🎉", 'suredash' ),
+				'no_more_comments_to_load'          => __( "You're all caught up — happy posting! 🎉", 'suredash' ),
 				'login_or_join'                     => Helper::get_option( 'login_or_join' ),
 
 				'course_progress'                   => __( 'Course Progress', 'suredash' ),

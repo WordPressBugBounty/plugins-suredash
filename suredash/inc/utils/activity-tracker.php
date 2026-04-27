@@ -62,6 +62,7 @@ class Activity_Tracker {
 	/**
 	 * Get unread posts count for a user in a specific space.
 	 * Uses counter-based calculation for scalability: total posts - viewed count = unread count.
+	 * Only counts posts the user has permission to view (visibility_scope + SureMembers).
 	 *
 	 * @param int $user_id User ID.
 	 * @param int $space_id Space ID (term_id from community-forum taxonomy).
@@ -81,10 +82,10 @@ class Activity_Tracker {
 			return absint( $cached );
 		}
 
-		// Get total posts in this space.
-		$total_posts = $this->get_total_posts_in_space( $space_id );
+		// Get visible posts count for this user in the space.
+		$visible_total = $this->get_visible_posts_count_in_space( $space_id, $user_id );
 
-		if ( $total_posts === 0 ) {
+		if ( $visible_total === 0 ) {
 			set_transient( $cache_key, 0, self::CACHE_EXPIRATION );
 			return 0;
 		}
@@ -92,9 +93,16 @@ class Activity_Tracker {
 		// Get count of posts this user has already viewed.
 		$viewed_count = $this->get_viewed_count( $user_id, $space_id );
 
-		// Calculate unread = total posts - viewed count.
-		// Use max() to prevent negative numbers if posts were deleted.
-		$unread_count = max( 0, $total_posts - $viewed_count );
+		// Self-heal: if viewed_count exceeds visible total (e.g. stale counter from
+		// before visibility filtering was added, or posts were deleted/restricted),
+		// reset it so new posts are properly counted as unread going forward.
+		if ( $viewed_count > $visible_total ) {
+			$meta_key = 'suredash_viewed_count_' . $space_id;
+			sd_update_user_meta( $user_id, $meta_key, $visible_total );
+			$viewed_count = $visible_total;
+		}
+
+		$unread_count = max( 0, $visible_total - $viewed_count );
 
 		// Cache the result.
 		set_transient( $cache_key, $unread_count, self::CACHE_EXPIRATION );
@@ -105,6 +113,7 @@ class Activity_Tracker {
 	/**
 	 * Mark posts as viewed when user visits a space.
 	 * Uses a counter-based approach for scalability with large post counts.
+	 * Counts only posts the user can actually see.
 	 *
 	 * @param int $user_id User ID.
 	 * @param int $space_id Space ID.
@@ -124,9 +133,8 @@ class Activity_Tracker {
 			// Increment counter by 1 for single post view.
 			$viewed_count++;
 		} else {
-			// Mark ALL current posts in space as viewed - set counter to total post count.
-			$total_posts  = $this->get_total_posts_in_space( $space_id );
-			$viewed_count = $total_posts;
+			// Mark ALL visible posts in space as viewed.
+			$viewed_count = $this->get_visible_posts_count_in_space( $space_id, $user_id );
 		}
 
 		// Update user meta with new count.
@@ -211,8 +219,8 @@ class Activity_Tracker {
 
 	/**
 	 * Get count of posts that user has viewed in a space.
-	 * For first-time access (no counter exists), initialize counter to current total
-	 * to prevent showing all existing posts as unread.
+	 * For first-time access (no counter exists), initialize counter to current
+	 * visible total to prevent showing all existing posts as unread.
 	 *
 	 * @param int $user_id User ID.
 	 * @param int $space_id Space ID.
@@ -224,24 +232,24 @@ class Activity_Tracker {
 		$count    = sd_get_user_meta( $user_id, $meta_key, true );
 
 		// First time - no counter exists yet.
-		// Initialize to current total so existing posts aren't shown as "unread".
+		// Initialize to visible total so existing posts aren't shown as "unread".
 		if ( $count === '' || $count === false ) {
-			$total_posts = $this->get_total_posts_in_space( $space_id );
-			sd_update_user_meta( $user_id, $meta_key, $total_posts );
-			return $total_posts;
+			$visible_total = $this->get_visible_posts_count_in_space( $space_id, $user_id );
+			sd_update_user_meta( $user_id, $meta_key, $visible_total );
+			return $visible_total;
 		}
 
 		return absint( $count );
 	}
 
 	/**
-	 * Get total count of published posts in a space.
+	 * Get total count of published posts in a space (unfiltered).
 	 *
 	 * @param int $space_id Space ID (term_id from community-forum taxonomy).
-	 * @return int Total post count.
+	 * @return array<int|\WP_Post> Array of post IDs.
 	 * @since 1.6.0
 	 */
-	private function get_total_posts_in_space( $space_id ) {
+	private function get_post_ids_in_space( $space_id ): array {
 		$args = [
 			'post_type'      => SUREDASHBOARD_FEED_POST_TYPE,
 			'post_status'    => 'publish',
@@ -254,12 +262,58 @@ class Activity_Tracker {
 			],
 			'fields'         => 'ids',
 			'posts_per_page' => -1,
-			'no_found_rows'  => false,
+			'no_found_rows'  => true,
 		];
 
 		$query = new \WP_Query( $args );
 
-		return absint( $query->found_posts );
+		return $query->posts;
+	}
+
+	/**
+	 * Get count of published posts in a space that the given user can see.
+	 *
+	 * Admins (portal managers) see all posts. Regular users only see posts
+	 * not protected by visibility_scope or SureMembers access groups.
+	 *
+	 * @param int $space_id Space ID (term_id from community-forum taxonomy).
+	 * @param int $user_id  User ID.
+	 * @return int Visible post count.
+	 * @since x.x.x
+	 */
+	private function get_visible_posts_count_in_space( $space_id, $user_id ): int {
+		$post_ids = $this->get_post_ids_in_space( $space_id );
+
+		if ( empty( $post_ids ) ) {
+			return 0;
+		}
+
+		// Admins see everything — skip filtering.
+		if ( function_exists( 'suredash_is_user_manager' ) && suredash_is_user_manager( $user_id ) ) {
+			return count( $post_ids );
+		}
+
+		$visible_count = 0;
+		foreach ( $post_ids as $post_id ) {
+			$post_id = (int) $post_id; // @phpstan-ignore-line — WP_Query with fields=ids returns integers.
+
+			if ( ! Helper::is_post_visible_to_user(
+				[
+					'post_id' => $post_id,
+					'user_id' => $user_id,
+				]
+			) ) {
+				continue;
+			}
+
+			if ( function_exists( 'suredash_is_post_protected' ) && suredash_is_post_protected( $post_id ) ) {
+				continue;
+			}
+
+			$visible_count++;
+		}
+
+		return $visible_count;
 	}
 
 	/**

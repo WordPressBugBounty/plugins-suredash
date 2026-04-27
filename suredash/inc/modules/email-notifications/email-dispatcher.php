@@ -418,7 +418,7 @@ class Email_Dispatcher {
 
 			$variables['{{post_title}}']   = $post_data['title'] ?? get_the_title( $post_id );
 			$variables['{{post_url}}']     = get_permalink( $post_id );
-			$variables['{{post_excerpt}}'] = $post_data['excerpt'] ?? get_the_excerpt( $post_id );
+			$variables['{{post_excerpt}}'] = ! empty( $post_data['excerpt'] ) ? $post_data['excerpt'] : get_the_excerpt( $post_id );
 		}
 
 		/**

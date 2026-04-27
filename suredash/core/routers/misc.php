@@ -100,7 +100,7 @@ class Misc {
 					break;
 
 				case 'custom_post_content':
-					$filtered_data['post_content'] = do_shortcode( $value );
+					$filtered_data['post_content'] = do_shortcode( $this->strip_jodit_markers( $value ) );
 					break;
 
 				case 'custom_post_tax_id':
@@ -1074,6 +1074,9 @@ class Misc {
 		// Process iframe placeholders using common method.
 		$filtered_comment = $this->process_iframe_placeholders( $comment_data );
 
+		// Strip Jodit editor internal selection marker spans before saving.
+		$filtered_comment = $this->strip_jodit_markers( $filtered_comment );
+
 		// Collapse 3+ consecutive <br> tags to 2 (max one empty line).
 		$filtered_comment = (string) preg_replace_callback(
 			'/(<br\s*\/?>[\s]*){3,}/i',
@@ -1241,6 +1244,9 @@ class Misc {
 		// Process iframe placeholders using common method.
 		$filtered_comment = $this->process_iframe_placeholders( $comment_content );
 
+		// Strip Jodit editor internal selection marker spans before saving.
+		$filtered_comment = $this->strip_jodit_markers( $filtered_comment );
+
 		// Collapse 3+ consecutive <br> tags to 2 (max one empty line).
 		$filtered_comment = (string) preg_replace_callback(
 			'/(<br\s*\/?>[\s]*){3,}/i',
@@ -1401,6 +1407,9 @@ class Misc {
 		// Process iframe placeholders using common method.
 		$filtered_title   = sanitize_text_field( $post_title );
 		$filtered_content = $this->process_iframe_placeholders( $post_content );
+
+		// Strip Jodit editor internal selection marker spans before saving.
+		$filtered_content = $this->strip_jodit_markers( $filtered_content );
 
 		// Update the post.
 		$result = wp_update_post(
@@ -1608,6 +1617,51 @@ class Misc {
 	}
 
 	/**
+	 * Get oEmbed HTML for a given URL using WordPress oEmbed.
+	 *
+	 * @param \WP_REST_Request $request The request object.
+	 * @since 1.6.0
+	 * @return void
+	 */
+	public function get_oembed( $request ): void {
+		$nonce = (string) $request->get_header( 'X-WP-Nonce' );
+		if ( ! wp_verify_nonce( sanitize_text_field( $nonce ), 'wp_rest' ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
+		}
+
+		$url = isset( $_GET['url'] ) ? esc_url_raw( wp_unslash( $_GET['url'] ) ) : '';
+
+		if ( empty( $url ) || ! wp_http_validate_url( $url ) ) {
+			wp_send_json_error( [ 'message' => __( 'A valid URL is required.', 'suredash' ) ] );
+		}
+
+		// Reject URLs that don't match a registered oEmbed provider pattern.
+		// Uses WordPress's own provider matching which correctly handles alternate
+		// domains (e.g. youtu.be for YouTube, player.vimeo.com for Vimeo).
+		// discover=false prevents auto-discovery for unregistered URLs (SSRF).
+		$oembed   = _wp_oembed_get_object();
+		$provider = $oembed->get_provider( $url, [ 'discover' => false ] );
+
+		if ( ! $provider ) {
+			wp_send_json_error( [ 'message' => __( 'This URL is not from a supported video provider.', 'suredash' ) ] );
+		}
+
+		$embed_html = wp_oembed_get(
+			$url,
+			[
+				'width'    => 600,
+				'discover' => false,
+			]
+		);
+
+		if ( ! $embed_html ) {
+			wp_send_json_error( [ 'message' => __( 'Could not resolve video. Please check the URL and try again.', 'suredash' ) ] );
+		}
+
+		wp_send_json_success( [ 'html' => $embed_html ] );
+	}
+
+	/**
 	 * Get visibility scope data in lightweight format.
 	 * Only returns users since groups are always available on frontend.
 	 *
@@ -1743,6 +1797,27 @@ class Misc {
 	}
 
 	/**
+	 * Strip Jodit editor internal selection marker spans from content.
+	 *
+	 * Jodit inserts temporary <span> elements with data-jodit-temp or
+	 * data-jodit-selection_marker attributes to track cursor position.
+	 * These should never be persisted to the database.
+	 *
+	 * @param string $content The content to clean.
+	 * @return string The content with Jodit marker spans removed.
+	 * @since 1.7.3
+	 */
+	private function strip_jodit_markers( string $content ): string {
+		return (string) preg_replace_callback(
+			'/<span[^>]+data-jodit-(?:temp|selection_marker)[^>]*>.*?<\/span>/is',
+			static function (): string {
+				return '';
+			},
+			$content
+		);
+	}
+
+	/**
 	 * Delete user uploaded media file from filesystem.
 	 *
 	 * @param int    $user_id    User ID.
@@ -1770,7 +1845,11 @@ class Misc {
 	}
 
 	/**
-	 * Validate iframe src URL to ensure it is from YouTube or Vimeo.
+	 * Validate iframe src URL against WordPress registered oEmbed providers.
+	 *
+	 * Instead of a hardcoded allowlist, this checks the iframe src host against
+	 * all domains registered as oEmbed providers in WordPress core. This automatically
+	 * supports any provider WordPress supports (YouTube, Vimeo, Dailymotion, Spotify, etc.).
 	 *
 	 * @param string $url The iframe src URL.
 	 * @return bool True if the URL is valid, false otherwise.
@@ -1778,23 +1857,48 @@ class Misc {
 	private function validate_iframe_src( $url ) {
 		$parsed_url = wp_parse_url( $url );
 
-		// Check if the URL has a valid host.
 		if ( ! isset( $parsed_url['host'] ) ) {
 			return false;
 		}
 
-		// List of allowed domains.
-		$allowed_domains = [
-			'youtube.com',
-			'www.youtube.com',
-			'youtu.be',
-			'vimeo.com',
-			'www.vimeo.com',
-			'player.vimeo.com',
-		];
+		// Only allow HTTPS iframes.
+		$scheme = $parsed_url['scheme'] ?? '';
+		if ( $scheme !== 'https' ) {
+			return false;
+		}
 
-		// Check if the host matches any of the allowed domains.
-		return in_array( $parsed_url['host'], $allowed_domains, true );
+		$host = strtolower( $parsed_url['host'] );
+
+		// Collect endpoint hosts from WordPress registered oEmbed providers.
+		// Cached per-request because the provider list is stable for the request lifetime.
+		$oembed_domains = wp_cache_get( 'oembed_provider_hosts', 'suredash' );
+
+		if ( ! is_array( $oembed_domains ) ) {
+			$oembed_domains = [];
+			$oembed         = _wp_oembed_get_object();
+
+			foreach ( $oembed->providers as $provider_data ) {
+				$endpoint_url  = $provider_data[0] ?? '';
+				$endpoint_host = wp_parse_url( $endpoint_url, PHP_URL_HOST );
+				if ( is_string( $endpoint_host ) && $endpoint_host !== '' ) {
+					$oembed_domains[] = strtolower( $endpoint_host );
+				}
+			}
+
+			$oembed_domains = array_values( array_unique( $oembed_domains ) );
+			wp_cache_set( 'oembed_provider_hosts', $oembed_domains, 'suredash', HOUR_IN_SECONDS );
+		}
+
+		// Allow if the host is an exact match or a subdomain of any provider host.
+		// Previous "last two dotted segments" check was incorrect for multi-part
+		// TLDs (e.g. *.co.uk) and let unrelated hosts through / rejected valid ones.
+		foreach ( $oembed_domains as $domain ) {
+			if ( $host === $domain || ( strlen( $host ) > strlen( $domain ) && substr( $host, -( strlen( $domain ) + 1 ) ) === '.' . $domain ) ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

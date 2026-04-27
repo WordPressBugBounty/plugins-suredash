@@ -109,7 +109,7 @@ class Analytics {
 	 *
 	 * Runs on admin_init at priority 1, before maintenance.php runs.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	public function capture_previous_version(): void {
 		$saved = get_option( 'suredash_saved_version', '' );
@@ -125,7 +125,7 @@ class Analytics {
 	 * Called on init when the daily transient is absent.
 	 * BSF_Analytics_Events dedup prevents duplicate tracking across calls.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	public function detect_state_events(): void {
 		$events = self::events();
@@ -149,7 +149,7 @@ class Analytics {
 	 * Hooked to suredash_update_after (fired by maintenance.php after version bump).
 	 * Uses flush_pushed so the event re-tracks on each upgrade.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	public function track_plugin_updated(): void {
 		if ( self::events() === null ) {
@@ -177,7 +177,7 @@ class Analytics {
 	 * @param string   $old_status Previous post status.
 	 * @param \WP_Post $post       Post object.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	public function track_first_space_published( $new_status, $old_status, $post ): void {
 		if ( $new_status !== 'publish' || $old_status === 'publish' ) {
@@ -214,7 +214,7 @@ class Analytics {
 	 * @param string   $old_status Previous post status.
 	 * @param \WP_Post $post       Post object.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	public function track_first_community_post_created( $new_status, $old_status, $post ): void {
 		if ( $new_status !== 'publish' || $old_status === 'publish' ) {
@@ -247,30 +247,10 @@ class Analytics {
 	 */
 	public function add_suredash_analytics_data( $stats_data ) {
 
-		$settings = Settings::get_suredash_settings();
-
-		// Get total published spaces count.
-		$total_spaces           = wp_count_posts( SUREDASHBOARD_POST_TYPE );
-		$published_spaces_count = isset( $total_spaces->publish ) ? (int) $total_spaces->publish : 0;
-
-		// Get space counts by type for free version.
-		$single_post_count = suredash_get_space_count_by_integration( 'single_post' );
-		$discussion_count  = suredash_get_space_count_by_integration( 'posts_discussion' );
-		$link_count        = suredash_get_space_count_by_integration( 'link' );
-
-		// Get activity from last 30 days.
-		$recent_activity = $this->get_recent_activity_counts();
-
 		$stats_data['plugin_data']['suredash'] = [
-			'free_version'                       => SUREDASHBOARD_VER,
-			'site_language'                      => get_locale(),
-			'bypass_wp_interactions'             => $settings['bypass_wp_interactions'] ?? '',
-			'hidden_community'                   => $settings['hidden_community'] ?? '',
-			'total_spaces'                       => $published_spaces_count,
-			'single_post_spaces'                 => $single_post_count,
-			'discussion_spaces'                  => $discussion_count,
-			'link_spaces'                        => $link_count,
-			'recent_community_posts_content_30d' => $recent_activity['recent_posts'] + $recent_activity['recent_content'],
+			'free_version'  => SUREDASHBOARD_VER,
+			'site_language' => get_locale(),
+			'pro_active'    => function_exists( 'suredash_is_pro_active' ) && suredash_is_pro_active(),
 		];
 
 		// Add events record.
@@ -295,7 +275,7 @@ class Analytics {
 	 *
 	 * @param \BSF_Analytics_Events $events Event tracker.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	private function track_plugin_activated_state( \BSF_Analytics_Events $events ): void {
 		$installed_time = get_option( 'suredash_usage_installed_time', 0 );
@@ -316,7 +296,7 @@ class Analytics {
 	 *
 	 * @param \BSF_Analytics_Events $events Event tracker.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	private function track_onboarding_events( \BSF_Analytics_Events $events ): void {
 		$completed = get_option( 'suredash_onboarding_completed' ) === 'yes';
@@ -347,7 +327,7 @@ class Analytics {
 	 *
 	 * @param \BSF_Analytics_Events $events Event tracker.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	private function track_integration_events( \BSF_Analytics_Events $events ): void {
 		$settings = Settings::get_suredash_settings();
@@ -383,7 +363,7 @@ class Analytics {
 	 *
 	 * @param \BSF_Analytics_Events $events Event tracker.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 */
 	private function track_feature_events( \BSF_Analytics_Events $events ): void {
 		$settings = Settings::get_suredash_settings();
@@ -403,7 +383,7 @@ class Analytics {
 	/**
 	 * Get days since plugin install.
 	 *
-	 * @since x.x.x
+	 * @since 1.7.3
 	 * @return int
 	 */
 	private function get_days_since_install(): int {
@@ -412,46 +392,6 @@ class Analytics {
 			return 0;
 		}
 		return (int) floor( ( time() - $install_time ) / DAY_IN_SECONDS );
-	}
-
-	/**
-	 * Get recent activity counts for last 30 days.
-	 *
-	 * @since 1.6.0
-	 * @return array<string, int> Array containing recent_posts and recent_content counts.
-	 */
-	private function get_recent_activity_counts(): array {
-		global $wpdb;
-		$thirty_days_ago = (string) wp_date( 'Y-m-d H:i:s', (int) strtotime( '-30 days' ) );
-
-		// Get community posts count from last 30 days.
-		$recent_posts = (int) $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT COUNT(ID) FROM {$wpdb->posts}
-				WHERE post_type = %s
-				AND post_status = 'publish'
-				AND post_date >= %s",
-				SUREDASHBOARD_FEED_POST_TYPE,
-				$thirty_days_ago
-			)
-		);
-
-		// Get community content count from last 30 days.
-		$recent_content = (int) $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT COUNT(ID) FROM {$wpdb->posts}
-				WHERE post_type = %s
-				AND post_status = 'publish'
-				AND post_date >= %s",
-				SUREDASHBOARD_SUB_CONTENT_POST_TYPE,
-				$thirty_days_ago
-			)
-		);
-
-		return [
-			'recent_posts'   => absint( $recent_posts ),
-			'recent_content' => absint( $recent_content ),
-		];
 	}
 
 	/**
@@ -473,6 +413,7 @@ class Analytics {
 					'community_posts'   => $this->get_daily_community_posts_count( $date ),
 					'community_content' => $this->get_daily_community_content_count( $date ),
 					'comments'          => $this->get_daily_comments_count( $date ),
+					'members_joined'    => $this->get_daily_members_joined_count( $date ),
 				],
 			];
 		}
@@ -570,5 +511,33 @@ class Analytics {
 		);
 
 		return absint( $count );
+	}
+
+	/**
+	 * Get daily members joined count for a specific date.
+	 *
+	 * Counts users registered on the given date who have the suredash_user role.
+	 *
+	 * @since 1.7.3
+	 * @param string $date Date in Y-m-d format.
+	 * @return int Daily members joined count.
+	 */
+	private function get_daily_members_joined_count( $date ): int {
+		$users = get_users(
+			[
+				'role'        => 'suredash_user',
+				'date_query'  => [
+					[
+						'after'     => $date . ' 00:00:00',
+						'before'    => $date . ' 23:59:59',
+						'inclusive' => true,
+					],
+				],
+				'fields'      => 'ID',
+				'count_total' => true,
+			]
+		);
+
+		return count( $users );
 	}
 }

@@ -302,21 +302,23 @@ class SureMembers extends Base {
 		$user_id   = intval( get_current_user_id() );
 		$post_type = sd_get_post_field( $post_id, 'post_type' );
 
-		$consider_post_types = [];
 		if ( suredash_content_post() || is_singular( SUREDASHBOARD_SUB_CONTENT_POST_TYPE ) ) {
-			$post_type             = SUREDASHBOARD_SUB_CONTENT_POST_TYPE;
-			$consider_post_types[] = SUREDASHBOARD_SUB_CONTENT_POST_TYPE;
+			$post_type = SUREDASHBOARD_SUB_CONTENT_POST_TYPE;
 		}
 		if ( is_singular( SUREDASHBOARD_FEED_POST_TYPE ) ) {
-			$post_type             = SUREDASHBOARD_FEED_POST_TYPE;
-			$consider_post_types[] = SUREDASHBOARD_FEED_POST_TYPE;
+			$post_type = SUREDASHBOARD_FEED_POST_TYPE;
 		}
 
+		// Always pass the real post type so SureMembers can match post-type-level
+		// access rules (e.g. "All Community Posts" → meta `community-post|all`).
+		// The old `is_singular()` check fell back to the literal string
+		// `'is_singular'` in non-singular contexts (REST search, AJAX, cron),
+		// which broke CPT-wide protection lookups.
 		$option = [
 			'include'           => SUREMEMBERS_PLAN_INCLUDE,
 			'exclusion'         => SUREMEMBERS_PLAN_EXCLUDE,
 			'priority'          => SUREMEMBERS_PLAN_PRIORITY,
-			'current_post_type' => is_singular( $consider_post_types ) ? $post_type : 'is_singular',
+			'current_post_type' => $post_type,
 			'current_page_type' => 'is_singular',
 			'current_post_id'   => $post_id,
 		];

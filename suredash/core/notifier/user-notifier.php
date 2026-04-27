@@ -195,6 +195,11 @@ class User_Notifier extends Base {
 				return ob_get_clean();
 			}
 
+			// Skip if the current user does not have access to the topic.
+			if ( suredash_is_post_protected( $topic_id ) ) {
+				return ob_get_clean();
+			}
+
 			$topic_title = '<a href="' . get_permalink( $topic_id ) . '"><strong>' . get_the_title( $topic_id ) . '</strong></a>';
 			$description = str_replace( '{{TOPIC}}', $topic_title, $description );
 
@@ -280,6 +285,18 @@ class User_Notifier extends Base {
 		}
 		if ( $comment_id && ! get_comment( $comment_id ) ) {
 			return ob_get_clean();
+		}
+
+		// Skip if the current user does not have access to the mention's post.
+		if ( $topic_id && suredash_is_post_protected( $topic_id ) ) {
+			return ob_get_clean();
+		}
+		if ( $comment_id ) {
+			$mention_comment = get_comment( $comment_id );
+			$mention_post_id = absint( $mention_comment->comment_post_ID ?? 0 );
+			if ( $mention_post_id && suredash_is_post_protected( $mention_post_id ) ) {
+				return ob_get_clean();
+			}
 		}
 
 		$description = ! empty( $args['description'] ) ? $args['description'] : '';

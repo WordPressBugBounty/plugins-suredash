@@ -48,9 +48,17 @@ class Backend_Feeds {
 		$query = sd_query()
 			->select( '*' )
 			->from( 'posts AS p' )
-			->where( 'p.post_type', '=', $post_type )
-			->where( 'p.post_status', '=', $post_status )
-			->whereRaw( $like_clause )
+			->where( 'p.post_type', '=', $post_type );
+
+		// Support multiple post statuses (e.g., 'publish,draft').
+		if ( str_contains( $post_status, ',' ) ) {
+			$statuses = array_map( 'sanitize_key', explode( ',', $post_status ) );
+			$query->whereIn( 'p.post_status', $statuses );
+		} else {
+			$query->where( 'p.post_status', '=', sanitize_key( $post_status ) );
+		}
+
+		$query->whereRaw( $like_clause )
 			->limit( $no_of_posts );
 
 		// Add taxonomy condition if $is_tax_query is true.

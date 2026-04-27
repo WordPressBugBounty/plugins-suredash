@@ -1382,7 +1382,7 @@ class Helper {
 					>
 						<?php self::get_library_icon( $current_sort_icon, true, 'sm' ); ?>
 						<span class="portal-feeds-sort-label"><?php echo esc_html( $current_sort_label ); ?></span>
-						<?php self::get_library_icon( 'ChevronDown', true, 'sm', 'sd-ml-16' ); ?>
+						<?php self::get_library_icon( 'ChevronDown', true, 'sm', '' ); ?>
 					</button>
 					<div class="portal-feeds-sort-dropdown sd-absolute sd-display-none sd-bg-content sd-border sd-radius-12 sd-shadow-lg sd-mt-8 sd-z-10 sd-min-w-200"
 						data-base_id="<?php echo esc_attr( (string) $base_id ); ?>"

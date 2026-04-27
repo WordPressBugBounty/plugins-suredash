@@ -108,7 +108,7 @@ class Assets {
 					'from_url_text'                      => __( 'From URL', 'suredash' ),
 					'attach_video_text'                  => __( 'Attach Video', 'suredash' ),
 					'video_url_text'                     => __( 'Video URL', 'suredash' ),
-					'videos_placeholder'                 => __( 'Insert YouTube or Vimeo link', 'suredash' ),
+					'videos_placeholder'                 => __( 'Supports YouTube, Vimeo, Dailymotion, VideoPress, and more', 'suredash' ),
 					'search_user'                        => Labels::get_label( 'jodit_search_user' ),
 					'search_gif'                         => Labels::get_label( 'jodit_search_gif' ),
 					'mention_tooltip'                    => Labels::get_label( 'jodit_mention_tooltip' ),
@@ -305,6 +305,13 @@ class Assets {
 		wp_add_inline_style( 'portal-single', self::get_css( 'single' ) );
 
 		wp_enqueue_style(
+			'portal-responsive',
+			esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'responsive-rtl' : 'responsive' ) . SUREDASHBOARD_CSS_SUFFIX ),
+			[ 'portal-single' ],
+			SUREDASHBOARD_VER
+		);
+
+		wp_enqueue_style(
 			'portal-archive-group',
 			esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'archive-rtl' : 'archive' ) . SUREDASHBOARD_CSS_SUFFIX ),
 			[],
@@ -372,8 +379,8 @@ class Assets {
 				'ajax_url'                => admin_url( 'admin-ajax.php' ),
 				'category'                => get_queried_object_id(),
 				'page'                    => 1,
-				'posts_loaded_message'    => '<div class="portal-no-more-posts portal-content sd-box-shadow sd-radius-8">' . Labels::get_label( 'no_more_posts_to_load' ) . '</div>',
-				'comments_loaded_message' => '<div class="portal-no-more-posts portal-content sd-box-shadow sd-radius-8">' . Labels::get_label( 'no_more_comments_to_load' ) . '</div>',
+				'posts_loaded_message'    => '<div class="portal-no-more-posts">' . Labels::get_label( 'no_more_posts_to_load' ) . '</div>',
+				'comments_loaded_message' => '<div class="portal-no-more-posts">' . Labels::get_label( 'no_more_comments_to_load' ) . '</div>',
 				'insufficient_data_error' => Labels::get_label( 'insufficient_data_error' ),
 				'infinite_scroll_loading' => false,
 				'user_logged_in'          => is_user_logged_in(),

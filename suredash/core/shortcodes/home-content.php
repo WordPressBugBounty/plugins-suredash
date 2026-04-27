@@ -1470,7 +1470,7 @@ class HomeContent {
 
 		switch ( $screen ) {
 			case 'notification':
-				echo '<section class="portal-content sd-p-20"> <div class="sd-border sd-shadow-sm sd-bg-content sd-notification-list">';
+				echo '<section class="portal-content"> <div class="sd-border sd-shadow-sm sd-bg-content sd-notification-list">';
 				Notification::get_instance()->get_user_notification_list( false );
 				echo '</div></section>';
 				break;

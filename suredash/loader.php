@@ -33,6 +33,8 @@ use SureDashboard\Inc\Compatibility\Theme;
 use SureDashboard\Inc\Modules\EmailNotifications\Admin_Updates;
 use SureDashboard\Inc\Modules\EmailNotifications\Email_Dispatcher;
 use SureDashboard\Inc\Modules\EmailNotifications\Email_Triggers;
+use SureDashboard\Inc\Modules\MCP\Module as MCP_Module;
+use SureDashboard\Inc\Services\Abilities\Registry as AbilitiesRegistry;
 use SureDashboard\Inc\Templator\Service as Templates;
 use SureDashboard\Inc\Utils\Analytics;
 use SureDashboard\Inc\Utils\Maintenance;
@@ -362,7 +364,7 @@ class Portals_Loader {
 		define( 'SUREDASHBOARD_SUB_CONTENT_POST_TYPE', 'community-content' );
 
 		/* Load the Notices Library class. */
-		require_once 'inc/lib/astra-notices/class-astra-notices.php';
+		require_once 'inc/lib/astra-notices/class-bsf-admin-notices.php';
 		require_once 'inc/lib/suredash-nps-survey.php';
 
 		if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
@@ -531,6 +533,13 @@ class Portals_Loader {
 		Admin_Updates::get_instance();
 		Email_Dispatcher::get_instance();
 		Email_Triggers::get_instance();
+
+		/* MCP Module init */
+		MCP_Module::get_instance();
+
+		/* AI Abilities API */
+		AbilitiesRegistry::get_instance();
+
 		/**
 		 * SureDash Init.
 		 *
@@ -590,13 +599,11 @@ class Portals_Loader {
 			'style' => true,
 		];
 
-		// Add support for span tags (for markers and other formatting).
+		// Add support for span tags.
 		$allowed_html['span'] = [
-			'class'                       => true,
-			'id'                          => true,
-			'style'                       => true,
-			'data-jodit-temp'             => true,
-			'data-jodit-selection_marker' => true,
+			'class' => true,
+			'id'    => true,
+			'style' => true,
 		];
 
 		// Add support for basic formatting tags.

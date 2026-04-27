@@ -742,6 +742,7 @@ class Backend {
 		$taxonomy        = ! empty( $_POST['taxonomy'] ) ? sanitize_text_field( wp_unslash( $_POST['taxonomy'] ) ) : '';
 		$order_by        = ! empty( $_POST['orderBy'] ) && sanitize_text_field( $_POST['orderBy'] ) === 'latest' ? true : false;
 		$content_type    = ! empty( $_POST['content_type'] ) ? sanitize_text_field( wp_unslash( $_POST['content_type'] ) ) : '';
+		$post_status     = ! empty( $_POST['post_status'] ) ? sanitize_text_field( wp_unslash( $_POST['post_status'] ) ) : 'publish';
 		$data            = [];
 		$result          = [];
 
@@ -815,6 +816,7 @@ class Backend {
 			$query_args = [
 				's'              => $search_string,
 				'post_type'      => $post_type,
+				'post_status'    => $post_status,
 				'posts_per_page' => $per_page,
 				'is_tax_query'   => $category_id ? true : false,
 				'taxonomy'       => $taxonomy,
@@ -2949,6 +2951,14 @@ class Backend {
 	 * @since 1.5.0
 	 */
 	private function save_content_meta_fields( int $post_id, array $data ): void {
+		// Single post space meta fields.
+		if ( isset( $data['single_post_id'] ) ) {
+			update_post_meta( $post_id, 'single_post_id', absint( $data['single_post_id'] ) );
+		}
+		if ( isset( $data['post_render_type'] ) ) {
+			update_post_meta( $post_id, 'post_render_type', sanitize_text_field( $data['post_render_type'] ) );
+		}
+
 		// Lesson meta fields.
 		if ( isset( $data['lesson_duration'] ) ) {
 			update_post_meta( $post_id, 'lesson_duration', sanitize_text_field( $data['lesson_duration'] ) );

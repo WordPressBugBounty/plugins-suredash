@@ -73,6 +73,11 @@ class Post_Widget {
 							continue;
 						}
 
+						// Skip posts the current user cannot access (visibility_scope or SureMembers).
+						if ( function_exists( 'suredash_is_post_protected' ) && suredash_is_post_protected( $post_id ) ) {
+							continue;
+						}
+
 						$has_posts      = true;
 						$post_title     = get_the_title( $post );
 						$featured_image = get_the_post_thumbnail( $post, 'thumbnail' );
