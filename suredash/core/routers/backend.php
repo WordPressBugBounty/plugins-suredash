@@ -975,6 +975,7 @@ class Backend {
 		$terms_added = wp_set_object_terms( $object_id, $term_id, 'portal_group' );
 
 		if ( ! is_wp_error( $terms_added ) ) {
+			$this->clear_first_space_option();
 			wp_send_json_success( __( 'Successfully updated.', 'suredash' ) );
 		}
 
@@ -1040,6 +1041,8 @@ class Backend {
 						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['comment_status']  = sd_get_post_field( $media['value'], 'comment_status' );
 						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['post_status']     = sd_get_post_field( $media['value'], 'post_status' );
 						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['lesson_duration'] = sd_get_post_meta( absint( $media['value'] ), 'lesson_duration', true );
+						$use_space_thumbnail = sd_get_post_meta( absint( $media['value'] ), 'use_space_thumbnail', true );
+						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['use_space_thumbnail'] = (bool) $use_space_thumbnail;
 					}
 				}
 			}
@@ -2962,6 +2965,9 @@ class Backend {
 		// Lesson meta fields.
 		if ( isset( $data['lesson_duration'] ) ) {
 			update_post_meta( $post_id, 'lesson_duration', sanitize_text_field( $data['lesson_duration'] ) );
+		}
+		if ( isset( $data['use_space_thumbnail'] ) ) {
+			update_post_meta( $post_id, 'use_space_thumbnail', filter_var( $data['use_space_thumbnail'], FILTER_VALIDATE_BOOLEAN ) );
 		}
 
 		// Resource meta fields.

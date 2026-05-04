@@ -51,7 +51,7 @@ class Recent_Activities {
 	 *
 	 * @param array<int|string> $post_ids Candidate post IDs.
 	 * @return array<int, int> Visible post IDs, re-indexed.
-	 * @since x.x.x
+	 * @since 1.8.1
 	 */
 	private static function filter_visible_post_ids( array $post_ids ): array {
 		if ( empty( $post_ids ) ) {

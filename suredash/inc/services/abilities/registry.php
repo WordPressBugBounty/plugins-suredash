@@ -12,6 +12,7 @@
 namespace SureDashboard\Inc\Services\Abilities;
 
 use SureDashboard\Inc\Traits\Get_Instance;
+use SureDashboard\Inc\Utils\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -145,7 +146,7 @@ class Registry {
 		}
 
 		// Master toggle — don't register any abilities when disabled.
-		if ( ! get_option( 'suredash_abilities_api', false ) ) {
+		if ( ! Helper::get_option( 'suredash_abilities_api', false ) ) {
 			return;
 		}
 

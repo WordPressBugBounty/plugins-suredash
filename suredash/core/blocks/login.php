@@ -42,6 +42,110 @@ class Login {
 
 		add_action( 'wp_ajax_suredash_reset_password', [ self::class, 'process_reset_password' ] );
 		add_action( 'wp_ajax_nopriv_suredash_reset_password', [ self::class, 'process_reset_password' ] );
+
+		// Redirect already-logged-in users only when the block has an explicit
+		// redirectAfterLoginURL configured. Without it, the block renders a
+		// friendly "already signed in" screen (see render method).
+		add_action( 'wp', [ self::class, 'maybe_redirect_logged_in_user' ], 1 );
+
+		// Stylesheet for the "already signed in" screen used by both the
+		// Login and Register blocks. Conditionally enqueued — only on
+		// singular pages that contain one of those blocks.
+		add_action( 'wp_enqueue_scripts', [ self::class, 'enqueue_logged_in_screen_style' ] );
+	}
+
+	/**
+	 * Register and enqueue the stylesheet for the "already signed in" screen.
+	 *
+	 * Loaded only when the current post contains the Login or Register block,
+	 * because SureDash's main CSS is not enqueued on login/register pages.
+	 * Dynamic button colors are injected as CSS custom properties via
+	 * `wp_add_inline_style()` so the button matches the portal's palette.
+	 *
+	 * @since 1.8.1
+	 * @return void
+	 */
+	public static function enqueue_logged_in_screen_style(): void {
+		if ( ! is_user_logged_in() || ! is_singular() ) {
+			return;
+		}
+
+		if ( ! has_block( 'suredash/login' ) && ! has_block( 'suredash/register' ) ) {
+			return;
+		}
+
+		$handle = 'suredash-logged-in-screen';
+		$file   = ( is_rtl() ? 'logged-in-screen-rtl' : 'logged-in-screen' ) . SUREDASHBOARD_CSS_SUFFIX;
+
+		wp_enqueue_style( $handle, SUREDASHBOARD_CSS_ASSETS_FOLDER . $file, [], SUREDASHBOARD_VER );
+
+		$bg_raw   = Helper::get_option( 'primary_button_background_color' );
+		$text_raw = Helper::get_option( 'primary_button_color' );
+		$bg       = is_string( $bg_raw ) ? sanitize_hex_color( $bg_raw ) : '';
+		$text     = is_string( $text_raw ) ? sanitize_hex_color( $text_raw ) : '';
+		$bg       = $bg ? $bg : '#4338CA';
+		$text     = $text ? $text : '#FFFFFF';
+
+		wp_add_inline_style(
+			$handle,
+			sprintf(
+				'.suredash-logged-in-screen { --sd-lis-btn-bg: %1$s; --sd-lis-btn-text: %2$s; }',
+				esc_html( $bg ),
+				esc_html( $text )
+			)
+		);
+	}
+
+	/**
+	 * Redirect already-logged-in users away from pages containing the login block,
+	 * but only when the block has an explicit `redirectAfterLoginURL` configured.
+	 *
+	 * Fires on the `wp` hook at priority 1 — before Dynamic::wp_action (priority 10)
+	 * outputs inline CSS/JS, which would send headers and prevent wp_safe_redirect().
+	 *
+	 * @since 1.8.1
+	 * @return void
+	 */
+	public static function maybe_redirect_logged_in_user(): void {
+		if ( ! is_user_logged_in() ) {
+			return;
+		}
+
+		if ( ! is_singular() || ! has_block( 'suredash/login' ) ) {
+			return;
+		}
+
+		$post_id = get_the_ID();
+		if ( ! $post_id ) {
+			return;
+		}
+
+		$post_content = get_post_field( 'post_content', $post_id );
+		if ( ! is_string( $post_content ) ) {
+			return;
+		}
+
+		$blocks   = parse_blocks( $post_content );
+		$redirect = '';
+
+		foreach ( $blocks as $block ) {
+			if ( $block['blockName'] !== 'suredash/login' ) {
+				continue;
+			}
+			$attr = $block['attrs'] ?? [];
+			if ( ! empty( $attr['redirectAfterLoginURL']['url'] ) ) {
+				$redirect = (string) $attr['redirectAfterLoginURL']['url'];
+			}
+			break;
+		}
+
+		// No explicit redirect URL configured — render the friendly logged-in screen instead.
+		if ( $redirect === '' ) {
+			return;
+		}
+
+		wp_safe_redirect( esc_url_raw( $redirect ) );
+		exit;
 	}
 
 	/**
@@ -1171,17 +1275,23 @@ class Login {
 			<div class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>" style="<?php echo esc_attr( implode( '', $z_index_wrap ) ); ?>">
 				<?php
 				if ( is_user_logged_in() ) {
-					?>
-					<div class="wp-block-spectra-pro-login__logged-in-message">
-						<?php
-							$user_name   = suredash_get_user_display_name();
-							$a_tag       = '<a href="' . esc_url( wp_logout_url( is_array( $attributes['redirectAfterLogoutURL'] ) && $attributes['redirectAfterLogoutURL']['url'] ? $attributes['redirectAfterLogoutURL']['url'] : home_url( suredash_get_community_slug() ) ) ) . '">';
-							$close_a_tag = '</a>';
-							/* translators: %1$s user name */
-							printf( esc_html__( 'You are logged in as %1$s (%2$sLogout%3$s)', 'suredash' ), wp_kses_post( $user_name ), wp_kses_post( $a_tag ), wp_kses_post( $close_a_tag ) );
-						?>
-					</div>
-					<?php
+					$portal_url = home_url( '/' . suredash_get_community_slug() . '/' );
+					if ( isset( $attributes['redirectAfterLoginURL'] ) && is_array( $attributes['redirectAfterLoginURL'] ) && ! empty( $attributes['redirectAfterLoginURL']['url'] ) ) {
+						$portal_url = (string) $attributes['redirectAfterLoginURL']['url'];
+					}
+					$logout_target = home_url( suredash_get_community_slug() );
+					if ( isset( $attributes['redirectAfterLogoutURL'] ) && is_array( $attributes['redirectAfterLogoutURL'] ) && ! empty( $attributes['redirectAfterLogoutURL']['url'] ) ) {
+						$logout_target = (string) $attributes['redirectAfterLogoutURL']['url'];
+					}
+					suredash_get_template_part(
+						'parts',
+						'logged-in-screen',
+						[
+							'user_name'  => suredash_get_user_display_name(),
+							'portal_url' => $portal_url,
+							'logout_url' => wp_logout_url( $logout_target ),
+						]
+					);
 				} else {
 					// inner block content will be here.
 					echo wp_kses_post( $content );
@@ -1274,8 +1384,8 @@ class Login {
 											</button>
 										</div>
 									</div>
+									<div class="suredash-reset-status"></div>
 								</form>
-								<div class="suredash-reset-status"></div>
 							</div>
 							<?php
 							break;
@@ -1880,6 +1990,34 @@ class Login {
 			],
 			' .spectra-pro-login-form__field-error-message' => [
 				'text-align' => $attr['overallAlignment'],
+			],
+			' .suredash-forgot-password-form .spectra-pro-login-form__field-error-message' => [
+				'display'       => 'block',
+				'font-size'     => '13px',
+				'color'         => '#ef4444',
+				'margin-top'    => '-16px',
+				'margin-bottom' => '12px',
+			],
+			' .suredash-forgot-password-form .suredash-reset-status' => [
+				'font-size'   => '14px',
+				'line-height' => '20px',
+				'color'       => '#6b7280',
+				'margin-top'  => '16px',
+				'min-height'  => '20px',
+			],
+			' .suredash-forgot-password-form .suredash-reset-status.success' => [
+				'color'            => '#059669',
+				'padding'          => '12px 16px',
+				'background-color' => '#d1fae5',
+				'border-left'      => '4px solid #10b981',
+				'border-radius'    => '4px',
+			],
+			' .suredash-forgot-password-form .suredash-reset-status.error' => [
+				'color'            => '#dc2626',
+				'padding'          => '12px 16px',
+				'background-color' => '#fee2e2',
+				'border-left'      => '4px solid #ef4444',
+				'border-radius'    => '4px',
 			],
 			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login' => [
 				'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),

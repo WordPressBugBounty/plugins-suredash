@@ -349,9 +349,15 @@ function suredash_get_user_avatar( $user_id, $echo = true, $size = 40, $add_data
 		$user_display_name = sd_get_user_meta( absint( $user_id ), 'display_name', true );
 		$alt_text          = ! empty( $user_display_name ) ? $user_display_name . ' profile photo' : 'User profile photo';
 
-		$markup = wp_kses_post( apply_filters( 'suredash_user_avatar_markup', '<img class="portal-user-avatar ' . esc_attr( $size_class ) . '" src="' . esc_url( $profile_photo ) . '" alt="' . esc_attr( $alt_text ) . '" />' ) );
+		$markup = wp_kses_post( apply_filters( 'suredash_user_avatar_markup', '<img class="portal-user-avatar ' . esc_attr( $size_class ) . '" src="' . esc_url( $profile_photo ) . '" alt="' . esc_attr( $alt_text ) . '" />', $user_id ) );
 	} else {
-		// No profile photo - show initials avatar.
+		// No profile photo. Render the initials avatar as the base layer and
+		// overlay a Gravatar <img> on top using `?d=404`: when the user has
+		// a real Gravatar the image loads and covers the initials; when they
+		// don't, Gravatar returns 404, the browser fires `onerror`, the img
+		// removes itself, and the initials beneath show through. This avoids
+		// any server-side HTTP probe so the avatar pipeline stays O(1) per
+		// user even on pages listing thousands of members.
 		$alt_text = $user ? suredash_get_user_display_name( $user_id ) . ' avatar' : 'User avatar';
 
 		// Determine font size class based on avatar size.
@@ -362,15 +368,43 @@ function suredash_get_user_avatar( $user_id, $echo = true, $size = 40, $add_data
 			$font_class = 'sd-font-14';
 		}
 
+		// Request Gravatar at 2× the requested size so the overlay stays
+		// sharp when surrounding CSS upscales the avatar container (e.g.
+		// the leaderboard hero card forces 64×64 even on a 48px request).
+		// The overlay always paints at 100% of the outer box, so the
+		// extra resolution costs nothing on smaller renders.
+		$gravatar_size = max( 96, (int) $size * 2 );
+		$gravatar_url  = get_avatar_url(
+			$user_id,
+			[
+				'size'    => $gravatar_size,
+				'default' => '404',
+			]
+		);
+
+		$gravatar_overlay = '';
+		if ( ! empty( $gravatar_url ) ) {
+			// `!important` on width/height/max-* defeats the global
+			// `.portal-avatar-XX img { width: XXpx; max-width: XXpx; ... }`
+			// rule in badges.css, which would otherwise pin the overlay
+			// to the requested size even when surrounding layout (e.g.
+			// the leaderboard hero card) upscales the outer container.
+			$gravatar_overlay = sprintf(
+				'<img class="portal-user-gravatar" src="%s" alt="" loading="lazy" onerror="this.remove()" style="position:absolute;top:0;left:0;width:100%% !important;height:100%% !important;max-width:none !important;max-height:none !important;object-fit:cover;border-radius:inherit;display:block;" />',
+				esc_url( $gravatar_url )
+			);
+		}
+
 		$markup = sprintf(
-			'<div class="portal-user-avatar portal-avatar-initials %s %s %s" style="line-height: 1;" title="%s">%s</div>',
+			'<div class="portal-user-avatar portal-avatar-initials %s %s %s" style="position:relative;line-height:1;" title="%s">%s%s</div>',
 			esc_attr( $size_class ),
 			esc_attr( $initials_arr['color'] ),
 			esc_attr( $font_class ),
 			esc_attr( $alt_text ),
-			esc_html( $initials_arr['initials'] )
+			esc_html( $initials_arr['initials'] ),
+			$gravatar_overlay
 		);
-		$markup = apply_filters( 'suredash_user_avatar_markup', $markup );
+		$markup = apply_filters( 'suredash_user_avatar_markup', $markup, $user_id );
 	}
 
 	// Add data wrapper for profile pages that need JS fallback.

@@ -10,6 +10,8 @@
 
 namespace SureDashboard\Inc\Services\Abilities;
 
+use SureDashboard\Inc\Utils\Helper;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -103,7 +105,7 @@ abstract class Ability {
 	 * @return bool
 	 */
 	public function is_enabled(): bool {
-		if ( ! empty( $this->gated ) && ! get_option( $this->gated, true ) ) {
+		if ( ! empty( $this->gated ) && ! Helper::get_option( $this->gated, true ) ) {
 			return false;
 		}
 
@@ -295,7 +297,7 @@ abstract class Ability {
 	 */
 	public function check_permission(): bool {
 		// Master toggle — all abilities off when disabled.
-		if ( ! get_option( 'suredash_abilities_api', false ) ) {
+		if ( ! Helper::get_option( 'suredash_abilities_api', false ) ) {
 			return false;
 		}
 

@@ -12,6 +12,8 @@
 namespace SureDashboard\Inc\Modules\MCP;
 
 use SureDashboard\Inc\Traits\Get_Instance;
+use SureDashboard\Inc\Utils\Helper;
+use SureDashboard\Inc\Utils\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -31,9 +33,6 @@ class Module {
 	public function __construct() {
 		add_action( 'rest_api_init', [ $this, 'register_routes' ] );
 
-		// Sync MCP options when portal settings are saved via the main save button.
-		add_action( 'suredash_settings_updated', [ $this, 'sync_from_portal_settings' ], 10, 2 );
-
 		// Register MCP server with MCP Adapter plugin when enabled.
 		if ( self::mcp_adapter_enabled() ) {
 			add_action( 'mcp_adapter_init', [ $this, 'register_mcp_server' ] );
@@ -49,7 +48,7 @@ class Module {
 	public static function mcp_adapter_enabled(): bool {
 		return function_exists( 'wp_register_ability' )
 			&& class_exists( 'WP\MCP\Plugin' )
-			&& (bool) get_option( 'suredash_mcp_server', false );
+			&& (bool) Helper::get_option( 'suredash_mcp_server', false );
 	}
 
 	/**
@@ -75,95 +74,46 @@ class Module {
 	/**
 	 * Get current MCP settings.
 	 *
+	 * Reads from the unified `portal_settings` array — same source the rest of
+	 * the dashboard reads through `Helper::get_option()`, so there's nowhere
+	 * for the values to drift.
+	 *
 	 * @since 1.7.3
 	 * @return array<string, bool>
 	 */
 	public static function get_settings(): array {
-		$grouped = get_option( 'suredash_mcp_settings_options', [] );
-
-		if ( ! empty( $grouped ) && is_array( $grouped ) ) {
-			return $grouped;
-		}
-
 		return [
-			'suredash_abilities_api'        => (bool) get_option( 'suredash_abilities_api', false ),
-			'suredash_abilities_api_edit'   => (bool) get_option( 'suredash_abilities_api_edit', false ),
-			'suredash_abilities_api_delete' => (bool) get_option( 'suredash_abilities_api_delete', false ),
-			'suredash_mcp_server'           => (bool) get_option( 'suredash_mcp_server', false ),
+			'suredash_abilities_api'        => (bool) Helper::get_option( 'suredash_abilities_api', false ),
+			'suredash_abilities_api_edit'   => (bool) Helper::get_option( 'suredash_abilities_api_edit', false ),
+			'suredash_abilities_api_delete' => (bool) Helper::get_option( 'suredash_abilities_api_delete', false ),
+			'suredash_mcp_server'           => (bool) Helper::get_option( 'suredash_mcp_server', false ),
 		];
 	}
 
 	/**
-	 * Save MCP settings.
+	 * Save MCP settings into the unified `portal_settings` array.
+	 *
+	 * Writes all four MCP keys in a single DB round-trip.
 	 *
 	 * @since 1.7.3
 	 * @param array<string, mixed> $settings Settings to save.
-	 * @return bool
-	 */
-	public static function save_settings( array $settings ): bool {
-		$abilities_api        = ! empty( $settings['suredash_abilities_api'] );
-		$abilities_api_edit   = ! empty( $settings['suredash_abilities_api_edit'] );
-		$abilities_api_delete = ! empty( $settings['suredash_abilities_api_delete'] );
-		$mcp_server           = ! empty( $settings['suredash_mcp_server'] );
-
-		// Save as individual options for ability permission_callback lookups.
-		update_option( 'suredash_abilities_api', $abilities_api );
-		update_option( 'suredash_abilities_api_edit', $abilities_api_edit );
-		update_option( 'suredash_abilities_api_delete', $abilities_api_delete );
-		update_option( 'suredash_mcp_server', $mcp_server );
-
-		// Save grouped option for the settings UI fetch.
-		return update_option(
-			'suredash_mcp_settings_options',
-			[
-				'suredash_abilities_api'        => $abilities_api,
-				'suredash_abilities_api_edit'   => $abilities_api_edit,
-				'suredash_abilities_api_delete' => $abilities_api_delete,
-				'suredash_mcp_server'           => $mcp_server,
-			]
-		);
-	}
-
-	/**
-	 * Sync MCP options from portal settings when the main Save button is used.
-	 *
-	 * Hooked to 'suredash_settings_updated'. Extracts MCP-specific keys from
-	 * the portal settings array and mirrors them to individual options that
-	 * the ability permission callbacks read.
-	 *
-	 * @since 1.7.3
-	 * @param array<string, mixed> $old_settings Previous settings.
-	 * @param array<string, mixed> $new_settings Updated settings.
 	 * @return void
 	 */
-	public function sync_from_portal_settings( array $old_settings, array $new_settings ): void {
-		unset( $old_settings );
-
-		$mcp_keys = [
-			'suredash_abilities_api',
-			'suredash_abilities_api_edit',
-			'suredash_abilities_api_delete',
-			'suredash_mcp_server',
-		];
-
-		$has_mcp_keys = false;
-		foreach ( $mcp_keys as $key ) {
-			if ( isset( $new_settings[ $key ] ) ) {
-				$has_mcp_keys = true;
-				break;
-			}
+	public static function save_settings( array $settings ): void {
+		$portal_settings = Settings::get_settings();
+		if ( ! is_array( $portal_settings ) ) {
+			$portal_settings = [];
 		}
 
-		if ( ! $has_mcp_keys ) {
-			return;
-		}
+		$portal_settings['suredash_abilities_api']        = ! empty( $settings['suredash_abilities_api'] );
+		$portal_settings['suredash_abilities_api_edit']   = ! empty( $settings['suredash_abilities_api_edit'] );
+		$portal_settings['suredash_abilities_api_delete'] = ! empty( $settings['suredash_abilities_api_delete'] );
+		$portal_settings['suredash_mcp_server']           = ! empty( $settings['suredash_mcp_server'] );
 
-		$settings = [];
-		foreach ( $mcp_keys as $key ) {
-			$settings[ $key ] = ! empty( $new_settings[ $key ] );
-		}
+		update_option( SUREDASHBOARD_SETTINGS, $portal_settings );
 
-		self::save_settings( $settings );
+		// Drop the static cache so subsequent Helper::get_option() reads see fresh data.
+		Settings::$dashboard_options = [];
 	}
 
 	/**

@@ -35,6 +35,7 @@ use SureDashboard\Inc\Modules\EmailNotifications\Email_Dispatcher;
 use SureDashboard\Inc\Modules\EmailNotifications\Email_Triggers;
 use SureDashboard\Inc\Modules\MCP\Module as MCP_Module;
 use SureDashboard\Inc\Services\Abilities\Registry as AbilitiesRegistry;
+use SureDashboard\Inc\Services\CLI\Abilities_Command as CLI_Abilities_Command;
 use SureDashboard\Inc\Templator\Service as Templates;
 use SureDashboard\Inc\Utils\Analytics;
 use SureDashboard\Inc\Utils\Maintenance;
@@ -341,13 +342,13 @@ class Portals_Loader {
 		define( 'SUREDASHBOARD_JS_ASSETS_FOLDER', SUREDASHBOARD_DEVELOPMENT_MODE ? SUREDASHBOARD_URL . 'assets/js/unminified/' : SUREDASHBOARD_URL . 'assets/js/minified/' );
 
 		// Include required functions.
-		require_once 'inc/functions/functions.php';
-		require_once 'inc/functions/markup.php';
-		require_once 'inc/functions/operations.php';
-		require_once 'inc/functions/patterns.php';
+		require_once SUREDASHBOARD_DIR . 'inc/functions/functions.php';
+		require_once SUREDASHBOARD_DIR . 'inc/functions/markup.php';
+		require_once SUREDASHBOARD_DIR . 'inc/functions/operations.php';
+		require_once SUREDASHBOARD_DIR . 'inc/functions/patterns.php';
 
 		// Include required email functions.
-		require_once 'inc/modules/email-notifications/emails.php';
+		require_once SUREDASHBOARD_DIR . 'inc/modules/email-notifications/emails.php';
 	}
 
 	/**
@@ -364,8 +365,8 @@ class Portals_Loader {
 		define( 'SUREDASHBOARD_SUB_CONTENT_POST_TYPE', 'community-content' );
 
 		/* Load the Notices Library class. */
-		require_once 'inc/lib/astra-notices/class-bsf-admin-notices.php';
-		require_once 'inc/lib/suredash-nps-survey.php';
+		require_once SUREDASHBOARD_DIR . 'inc/lib/astra-notices/class-bsf-admin-notices.php';
+		require_once SUREDASHBOARD_DIR . 'inc/lib/suredash-nps-survey.php';
 
 		if ( ! class_exists( 'BSF_Analytics_Loader' ) ) {
 			require_once SUREDASHBOARD_DIR . 'inc/lib/bsf-analytics/class-bsf-analytics-loader.php';
@@ -539,6 +540,11 @@ class Portals_Loader {
 
 		/* AI Abilities API */
 		AbilitiesRegistry::get_instance();
+
+		/* WP-CLI commands — register all SureDash subcommands here. */
+		if ( defined( 'WP_CLI' ) && \WP_CLI ) {
+			\WP_CLI::add_command( 'suredash abilities', CLI_Abilities_Command::class );
+		}
 
 		/**
 		 * SureDash Init.

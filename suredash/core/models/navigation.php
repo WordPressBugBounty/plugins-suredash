@@ -40,13 +40,13 @@ class Navigation {
 			'termmeta AS tm',
 			// @phpstan-ignore-next-line
 			static function( $q ): void {
-				$q->where( 't.term_id', '=', 'tm.term_id' )->whereIn( 'tm.meta_key', [ 'group_tax_position', '_link_order', 'hide_label', 'homegrid_spaces' ] );
+				$q->whereColumn( 't.term_id', '=', 'tm.term_id' )->whereIn( 'tm.meta_key', [ 'group_tax_position', '_link_order', 'hide_label', 'homegrid_spaces' ] );
 			}
 		)->leftJoin(
 			'postmeta AS pm',
 			// @phpstan-ignore-next-line
 			static function( $q ) use ( $left_join_match ): void {
-				$q->where( 'p.ID', '=', 'pm.post_id' )->whereIn( 'pm.meta_key', $left_join_match );
+				$q->whereColumn( 'p.ID', '=', 'pm.post_id' )->whereIn( 'pm.meta_key', $left_join_match );
 			}
 		)->where( 'tt.taxonomy', '=', SUREDASHBOARD_TAXONOMY )->whereRaw( '(tm.meta_value IS NOT NULL OR tm.meta_key IS NULL)' )->group_by( 't.term_id, p.ID' )
 			->get( ARRAY_A );

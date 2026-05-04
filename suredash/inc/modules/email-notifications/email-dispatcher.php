@@ -370,14 +370,11 @@ class Email_Dispatcher {
 		// Convert plain text to HTML.
 		$body = wpautop( $body );
 
-		// Set up email headers.
-		$headers = [
-			'Content-Type: text/html; charset=UTF-8',
-			'From: ' . Helper::get_option( 'portal_name', get_bloginfo( 'name' ) ) . ' <' . Helper::get_option( 'email_from_mail_id', get_option( 'admin_email' ) ) . '>',
-		];
-
-		// Send the email.
-		return wp_mail( $user->user_email, $subject, $body, $headers );
+		// Send the email through the central helper so the From header is
+		// properly encoded (PHPMailer handles RFC 2047 via wp_mail_from*) and
+		// the body is wrapped in a complete HTML document for clients that
+		// reject bare fragments.
+		return suredash_send_email( $user->user_email, $subject, $body );
 	}
 
 	/**

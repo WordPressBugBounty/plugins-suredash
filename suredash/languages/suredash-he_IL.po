@@ -33,14 +33,15 @@ msgid "Cover Image"
 msgstr "תמונת שער"
 
 #: inc/utils/labels.php:115
+#: assets/build/portals-app.js:21
 msgid "Content"
 msgstr "תוכן"
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1138
 msgid "Content Groups"
 msgstr "קבוצות תוכן"
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1138
 msgid "Topic Forums"
 msgstr "פורומים בנושא"
 
@@ -49,7 +50,6 @@ msgstr "פורומים בנושא"
 #: admin/setup.php:65
 #: core/renderer.php:300
 #: assets/build/portals-app.js:11
-#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
 msgid "Settings"
 msgstr "הגדרות"
@@ -71,7 +71,7 @@ msgid "Video"
 msgstr "וידאו"
 
 #: admin/menu.php:626
-#: inc/utils/helper.php:2128
+#: inc/utils/helper.php:2202
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "לא מסווג"
@@ -124,30 +124,23 @@ msgstr "הוסף אימוג'י"
 msgid "No user found"
 msgstr "לא נמצא משתמש"
 
-#: core/blocks/login.php:843
+#: core/blocks/login.php:947
 msgid "Username or Email Address"
 msgstr "שם משתמש או כתובת אימייל"
 
-#: core/blocks/login.php:844
+#: core/blocks/login.php:948
 #: inc/utils/labels.php:69
 #: assets/build/editor-app.js:2
 #: assets/build/editor-app.js:6
 msgid "Password"
 msgstr "סיסמה"
 
-#: core/blocks/login.php:964
+#: core/blocks/login.php:1068
 #: core/blocks/register.php:404
 msgid "You have logged in successfully. Redirecting…"
 msgstr "התחברת בהצלחה. מפנה מחדש…"
 
-#. translators: %1$s user name
-#: core/blocks/login.php:1181
-#: core/blocks/register.php:460
-#, php-format
-msgid "You are logged in as %1$s (%2$sLogout%3$s)"
-msgstr "אתה מחובר כ-%1$s (%2$sהתנתק%3$s)"
-
-#: core/blocks/login.php:1333
+#: core/blocks/login.php:1443
 #: assets/build/editor-app.js:6
 msgid "Show Password"
 msgstr "הצג סיסמה"
@@ -205,56 +198,56 @@ msgid "This field"
 msgstr "שדה זה"
 
 #: core/blocks/register.php:85
-#: core/blocks/register.php:977
+#: core/blocks/register.php:981
 msgid "You have used an invalid email."
 msgstr "השתמשת בדוא\"ל לא חוקי."
 
 #. translators: abbreviation for units
-#: core/blocks/login.php:65
-#: core/blocks/register.php:978
+#: core/blocks/login.php:169
+#: core/blocks/register.php:982
 #: assets/build/editor-app.js:2
 msgid "Please enter a valid email address."
 msgstr "אנא הזן כתובת דוא\"ל תקינה."
 
-#: core/blocks/register.php:979
+#: core/blocks/register.php:983
 #: assets/build/editor-app.js:2
 msgid "Email already in use. Please try to sign in."
 msgstr "כתובת האימייל כבר בשימוש. אנא נסה להיכנס."
 
-#: core/blocks/register.php:980
+#: core/blocks/register.php:984
 #: assets/build/editor-app.js:2
 msgid "Invalid user name. Please try again."
 msgstr "שם משתמש לא חוקי. אנא נסה שוב."
 
-#: core/blocks/register.php:981
+#: core/blocks/register.php:985
 #: assets/build/editor-app.js:2
 msgid "Username is already taken."
 msgstr "שם המשתמש כבר תפוס."
 
-#: core/blocks/register.php:982
+#: core/blocks/register.php:986
 #: assets/build/editor-app.js:2
 msgid "Password cannot be accepted. Please try something else."
 msgstr "לא ניתן לקבל את הסיסמה. אנא נסה משהו אחר."
 
-#: core/blocks/login.php:111
-#: core/blocks/register.php:983
+#: core/blocks/login.php:215
+#: core/blocks/register.php:987
 #: inc/utils/labels.php:88
 #: assets/build/editor-app.js:2
 #: assets/js/unminified/login.js:745
 msgid "Passwords do not match."
 msgstr "הסיסמאות אינן תואמות."
 
-#: core/blocks/register.php:984
+#: core/blocks/register.php:988
 #: assets/build/editor-app.js:2
 msgid "Please try again after accepting terms & conditions."
 msgstr "אנא נסה שוב לאחר קבלת התנאים וההגבלות."
 
-#: core/blocks/register.php:985
+#: core/blocks/register.php:989
 #: assets/build/editor-app.js:2
 msgid "Something went wrong! Please try again."
 msgstr "משהו השתבש! אנא נסה שוב."
 
-#: core/blocks/register.php:986
+#: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
 msgid "Registration successful. Please check your email inbox."
 msgstr "ההרשמה הצליחה. אנא בדוק את תיבת הדואר האלקטרוני שלך."
@@ -421,7 +414,7 @@ msgstr "נרשם ב"
 msgid "new space has been introduced."
 msgstr "הוכנס חלל חדש."
 
-#: core/notifier/common-notifier.php:441
+#: core/notifier/common-notifier.php:452
 msgid "Comment:"
 msgstr "תגובה:"
 
@@ -433,7 +426,7 @@ msgstr "הנושא שלך אושר."
 msgid "has mentioned you in a "
 msgstr "הזכיר אותך ב"
 
-#: core/notifier/user-notifier.php:290
+#: core/notifier/user-notifier.php:307
 msgid "Topic:"
 msgstr "נושא:"
 
@@ -442,24 +435,24 @@ msgid "Invalid term ID."
 msgstr "מזהה מונח לא חוקי."
 
 #: core/routers/backend.php:56
-#: core/routers/backend.php:978
+#: core/routers/backend.php:979
 msgid "Successfully updated."
 msgstr "העדכון בוצע בהצלחה."
 
 #: core/routers/backend.php:462
 #: core/routers/backend.php:504
-#: core/routers/backend.php:1001
-#: core/routers/backend.php:1070
-#: core/routers/backend.php:1094
-#: core/routers/backend.php:1293
-#: core/routers/backend.php:2235
+#: core/routers/backend.php:1002
+#: core/routers/backend.php:1073
+#: core/routers/backend.php:1097
+#: core/routers/backend.php:1296
+#: core/routers/backend.php:2238
 msgid "Invalid post ID."
 msgstr "מזהה פוסט לא חוקי."
 
 #: core/routers/backend.php:477
 #: core/routers/backend.php:583
 #: core/routers/backend.php:717
-#: core/routers/backend.php:1385
+#: core/routers/backend.php:1388
 msgid "Successfully deleted."
 msgstr "נמחק בהצלחה."
 
@@ -467,28 +460,28 @@ msgstr "נמחק בהצלחה."
 msgid "Invalid object or term ID."
 msgstr "מזהה אובייקט או מונח לא חוקי."
 
-#: core/routers/backend.php:1132
+#: core/routers/backend.php:1135
 msgid "No store categories found."
 msgstr "לא נמצאו קטגוריות חנות."
 
-#: core/routers/backend.php:1181
+#: core/routers/backend.php:1184
 msgid "Category Invalid."
 msgstr "קטגוריה לא חוקית."
 
-#: core/routers/backend.php:1185
+#: core/routers/backend.php:1188
 msgid "Content Group -"
 msgstr "קבוצת תוכן -"
 
-#: core/routers/backend.php:1185
+#: core/routers/backend.php:1188
 msgid "Topic Forum -"
 msgstr "פורום נושא -"
 
-#: core/routers/backend.php:1254
-#: inc/modules/mcp/module.php:234
+#: core/routers/backend.php:1257
+#: inc/modules/mcp/module.php:184
 msgid "Invalid settings data."
 msgstr "נתוני הגדרות לא חוקיים."
 
-#: core/routers/backend.php:1261
+#: core/routers/backend.php:1264
 msgid "Settings saved successfully."
 msgstr "ההגדרות נשמרו בהצלחה."
 
@@ -584,7 +577,7 @@ msgstr "הרשמה והתחברות הצליחו"
 msgid "Google API Error."
 msgstr "שגיאת API של Google."
 
-#: core/routes.php:67
+#: core/routes.php:70
 msgid "Oops! Something wrong here..."
 msgstr "אופס! משהו לא בסדר כאן..."
 
@@ -598,14 +591,13 @@ msgstr "סמן הכל כנקרא"
 
 #: core/shortcodes/home-content.php:800
 #: core/shortcodes/home-content.php:801
-#: inc/functions/functions.php:1856
-#: inc/functions/functions.php:1862
-#: inc/functions/functions.php:1868
+#: inc/functions/functions.php:1897
+#: inc/functions/functions.php:1903
+#: inc/functions/functions.php:1909
 msgid "Enter"
 msgstr "הזן"
 
 #: assets/build/portals-app.js:9
-#: assets/build/portals-app.js:24
 msgid "User"
 msgstr "משתמש"
 
@@ -636,7 +628,7 @@ msgid "Search"
 msgstr "חיפוש"
 
 #: core/shortcodes/user-profile.php:164
-#: inc/functions/functions.php:2679
+#: inc/functions/functions.php:2720
 msgid "Guest User"
 msgstr "משתמש אורח"
 
@@ -646,57 +638,57 @@ msgstr "משתמש אורח"
 msgid "Edit %1$s with %2$s"
 msgstr "ערוך את %1$s עם %2$s"
 
-#: inc/modules/email-notifications/emails.php:55
+#: inc/modules/email-notifications/emails.php:67
 msgid "Someone has requested a password reset for the following account:"
 msgstr "מישהו ביקש לאפס את הסיסמה עבור החשבון הבא:"
 
 #. translators: %s: Username.
-#: inc/modules/email-notifications/emails.php:61
+#: inc/modules/email-notifications/emails.php:73
 msgid "Username:"
 msgstr "שם משתמש:"
 
-#: inc/modules/email-notifications/emails.php:67
+#: inc/modules/email-notifications/emails.php:79
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "אם זו הייתה טעות, פשוט התעלם מהאימייל הזה ושום דבר לא יקרה."
 
-#: inc/functions/functions.php:675
-#: inc/functions/functions.php:2330
+#: inc/functions/functions.php:716
+#: inc/functions/functions.php:2371
 #: assets/build/portals-app.js:8
 msgid "Just now"
 msgstr "כרגע"
 
-#: inc/functions/functions.php:756
+#: inc/functions/functions.php:797
 msgid "Pingback:"
 msgstr "פינגבק:"
 
-#: inc/functions/functions.php:756
+#: inc/functions/functions.php:797
 msgid "(Edit)"
 msgstr "(עריכה)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:769
+#: inc/functions/functions.php:810
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s ב־%2$s"
 
-#: inc/functions/functions.php:846
-#: inc/functions/functions.php:847
+#: inc/functions/functions.php:887
+#: inc/functions/functions.php:888
 msgid "Your comment is awaiting moderation."
 msgstr "התגובה שלך ממתינה לאישור."
 
-#: inc/functions/functions.php:886
+#: inc/functions/functions.php:927
 msgid "Reply"
 msgstr "השב"
 
 #: inc/functions/markup.php:690
-#: inc/utils/helper.php:1687
+#: inc/utils/helper.php:1761
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
 msgstr[0] "אהבתי"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1487
+#: inc/functions/functions.php:1528
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Unknown"
@@ -711,7 +703,7 @@ msgid "Allowed file formats:"
 msgstr "פורמטים מותרים של קבצים:"
 
 #: inc/functions/markup.php:708
-#: inc/utils/helper.php:1715
+#: inc/utils/helper.php:1789
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "תגובה"
@@ -755,7 +747,7 @@ msgstr "הנתונים נשמרו בהצלחה."
 msgid "All"
 msgstr "הכל"
 
-#: inc/utils/helper.php:1727
+#: inc/utils/helper.php:1801
 msgid "Share Post"
 msgstr "שתף פוסט"
 
@@ -763,21 +755,21 @@ msgstr "שתף פוסט"
 msgid "Copied!"
 msgstr "הועתק!"
 
-#: inc/utils/helper.php:2162
+#: inc/utils/helper.php:2236
 msgid "This discussion is only available for VIP members."
 msgstr "דיון זה זמין רק לחברי VIP."
 
-#: inc/utils/helper.php:2164
+#: inc/utils/helper.php:2238
 msgid "Please upgrade to add response."
 msgstr "אנא שדרג כדי להוסיף תגובה."
 
-#: inc/utils/helper.php:2165
+#: inc/utils/helper.php:2239
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "שדרג עכשיו"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2176
+#: inc/utils/helper.php:2250
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -789,6 +781,7 @@ msgstr "חזרה ל"
 
 #: core/shortcodes/home-content.php:1073
 #: inc/utils/labels.php:44
+#: assets/build/portals-app.js:24
 msgid "Portal"
 msgstr "פורטל"
 
@@ -823,7 +816,7 @@ msgstr "פוסטים"
 msgid "Liked"
 msgstr "אהבתי"
 
-#: inc/utils/helper.php:1351
+#: inc/utils/helper.php:1425
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
@@ -1151,7 +1144,7 @@ msgstr "הקובץ אינו תואם"
 msgid "File is not uploaded"
 msgstr "הקובץ לא הועלה"
 
-#: loader.php:450
+#: loader.php:451
 msgid "Portal Menu"
 msgstr "תפריט פורטל"
 
@@ -1986,7 +1979,7 @@ msgstr "תוויות שדה"
 msgid "Typography"
 msgstr "טיפוגרפיה"
 
-#: inc/functions/functions.php:2092
+#: inc/functions/functions.php:2133
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "טקסט"
@@ -2558,7 +2551,7 @@ msgid "V %s"
 msgstr "V %s"
 
 #: core/shortcodes/single-content.php:394
-#: inc/functions/functions.php:822
+#: inc/functions/functions.php:863
 #: templates/single/post.php:166
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2680,7 +2673,7 @@ msgid "Error updating settings: "
 msgstr "שגיאה בעדכון ההגדרות:"
 
 #: core/shortcodes/single-content.php:399
-#: inc/functions/functions.php:827
+#: inc/functions/functions.php:868
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2747,13 +2740,7 @@ msgstr "תכונה זו זמינה רק ב-SureDash Pro."
 msgid "Portal Name"
 msgstr "שם הפורטל"
 
-#: assets/build/portals-app.js:21
-msgid "Hide"
-msgstr "הסתר"
-
-#: inc/functions/functions.php:2089
-#: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:24
+#: inc/functions/functions.php:2130
 msgid "Branding"
 msgstr "מיתוג"
 
@@ -2782,23 +2769,15 @@ msgstr "הפעל Lightbox"
 msgid "Enabling this will allow lightweight lightbox for your content images."
 msgstr "הפעלת זה תאפשר תיבת אור קלה לתמונות התוכן שלך."
 
-#: assets/build/portals-app.js:21
-msgid "Google Registration"
-msgstr "הרשמה ל-Google"
-
-#: assets/build/portals-app.js:21
-msgid "Facebook Registration"
-msgstr "הרשמה לפייסבוק"
-
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Facebook Token ID"
 msgstr "מזהה אסימון פייסבוק"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Facebook Token Secret"
 msgstr "סוד אסימון פייסבוק"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCaptcha"
 msgstr "Google reCaptcha"
 
@@ -2860,14 +2839,6 @@ msgid "Delete Link"
 msgstr "מחק קישור"
 
 #: assets/build/portals-app.js:21
-msgid "New User Capabilities"
-msgstr "יכולות משתמש חדשות"
-
-#: assets/build/portals-app.js:21
-msgid "Portal Managers"
-msgstr "מנהלי פורטל"
-
-#: assets/build/portals-app.js:21
 msgid "Start typing…"
 msgstr "התחל להקליד…"
 
@@ -2902,10 +2873,6 @@ msgstr "התחל לכתוב את הפוסט שלך"
 #: assets/build/portals-app.js:21
 msgid "Write a Post"
 msgstr "כתוב פוסט"
-
-#: assets/build/portals-app.js:21
-msgid "Feeds Per Page"
-msgstr "פידים לכל עמוד"
 
 #: assets/build/portals-app.js:21
 msgid "Bypass WordPress Interactions"
@@ -2997,14 +2964,13 @@ msgstr "אישור לא חוקי"
 
 #: core/routers/backend.php:468
 #: core/routers/backend.php:510
-#: core/routers/backend.php:1283
-#: core/routers/backend.php:2241
+#: core/routers/backend.php:1286
+#: core/routers/backend.php:2244
 msgid "Invalid post type."
 msgstr "סוג פוסט לא חוקי."
 
 #: admin/menu.php:199
 #: admin/menu.php:200
-#: assets/build/portals-app.js:21
 msgid "Customize Portal"
 msgstr "התאם אישית את הפורטל"
 
@@ -3069,15 +3035,15 @@ msgstr "טקסט קבוצת חלל"
 msgid "Space Group Background"
 msgstr "רקע קבוצת חלל"
 
-#: core/routers/misc.php:1922
+#: core/routers/misc.php:1913
 msgid "Uploaded file is not a valid image."
 msgstr "הקובץ שהועלה אינו תמונה חוקית."
 
-#: core/routers/misc.php:1926
+#: core/routers/misc.php:1917
 msgid "File size larger than permissible."
 msgstr "גודל הקובץ גדול מהמותר."
 
-#: inc/functions/functions.php:1586
+#: inc/functions/functions.php:1627
 msgid "No matching template found."
 msgstr "לא נמצאה תבנית תואמת."
 
@@ -3289,7 +3255,7 @@ msgstr "אנא הזן את כתובת ה-URL של המדיה שברצונך לה
 msgid "SinglePost Integration"
 msgstr "אינטגרציית SinglePost"
 
-#: core/integrations/sure-members.php:475
+#: core/integrations/sure-members.php:477
 msgid "Access Group: "
 msgstr "קבוצת גישה:"
 
@@ -3297,59 +3263,59 @@ msgstr "קבוצת גישה:"
 msgid "Forum:"
 msgstr "פורום:"
 
-#: core/routers/backend.php:1287
+#: core/routers/backend.php:1290
 msgid "Invalid action or post ID."
 msgstr "פעולה או מזהה פוסט לא חוקיים."
 
-#: core/routers/backend.php:1355
+#: core/routers/backend.php:1358
 msgid "Successfully published."
 msgstr "פורסם בהצלחה."
 
-#: core/routers/backend.php:1356
+#: core/routers/backend.php:1359
 msgid "Failed to publish."
 msgstr "נכשל בפרסום."
 
-#: core/routers/backend.php:1365
+#: core/routers/backend.php:1368
 msgid "Successfully drafted."
 msgstr "נשמר בהצלחה."
 
-#: core/routers/backend.php:1366
+#: core/routers/backend.php:1369
 msgid "Failed to draft."
 msgstr "נכשל בשמירה."
 
-#: core/routers/backend.php:1375
+#: core/routers/backend.php:1378
 msgid "Successfully trashed."
 msgstr "נמחק בהצלחה."
 
-#: core/routers/backend.php:1376
+#: core/routers/backend.php:1379
 msgid "Failed to trash."
 msgstr "נכשל במחיקה."
 
-#: core/routers/backend.php:1380
+#: core/routers/backend.php:1383
 msgid "Successfully restored."
 msgstr "שוחזר בהצלחה."
 
-#: core/routers/backend.php:1381
+#: core/routers/backend.php:1384
 msgid "Failed to restore."
 msgstr "נכשל בשחזור."
 
-#: core/routers/backend.php:1386
+#: core/routers/backend.php:1389
 msgid "Failed to delete."
 msgstr "נכשל במחיקה."
 
-#: core/routers/backend.php:1390
+#: core/routers/backend.php:1393
 msgid "Successfully duplicated."
 msgstr "שוכפל בהצלחה."
 
-#: core/routers/backend.php:1391
+#: core/routers/backend.php:1394
 msgid "Failed to duplicate."
 msgstr "נכשל בשכפול."
 
-#: core/routers/backend.php:1488
+#: core/routers/backend.php:1491
 msgid "Invalid action or post IDs."
 msgstr "פעולה או מזהי פוסט לא חוקיים."
 
-#: core/routers/backend.php:1529
+#: core/routers/backend.php:1532
 msgid "Bulk action completed successfully."
 msgstr "פעולה מרוכזת הושלמה בהצלחה."
 
@@ -3407,7 +3373,6 @@ msgid "Please fill in all required fields."
 msgstr "אנא מלא את כל השדות הנדרשים."
 
 #: assets/build/portals-app.js:8
-#: assets/build/portals-app.js:21
 msgid "– Select –"
 msgstr "– בחר –"
 
@@ -3723,7 +3688,7 @@ msgid "We're excited to help you build, connect, and grow your community. SureDa
 msgstr "אנחנו נרגשים לעזור לך לבנות, להתחבר ולגדול את הקהילה שלך. SureDash מקלה על יצירת פלטפורמת קהילה חזקה ישירות בתוך WordPress."
 
 #: core/shortcodes/widgets/recent-activities.php:39
-#: core/shortcodes/widgets/recent-activities.php:135
+#: core/shortcodes/widgets/recent-activities.php:176
 #: assets/build/portals-app.js:9
 #: assets/build/portals-app.js:11
 msgid "Recent Activities"
@@ -3827,8 +3792,8 @@ msgstr "קבוצת גישה"
 
 #: core/integrations/feeds.php:558
 #: core/integrations/feeds.php:605
-#: core/routers/misc.php:344
-#: core/routers/misc.php:396
+#: core/routers/misc.php:343
+#: core/routers/misc.php:395
 #: core/shortcodes/home-content.php:742
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
@@ -4094,11 +4059,11 @@ msgstr "שיעורי קורס"
 msgid "New Section"
 msgstr "חלק חדש"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google Token ID"
 msgstr "מזהה טוקן של Google"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google Token Secret"
 msgstr "סוד טוקן של Google"
 
@@ -4110,34 +4075,19 @@ msgstr "לא נמצאו תוצאות"
 msgid "No Discussion Found"
 msgstr "לא נמצאה דיון"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Giphy API Key"
 msgstr "מפתח API של Giphy"
 
 #: assets/build/portals-app.js:21
-msgid "Add your Giphy API key to enable GIF support in comments."
-msgstr "הוסף את מפתח ה-API של Giphy שלך כדי לאפשר תמיכה ב-GIFים בהערות."
-
-#: assets/build/portals-app.js:24
-msgid "Community"
-msgstr "קהילה"
-
-#: assets/build/portals-app.js:24
-msgid "Login/Registration"
-msgstr "כניסה/הרשמה"
-
-#: assets/build/portals-app.js:24
-msgid "Portal Pages"
-msgstr "דפי פורטל"
-
-#: assets/build/portals-app.js:24
 msgid "Performance"
 msgstr "ביצועים"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Profile Menu"
 msgstr "תפריט פרופיל"
 
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "User Roles"
 msgstr "תפקידי משתמש"
@@ -4191,6 +4141,7 @@ msgstr "הגדרות עיצוב"
 #: admin/menu.php:174
 #: admin/menu.php:175
 #: core/renderer.php:276
+#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:33
 msgid "Users"
@@ -4266,24 +4217,24 @@ msgstr "עבור לדף כל הפוסטים"
 msgid "Go to Settings Page"
 msgstr "עבור לדף ההגדרות"
 
-#: core/routers/backend.php:1299
+#: core/routers/backend.php:1302
 msgid "Failed to update."
 msgstr "העדכון נכשל."
 
-#: core/routers/backend.php:2251
+#: core/routers/backend.php:2254
 msgid "Comments status updated to closed."
 msgstr "סטטוס התגובות עודכן לסגור."
 
-#: core/routers/backend.php:2259
+#: core/routers/backend.php:2262
 msgid "Comments status updated to open."
 msgstr "סטטוס התגובות עודכן לפתוח."
 
-#: core/routers/backend.php:2628
+#: core/routers/backend.php:2631
 #: assets/build/portals-app.js:27
 msgid "(no title)"
 msgstr "(ללא כותרת)"
 
-#: core/routers/backend.php:2690
+#: core/routers/backend.php:2693
 msgid "Unknown post"
 msgstr "פוסט לא ידוע"
 
@@ -4473,31 +4424,23 @@ msgstr "סטטוס התגובה עודכן לפתוח."
 msgid "Are you sure you want to remove this lesson? It will be deleted when you save the space."
 msgstr "האם אתה בטוח שברצונך להסיר את השיעור הזה? הוא יימחק כאשר תשמור את השטח."
 
-#: assets/build/portals-app.js:21
-msgid "Customize your portal's logo, layout, and colors from the"
-msgstr "התאם אישית את הלוגו, הפריסה והצבעים של הפורטל שלך מתוך ה"
-
-#: assets/build/portals-app.js:21
-msgid "Make it reflect your brand."
-msgstr "תן לזה לשקף את המותג שלך."
-
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Site Key"
 msgstr "מפתח אתר"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Secret Key"
 msgstr "מפתח סודי"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCAPTCHA v2 Settings"
 msgstr "הגדרות Google reCAPTCHA v2"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCAPTCHA v3 Settings"
 msgstr "הגדרות Google reCAPTCHA v3"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable reCAPTCHA for your form, please follow the steps mentioned"
 msgstr "כדי להפעיל reCAPTCHA עבור הטופס שלך, אנא עקוב אחר השלבים המוזכרים"
 
@@ -4528,14 +4471,6 @@ msgstr "תווית הזנות"
 #: assets/build/portals-app.js:21
 msgid "Login or Join Text"
 msgstr "התחבר או הצטרף טקסט"
-
-#: assets/build/portals-app.js:21
-msgid "To manage comments & other moderation settings, please visit the"
-msgstr "כדי לנהל תגובות והגדרות מתינות אחרות, אנא בקר ב"
-
-#: assets/build/portals-app.js:21
-msgid "WordPress Discussion Settings."
-msgstr "הגדרות דיון של וורדפרס."
 
 #: assets/build/portals-app.js:27
 msgid "Recent Posts"
@@ -4635,11 +4570,12 @@ msgid "CAPTCHA Type"
 msgstr "סוג CAPTCHA"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:24
 msgid "Appearance"
 msgstr "מראה"
 
@@ -4671,6 +4607,7 @@ msgstr "שדרג את הסרטון שלך והתרשם את הקהל שלך עם
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Learn More"
 msgstr "למד עוד"
@@ -4679,21 +4616,17 @@ msgstr "למד עוד"
 msgid "Published on"
 msgstr "פורסם ב"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Cloudflare Turnstile for your form, please follow the steps mentioned"
 msgstr "כדי להפעיל את Cloudflare Turnstile עבור הטופס שלך, אנא עקוב אחרי הצעדים המוזכרים"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Facebook login and registration for your form, please follow the steps mentioned"
 msgstr "כדי להפעיל את הכניסה והרישום של פייסבוק עבור הטופס שלך, אנא עקוב אחרי הצעדים המוזכרים"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Google login and registration for your form, please follow the steps mentioned"
 msgstr "כדי להפעיל את הכניסה והרישום של גוגל עבור הטופס שלך, אנא עקוב אחרי הצעדים המוזכרים"
-
-#: assets/build/portals-app.js:21
-msgid "Get key"
-msgstr "קבל מפתח"
 
 #: assets/build/portals-app.js:27
 msgid "No Users Yet."
@@ -4784,24 +4717,24 @@ msgstr "הצג פרטים"
 msgid "Loading..."
 msgstr "טוען..."
 
-#: core/blocks/login.php:87
+#: core/blocks/login.php:191
 msgid "Invalid request."
 msgstr "בקשה לא חוקית."
 
-#: core/blocks/login.php:92
-#: core/blocks/login.php:99
+#: core/blocks/login.php:196
+#: core/blocks/login.php:203
 msgid "Invalid data."
 msgstr "נתונים לא חוקיים."
 
-#: core/blocks/login.php:109
+#: core/blocks/login.php:213
 msgid "Please enter your password."
 msgstr "אנא הזן את הסיסמה שלך."
 
-#: core/blocks/login.php:131
+#: core/blocks/login.php:235
 msgid "Your password has been reset successfully. Redirecting to login..."
 msgstr "הסיסמה שלך שונתה בהצלחה. מועבר לכניסה..."
 
-#: core/blocks/login.php:135
+#: core/blocks/login.php:239
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
 msgid "Unknown error"
@@ -4820,49 +4753,49 @@ msgstr "שילוב שם וסוג המרחב זמין."
 msgid "Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces."
 msgstr "מרחבי אוסף הם תכונה פרימיום. אנא שדרג ל-SureDash Pro כדי ליצור מרחבי אוסף."
 
-#: core/routers/backend.php:2281
+#: core/routers/backend.php:2284
 msgid "Invalid post IDs."
 msgstr "מזהי פוסטים לא חוקיים."
 
-#: core/routers/backend.php:2305
+#: core/routers/backend.php:2308
 #: assets/build/portals-app.js:21
 msgid "Comments status updated."
 msgstr "סטטוס התגובות עודכן."
 
-#: core/routers/backend.php:2724
+#: core/routers/backend.php:2727
 msgid "No icons found."
 msgstr "לא נמצאו אייקונים."
 
-#: core/routers/misc.php:1232
-#: core/routers/misc.php:1309
+#: core/routers/misc.php:1225
+#: core/routers/misc.php:1302
 msgid "Comment not found."
 msgstr "תגובה לא נמצאה."
 
-#: core/routers/misc.php:1237
+#: core/routers/misc.php:1230
 msgid "You are not authorized to edit this comment."
 msgstr "אינך מורשה לערוך תגובה זו."
 
-#: core/routers/misc.php:1268
+#: core/routers/misc.php:1261
 msgid "Failed to update comment."
 msgstr "נכשל בעדכון התגובה."
 
-#: core/routers/misc.php:1278
+#: core/routers/misc.php:1271
 msgid "Comment Updated Successfully!"
 msgstr "התגובה עודכנה בהצלחה!"
 
-#: core/routers/misc.php:1318
+#: core/routers/misc.php:1311
 msgid "You are not authorized to delete this comment."
 msgstr "אינך מורשה למחוק תגובה זו."
 
-#: core/routers/misc.php:1325
+#: core/routers/misc.php:1318
 msgid "Failed to delete comment."
 msgstr "נכשל במחיקת התגובה."
 
-#: core/routers/misc.php:1329
+#: core/routers/misc.php:1322
 msgid "Comment deleted successfully!"
 msgstr "התגובה נמחקה בהצלחה!"
 
-#: core/routers/misc.php:1917
+#: core/routers/misc.php:1908
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "סוג קובץ לא חוקי. רק GIF, PNG, JPEG, JPG ו- WEBP מותרים."
 
@@ -4880,23 +4813,23 @@ msgid "Re-enter your new password"
 msgstr "הזן שוב את הסיסמה החדשה שלך"
 
 #: core/shortcodes/single-content.php:355
-#: inc/functions/functions.php:864
+#: inc/functions/functions.php:905
 #: templates/quick-view/post.php:83
 #: templates/single/post.php:103
 msgid "Edited"
 msgstr "נערך"
 
-#: inc/functions/functions.php:811
+#: inc/functions/functions.php:852
 msgid "Comment actions"
 msgstr "פעולות תגובה"
 
 #: core/shortcodes/single-content.php:404
-#: inc/functions/functions.php:831
+#: inc/functions/functions.php:872
 #: templates/single/post.php:176
 msgid "Copy URL"
 msgstr "העתק URL"
 
-#: inc/functions/functions.php:1875
+#: inc/functions/functions.php:1916
 msgid "Write a short bio about yourself..."
 msgstr "כתוב ביוגרפיה קצרה על עצמך..."
 
@@ -5108,10 +5041,6 @@ msgid "To customize the Collection Space, please upgrade to the Premium version.
 msgstr "כדי להתאים אישית את חלל האוסף, אנא שדרג לגרסה פרימיום."
 
 #: assets/build/portals-app.js:21
-msgid "User registration is currently disabled. To allow new users to sign up, please enable the “Anyone can Register” option in your"
-msgstr "הרשמת משתמשים מושבתת כרגע. כדי לאפשר למשתמשים חדשים להירשם, אנא אפשר את האפשרות \"כל אחד יכול להירשם\" ב"
-
-#: assets/build/portals-app.js:21
 msgid "Or"
 msgstr "או"
 
@@ -5177,17 +5106,17 @@ msgstr "תפקיד"
 
 #. translators: %1$s: User Name Field.
 #. translators: %1$s: Password Field.
-#: core/blocks/login.php:941
-#: core/blocks/login.php:946
+#: core/blocks/login.php:1045
+#: core/blocks/login.php:1050
 #, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr "השדה \"%1$s\" אינו יכול להיות ריק."
 
-#: core/blocks/login.php:942
+#: core/blocks/login.php:1046
 msgid "Username Field"
 msgstr "שדה שם משתמש"
 
-#: core/blocks/login.php:947
+#: core/blocks/login.php:1051
 msgid "Password Field"
 msgstr "שדה סיסמה"
 
@@ -5227,43 +5156,43 @@ msgstr "הוסף סימניה"
 msgid "Resource Space is available in the premium version of SureDash."
 msgstr "מרחב המשאבים זמין בגרסה הפרימיום של SureDash."
 
-#: inc/modules/email-notifications/emails.php:69
+#: inc/modules/email-notifications/emails.php:81
 msgid "To reset your password, visit the following URL:"
 msgstr "כדי לאפס את הסיסמה שלך, בקר ב-URL הבא:"
 
-#: inc/functions/functions.php:2090
+#: inc/functions/functions.php:2131
 #: assets/build/portals-app.js:36
 msgid "Links"
 msgstr "קישורים"
 
-#: inc/functions/functions.php:2091
+#: inc/functions/functions.php:2132
 msgid "Headings"
 msgstr "כותרות"
 
-#: inc/functions/functions.php:2093
+#: inc/functions/functions.php:2134
 #: assets/build/portals-app.js:36
 msgid "Content Background"
 msgstr "רקע תוכן"
 
-#: inc/functions/functions.php:2094
+#: inc/functions/functions.php:2135
 #: assets/build/portals-app.js:36
 msgid "Portal Background"
 msgstr "רקע פורטל"
 
-#: inc/functions/functions.php:2095
+#: inc/functions/functions.php:2136
 msgid "Alternate Background"
 msgstr "רקע חלופי"
 
-#: inc/functions/functions.php:2096
+#: inc/functions/functions.php:2137
 msgid "Subtle Background"
 msgstr "רקע עדין"
 
-#: inc/functions/functions.php:2097
+#: inc/functions/functions.php:2138
 msgid "Other Supporting"
 msgstr "תמיכה אחרת"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2265
+#: inc/functions/functions.php:2306
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5271,7 +5200,7 @@ msgstr[0] "%1$d ש' %2$d ד'"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2269
+#: inc/functions/functions.php:2310
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5279,7 +5208,7 @@ msgstr[0] "%d ש'"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2273
+#: inc/functions/functions.php:2314
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
@@ -5311,7 +5240,7 @@ msgstr "פריט משאב"
 msgid "Resource Items"
 msgstr "פריטי משאב"
 
-#: loader.php:691
+#: loader.php:697
 msgid "Rate our plugin"
 msgstr "דרג את התוסף שלנו"
 
@@ -5834,7 +5763,7 @@ msgstr "צבעים כהים"
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "לא בטוח איך להגדיר צבעים? עיין בהגדרת 9 הצבעים"
 
-#: core/routers/backend.php:2785
+#: core/routers/backend.php:2788
 msgid "Post title is required."
 msgstr "דרוש כותרת פוסט."
 
@@ -6166,36 +6095,36 @@ msgstr "ערוך פוסט"
 msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "משלב את אזור הלקוחות של SureCart עם חללי SureDash."
 
-#: core/routers/misc.php:1376
-#: core/routers/misc.php:1476
+#: core/routers/misc.php:1369
+#: core/routers/misc.php:1469
 msgid "Post not found."
 msgstr "הפוסט לא נמצא."
 
-#: core/routers/misc.php:1383
+#: core/routers/misc.php:1376
 msgid "You are not authorized to edit this post."
 msgstr "אינך מורשה לערוך פוסט זה."
 
-#: core/routers/misc.php:1425
+#: core/routers/misc.php:1418
 msgid "Failed to update post."
 msgstr "נכשל בעדכון הפוסט."
 
-#: core/routers/misc.php:1444
+#: core/routers/misc.php:1437
 msgid "Post Updated Successfully!"
 msgstr "הפוסט עודכן בהצלחה!"
 
-#: core/routers/misc.php:1480
+#: core/routers/misc.php:1473
 msgid "Invalid Post."
 msgstr "פוסט לא תקין."
 
-#: core/routers/misc.php:1489
+#: core/routers/misc.php:1482
 msgid "You are not authorized to delete this post."
 msgstr "אינך מורשה למחוק פוסט זה."
 
-#: core/routers/misc.php:1496
+#: core/routers/misc.php:1489
 msgid "Failed to delete post."
 msgstr "נכשל במחיקת הפוסט."
 
-#: core/routers/misc.php:1500
+#: core/routers/misc.php:1493
 msgid "Post deleted successfully!"
 msgstr "הפוסט נמחק בהצלחה!"
 
@@ -6216,11 +6145,11 @@ msgstr "צפה באירוע"
 msgid "Post actions"
 msgstr "פעולות פוסט"
 
-#: inc/utils/analytics.php:92
+#: inc/utils/analytics.php:129
 msgid "Quick Feedback"
 msgstr "משוב מהיר"
 
-#: inc/utils/analytics.php:94
+#: inc/utils/analytics.php:131
 msgid "If you have a moment, please share why you are deactivating SureDash:"
 msgstr "אם יש לך רגע, אנא שתף מדוע אתה מבטל את SureDash:"
 
@@ -6400,11 +6329,6 @@ msgstr "כדי לגשת לתכונת האירועים, אנא שדרג לגרס�
 msgid "You have unsaved changes. Are you sure you want to leave without saving?"
 msgstr "יש לך שינויים שלא נשמרו. האם אתה בטוח שברצונך לעזוב מבלי לשמור?"
 
-#: assets/build/portals-app.js:21
-msgid "Heads up! Portal Managers are now assigned via WordPress roles. Just give the Portal Manager role to any user who should manage SureDash."
-msgstr "שימו לב! מנהלי פורטל מוקצים כעת באמצעות תפקידים של WordPress. פשוט הענק את תפקיד מנהל הפורטל לכל משתמש שצריך לנהל את SureDash."
-
-#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Learn more"
 msgstr "למד עוד"
@@ -6514,19 +6438,19 @@ msgstr "בחר מקום לפרסום"
 msgid "Menu"
 msgstr "תפריט"
 
-#: core/routers/backend.php:2746
+#: core/routers/backend.php:2749
 msgid "No emojis found."
 msgstr "לא נמצאו אימוג'ים."
 
-#: core/routers/backend.php:2890
+#: core/routers/backend.php:2893
 msgid "Content ID is required."
 msgstr "דרוש מזהה תוכן."
 
-#: core/routers/backend.php:2899
+#: core/routers/backend.php:2902
 msgid "Content not found."
 msgstr "תוכן לא נמצא."
 
-#: core/routers/backend.php:2928
+#: core/routers/backend.php:2931
 msgid "Settings updated successfully."
 msgstr "הגדרות עודכנו בהצלחה."
 
@@ -6590,24 +6514,24 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "נכשל במחיקת טריגרי האימייל."
 
-#: core/routers/misc.php:695
-#: core/routers/misc.php:1568
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:694
+#: core/routers/misc.php:1561
+#: core/routers/misc.php:1591
 msgid "User not logged in."
 msgstr "המשתמש לא מחובר."
 
-#: core/routers/misc.php:700
+#: core/routers/misc.php:699
 msgid "User not found."
 msgstr "המשתמש לא נמצא."
 
 #. translators: %s: Site name
-#: core/routers/misc.php:720
+#: core/routers/misc.php:719
 #, php-format
 msgid "Test Email from %s"
 msgstr "אימייל בדיקה מ-%s"
 
 #. translators: %1$s: User name, %2$s: Site name
-#: core/routers/misc.php:736
+#: core/routers/misc.php:735
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6620,19 +6544,19 @@ msgstr ""
 "\t\t\t\t\tאם קיבלת את האימייל הזה, הגדרות ההודעה שלך מוגדרות כראוי!\n"
 "\t\t\t\t\t--- אימייל זה נשלח מ-%2$s"
 
-#: core/routers/misc.php:760
+#: core/routers/misc.php:754
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "אימייל הבדיקה נשלח בהצלחה! אנא בדוק את תיבת הדואר שלך."
 
-#: core/routers/misc.php:767
+#: core/routers/misc.php:761
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "נכשל בשליחת אימייל הבדיקה. אנא בדוק את קונפיגורציית האימייל שלך."
 
-#: core/routers/misc.php:809
+#: core/routers/misc.php:803
 msgid "Failed to update notification settings."
 msgstr "נכשל בעדכון הגדרות ההודעה."
 
-#: core/routers/misc.php:814
+#: core/routers/misc.php:808
 msgid "Notification settings updated successfully!"
 msgstr "הגדרות ההודעה עודכנו בהצלחה!"
 
@@ -7251,8 +7175,8 @@ msgstr "עדיין אין לייקים, היה הראשון לעשות לייק!
 #. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
 #. translators: %s: time ago
 #: core/notifier/base.php:204
-#: core/shortcodes/widgets/recent-activities.php:60
-#: inc/functions/functions.php:2334
+#: core/shortcodes/widgets/recent-activities.php:96
+#: inc/functions/functions.php:2375
 msgid "%s ago"
 msgstr "לפני %s"
 
@@ -7277,15 +7201,15 @@ msgstr "הסיסמה שהזנת עבור שם המשתמש %1$s שגויה. %2$s
 msgid "Receive admin notifications"
 msgstr "קבל התראות מנהל"
 
-#: inc/functions/functions.php:2682
+#: inc/functions/functions.php:2723
 msgid "Anonymous"
 msgstr "אנונימי"
 
-#: inc/utils/helper.php:1693
+#: inc/utils/helper.php:1767
 msgid "No likes yet."
 msgstr "עדיין אין לייקים."
 
-#: inc/utils/helper.php:1729
+#: inc/utils/helper.php:1803
 msgid "Share"
 msgstr "שתף"
 
@@ -7374,19 +7298,19 @@ msgstr "לא נמצאו קבוצות גישה"
 msgid "Post Visibility"
 msgstr "נראות הפוסט"
 
-#: core/routers/backend.php:2507
+#: core/routers/backend.php:2510
 msgid "SureMembers plugin is not active."
 msgstr "התוסף SureMembers אינו פעיל."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1595
 msgid "Space ID is required."
 msgstr "נדרש מזהה חלל."
 
-#: core/routers/misc.php:1611
+#: core/routers/misc.php:1604
 msgid "Space marked as read."
 msgstr "המרחב סומן כנקרא."
 
-#: core/routers/misc.php:1615
+#: core/routers/misc.php:1608
 msgid "Failed to mark space as read."
 msgstr "נכשל בסימון המרחב כנקרא."
 
@@ -7410,28 +7334,28 @@ msgid "No info available."
 msgstr "אין מידע זמין."
 
 #: core/shortcodes/widgets/post-widget.php:64
-#: core/shortcodes/widgets/post-widget.php:119
+#: core/shortcodes/widgets/post-widget.php:124
 msgid "No posts available."
 msgstr "אין פוסטים זמינים."
 
-#: core/shortcodes/widgets/recent-activities.php:86
+#: core/shortcodes/widgets/recent-activities.php:127
 msgid "No recent comments yet."
 msgstr "עדיין אין תגובות אחרונות."
 
-#: core/shortcodes/widgets/recent-activities.php:109
-#: core/shortcodes/widgets/recent-activities.php:341
-#: core/shortcodes/widgets/recent-activities.php:510
-#: core/shortcodes/widgets/recent-activities.php:570
-#: core/shortcodes/widgets/recent-activities.php:637
+#: core/shortcodes/widgets/recent-activities.php:150
+#: core/shortcodes/widgets/recent-activities.php:392
+#: core/shortcodes/widgets/recent-activities.php:579
+#: core/shortcodes/widgets/recent-activities.php:645
+#: core/shortcodes/widgets/recent-activities.php:718
 msgid " commented on: "
 msgstr "הגיב על:"
 
-#: core/shortcodes/widgets/recent-activities.php:192
+#: core/shortcodes/widgets/recent-activities.php:233
 msgid "No recent activities."
 msgstr "אין פעילויות אחרונות."
 
-#: core/shortcodes/widgets/recent-activities.php:261
-#: core/shortcodes/widgets/recent-activities.php:450
+#: core/shortcodes/widgets/recent-activities.php:310
+#: core/shortcodes/widgets/recent-activities.php:513
 msgid " posted: "
 msgstr "פורסם:"
 
@@ -7745,7 +7669,6 @@ msgid "Showcase user profiles with avatars and information"
 msgstr "הצג פרופילי משתמשים עם אווטרים ומידע"
 
 #: assets/build/portals-app.js:11
-#: assets/build/portals-app.js:24
 msgid "Global Sidebar"
 msgstr "סרגל צד גלובלי"
 
@@ -7828,20 +7751,12 @@ msgid "Set the maximum file size limit for users to upload assets like images, d
 msgstr "הגדר את מגבלת גודל הקובץ המרבי עבור משתמשים להעלאת נכסים כמו תמונות, מסמכים וקבצי מדיה אחרים בפוסטים, תגובות ואזורים אחרים של תוכן."
 
 #: assets/build/portals-app.js:21
-msgid "Set the maximum upload limit for users to upload files."
-msgstr "הגדר את מגבלת ההעלאה המרבית עבור משתמשים להעלאת קבצים."
-
-#: assets/build/portals-app.js:21
 msgid "Profile and Cover Image Upload Limit"
 msgstr "מגבלת העלאת תמונת פרופיל ותמונת כיסוי"
 
 #: assets/build/portals-app.js:21
 msgid "Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies only to user profile images."
 msgstr "הגדר את מגבלת גודל הקובץ המרבית במיוחד להעלאות תמונות פרופיל ותמונות כיסוי/באנר. מגבלה זו חלה רק על תמונות פרופיל משתמש."
-
-#: assets/build/portals-app.js:21
-msgid "Set the maximum upload limit for users to upload profile picture & banner image."
-msgstr "הגדר את מגבלת ההעלאה המרבית עבור משתמשים להעלאת תמונת פרופיל ותמונת באנר."
 
 #: assets/build/portals-app.js:24
 msgid "groups selected"
@@ -7959,42 +7874,42 @@ msgstr "עדיין לא הצטרפת לאירועים."
 #. translators: %1$s: author name, %2$s: post date
 #: core/integrations/feeds.php:538
 #: core/integrations/feeds.php:586
-#: core/routers/misc.php:324
-#: core/routers/misc.php:377
+#: core/routers/misc.php:323
+#: core/routers/misc.php:376
 #: core/shortcodes/home-content.php:723
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1339
-#: inc/utils/helper.php:1364
+#: inc/utils/helper.php:1413
+#: inc/utils/helper.php:1438
 msgid "Latest"
 msgstr "החדש ביותר"
 
-#: inc/utils/helper.php:1343
+#: inc/utils/helper.php:1417
 msgid "Oldest"
 msgstr "הישן ביותר"
 
-#: inc/utils/helper.php:1347
+#: inc/utils/helper.php:1421
 msgid "Popular"
 msgstr "פופולרי"
 
-#: inc/utils/helper.php:1355
+#: inc/utils/helper.php:1429
 msgid "New Activity"
 msgstr "פעילות חדשה"
 
-#: inc/utils/helper.php:1359
+#: inc/utils/helper.php:1433
 msgid "Alphabetical"
 msgstr "אלפביתית"
 
-#: inc/utils/helper.php:1373
+#: inc/utils/helper.php:1447
 msgid "Sort by:"
 msgstr "מיין לפי:"
 
-#: inc/utils/helper.php:1381
+#: inc/utils/helper.php:1455
 msgid "Sort options"
 msgstr "אפשרויות מיון"
 
-#: inc/utils/helper.php:1417
+#: inc/utils/helper.php:1491
 msgid "Toggle view"
 msgstr "החלף תצוגה"
 
@@ -8003,7 +7918,7 @@ msgid "This community's portal spaces will be listed here."
 msgstr "מרחבי הפורטל של הקהילה הזו יופיעו כאן."
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2356
+#: inc/functions/functions.php:2397
 msgid "in %s"
 msgstr "ב-%s"
 
@@ -8132,7 +8047,7 @@ msgstr "למד עוד על לוח המנהיגים"
 
 #: core/blocks/interactivity/build/Title/view.php:56
 #: core/shortcodes/content-header.php:82
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Feeds"
 msgstr "פידים"
 
@@ -8170,11 +8085,11 @@ msgid "This forum group is created for the space: %s"
 msgstr "קבוצת הפורום הזו נוצרה עבור המרחב: %s"
 
 #. translators: %s: original post title
-#: core/routers/backend.php:1395
+#: core/routers/backend.php:1398
 msgid "%s - Copy"
 msgstr "%s - העתק"
 
-#: core/routers/misc.php:481
+#: core/routers/misc.php:480
 msgid "User ID is required."
 msgstr "דרוש מזהה משתמש."
 
@@ -8258,11 +8173,11 @@ msgstr "אפשרויות נוספות"
 msgid "Course Label"
 msgstr "תווית קורס"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Help shape the future of SureDash"
 msgstr "עזור לעצב את העתיד של SureDash"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions. "
 msgstr "שתף כיצד אתה משתמש בתוסף כדי שנוכל לבנות תכונות שחשובות, לתקן בעיות מהר יותר, ולקבל החלטות חכמות יותר."
 
@@ -8303,10 +8218,6 @@ msgstr "אירעה שגיאה במהלך הכניסה. אנא נסה שוב."
 #: assets/js/unminified/login.js:667
 msgid "Please enter your email."
 msgstr "אנא הזן את כתובת האימייל שלך."
-
-#: assets/js/unminified/login.js:701
-msgid "We couldn’t send the reset email. Please try again or contact support."
-msgstr "לא הצלחנו לשלוח את האימייל לאיפוס. אנא נסה שוב או פנה לתמיכה."
 
 #: assets/js/unminified/login.js:709
 #: assets/js/unminified/login.js:823
@@ -8391,6 +8302,313 @@ msgstr "מחק %s"
 msgid "Deleted %s file"
 msgstr "נמחק %s קובץ"
 
+#: core/assets.php:111
+msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
+msgstr "תומך ב-YouTube, Vimeo, Dailymotion, VideoPress ועוד"
+
+#: core/routers/misc.php:1628
+msgid "A valid URL is required."
+msgstr "נדרש URL תקף."
+
+#: core/routers/misc.php:1639
+msgid "This URL is not from a supported video provider."
+msgstr "ה-URL הזה אינו מספק סרטונים נתמך."
+
+#: core/routers/misc.php:1651
+msgid "Could not resolve video. Please check the URL and try again."
+msgstr "לא ניתן לפתור את הסרטון. אנא בדוק את ה-URL ונסה שוב."
+
+#: inc/modules/mcp/module.php:195
+msgid "MCP settings saved successfully."
+msgstr "הגדרות MCP נשמרו בהצלחה."
+
+#: inc/modules/mcp/module.php:246
+msgid "SureDash MCP Server"
+msgstr "שרת SureDash MCP"
+
+#: inc/modules/mcp/module.php:247
+msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
+msgstr "שרת SureDash MCP לניהול פורטל קהילתי — חללים, קבוצות, פוסטים, משתמשים, הגדרות וניתוחים."
+
+#: inc/utils/labels.php:122
+#: inc/utils/labels.php:123
+msgid "You're all caught up — happy posting! 🎉"
+msgstr "אתה מעודכן — פרסום שמח! 🎉"
+
+#: assets/build/portals-app.js:17
+msgid "Cover Image URL"
+msgstr "כתובת URL של תמונת כיסוי"
+
+#: assets/build/portals-app.js:17
+msgid "Embed Media URL"
+msgstr "כתובת URL של מדיה מוטמעת"
+
+#: assets/build/portals-app.js:24
+msgid "Copy to clipboard"
+msgstr "העתק ללוח"
+
+#: assets/build/portals-app.js:24
+msgid "Claude Desktop"
+msgstr "Claude Desktop"
+
+#: assets/build/portals-app.js:24
+msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgstr "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) או %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+
+#: assets/build/portals-app.js:24
+msgid "Claude Code"
+msgstr "קוד Claude"
+
+#: assets/build/portals-app.js:24
+msgid ".mcp.json (project) or ~/.claude.json (global)"
+msgstr ".mcp.json (פרויקט) או ~/.claude.json (גלובלי)"
+
+#: assets/build/portals-app.js:24
+msgid "Cursor"
+msgstr "סמן"
+
+#: assets/build/portals-app.js:24
+msgid "~/.cursor/mcp.json"
+msgstr "~/.cursor/mcp.json"
+
+#: assets/build/portals-app.js:24
+msgid "VS Code (Copilot)"
+msgstr "VS Code (Copilot)"
+
+#: assets/build/portals-app.js:24
+msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
+msgstr ".vscode/mcp.json (פרויקט) או settings.json > mcp.servers (גלובלי)"
+
+#: assets/build/portals-app.js:24
+msgid "~/.continue/config.yaml or config.json"
+msgstr "~/.continue/config.yaml או config.json"
+
+#: assets/build/portals-app.js:24
+msgid "Other"
+msgstr "אחר"
+
+#: assets/build/portals-app.js:24
+msgid "Your client's MCP configuration file"
+msgstr "קובץ ההגדרות של ה-MCP של הלקוח שלך"
+
+#: assets/build/portals-app.js:24
+msgid "Connect Your AI Client"
+msgstr "חבר את לקוח ה-AI שלך"
+
+#: assets/build/portals-app.js:24
+msgid "AI Client"
+msgstr "לקוח AI"
+
+#: assets/build/portals-app.js:24
+msgid "Create an Application Password — "
+msgstr "צור סיסמת אפליקציה — "
+
+#: assets/build/portals-app.js:24
+msgid "Open Application Passwords"
+msgstr "פתח סיסמאות אפליקציה"
+
+#: assets/build/portals-app.js:24
+msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
+msgstr "או השתמש בפקודת CLI זו כדי להוסיף את השרת במהירות (עדיין תצטרך להגדיר את משתני הסביבה):"
+
+#: assets/build/portals-app.js:24
+msgid "Copy the JSON config below into: "
+msgstr "העתק את קובץ ה-JSON למטה ל:"
+
+#: assets/build/portals-app.js:24
+msgid "Replace \"your-application-password\" with the password from Step 1."
+msgstr "החלף \"your-application-password\" עם הסיסמה משלב 1."
+
+#: assets/build/portals-app.js:24
+msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
+msgstr "WP_API_URL — נקודת הקצה של ה-MCP של האתר שלך. WP_API_USERNAME — שם המשתמש שלך ב-WordPress. WP_API_PASSWORD — סיסמת האפליקציה שיצרת."
+
+#: assets/build/portals-app.js:24
+msgid "View setup docs"
+msgstr "צפה במסמכי ההתקנה"
+
+#: assets/build/portals-app.js:24
+msgid "Activating…"
+msgstr "מופעל…"
+
+#: assets/build/portals-app.js:24
+msgid "Activate MCP Adapter"
+msgstr "הפעל את מתאם ה-MCP"
+
+#: assets/build/portals-app.js:24
+msgid "Download MCP Adapter"
+msgstr "הורד את מתאם ה-MCP"
+
+#: assets/build/portals-app.js:24
+msgid "Enable Abilities"
+msgstr "אפשר יכולות"
+
+#: assets/build/portals-app.js:24
+msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
+msgstr "רשום את יכולות SureDash עם API יכולות של WordPress. כאשר הן מופעלות, לקוחות AI יכולים לרשום, לקרוא, ליצור, לערוך ולנהל את הפורטל שלך. כאשר הן מושבתות, אין יכולות רשומות וללקוחות AI אין אפשרות לבצע פעולות כלשהן."
+
+#: assets/build/portals-app.js:24
+msgid "Enable Edit Abilities"
+msgstr "אפשר יכולות עריכה"
+
+#: assets/build/portals-app.js:24
+msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
+msgstr "כאשר הן מופעלות, לקוחות AI יכולים לעדכן חללים, הגדרות, פוסטים, קבוצות ותוכן אחר. כאשר הן מושבתות, יכולות אלו אינן רשומות וללקוחות AI ניתן רק לקרוא את הנתונים שלך."
+
+#: assets/build/portals-app.js:24
+msgid "Enable Delete Abilities"
+msgstr "אפשר יכולות מחיקה"
+
+#: assets/build/portals-app.js:24
+msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
+msgstr "כאשר הן מופעלות, לקוחות AI יכולים למחוק לצמיתות חללים, פוסטים וקבוצות. נתונים שנמחקו אינם ניתנים לשחזור. כאשר הן מושבתות, יכולות המחיקה אינן רשומות וללקוחות AI אין אפשרות להסיר נתונים כלשהם."
+
+#: assets/build/portals-app.js:24
+msgid "Enable MCP Server"
+msgstr "אפשר שרת MCP"
+
+#: assets/build/portals-app.js:24
+msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
+msgstr "יוצר נקודת קצה ייעודית של SureDash MCP שאלו לקוחות AI כמו Claude יכולים להתחבר אליה. כאשר היא מושבתת, נקודת הקצה מוסרת וללקוחות AI חיצוניים אין אפשרות לגלות או לקרוא כל יכולת של SureDash."
+
+#: assets/build/portals-app.js:24
+msgid "MCP"
+msgstr "MCP"
+
+#: templates/parts/logged-in-screen.php:49
+msgid "You're already signed in"
+msgstr "אתה כבר מחובר"
+
+#. translators: 1: user display name, 2: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:55
+msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
+msgstr "ברוך שובך, %1$s. חזור ל-%2$s כדי להמשיך מהמקום שבו הפסקת."
+
+#. translators: %s: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:65
+msgid "Go to %s"
+msgstr "עבור ל-%s"
+
+#: templates/parts/logged-in-screen.php:71
+msgid "Not you? Sign out"
+msgstr "לא אתה? התנתק"
+
+#: assets/build/portals-app.js:8
+msgid "Close video"
+msgstr "סגור וידאו"
+
+#: assets/build/portals-app.js:11
+msgid "Use Course Thumbnail as Default"
+msgstr "השתמש בתמונת הקורס כברירת מחדל"
+
+#: assets/build/portals-app.js:11
+msgid "When no featured image is set, use the course thumbnail"
+msgstr "כאשר לא הוגדרה תמונה מוצגת, השתמש בתמונת הקורס"
+
+#: assets/build/portals-app.js:21
+msgid "Portal Identity"
+msgstr "זהות הפורטל"
+
+#: assets/build/portals-app.js:21
+msgid "Visibility"
+msgstr "נראות"
+
+#: assets/build/portals-app.js:21
+msgid "Usage Data"
+msgstr "נתוני שימוש"
+
+#: assets/build/portals-app.js:21
+msgid "Pro"
+msgstr "פרו"
+
+#: assets/build/portals-app.js:21
+msgid "Hide SureDash Branding"
+msgstr "הסתר את המיתוג של SureDash"
+
+#: assets/build/portals-app.js:21
+msgid "Posts Per Page"
+msgstr "פוסטים לעמוד"
+
+#: assets/build/portals-app.js:21
+msgid "Applies to feeds, discussion spaces, and user profile posts."
+msgstr "חל על פידים, חללי דיון ופוסטים בפרופיל המשתמש."
+
+#: assets/build/portals-app.js:21
+msgid "- Select -"
+msgstr "- בחר -"
+
+#: assets/build/portals-app.js:21
+msgid "User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" option in your"
+msgstr "הרישום של משתמשים מושבת כרגע. כדי לאפשר למשתמשים חדשים להירשם, אנא אפשר את האפשרות \"כל אחד יכול להירשם\" ב-"
+
+#: assets/build/portals-app.js:21
+msgid "Login & Registration Pages"
+msgstr "דפי כניסה ורישום"
+
+#: assets/build/portals-app.js:21
+msgid "Navigates to the members page."
+msgstr "מנווט לדף החברים."
+
+#: assets/build/portals-app.js:21
+msgid "Uploads"
+msgstr "העלאות"
+
+#: assets/build/portals-app.js:21
+msgid "Maximum upload size for user-posted files."
+msgstr "גודל ההעלאה המרבי עבור קבצים שהועלו על ידי משתמשים."
+
+#: assets/build/portals-app.js:21
+msgid "Maximum size for profile and cover image uploads."
+msgstr "גודל מקסימלי להעלאות תמונת פרופיל וכיסוי."
+
+#: assets/build/portals-app.js:24
+msgid "Google Login"
+msgstr "כניסת גוגל"
+
+#: assets/build/portals-app.js:24
+msgid "Facebook Login"
+msgstr "כניסת פייסבוק"
+
+#: assets/build/portals-app.js:24
+msgid "Social Login & Security"
+msgstr "כניסת רשתות חברתיות ואבטחה"
+
+#: assets/build/portals-app.js:24
+msgid "Giphy"
+msgstr "גיפי"
+
+#: assets/build/portals-app.js:24
+msgid "Add your Giphy API key to enable GIF support in comments. <a>Get key</a>."
+msgstr "הוסף את מפתח ה-API של גיפי שלך כדי לאפשר תמיכה ב-GIFים בתגובות. <a>קבל מפתח</a>."
+
+#: assets/build/portals-app.js:24
+msgid "Plugins"
+msgstr "תוספים"
+
+#: assets/build/portals-app.js:24
+msgid "Requires the MCP Adapter plugin."
+msgstr "דורש את תוסף MCP Adapter."
+
+#: assets/build/portals-app.js:24
+msgid "Feeds & Content"
+msgstr "פידים ותוכן"
+
+#: assets/build/portals-app.js:24
+msgid "Login & Registration"
+msgstr "כניסה ורישום"
+
+#: assets/build/portals-app.js:24
+msgid "Roles & Profile"
+msgstr "תפקידים ופרופיל"
+
+#: assets/build/portals-app.js:24
+msgid "Sidebar"
+msgstr "סרגל צד"
+
+#: assets/js/unminified/login.js:701
+msgid "We couldn't send the reset email. Please try again or contact support."
+msgstr "לא הצלחנו לשלוח את דוא\"ל האיפוס. אנא נסה שוב או פנה לתמיכה."
+
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"
 msgid "Portal Space Groups"
@@ -8446,208 +8664,3 @@ msgstr "פוסט קהילתי"
 msgctxt "SureDash Portal Layout"
 msgid "SureDash: Portal Layout"
 msgstr "SureDash: פריסת פורטל"
-
-#: core/assets.php:111
-msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
-msgstr ""
-
-#: core/routers/misc.php:1635
-msgid "A valid URL is required."
-msgstr ""
-
-#: core/routers/misc.php:1646
-msgid "This URL is not from a supported video provider."
-msgstr ""
-
-#: core/routers/misc.php:1658
-msgid "Could not resolve video. Please check the URL and try again."
-msgstr ""
-
-#: inc/modules/mcp/module.php:245
-msgid "MCP settings saved successfully."
-msgstr ""
-
-#: inc/modules/mcp/module.php:296
-msgid "SureDash MCP Server"
-msgstr ""
-
-#: inc/modules/mcp/module.php:297
-msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
-msgstr ""
-
-#: inc/utils/labels.php:122
-#: inc/utils/labels.php:123
-msgid "You're all caught up — happy posting! 🎉"
-msgstr ""
-
-#: assets/build/portals-app.js:17
-msgid "Cover Image URL"
-msgstr ""
-
-#: assets/build/portals-app.js:17
-msgid "Embed Media URL"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Copy to clipboard"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Claude Desktop"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Claude Code"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid ".mcp.json (project) or ~/.claude.json (global)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Cursor"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/.cursor/mcp.json"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "VS Code (Copilot)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/.continue/config.yaml or config.json"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Other"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Your client's MCP configuration file"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Connect Your AI Client"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "AI Client"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Create an Application Password — "
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Open Application Passwords"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Copy the JSON config below into: "
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Replace \"your-application-password\" with the password from Step 1."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "View setup docs"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "MCP Adapter Required"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "The MCP Adapter plugin is installed but not active. Activate it to configure MCP settings."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "The MCP Adapter plugin is required to connect AI clients to your portal. Download and install it from GitHub, then activate it."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Download the latest release from"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "GitHub"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Install the plugin via Plugins > Add New Plugin > Upload Plugin."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activate the MCP Adapter plugin."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activating…"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activate MCP Adapter"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Download MCP Adapter"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Edit Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Delete Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable MCP Server"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "AI"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "MCP"
-msgstr ""

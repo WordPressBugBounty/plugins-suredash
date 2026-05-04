@@ -277,10 +277,19 @@ class Query {
 			return $this;
 		}
 
-		$param2 = is_array( $param2 ) ? ( '("' . implode( '","', $param2 ) . '")' ) : ( $param2 === null
-			? 'null'
-			: ( strpos( $param2, '.' ) !== false || strpos( $param2, $wpdb->prefix ) !== false ? $param2 : $wpdb->prepare( is_numeric( $param2 ) ? '%d' : '%s', $param2 ) )
-		);
+		if ( is_array( $param2 ) ) {
+			$escaped = array_map(
+				static function ( $val ) use ( $wpdb ) {
+					return $wpdb->prepare( is_numeric( $val ) ? '%d' : '%s', $val );
+				},
+				$param2
+			);
+			$param2  = '(' . implode( ',', $escaped ) . ')';
+		} elseif ( $param2 === null ) {
+			$param2 = 'null';
+		} else {
+			$param2 = $wpdb->prepare( is_numeric( $param2 ) ? '%d' : '%s', $param2 );
+		}
 
 		$this->where[] = [
 			'joint'     => $joint,
@@ -309,6 +318,38 @@ class Query {
 			'joint'     => 'AND',
 			'condition' => implode( ' ', [ $column, '=', $prepared ] ),
 		];
+		return $this;
+	}
+
+	/**
+	 * Create a column-to-column comparison (no value escaping).
+	 *
+	 * Use this instead of where() when both sides are column references,
+	 * e.g. inside JOIN closures: $q->whereColumn( 'p.ID', '=', 'pm.post_id' ).
+	 *
+	 * Only safe identifiers (letters, digits, underscores, dots) are allowed.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $column   Left-hand column reference.
+	 * @param string $operator Comparison operator.
+	 * @param string $column2  Right-hand column reference.
+	 * @param string $joint    The where type (and, or).
+	 *
+	 * @return Query The current query builder.
+	 */
+	public function whereColumn( $column, $operator, $column2, $joint = 'and' ) {
+		// Validate both sides are safe SQL identifiers (table.column or column).
+		$identifier_pattern = '/^[a-zA-Z_][a-zA-Z0-9_.]*$/';
+		if ( ! preg_match( $identifier_pattern, $column ) || ! preg_match( $identifier_pattern, $column2 ) ) {
+			$this->exception( 'Invalid column identifier in whereColumn().' );
+		}
+
+		$this->where[] = [
+			'joint'     => $joint,
+			'condition' => implode( ' ', [ $column, $operator, $column2 ] ),
+		];
+
 		return $this;
 	}
 
@@ -548,11 +589,24 @@ class Query {
 			$operator     = '=';
 		}
 
-		$referenceKey = is_array( $referenceKey ) ? ( '(\'' . implode( '\',\'', $referenceKey ) . '\')' )
-			: ( $referenceKey === null
-				? 'null'
-				: ( strpos( $referenceKey, '.' ) !== false || strpos( $referenceKey, $wpdb->prefix ) !== false ? $referenceKey : $wpdb->prepare( is_numeric( $referenceKey ) ? '%d' : '%s', $referenceKey ) )
+		// JOIN references are always column identifiers — validate as safe identifiers.
+		$identifier_pattern = '/^[a-zA-Z_][a-zA-Z0-9_.]*$/';
+		if ( is_array( $referenceKey ) ) {
+			$escaped      = array_map(
+				static function ( $val ) use ( $wpdb ) {
+					return $wpdb->prepare( is_numeric( $val ) ? '%d' : '%s', $val );
+				},
+				$referenceKey
 			);
+			$referenceKey = '(' . implode( ',', $escaped ) . ')';
+		} elseif ( $referenceKey === null ) {
+			$referenceKey = 'null';
+		} elseif ( preg_match( $identifier_pattern, $referenceKey ) ) {
+			// Safe column identifier like 'tr.object_id' — use as-is.
+			$referenceKey = $referenceKey;
+		} else {
+			$referenceKey = $wpdb->prepare( is_numeric( $referenceKey ) ? '%d' : '%s', $referenceKey );
+		}
 
 		$join['on'][] = [
 			'joint'     => $joint,

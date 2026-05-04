@@ -318,8 +318,6 @@ class Assets {
 			SUREDASHBOARD_VER
 		);
 
-		wp_add_inline_style( 'portal-archive-group', self::get_css( 'archive' ) );
-
 		// Enqueue lightbox assets.
 		if ( Helper::get_option( 'enable_lightbox', true ) ) {
 
@@ -859,6 +857,13 @@ class Assets {
 	 * @return string
 	 */
 	public static function get_archive_group_css() {
+		// On singular and home views get_single_item_css() owns --portal-content-aside-margin.
+		// Both enqueue paths run on every portal page (renderer.php), so skipping the
+		// override here prevents the archive default from clobbering the layout-aware value.
+		if ( is_singular() || suredash_is_home() || suredash_cpt() ) {
+			return apply_filters( 'suredashboard_archive_group_dynamic_css', '' );
+		}
+
 		$css = '
 			:root {
 				--portal-content-aside-margin: 0 auto 32px;

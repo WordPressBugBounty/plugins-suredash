@@ -107,6 +107,46 @@ function suredash_get_template_part( $slug, $name = '', $args = [], $return = fa
 }
 
 /**
+ * Wrap an email HTML fragment in a complete HTML document.
+ *
+ * Some email clients (older Outlook, certain enterprise gateways) render bare
+ * fragments as plain text, exposing raw tags to the recipient. Wrapping the
+ * content in a DOCTYPE / <html> / <body> envelope avoids that.
+ *
+ * Theme override: copy `email-templates/wrapper.php` to
+ * `your-theme/suredash/email-templates/wrapper.php`.
+ *
+ * @param string $content The inner email HTML fragment.
+ * @return string Complete HTML document, or original content if wrapper not found.
+ * @since 1.8.1
+ */
+function suredash_wrap_email_html( string $content ): string {
+	if ( $content === '' || stripos( $content, '<html' ) !== false ) {
+		return $content;
+	}
+
+	$wrapper = locate_template( [ 'suredash/email-templates/wrapper.php' ] );
+
+	if ( ! $wrapper && defined( 'SUREDASHBOARD_DIR' ) ) {
+		$default = SUREDASHBOARD_DIR . 'email-templates/wrapper.php';
+		if ( file_exists( $default ) ) {
+			$wrapper = $default;
+		}
+	}
+
+	if ( ! $wrapper ) {
+		return $content;
+	}
+
+	$email_body_content = $content;
+	ob_start();
+	require $wrapper;
+	$wrapped = (string) ob_get_clean();
+
+	return $wrapped !== '' ? $wrapped : $content;
+}
+
+/**
  * Get template part implementation for restricted content.
  *
  * @param int          $post_id Post ID.
@@ -318,6 +358,7 @@ function suredash_sub_queries() {
 			'feeds',
 			'screen',
 			'leaderboard',
+			'members',
 		]
 	);
 }

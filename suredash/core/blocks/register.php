@@ -453,11 +453,15 @@ class Register {
 			?>
 				<div class="<?php echo esc_attr( implode( ' ', $wrapper_classes ) ); ?>">
 					<?php
-					$user_name   = suredash_get_user_display_name();
-					$a_tag       = '<a href="' . esc_url( wp_logout_url( ! empty( $attributes['redirectAfterLogoutURL'] ) ? $attributes['redirectAfterLogoutURL'] : home_url( suredash_get_community_slug() ) ) ) . '">';
-					$close_a_tag = '</a>';
-					/* translators: %1$s user name */
-					printf( esc_html__( 'You are logged in as %1$s (%2$sLogout%3$s)', 'suredash' ), wp_kses_post( $user_name ), wp_kses_post( $a_tag ), wp_kses_post( $close_a_tag ) );
+					suredash_get_template_part(
+						'parts',
+						'logged-in-screen',
+						[
+							'user_name'  => suredash_get_user_display_name(),
+							'portal_url' => home_url( '/' . suredash_get_community_slug() . '/' ),
+							'logout_url' => wp_logout_url( ! empty( $attributes['redirectAfterLogoutURL'] ) ? $attributes['redirectAfterLogoutURL'] : home_url( suredash_get_community_slug() ) ),
+						]
+					);
 					?>
 				</div>
 			<?php

@@ -11,6 +11,7 @@
 namespace SureDashboard\Inc\Compatibility;
 
 use SureDashboard\Inc\Traits\Get_Instance;
+use SureDashboard\Inc\Utils\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -94,40 +95,44 @@ class Comment {
 	/**
 	 * Delete media files associated with content.
 	 *
+	 * Each `<img>` URL is resolved through {@see Helper::get_safe_uploads_path()},
+	 * which validates the path is strictly inside the WordPress uploads directory.
+	 * URLs containing path-traversal sequences (e.g. `../`) or pointing outside
+	 * uploads are silently skipped.
+	 *
 	 * @param string $content The content containing media URLs.
 	 * @since 0.0.6
 	 * @return void
 	 */
 	public function delete_related_media( $content ): void {
-		// Extract image URLs from the content.
-		preg_match_all( '/<img[^>]+src="([^">]+)"/', $content, $matched_images );
+		preg_match_all( '/<img[^>]+src="([^">]+)"/', (string) $content, $matched_images );
 
-		if ( ! empty( $matched_images[1] ) ) {
-			// Get the upload directory paths.
-			$upload_dir  = wp_upload_dir();
-			$upload_path = $upload_dir['basedir'];
-			$upload_url  = $upload_dir['baseurl'];
+		if ( empty( $matched_images[1] ) ) {
+			return;
+		}
 
-			// Loop through each image URL and delete the corresponding file.
-			foreach ( $matched_images[1] as $image_url ) {
-				$image_path = str_replace( $upload_url, $upload_path, $image_url );
-				if ( file_exists( $image_path ) ) {
-					/**
-					 * Fires before a SureDash-managed file is deleted.
-					 *
-					 * This hook allows developers to perform cleanup on associated resources,
-					 * such as removing the file from remote storage (e.g., S3, Cloudflare R2)
-					 * or deleting the corresponding WordPress attachment post.
-					 *
-					 * @since 1.6.3
-					 *
-					 * @param string $image_path The absolute server path of the file being deleted.
-					 * @param string $image_url  The URL of the file being deleted.
-					 */
-					do_action( 'suredash_before_file_delete', $image_path, $image_url );
-					unlink( $image_path ); // phpcs:ignore -- This is a safe operation.
-				}
+		$allowed_extensions = [ 'gif', 'png', 'jpg', 'jpeg', 'webp' ];
+
+		foreach ( $matched_images[1] as $image_url ) {
+			$image_path = Helper::get_safe_uploads_path( (string) $image_url, $allowed_extensions );
+			if ( $image_path === null ) {
+				continue;
 			}
+
+			/**
+			 * Fires before a SureDash-managed file is deleted.
+			 *
+			 * This hook allows developers to perform cleanup on associated resources,
+			 * such as removing the file from remote storage (e.g., S3, Cloudflare R2)
+			 * or deleting the corresponding WordPress attachment post.
+			 *
+			 * @since 1.6.3
+			 *
+			 * @param string $image_path The absolute server path of the file being deleted.
+			 * @param string $image_url  The URL of the file being deleted.
+			 */
+			do_action( 'suredash_before_file_delete', $image_path, $image_url );
+			wp_delete_file( $image_path );
 		}
 	}
 }

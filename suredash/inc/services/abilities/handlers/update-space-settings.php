@@ -289,6 +289,15 @@ class Update_Space_Settings extends Ability {
 			}
 		}
 
+		// When hidden_space is turned off, clear the SureMembers access rules so
+		// the saved data matches the UI (which only shows SM options while
+		// hidden_space is on). Prevents orphaned rules from silently gating the
+		// space after the toggle is flipped off. Pro-only meta, so guard.
+		if ( isset( $params['hidden_space'] ) && ! $params['hidden_space'] && suredash_is_pro_active() ) {
+			delete_post_meta( $post_id, 'sm_space_ruleset' );
+			delete_post_meta( $post_id, 'sm_space_membership_rule' );
+		}
+
 		// Comments toggle — also updates WP comment_status.
 		if ( isset( $params['comments'] ) ) {
 			$comments_enabled = (bool) $params['comments'];

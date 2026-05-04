@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,17 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-05-04 - version 1.8.1 =
+* New: Added typography options for the Portal Navigation block to control font family, size, and weight.
+* New: Added a WP-CLI command to enable SureDash AI abilities from the terminal — `wp suredash abilities enable` with optional `--with-edit` and `--with-delete` flags.
+* Improvement: Login & Registration blocks now show a friendly “already signed in” message with a “Go to Portal” action and support auto-redirect when a custom URL is set.
+* Improvement: Refreshed the settings page UI for a cleaner and more intuitive experience.
+* Improvement: Email templates have been improved. Overriding the wrapper email template now applies to all email designs sent from SureDash.
+* Improvement: User avatars now fall back to Gravatar when no profile photo is uploaded.
+* Fix: Portal names containing commas, accented characters, or other special characters no longer produce malformed email "From" headers.
+* Fix: This update addressed a security bug. Props to Patchstack for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+* Fix: AI ability settings can now be turned on without first installing the MCP Adapter plugin. Only the “Enable MCP Server” option still requires the adapter.
+
 = 2026-04-27 - version 1.8.0 =
 * New: Added support for the WordPress Abilities API for portal creation and analytics.
 * New: Added MCP integration to support AI-powered portal management.

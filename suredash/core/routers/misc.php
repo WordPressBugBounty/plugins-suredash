@@ -130,15 +130,14 @@ class Misc {
 
 		if ( is_wp_error( $post_id ) ) {
 			foreach ( $uploaded_images as $image ) {
-				// Delete the uploaded image.
-				$upload_dir  = wp_upload_dir();
-				$upload_path = $upload_dir['basedir'] . '/suredashboard/' . $current_user_id . '/assets/';
-				$upload_url  = $upload_dir['baseurl'] . '/suredashboard/' . $current_user_id . '/assets/';
-				$image_path  = str_replace( $upload_url, $upload_path, $image );
+				$image_path = Helper::get_safe_uploads_path( (string) $image, [ 'gif', 'png', 'jpg', 'jpeg', 'webp' ] );
+				if ( $image_path === null ) {
+					continue;
+				}
 
 				/** This action is documented in inc/compatibility/comment.php */
 				do_action( 'suredash_before_file_delete', $image_path, $image );
-				unlink($image_path); // phpcs:ignore -- This is a safe operation.
+				wp_delete_file( $image_path );
 			}
 			wp_send_json_error( [ 'message' => $post_id->get_error_message() ] );
 		}
@@ -231,8 +230,8 @@ class Misc {
 		ob_start();
 
 		$base_id     = ! empty( $_POST['base_id'] ) ? absint( $_POST['base_id'] ) : 0;
-		$taxonomy    = ! empty( $_POST['taxonomy'] ) ? sanitize_text_field( wp_unslash( $_POST['taxonomy'] ) ) : SUREDASHBOARD_FEED_TAXONOMY;
-		$post_type   = ! empty( $_POST['post_type'] ) ? sanitize_text_field( wp_unslash( $_POST['post_type'] ) ) : SUREDASHBOARD_FEED_POST_TYPE;
+		$taxonomy    = ! empty( $_POST['taxonomy'] ) ? sanitize_key( wp_unslash( $_POST['taxonomy'] ) ) : SUREDASHBOARD_FEED_TAXONOMY;
+		$post_type   = ! empty( $_POST['post_type'] ) ? sanitize_key( wp_unslash( $_POST['post_type'] ) ) : SUREDASHBOARD_FEED_POST_TYPE;
 		$category_id = ! empty( $_POST['category'] ) ? absint( $_POST['category'] ) : 0;
 		$paged       = ! empty( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
 		$user_id     = ! empty( $_POST['user_id'] ) ? absint( $_POST['user_id'] ) : 0;
@@ -745,14 +744,9 @@ class Misc {
 			);
 		}
 
-		// Set email headers.
-		$headers = [
-			'Content-Type: text/html; charset=UTF-8',
-			'From: ' . $site_name . ' <' . get_option( 'admin_email' ) . '>',
-		];
-
-		// Send the email.
-		$sent = wp_mail( $user_email, $subject, $message, $headers );
+		// Send the email through the central helper so the From header is
+		// properly encoded and the body is wrapped in a full HTML document.
+		$sent = suredash_send_email( $user_email, $subject, $message );
 
 		if ( $sent ) {
 			wp_send_json_success(
@@ -1104,15 +1098,14 @@ class Misc {
 
 		if ( is_wp_error( $comment_id ) ) {
 			foreach ( $uploaded_images as $image ) {
-				// Delete the uploaded image.
-				$upload_dir  = wp_upload_dir();
-				$upload_path = $upload_dir['basedir'] . '/suredashboard/' . $current_user_id . '/assets/';
-				$upload_url  = $upload_dir['baseurl'] . '/suredashboard/' . $current_user_id . '/assets/';
-				$image_path  = str_replace( $upload_url, $upload_path, $image );
+				$image_path = Helper::get_safe_uploads_path( (string) $image, [ 'gif', 'png', 'jpg', 'jpeg', 'webp' ] );
+				if ( $image_path === null ) {
+					continue;
+				}
 
 				/** This action is documented in inc/compatibility/comment.php */
 				do_action( 'suredash_before_file_delete', $image_path, $image );
-				unlink( $image_path ); // phpcs:ignore -- This is a safe operation.
+				wp_delete_file( $image_path );
 			}
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
 		}
@@ -1831,17 +1824,15 @@ class Misc {
 			return false;
 		}
 
-		$upload_dir = wp_upload_dir();
-		$file_path  = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $media_url );
-
-		if ( file_exists( $file_path ) ) {
-			/** This action is documented in inc/compatibility/comment.php */
-			do_action( 'suredash_before_file_delete', $file_path, $media_url );
-			wp_delete_file( $file_path );
-			return true;
+		$file_path = Helper::get_safe_uploads_path( (string) $media_url );
+		if ( $file_path === null ) {
+			return false;
 		}
 
-		return false;
+		/** This action is documented in inc/compatibility/comment.php */
+		do_action( 'suredash_before_file_delete', $file_path, $media_url );
+		wp_delete_file( $file_path );
+		return true;
 	}
 
 	/**
@@ -1941,16 +1932,14 @@ class Misc {
 			return false;
 		}
 
-		$upload_dir = wp_upload_dir();
-		$file_path  = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $image_url );
-
-		if ( file_exists( $file_path ) ) {
-			/** This action is documented in inc/compatibility/comment.php */
-			do_action( 'suredash_before_file_delete', $file_path, $image_url );
-			wp_delete_file( $file_path );
-			return true;
+		$file_path = Helper::get_safe_uploads_path( (string) $image_url, [ 'gif', 'png', 'jpg', 'jpeg', 'webp' ] );
+		if ( $file_path === null ) {
+			return false;
 		}
 
-		return false;
+		/** This action is documented in inc/compatibility/comment.php */
+		do_action( 'suredash_before_file_delete', $file_path, $image_url );
+		wp_delete_file( $file_path );
+		return true;
 	}
 }

@@ -20,6 +20,14 @@
     "spacesgap": {
       "type": "string",
       "default": ""
+    },
+    "spaceGroupTypography": {
+      "type": "object",
+      "default": {}
+    },
+    "spaceTypography": {
+      "type": "object",
+      "default": {}
     }
   },
   "supports": {

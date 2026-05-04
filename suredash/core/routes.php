@@ -515,7 +515,7 @@ class Routes {
 	 * @param \WP_REST_Server   $server  Server instance.
 	 * @param \WP_REST_Request  $request Request used to generate the response.
 	 * @return \WP_REST_Response Filtered response.
-	 * @since x.x.x
+	 * @since 1.8.1
 	 */
 	public function filter_search_results( $result, $server, $request ) {
 		// Only filter the core search endpoint.

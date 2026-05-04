@@ -259,7 +259,7 @@ class Social_Logins {
 		}
 
 		if ( empty( $_POST['username'] ) ) {
-			wp_send_json_error( esc_html__( 'The username/password field is empty. Please add a valid username/email to reset your password.', 'suredash' ) );
+			wp_send_json_error( [ 'message' => esc_html__( 'The username/password field is empty. Please add a valid username/email to reset your password.', 'suredash' ) ] );
 		}
 
 		$user_login = sanitize_text_field( wp_unslash( $_POST['username'] ) );
@@ -273,7 +273,7 @@ class Social_Logins {
 
 		// We need to check $user_data again since get_user_by() used above might return false value.
 		if ( ! $user_data instanceof \WP_User ) {
-			wp_send_json_error( esc_html__( 'No user found. Please add a registered username/email to reset your password, else create an account.', 'suredash' ) );
+			wp_send_json_error( [ 'message' => esc_html__( 'No user found. Please add a registered username/email to reset your password, else create an account.', 'suredash' ) ] );
 		}
 
 		$user_login = $user_data->user_login;
@@ -282,7 +282,7 @@ class Social_Logins {
 		$key = get_password_reset_key( $user_data );
 
 		if ( is_wp_error( $key ) ) {
-			wp_send_json_error( $key );
+			wp_send_json_error( [ 'message' => $key->get_error_message() ] );
 		}
 
 		$reset_url = suredash_get_login_page_url();
@@ -320,9 +320,9 @@ class Social_Logins {
 
 		// Check if email is sent and reply accordingly.
 		if ( $send_wp_mail ) {
-			wp_send_json_success( esc_html__( 'Please check your email for the password reset link.', 'suredash' ) );
+			wp_send_json_success( [ 'message' => esc_html__( 'Please check your email for the password reset link.', 'suredash' ) ] );
 		} else {
-			wp_send_json_error( esc_html__( 'Email failed to send.', 'suredash' ) );
+			wp_send_json_error( [ 'message' => esc_html__( 'Email failed to send.', 'suredash' ) ] );
 		}
 	}
 

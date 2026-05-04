@@ -1,6 +1,37 @@
 <?php
 /**
- * Analytics.
+ * Analytics — BSF usage tracking and KPI reporting.
+ *
+ * Integrates with BSF Analytics to send:
+ *
+ * 1. Plugin data: free_version, site_language, pro_active.
+ *
+ * 2. One-time events (via BSF_Analytics_Events, deduplicated):
+ *    - plugin_activated    — first activation, with install source.
+ *    - plugin_updated      — on each version bump, with from_version.
+ *    - first_space_published       — first portal space goes live.
+ *    - first_community_post_created — first community post published.
+ *    - onboarding_completed — yes/no, with skipped_on_step if skipped.
+ *    - integration_enabled  — comma-separated list (google_login, facebook_login, surecart, suremembers).
+ *    - feeds_enabled        — community feeds turned on.
+ *    - global_sidebar_enabled — at least one sidebar widget configured.
+ *
+ * 3. Daily KPI records (last 2 days, sent with each analytics ping):
+ *    - community_posts   — new discussion posts published (DB query).
+ *    - community_content — new lessons/resources/events published (DB query).
+ *    - comments          — approved comments on SureDash post types (DB query).
+ *    - members_joined    — new suredash_user registrations (DB query).
+ *    - reactions         — post/comment likes by members (daily counter, increment-on-action).
+ *    - logins            — suredash_user role logins (daily counter, increment-on-action).
+ *    - bookmarks         — items bookmarked by members (daily counter, increment-on-action).
+ *
+ *    Daily counters use wp_options with autoload=false (key: suredash_kpi_{metric}_{date}).
+ *    Counters are cleaned up after being reported.
+ *
+ *    Activity thresholds (30-day sum of all KPIs):
+ *    - Inactive:     0–10   (abandoned or freshly installed).
+ *    - Active:       11–100 (regular community usage).
+ *    - Super Active: 101+   (thriving, high-engagement community).
  *
  * @package SureDashboard
  * @since 0.0.6
@@ -13,8 +44,9 @@ use SureDashboard\Inc\Traits\Get_Instance;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Update Compatibility
+ * Analytics class.
  *
+ * @since 0.0.6
  * @package SureDashboard
  */
 class Analytics {
@@ -47,6 +79,11 @@ class Analytics {
 		if ( get_transient( 'suredash_state_events_checked' ) === false ) {
 			add_action( 'init', [ $this, 'detect_state_events' ], 98 );
 		}
+
+		// KPI daily counters — lightweight hooks for engagement tracking.
+		add_action( 'suredash_entity_like_reaction', [ $this, 'track_kpi_reaction' ], 10, 4 );
+		add_action( 'suredash_item_bookmark', [ $this, 'track_kpi_bookmark' ], 10, 4 );
+		add_action( 'wp_login', [ $this, 'track_kpi_login' ], 10, 2 );
 	}
 
 	/**
@@ -271,6 +308,60 @@ class Analytics {
 	}
 
 	/**
+	 * Track a reaction event for daily KPI counter.
+	 *
+	 * @since 1.8.1
+	 * @param int    $entity_id   Entity ID.
+	 * @param string $entity_type Entity type (post or comment).
+	 * @param string $like_status Like status (liked or unliked).
+	 * @param int    $user_id     User ID who reacted.
+	 * @return void
+	 */
+	public function track_kpi_reaction( $entity_id, $entity_type, $like_status, $user_id ): void {
+		if ( $like_status !== 'liked' ) {
+			return;
+		}
+
+		$this->increment_kpi_counter( 'reactions' );
+	}
+
+	/**
+	 * Track a bookmark event for daily KPI counter.
+	 *
+	 * @since 1.8.1
+	 * @param int    $item_id   Item ID.
+	 * @param string $item_type Item type.
+	 * @param string $status    Bookmark status (bookmarked or un-bookmarked).
+	 * @param int    $user_id   User ID.
+	 * @return void
+	 */
+	public function track_kpi_bookmark( $item_id, $item_type, $status, $user_id ): void {
+		if ( $status !== 'bookmarked' ) {
+			return;
+		}
+
+		$this->increment_kpi_counter( 'bookmarks' );
+	}
+
+	/**
+	 * Track a login event for daily KPI counter.
+	 *
+	 * Only counts users with the suredash_user role.
+	 *
+	 * @since 1.8.1
+	 * @param string   $user_login Username.
+	 * @param \WP_User $user       WP_User object.
+	 * @return void
+	 */
+	public function track_kpi_login( $user_login, $user ): void {
+		if ( ! in_array( 'suredash_user', (array) $user->roles, true ) ) {
+			return;
+		}
+
+		$this->increment_kpi_counter( 'logins' );
+	}
+
+	/**
 	 * Track plugin_activated (once per install).
 	 *
 	 * @param \BSF_Analytics_Events $events Event tracker.
@@ -378,6 +469,18 @@ class Analytics {
 		if ( ! empty( $settings['enable_feeds'] ) ) {
 			$events->track( 'feeds_enabled', 'yes' );
 		}
+
+		// abilities_api_enabled — admin turned on the WordPress Abilities API
+		// surface that exposes SureDash actions to AI agents.
+		if ( ! empty( $settings['suredash_abilities_api'] ) ) {
+			$events->track( 'abilities_api_enabled', 'yes' );
+		}
+
+		// mcp_server_enabled — admin turned on the MCP server (gates the
+		// abilities through the MCP Adapter for external AI clients).
+		if ( ! empty( $settings['suredash_mcp_server'] ) ) {
+			$events->track( 'mcp_server_enabled', 'yes' );
+		}
 	}
 
 	/**
@@ -414,11 +517,64 @@ class Analytics {
 					'community_content' => $this->get_daily_community_content_count( $date ),
 					'comments'          => $this->get_daily_comments_count( $date ),
 					'members_joined'    => $this->get_daily_members_joined_count( $date ),
+					'reactions'         => $this->get_kpi_counter( 'reactions', $date ),
+					'logins'            => $this->get_kpi_counter( 'logins', $date ),
+					'bookmarks'         => $this->get_kpi_counter( 'bookmarks', $date ),
 				],
 			];
+
+			// Clean up counters for reported dates.
+			$this->cleanup_kpi_counters( $date );
 		}
 
 		return $kpi_data;
+	}
+
+	/**
+	 * Increment a daily KPI counter.
+	 *
+	 * Uses a lightweight option per metric per day. Autoload is off
+	 * so counters don't affect every page load.
+	 *
+	 * @since 1.8.1
+	 * @param string $metric Metric name (reactions, logins, bookmarks).
+	 * @return void
+	 */
+	private function increment_kpi_counter( string $metric ): void {
+		$date = (string) wp_date( 'Y-m-d' );
+		$key  = 'suredash_kpi_' . $metric . '_' . $date;
+
+		$current = (int) get_option( $key, 0 );
+		update_option( $key, $current + 1, false );
+	}
+
+	/**
+	 * Get a daily KPI counter value.
+	 *
+	 * @since 1.8.1
+	 * @param string $metric Metric name.
+	 * @param string $date   Date in Y-m-d format.
+	 * @return int Counter value.
+	 */
+	private function get_kpi_counter( string $metric, string $date ): int {
+		return (int) get_option( 'suredash_kpi_' . $metric . '_' . $date, 0 );
+	}
+
+	/**
+	 * Clean up KPI counter options for a reported date.
+	 *
+	 * Called after data is included in analytics payload to prevent
+	 * stale options from accumulating in the database.
+	 *
+	 * @since 1.8.1
+	 * @param string $date Date in Y-m-d format.
+	 * @return void
+	 */
+	private function cleanup_kpi_counters( string $date ): void {
+		$metrics = [ 'reactions', 'logins', 'bookmarks' ];
+		foreach ( $metrics as $metric ) {
+			delete_option( 'suredash_kpi_' . $metric . '_' . $date );
+		}
 	}
 
 	/**

@@ -33,14 +33,15 @@ msgid "Cover Image"
 msgstr "Omslagsbild"
 
 #: inc/utils/labels.php:115
+#: assets/build/portals-app.js:21
 msgid "Content"
 msgstr "Innehåll"
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1138
 msgid "Content Groups"
 msgstr "Innehållsgrupper"
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1138
 msgid "Topic Forums"
 msgstr "Ämnesforum"
 
@@ -49,7 +50,6 @@ msgstr "Ämnesforum"
 #: admin/setup.php:65
 #: core/renderer.php:300
 #: assets/build/portals-app.js:11
-#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
 msgid "Settings"
 msgstr "Inställningar"
@@ -71,7 +71,7 @@ msgid "Video"
 msgstr "Video"
 
 #: admin/menu.php:626
-#: inc/utils/helper.php:2128
+#: inc/utils/helper.php:2202
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "Okategoriserad"
@@ -124,30 +124,23 @@ msgstr "Infoga emoji"
 msgid "No user found"
 msgstr "Ingen användare hittades"
 
-#: core/blocks/login.php:843
+#: core/blocks/login.php:947
 msgid "Username or Email Address"
 msgstr "Användarnamn eller e-postadress"
 
-#: core/blocks/login.php:844
+#: core/blocks/login.php:948
 #: inc/utils/labels.php:69
 #: assets/build/editor-app.js:2
 #: assets/build/editor-app.js:6
 msgid "Password"
 msgstr "Lösenord"
 
-#: core/blocks/login.php:964
+#: core/blocks/login.php:1068
 #: core/blocks/register.php:404
 msgid "You have logged in successfully. Redirecting…"
 msgstr "Du har loggat in framgångsrikt. Omdirigerar…"
 
-#. translators: %1$s user name
-#: core/blocks/login.php:1181
-#: core/blocks/register.php:460
-#, php-format
-msgid "You are logged in as %1$s (%2$sLogout%3$s)"
-msgstr "Du är inloggad som %1$s (%2$sLogga ut%3$s)"
-
-#: core/blocks/login.php:1333
+#: core/blocks/login.php:1443
 #: assets/build/editor-app.js:6
 msgid "Show Password"
 msgstr "Visa lösenord"
@@ -205,56 +198,56 @@ msgid "This field"
 msgstr "Detta fält"
 
 #: core/blocks/register.php:85
-#: core/blocks/register.php:977
+#: core/blocks/register.php:981
 msgid "You have used an invalid email."
 msgstr "Du har använt en ogiltig e-postadress."
 
 #. translators: abbreviation for units
-#: core/blocks/login.php:65
-#: core/blocks/register.php:978
+#: core/blocks/login.php:169
+#: core/blocks/register.php:982
 #: assets/build/editor-app.js:2
 msgid "Please enter a valid email address."
 msgstr "Vänligen ange en giltig e-postadress."
 
-#: core/blocks/register.php:979
+#: core/blocks/register.php:983
 #: assets/build/editor-app.js:2
 msgid "Email already in use. Please try to sign in."
 msgstr "E-postadressen används redan. Försök att logga in."
 
-#: core/blocks/register.php:980
+#: core/blocks/register.php:984
 #: assets/build/editor-app.js:2
 msgid "Invalid user name. Please try again."
 msgstr "Ogiltigt användarnamn. Försök igen."
 
-#: core/blocks/register.php:981
+#: core/blocks/register.php:985
 #: assets/build/editor-app.js:2
 msgid "Username is already taken."
 msgstr "Användarnamnet är redan taget."
 
-#: core/blocks/register.php:982
+#: core/blocks/register.php:986
 #: assets/build/editor-app.js:2
 msgid "Password cannot be accepted. Please try something else."
 msgstr "Lösenordet kan inte accepteras. Försök med något annat."
 
-#: core/blocks/login.php:111
-#: core/blocks/register.php:983
+#: core/blocks/login.php:215
+#: core/blocks/register.php:987
 #: inc/utils/labels.php:88
 #: assets/build/editor-app.js:2
 #: assets/js/unminified/login.js:745
 msgid "Passwords do not match."
 msgstr "Lösenorden stämmer inte överens."
 
-#: core/blocks/register.php:984
+#: core/blocks/register.php:988
 #: assets/build/editor-app.js:2
 msgid "Please try again after accepting terms & conditions."
 msgstr "Försök igen efter att ha accepterat villkoren."
 
-#: core/blocks/register.php:985
+#: core/blocks/register.php:989
 #: assets/build/editor-app.js:2
 msgid "Something went wrong! Please try again."
 msgstr "Något gick fel! Försök igen."
 
-#: core/blocks/register.php:986
+#: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
 msgid "Registration successful. Please check your email inbox."
 msgstr "Registreringen lyckades. Vänligen kontrollera din e-postinkorg."
@@ -421,7 +414,7 @@ msgstr "har registrerat sig på"
 msgid "new space has been introduced."
 msgstr "nytt utrymme har introducerats."
 
-#: core/notifier/common-notifier.php:441
+#: core/notifier/common-notifier.php:452
 msgid "Comment:"
 msgstr "Kommentar:"
 
@@ -433,7 +426,7 @@ msgstr "din ämne har godkänts."
 msgid "has mentioned you in a "
 msgstr "har nämnt dig i en"
 
-#: core/notifier/user-notifier.php:290
+#: core/notifier/user-notifier.php:307
 msgid "Topic:"
 msgstr "Ämne:"
 
@@ -442,24 +435,24 @@ msgid "Invalid term ID."
 msgstr "Ogiltigt term-ID."
 
 #: core/routers/backend.php:56
-#: core/routers/backend.php:978
+#: core/routers/backend.php:979
 msgid "Successfully updated."
 msgstr "Uppdaterades framgångsrikt."
 
 #: core/routers/backend.php:462
 #: core/routers/backend.php:504
-#: core/routers/backend.php:1001
-#: core/routers/backend.php:1070
-#: core/routers/backend.php:1094
-#: core/routers/backend.php:1293
-#: core/routers/backend.php:2235
+#: core/routers/backend.php:1002
+#: core/routers/backend.php:1073
+#: core/routers/backend.php:1097
+#: core/routers/backend.php:1296
+#: core/routers/backend.php:2238
 msgid "Invalid post ID."
 msgstr "Ogiltigt inläggs-ID."
 
 #: core/routers/backend.php:477
 #: core/routers/backend.php:583
 #: core/routers/backend.php:717
-#: core/routers/backend.php:1385
+#: core/routers/backend.php:1388
 msgid "Successfully deleted."
 msgstr "Raderades framgångsrikt."
 
@@ -467,28 +460,28 @@ msgstr "Raderades framgångsrikt."
 msgid "Invalid object or term ID."
 msgstr "Ogiltigt objekt eller term-ID."
 
-#: core/routers/backend.php:1132
+#: core/routers/backend.php:1135
 msgid "No store categories found."
 msgstr "Inga butikskategorier hittades."
 
-#: core/routers/backend.php:1181
+#: core/routers/backend.php:1184
 msgid "Category Invalid."
 msgstr "Kategori ogiltig."
 
-#: core/routers/backend.php:1185
+#: core/routers/backend.php:1188
 msgid "Content Group -"
 msgstr "Innehållsgrupp -"
 
-#: core/routers/backend.php:1185
+#: core/routers/backend.php:1188
 msgid "Topic Forum -"
 msgstr "Ämnesforum -"
 
-#: core/routers/backend.php:1254
-#: inc/modules/mcp/module.php:234
+#: core/routers/backend.php:1257
+#: inc/modules/mcp/module.php:184
 msgid "Invalid settings data."
 msgstr "Ogiltiga inställningsdata."
 
-#: core/routers/backend.php:1261
+#: core/routers/backend.php:1264
 msgid "Settings saved successfully."
 msgstr "Inställningar sparades framgångsrikt."
 
@@ -584,7 +577,7 @@ msgstr "Registrerad & Inloggning lyckades"
 msgid "Google API Error."
 msgstr "Google API-fel."
 
-#: core/routes.php:67
+#: core/routes.php:70
 msgid "Oops! Something wrong here..."
 msgstr "Hoppsan! Något är fel här..."
 
@@ -598,14 +591,13 @@ msgstr "Markera alla som lästa"
 
 #: core/shortcodes/home-content.php:800
 #: core/shortcodes/home-content.php:801
-#: inc/functions/functions.php:1856
-#: inc/functions/functions.php:1862
-#: inc/functions/functions.php:1868
+#: inc/functions/functions.php:1897
+#: inc/functions/functions.php:1903
+#: inc/functions/functions.php:1909
 msgid "Enter"
 msgstr "Ange"
 
 #: assets/build/portals-app.js:9
-#: assets/build/portals-app.js:24
 msgid "User"
 msgstr "Användare"
 
@@ -636,7 +628,7 @@ msgid "Search"
 msgstr "Sök"
 
 #: core/shortcodes/user-profile.php:164
-#: inc/functions/functions.php:2679
+#: inc/functions/functions.php:2720
 msgid "Guest User"
 msgstr "Gästanvändare"
 
@@ -646,57 +638,57 @@ msgstr "Gästanvändare"
 msgid "Edit %1$s with %2$s"
 msgstr "Redigera %1$s med %2$s"
 
-#: inc/modules/email-notifications/emails.php:55
+#: inc/modules/email-notifications/emails.php:67
 msgid "Someone has requested a password reset for the following account:"
 msgstr "Någon har begärt en återställning av lösenordet för följande konto:"
 
 #. translators: %s: Username.
-#: inc/modules/email-notifications/emails.php:61
+#: inc/modules/email-notifications/emails.php:73
 msgid "Username:"
 msgstr "Användarnamn:"
 
-#: inc/modules/email-notifications/emails.php:67
+#: inc/modules/email-notifications/emails.php:79
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "Om detta var ett misstag, ignorera bara detta mejl så händer inget."
 
-#: inc/functions/functions.php:675
-#: inc/functions/functions.php:2330
+#: inc/functions/functions.php:716
+#: inc/functions/functions.php:2371
 #: assets/build/portals-app.js:8
 msgid "Just now"
 msgstr "Precis nu"
 
-#: inc/functions/functions.php:756
+#: inc/functions/functions.php:797
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: inc/functions/functions.php:756
+#: inc/functions/functions.php:797
 msgid "(Edit)"
 msgstr "(Redigera)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:769
+#: inc/functions/functions.php:810
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s kl %2$s"
 
-#: inc/functions/functions.php:846
-#: inc/functions/functions.php:847
+#: inc/functions/functions.php:887
+#: inc/functions/functions.php:888
 msgid "Your comment is awaiting moderation."
 msgstr "Din kommentar väntar på granskning."
 
-#: inc/functions/functions.php:886
+#: inc/functions/functions.php:927
 msgid "Reply"
 msgstr "Svara"
 
 #: inc/functions/markup.php:690
-#: inc/utils/helper.php:1687
+#: inc/utils/helper.php:1761
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
 msgstr[0] "Gilla"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1487
+#: inc/functions/functions.php:1528
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Unknown"
@@ -711,7 +703,7 @@ msgid "Allowed file formats:"
 msgstr "Tillåtna filformat:"
 
 #: inc/functions/markup.php:708
-#: inc/utils/helper.php:1715
+#: inc/utils/helper.php:1789
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Kommentar"
@@ -755,7 +747,7 @@ msgstr "Data sparades framgångsrikt."
 msgid "All"
 msgstr "Alla"
 
-#: inc/utils/helper.php:1727
+#: inc/utils/helper.php:1801
 msgid "Share Post"
 msgstr "Dela inlägg"
 
@@ -763,21 +755,21 @@ msgstr "Dela inlägg"
 msgid "Copied!"
 msgstr "Kopierad!"
 
-#: inc/utils/helper.php:2162
+#: inc/utils/helper.php:2236
 msgid "This discussion is only available for VIP members."
 msgstr "Denna diskussion är endast tillgänglig för VIP-medlemmar."
 
-#: inc/utils/helper.php:2164
+#: inc/utils/helper.php:2238
 msgid "Please upgrade to add response."
 msgstr "Vänligen uppgradera för att lägga till svar."
 
-#: inc/utils/helper.php:2165
+#: inc/utils/helper.php:2239
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "Uppgradera nu"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2176
+#: inc/utils/helper.php:2250
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -789,6 +781,7 @@ msgstr "Tillbaka till"
 
 #: core/shortcodes/home-content.php:1073
 #: inc/utils/labels.php:44
+#: assets/build/portals-app.js:24
 msgid "Portal"
 msgstr "Portal"
 
@@ -823,7 +816,7 @@ msgstr "Inlägg"
 msgid "Liked"
 msgstr "Gillade"
 
-#: inc/utils/helper.php:1351
+#: inc/utils/helper.php:1425
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
@@ -1151,7 +1144,7 @@ msgstr "Filen stämmer inte överens"
 msgid "File is not uploaded"
 msgstr "Filen är inte uppladdad"
 
-#: loader.php:450
+#: loader.php:451
 msgid "Portal Menu"
 msgstr "Portalmeny"
 
@@ -1986,7 +1979,7 @@ msgstr "Fältetiketter"
 msgid "Typography"
 msgstr "Typografi"
 
-#: inc/functions/functions.php:2092
+#: inc/functions/functions.php:2133
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "Text"
@@ -2558,7 +2551,7 @@ msgid "V %s"
 msgstr "V %s"
 
 #: core/shortcodes/single-content.php:394
-#: inc/functions/functions.php:822
+#: inc/functions/functions.php:863
 #: templates/single/post.php:166
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2680,7 +2673,7 @@ msgid "Error updating settings: "
 msgstr "Fel vid uppdatering av inställningar:"
 
 #: core/shortcodes/single-content.php:399
-#: inc/functions/functions.php:827
+#: inc/functions/functions.php:868
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2747,13 +2740,7 @@ msgstr "Den här funktionen är endast tillgänglig i SureDash Pro."
 msgid "Portal Name"
 msgstr "Portalnamn"
 
-#: assets/build/portals-app.js:21
-msgid "Hide"
-msgstr "Dölj"
-
-#: inc/functions/functions.php:2089
-#: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:24
+#: inc/functions/functions.php:2130
 msgid "Branding"
 msgstr "Varumärke"
 
@@ -2782,23 +2769,15 @@ msgstr "Aktivera Lightbox"
 msgid "Enabling this will allow lightweight lightbox for your content images."
 msgstr "Om du aktiverar detta kommer det att möjliggöra en lättviktig lightbox för dina innehållsbilder."
 
-#: assets/build/portals-app.js:21
-msgid "Google Registration"
-msgstr "Google-registrering"
-
-#: assets/build/portals-app.js:21
-msgid "Facebook Registration"
-msgstr "Facebook-registrering"
-
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Facebook Token ID"
 msgstr "Facebook-token-ID"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Facebook Token Secret"
 msgstr "Facebook Tokenhemlighet"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCaptcha"
 msgstr "Google reCaptcha"
 
@@ -2860,14 +2839,6 @@ msgid "Delete Link"
 msgstr "Radera länk"
 
 #: assets/build/portals-app.js:21
-msgid "New User Capabilities"
-msgstr "Nya användarfunktioner"
-
-#: assets/build/portals-app.js:21
-msgid "Portal Managers"
-msgstr "Portalchefer"
-
-#: assets/build/portals-app.js:21
 msgid "Start typing…"
 msgstr "Börja skriva…"
 
@@ -2902,10 +2873,6 @@ msgstr "Börja skriva ditt inlägg"
 #: assets/build/portals-app.js:21
 msgid "Write a Post"
 msgstr "Skriv ett inlägg"
-
-#: assets/build/portals-app.js:21
-msgid "Feeds Per Page"
-msgstr "Flöden per sida"
 
 #: assets/build/portals-app.js:21
 msgid "Bypass WordPress Interactions"
@@ -2997,14 +2964,13 @@ msgstr "Ogiltig auktorisering"
 
 #: core/routers/backend.php:468
 #: core/routers/backend.php:510
-#: core/routers/backend.php:1283
-#: core/routers/backend.php:2241
+#: core/routers/backend.php:1286
+#: core/routers/backend.php:2244
 msgid "Invalid post type."
 msgstr "Ogiltig inläggstyp."
 
 #: admin/menu.php:199
 #: admin/menu.php:200
-#: assets/build/portals-app.js:21
 msgid "Customize Portal"
 msgstr "Anpassa portalen"
 
@@ -3069,15 +3035,15 @@ msgstr "Grupptext för rymd"
 msgid "Space Group Background"
 msgstr "Bakgrund för rymdgruppen"
 
-#: core/routers/misc.php:1922
+#: core/routers/misc.php:1913
 msgid "Uploaded file is not a valid image."
 msgstr "Den uppladdade filen är inte en giltig bild."
 
-#: core/routers/misc.php:1926
+#: core/routers/misc.php:1917
 msgid "File size larger than permissible."
 msgstr "Filstorleken är större än tillåten."
 
-#: inc/functions/functions.php:1586
+#: inc/functions/functions.php:1627
 msgid "No matching template found."
 msgstr "Ingen matchande mall hittades."
 
@@ -3289,7 +3255,7 @@ msgstr "Vänligen ange URL:en till det media du vill bädda in"
 msgid "SinglePost Integration"
 msgstr "SinglePost-integrering"
 
-#: core/integrations/sure-members.php:475
+#: core/integrations/sure-members.php:477
 msgid "Access Group: "
 msgstr "Åtkomstgrupp:"
 
@@ -3297,59 +3263,59 @@ msgstr "Åtkomstgrupp:"
 msgid "Forum:"
 msgstr "Forum:"
 
-#: core/routers/backend.php:1287
+#: core/routers/backend.php:1290
 msgid "Invalid action or post ID."
 msgstr "Ogiltig åtgärd eller inläggs-ID."
 
-#: core/routers/backend.php:1355
+#: core/routers/backend.php:1358
 msgid "Successfully published."
 msgstr "Publicerad med framgång."
 
-#: core/routers/backend.php:1356
+#: core/routers/backend.php:1359
 msgid "Failed to publish."
 msgstr "Misslyckades med att publicera."
 
-#: core/routers/backend.php:1365
+#: core/routers/backend.php:1368
 msgid "Successfully drafted."
 msgstr "Utkast sparat med framgång."
 
-#: core/routers/backend.php:1366
+#: core/routers/backend.php:1369
 msgid "Failed to draft."
 msgstr "Misslyckades med att spara utkast."
 
-#: core/routers/backend.php:1375
+#: core/routers/backend.php:1378
 msgid "Successfully trashed."
 msgstr "Flyttad till papperskorgen med framgång."
 
-#: core/routers/backend.php:1376
+#: core/routers/backend.php:1379
 msgid "Failed to trash."
 msgstr "Misslyckades med att flytta till papperskorgen."
 
-#: core/routers/backend.php:1380
+#: core/routers/backend.php:1383
 msgid "Successfully restored."
 msgstr "Återställd med framgång."
 
-#: core/routers/backend.php:1381
+#: core/routers/backend.php:1384
 msgid "Failed to restore."
 msgstr "Misslyckades med att återställa."
 
-#: core/routers/backend.php:1386
+#: core/routers/backend.php:1389
 msgid "Failed to delete."
 msgstr "Misslyckades med att radera."
 
-#: core/routers/backend.php:1390
+#: core/routers/backend.php:1393
 msgid "Successfully duplicated."
 msgstr "Duplicerad med framgång."
 
-#: core/routers/backend.php:1391
+#: core/routers/backend.php:1394
 msgid "Failed to duplicate."
 msgstr "Misslyckades med att duplicera."
 
-#: core/routers/backend.php:1488
+#: core/routers/backend.php:1491
 msgid "Invalid action or post IDs."
 msgstr "Ogiltig åtgärd eller inläggs-ID:n."
 
-#: core/routers/backend.php:1529
+#: core/routers/backend.php:1532
 msgid "Bulk action completed successfully."
 msgstr "Massåtgärd slutförd med framgång."
 
@@ -3407,7 +3373,6 @@ msgid "Please fill in all required fields."
 msgstr "Vänligen fyll i alla obligatoriska fält."
 
 #: assets/build/portals-app.js:8
-#: assets/build/portals-app.js:21
 msgid "– Select –"
 msgstr "– Välj –"
 
@@ -3723,7 +3688,7 @@ msgid "We're excited to help you build, connect, and grow your community. SureDa
 msgstr "Vi är glada att hjälpa dig att bygga, koppla samman och växa din gemenskap. SureDash gör det enkelt att skapa en kraftfull gemenskapsplattform direkt inom WordPress."
 
 #: core/shortcodes/widgets/recent-activities.php:39
-#: core/shortcodes/widgets/recent-activities.php:135
+#: core/shortcodes/widgets/recent-activities.php:176
 #: assets/build/portals-app.js:9
 #: assets/build/portals-app.js:11
 msgid "Recent Activities"
@@ -3827,8 +3792,8 @@ msgstr "Åtkomstgrupp"
 
 #: core/integrations/feeds.php:558
 #: core/integrations/feeds.php:605
-#: core/routers/misc.php:344
-#: core/routers/misc.php:396
+#: core/routers/misc.php:343
+#: core/routers/misc.php:395
 #: core/shortcodes/home-content.php:742
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
@@ -4094,11 +4059,11 @@ msgstr "Kurslektioner"
 msgid "New Section"
 msgstr "Nytt avsnitt"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google Token ID"
 msgstr "Google Token ID"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google Token Secret"
 msgstr "Google Token Secret"
 
@@ -4110,34 +4075,19 @@ msgstr "Inga resultat hittades"
 msgid "No Discussion Found"
 msgstr "Ingen diskussion hittades"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Giphy API Key"
 msgstr "Giphy API-nyckel"
 
 #: assets/build/portals-app.js:21
-msgid "Add your Giphy API key to enable GIF support in comments."
-msgstr "Lägg till din Giphy API-nyckel för att aktivera GIF-stöd i kommentarer."
-
-#: assets/build/portals-app.js:24
-msgid "Community"
-msgstr "Gemenskap"
-
-#: assets/build/portals-app.js:24
-msgid "Login/Registration"
-msgstr "Inloggning/Registrering"
-
-#: assets/build/portals-app.js:24
-msgid "Portal Pages"
-msgstr "Portal sidor"
-
-#: assets/build/portals-app.js:24
 msgid "Performance"
 msgstr "Prestanda"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Profile Menu"
 msgstr "Profilmeny"
 
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "User Roles"
 msgstr "Användarroller"
@@ -4191,6 +4141,7 @@ msgstr "Designinställningar"
 #: admin/menu.php:174
 #: admin/menu.php:175
 #: core/renderer.php:276
+#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:33
 msgid "Users"
@@ -4266,24 +4217,24 @@ msgstr "Gå till sidan Alla inlägg"
 msgid "Go to Settings Page"
 msgstr "Gå till inställningssidan"
 
-#: core/routers/backend.php:1299
+#: core/routers/backend.php:1302
 msgid "Failed to update."
 msgstr "Det gick inte att uppdatera."
 
-#: core/routers/backend.php:2251
+#: core/routers/backend.php:2254
 msgid "Comments status updated to closed."
 msgstr "Kommentarstatus uppdaterad till stängd."
 
-#: core/routers/backend.php:2259
+#: core/routers/backend.php:2262
 msgid "Comments status updated to open."
 msgstr "Kommentarstatus uppdaterad till öppen."
 
-#: core/routers/backend.php:2628
+#: core/routers/backend.php:2631
 #: assets/build/portals-app.js:27
 msgid "(no title)"
 msgstr "(ingen titel)"
 
-#: core/routers/backend.php:2690
+#: core/routers/backend.php:2693
 msgid "Unknown post"
 msgstr "Okänt inlägg"
 
@@ -4473,31 +4424,23 @@ msgstr "Kommentarsstatus uppdaterad till öppen."
 msgid "Are you sure you want to remove this lesson? It will be deleted when you save the space."
 msgstr "Är du säker på att du vill ta bort denna lektion? Den kommer att raderas när du sparar utrymmet."
 
-#: assets/build/portals-app.js:21
-msgid "Customize your portal's logo, layout, and colors from the"
-msgstr "Anpassa din portals logotyp, layout och färger från"
-
-#: assets/build/portals-app.js:21
-msgid "Make it reflect your brand."
-msgstr "Få det att spegla ditt varumärke."
-
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Site Key"
 msgstr "Webbplatsnyckel"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Secret Key"
 msgstr "Hemlig nyckel"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCAPTCHA v2 Settings"
 msgstr "Google reCAPTCHA v2-inställningar"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCAPTCHA v3 Settings"
 msgstr "Google reCAPTCHA v3-inställningar"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable reCAPTCHA for your form, please follow the steps mentioned"
 msgstr "För att aktivera reCAPTCHA för ditt formulär, följ stegen som nämns"
 
@@ -4528,14 +4471,6 @@ msgstr "Flöden Etikett"
 #: assets/build/portals-app.js:21
 msgid "Login or Join Text"
 msgstr "Logga in eller gå med text"
-
-#: assets/build/portals-app.js:21
-msgid "To manage comments & other moderation settings, please visit the"
-msgstr "För att hantera kommentarer och andra modereringsinställningar, vänligen besök"
-
-#: assets/build/portals-app.js:21
-msgid "WordPress Discussion Settings."
-msgstr "WordPress-diskussionsinställningar."
 
 #: assets/build/portals-app.js:27
 msgid "Recent Posts"
@@ -4635,11 +4570,12 @@ msgid "CAPTCHA Type"
 msgstr "CAPTCHA-typ"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:24
 msgid "Appearance"
 msgstr "Utseende"
 
@@ -4671,6 +4607,7 @@ msgstr "Höj din video och imponera på din publik med en modern visningsuppleve
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Learn More"
 msgstr "Läs mer"
@@ -4679,21 +4616,17 @@ msgstr "Läs mer"
 msgid "Published on"
 msgstr "Publicerad den"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Cloudflare Turnstile for your form, please follow the steps mentioned"
 msgstr "För att aktivera Cloudflare Turnstile för ditt formulär, vänligen följ stegen som nämns"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Facebook login and registration for your form, please follow the steps mentioned"
 msgstr "För att aktivera Facebook-inloggning och registrering för ditt formulär, vänligen följ stegen som nämns"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Google login and registration for your form, please follow the steps mentioned"
 msgstr "För att aktivera Google-inloggning och registrering för ditt formulär, vänligen följ stegen som nämns"
-
-#: assets/build/portals-app.js:21
-msgid "Get key"
-msgstr "Hämta nyckel"
 
 #: assets/build/portals-app.js:27
 msgid "No Users Yet."
@@ -4784,24 +4717,24 @@ msgstr "Visa detaljer"
 msgid "Loading..."
 msgstr "Laddar..."
 
-#: core/blocks/login.php:87
+#: core/blocks/login.php:191
 msgid "Invalid request."
 msgstr "Ogiltig begäran."
 
-#: core/blocks/login.php:92
-#: core/blocks/login.php:99
+#: core/blocks/login.php:196
+#: core/blocks/login.php:203
 msgid "Invalid data."
 msgstr "Ogiltiga data."
 
-#: core/blocks/login.php:109
+#: core/blocks/login.php:213
 msgid "Please enter your password."
 msgstr "Vänligen ange ditt lösenord."
 
-#: core/blocks/login.php:131
+#: core/blocks/login.php:235
 msgid "Your password has been reset successfully. Redirecting to login..."
 msgstr "Ditt lösenord har återställts framgångsrikt. Omdirigerar till inloggning..."
 
-#: core/blocks/login.php:135
+#: core/blocks/login.php:239
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
 msgid "Unknown error"
@@ -4820,49 +4753,49 @@ msgstr "Kombinationen av utrymmets namn och typ är tillgänglig."
 msgid "Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces."
 msgstr "Samlingutrymmen är en premiumfunktion. Vänligen uppgradera till SureDash Pro för att skapa samlingutrymmen."
 
-#: core/routers/backend.php:2281
+#: core/routers/backend.php:2284
 msgid "Invalid post IDs."
 msgstr "Ogiltiga inläggs-ID:n."
 
-#: core/routers/backend.php:2305
+#: core/routers/backend.php:2308
 #: assets/build/portals-app.js:21
 msgid "Comments status updated."
 msgstr "Kommentarstatus uppdaterad."
 
-#: core/routers/backend.php:2724
+#: core/routers/backend.php:2727
 msgid "No icons found."
 msgstr "Inga ikoner hittades."
 
-#: core/routers/misc.php:1232
-#: core/routers/misc.php:1309
+#: core/routers/misc.php:1225
+#: core/routers/misc.php:1302
 msgid "Comment not found."
 msgstr "Kommentar hittades inte."
 
-#: core/routers/misc.php:1237
+#: core/routers/misc.php:1230
 msgid "You are not authorized to edit this comment."
 msgstr "Du är inte auktoriserad att redigera denna kommentar."
 
-#: core/routers/misc.php:1268
+#: core/routers/misc.php:1261
 msgid "Failed to update comment."
 msgstr "Misslyckades med att uppdatera kommentaren."
 
-#: core/routers/misc.php:1278
+#: core/routers/misc.php:1271
 msgid "Comment Updated Successfully!"
 msgstr "Kommentar uppdaterad framgångsrikt!"
 
-#: core/routers/misc.php:1318
+#: core/routers/misc.php:1311
 msgid "You are not authorized to delete this comment."
 msgstr "Du är inte auktoriserad att ta bort denna kommentar."
 
-#: core/routers/misc.php:1325
+#: core/routers/misc.php:1318
 msgid "Failed to delete comment."
 msgstr "Misslyckades med att ta bort kommentaren."
 
-#: core/routers/misc.php:1329
+#: core/routers/misc.php:1322
 msgid "Comment deleted successfully!"
 msgstr "Kommentar borttagen framgångsrikt!"
 
-#: core/routers/misc.php:1917
+#: core/routers/misc.php:1908
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ogiltig filtyp. Endast GIF, PNG, JPEG, JPG och WEBP är tillåtna."
 
@@ -4880,23 +4813,23 @@ msgid "Re-enter your new password"
 msgstr "Ange ditt nya lösenord igen"
 
 #: core/shortcodes/single-content.php:355
-#: inc/functions/functions.php:864
+#: inc/functions/functions.php:905
 #: templates/quick-view/post.php:83
 #: templates/single/post.php:103
 msgid "Edited"
 msgstr "Redigerad"
 
-#: inc/functions/functions.php:811
+#: inc/functions/functions.php:852
 msgid "Comment actions"
 msgstr "Kommentaråtgärder"
 
 #: core/shortcodes/single-content.php:404
-#: inc/functions/functions.php:831
+#: inc/functions/functions.php:872
 #: templates/single/post.php:176
 msgid "Copy URL"
 msgstr "Kopiera URL"
 
-#: inc/functions/functions.php:1875
+#: inc/functions/functions.php:1916
 msgid "Write a short bio about yourself..."
 msgstr "Skriv en kort biografi om dig själv..."
 
@@ -5108,10 +5041,6 @@ msgid "To customize the Collection Space, please upgrade to the Premium version.
 msgstr "För att anpassa samlingsutrymmet, vänligen uppgradera till Premium-versionen."
 
 #: assets/build/portals-app.js:21
-msgid "User registration is currently disabled. To allow new users to sign up, please enable the “Anyone can Register” option in your"
-msgstr "Användarregistrering är för närvarande inaktiverad. För att tillåta nya användare att registrera sig, vänligen aktivera alternativet \"Alla kan registrera sig\" i din"
-
-#: assets/build/portals-app.js:21
 msgid "Or"
 msgstr "Eller"
 
@@ -5177,17 +5106,17 @@ msgstr "Roll"
 
 #. translators: %1$s: User Name Field.
 #. translators: %1$s: Password Field.
-#: core/blocks/login.php:941
-#: core/blocks/login.php:946
+#: core/blocks/login.php:1045
+#: core/blocks/login.php:1050
 #, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr "Fältet \"%1$s\" kan inte vara tomt."
 
-#: core/blocks/login.php:942
+#: core/blocks/login.php:1046
 msgid "Username Field"
 msgstr "Användarnamn Fält"
 
-#: core/blocks/login.php:947
+#: core/blocks/login.php:1051
 msgid "Password Field"
 msgstr "Lösenord Fält"
 
@@ -5227,43 +5156,43 @@ msgstr "Lägg till bokmärke"
 msgid "Resource Space is available in the premium version of SureDash."
 msgstr "Resursutrymme är tillgängligt i premiumversionen av SureDash."
 
-#: inc/modules/email-notifications/emails.php:69
+#: inc/modules/email-notifications/emails.php:81
 msgid "To reset your password, visit the following URL:"
 msgstr "För att återställa ditt lösenord, besök följande URL:"
 
-#: inc/functions/functions.php:2090
+#: inc/functions/functions.php:2131
 #: assets/build/portals-app.js:36
 msgid "Links"
 msgstr "Länkar"
 
-#: inc/functions/functions.php:2091
+#: inc/functions/functions.php:2132
 msgid "Headings"
 msgstr "Rubriker"
 
-#: inc/functions/functions.php:2093
+#: inc/functions/functions.php:2134
 #: assets/build/portals-app.js:36
 msgid "Content Background"
 msgstr "Innehållsbakgrund"
 
-#: inc/functions/functions.php:2094
+#: inc/functions/functions.php:2135
 #: assets/build/portals-app.js:36
 msgid "Portal Background"
 msgstr "Portalbakgrund"
 
-#: inc/functions/functions.php:2095
+#: inc/functions/functions.php:2136
 msgid "Alternate Background"
 msgstr "Alternativ bakgrund"
 
-#: inc/functions/functions.php:2096
+#: inc/functions/functions.php:2137
 msgid "Subtle Background"
 msgstr "Subtil bakgrund"
 
-#: inc/functions/functions.php:2097
+#: inc/functions/functions.php:2138
 msgid "Other Supporting"
 msgstr "Övrigt stöd"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2265
+#: inc/functions/functions.php:2306
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5271,7 +5200,7 @@ msgstr[0] "%1$d tim %2$d min"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2269
+#: inc/functions/functions.php:2310
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5279,7 +5208,7 @@ msgstr[0] "%d tim"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2273
+#: inc/functions/functions.php:2314
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
@@ -5311,7 +5240,7 @@ msgstr "Resursobjekt"
 msgid "Resource Items"
 msgstr "Resursobjekt"
 
-#: loader.php:691
+#: loader.php:697
 msgid "Rate our plugin"
 msgstr "Betygsätt vårt tillägg"
 
@@ -5834,7 +5763,7 @@ msgstr "Mörka färger"
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "Osäker på hur man ställer in färger? Se 9 färgdefinitioner"
 
-#: core/routers/backend.php:2785
+#: core/routers/backend.php:2788
 msgid "Post title is required."
 msgstr "Posttitel krävs."
 
@@ -6166,36 +6095,36 @@ msgstr "Redigera inlägg"
 msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Integrerar SureCart kundområde med SureDash utrymmen."
 
-#: core/routers/misc.php:1376
-#: core/routers/misc.php:1476
+#: core/routers/misc.php:1369
+#: core/routers/misc.php:1469
 msgid "Post not found."
 msgstr "Inlägget hittades inte."
 
-#: core/routers/misc.php:1383
+#: core/routers/misc.php:1376
 msgid "You are not authorized to edit this post."
 msgstr "Du är inte auktoriserad att redigera detta inlägg."
 
-#: core/routers/misc.php:1425
+#: core/routers/misc.php:1418
 msgid "Failed to update post."
 msgstr "Misslyckades med att uppdatera inlägg."
 
-#: core/routers/misc.php:1444
+#: core/routers/misc.php:1437
 msgid "Post Updated Successfully!"
 msgstr "Inlägget uppdaterades framgångsrikt!"
 
-#: core/routers/misc.php:1480
+#: core/routers/misc.php:1473
 msgid "Invalid Post."
 msgstr "Ogiltigt inlägg."
 
-#: core/routers/misc.php:1489
+#: core/routers/misc.php:1482
 msgid "You are not authorized to delete this post."
 msgstr "Du är inte auktoriserad att ta bort detta inlägg."
 
-#: core/routers/misc.php:1496
+#: core/routers/misc.php:1489
 msgid "Failed to delete post."
 msgstr "Misslyckades med att ta bort inlägg."
 
-#: core/routers/misc.php:1500
+#: core/routers/misc.php:1493
 msgid "Post deleted successfully!"
 msgstr "Inlägget togs bort framgångsrikt!"
 
@@ -6216,11 +6145,11 @@ msgstr "Visa evenemang"
 msgid "Post actions"
 msgstr "Inläggsåtgärder"
 
-#: inc/utils/analytics.php:92
+#: inc/utils/analytics.php:129
 msgid "Quick Feedback"
 msgstr "Snabb feedback"
 
-#: inc/utils/analytics.php:94
+#: inc/utils/analytics.php:131
 msgid "If you have a moment, please share why you are deactivating SureDash:"
 msgstr "Om du har en stund, vänligen dela varför du avaktiverar SureDash:"
 
@@ -6400,11 +6329,6 @@ msgstr "För att få tillgång till evenemangsfunktionen, vänligen uppgradera t
 msgid "You have unsaved changes. Are you sure you want to leave without saving?"
 msgstr "Du har osparade ändringar. Är du säker på att du vill lämna utan att spara?"
 
-#: assets/build/portals-app.js:21
-msgid "Heads up! Portal Managers are now assigned via WordPress roles. Just give the Portal Manager role to any user who should manage SureDash."
-msgstr "Observera! Portalhanterare tilldelas nu via WordPress-roller. Ge bara rollen som Portalhanterare till vilken användare som helst som ska hantera SureDash."
-
-#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Learn more"
 msgstr "Läs mer"
@@ -6514,19 +6438,19 @@ msgstr "Välj ett utrymme att posta i"
 msgid "Menu"
 msgstr "Meny"
 
-#: core/routers/backend.php:2746
+#: core/routers/backend.php:2749
 msgid "No emojis found."
 msgstr "Inga emojis hittades."
 
-#: core/routers/backend.php:2890
+#: core/routers/backend.php:2893
 msgid "Content ID is required."
 msgstr "Innehålls-ID krävs."
 
-#: core/routers/backend.php:2899
+#: core/routers/backend.php:2902
 msgid "Content not found."
 msgstr "Innehållet hittades inte."
 
-#: core/routers/backend.php:2928
+#: core/routers/backend.php:2931
 msgid "Settings updated successfully."
 msgstr "Inställningarna har uppdaterats framgångsrikt."
 
@@ -6590,24 +6514,24 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "Misslyckades med att radera e-postutlösare."
 
-#: core/routers/misc.php:695
-#: core/routers/misc.php:1568
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:694
+#: core/routers/misc.php:1561
+#: core/routers/misc.php:1591
 msgid "User not logged in."
 msgstr "Användare är inte inloggad."
 
-#: core/routers/misc.php:700
+#: core/routers/misc.php:699
 msgid "User not found."
 msgstr "Användare hittades inte."
 
 #. translators: %s: Site name
-#: core/routers/misc.php:720
+#: core/routers/misc.php:719
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-e-post från %s"
 
 #. translators: %1$s: User name, %2$s: Site name
-#: core/routers/misc.php:736
+#: core/routers/misc.php:735
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6620,19 +6544,19 @@ msgstr ""
 "\t\t\t\t\tOm du har fått detta e-postmeddelande är dina notifikationsinställningar korrekt konfigurerade!\n"
 "\t\t\t\t\t--- Detta e-postmeddelande skickades från %2$s"
 
-#: core/routers/misc.php:760
+#: core/routers/misc.php:754
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Test-e-post skickad framgångsrikt! Vänligen kontrollera din inkorg."
 
-#: core/routers/misc.php:767
+#: core/routers/misc.php:761
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Misslyckades med att skicka test-e-post. Vänligen kontrollera din e-postkonfiguration."
 
-#: core/routers/misc.php:809
+#: core/routers/misc.php:803
 msgid "Failed to update notification settings."
 msgstr "Misslyckades med att uppdatera notifikationsinställningar."
 
-#: core/routers/misc.php:814
+#: core/routers/misc.php:808
 msgid "Notification settings updated successfully!"
 msgstr "Notifikationsinställningar uppdaterade framgångsrikt!"
 
@@ -7251,8 +7175,8 @@ msgstr "Inga gilla-markeringar ännu, var den första att gilla!"
 #. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
 #. translators: %s: time ago
 #: core/notifier/base.php:204
-#: core/shortcodes/widgets/recent-activities.php:60
-#: inc/functions/functions.php:2334
+#: core/shortcodes/widgets/recent-activities.php:96
+#: inc/functions/functions.php:2375
 msgid "%s ago"
 msgstr "för %s sedan"
 
@@ -7277,15 +7201,15 @@ msgstr "Lösenordet du angav för användarnamnet %1$s är felaktigt. %2$s"
 msgid "Receive admin notifications"
 msgstr "Ta emot administratörsmeddelanden"
 
-#: inc/functions/functions.php:2682
+#: inc/functions/functions.php:2723
 msgid "Anonymous"
 msgstr "Anonym"
 
-#: inc/utils/helper.php:1693
+#: inc/utils/helper.php:1767
 msgid "No likes yet."
 msgstr "Inga gilla-markeringar än."
 
-#: inc/utils/helper.php:1729
+#: inc/utils/helper.php:1803
 msgid "Share"
 msgstr "Dela"
 
@@ -7374,19 +7298,19 @@ msgstr "Inga åtkomstgrupper hittades"
 msgid "Post Visibility"
 msgstr "Inläggssynlighet"
 
-#: core/routers/backend.php:2507
+#: core/routers/backend.php:2510
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers-plugin är inte aktivt."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1595
 msgid "Space ID is required."
 msgstr "Rums-ID krävs."
 
-#: core/routers/misc.php:1611
+#: core/routers/misc.php:1604
 msgid "Space marked as read."
 msgstr "Utrymme markerat som läst."
 
-#: core/routers/misc.php:1615
+#: core/routers/misc.php:1608
 msgid "Failed to mark space as read."
 msgstr "Det gick inte att markera utrymmet som läst."
 
@@ -7410,28 +7334,28 @@ msgid "No info available."
 msgstr "Ingen information tillgänglig."
 
 #: core/shortcodes/widgets/post-widget.php:64
-#: core/shortcodes/widgets/post-widget.php:119
+#: core/shortcodes/widgets/post-widget.php:124
 msgid "No posts available."
 msgstr "Inga inlägg tillgängliga."
 
-#: core/shortcodes/widgets/recent-activities.php:86
+#: core/shortcodes/widgets/recent-activities.php:127
 msgid "No recent comments yet."
 msgstr "Inga nya kommentarer ännu."
 
-#: core/shortcodes/widgets/recent-activities.php:109
-#: core/shortcodes/widgets/recent-activities.php:341
-#: core/shortcodes/widgets/recent-activities.php:510
-#: core/shortcodes/widgets/recent-activities.php:570
-#: core/shortcodes/widgets/recent-activities.php:637
+#: core/shortcodes/widgets/recent-activities.php:150
+#: core/shortcodes/widgets/recent-activities.php:392
+#: core/shortcodes/widgets/recent-activities.php:579
+#: core/shortcodes/widgets/recent-activities.php:645
+#: core/shortcodes/widgets/recent-activities.php:718
 msgid " commented on: "
 msgstr "kommenterade på:"
 
-#: core/shortcodes/widgets/recent-activities.php:192
+#: core/shortcodes/widgets/recent-activities.php:233
 msgid "No recent activities."
 msgstr "Inga senaste aktiviteter."
 
-#: core/shortcodes/widgets/recent-activities.php:261
-#: core/shortcodes/widgets/recent-activities.php:450
+#: core/shortcodes/widgets/recent-activities.php:310
+#: core/shortcodes/widgets/recent-activities.php:513
 msgid " posted: "
 msgstr "publicerad:"
 
@@ -7745,7 +7669,6 @@ msgid "Showcase user profiles with avatars and information"
 msgstr "Visa användarprofiler med avatarer och information"
 
 #: assets/build/portals-app.js:11
-#: assets/build/portals-app.js:24
 msgid "Global Sidebar"
 msgstr "Global sidofält"
 
@@ -7828,20 +7751,12 @@ msgid "Set the maximum file size limit for users to upload assets like images, d
 msgstr "Ange den maximala filstorleksgränsen för användare att ladda upp tillgångar som bilder, dokument och andra mediefiler i inlägg, kommentarer och andra innehållsområden."
 
 #: assets/build/portals-app.js:21
-msgid "Set the maximum upload limit for users to upload files."
-msgstr "Ange den maximala uppladdningsgränsen för användare att ladda upp filer."
-
-#: assets/build/portals-app.js:21
 msgid "Profile and Cover Image Upload Limit"
 msgstr "Begränsning för uppladdning av profil- och omslagsbild"
 
 #: assets/build/portals-app.js:21
 msgid "Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies only to user profile images."
 msgstr "Ange den maximala filstorleksgränsen specifikt för uppladdningar av profilbilder och omslags-/bannerbilder. Denna gräns gäller endast användarprofilbilder."
-
-#: assets/build/portals-app.js:21
-msgid "Set the maximum upload limit for users to upload profile picture & banner image."
-msgstr "Ange den maximala uppladdningsgränsen för användare att ladda upp profilbild och bannerbild."
 
 #: assets/build/portals-app.js:24
 msgid "groups selected"
@@ -7959,42 +7874,42 @@ msgstr "Inga evenemang har gått med ännu."
 #. translators: %1$s: author name, %2$s: post date
 #: core/integrations/feeds.php:538
 #: core/integrations/feeds.php:586
-#: core/routers/misc.php:324
-#: core/routers/misc.php:377
+#: core/routers/misc.php:323
+#: core/routers/misc.php:376
 #: core/shortcodes/home-content.php:723
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1339
-#: inc/utils/helper.php:1364
+#: inc/utils/helper.php:1413
+#: inc/utils/helper.php:1438
 msgid "Latest"
 msgstr "Senaste"
 
-#: inc/utils/helper.php:1343
+#: inc/utils/helper.php:1417
 msgid "Oldest"
 msgstr "Äldsta"
 
-#: inc/utils/helper.php:1347
+#: inc/utils/helper.php:1421
 msgid "Popular"
 msgstr "Populär"
 
-#: inc/utils/helper.php:1355
+#: inc/utils/helper.php:1429
 msgid "New Activity"
 msgstr "Ny aktivitet"
 
-#: inc/utils/helper.php:1359
+#: inc/utils/helper.php:1433
 msgid "Alphabetical"
 msgstr "Alfabetisk"
 
-#: inc/utils/helper.php:1373
+#: inc/utils/helper.php:1447
 msgid "Sort by:"
 msgstr "Sortera efter:"
 
-#: inc/utils/helper.php:1381
+#: inc/utils/helper.php:1455
 msgid "Sort options"
 msgstr "Sorteringsalternativ"
 
-#: inc/utils/helper.php:1417
+#: inc/utils/helper.php:1491
 msgid "Toggle view"
 msgstr "Väx vy"
 
@@ -8003,7 +7918,7 @@ msgid "This community's portal spaces will be listed here."
 msgstr "Detta samhälles portalutrymmen kommer att listas här."
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2356
+#: inc/functions/functions.php:2397
 msgid "in %s"
 msgstr "i %s"
 
@@ -8132,7 +8047,7 @@ msgstr "Lär dig mer om leaderboard"
 
 #: core/blocks/interactivity/build/Title/view.php:56
 #: core/shortcodes/content-header.php:82
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Feeds"
 msgstr "Flöden"
 
@@ -8170,11 +8085,11 @@ msgid "This forum group is created for the space: %s"
 msgstr "Denna forumgrupp skapades för utrymmet: %s"
 
 #. translators: %s: original post title
-#: core/routers/backend.php:1395
+#: core/routers/backend.php:1398
 msgid "%s - Copy"
 msgstr "%s - Kopia"
 
-#: core/routers/misc.php:481
+#: core/routers/misc.php:480
 msgid "User ID is required."
 msgstr "Användar-ID krävs."
 
@@ -8258,11 +8173,11 @@ msgstr "Fler alternativ"
 msgid "Course Label"
 msgstr "Kursetikett"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Help shape the future of SureDash"
 msgstr "Hjälp till att forma framtiden för SureDash"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions. "
 msgstr "Dela hur du använder pluginet så att vi kan bygga funktioner som betyder något, åtgärda problem snabbare och fatta smartare beslut."
 
@@ -8303,10 +8218,6 @@ msgstr "Ett fel inträffade under inloggningen. Försök igen."
 #: assets/js/unminified/login.js:667
 msgid "Please enter your email."
 msgstr "Vänligen ange din e-postadress."
-
-#: assets/js/unminified/login.js:701
-msgid "We couldn’t send the reset email. Please try again or contact support."
-msgstr "Vi kunde inte skicka återställningsmejlet. Försök igen eller kontakta support."
 
 #: assets/js/unminified/login.js:709
 #: assets/js/unminified/login.js:823
@@ -8391,6 +8302,313 @@ msgstr "Ta bort %s"
 msgid "Deleted %s file"
 msgstr "Borttagen %s fil"
 
+#: core/assets.php:111
+msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
+msgstr "Stöder YouTube, Vimeo, Dailymotion, VideoPress och mer"
+
+#: core/routers/misc.php:1628
+msgid "A valid URL is required."
+msgstr "En giltig URL krävs."
+
+#: core/routers/misc.php:1639
+msgid "This URL is not from a supported video provider."
+msgstr "Denna URL kommer inte från en stödd videoleverantör."
+
+#: core/routers/misc.php:1651
+msgid "Could not resolve video. Please check the URL and try again."
+msgstr "Kunde inte lösa videon. Kontrollera URL:en och försök igen."
+
+#: inc/modules/mcp/module.php:195
+msgid "MCP settings saved successfully."
+msgstr "MCP-inställningar sparades framgångsrikt."
+
+#: inc/modules/mcp/module.php:246
+msgid "SureDash MCP Server"
+msgstr "SureDash MCP-server"
+
+#: inc/modules/mcp/module.php:247
+msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
+msgstr "SureDash MCP-server för hantering av communityportaler — utrymmen, grupper, inlägg, användare, inställningar och analyser."
+
+#: inc/utils/labels.php:122
+#: inc/utils/labels.php:123
+msgid "You're all caught up — happy posting! 🎉"
+msgstr "Du är helt ikapp — glad posting! 🎉"
+
+#: assets/build/portals-app.js:17
+msgid "Cover Image URL"
+msgstr "Omslagsbildens URL"
+
+#: assets/build/portals-app.js:17
+msgid "Embed Media URL"
+msgstr "Bädda in medie-URL"
+
+#: assets/build/portals-app.js:24
+msgid "Copy to clipboard"
+msgstr "Kopiera till urklipp"
+
+#: assets/build/portals-app.js:24
+msgid "Claude Desktop"
+msgstr "Claude Desktop"
+
+#: assets/build/portals-app.js:24
+msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgstr "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) eller %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+
+#: assets/build/portals-app.js:24
+msgid "Claude Code"
+msgstr "Claude-kod"
+
+#: assets/build/portals-app.js:24
+msgid ".mcp.json (project) or ~/.claude.json (global)"
+msgstr ".mcp.json (projekt) eller ~/.claude.json (global)"
+
+#: assets/build/portals-app.js:24
+msgid "Cursor"
+msgstr "Markör"
+
+#: assets/build/portals-app.js:24
+msgid "~/.cursor/mcp.json"
+msgstr "~/.cursor/mcp.json"
+
+#: assets/build/portals-app.js:24
+msgid "VS Code (Copilot)"
+msgstr "VS Code (Copilot)"
+
+#: assets/build/portals-app.js:24
+msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
+msgstr ".vscode/mcp.json (projekt) eller settings.json > mcp.servers (global)"
+
+#: assets/build/portals-app.js:24
+msgid "~/.continue/config.yaml or config.json"
+msgstr "~/.continue/config.yaml eller config.json"
+
+#: assets/build/portals-app.js:24
+msgid "Other"
+msgstr "Annat"
+
+#: assets/build/portals-app.js:24
+msgid "Your client's MCP configuration file"
+msgstr "Din klients MCP-konfigurationsfil"
+
+#: assets/build/portals-app.js:24
+msgid "Connect Your AI Client"
+msgstr "Anslut din AI-klient"
+
+#: assets/build/portals-app.js:24
+msgid "AI Client"
+msgstr "AI-klient"
+
+#: assets/build/portals-app.js:24
+msgid "Create an Application Password — "
+msgstr "Skapa ett applikationslösenord — "
+
+#: assets/build/portals-app.js:24
+msgid "Open Application Passwords"
+msgstr "Öppna applikationslösenord"
+
+#: assets/build/portals-app.js:24
+msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
+msgstr "Eller använd detta CLI-kommando för att snabbt lägga till servern (du måste fortfarande ställa in miljövariablerna):"
+
+#: assets/build/portals-app.js:24
+msgid "Copy the JSON config below into: "
+msgstr "Kopiera JSON-konfigurationen nedan till: "
+
+#: assets/build/portals-app.js:24
+msgid "Replace \"your-application-password\" with the password from Step 1."
+msgstr "Ersätt \"ditt-applikationslösenord\" med lösenordet från steg 1."
+
+#: assets/build/portals-app.js:24
+msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
+msgstr "WP_API_URL — din sidas MCP-slutpunkt. WP_API_USERNAME — ditt WordPress-användarnamn. WP_API_PASSWORD — det applikationslösenord du genererade."
+
+#: assets/build/portals-app.js:24
+msgid "View setup docs"
+msgstr "Visa installationsdokument"
+
+#: assets/build/portals-app.js:24
+msgid "Activating…"
+msgstr "Aktiverar…"
+
+#: assets/build/portals-app.js:24
+msgid "Activate MCP Adapter"
+msgstr "Aktivera MCP-adapter"
+
+#: assets/build/portals-app.js:24
+msgid "Download MCP Adapter"
+msgstr "Ladda ner MCP-adapter"
+
+#: assets/build/portals-app.js:24
+msgid "Enable Abilities"
+msgstr "Aktivera förmågor"
+
+#: assets/build/portals-app.js:24
+msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
+msgstr "Registrera SureDash-förmågor med WordPress Abilities API. När det är aktiverat kan AI-klienter lista, läsa, skapa, redigera och hantera din portal. När det är inaktiverat registreras inga förmågor och AI-klienter kan inte utföra några åtgärder."
+
+#: assets/build/portals-app.js:24
+msgid "Enable Edit Abilities"
+msgstr "Aktivera redigeringsförmågor"
+
+#: assets/build/portals-app.js:24
+msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
+msgstr "När det är aktiverat kan AI-klienter uppdatera utrymmen, inställningar, inlägg, grupper och annat innehåll. När det är inaktiverat avregistreras dessa förmågor och AI-klienter kan endast läsa dina data."
+
+#: assets/build/portals-app.js:24
+msgid "Enable Delete Abilities"
+msgstr "Aktivera raderingsförmågor"
+
+#: assets/build/portals-app.js:24
+msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
+msgstr "När det är aktiverat kan AI-klienter permanent radera utrymmen, inlägg och grupper. Raderade data kan inte återställas. När det är inaktiverat avregistreras raderingsförmågor och AI-klienter kan inte ta bort några data."
+
+#: assets/build/portals-app.js:24
+msgid "Enable MCP Server"
+msgstr "Aktivera MCP-server"
+
+#: assets/build/portals-app.js:24
+msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
+msgstr "Skapar en dedikerad SureDash MCP-slutpunkt som AI-klienter som Claude kan ansluta till. När det är inaktiverat tas slutpunkten bort och externa AI-klienter kan inte upptäcka eller anropa några SureDash-förmågor."
+
+#: assets/build/portals-app.js:24
+msgid "MCP"
+msgstr "MCP"
+
+#: templates/parts/logged-in-screen.php:49
+msgid "You're already signed in"
+msgstr "Du är redan inloggad"
+
+#. translators: 1: user display name, 2: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:55
+msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
+msgstr "Välkommen tillbaka, %1$s. Gå tillbaka till %2$s för att fortsätta där du slutade."
+
+#. translators: %s: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:65
+msgid "Go to %s"
+msgstr "Gå till %s"
+
+#: templates/parts/logged-in-screen.php:71
+msgid "Not you? Sign out"
+msgstr "Är det inte du? Logga ut"
+
+#: assets/build/portals-app.js:8
+msgid "Close video"
+msgstr "Stäng video"
+
+#: assets/build/portals-app.js:11
+msgid "Use Course Thumbnail as Default"
+msgstr "Använd kursminiatyr som standard"
+
+#: assets/build/portals-app.js:11
+msgid "When no featured image is set, use the course thumbnail"
+msgstr "När ingen utvald bild är inställd, använd kursminiatyren"
+
+#: assets/build/portals-app.js:21
+msgid "Portal Identity"
+msgstr "Portalidentitet"
+
+#: assets/build/portals-app.js:21
+msgid "Visibility"
+msgstr "Synlighet"
+
+#: assets/build/portals-app.js:21
+msgid "Usage Data"
+msgstr "Användardata"
+
+#: assets/build/portals-app.js:21
+msgid "Pro"
+msgstr "Pro"
+
+#: assets/build/portals-app.js:21
+msgid "Hide SureDash Branding"
+msgstr "Dölj SureDash-varumärke"
+
+#: assets/build/portals-app.js:21
+msgid "Posts Per Page"
+msgstr "Inlägg per sida"
+
+#: assets/build/portals-app.js:21
+msgid "Applies to feeds, discussion spaces, and user profile posts."
+msgstr "Gäller för flöden, diskussionsutrymmen och användarprofilinlägg."
+
+#: assets/build/portals-app.js:21
+msgid "- Select -"
+msgstr "- Välj -"
+
+#: assets/build/portals-app.js:21
+msgid "User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" option in your"
+msgstr "Användarregistrering är för närvarande inaktiverad. För att tillåta nya användare att registrera sig, vänligen aktivera alternativet \"Alla kan registrera sig\" i din"
+
+#: assets/build/portals-app.js:21
+msgid "Login & Registration Pages"
+msgstr "Inloggnings- och registreringssidor"
+
+#: assets/build/portals-app.js:21
+msgid "Navigates to the members page."
+msgstr "Navigerar till medlemsidan."
+
+#: assets/build/portals-app.js:21
+msgid "Uploads"
+msgstr "Uppladdningar"
+
+#: assets/build/portals-app.js:21
+msgid "Maximum upload size for user-posted files."
+msgstr "Maximal uppladdningsstorlek för användarpostade filer."
+
+#: assets/build/portals-app.js:21
+msgid "Maximum size for profile and cover image uploads."
+msgstr "Maximal storlek för profil- och omslagsbildsuppladdningar."
+
+#: assets/build/portals-app.js:24
+msgid "Google Login"
+msgstr "Google-inloggning"
+
+#: assets/build/portals-app.js:24
+msgid "Facebook Login"
+msgstr "Facebook-inloggning"
+
+#: assets/build/portals-app.js:24
+msgid "Social Login & Security"
+msgstr "Social inloggning och säkerhet"
+
+#: assets/build/portals-app.js:24
+msgid "Giphy"
+msgstr "Giphy"
+
+#: assets/build/portals-app.js:24
+msgid "Add your Giphy API key to enable GIF support in comments. <a>Get key</a>."
+msgstr "Lägg till din Giphy API-nyckel för att aktivera GIF-stöd i kommentarer. <a>Hämta nyckel</a>."
+
+#: assets/build/portals-app.js:24
+msgid "Plugins"
+msgstr "Plugins"
+
+#: assets/build/portals-app.js:24
+msgid "Requires the MCP Adapter plugin."
+msgstr "Kräver MCP Adapter-pluginet."
+
+#: assets/build/portals-app.js:24
+msgid "Feeds & Content"
+msgstr "Flöden och innehåll"
+
+#: assets/build/portals-app.js:24
+msgid "Login & Registration"
+msgstr "Inloggning och registrering"
+
+#: assets/build/portals-app.js:24
+msgid "Roles & Profile"
+msgstr "Roller och profil"
+
+#: assets/build/portals-app.js:24
+msgid "Sidebar"
+msgstr "Sidofält"
+
+#: assets/js/unminified/login.js:701
+msgid "We couldn't send the reset email. Please try again or contact support."
+msgstr "Vi kunde inte skicka återställningsmejlet. Vänligen försök igen eller kontakta support."
+
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"
 msgid "Portal Space Groups"
@@ -8446,208 +8664,3 @@ msgstr "Gemenskapsinlägg"
 msgctxt "SureDash Portal Layout"
 msgid "SureDash: Portal Layout"
 msgstr "SureDash: Portal Layout"
-
-#: core/assets.php:111
-msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
-msgstr ""
-
-#: core/routers/misc.php:1635
-msgid "A valid URL is required."
-msgstr ""
-
-#: core/routers/misc.php:1646
-msgid "This URL is not from a supported video provider."
-msgstr ""
-
-#: core/routers/misc.php:1658
-msgid "Could not resolve video. Please check the URL and try again."
-msgstr ""
-
-#: inc/modules/mcp/module.php:245
-msgid "MCP settings saved successfully."
-msgstr ""
-
-#: inc/modules/mcp/module.php:296
-msgid "SureDash MCP Server"
-msgstr ""
-
-#: inc/modules/mcp/module.php:297
-msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
-msgstr ""
-
-#: inc/utils/labels.php:122
-#: inc/utils/labels.php:123
-msgid "You're all caught up — happy posting! 🎉"
-msgstr ""
-
-#: assets/build/portals-app.js:17
-msgid "Cover Image URL"
-msgstr ""
-
-#: assets/build/portals-app.js:17
-msgid "Embed Media URL"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Copy to clipboard"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Claude Desktop"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Claude Code"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid ".mcp.json (project) or ~/.claude.json (global)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Cursor"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/.cursor/mcp.json"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "VS Code (Copilot)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/.continue/config.yaml or config.json"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Other"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Your client's MCP configuration file"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Connect Your AI Client"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "AI Client"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Create an Application Password — "
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Open Application Passwords"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Copy the JSON config below into: "
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Replace \"your-application-password\" with the password from Step 1."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "View setup docs"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "MCP Adapter Required"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "The MCP Adapter plugin is installed but not active. Activate it to configure MCP settings."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "The MCP Adapter plugin is required to connect AI clients to your portal. Download and install it from GitHub, then activate it."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Download the latest release from"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "GitHub"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Install the plugin via Plugins > Add New Plugin > Upload Plugin."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activate the MCP Adapter plugin."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activating…"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activate MCP Adapter"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Download MCP Adapter"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Edit Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Delete Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable MCP Server"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "AI"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "MCP"
-msgstr ""

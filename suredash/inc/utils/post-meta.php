@@ -197,6 +197,10 @@ class PostMeta {
 					'default' => [],
 					'type'    => 'array',
 				],
+				'use_space_thumbnail'     => [
+					'default' => false,
+					'type'    => 'boolean',
+				],
 			]
 		);
 	}

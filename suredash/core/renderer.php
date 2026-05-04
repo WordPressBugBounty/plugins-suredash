@@ -298,7 +298,7 @@ class Renderer {
 				'id'     => 'suredash_settings',
 				'parent' => 'suredash_admin_link',
 				'title'  => __( 'Settings', 'suredash' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=' . SUREDASHBOARD_SLUG . '&tab=settings&section=branding' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=' . SUREDASHBOARD_SLUG . '&tab=settings&section=general' ) ),
 				'meta'   => [
 					'title' => __( 'Go to Settings Page', 'suredash' ),
 				],

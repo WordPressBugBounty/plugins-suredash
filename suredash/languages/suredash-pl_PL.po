@@ -33,14 +33,15 @@ msgid "Cover Image"
 msgstr "Obraz okładki"
 
 #: inc/utils/labels.php:115
+#: assets/build/portals-app.js:21
 msgid "Content"
 msgstr "Zawartość"
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1138
 msgid "Content Groups"
 msgstr "Grupy zawartości"
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1138
 msgid "Topic Forums"
 msgstr "Fora tematyczne"
 
@@ -49,7 +50,6 @@ msgstr "Fora tematyczne"
 #: admin/setup.php:65
 #: core/renderer.php:300
 #: assets/build/portals-app.js:11
-#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
 msgid "Settings"
 msgstr "Ustawienia"
@@ -71,7 +71,7 @@ msgid "Video"
 msgstr "Wideo"
 
 #: admin/menu.php:626
-#: inc/utils/helper.php:2128
+#: inc/utils/helper.php:2202
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "Nieskategoryzowane"
@@ -124,30 +124,23 @@ msgstr "Wstaw emotikon"
 msgid "No user found"
 msgstr "Nie znaleziono użytkownika"
 
-#: core/blocks/login.php:843
+#: core/blocks/login.php:947
 msgid "Username or Email Address"
 msgstr "Nazwa użytkownika lub adres e-mail"
 
-#: core/blocks/login.php:844
+#: core/blocks/login.php:948
 #: inc/utils/labels.php:69
 #: assets/build/editor-app.js:2
 #: assets/build/editor-app.js:6
 msgid "Password"
 msgstr "Hasło"
 
-#: core/blocks/login.php:964
+#: core/blocks/login.php:1068
 #: core/blocks/register.php:404
 msgid "You have logged in successfully. Redirecting…"
 msgstr "Zalogowano pomyślnie. Przekierowywanie…"
 
-#. translators: %1$s user name
-#: core/blocks/login.php:1181
-#: core/blocks/register.php:460
-#, php-format
-msgid "You are logged in as %1$s (%2$sLogout%3$s)"
-msgstr "Jesteś zalogowany jako %1$s (%2$sWyloguj się%3$s)"
-
-#: core/blocks/login.php:1333
+#: core/blocks/login.php:1443
 #: assets/build/editor-app.js:6
 msgid "Show Password"
 msgstr "Pokaż hasło"
@@ -205,56 +198,56 @@ msgid "This field"
 msgstr "To pole"
 
 #: core/blocks/register.php:85
-#: core/blocks/register.php:977
+#: core/blocks/register.php:981
 msgid "You have used an invalid email."
 msgstr "Użyłeś nieprawidłowego adresu e-mail."
 
 #. translators: abbreviation for units
-#: core/blocks/login.php:65
-#: core/blocks/register.php:978
+#: core/blocks/login.php:169
+#: core/blocks/register.php:982
 #: assets/build/editor-app.js:2
 msgid "Please enter a valid email address."
 msgstr "Proszę wprowadzić prawidłowy adres e-mail."
 
-#: core/blocks/register.php:979
+#: core/blocks/register.php:983
 #: assets/build/editor-app.js:2
 msgid "Email already in use. Please try to sign in."
 msgstr "Adres e-mail jest już używany. Spróbuj się zalogować."
 
-#: core/blocks/register.php:980
+#: core/blocks/register.php:984
 #: assets/build/editor-app.js:2
 msgid "Invalid user name. Please try again."
 msgstr "Nieprawidłowa nazwa użytkownika. Proszę spróbować ponownie."
 
-#: core/blocks/register.php:981
+#: core/blocks/register.php:985
 #: assets/build/editor-app.js:2
 msgid "Username is already taken."
 msgstr "Nazwa użytkownika jest już zajęta."
 
-#: core/blocks/register.php:982
+#: core/blocks/register.php:986
 #: assets/build/editor-app.js:2
 msgid "Password cannot be accepted. Please try something else."
 msgstr "Hasło nie może zostać zaakceptowane. Proszę spróbować czegoś innego."
 
-#: core/blocks/login.php:111
-#: core/blocks/register.php:983
+#: core/blocks/login.php:215
+#: core/blocks/register.php:987
 #: inc/utils/labels.php:88
 #: assets/build/editor-app.js:2
 #: assets/js/unminified/login.js:745
 msgid "Passwords do not match."
 msgstr "Hasła nie pasują."
 
-#: core/blocks/register.php:984
+#: core/blocks/register.php:988
 #: assets/build/editor-app.js:2
 msgid "Please try again after accepting terms & conditions."
 msgstr "Proszę spróbować ponownie po zaakceptowaniu warunków i zasad."
 
-#: core/blocks/register.php:985
+#: core/blocks/register.php:989
 #: assets/build/editor-app.js:2
 msgid "Something went wrong! Please try again."
 msgstr "Coś poszło nie tak! Proszę spróbuj ponownie."
 
-#: core/blocks/register.php:986
+#: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
 msgid "Registration successful. Please check your email inbox."
 msgstr "Rejestracja zakończona sukcesem. Proszę sprawdzić swoją skrzynkę odbiorczą."
@@ -421,7 +414,7 @@ msgstr "zarejestrował się na"
 msgid "new space has been introduced."
 msgstr "wprowadzono nową przestrzeń."
 
-#: core/notifier/common-notifier.php:441
+#: core/notifier/common-notifier.php:452
 msgid "Comment:"
 msgstr "Komentarz:"
 
@@ -433,7 +426,7 @@ msgstr "Twój temat został zatwierdzony."
 msgid "has mentioned you in a "
 msgstr "wspomniał cię w"
 
-#: core/notifier/user-notifier.php:290
+#: core/notifier/user-notifier.php:307
 msgid "Topic:"
 msgstr "Temat:"
 
@@ -442,24 +435,24 @@ msgid "Invalid term ID."
 msgstr "Nieprawidłowy identyfikator terminu."
 
 #: core/routers/backend.php:56
-#: core/routers/backend.php:978
+#: core/routers/backend.php:979
 msgid "Successfully updated."
 msgstr "Pomyślnie zaktualizowano."
 
 #: core/routers/backend.php:462
 #: core/routers/backend.php:504
-#: core/routers/backend.php:1001
-#: core/routers/backend.php:1070
-#: core/routers/backend.php:1094
-#: core/routers/backend.php:1293
-#: core/routers/backend.php:2235
+#: core/routers/backend.php:1002
+#: core/routers/backend.php:1073
+#: core/routers/backend.php:1097
+#: core/routers/backend.php:1296
+#: core/routers/backend.php:2238
 msgid "Invalid post ID."
 msgstr "Nieprawidłowy identyfikator posta."
 
 #: core/routers/backend.php:477
 #: core/routers/backend.php:583
 #: core/routers/backend.php:717
-#: core/routers/backend.php:1385
+#: core/routers/backend.php:1388
 msgid "Successfully deleted."
 msgstr "Pomyślnie usunięto."
 
@@ -467,28 +460,28 @@ msgstr "Pomyślnie usunięto."
 msgid "Invalid object or term ID."
 msgstr "Nieprawidłowy identyfikator obiektu lub terminu."
 
-#: core/routers/backend.php:1132
+#: core/routers/backend.php:1135
 msgid "No store categories found."
 msgstr "Nie znaleziono kategorii sklepu."
 
-#: core/routers/backend.php:1181
+#: core/routers/backend.php:1184
 msgid "Category Invalid."
 msgstr "Kategoria nieprawidłowa."
 
-#: core/routers/backend.php:1185
+#: core/routers/backend.php:1188
 msgid "Content Group -"
 msgstr "Grupa zawartości -"
 
-#: core/routers/backend.php:1185
+#: core/routers/backend.php:1188
 msgid "Topic Forum -"
 msgstr "Forum tematyczne -"
 
-#: core/routers/backend.php:1254
-#: inc/modules/mcp/module.php:234
+#: core/routers/backend.php:1257
+#: inc/modules/mcp/module.php:184
 msgid "Invalid settings data."
 msgstr "Nieprawidłowe dane ustawień."
 
-#: core/routers/backend.php:1261
+#: core/routers/backend.php:1264
 msgid "Settings saved successfully."
 msgstr "Ustawienia zostały pomyślnie zapisane."
 
@@ -584,7 +577,7 @@ msgstr "Zarejestrowano i logowanie zakończone sukcesem"
 msgid "Google API Error."
 msgstr "Błąd interfejsu API Google."
 
-#: core/routes.php:67
+#: core/routes.php:70
 msgid "Oops! Something wrong here..."
 msgstr "Ups! Coś tu jest nie tak..."
 
@@ -598,14 +591,13 @@ msgstr "Oznacz wszystkie jako przeczytane"
 
 #: core/shortcodes/home-content.php:800
 #: core/shortcodes/home-content.php:801
-#: inc/functions/functions.php:1856
-#: inc/functions/functions.php:1862
-#: inc/functions/functions.php:1868
+#: inc/functions/functions.php:1897
+#: inc/functions/functions.php:1903
+#: inc/functions/functions.php:1909
 msgid "Enter"
 msgstr "Wprowadź"
 
 #: assets/build/portals-app.js:9
-#: assets/build/portals-app.js:24
 msgid "User"
 msgstr "Użytkownik"
 
@@ -636,7 +628,7 @@ msgid "Search"
 msgstr "Szukaj"
 
 #: core/shortcodes/user-profile.php:164
-#: inc/functions/functions.php:2679
+#: inc/functions/functions.php:2720
 msgid "Guest User"
 msgstr "Użytkownik gość"
 
@@ -646,57 +638,57 @@ msgstr "Użytkownik gość"
 msgid "Edit %1$s with %2$s"
 msgstr "Edytuj %1$s za pomocą %2$s"
 
-#: inc/modules/email-notifications/emails.php:55
+#: inc/modules/email-notifications/emails.php:67
 msgid "Someone has requested a password reset for the following account:"
 msgstr "Ktoś zażądał zresetowania hasła dla następującego konta:"
 
 #. translators: %s: Username.
-#: inc/modules/email-notifications/emails.php:61
+#: inc/modules/email-notifications/emails.php:73
 msgid "Username:"
 msgstr "Nazwa użytkownika:"
 
-#: inc/modules/email-notifications/emails.php:67
+#: inc/modules/email-notifications/emails.php:79
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "Jeśli to była pomyłka, po prostu zignoruj ten e-mail i nic się nie stanie."
 
-#: inc/functions/functions.php:675
-#: inc/functions/functions.php:2330
+#: inc/functions/functions.php:716
+#: inc/functions/functions.php:2371
 #: assets/build/portals-app.js:8
 msgid "Just now"
 msgstr "Właśnie teraz"
 
-#: inc/functions/functions.php:756
+#: inc/functions/functions.php:797
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: inc/functions/functions.php:756
+#: inc/functions/functions.php:797
 msgid "(Edit)"
 msgstr "(Edytuj)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:769
+#: inc/functions/functions.php:810
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s o %2$s"
 
-#: inc/functions/functions.php:846
-#: inc/functions/functions.php:847
+#: inc/functions/functions.php:887
+#: inc/functions/functions.php:888
 msgid "Your comment is awaiting moderation."
 msgstr "Twój komentarz oczekuje na moderację."
 
-#: inc/functions/functions.php:886
+#: inc/functions/functions.php:927
 msgid "Reply"
 msgstr "Odpowiedz"
 
 #: inc/functions/markup.php:690
-#: inc/utils/helper.php:1687
+#: inc/utils/helper.php:1761
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
 msgstr[0] "Lubić"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1487
+#: inc/functions/functions.php:1528
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Unknown"
@@ -711,7 +703,7 @@ msgid "Allowed file formats:"
 msgstr "Dopuszczalne formaty plików:"
 
 #: inc/functions/markup.php:708
-#: inc/utils/helper.php:1715
+#: inc/utils/helper.php:1789
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Komentarz"
@@ -755,7 +747,7 @@ msgstr "Dane zostały pomyślnie zapisane."
 msgid "All"
 msgstr "Wszystko"
 
-#: inc/utils/helper.php:1727
+#: inc/utils/helper.php:1801
 msgid "Share Post"
 msgstr "Udostępnij post"
 
@@ -763,21 +755,21 @@ msgstr "Udostępnij post"
 msgid "Copied!"
 msgstr "Skopiowano!"
 
-#: inc/utils/helper.php:2162
+#: inc/utils/helper.php:2236
 msgid "This discussion is only available for VIP members."
 msgstr "Ta dyskusja jest dostępna tylko dla członków VIP."
 
-#: inc/utils/helper.php:2164
+#: inc/utils/helper.php:2238
 msgid "Please upgrade to add response."
 msgstr "Proszę zaktualizować, aby dodać odpowiedź."
 
-#: inc/utils/helper.php:2165
+#: inc/utils/helper.php:2239
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "Zaktualizuj teraz"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2176
+#: inc/utils/helper.php:2250
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -789,6 +781,7 @@ msgstr "Powrót do"
 
 #: core/shortcodes/home-content.php:1073
 #: inc/utils/labels.php:44
+#: assets/build/portals-app.js:24
 msgid "Portal"
 msgstr "Portal"
 
@@ -823,7 +816,7 @@ msgstr "Posty"
 msgid "Liked"
 msgstr "Polubione"
 
-#: inc/utils/helper.php:1351
+#: inc/utils/helper.php:1425
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
@@ -1151,7 +1144,7 @@ msgstr "Plik nie pasuje"
 msgid "File is not uploaded"
 msgstr "Plik nie został przesłany"
 
-#: loader.php:450
+#: loader.php:451
 msgid "Portal Menu"
 msgstr "Menu portalu"
 
@@ -1986,7 +1979,7 @@ msgstr "Etykiety pól"
 msgid "Typography"
 msgstr "Typografia"
 
-#: inc/functions/functions.php:2092
+#: inc/functions/functions.php:2133
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "Tekst"
@@ -2558,7 +2551,7 @@ msgid "V %s"
 msgstr "V %s"
 
 #: core/shortcodes/single-content.php:394
-#: inc/functions/functions.php:822
+#: inc/functions/functions.php:863
 #: templates/single/post.php:166
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2680,7 +2673,7 @@ msgid "Error updating settings: "
 msgstr "Błąd podczas aktualizacji ustawień:"
 
 #: core/shortcodes/single-content.php:399
-#: inc/functions/functions.php:827
+#: inc/functions/functions.php:868
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2747,13 +2740,7 @@ msgstr "Ta funkcja jest dostępna tylko w SureDash Pro."
 msgid "Portal Name"
 msgstr "Nazwa portalu"
 
-#: assets/build/portals-app.js:21
-msgid "Hide"
-msgstr "Ukryj"
-
-#: inc/functions/functions.php:2089
-#: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:24
+#: inc/functions/functions.php:2130
 msgid "Branding"
 msgstr "Branding"
 
@@ -2782,23 +2769,15 @@ msgstr "Włącz Lightbox"
 msgid "Enabling this will allow lightweight lightbox for your content images."
 msgstr "Włączenie tego umożliwi lekką przeglądarkę lightbox dla obrazów w Twojej treści."
 
-#: assets/build/portals-app.js:21
-msgid "Google Registration"
-msgstr "Rejestracja Google"
-
-#: assets/build/portals-app.js:21
-msgid "Facebook Registration"
-msgstr "Rejestracja na Facebooku"
-
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Facebook Token ID"
 msgstr "ID tokenu Facebook"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Facebook Token Secret"
 msgstr "Tajny token Facebooka"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCaptcha"
 msgstr "Google reCaptcha"
 
@@ -2860,14 +2839,6 @@ msgid "Delete Link"
 msgstr "Usuń link"
 
 #: assets/build/portals-app.js:21
-msgid "New User Capabilities"
-msgstr "Nowe możliwości użytkownika"
-
-#: assets/build/portals-app.js:21
-msgid "Portal Managers"
-msgstr "Menedżerowie portalu"
-
-#: assets/build/portals-app.js:21
 msgid "Start typing…"
 msgstr "Zacznij pisać…"
 
@@ -2902,10 +2873,6 @@ msgstr "Rozpocznij pisanie swojego posta"
 #: assets/build/portals-app.js:21
 msgid "Write a Post"
 msgstr "Napisz post"
-
-#: assets/build/portals-app.js:21
-msgid "Feeds Per Page"
-msgstr "Źródła na stronę"
 
 #: assets/build/portals-app.js:21
 msgid "Bypass WordPress Interactions"
@@ -2997,14 +2964,13 @@ msgstr "Nieprawidłowe uwierzytelnienie"
 
 #: core/routers/backend.php:468
 #: core/routers/backend.php:510
-#: core/routers/backend.php:1283
-#: core/routers/backend.php:2241
+#: core/routers/backend.php:1286
+#: core/routers/backend.php:2244
 msgid "Invalid post type."
 msgstr "Nieprawidłowy typ wpisu."
 
 #: admin/menu.php:199
 #: admin/menu.php:200
-#: assets/build/portals-app.js:21
 msgid "Customize Portal"
 msgstr "Dostosuj portal"
 
@@ -3069,15 +3035,15 @@ msgstr "Tekst grupy przestrzennej"
 msgid "Space Group Background"
 msgstr "Tło grupy przestrzennej"
 
-#: core/routers/misc.php:1922
+#: core/routers/misc.php:1913
 msgid "Uploaded file is not a valid image."
 msgstr "Przesłany plik nie jest prawidłowym obrazem."
 
-#: core/routers/misc.php:1926
+#: core/routers/misc.php:1917
 msgid "File size larger than permissible."
 msgstr "Rozmiar pliku większy niż dozwolony."
 
-#: inc/functions/functions.php:1586
+#: inc/functions/functions.php:1627
 msgid "No matching template found."
 msgstr "Nie znaleziono pasującego szablonu."
 
@@ -3289,7 +3255,7 @@ msgstr "Proszę wprowadzić adres URL mediów, które chcesz osadzić"
 msgid "SinglePost Integration"
 msgstr "Integracja SinglePost"
 
-#: core/integrations/sure-members.php:475
+#: core/integrations/sure-members.php:477
 msgid "Access Group: "
 msgstr "Grupa dostępu:"
 
@@ -3297,59 +3263,59 @@ msgstr "Grupa dostępu:"
 msgid "Forum:"
 msgstr "Forum:"
 
-#: core/routers/backend.php:1287
+#: core/routers/backend.php:1290
 msgid "Invalid action or post ID."
 msgstr "Nieprawidłowa akcja lub identyfikator posta."
 
-#: core/routers/backend.php:1355
+#: core/routers/backend.php:1358
 msgid "Successfully published."
 msgstr "Pomyślnie opublikowano."
 
-#: core/routers/backend.php:1356
+#: core/routers/backend.php:1359
 msgid "Failed to publish."
 msgstr "Nie udało się opublikować."
 
-#: core/routers/backend.php:1365
+#: core/routers/backend.php:1368
 msgid "Successfully drafted."
 msgstr "Pomyślnie zapisano jako szkic."
 
-#: core/routers/backend.php:1366
+#: core/routers/backend.php:1369
 msgid "Failed to draft."
 msgstr "Nie udało się zapisać jako szkic."
 
-#: core/routers/backend.php:1375
+#: core/routers/backend.php:1378
 msgid "Successfully trashed."
 msgstr "Pomyślnie przeniesiono do kosza."
 
-#: core/routers/backend.php:1376
+#: core/routers/backend.php:1379
 msgid "Failed to trash."
 msgstr "Nie udało się przenieść do kosza."
 
-#: core/routers/backend.php:1380
+#: core/routers/backend.php:1383
 msgid "Successfully restored."
 msgstr "Pomyślnie przywrócono."
 
-#: core/routers/backend.php:1381
+#: core/routers/backend.php:1384
 msgid "Failed to restore."
 msgstr "Nie udało się przywrócić."
 
-#: core/routers/backend.php:1386
+#: core/routers/backend.php:1389
 msgid "Failed to delete."
 msgstr "Nie udało się usunąć."
 
-#: core/routers/backend.php:1390
+#: core/routers/backend.php:1393
 msgid "Successfully duplicated."
 msgstr "Pomyślnie skopiowano."
 
-#: core/routers/backend.php:1391
+#: core/routers/backend.php:1394
 msgid "Failed to duplicate."
 msgstr "Nie udało się skopiować."
 
-#: core/routers/backend.php:1488
+#: core/routers/backend.php:1491
 msgid "Invalid action or post IDs."
 msgstr "Nieprawidłowa akcja lub identyfikatory postów."
 
-#: core/routers/backend.php:1529
+#: core/routers/backend.php:1532
 msgid "Bulk action completed successfully."
 msgstr "Akcja zbiorcza zakończona pomyślnie."
 
@@ -3407,7 +3373,6 @@ msgid "Please fill in all required fields."
 msgstr "Proszę wypełnić wszystkie wymagane pola."
 
 #: assets/build/portals-app.js:8
-#: assets/build/portals-app.js:21
 msgid "– Select –"
 msgstr "– Wybierz –"
 
@@ -3723,7 +3688,7 @@ msgid "We're excited to help you build, connect, and grow your community. SureDa
 msgstr "Cieszymy się, że możemy pomóc Ci budować, łączyć i rozwijać Twoją społeczność. SureDash ułatwia tworzenie potężnej platformy społecznościowej bezpośrednio w WordPressie."
 
 #: core/shortcodes/widgets/recent-activities.php:39
-#: core/shortcodes/widgets/recent-activities.php:135
+#: core/shortcodes/widgets/recent-activities.php:176
 #: assets/build/portals-app.js:9
 #: assets/build/portals-app.js:11
 msgid "Recent Activities"
@@ -3827,8 +3792,8 @@ msgstr "Grupa dostępu"
 
 #: core/integrations/feeds.php:558
 #: core/integrations/feeds.php:605
-#: core/routers/misc.php:344
-#: core/routers/misc.php:396
+#: core/routers/misc.php:343
+#: core/routers/misc.php:395
 #: core/shortcodes/home-content.php:742
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
@@ -4094,11 +4059,11 @@ msgstr "Lekcje kursu"
 msgid "New Section"
 msgstr "Nowa sekcja"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google Token ID"
 msgstr "ID tokena Google"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google Token Secret"
 msgstr "Sekret tokena Google"
 
@@ -4110,34 +4075,19 @@ msgstr "Nie znaleziono wyników"
 msgid "No Discussion Found"
 msgstr "Nie znaleziono dyskusji"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Giphy API Key"
 msgstr "Klucz API Giphy"
 
 #: assets/build/portals-app.js:21
-msgid "Add your Giphy API key to enable GIF support in comments."
-msgstr "Dodaj swój klucz API Giphy, aby włączyć obsługę GIF-ów w komentarzach."
-
-#: assets/build/portals-app.js:24
-msgid "Community"
-msgstr "Społeczność"
-
-#: assets/build/portals-app.js:24
-msgid "Login/Registration"
-msgstr "Logowanie/Rejestracja"
-
-#: assets/build/portals-app.js:24
-msgid "Portal Pages"
-msgstr "Strony portalu"
-
-#: assets/build/portals-app.js:24
 msgid "Performance"
 msgstr "Wydajność"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Profile Menu"
 msgstr "Menu profilu"
 
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "User Roles"
 msgstr "Role użytkowników"
@@ -4191,6 +4141,7 @@ msgstr "Ustawienia projektu"
 #: admin/menu.php:174
 #: admin/menu.php:175
 #: core/renderer.php:276
+#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:33
 msgid "Users"
@@ -4266,24 +4217,24 @@ msgstr "Przejdź do strony Wszystkie posty"
 msgid "Go to Settings Page"
 msgstr "Przejdź do strony ustawień"
 
-#: core/routers/backend.php:1299
+#: core/routers/backend.php:1302
 msgid "Failed to update."
 msgstr "Nie udało się zaktualizować."
 
-#: core/routers/backend.php:2251
+#: core/routers/backend.php:2254
 msgid "Comments status updated to closed."
 msgstr "Status komentarzy zaktualizowany na zamknięty."
 
-#: core/routers/backend.php:2259
+#: core/routers/backend.php:2262
 msgid "Comments status updated to open."
 msgstr "Status komentarzy zmieniony na otwarty."
 
-#: core/routers/backend.php:2628
+#: core/routers/backend.php:2631
 #: assets/build/portals-app.js:27
 msgid "(no title)"
 msgstr "(brak tytułu)"
 
-#: core/routers/backend.php:2690
+#: core/routers/backend.php:2693
 msgid "Unknown post"
 msgstr "Nieznany post"
 
@@ -4473,31 +4424,23 @@ msgstr "Status komentarza zaktualizowany na otwarty."
 msgid "Are you sure you want to remove this lesson? It will be deleted when you save the space."
 msgstr "Czy na pewno chcesz usunąć tę lekcję? Zostanie ona usunięta, gdy zapiszesz przestrzeń."
 
-#: assets/build/portals-app.js:21
-msgid "Customize your portal's logo, layout, and colors from the"
-msgstr "Dostosuj logo, układ i kolory swojego portalu z"
-
-#: assets/build/portals-app.js:21
-msgid "Make it reflect your brand."
-msgstr "Niech to odzwierciedla Twoją markę."
-
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Site Key"
 msgstr "Klucz witryny"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Secret Key"
 msgstr "Klucz tajny"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCAPTCHA v2 Settings"
 msgstr "Ustawienia Google reCAPTCHA v2"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Google reCAPTCHA v3 Settings"
 msgstr "Ustawienia Google reCAPTCHA v3"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable reCAPTCHA for your form, please follow the steps mentioned"
 msgstr "Aby włączyć reCAPTCHA dla swojego formularza, proszę postępować zgodnie z podanymi krokami"
 
@@ -4528,14 +4471,6 @@ msgstr "Etykieta kanałów"
 #: assets/build/portals-app.js:21
 msgid "Login or Join Text"
 msgstr "Zaloguj się lub Dołącz Tekst"
-
-#: assets/build/portals-app.js:21
-msgid "To manage comments & other moderation settings, please visit the"
-msgstr "Aby zarządzać komentarzami i innymi ustawieniami moderacji, odwiedź"
-
-#: assets/build/portals-app.js:21
-msgid "WordPress Discussion Settings."
-msgstr "Ustawienia dyskusji WordPress."
 
 #: assets/build/portals-app.js:27
 msgid "Recent Posts"
@@ -4635,11 +4570,12 @@ msgid "CAPTCHA Type"
 msgstr "Typ CAPTCHA"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:24
 msgid "Appearance"
 msgstr "Wygląd"
 
@@ -4671,6 +4607,7 @@ msgstr "Podnieś jakość swojego wideo i zaimponuj swojej publiczności nowocze
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Learn More"
 msgstr "Dowiedz się więcej"
@@ -4679,21 +4616,17 @@ msgstr "Dowiedz się więcej"
 msgid "Published on"
 msgstr "Opublikowano"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Cloudflare Turnstile for your form, please follow the steps mentioned"
 msgstr "Aby włączyć Cloudflare Turnstile dla swojego formularza, postępuj zgodnie z podanymi krokami"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Facebook login and registration for your form, please follow the steps mentioned"
 msgstr "Aby włączyć logowanie i rejestrację przez Facebooka dla swojego formularza, postępuj zgodnie z podanymi krokami"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "To enable Google login and registration for your form, please follow the steps mentioned"
 msgstr "Aby włączyć logowanie i rejestrację przez Google dla swojego formularza, postępuj zgodnie z podanymi krokami"
-
-#: assets/build/portals-app.js:21
-msgid "Get key"
-msgstr "Pobierz klucz"
 
 #: assets/build/portals-app.js:27
 msgid "No Users Yet."
@@ -4784,24 +4717,24 @@ msgstr "Pokaż szczegóły"
 msgid "Loading..."
 msgstr "Ładowanie..."
 
-#: core/blocks/login.php:87
+#: core/blocks/login.php:191
 msgid "Invalid request."
 msgstr "Nieprawidłowe żądanie."
 
-#: core/blocks/login.php:92
-#: core/blocks/login.php:99
+#: core/blocks/login.php:196
+#: core/blocks/login.php:203
 msgid "Invalid data."
 msgstr "Nieprawidłowe dane."
 
-#: core/blocks/login.php:109
+#: core/blocks/login.php:213
 msgid "Please enter your password."
 msgstr "Proszę wprowadzić swoje hasło."
 
-#: core/blocks/login.php:131
+#: core/blocks/login.php:235
 msgid "Your password has been reset successfully. Redirecting to login..."
 msgstr "Twoje hasło zostało pomyślnie zresetowane. Przekierowywanie do logowania..."
 
-#: core/blocks/login.php:135
+#: core/blocks/login.php:239
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
 msgid "Unknown error"
@@ -4820,49 +4753,49 @@ msgstr "Kombinacja nazwy i typu przestrzeni jest dostępna."
 msgid "Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces."
 msgstr "Przestrzenie kolekcji są funkcją premium. Proszę zaktualizować do SureDash Pro, aby utworzyć przestrzenie kolekcji."
 
-#: core/routers/backend.php:2281
+#: core/routers/backend.php:2284
 msgid "Invalid post IDs."
 msgstr "Nieprawidłowe identyfikatory postów."
 
-#: core/routers/backend.php:2305
+#: core/routers/backend.php:2308
 #: assets/build/portals-app.js:21
 msgid "Comments status updated."
 msgstr "Status komentarzy zaktualizowany."
 
-#: core/routers/backend.php:2724
+#: core/routers/backend.php:2727
 msgid "No icons found."
 msgstr "Nie znaleziono ikon."
 
-#: core/routers/misc.php:1232
-#: core/routers/misc.php:1309
+#: core/routers/misc.php:1225
+#: core/routers/misc.php:1302
 msgid "Comment not found."
 msgstr "Komentarz nie został znaleziony."
 
-#: core/routers/misc.php:1237
+#: core/routers/misc.php:1230
 msgid "You are not authorized to edit this comment."
 msgstr "Nie masz uprawnień do edytowania tego komentarza."
 
-#: core/routers/misc.php:1268
+#: core/routers/misc.php:1261
 msgid "Failed to update comment."
 msgstr "Nie udało się zaktualizować komentarza."
 
-#: core/routers/misc.php:1278
+#: core/routers/misc.php:1271
 msgid "Comment Updated Successfully!"
 msgstr "Komentarz zaktualizowany pomyślnie!"
 
-#: core/routers/misc.php:1318
+#: core/routers/misc.php:1311
 msgid "You are not authorized to delete this comment."
 msgstr "Nie masz uprawnień do usunięcia tego komentarza."
 
-#: core/routers/misc.php:1325
+#: core/routers/misc.php:1318
 msgid "Failed to delete comment."
 msgstr "Nie udało się usunąć komentarza."
 
-#: core/routers/misc.php:1329
+#: core/routers/misc.php:1322
 msgid "Comment deleted successfully!"
 msgstr "Komentarz usunięty pomyślnie!"
 
-#: core/routers/misc.php:1917
+#: core/routers/misc.php:1908
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Nieprawidłowy typ pliku. Dozwolone są tylko GIF, PNG, JPEG, JPG i WEBP."
 
@@ -4880,23 +4813,23 @@ msgid "Re-enter your new password"
 msgstr "Wprowadź ponownie swoje nowe hasło"
 
 #: core/shortcodes/single-content.php:355
-#: inc/functions/functions.php:864
+#: inc/functions/functions.php:905
 #: templates/quick-view/post.php:83
 #: templates/single/post.php:103
 msgid "Edited"
 msgstr "Edytowane"
 
-#: inc/functions/functions.php:811
+#: inc/functions/functions.php:852
 msgid "Comment actions"
 msgstr "Akcje komentarza"
 
 #: core/shortcodes/single-content.php:404
-#: inc/functions/functions.php:831
+#: inc/functions/functions.php:872
 #: templates/single/post.php:176
 msgid "Copy URL"
 msgstr "Skopiuj URL"
 
-#: inc/functions/functions.php:1875
+#: inc/functions/functions.php:1916
 msgid "Write a short bio about yourself..."
 msgstr "Napisz krótki opis o sobie..."
 
@@ -5108,10 +5041,6 @@ msgid "To customize the Collection Space, please upgrade to the Premium version.
 msgstr "Aby dostosować przestrzeń kolekcji, proszę zaktualizować do wersji Premium."
 
 #: assets/build/portals-app.js:21
-msgid "User registration is currently disabled. To allow new users to sign up, please enable the “Anyone can Register” option in your"
-msgstr "Rejestracja użytkowników jest obecnie wyłączona. Aby umożliwić nowym użytkownikom rejestrację, włącz opcję „Każdy może się zarejestrować” w swoim"
-
-#: assets/build/portals-app.js:21
 msgid "Or"
 msgstr "Lub"
 
@@ -5177,17 +5106,17 @@ msgstr "Rola"
 
 #. translators: %1$s: User Name Field.
 #. translators: %1$s: Password Field.
-#: core/blocks/login.php:941
-#: core/blocks/login.php:946
+#: core/blocks/login.php:1045
+#: core/blocks/login.php:1050
 #, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr "Pole \"%1$s\" nie może być puste."
 
-#: core/blocks/login.php:942
+#: core/blocks/login.php:1046
 msgid "Username Field"
 msgstr "Pole nazwy użytkownika"
 
-#: core/blocks/login.php:947
+#: core/blocks/login.php:1051
 msgid "Password Field"
 msgstr "Pole hasła"
 
@@ -5227,43 +5156,43 @@ msgstr "Dodaj zakładkę"
 msgid "Resource Space is available in the premium version of SureDash."
 msgstr "Przestrzeń zasobów jest dostępna w wersji premium SureDash."
 
-#: inc/modules/email-notifications/emails.php:69
+#: inc/modules/email-notifications/emails.php:81
 msgid "To reset your password, visit the following URL:"
 msgstr "Aby zresetować hasło, odwiedź następujący adres URL:"
 
-#: inc/functions/functions.php:2090
+#: inc/functions/functions.php:2131
 #: assets/build/portals-app.js:36
 msgid "Links"
 msgstr "Linki"
 
-#: inc/functions/functions.php:2091
+#: inc/functions/functions.php:2132
 msgid "Headings"
 msgstr "Nagłówki"
 
-#: inc/functions/functions.php:2093
+#: inc/functions/functions.php:2134
 #: assets/build/portals-app.js:36
 msgid "Content Background"
 msgstr "Tło treści"
 
-#: inc/functions/functions.php:2094
+#: inc/functions/functions.php:2135
 #: assets/build/portals-app.js:36
 msgid "Portal Background"
 msgstr "Tło portalu"
 
-#: inc/functions/functions.php:2095
+#: inc/functions/functions.php:2136
 msgid "Alternate Background"
 msgstr "Alternatywne tło"
 
-#: inc/functions/functions.php:2096
+#: inc/functions/functions.php:2137
 msgid "Subtle Background"
 msgstr "Subtelne tło"
 
-#: inc/functions/functions.php:2097
+#: inc/functions/functions.php:2138
 msgid "Other Supporting"
 msgstr "Inne wsparcie"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2265
+#: inc/functions/functions.php:2306
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5271,7 +5200,7 @@ msgstr[0] "%1$d godz %2$d min"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2269
+#: inc/functions/functions.php:2310
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5279,7 +5208,7 @@ msgstr[0] "%d godz"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2273
+#: inc/functions/functions.php:2314
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
@@ -5311,7 +5240,7 @@ msgstr "Element zasobu"
 msgid "Resource Items"
 msgstr "Elementy zasobów"
 
-#: loader.php:691
+#: loader.php:697
 msgid "Rate our plugin"
 msgstr "Oceń naszą wtyczkę"
 
@@ -5834,7 +5763,7 @@ msgstr "Ciemne kolory"
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "Nie wiesz, jak ustawić kolory? Odwołaj się do definicji 9 kolorów"
 
-#: core/routers/backend.php:2785
+#: core/routers/backend.php:2788
 msgid "Post title is required."
 msgstr "Tytuł posta jest wymagany."
 
@@ -6166,36 +6095,36 @@ msgstr "Edytuj post"
 msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Integruje obszar klienta SureCart z przestrzeniami SureDash."
 
-#: core/routers/misc.php:1376
-#: core/routers/misc.php:1476
+#: core/routers/misc.php:1369
+#: core/routers/misc.php:1469
 msgid "Post not found."
 msgstr "Post nie znaleziony."
 
-#: core/routers/misc.php:1383
+#: core/routers/misc.php:1376
 msgid "You are not authorized to edit this post."
 msgstr "Nie masz uprawnień do edytowania tego posta."
 
-#: core/routers/misc.php:1425
+#: core/routers/misc.php:1418
 msgid "Failed to update post."
 msgstr "Nie udało się zaktualizować posta."
 
-#: core/routers/misc.php:1444
+#: core/routers/misc.php:1437
 msgid "Post Updated Successfully!"
 msgstr "Post zaktualizowany pomyślnie!"
 
-#: core/routers/misc.php:1480
+#: core/routers/misc.php:1473
 msgid "Invalid Post."
 msgstr "Nieprawidłowy post."
 
-#: core/routers/misc.php:1489
+#: core/routers/misc.php:1482
 msgid "You are not authorized to delete this post."
 msgstr "Nie masz uprawnień do usunięcia tego posta."
 
-#: core/routers/misc.php:1496
+#: core/routers/misc.php:1489
 msgid "Failed to delete post."
 msgstr "Nie udało się usunąć posta."
 
-#: core/routers/misc.php:1500
+#: core/routers/misc.php:1493
 msgid "Post deleted successfully!"
 msgstr "Post usunięty pomyślnie!"
 
@@ -6216,11 +6145,11 @@ msgstr "Zobacz wydarzenie"
 msgid "Post actions"
 msgstr "Akcje posta"
 
-#: inc/utils/analytics.php:92
+#: inc/utils/analytics.php:129
 msgid "Quick Feedback"
 msgstr "Szybka opinia"
 
-#: inc/utils/analytics.php:94
+#: inc/utils/analytics.php:131
 msgid "If you have a moment, please share why you are deactivating SureDash:"
 msgstr "Jeśli masz chwilę, podziel się, dlaczego dezaktywujesz SureDash:"
 
@@ -6400,11 +6329,6 @@ msgstr "Aby uzyskać dostęp do funkcji wydarzeń, zaktualizuj do wersji Premium
 msgid "You have unsaved changes. Are you sure you want to leave without saving?"
 msgstr "Masz niezapisane zmiany. Czy na pewno chcesz opuścić bez zapisywania?"
 
-#: assets/build/portals-app.js:21
-msgid "Heads up! Portal Managers are now assigned via WordPress roles. Just give the Portal Manager role to any user who should manage SureDash."
-msgstr "Uwaga! Menedżerowie portalu są teraz przypisywani za pomocą ról WordPress. Po prostu nadaj rolę Menedżera portalu każdemu użytkownikowi, który powinien zarządzać SureDash."
-
-#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Learn more"
 msgstr "Dowiedz się więcej"
@@ -6514,19 +6438,19 @@ msgstr "Wybierz przestrzeń do publikacji"
 msgid "Menu"
 msgstr "Menu"
 
-#: core/routers/backend.php:2746
+#: core/routers/backend.php:2749
 msgid "No emojis found."
 msgstr "Nie znaleziono emotikonów."
 
-#: core/routers/backend.php:2890
+#: core/routers/backend.php:2893
 msgid "Content ID is required."
 msgstr "ID treści jest wymagane."
 
-#: core/routers/backend.php:2899
+#: core/routers/backend.php:2902
 msgid "Content not found."
 msgstr "Treść nie została znaleziona."
 
-#: core/routers/backend.php:2928
+#: core/routers/backend.php:2931
 msgid "Settings updated successfully."
 msgstr "Ustawienia zaktualizowane pomyślnie."
 
@@ -6590,24 +6514,24 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "Nie udało się usunąć wyzwalaczy e-mail."
 
-#: core/routers/misc.php:695
-#: core/routers/misc.php:1568
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:694
+#: core/routers/misc.php:1561
+#: core/routers/misc.php:1591
 msgid "User not logged in."
 msgstr "Użytkownik nie jest zalogowany."
 
-#: core/routers/misc.php:700
+#: core/routers/misc.php:699
 msgid "User not found."
 msgstr "Użytkownik nie został znaleziony."
 
 #. translators: %s: Site name
-#: core/routers/misc.php:720
+#: core/routers/misc.php:719
 #, php-format
 msgid "Test Email from %s"
 msgstr "Testowy e-mail z %s"
 
 #. translators: %1$s: User name, %2$s: Site name
-#: core/routers/misc.php:736
+#: core/routers/misc.php:735
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6620,19 +6544,19 @@ msgstr ""
 "\t\t\t\t\tJeśli otrzymałeś ten e-mail, Twoje ustawienia powiadomień są skonfigurowane prawidłowo!\n"
 "\t\t\t\t\t--- Ten e-mail został wysłany z %2$s"
 
-#: core/routers/misc.php:760
+#: core/routers/misc.php:754
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Testowy e-mail został pomyślnie wysłany! Proszę sprawdzić swoją skrzynkę odbiorczą."
 
-#: core/routers/misc.php:767
+#: core/routers/misc.php:761
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Nie udało się wysłać testowego e-maila. Proszę sprawdzić konfigurację poczty e-mail."
 
-#: core/routers/misc.php:809
+#: core/routers/misc.php:803
 msgid "Failed to update notification settings."
 msgstr "Nie udało się zaktualizować ustawień powiadomień."
 
-#: core/routers/misc.php:814
+#: core/routers/misc.php:808
 msgid "Notification settings updated successfully!"
 msgstr "Ustawienia powiadomień zostały pomyślnie zaktualizowane!"
 
@@ -7251,8 +7175,8 @@ msgstr "Brak polubień, bądź pierwszy, który polubi!"
 #. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
 #. translators: %s: time ago
 #: core/notifier/base.php:204
-#: core/shortcodes/widgets/recent-activities.php:60
-#: inc/functions/functions.php:2334
+#: core/shortcodes/widgets/recent-activities.php:96
+#: inc/functions/functions.php:2375
 msgid "%s ago"
 msgstr "%s temu"
 
@@ -7277,15 +7201,15 @@ msgstr "Hasło, które wprowadziłeś dla nazwy użytkownika %1$s, jest nieprawi
 msgid "Receive admin notifications"
 msgstr "Otrzymuj powiadomienia administracyjne"
 
-#: inc/functions/functions.php:2682
+#: inc/functions/functions.php:2723
 msgid "Anonymous"
 msgstr "Anonimowy"
 
-#: inc/utils/helper.php:1693
+#: inc/utils/helper.php:1767
 msgid "No likes yet."
 msgstr "Brak polubień."
 
-#: inc/utils/helper.php:1729
+#: inc/utils/helper.php:1803
 msgid "Share"
 msgstr "Udostępnij"
 
@@ -7374,19 +7298,19 @@ msgstr "Nie znaleziono grup dostępu"
 msgid "Post Visibility"
 msgstr "Widoczność posta"
 
-#: core/routers/backend.php:2507
+#: core/routers/backend.php:2510
 msgid "SureMembers plugin is not active."
 msgstr "Wtyczka SureMembers nie jest aktywna."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1595
 msgid "Space ID is required."
 msgstr "Wymagany jest identyfikator przestrzeni."
 
-#: core/routers/misc.php:1611
+#: core/routers/misc.php:1604
 msgid "Space marked as read."
 msgstr "Przestrzeń oznaczona jako przeczytana."
 
-#: core/routers/misc.php:1615
+#: core/routers/misc.php:1608
 msgid "Failed to mark space as read."
 msgstr "Nie udało się oznaczyć przestrzeni jako przeczytaną."
 
@@ -7410,28 +7334,28 @@ msgid "No info available."
 msgstr "Brak dostępnych informacji."
 
 #: core/shortcodes/widgets/post-widget.php:64
-#: core/shortcodes/widgets/post-widget.php:119
+#: core/shortcodes/widgets/post-widget.php:124
 msgid "No posts available."
 msgstr "Brak dostępnych postów."
 
-#: core/shortcodes/widgets/recent-activities.php:86
+#: core/shortcodes/widgets/recent-activities.php:127
 msgid "No recent comments yet."
 msgstr "Brak ostatnich komentarzy."
 
-#: core/shortcodes/widgets/recent-activities.php:109
-#: core/shortcodes/widgets/recent-activities.php:341
-#: core/shortcodes/widgets/recent-activities.php:510
-#: core/shortcodes/widgets/recent-activities.php:570
-#: core/shortcodes/widgets/recent-activities.php:637
+#: core/shortcodes/widgets/recent-activities.php:150
+#: core/shortcodes/widgets/recent-activities.php:392
+#: core/shortcodes/widgets/recent-activities.php:579
+#: core/shortcodes/widgets/recent-activities.php:645
+#: core/shortcodes/widgets/recent-activities.php:718
 msgid " commented on: "
 msgstr "skomentował:"
 
-#: core/shortcodes/widgets/recent-activities.php:192
+#: core/shortcodes/widgets/recent-activities.php:233
 msgid "No recent activities."
 msgstr "Brak ostatnich aktywności."
 
-#: core/shortcodes/widgets/recent-activities.php:261
-#: core/shortcodes/widgets/recent-activities.php:450
+#: core/shortcodes/widgets/recent-activities.php:310
+#: core/shortcodes/widgets/recent-activities.php:513
 msgid " posted: "
 msgstr "opublikowano:"
 
@@ -7745,7 +7669,6 @@ msgid "Showcase user profiles with avatars and information"
 msgstr "Prezentuj profile użytkowników z awatarami i informacjami"
 
 #: assets/build/portals-app.js:11
-#: assets/build/portals-app.js:24
 msgid "Global Sidebar"
 msgstr "Pasek boczny globalny"
 
@@ -7828,20 +7751,12 @@ msgid "Set the maximum file size limit for users to upload assets like images, d
 msgstr "Ustaw maksymalny limit rozmiaru pliku dla użytkowników do przesyłania zasobów, takich jak obrazy, dokumenty i inne pliki multimedialne w postach, komentarzach i innych obszarach treści."
 
 #: assets/build/portals-app.js:21
-msgid "Set the maximum upload limit for users to upload files."
-msgstr "Ustaw maksymalny limit przesyłania dla użytkowników do przesyłania plików."
-
-#: assets/build/portals-app.js:21
 msgid "Profile and Cover Image Upload Limit"
 msgstr "Limit przesyłania zdjęcia profilowego i okładki"
 
 #: assets/build/portals-app.js:21
 msgid "Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies only to user profile images."
 msgstr "Ustaw maksymalny limit rozmiaru pliku specjalnie dla przesyłania zdjęć profilowych i okładek/banerów. Ten limit dotyczy tylko obrazów profilowych użytkowników."
-
-#: assets/build/portals-app.js:21
-msgid "Set the maximum upload limit for users to upload profile picture & banner image."
-msgstr "Ustaw maksymalny limit przesyłania dla użytkowników na przesyłanie zdjęcia profilowego i obrazu banera."
 
 #: assets/build/portals-app.js:24
 msgid "groups selected"
@@ -7959,42 +7874,42 @@ msgstr "Nie dołączono jeszcze do żadnych wydarzeń."
 #. translators: %1$s: author name, %2$s: post date
 #: core/integrations/feeds.php:538
 #: core/integrations/feeds.php:586
-#: core/routers/misc.php:324
-#: core/routers/misc.php:377
+#: core/routers/misc.php:323
+#: core/routers/misc.php:376
 #: core/shortcodes/home-content.php:723
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1339
-#: inc/utils/helper.php:1364
+#: inc/utils/helper.php:1413
+#: inc/utils/helper.php:1438
 msgid "Latest"
 msgstr "Najnowsze"
 
-#: inc/utils/helper.php:1343
+#: inc/utils/helper.php:1417
 msgid "Oldest"
 msgstr "Najstarsze"
 
-#: inc/utils/helper.php:1347
+#: inc/utils/helper.php:1421
 msgid "Popular"
 msgstr "Popularne"
 
-#: inc/utils/helper.php:1355
+#: inc/utils/helper.php:1429
 msgid "New Activity"
 msgstr "Nowa aktywność"
 
-#: inc/utils/helper.php:1359
+#: inc/utils/helper.php:1433
 msgid "Alphabetical"
 msgstr "Alfabetycznie"
 
-#: inc/utils/helper.php:1373
+#: inc/utils/helper.php:1447
 msgid "Sort by:"
 msgstr "Sortuj według:"
 
-#: inc/utils/helper.php:1381
+#: inc/utils/helper.php:1455
 msgid "Sort options"
 msgstr "Opcje sortowania"
 
-#: inc/utils/helper.php:1417
+#: inc/utils/helper.php:1491
 msgid "Toggle view"
 msgstr "Przełącz widok"
 
@@ -8003,7 +7918,7 @@ msgid "This community's portal spaces will be listed here."
 msgstr "Portale tej społeczności będą wymienione tutaj."
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2356
+#: inc/functions/functions.php:2397
 msgid "in %s"
 msgstr "w %s"
 
@@ -8132,7 +8047,7 @@ msgstr "Dowiedz się więcej o tabeli liderów"
 
 #: core/blocks/interactivity/build/Title/view.php:56
 #: core/shortcodes/content-header.php:82
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Feeds"
 msgstr "Kanały"
 
@@ -8170,11 +8085,11 @@ msgid "This forum group is created for the space: %s"
 msgstr "Ta grupa forum została utworzona dla przestrzeni: %s"
 
 #. translators: %s: original post title
-#: core/routers/backend.php:1395
+#: core/routers/backend.php:1398
 msgid "%s - Copy"
 msgstr "%s - Kopia"
 
-#: core/routers/misc.php:481
+#: core/routers/misc.php:480
 msgid "User ID is required."
 msgstr "ID użytkownika jest wymagany."
 
@@ -8258,11 +8173,11 @@ msgstr "Więcej opcji"
 msgid "Course Label"
 msgstr "Etykieta kursu"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Help shape the future of SureDash"
 msgstr "Pomóż kształtować przyszłość SureDash"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:21
 msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions. "
 msgstr "Podziel się tym, jak korzystasz z wtyczki, abyśmy mogli budować istotne funkcje, szybciej rozwiązywać problemy i podejmować mądrzejsze decyzje."
 
@@ -8303,10 +8218,6 @@ msgstr "Wystąpił błąd podczas logowania. Proszę spróbować ponownie."
 #: assets/js/unminified/login.js:667
 msgid "Please enter your email."
 msgstr "Proszę wpisać swój adres e-mail."
-
-#: assets/js/unminified/login.js:701
-msgid "We couldn’t send the reset email. Please try again or contact support."
-msgstr "Nie mogliśmy wysłać e-maila resetującego. Proszę spróbować ponownie lub skontaktować się z pomocą techniczną."
 
 #: assets/js/unminified/login.js:709
 #: assets/js/unminified/login.js:823
@@ -8391,6 +8302,313 @@ msgstr "Usuń %s"
 msgid "Deleted %s file"
 msgstr "Usunięto plik %s"
 
+#: core/assets.php:111
+msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
+msgstr "Obsługuje YouTube, Vimeo, Dailymotion, VideoPress i inne"
+
+#: core/routers/misc.php:1628
+msgid "A valid URL is required."
+msgstr "Wymagany jest prawidłowy adres URL."
+
+#: core/routers/misc.php:1639
+msgid "This URL is not from a supported video provider."
+msgstr "Ten adres URL nie pochodzi od obsługiwanego dostawcy wideo."
+
+#: core/routers/misc.php:1651
+msgid "Could not resolve video. Please check the URL and try again."
+msgstr "Nie można rozwiązać wideo. Sprawdź adres URL i spróbuj ponownie."
+
+#: inc/modules/mcp/module.php:195
+msgid "MCP settings saved successfully."
+msgstr "Ustawienia MCP zapisane pomyślnie."
+
+#: inc/modules/mcp/module.php:246
+msgid "SureDash MCP Server"
+msgstr "Serwer SureDash MCP"
+
+#: inc/modules/mcp/module.php:247
+msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
+msgstr "Serwer SureDash MCP do zarządzania portalem społecznościowym — przestrzenie, grupy, posty, użytkownicy, ustawienia i analizy."
+
+#: inc/utils/labels.php:122
+#: inc/utils/labels.php:123
+msgid "You're all caught up — happy posting! 🎉"
+msgstr "Jesteś na bieżąco — miłego publikowania! 🎉"
+
+#: assets/build/portals-app.js:17
+msgid "Cover Image URL"
+msgstr "Adres URL obrazu okładki"
+
+#: assets/build/portals-app.js:17
+msgid "Embed Media URL"
+msgstr "Adres URL osadzonego mediów"
+
+#: assets/build/portals-app.js:24
+msgid "Copy to clipboard"
+msgstr "Kopiuj do schowka"
+
+#: assets/build/portals-app.js:24
+msgid "Claude Desktop"
+msgstr "Claude Desktop"
+
+#: assets/build/portals-app.js:24
+msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgstr "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) lub %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+
+#: assets/build/portals-app.js:24
+msgid "Claude Code"
+msgstr "Kod Claude"
+
+#: assets/build/portals-app.js:24
+msgid ".mcp.json (project) or ~/.claude.json (global)"
+msgstr ".mcp.json (projekt) lub ~/.claude.json (globalny)"
+
+#: assets/build/portals-app.js:24
+msgid "Cursor"
+msgstr "Kursor"
+
+#: assets/build/portals-app.js:24
+msgid "~/.cursor/mcp.json"
+msgstr "~/.cursor/mcp.json"
+
+#: assets/build/portals-app.js:24
+msgid "VS Code (Copilot)"
+msgstr "VS Code (Copilot)"
+
+#: assets/build/portals-app.js:24
+msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
+msgstr ".vscode/mcp.json (projekt) lub settings.json > mcp.servers (globalny)"
+
+#: assets/build/portals-app.js:24
+msgid "~/.continue/config.yaml or config.json"
+msgstr "~/.continue/config.yaml lub config.json"
+
+#: assets/build/portals-app.js:24
+msgid "Other"
+msgstr "Inne"
+
+#: assets/build/portals-app.js:24
+msgid "Your client's MCP configuration file"
+msgstr "Plik konfiguracyjny MCP Twojego klienta"
+
+#: assets/build/portals-app.js:24
+msgid "Connect Your AI Client"
+msgstr "Połącz swój klienta AI"
+
+#: assets/build/portals-app.js:24
+msgid "AI Client"
+msgstr "Klient AI"
+
+#: assets/build/portals-app.js:24
+msgid "Create an Application Password — "
+msgstr "Utwórz hasło aplikacji — "
+
+#: assets/build/portals-app.js:24
+msgid "Open Application Passwords"
+msgstr "Otwórz hasła aplikacji"
+
+#: assets/build/portals-app.js:24
+msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
+msgstr "Lub użyj tego polecenia CLI, aby szybko dodać serwer (wciąż będziesz musiał ustawić zmienne środowiskowe):"
+
+#: assets/build/portals-app.js:24
+msgid "Copy the JSON config below into: "
+msgstr "Skopiuj poniższą konfigurację JSON do: "
+
+#: assets/build/portals-app.js:24
+msgid "Replace \"your-application-password\" with the password from Step 1."
+msgstr "Zamień \"twoje-hasło-aplikacji\" na hasło z kroku 1."
+
+#: assets/build/portals-app.js:24
+msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
+msgstr "WP_API_URL — punkt końcowy MCP Twojej witryny. WP_API_USERNAME — Twoja nazwa użytkownika WordPress. WP_API_PASSWORD — hasło aplikacji, które wygenerowałeś."
+
+#: assets/build/portals-app.js:24
+msgid "View setup docs"
+msgstr "Zobacz dokumentację konfiguracji"
+
+#: assets/build/portals-app.js:24
+msgid "Activating…"
+msgstr "Aktywowanie…"
+
+#: assets/build/portals-app.js:24
+msgid "Activate MCP Adapter"
+msgstr "Aktywuj adapter MCP"
+
+#: assets/build/portals-app.js:24
+msgid "Download MCP Adapter"
+msgstr "Pobierz adapter MCP"
+
+#: assets/build/portals-app.js:24
+msgid "Enable Abilities"
+msgstr "Włącz umiejętności"
+
+#: assets/build/portals-app.js:24
+msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
+msgstr "Zarejestruj umiejętności SureDash w API umiejętności WordPress. Po włączeniu klienci AI mogą wyświetlać, czytać, tworzyć, edytować i zarządzać Twoim portalem. Po wyłączeniu żadne umiejętności nie są rejestrowane, a klienci AI nie mogą wykonywać żadnych działań."
+
+#: assets/build/portals-app.js:24
+msgid "Enable Edit Abilities"
+msgstr "Włącz umiejętności edycji"
+
+#: assets/build/portals-app.js:24
+msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
+msgstr "Po włączeniu klienci AI mogą aktualizować przestrzenie, ustawienia, posty, grupy i inne treści. Po wyłączeniu te umiejętności są wyrejestrowane, a klienci AI mogą tylko czytać Twoje dane."
+
+#: assets/build/portals-app.js:24
+msgid "Enable Delete Abilities"
+msgstr "Włącz umiejętności usuwania"
+
+#: assets/build/portals-app.js:24
+msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
+msgstr "Po włączeniu klienci AI mogą trwale usuwać przestrzenie, posty i grupy. Usunięte dane nie mogą być odzyskane. Po wyłączeniu umiejętności usuwania są wyrejestrowane, a klienci AI nie mogą usuwać żadnych danych."
+
+#: assets/build/portals-app.js:24
+msgid "Enable MCP Server"
+msgstr "Włącz serwer MCP"
+
+#: assets/build/portals-app.js:24
+msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
+msgstr "Tworzy dedykowany punkt końcowy SureDash MCP, do którego klienci AI, tacy jak Claude, mogą się łączyć. Po wyłączeniu punkt końcowy jest usuwany, a zewnętrzni klienci AI nie mogą odkrywać ani wywoływać żadnych umiejętności SureDash."
+
+#: assets/build/portals-app.js:24
+msgid "MCP"
+msgstr "MCP"
+
+#: templates/parts/logged-in-screen.php:49
+msgid "You're already signed in"
+msgstr "Już jesteś zalogowany"
+
+#. translators: 1: user display name, 2: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:55
+msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
+msgstr "Witaj z powrotem, %1$s. Wróć do %2$s, aby kontynuować tam, gdzie przerwałeś."
+
+#. translators: %s: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:65
+msgid "Go to %s"
+msgstr "Przejdź do %s"
+
+#: templates/parts/logged-in-screen.php:71
+msgid "Not you? Sign out"
+msgstr "To nie ty? Wyloguj się"
+
+#: assets/build/portals-app.js:8
+msgid "Close video"
+msgstr "Zamknij wideo"
+
+#: assets/build/portals-app.js:11
+msgid "Use Course Thumbnail as Default"
+msgstr "Użyj miniatury kursu jako domyślnej"
+
+#: assets/build/portals-app.js:11
+msgid "When no featured image is set, use the course thumbnail"
+msgstr "Gdy nie jest ustawiony żaden obrazek wyróżniający, użyj miniatury kursu"
+
+#: assets/build/portals-app.js:21
+msgid "Portal Identity"
+msgstr "Tożsamość portalu"
+
+#: assets/build/portals-app.js:21
+msgid "Visibility"
+msgstr "Widoczność"
+
+#: assets/build/portals-app.js:21
+msgid "Usage Data"
+msgstr "Dane dotyczące użytkowania"
+
+#: assets/build/portals-app.js:21
+msgid "Pro"
+msgstr "Pro"
+
+#: assets/build/portals-app.js:21
+msgid "Hide SureDash Branding"
+msgstr "Ukryj markę SureDash"
+
+#: assets/build/portals-app.js:21
+msgid "Posts Per Page"
+msgstr "Posty na stronę"
+
+#: assets/build/portals-app.js:21
+msgid "Applies to feeds, discussion spaces, and user profile posts."
+msgstr "Dotyczy kanałów, przestrzeni dyskusyjnych i postów na profilach użytkowników."
+
+#: assets/build/portals-app.js:21
+msgid "- Select -"
+msgstr "- Wybierz -"
+
+#: assets/build/portals-app.js:21
+msgid "User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" option in your"
+msgstr "Rejestracja użytkowników jest obecnie wyłączona. Aby umożliwić nowym użytkownikom rejestrację, włącz opcję \"Każdy może się zarejestrować\" w swoim"
+
+#: assets/build/portals-app.js:21
+msgid "Login & Registration Pages"
+msgstr "Stronach logowania i rejestracji"
+
+#: assets/build/portals-app.js:21
+msgid "Navigates to the members page."
+msgstr "Przechodzi do strony członków."
+
+#: assets/build/portals-app.js:21
+msgid "Uploads"
+msgstr "Przesyłania"
+
+#: assets/build/portals-app.js:21
+msgid "Maximum upload size for user-posted files."
+msgstr "Maksymalny rozmiar przesyłanych plików przez użytkowników."
+
+#: assets/build/portals-app.js:21
+msgid "Maximum size for profile and cover image uploads."
+msgstr "Maksymalny rozmiar przesyłanych zdjęć profilowych i okładkowych."
+
+#: assets/build/portals-app.js:24
+msgid "Google Login"
+msgstr "Logowanie przez Google"
+
+#: assets/build/portals-app.js:24
+msgid "Facebook Login"
+msgstr "Logowanie przez Facebooka"
+
+#: assets/build/portals-app.js:24
+msgid "Social Login & Security"
+msgstr "Logowanie społeczne i bezpieczeństwo"
+
+#: assets/build/portals-app.js:24
+msgid "Giphy"
+msgstr "Giphy"
+
+#: assets/build/portals-app.js:24
+msgid "Add your Giphy API key to enable GIF support in comments. <a>Get key</a>."
+msgstr "Dodaj swój klucz API Giphy, aby włączyć obsługę GIF-ów w komentarzach. <a>Uzyskaj klucz</a>."
+
+#: assets/build/portals-app.js:24
+msgid "Plugins"
+msgstr "Wtyczki"
+
+#: assets/build/portals-app.js:24
+msgid "Requires the MCP Adapter plugin."
+msgstr "Wymaga wtyczki MCP Adapter."
+
+#: assets/build/portals-app.js:24
+msgid "Feeds & Content"
+msgstr "Kanały i treści"
+
+#: assets/build/portals-app.js:24
+msgid "Login & Registration"
+msgstr "Logowanie i rejestracja"
+
+#: assets/build/portals-app.js:24
+msgid "Roles & Profile"
+msgstr "Role i profil"
+
+#: assets/build/portals-app.js:24
+msgid "Sidebar"
+msgstr "Pasek boczny"
+
+#: assets/js/unminified/login.js:701
+msgid "We couldn't send the reset email. Please try again or contact support."
+msgstr "Nie mogliśmy wysłać e-maila z resetowaniem. Proszę spróbować ponownie lub skontaktować się z pomocą techniczną."
+
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"
 msgid "Portal Space Groups"
@@ -8446,208 +8664,3 @@ msgstr "Post społeczności"
 msgctxt "SureDash Portal Layout"
 msgid "SureDash: Portal Layout"
 msgstr "SureDash: Układ portalu"
-
-#: core/assets.php:111
-msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
-msgstr ""
-
-#: core/routers/misc.php:1635
-msgid "A valid URL is required."
-msgstr ""
-
-#: core/routers/misc.php:1646
-msgid "This URL is not from a supported video provider."
-msgstr ""
-
-#: core/routers/misc.php:1658
-msgid "Could not resolve video. Please check the URL and try again."
-msgstr ""
-
-#: inc/modules/mcp/module.php:245
-msgid "MCP settings saved successfully."
-msgstr ""
-
-#: inc/modules/mcp/module.php:296
-msgid "SureDash MCP Server"
-msgstr ""
-
-#: inc/modules/mcp/module.php:297
-msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
-msgstr ""
-
-#: inc/utils/labels.php:122
-#: inc/utils/labels.php:123
-msgid "You're all caught up — happy posting! 🎉"
-msgstr ""
-
-#: assets/build/portals-app.js:17
-msgid "Cover Image URL"
-msgstr ""
-
-#: assets/build/portals-app.js:17
-msgid "Embed Media URL"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Copy to clipboard"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Claude Desktop"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Claude Code"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid ".mcp.json (project) or ~/.claude.json (global)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Cursor"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/.cursor/mcp.json"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "VS Code (Copilot)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "~/.continue/config.yaml or config.json"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Other"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Your client's MCP configuration file"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Connect Your AI Client"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "AI Client"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Create an Application Password — "
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Open Application Passwords"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Copy the JSON config below into: "
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Replace \"your-application-password\" with the password from Step 1."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "View setup docs"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "MCP Adapter Required"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "The MCP Adapter plugin is installed but not active. Activate it to configure MCP settings."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "The MCP Adapter plugin is required to connect AI clients to your portal. Download and install it from GitHub, then activate it."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Download the latest release from"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "GitHub"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Install the plugin via Plugins > Add New Plugin > Upload Plugin."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activate the MCP Adapter plugin."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activating…"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Activate MCP Adapter"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Download MCP Adapter"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Edit Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable Delete Abilities"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Enable MCP Server"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "AI"
-msgstr ""
-
-#: assets/build/portals-app.js:24
-msgid "MCP"
-msgstr ""

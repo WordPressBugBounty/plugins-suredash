@@ -279,7 +279,7 @@ class Activity_Tracker {
 	 * @param int $space_id Space ID (term_id from community-forum taxonomy).
 	 * @param int $user_id  User ID.
 	 * @return int Visible post count.
-	 * @since x.x.x
+	 * @since 1.8.1
 	 */
 	private function get_visible_posts_count_in_space( $space_id, $user_id ): int {
 		$post_ids = $this->get_post_ids_in_space( $space_id );

@@ -113,6 +113,80 @@ class Helper {
 	}
 
 	/**
+	 * Resolve a media URL to a safe absolute path inside the WordPress uploads directory.
+	 *
+	 * Prevents path traversal in user-supplied media URLs. Returns the canonical
+	 * filesystem path only when the URL maps to a real file strictly inside the uploads
+	 * basedir. Any traversal sequence, encoded traversal, mismatched base URL, symlink,
+	 * or out-of-range realpath returns null.
+	 *
+	 * @param string        $url                 Media URL to resolve.
+	 * @param array<string> $allowed_extensions  Optional. Lowercase file extensions to allow. Empty array allows any extension.
+	 * @return string|null Canonical absolute path inside the uploads directory, or null if unsafe.
+	 * @since 1.8.1
+	 */
+	public static function get_safe_uploads_path( $url, array $allowed_extensions = [] ) {
+		if ( ! is_string( $url ) || $url === '' ) {
+			return null;
+		}
+
+		$upload_dir = wp_upload_dir();
+		if ( ! empty( $upload_dir['error'] ) ) {
+			return null;
+		}
+
+		$upload_baseurl = (string) $upload_dir['baseurl'];
+		$upload_basedir = wp_normalize_path( (string) $upload_dir['basedir'] );
+
+		$real_basedir = realpath( $upload_basedir );
+		if ( $real_basedir === false ) {
+			return null;
+		}
+		$real_basedir_norm = trailingslashit( wp_normalize_path( $real_basedir ) );
+
+		// Decode percent-encoded sequences once so an encoded `..%2F` cannot bypass the check.
+		$decoded_url = rawurldecode( $url );
+
+		// Reject any traversal marker in the original or decoded URL.
+		if ( strpos( $url, '..' ) !== false || strpos( $decoded_url, '..' ) !== false ) {
+			return null;
+		}
+
+		// Strict prefix match — scheme/host/path of the uploads base URL must match exactly.
+		if ( strpos( $decoded_url, $upload_baseurl ) !== 0 ) {
+			return null;
+		}
+
+		// Restrict to expected extensions when an allowlist is supplied.
+		$url_path = (string) wp_parse_url( $decoded_url, PHP_URL_PATH );
+		if ( ! empty( $allowed_extensions ) ) {
+			$extension = strtolower( pathinfo( $url_path, PATHINFO_EXTENSION ) );
+			if ( ! in_array( $extension, $allowed_extensions, true ) ) {
+				return null;
+			}
+		}
+
+		$relative  = substr( $decoded_url, strlen( $upload_baseurl ) );
+		$candidate = wp_normalize_path( $upload_basedir . $relative );
+
+		if ( ! file_exists( $candidate ) || is_link( $candidate ) ) {
+			return null;
+		}
+
+		$real_candidate = realpath( $candidate );
+		if ( $real_candidate === false ) {
+			return null;
+		}
+
+		$real_candidate_norm = wp_normalize_path( $real_candidate );
+		if ( strpos( $real_candidate_norm, $real_basedir_norm ) !== 0 ) {
+			return null;
+		}
+
+		return $real_candidate;
+	}
+
+	/**
 	 * Get placeholder image URL.
 	 *
 	 * @access public

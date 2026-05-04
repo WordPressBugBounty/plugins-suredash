@@ -74,7 +74,7 @@ class Feeds {
 				'comments AS c',
 				// @phpstan-ignore-next-line.
 				static function( $q ): void {
-					$q->where( 'p.ID', '=', 'c.comment_post_ID' )
+					$q->whereColumn( 'p.ID', '=', 'c.comment_post_ID' )
 						->where( 'c.comment_approved', '=', '1' );
 				}
 			);
@@ -84,7 +84,7 @@ class Feeds {
 				'postmeta AS pm',
 				// @phpstan-ignore-next-line.
 				static function( $q ) use ( $meta_key ): void {
-					$q->where( 'p.ID', '=', 'pm.post_id' )
+					$q->whereColumn( 'p.ID', '=', 'pm.post_id' )
 						->where( 'pm.meta_key', '=', $meta_key );
 				}
 			);
