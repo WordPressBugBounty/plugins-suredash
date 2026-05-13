@@ -33,6 +33,7 @@ use SureDashboard\Inc\Compatibility\Theme;
 use SureDashboard\Inc\Modules\EmailNotifications\Admin_Updates;
 use SureDashboard\Inc\Modules\EmailNotifications\Email_Dispatcher;
 use SureDashboard\Inc\Modules\EmailNotifications\Email_Triggers;
+use SureDashboard\Inc\Modules\Learn\Learn;
 use SureDashboard\Inc\Modules\MCP\Module as MCP_Module;
 use SureDashboard\Inc\Services\Abilities\Registry as AbilitiesRegistry;
 use SureDashboard\Inc\Services\CLI\Abilities_Command as CLI_Abilities_Command;
@@ -534,6 +535,7 @@ class Portals_Loader {
 		Admin_Updates::get_instance();
 		Email_Dispatcher::get_instance();
 		Email_Triggers::get_instance();
+		Learn::get_instance();
 
 		/* MCP Module init */
 		MCP_Module::get_instance();

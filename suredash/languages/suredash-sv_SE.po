@@ -24,11 +24,11 @@ msgstr "SureDash"
 msgid "https://suredash.com/"
 msgstr "https://suredash.com/"
 
-#: core/integrations/feeds.php:175
-#: core/integrations/feeds.php:185
-#: core/integrations/feeds.php:301
-#: core/integrations/feeds.php:306
-#: core/shortcodes/home-content.php:970
+#: core/integrations/feeds.php:179
+#: core/integrations/feeds.php:189
+#: core/integrations/feeds.php:305
+#: core/integrations/feeds.php:310
+#: core/shortcodes/home-content.php:979
 msgid "Cover Image"
 msgstr "Omslagsbild"
 
@@ -37,18 +37,18 @@ msgstr "Omslagsbild"
 msgid "Content"
 msgstr "Innehåll"
 
-#: core/routers/backend.php:1138
+#: core/routers/backend.php:1150
 msgid "Content Groups"
 msgstr "Innehållsgrupper"
 
-#: core/routers/backend.php:1138
+#: core/routers/backend.php:1150
 msgid "Topic Forums"
 msgstr "Ämnesforum"
 
 #: admin/menu.php:190
 #: admin/menu.php:191
 #: admin/setup.php:65
-#: core/renderer.php:300
+#: core/renderer.php:301
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:33
 msgid "Settings"
@@ -70,8 +70,8 @@ msgstr "Länk"
 msgid "Video"
 msgstr "Video"
 
-#: admin/menu.php:626
-#: inc/utils/helper.php:2202
+#: admin/menu.php:629
+#: inc/utils/helper.php:2200
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "Okategoriserad"
@@ -102,8 +102,8 @@ msgid "Invalid item ID."
 msgstr "Ogiltigt artikel-ID."
 
 #: core/ajax/backend.php:203
-#: core/routers/backend.php:676
-#: core/routers/backend.php:711
+#: core/routers/backend.php:688
+#: core/routers/backend.php:723
 msgid "Invalid group ID."
 msgstr "Ogiltigt grupp-ID."
 
@@ -292,7 +292,7 @@ msgid "Portal Spaces"
 msgstr "Portalutrymmen"
 
 #: core/cpt/portal.php:46
-#: core/renderer.php:228
+#: core/renderer.php:229
 #: assets/build/portals-app.js:21
 msgid "Edit Space"
 msgstr "Redigera utrymme"
@@ -382,17 +382,17 @@ msgstr "Inget forum hittades"
 msgid "SureMembers Integration"
 msgstr "SureMembers-integration"
 
-#: core/integrations/feeds.php:190
-#: core/integrations/feeds.php:311
+#: core/integrations/feeds.php:194
+#: core/integrations/feeds.php:315
 msgid "Cover Embed Media"
 msgstr "Täck inbäddad media"
 
-#: core/integrations/feeds.php:205
-#: core/integrations/feeds.php:326
+#: core/integrations/feeds.php:209
+#: core/integrations/feeds.php:330
 msgid "Enter a title"
 msgstr "Ange en titel"
 
-#: core/integrations/feeds.php:302
+#: core/integrations/feeds.php:306
 msgid "Cover Media Embed"
 msgstr "Omslagsmedia inbäddning"
 
@@ -435,53 +435,53 @@ msgid "Invalid term ID."
 msgstr "Ogiltigt term-ID."
 
 #: core/routers/backend.php:56
-#: core/routers/backend.php:979
+#: core/routers/backend.php:991
 msgid "Successfully updated."
 msgstr "Uppdaterades framgångsrikt."
 
-#: core/routers/backend.php:462
-#: core/routers/backend.php:504
-#: core/routers/backend.php:1002
-#: core/routers/backend.php:1073
-#: core/routers/backend.php:1097
-#: core/routers/backend.php:1296
-#: core/routers/backend.php:2238
+#: core/routers/backend.php:474
+#: core/routers/backend.php:516
+#: core/routers/backend.php:1014
+#: core/routers/backend.php:1085
+#: core/routers/backend.php:1109
+#: core/routers/backend.php:1308
+#: core/routers/backend.php:2516
 msgid "Invalid post ID."
 msgstr "Ogiltigt inläggs-ID."
 
-#: core/routers/backend.php:477
-#: core/routers/backend.php:583
-#: core/routers/backend.php:717
-#: core/routers/backend.php:1388
+#: core/routers/backend.php:489
+#: core/routers/backend.php:595
+#: core/routers/backend.php:729
+#: core/routers/backend.php:1400
 msgid "Successfully deleted."
 msgstr "Raderades framgångsrikt."
 
-#: core/routers/backend.php:966
+#: core/routers/backend.php:978
 msgid "Invalid object or term ID."
 msgstr "Ogiltigt objekt eller term-ID."
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1147
 msgid "No store categories found."
 msgstr "Inga butikskategorier hittades."
 
-#: core/routers/backend.php:1184
+#: core/routers/backend.php:1196
 msgid "Category Invalid."
 msgstr "Kategori ogiltig."
 
-#: core/routers/backend.php:1188
+#: core/routers/backend.php:1200
 msgid "Content Group -"
 msgstr "Innehållsgrupp -"
 
-#: core/routers/backend.php:1188
+#: core/routers/backend.php:1200
 msgid "Topic Forum -"
 msgstr "Ämnesforum -"
 
-#: core/routers/backend.php:1257
+#: core/routers/backend.php:1269
 #: inc/modules/mcp/module.php:184
 msgid "Invalid settings data."
 msgstr "Ogiltiga inställningsdata."
 
-#: core/routers/backend.php:1264
+#: core/routers/backend.php:1276
 msgid "Settings saved successfully."
 msgstr "Inställningar sparades framgångsrikt."
 
@@ -577,7 +577,7 @@ msgstr "Registrerad & Inloggning lyckades"
 msgid "Google API Error."
 msgstr "Google API-fel."
 
-#: core/routes.php:70
+#: core/routes.php:71
 msgid "Oops! Something wrong here..."
 msgstr "Hoppsan! Något är fel här..."
 
@@ -589,8 +589,8 @@ msgstr "Inget innehåll hittades."
 msgid "Mark All as Read"
 msgstr "Markera alla som lästa"
 
-#: core/shortcodes/home-content.php:800
-#: core/shortcodes/home-content.php:801
+#: core/shortcodes/home-content.php:809
+#: core/shortcodes/home-content.php:810
 #: inc/functions/functions.php:1897
 #: inc/functions/functions.php:1903
 #: inc/functions/functions.php:1909
@@ -602,7 +602,7 @@ msgid "User"
 msgstr "Användare"
 
 #: core/assets.php:107
-#: core/shortcodes/home-content.php:956
+#: core/shortcodes/home-content.php:965
 #: assets/build/portals-app.js:8
 msgid "Upload"
 msgstr "Ladda upp"
@@ -680,8 +680,8 @@ msgstr "Din kommentar väntar på granskning."
 msgid "Reply"
 msgstr "Svara"
 
-#: inc/functions/markup.php:690
-#: inc/utils/helper.php:1761
+#: inc/functions/markup.php:724
+#: inc/utils/helper.php:1759
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
@@ -702,8 +702,8 @@ msgstr "Klicka för att ladda upp eller dra och släpp"
 msgid "Allowed file formats:"
 msgstr "Tillåtna filformat:"
 
-#: inc/functions/markup.php:708
-#: inc/utils/helper.php:1789
+#: inc/functions/markup.php:742
+#: inc/utils/helper.php:1787
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Kommentar"
@@ -747,7 +747,7 @@ msgstr "Data sparades framgångsrikt."
 msgid "All"
 msgstr "Alla"
 
-#: inc/utils/helper.php:1801
+#: inc/utils/helper.php:1799
 msgid "Share Post"
 msgstr "Dela inlägg"
 
@@ -755,21 +755,21 @@ msgstr "Dela inlägg"
 msgid "Copied!"
 msgstr "Kopierad!"
 
-#: inc/utils/helper.php:2236
+#: inc/utils/helper.php:2234
 msgid "This discussion is only available for VIP members."
 msgstr "Denna diskussion är endast tillgänglig för VIP-medlemmar."
 
-#: inc/utils/helper.php:2238
+#: inc/utils/helper.php:2236
 msgid "Please upgrade to add response."
 msgstr "Vänligen uppgradera för att lägga till svar."
 
-#: inc/utils/helper.php:2239
+#: inc/utils/helper.php:2237
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "Uppgradera nu"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2250
+#: inc/utils/helper.php:2248
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -779,7 +779,7 @@ msgstr "Logga in"
 msgid "Back to"
 msgstr "Tillbaka till"
 
-#: core/shortcodes/home-content.php:1073
+#: core/shortcodes/home-content.php:1082
 #: inc/utils/labels.php:44
 #: assets/build/portals-app.js:24
 msgid "Portal"
@@ -816,7 +816,8 @@ msgstr "Inlägg"
 msgid "Liked"
 msgstr "Gillade"
 
-#: inc/utils/helper.php:1425
+#: inc/utils/helper.php:1427
+#: inc/utils/helper.php:1428
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
@@ -861,7 +862,7 @@ msgstr "Profilbild"
 msgid "Username"
 msgstr "Användarnamn"
 
-#: core/shortcodes/home-content.php:1071
+#: core/shortcodes/home-content.php:1080
 #: inc/utils/labels.php:74
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:2
@@ -956,7 +957,7 @@ msgid "If you want to sell products online, you need a sales funnel. A sales fun
 msgstr "Om du vill sälja produkter online behöver du en säljtratt. En säljtratt är det enklaste sättet att leda en webbplatsbesökare mot att bli en betalande kund. En säljtratt bygger rikedom i ditt företag."
 
 #: core/cpt/content.php:111
-#: inc/functions/markup.php:513
+#: inc/functions/markup.php:547
 #: inc/utils/labels.php:107
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -969,10 +970,12 @@ msgid "Courses"
 msgstr "Kurser"
 
 #: inc/utils/labels.php:109
+#: assets/build/portals-app.js:21
 msgid "Lesson"
 msgstr "Lektion"
 
 #: inc/utils/labels.php:110
+#: assets/build/portals-app.js:21
 msgid "Lessons"
 msgstr "Lektioner"
 
@@ -1028,9 +1031,10 @@ msgstr "Innehållet kommer att finnas tillgängligt i"
 
 #: admin/menu.php:182
 #: admin/menu.php:183
-#: core/renderer.php:288
-#: core/shortcodes/home-content.php:862
-#: core/shortcodes/home-content.php:1068
+#: core/renderer.php:289
+#: core/shortcodes/home-content.php:871
+#: core/shortcodes/home-content.php:1077
+#: inc/utils/helper.php:2915
 #: inc/utils/labels.php:143
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
@@ -1104,7 +1108,7 @@ msgstr "Begränsat innehåll"
 msgid "This content is restricted and can only be accessed by authorized users."
 msgstr "Detta innehåll är begränsat och kan endast nås av auktoriserade användare."
 
-#: inc/utils/post-meta.php:108
+#: inc/utils/post-meta.php:112
 #: assets/build/portals-app.js:21
 msgid "Untitled Section"
 msgstr "Omarkerad sektion"
@@ -1144,7 +1148,7 @@ msgstr "Filen stämmer inte överens"
 msgid "File is not uploaded"
 msgstr "Filen är inte uppladdad"
 
-#: loader.php:451
+#: loader.php:452
 msgid "Portal Menu"
 msgstr "Portalmeny"
 
@@ -1206,7 +1210,7 @@ msgstr "Google"
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/shortcodes/home-content.php:974
+#: core/shortcodes/home-content.php:983
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:36
@@ -1217,7 +1221,7 @@ msgstr "Återställ"
 msgid "Icon Library"
 msgstr "Ikonbibliotek"
 
-#: core/integrations/feeds.php:179
+#: core/integrations/feeds.php:183
 #: inc/utils/labels.php:119
 #: templates/quick-view/post.php:137
 #: assets/build/editor-app.js:2
@@ -1245,6 +1249,7 @@ msgid "Choose Icon"
 msgstr "Välj ikon"
 
 #: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:8
 msgid "Icon"
 msgstr "Ikon"
 
@@ -1279,6 +1284,7 @@ msgstr "Krävs"
 
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:1
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:27
 msgid "Name"
 msgstr "Namn"
@@ -2141,8 +2147,8 @@ msgstr "Aktivera Facebook-inloggning"
 msgid "Please configure Facebook App settings from"
 msgstr "Vänligen konfigurera Facebook-appens inställningar från"
 
-#: core/integrations/feeds.php:196
-#: core/integrations/feeds.php:317
+#: core/integrations/feeds.php:200
+#: core/integrations/feeds.php:321
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
@@ -2537,7 +2543,7 @@ msgid "What's New?"
 msgstr "Vad är nytt?"
 
 #: admin/menu.php:214
-#: core/renderer.php:240
+#: core/renderer.php:241
 #: assets/build/portals-app.js:33
 msgid "Dashboard"
 msgstr "Instrumentpanel"
@@ -2606,7 +2612,7 @@ msgstr "Är du säker på att du vill ta bort den här sektionen?"
 msgid "You can not remove the last section."
 msgstr "Du kan inte ta bort den sista sektionen."
 
-#: core/shortcodes/home-content.php:961
+#: core/shortcodes/home-content.php:970
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
@@ -2703,22 +2709,19 @@ msgstr "Tillbaka"
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: inc/functions/markup.php:510
+#: inc/functions/markup.php:544
 #: inc/utils/labels.php:117
 msgid "Post"
 msgstr "Inlägg"
 
 #: assets/build/portals-app.js:8
+#: assets/build/portals-app.js:21
 msgid "Event"
 msgstr "Händelse"
 
 #: assets/build/portals-app.js:8
 msgid "Soon"
 msgstr "Snart"
-
-#: assets/build/portals-app.js:8
-msgid "Form"
-msgstr "Formulär"
 
 #: assets/build/portals-app.js:8
 msgid "Space Title"
@@ -2962,15 +2965,17 @@ msgstr "Ogiltiga data"
 msgid "Invalid Authorization"
 msgstr "Ogiltig auktorisering"
 
-#: core/routers/backend.php:468
-#: core/routers/backend.php:510
-#: core/routers/backend.php:1286
-#: core/routers/backend.php:2244
+#: core/routers/backend.php:480
+#: core/routers/backend.php:522
+#: core/routers/backend.php:1298
+#: core/routers/backend.php:2522
 msgid "Invalid post type."
 msgstr "Ogiltig inläggstyp."
 
 #: admin/menu.php:199
 #: admin/menu.php:200
+#: inc/modules/learn/chapters.php:127
+#: assets/build/portals-app.js:21
 msgid "Customize Portal"
 msgstr "Anpassa portalen"
 
@@ -3035,11 +3040,11 @@ msgstr "Grupptext för rymd"
 msgid "Space Group Background"
 msgstr "Bakgrund för rymdgruppen"
 
-#: core/routers/misc.php:1913
+#: core/routers/misc.php:1943
 msgid "Uploaded file is not a valid image."
 msgstr "Den uppladdade filen är inte en giltig bild."
 
-#: core/routers/misc.php:1917
+#: core/routers/misc.php:1947
 msgid "File size larger than permissible."
 msgstr "Filstorleken är större än tillåten."
 
@@ -3241,13 +3246,13 @@ msgstr "Uppdatera forum"
 msgid "Feeds Integration"
 msgstr "Integrering av flöden"
 
-#: core/integrations/feeds.php:195
-#: core/integrations/feeds.php:316
+#: core/integrations/feeds.php:199
+#: core/integrations/feeds.php:320
 msgid "See supported embeds"
 msgstr "Se stödda inbäddningar"
 
-#: core/integrations/feeds.php:201
-#: core/integrations/feeds.php:322
+#: core/integrations/feeds.php:205
+#: core/integrations/feeds.php:326
 msgid "Please enter the URL of the media you want to embed"
 msgstr "Vänligen ange URL:en till det media du vill bädda in"
 
@@ -3259,63 +3264,63 @@ msgstr "SinglePost-integrering"
 msgid "Access Group: "
 msgstr "Åtkomstgrupp:"
 
-#: core/routers/backend.php:402
+#: core/routers/backend.php:414
 msgid "Forum:"
 msgstr "Forum:"
 
-#: core/routers/backend.php:1290
+#: core/routers/backend.php:1302
 msgid "Invalid action or post ID."
 msgstr "Ogiltig åtgärd eller inläggs-ID."
 
-#: core/routers/backend.php:1358
+#: core/routers/backend.php:1370
 msgid "Successfully published."
 msgstr "Publicerad med framgång."
 
-#: core/routers/backend.php:1359
+#: core/routers/backend.php:1371
 msgid "Failed to publish."
 msgstr "Misslyckades med att publicera."
 
-#: core/routers/backend.php:1368
+#: core/routers/backend.php:1380
 msgid "Successfully drafted."
 msgstr "Utkast sparat med framgång."
 
-#: core/routers/backend.php:1369
+#: core/routers/backend.php:1381
 msgid "Failed to draft."
 msgstr "Misslyckades med att spara utkast."
 
-#: core/routers/backend.php:1378
+#: core/routers/backend.php:1390
 msgid "Successfully trashed."
 msgstr "Flyttad till papperskorgen med framgång."
 
-#: core/routers/backend.php:1379
+#: core/routers/backend.php:1391
 msgid "Failed to trash."
 msgstr "Misslyckades med att flytta till papperskorgen."
 
-#: core/routers/backend.php:1383
+#: core/routers/backend.php:1395
 msgid "Successfully restored."
 msgstr "Återställd med framgång."
 
-#: core/routers/backend.php:1384
+#: core/routers/backend.php:1396
 msgid "Failed to restore."
 msgstr "Misslyckades med att återställa."
 
-#: core/routers/backend.php:1389
+#: core/routers/backend.php:1401
 msgid "Failed to delete."
 msgstr "Misslyckades med att radera."
 
-#: core/routers/backend.php:1393
+#: core/routers/backend.php:1405
 msgid "Successfully duplicated."
 msgstr "Duplicerad med framgång."
 
-#: core/routers/backend.php:1394
+#: core/routers/backend.php:1406
 msgid "Failed to duplicate."
 msgstr "Misslyckades med att duplicera."
 
-#: core/routers/backend.php:1491
+#: core/routers/backend.php:1769
 msgid "Invalid action or post IDs."
 msgstr "Ogiltig åtgärd eller inläggs-ID:n."
 
-#: core/routers/backend.php:1532
+#: core/routers/backend.php:1810
 msgid "Bulk action completed successfully."
 msgstr "Massåtgärd slutförd med framgång."
 
@@ -3331,11 +3336,11 @@ msgstr "Onboarding slutförd med framgång."
 msgid "Onboarding data updated successfully."
 msgstr "Onboardingdata uppdaterad med framgång."
 
-#: core/routers/onboarding.php:256
+#: core/routers/onboarding.php:269
 msgid "Invalid plugin."
 msgstr "Ogiltigt plugin."
 
-#: core/routers/onboarding.php:276
+#: core/routers/onboarding.php:289
 msgid "Plugin activated successfully."
 msgstr "Plugin aktiverat med framgång."
 
@@ -3389,6 +3394,7 @@ msgstr "Skapa nytt inlägg"
 msgid "No post found, create a new one!"
 msgstr "Inget inlägg hittades, skapa ett nytt!"
 
+#: inc/utils/helper.php:2907
 #: inc/utils/settings.php:324
 msgid "Bookmarks"
 msgstr "Bokmärken"
@@ -3551,14 +3557,9 @@ msgstr "Inlägg/Diskussion"
 msgid "External Link"
 msgstr "Extern länk"
 
-#: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 msgid "Video Playlist"
 msgstr "Videospelista"
-
-#: assets/build/portals-app.js:8
-msgid "Booking/Appointment"
-msgstr "Bokning/Avtal"
 
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -3790,11 +3791,11 @@ msgstr "Publicerad"
 msgid "Access Group"
 msgstr "Åtkomstgrupp"
 
-#: core/integrations/feeds.php:558
-#: core/integrations/feeds.php:605
-#: core/routers/misc.php:343
-#: core/routers/misc.php:395
-#: core/shortcodes/home-content.php:742
+#: core/integrations/feeds.php:593
+#: core/integrations/feeds.php:640
+#: core/routers/misc.php:373
+#: core/routers/misc.php:425
+#: core/shortcodes/home-content.php:751
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
 msgid "View"
@@ -3928,8 +3929,8 @@ msgstr "Skräpkorg"
 msgid "Pending Review"
 msgstr "Väntar på granskning"
 
-#: inc/functions/markup.php:527
-#: inc/functions/markup.php:579
+#: inc/functions/markup.php:561
+#: inc/functions/markup.php:613
 #: assets/build/portals-app.js:21
 msgid "Private"
 msgstr "Privat"
@@ -3995,7 +3996,6 @@ msgid "Are you sure you want to delete these posts?"
 msgstr "Är du säker på att du vill ta bort dessa inlägg?"
 
 #: assets/build/portals-app.js:17
-#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Bulk actions: "
 msgstr "Massåtgärder:"
@@ -4140,7 +4140,7 @@ msgstr "Designinställningar"
 
 #: admin/menu.php:174
 #: admin/menu.php:175
-#: core/renderer.php:276
+#: core/renderer.php:277
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:33
@@ -4161,15 +4161,15 @@ msgstr "E-post saknas eller är ogiltig."
 msgid "You have used an invalid username."
 msgstr "Du har använt ett ogiltigt användarnamn."
 
-#: core/integrations/feeds.php:373
+#: core/integrations/feeds.php:377
 msgid "Write a new post"
 msgstr "Skriv ett nytt inlägg"
 
-#: core/integrations/feeds.php:403
+#: core/integrations/feeds.php:407
 msgid "Private Discussion Area"
 msgstr "Privat diskussionsområde"
 
-#: core/integrations/feeds.php:404
+#: core/integrations/feeds.php:408
 msgid "This discussion space is private. Please log in to view the content."
 msgstr "Detta diskussionsutrymme är privat. Logga in för att se innehållet."
 
@@ -4189,52 +4189,52 @@ msgstr "%1$s, %2$s"
 msgid "New post from %1$s \"%2$s\""
 msgstr "Nytt inlägg från %1$s \"%2$s\""
 
-#: core/renderer.php:231
+#: core/renderer.php:232
 msgid "Go to Space Editor"
 msgstr "Gå till Space Editor"
 
-#: core/renderer.php:243
+#: core/renderer.php:244
 msgid "Go to Dashboard Page"
 msgstr "Gå till instrumentpanelsidan"
 
-#: core/renderer.php:252
+#: core/renderer.php:253
 msgid "All Spaces"
 msgstr "Alla utrymmen"
 
-#: core/renderer.php:255
+#: core/renderer.php:256
 msgid "Go to All Spaces Page"
 msgstr "Gå till sidan Alla utrymmen"
 
-#: core/renderer.php:264
+#: core/renderer.php:265
 msgid "All Posts"
 msgstr "Alla inlägg"
 
-#: core/renderer.php:267
+#: core/renderer.php:268
 msgid "Go to All Posts Page"
 msgstr "Gå till sidan Alla inlägg"
 
-#: core/renderer.php:303
+#: core/renderer.php:304
 msgid "Go to Settings Page"
 msgstr "Gå till inställningssidan"
 
-#: core/routers/backend.php:1302
+#: core/routers/backend.php:1314
 msgid "Failed to update."
 msgstr "Det gick inte att uppdatera."
 
-#: core/routers/backend.php:2254
+#: core/routers/backend.php:2532
 msgid "Comments status updated to closed."
 msgstr "Kommentarstatus uppdaterad till stängd."
 
-#: core/routers/backend.php:2262
+#: core/routers/backend.php:2540
 msgid "Comments status updated to open."
 msgstr "Kommentarstatus uppdaterad till öppen."
 
-#: core/routers/backend.php:2631
+#: core/routers/backend.php:2909
 #: assets/build/portals-app.js:27
 msgid "(no title)"
 msgstr "(ingen titel)"
 
-#: core/routers/backend.php:2693
+#: core/routers/backend.php:2971
 msgid "Unknown post"
 msgstr "Okänt inlägg"
 
@@ -4244,13 +4244,13 @@ msgid "Visit Lesson"
 msgstr "Besök lektion"
 
 #: core/shortcodes/home-content.php:165
-#: core/shortcodes/home-content.php:351
+#: core/shortcodes/home-content.php:352
 msgid "Visit Post"
 msgstr "Besök inlägg"
 
 #: core/shortcodes/home-content.php:169
 #: core/shortcodes/home-content.php:181
-#: core/shortcodes/home-content.php:372
+#: core/shortcodes/home-content.php:375
 msgid "Read Post"
 msgstr "Läs inlägg"
 
@@ -4269,7 +4269,7 @@ msgid "View Discussion"
 msgstr "Visa diskussion"
 
 #. translators: %s: Space group name
-#: core/shortcodes/navigation.php:152
+#: core/shortcodes/navigation.php:160
 #, php-format
 msgid "Toggle %s group"
 msgstr "Växla %s-grupp"
@@ -4290,7 +4290,7 @@ msgstr "Oläst avisering"
 msgid "Mark all notifications as read"
 msgstr "Markera alla aviseringar som lästa"
 
-#: inc/functions/markup.php:425
+#: inc/functions/markup.php:459
 msgid "Submit Comment"
 msgstr "Skicka kommentar"
 
@@ -4407,10 +4407,6 @@ msgstr "artiklar"
 #: assets/build/portals-app.js:21
 msgid "Edit Lesson"
 msgstr "Redigera lektion"
-
-#: assets/build/portals-app.js:21
-msgid "Update Comment Status to Open/Closed"
-msgstr "Uppdatera kommentarsstatus till Öppen/Stängd"
 
 #: assets/build/portals-app.js:21
 msgid "Comment status updated to closed."
@@ -4741,7 +4737,7 @@ msgid "Unknown error"
 msgstr "Okänt fel"
 
 #: core/routers/backend.php:180
-#: core/routers/backend.php:303
+#: core/routers/backend.php:315
 msgid "A space with this name and type already exists."
 msgstr "Ett utrymme med detta namn och typ finns redan."
 
@@ -4753,49 +4749,49 @@ msgstr "Kombinationen av utrymmets namn och typ är tillgänglig."
 msgid "Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces."
 msgstr "Samlingutrymmen är en premiumfunktion. Vänligen uppgradera till SureDash Pro för att skapa samlingutrymmen."
 
-#: core/routers/backend.php:2284
+#: core/routers/backend.php:2562
 msgid "Invalid post IDs."
 msgstr "Ogiltiga inläggs-ID:n."
 
-#: core/routers/backend.php:2308
+#: core/routers/backend.php:2586
 #: assets/build/portals-app.js:21
 msgid "Comments status updated."
 msgstr "Kommentarstatus uppdaterad."
 
-#: core/routers/backend.php:2727
+#: core/routers/backend.php:3005
 msgid "No icons found."
 msgstr "Inga ikoner hittades."
 
-#: core/routers/misc.php:1225
-#: core/routers/misc.php:1302
+#: core/routers/misc.php:1255
+#: core/routers/misc.php:1332
 msgid "Comment not found."
 msgstr "Kommentar hittades inte."
 
-#: core/routers/misc.php:1230
+#: core/routers/misc.php:1260
 msgid "You are not authorized to edit this comment."
 msgstr "Du är inte auktoriserad att redigera denna kommentar."
 
-#: core/routers/misc.php:1261
+#: core/routers/misc.php:1291
 msgid "Failed to update comment."
 msgstr "Misslyckades med att uppdatera kommentaren."
 
-#: core/routers/misc.php:1271
+#: core/routers/misc.php:1301
 msgid "Comment Updated Successfully!"
 msgstr "Kommentar uppdaterad framgångsrikt!"
 
-#: core/routers/misc.php:1311
+#: core/routers/misc.php:1341
 msgid "You are not authorized to delete this comment."
 msgstr "Du är inte auktoriserad att ta bort denna kommentar."
 
-#: core/routers/misc.php:1318
+#: core/routers/misc.php:1348
 msgid "Failed to delete comment."
 msgstr "Misslyckades med att ta bort kommentaren."
 
-#: core/routers/misc.php:1322
+#: core/routers/misc.php:1352
 msgid "Comment deleted successfully!"
 msgstr "Kommentar borttagen framgångsrikt!"
 
-#: core/routers/misc.php:1908
+#: core/routers/misc.php:1938
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ogiltig filtyp. Endast GIF, PNG, JPEG, JPG och WEBP är tillåtna."
 
@@ -4804,11 +4800,11 @@ msgstr "Ogiltig filtyp. Endast GIF, PNG, JPEG, JPG och WEBP är tillåtna."
 msgid "Reset your password here"
 msgstr "Återställ ditt lösenord här"
 
-#: core/shortcodes/home-content.php:816
+#: core/shortcodes/home-content.php:825
 msgid "Create a new password"
 msgstr "Skapa ett nytt lösenord"
 
-#: core/shortcodes/home-content.php:822
+#: core/shortcodes/home-content.php:831
 msgid "Re-enter your new password"
 msgstr "Ange ditt nya lösenord igen"
 
@@ -4833,25 +4829,25 @@ msgstr "Kopiera URL"
 msgid "Write a short bio about yourself..."
 msgstr "Skriv en kort biografi om dig själv..."
 
-#: inc/functions/markup.php:507
+#: inc/functions/markup.php:541
 msgid "Discussion"
 msgstr "Diskussion"
 
-#: inc/functions/markup.php:530
-#: inc/functions/markup.php:604
+#: inc/functions/markup.php:564
+#: inc/functions/markup.php:638
 msgid " lesson"
 msgid_plural " lessons"
 msgstr[0] "lektion"
 msgstr[1] ""
 
-#: inc/functions/markup.php:534
-#: inc/functions/markup.php:589
+#: inc/functions/markup.php:568
+#: inc/functions/markup.php:623
 msgid " thread"
 msgid_plural " threads"
 msgstr[0] "tråd"
 msgstr[1] ""
 
-#: inc/functions/markup.php:809
+#: inc/functions/markup.php:843
 msgid "Options"
 msgstr "Alternativ"
 
@@ -4907,6 +4903,7 @@ msgid "Select Spaces"
 msgstr "Välj Utrymmen"
 
 #: assets/build/portals-app.js:8
+#: assets/build/portals-app.js:21
 msgid "Search spaces…"
 msgstr "Sök utrymmen…"
 
@@ -5004,10 +5001,7 @@ msgstr "Avmarkera alla"
 msgid "Select All"
 msgstr "Markera alla"
 
-#: assets/build/portals-app.js:21
-msgid "lessons selected"
-msgstr "lektioner valda"
-
+#: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Enable Comments"
 msgstr "Aktivera kommentarer"
@@ -5143,12 +5137,12 @@ msgid "Resources"
 msgstr "Resurser"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:766
+#: inc/functions/markup.php:800
 msgid "Remove bookmark"
 msgstr "Ta bort bokmärke"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:766
+#: inc/functions/markup.php:800
 msgid "Add bookmark"
 msgstr "Lägg till bokmärke"
 
@@ -5215,7 +5209,7 @@ msgid_plural "%d mins"
 msgstr[0] "%d min"
 msgstr[1] ""
 
-#: inc/functions/markup.php:516
+#: inc/functions/markup.php:550
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:14
@@ -5223,12 +5217,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "Resursbibliotek"
 
-#: inc/functions/markup.php:736
+#: inc/functions/markup.php:770
 #: assets/build/portals-app.js:27
 msgid "Visit"
 msgstr "Besök"
 
-#: inc/functions/markup.php:766
+#: inc/functions/markup.php:800
 msgid "Bookmark"
 msgstr "Bokmärke"
 
@@ -5240,37 +5234,9 @@ msgstr "Resursobjekt"
 msgid "Resource Items"
 msgstr "Resursobjekt"
 
-#: loader.php:697
+#: loader.php:699
 msgid "Rate our plugin"
 msgstr "Betygsätt vårt tillägg"
-
-#: assets/build/portals-app.js:8
-msgid "Create structured courses with lessons, progress tracking."
-msgstr "Skapa strukturerade kurser med lektioner och framstegsövervakning."
-
-#: assets/build/portals-app.js:8
-msgid "Create a collection of related spaces for better organization."
-msgstr "Skapa en samling av relaterade utrymmen för bättre organisering."
-
-#: assets/build/portals-app.js:8
-msgid "Upload, organize, and share files and links in one place."
-msgstr "Ladda upp, organisera och dela filer och länkar på ett ställe."
-
-#: assets/build/portals-app.js:8
-msgid "Organize events and integrate live streaming with third-party tools."
-msgstr "Organisera evenemang och integrera livestreaming med tredjepartsverktyg."
-
-#: assets/build/portals-app.js:8
-msgid "Create a playlist of videos for easy viewing and sharing."
-msgstr "Skapa en spellista med videor för enkel visning och delning."
-
-#: assets/build/portals-app.js:8
-msgid "Create a interactive form space for collecting user information and feedback."
-msgstr "Skapa ett interaktivt formulärutrymme för att samla in användarinformation och feedback."
-
-#: assets/build/portals-app.js:8
-msgid "Create a booking or appointment space for scheduling and managing appointments."
-msgstr "Skapa ett boknings- eller mötesutrymme för att schemalägga och hantera möten."
 
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:27
@@ -5281,6 +5247,9 @@ msgstr "Uppgradera nu"
 msgid "Hidden spaces are excluded from the frontend side navigation."
 msgstr "Dolda utrymmen utesluts från navigeringen på frontend-sidan."
 
+#: inc/modules/learn/chapters.php:248
+#: inc/modules/learn/chapters.php:263
+#: inc/modules/learn/chapters.php:278
 #: assets/build/portals-app.js:8
 msgid "Upgrade to Pro"
 msgstr "Uppgradera till Pro"
@@ -5340,10 +5309,6 @@ msgstr "Inga matchande inlägg hittades."
 #: assets/build/portals-app.js:21
 msgid "Click the \"Add Space\" button to start building your collection."
 msgstr "Klicka på knappen \"Lägg till utrymme\" för att börja bygga din samling."
-
-#: assets/build/portals-app.js:21
-msgid "Resource Name"
-msgstr "Resursnamn"
 
 #: assets/build/portals-app.js:21
 msgid "Add Resource"
@@ -5427,6 +5392,7 @@ msgstr "Nedladdning otillgänglig"
 msgid "Access Resource"
 msgstr "Åtkomst till resurs"
 
+#: inc/utils/helper.php:2899
 #: assets/build/portals-app.js:21
 msgid "Resource History"
 msgstr "Resurshistorik"
@@ -5763,7 +5729,7 @@ msgstr "Mörka färger"
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "Osäker på hur man ställer in färger? Se 9 färgdefinitioner"
 
-#: core/routers/backend.php:2788
+#: core/routers/backend.php:3066
 msgid "Post title is required."
 msgstr "Posttitel krävs."
 
@@ -6087,7 +6053,7 @@ msgstr "Tack för att du delar din feedback 🙏"
 msgid "We truly value your input. Tell us what’s missing or what could be better — we’re here to improve your SureDash experience."
 msgstr "Vi värdesätter verkligen din input. Berätta vad som saknas eller vad som kan bli bättre - vi är här för att förbättra din SureDash-upplevelse."
 
-#: core/integrations/feeds.php:288
+#: core/integrations/feeds.php:292
 msgid "Edit Post"
 msgstr "Redigera inlägg"
 
@@ -6095,36 +6061,37 @@ msgstr "Redigera inlägg"
 msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Integrerar SureCart kundområde med SureDash utrymmen."
 
-#: core/routers/misc.php:1369
-#: core/routers/misc.php:1469
+#: core/routers/backend.php:3282
+#: core/routers/misc.php:1399
+#: core/routers/misc.php:1499
 msgid "Post not found."
 msgstr "Inlägget hittades inte."
 
-#: core/routers/misc.php:1376
+#: core/routers/misc.php:1406
 msgid "You are not authorized to edit this post."
 msgstr "Du är inte auktoriserad att redigera detta inlägg."
 
-#: core/routers/misc.php:1418
+#: core/routers/misc.php:1448
 msgid "Failed to update post."
 msgstr "Misslyckades med att uppdatera inlägg."
 
-#: core/routers/misc.php:1437
+#: core/routers/misc.php:1467
 msgid "Post Updated Successfully!"
 msgstr "Inlägget uppdaterades framgångsrikt!"
 
-#: core/routers/misc.php:1473
+#: core/routers/misc.php:1503
 msgid "Invalid Post."
 msgstr "Ogiltigt inlägg."
 
-#: core/routers/misc.php:1482
+#: core/routers/misc.php:1512
 msgid "You are not authorized to delete this post."
 msgstr "Du är inte auktoriserad att ta bort detta inlägg."
 
-#: core/routers/misc.php:1489
+#: core/routers/misc.php:1519
 msgid "Failed to delete post."
 msgstr "Misslyckades med att ta bort inlägg."
 
-#: core/routers/misc.php:1493
+#: core/routers/misc.php:1523
 msgid "Post deleted successfully!"
 msgstr "Inlägget togs bort framgångsrikt!"
 
@@ -6135,7 +6102,7 @@ msgstr "Inlägget togs bort framgångsrikt!"
 msgid "Events"
 msgstr "Evenemang"
 
-#: core/shortcodes/home-content.php:367
+#: core/shortcodes/home-content.php:369
 #: assets/build/portals-app.js:21
 msgid "View Event"
 msgstr "Visa evenemang"
@@ -6426,31 +6393,31 @@ msgstr "Visa evenemang"
 msgid "Effortlessly connect your portal with OttoKit to get a full suite of tools to help you manage your portal."
 msgstr "Anslut enkelt din portal med OttoKit för att få en komplett uppsättning verktyg som hjälper dig att hantera din portal."
 
-#: core/integrations/feeds.php:176
+#: core/integrations/feeds.php:180
 msgid "Cover Video"
 msgstr "Omslagsvideo"
 
-#: core/integrations/feeds.php:215
+#: core/integrations/feeds.php:219
 msgid "Choose a space to post in"
 msgstr "Välj ett utrymme att posta i"
 
-#: core/renderer.php:218
+#: core/renderer.php:219
 msgid "Menu"
 msgstr "Meny"
 
-#: core/routers/backend.php:2749
+#: core/routers/backend.php:3027
 msgid "No emojis found."
 msgstr "Inga emojis hittades."
 
-#: core/routers/backend.php:2893
+#: core/routers/backend.php:3186
 msgid "Content ID is required."
 msgstr "Innehålls-ID krävs."
 
-#: core/routers/backend.php:2902
+#: core/routers/backend.php:3195
 msgid "Content not found."
 msgstr "Innehållet hittades inte."
 
-#: core/routers/backend.php:2931
+#: core/routers/backend.php:3235
 msgid "Settings updated successfully."
 msgstr "Inställningarna har uppdaterats framgångsrikt."
 
@@ -6514,24 +6481,24 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "Misslyckades med att radera e-postutlösare."
 
-#: core/routers/misc.php:694
-#: core/routers/misc.php:1561
+#: core/routers/misc.php:724
 #: core/routers/misc.php:1591
+#: core/routers/misc.php:1621
 msgid "User not logged in."
 msgstr "Användare är inte inloggad."
 
-#: core/routers/misc.php:699
+#: core/routers/misc.php:729
 msgid "User not found."
 msgstr "Användare hittades inte."
 
 #. translators: %s: Site name
-#: core/routers/misc.php:719
+#: core/routers/misc.php:749
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-e-post från %s"
 
 #. translators: %1$s: User name, %2$s: Site name
-#: core/routers/misc.php:735
+#: core/routers/misc.php:765
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6544,35 +6511,35 @@ msgstr ""
 "\t\t\t\t\tOm du har fått detta e-postmeddelande är dina notifikationsinställningar korrekt konfigurerade!\n"
 "\t\t\t\t\t--- Detta e-postmeddelande skickades från %2$s"
 
-#: core/routers/misc.php:754
+#: core/routers/misc.php:784
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Test-e-post skickad framgångsrikt! Vänligen kontrollera din inkorg."
 
-#: core/routers/misc.php:761
+#: core/routers/misc.php:791
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Misslyckades med att skicka test-e-post. Vänligen kontrollera din e-postkonfiguration."
 
-#: core/routers/misc.php:803
+#: core/routers/misc.php:833
 msgid "Failed to update notification settings."
 msgstr "Misslyckades med att uppdatera notifikationsinställningar."
 
-#: core/routers/misc.php:808
+#: core/routers/misc.php:838
 msgid "Notification settings updated successfully!"
 msgstr "Notifikationsinställningar uppdaterade framgångsrikt!"
 
-#: core/shortcodes/home-content.php:1079
+#: core/shortcodes/home-content.php:1088
 msgid "Receive all notifications"
 msgstr "Ta emot alla notifikationer"
 
-#: core/shortcodes/home-content.php:1113
+#: core/shortcodes/home-content.php:1122
 msgid "When someone replies to my post"
 msgstr "När någon svarar på mitt inlägg"
 
-#: core/shortcodes/home-content.php:1130
+#: core/shortcodes/home-content.php:1139
 msgid "When someone replies to my comment"
 msgstr "När någon svarar på min kommentar"
 
-#: core/shortcodes/home-content.php:1147
+#: core/shortcodes/home-content.php:1156
 msgid "When I'm mentioned"
 msgstr "När jag nämns"
 
@@ -6585,7 +6552,7 @@ msgid "Open notification settings in new tab"
 msgstr "Öppna notifikationsinställningar i ny flik"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1356
+#: inc/functions/markup.php:1395
 msgid "Member"
 msgstr "Medlem"
 
@@ -6745,15 +6712,15 @@ msgstr "Taggar"
 msgid "Please select a space."
 msgstr "Vänligen välj ett utrymme."
 
-#: inc/utils/settings.php:389
+#: inc/utils/settings.php:412
 msgid "Newbie"
 msgstr "Nybörjare"
 
-#: inc/utils/settings.php:398
+#: inc/utils/settings.php:421
 msgid "Manager"
 msgstr "Chef"
 
-#: inc/utils/settings.php:407
+#: inc/utils/settings.php:430
 msgid "Active Member"
 msgstr "Aktiv medlem"
 
@@ -6897,10 +6864,6 @@ msgid "Save Settings"
 msgstr "Spara inställningar"
 
 #: assets/build/portals-app.js:21
-msgid "Edit Event content"
-msgstr "Redigera evenemangsinnehåll"
-
-#: assets/build/portals-app.js:21
 msgid "Shows the site home URL."
 msgstr "Visar webbplatsens startsides-URL."
 
@@ -6993,8 +6956,8 @@ msgstr "Välj utlösare"
 msgid "Search triggers…"
 msgstr "Sökutlösare…"
 
-#: core/routers/backend.php:266
-#: core/routers/backend.php:276
+#: core/routers/backend.php:278
+#: core/routers/backend.php:288
 #: assets/build/portals-app.js:24
 msgid "Untitled"
 msgstr "Utan titel"
@@ -7180,11 +7143,11 @@ msgstr "Inga gilla-markeringar ännu, var den första att gilla!"
 msgid "%s ago"
 msgstr "för %s sedan"
 
-#: core/renderer.php:279
+#: core/renderer.php:280
 msgid "Go to All Users Page"
 msgstr "Gå till sidan Alla användare"
 
-#: core/renderer.php:291
+#: core/renderer.php:292
 msgid "Go to Notifications Page"
 msgstr "Gå till sidan för aviseringar"
 
@@ -7197,7 +7160,7 @@ msgstr "Har du tappat bort ditt lösenord?"
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr "Lösenordet du angav för användarnamnet %1$s är felaktigt. %2$s"
 
-#: core/shortcodes/home-content.php:1096
+#: core/shortcodes/home-content.php:1105
 msgid "Receive admin notifications"
 msgstr "Ta emot administratörsmeddelanden"
 
@@ -7205,18 +7168,20 @@ msgstr "Ta emot administratörsmeddelanden"
 msgid "Anonymous"
 msgstr "Anonym"
 
-#: inc/utils/helper.php:1767
+#: inc/utils/helper.php:1765
 msgid "No likes yet."
 msgstr "Inga gilla-markeringar än."
 
-#: inc/utils/helper.php:1803
+#: inc/utils/helper.php:1801
 msgid "Share"
 msgstr "Dela"
 
+#: inc/utils/helper.php:2937
 #: inc/utils/settings.php:312
 msgid "View Profile"
 msgstr "Visa profil"
 
+#: inc/utils/helper.php:2925
 #: inc/utils/settings.php:318
 msgid "Edit Profile"
 msgstr "Redigera profil"
@@ -7298,19 +7263,19 @@ msgstr "Inga åtkomstgrupper hittades"
 msgid "Post Visibility"
 msgstr "Inläggssynlighet"
 
-#: core/routers/backend.php:2510
+#: core/routers/backend.php:2788
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers-plugin är inte aktivt."
 
-#: core/routers/misc.php:1595
+#: core/routers/misc.php:1625
 msgid "Space ID is required."
 msgstr "Rums-ID krävs."
 
-#: core/routers/misc.php:1604
+#: core/routers/misc.php:1634
 msgid "Space marked as read."
 msgstr "Utrymme markerat som läst."
 
-#: core/routers/misc.php:1608
+#: core/routers/misc.php:1638
 msgid "Failed to mark space as read."
 msgstr "Det gick inte att markera utrymmet som läst."
 
@@ -7439,46 +7404,6 @@ msgstr "SVG-ikon vald"
 #: assets/build/portals-app.js:8
 msgid "Insert Custom Icon"
 msgstr "Infoga anpassad ikon"
-
-#: assets/build/portals-app.js:8
-msgid "Display a single WordPress post or page with full content control and customization options."
-msgstr "Visa ett enskilt WordPress-inlägg eller en sida med full kontroll över innehållet och anpassningsalternativ."
-
-#: assets/build/portals-app.js:8
-msgid "Create a discussion forum where members can post, comment, and engage in conversations."
-msgstr "Skapa ett diskussionsforum där medlemmar kan posta, kommentera och delta i samtal."
-
-#: assets/build/portals-app.js:8
-msgid "Link to external websites or resources, perfect for redirecting to third-party tools or services."
-msgstr "Länk till externa webbplatser eller resurser, perfekt för att omdirigera till tredjepartsverktyg eller tjänster."
-
-#: assets/build/portals-app.js:8
-msgid "Build structured learning experiences with lessons, progress tracking, and course completion features."
-msgstr "Bygg strukturerade lärandeupplevelser med lektioner, framstegsspårning och kursavslutningsfunktioner."
-
-#: assets/build/portals-app.js:8
-msgid "Group related spaces together for better organization and easier navigation for your members."
-msgstr "Gruppera relaterade utrymmen tillsammans för bättre organisation och enklare navigering för dina medlemmar."
-
-#: assets/build/portals-app.js:8
-msgid "Centralize all your resources - upload files, share links, and organize documents in one accessible location."
-msgstr "Centralisera alla dina resurser - ladda upp filer, dela länkar och organisera dokument på en tillgänglig plats."
-
-#: assets/build/portals-app.js:8
-msgid "Manage events, schedule activities, and integrate live streaming with third-party tools for enhanced engagement."
-msgstr "Hantera evenemang, schemalägg aktiviteter och integrera liveströmning med tredjepartsverktyg för ökad engagemang."
-
-#: assets/build/portals-app.js:8
-msgid "Create and organize video content into playlists for seamless viewing and sharing experiences."
-msgstr "Skapa och organisera videoinnehåll i spellistor för en sömlös tittar- och delningsupplevelse."
-
-#: assets/build/portals-app.js:8
-msgid "Create interactive forms to collect user information, feedback, and responses efficiently."
-msgstr "Skapa interaktiva formulär för att samla in användarinformation, feedback och svar effektivt."
-
-#: assets/build/portals-app.js:8
-msgid "Enable appointment scheduling and booking management for services, consultations, and meetings."
-msgstr "Aktivera schemaläggning av möten och hantering av bokningar för tjänster, konsultationer och möten."
 
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
@@ -7847,6 +7772,7 @@ msgstr "Uteslut specifika användare"
 msgid "Unsaved Settings"
 msgstr "Osparade inställningar"
 
+#: inc/utils/helper.php:2883
 #: assets/build/portals-app.js:24
 msgid "Leaderboard"
 msgstr "Resultattavla"
@@ -7872,48 +7798,43 @@ msgid "No events joined yet."
 msgstr "Inga evenemang har gått med ännu."
 
 #. translators: %1$s: author name, %2$s: post date
-#: core/integrations/feeds.php:538
-#: core/integrations/feeds.php:586
-#: core/routers/misc.php:323
-#: core/routers/misc.php:376
-#: core/shortcodes/home-content.php:723
+#: core/integrations/feeds.php:573
+#: core/integrations/feeds.php:621
+#: core/routers/misc.php:353
+#: core/routers/misc.php:406
+#: core/shortcodes/home-content.php:732
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1413
-#: inc/utils/helper.php:1438
+#: inc/utils/helper.php:1415
+#: inc/utils/helper.php:1416
+#: inc/utils/helper.php:1440
 msgid "Latest"
 msgstr "Senaste"
 
-#: inc/utils/helper.php:1417
+#: inc/utils/helper.php:1419
+#: inc/utils/helper.php:1420
 msgid "Oldest"
 msgstr "Äldsta"
 
-#: inc/utils/helper.php:1421
+#: inc/utils/helper.php:1423
+#: inc/utils/helper.php:1424
 msgid "Popular"
 msgstr "Populär"
 
-#: inc/utils/helper.php:1429
+#: inc/utils/helper.php:1431
 msgid "New Activity"
 msgstr "Ny aktivitet"
 
-#: inc/utils/helper.php:1433
+#: inc/utils/helper.php:1435
 msgid "Alphabetical"
 msgstr "Alfabetisk"
 
-#: inc/utils/helper.php:1447
-msgid "Sort by:"
-msgstr "Sortera efter:"
-
-#: inc/utils/helper.php:1455
+#: inc/utils/helper.php:1462
 msgid "Sort options"
 msgstr "Sorteringsalternativ"
 
-#: inc/utils/helper.php:1491
-msgid "Toggle view"
-msgstr "Väx vy"
-
-#: core/shortcodes/navigation.php:245
+#: core/shortcodes/navigation.php:275
 msgid "This community's portal spaces will be listed here."
 msgstr "Detta samhälles portalutrymmen kommer att listas här."
 
@@ -7956,6 +7877,7 @@ msgid "Container Width is not applicable when using grid layout."
 msgstr "Behåll HTML i utdrag"
 
 #: assets/build/portals-app.js:11
+#: assets/build/portals-app.js:21
 msgid "Select"
 msgstr "Välj"
 
@@ -8067,7 +7989,7 @@ msgstr "Välj specifika användarroller att rikta in sig på. Lämna tomt för a
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr "Obs: Gäller endast för typ av enskilt inlägg/sida och portal layoutmall."
 
-#: core/routers/onboarding.php:261
+#: core/routers/onboarding.php:274
 msgid "Invalid plugin path."
 msgstr "Ogiltig plugin-sökväg."
 
@@ -8080,16 +8002,16 @@ msgid "Space name and integration type are required."
 msgstr "Namn på utrymme och integrationstyp krävs."
 
 #. translators: %s: space name
-#: core/routers/backend.php:411
+#: core/routers/backend.php:423
 msgid "This forum group is created for the space: %s"
 msgstr "Denna forumgrupp skapades för utrymmet: %s"
 
 #. translators: %s: original post title
-#: core/routers/backend.php:1398
+#: core/routers/backend.php:1410
 msgid "%s - Copy"
 msgstr "%s - Kopia"
 
-#: core/routers/misc.php:480
+#: core/routers/misc.php:510
 msgid "User ID is required."
 msgstr "Användar-ID krävs."
 
@@ -8306,15 +8228,15 @@ msgstr "Borttagen %s fil"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "Stöder YouTube, Vimeo, Dailymotion, VideoPress och mer"
 
-#: core/routers/misc.php:1628
+#: core/routers/misc.php:1658
 msgid "A valid URL is required."
 msgstr "En giltig URL krävs."
 
-#: core/routers/misc.php:1639
+#: core/routers/misc.php:1669
 msgid "This URL is not from a supported video provider."
 msgstr "Denna URL kommer inte från en stödd videoleverantör."
 
-#: core/routers/misc.php:1651
+#: core/routers/misc.php:1681
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Kunde inte lösa videon. Kontrollera URL:en och försök igen."
 
@@ -8401,7 +8323,7 @@ msgstr "AI-klient"
 
 #: assets/build/portals-app.js:24
 msgid "Create an Application Password — "
-msgstr "Skapa ett applikationslösenord — "
+msgstr "Skapa ett applikationslösenord —"
 
 #: assets/build/portals-app.js:24
 msgid "Open Application Passwords"
@@ -8413,7 +8335,7 @@ msgstr "Eller använd detta CLI-kommando för att snabbt lägga till servern (du
 
 #: assets/build/portals-app.js:24
 msgid "Copy the JSON config below into: "
-msgstr "Kopiera JSON-konfigurationen nedan till: "
+msgstr "Kopiera JSON-konfigurationen nedan till:"
 
 #: assets/build/portals-app.js:24
 msgid "Replace \"your-application-password\" with the password from Step 1."
@@ -8517,7 +8439,9 @@ msgstr "Synlighet"
 msgid "Usage Data"
 msgstr "Användardata"
 
+#: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:27
 msgid "Pro"
 msgstr "Pro"
 
@@ -8598,16 +8522,638 @@ msgid "Login & Registration"
 msgstr "Inloggning och registrering"
 
 #: assets/build/portals-app.js:24
-msgid "Roles & Profile"
-msgstr "Roller och profil"
-
-#: assets/build/portals-app.js:24
 msgid "Sidebar"
 msgstr "Sidofält"
 
 #: assets/js/unminified/login.js:701
 msgid "We couldn't send the reset email. Please try again or contact support."
 msgstr "Vi kunde inte skicka återställningsmejlet. Vänligen försök igen eller kontakta support."
+
+#: core/routers/backend.php:272
+msgid "Please choose a valid portal page."
+msgstr "Vänligen välj en giltig portal sida."
+
+#: core/routers/backend.php:1484
+msgid "Invalid integration type."
+msgstr "Ogiltig integrationstyp."
+
+#: core/routers/backend.php:1563
+msgid "Invalid item type."
+msgstr "Ogiltig artikeltyp."
+
+#: core/routers/backend.php:1567
+msgid "Missing required fields."
+msgstr "Saknade obligatoriska fält."
+
+#: core/routers/backend.php:1573
+msgid "Invalid target space."
+msgstr "Ogiltigt målutrymme."
+
+#: core/routers/backend.php:1585
+msgid "Target space is not compatible with this item type."
+msgstr "Målutrymmet är inte kompatibelt med denna artikeltyp."
+
+#: core/routers/backend.php:1591
+msgid "Source item is required."
+msgstr "Källa artikel krävs."
+
+#: core/routers/backend.php:1595
+msgid "Source item not found."
+msgstr "Källa artikel hittades inte."
+
+#: core/routers/backend.php:1598
+msgid "Source item is not a valid SureDash content item."
+msgstr "Källa artikel är inte en giltig SureDash-innehållsartikel."
+
+#: core/routers/backend.php:1636
+msgid "Duplication failed."
+msgstr "Duplicering misslyckades."
+
+#: core/routers/backend.php:3267
+msgid "Post ID is required."
+msgstr "Inläggs-ID krävs."
+
+#: core/routers/backend.php:3274
+msgid "Permission denied."
+msgstr "Åtkomst nekad."
+
+#: core/routers/onboarding.php:156
+msgid "Failed to encode subscription payload."
+msgstr "Misslyckades med att koda prenumerationspayload."
+
+#: inc/modules/learn/chapters.php:65
+msgid "Set Up Your Portal"
+msgstr "Ställ in din portal"
+
+#: inc/modules/learn/chapters.php:66
+msgid "Lay the foundation for your community — your branding, spaces, and layout."
+msgstr "Lägg grunden för ditt samhälle — din varumärkesprofil, utrymmen och layout."
+
+#: inc/modules/learn/chapters.php:72
+msgid "Configure Portal Settings"
+msgstr "Konfigurera portalinställningar"
+
+#: inc/modules/learn/chapters.php:73
+msgid "Set your portal name, font family, community visibility, and homepage to get started."
+msgstr "Ställ in ditt portalnamn, typsnitt, samhällssynlighet och startsida för att komma igång."
+
+#: inc/modules/learn/chapters.php:76
+msgid "Configure portal settings"
+msgstr "Konfigurera portalinställningar"
+
+#: inc/modules/learn/chapters.php:80
+msgid "Open Portal Settings"
+msgstr "Öppna portalinställningar"
+
+#: inc/modules/learn/chapters.php:88
+msgid "Enable Site Registration"
+msgstr "Aktivera webbplatsregistrering"
+
+#: inc/modules/learn/chapters.php:89
+msgid "WordPress registration is currently disabled. Enable it or let SureDash override the setting so new members can sign up."
+msgstr "WordPress-registrering är för närvarande inaktiverad. Aktivera det eller låt SureDash åsidosätta inställningen så att nya medlemmar kan registrera sig."
+
+#: inc/modules/learn/chapters.php:92
+msgid "Enable site registration"
+msgstr "Aktivera webbplatsregistrering"
+
+#: inc/modules/learn/chapters.php:96
+msgid "Open Login & Registration"
+msgstr "Öppna inloggning och registrering"
+
+#: inc/modules/learn/chapters.php:104
+msgid "Create Space Groups & Spaces"
+msgstr "Skapa utrymmesgrupper och utrymmen"
+
+#: inc/modules/learn/chapters.php:105
+msgid "Spaces are where members interact — Discussions, Posts, and more. Organize them into groups."
+msgstr "Utrymmen är där medlemmar interagerar — Diskussioner, Inlägg och mer. Organisera dem i grupper."
+
+#: inc/modules/learn/chapters.php:108
+msgid "Create spaces and groups"
+msgstr "Skapa utrymmen och grupper"
+
+#: inc/modules/learn/chapters.php:112
+msgid "Go to Spaces"
+msgstr "Gå till utrymmen"
+
+#: inc/modules/learn/chapters.php:119
+msgid "Customize Portal Layout"
+msgstr "Anpassa portalens layout"
+
+#: inc/modules/learn/chapters.php:120
+msgid "Configure the header, sidebar, container width, and navigation style."
+msgstr "Konfigurera rubriken, sidofältet, behållarens bredd och navigeringsstil."
+
+#: inc/modules/learn/chapters.php:123
+msgid "Customize portal layout"
+msgstr "Anpassa portalens layout"
+
+#: inc/modules/learn/chapters.php:140
+msgid "Configure Community Settings"
+msgstr "Konfigurera samhällsinställningar"
+
+#: inc/modules/learn/chapters.php:141
+msgid "Reduce signup friction, keep members engaged, and show a unified activity feed."
+msgstr "Minska registreringsfriktion, håll medlemmar engagerade och visa en enhetlig aktivitetsström."
+
+#: inc/modules/learn/chapters.php:147
+msgid "Enable Social Logins"
+msgstr "Aktivera sociala inloggningar"
+
+#: inc/modules/learn/chapters.php:148
+msgid "Let members sign in with Google or Facebook to reduce signup friction."
+msgstr "Låt medlemmar logga in med Google eller Facebook för att minska registreringsfriktionen."
+
+#: inc/modules/learn/chapters.php:151
+msgid "Enable social logins"
+msgstr "Aktivera sociala inloggningar"
+
+#: inc/modules/learn/chapters.php:155
+msgid "Configure Logins"
+msgstr "Konfigurera inloggningar"
+
+#: inc/modules/learn/chapters.php:162
+msgid "Set Up Email Notifications"
+msgstr "Ställ in e-postnotifikationer"
+
+#: inc/modules/learn/chapters.php:163
+msgid "Configure welcome emails and engagement triggers for new posts, comments, and sign-ups."
+msgstr "Konfigurera välkomstmejl och engagemangsutlösare för nya inlägg, kommentarer och registreringar."
+
+#: inc/modules/learn/chapters.php:166
+msgid "Set up email notifications"
+msgstr "Ställ in e-postnotifikationer"
+
+#: inc/modules/learn/chapters.php:170
+msgid "Open Notifications"
+msgstr "Öppna notifikationer"
+
+#: inc/modules/learn/chapters.php:177
+msgid "Enable Community Feeds"
+msgstr "Aktivera samhällsflöden"
+
+#: inc/modules/learn/chapters.php:178
+msgid "Aggregate posts from all your Discussion spaces into a single feed so members see activity at a glance."
+msgstr "Samla inlägg från alla dina diskussionsutrymmen i ett enda flöde så att medlemmar ser aktivitet vid en blick."
+
+#: inc/modules/learn/chapters.php:181
+msgid "Enable community feeds"
+msgstr "Aktivera samhällsflöden"
+
+#: inc/modules/learn/chapters.php:185
+msgid "Open Feeds Settings"
+msgstr "Öppna flödesinställningar"
+
+#: inc/modules/learn/chapters.php:194
+msgid "Connect Integrations"
+msgstr "Anslut integrationer"
+
+#: inc/modules/learn/chapters.php:195
+msgid "Link third-party services and AI tools to extend your portal."
+msgstr "Länka tredjepartstjänster och AI-verktyg för att utöka din portal."
+
+#: inc/modules/learn/chapters.php:201
+msgid "Set Up Integrations"
+msgstr "Ställ in integrationer"
+
+#: inc/modules/learn/chapters.php:202
+msgid "Connect Google, Facebook, reCAPTCHA, Giphy, and other third-party services to your portal."
+msgstr "Anslut Google, Facebook, reCAPTCHA, Giphy och andra tredjepartstjänster till din portal."
+
+#: inc/modules/learn/chapters.php:205
+msgid "Set up integrations"
+msgstr "Ställ in integrationer"
+
+#: inc/modules/learn/chapters.php:209
+msgid "Open Integrations"
+msgstr "Öppna integrationer"
+
+#: inc/modules/learn/chapters.php:216
+msgid "Configure MCP Connection"
+msgstr "Konfigurera MCP-anslutning"
+
+#: inc/modules/learn/chapters.php:217
+msgid "Set up Model Context Protocol to let AI clients interact with your community data."
+msgstr "Ställ in Model Context Protocol för att låta AI-klienter interagera med dina samhällsdata."
+
+#: inc/modules/learn/chapters.php:220
+msgid "Configure MCP connection"
+msgstr "Konfigurera MCP-anslutning"
+
+#: inc/modules/learn/chapters.php:224
+msgid "Open MCP Settings"
+msgstr "Öppna MCP-inställningar"
+
+#: inc/modules/learn/chapters.php:233
+msgid "Grow with Pro"
+msgstr "Väx med Pro"
+
+#: inc/modules/learn/chapters.php:234
+msgid "Scale engagement with advanced features available in SureDash Pro."
+msgstr "Skala engagemang med avancerade funktioner som finns tillgängliga i SureDash Pro."
+
+#: inc/modules/learn/chapters.php:240
+msgid "Create an Events Space"
+msgstr "Skapa ett evenemangsrum"
+
+#: inc/modules/learn/chapters.php:241
+msgid "Host webinars, meetups, and live Q&As with RSVP tracking for your members."
+msgstr "Värd för webbinarier, möten och live Q&A med RSVP-spårning för dina medlemmar."
+
+#: inc/modules/learn/chapters.php:244
+msgid "Create an events space"
+msgstr "Skapa ett evenemangsrum"
+
+#: inc/modules/learn/chapters.php:248
+msgid "Create Events Space"
+msgstr "Skapa Evenemangsrum"
+
+#: inc/modules/learn/chapters.php:255
+msgid "Create a Collection Space"
+msgstr "Skapa ett samlingsrum"
+
+#: inc/modules/learn/chapters.php:256
+msgid "Curate and bundle content from across your portal into focused collections for your members."
+msgstr "Kurat och paketera innehåll från hela din portal i fokuserade samlingar för dina medlemmar."
+
+#: inc/modules/learn/chapters.php:259
+msgid "Create a collection space"
+msgstr "Skapa ett samlingsrum"
+
+#: inc/modules/learn/chapters.php:263
+msgid "Create Collection Space"
+msgstr "Skapa Samlingsrum"
+
+#: inc/modules/learn/chapters.php:270
+msgid "Set Up the Leaderboard"
+msgstr "Ställ in poängtavlan"
+
+#: inc/modules/learn/chapters.php:271
+msgid "Gamify engagement — award points for posts, comments, and reactions."
+msgstr "Gamifiera engagemang — ge poäng för inlägg, kommentarer och reaktioner."
+
+#: inc/modules/learn/chapters.php:274
+msgid "Set up the leaderboard"
+msgstr "Ställ in poängtavlan"
+
+#: inc/modules/learn/chapters.php:278
+msgid "Open Leaderboard"
+msgstr "Öppna poängtavlan"
+
+#: inc/modules/learn/learn.php:146
+msgid "Invalid chapter or step identifier."
+msgstr "Ogiltig kapitel- eller stegidentifierare."
+
+#: inc/utils/helper.php:1432
+msgid "Activity"
+msgstr "Aktivitet"
+
+#: inc/utils/helper.php:1436
+msgid "A→Z"
+msgstr "A→Ö"
+
+#: inc/utils/helper.php:1465
+msgid "Sort:"
+msgstr "Sortera:"
+
+#: inc/utils/helper.php:1476
+msgid "List view"
+msgstr "Listvy"
+
+#: inc/utils/helper.php:1485
+msgid "Grid view"
+msgstr "Rutnätvy"
+
+#: inc/utils/helper.php:2888
+msgid "Points ranking of portal members."
+msgstr "Poängranking av portalmedlemmar."
+
+#: inc/utils/helper.php:2891
+msgid "Member Directory"
+msgstr "Medlemskatalog"
+
+#: inc/utils/helper.php:2896
+msgid "Browse and search portal members."
+msgstr "Bläddra och sök bland portalmedlemmar."
+
+#: inc/utils/helper.php:2904
+msgid "Resources the user has accessed."
+msgstr "Resurser som användaren har fått tillgång till."
+
+#: inc/utils/helper.php:2912
+msgid "User's saved posts and content."
+msgstr "Användarens sparade inlägg och innehåll."
+
+#: inc/utils/helper.php:2922
+msgid "User's notification preferences."
+msgstr "Användarens notifikationsinställningar."
+
+#: inc/utils/helper.php:2930
+msgid "Form to update profile details."
+msgstr "Formulär för att uppdatera profilinformation."
+
+#: inc/utils/helper.php:2942
+msgid "User's public, read-only profile."
+msgstr "Användarens offentliga, skrivskyddade profil."
+
+#: assets/build/portals-app.js:8
+msgid "No portal pages are available."
+msgstr "Inga portalsidor är tillgängliga."
+
+#: assets/build/portals-app.js:8
+msgid "Available with SureDash Pro."
+msgstr "Tillgängligt med SureDash Pro."
+
+#: assets/build/portals-app.js:8
+msgid "Add Core Page"
+msgstr "Lägg till kärnsida"
+
+#: assets/build/portals-app.js:8
+msgid "Choose a page"
+msgstr "Välj en sida"
+
+#: assets/build/portals-app.js:8
+msgid "Publish a standalone article or announcement."
+msgstr "Publicera en fristående artikel eller meddelande."
+
+#: assets/build/portals-app.js:8
+msgid "Spark threaded conversations with members."
+msgstr "Sätt igång trådade konversationer med medlemmar."
+
+#: assets/build/portals-app.js:8
+msgid "Send members to a URL outside your portal."
+msgstr "Skicka medlemmar till en URL utanför din portal."
+
+#: assets/build/portals-app.js:8
+msgid "Deliver lessons with progress tracking."
+msgstr "Leverera lektioner med framstegsspårning."
+
+#: assets/build/portals-app.js:8
+msgid "Group related spaces under one parent."
+msgstr "Gruppera relaterade rum under en förälder."
+
+#: assets/build/portals-app.js:8
+msgid "Organize searchable files and downloads."
+msgstr "Organisera sökbara filer och nedladdningar."
+
+#: assets/build/portals-app.js:8
+msgid "Schedule live sessions with RSVPs."
+msgstr "Schemalägg live-sessioner med RSVPs."
+
+#: assets/build/portals-app.js:8
+msgid "Core Pages"
+msgstr "Kärnsidor"
+
+#: assets/build/portals-app.js:8
+msgid "Pre-built utility pages included with your portal."
+msgstr "Förbyggda verktygssidor ingår i din portal."
+
+#: assets/build/portals-app.js:8
+msgid "Spaces hold a single type of content. Pick the one that fits what you want to share."
+msgstr "Rum innehåller en enda typ av innehåll. Välj den som passar det du vill dela."
+
+#: assets/build/portals-app.js:8
+msgid "New"
+msgstr "Ny"
+
+#: assets/build/portals-app.js:11
+msgid "Edit Portal Page"
+msgstr "Redigera portalsida"
+
+#: assets/build/portals-app.js:11
+msgid "Portal Page"
+msgstr "Portalsida"
+
+#: assets/build/portals-app.js:11
+msgid "Enter Title"
+msgstr "Ange titel"
+
+#: assets/build/portals-app.js:17
+msgid "Lesson Slug"
+msgstr "Lektionsslug"
+
+#: assets/build/portals-app.js:17
+msgid "Leave empty to auto-generate from title"
+msgstr "Lämna tomt för att auto-generera från titel"
+
+#: assets/build/portals-app.js:17
+msgid "Leave empty to keep current slug"
+msgstr "Lämna tomt för att behålla nuvarande slug"
+
+#: assets/build/portals-app.js:21
+msgid "Comments enabled — click to disable"
+msgstr "Kommentarer aktiverade — klicka för att inaktivera"
+
+#: assets/build/portals-app.js:21
+msgid "Comments disabled — click to enable"
+msgstr "Kommentarer inaktiverade — klicka för att aktivera"
+
+#: assets/build/portals-app.js:21
+msgid "More options"
+msgstr "Fler alternativ"
+
+#: assets/build/portals-app.js:21
+msgid "View Lesson"
+msgstr "Visa lektion"
+
+#: assets/build/portals-app.js:21
+msgid "Move Lesson"
+msgstr "Flytta lektion"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Lesson"
+msgstr "Duplicera lektion"
+
+#: assets/build/portals-app.js:21
+msgid "Section options"
+msgstr "Avsnittsalternativ"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Section"
+msgstr "Duplicera avsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "Delete Section"
+msgstr "Ta bort avsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "Target Section"
+msgstr "Målavsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "— Select a section —"
+msgstr "— Välj ett avsnitt —"
+
+#: assets/build/portals-app.js:21
+msgid "This lesson is already in the selected section."
+msgstr "Denna lektion finns redan i det valda avsnittet."
+
+#: assets/build/portals-app.js:21
+msgid "Move"
+msgstr "Flytta"
+
+#: assets/build/portals-app.js:21
+msgid "Section"
+msgstr "Avsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "Resource"
+msgstr "Resurs"
+
+#: assets/build/portals-app.js:21
+msgid "Failed to load spaces."
+msgstr "Misslyckades med att ladda rum."
+
+#: assets/build/portals-app.js:21
+msgid "current"
+msgstr "aktuell"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate to space"
+msgstr "Duplicera till rum"
+
+#: assets/build/portals-app.js:21
+msgid "Loading spaces…"
+msgstr "Laddar rum…"
+
+#: assets/build/portals-app.js:21
+msgid "— Select a space —"
+msgstr "— Välj ett rum —"
+
+#: assets/build/portals-app.js:21
+msgid "No compatible spaces found."
+msgstr "Inga kompatibla rum hittades."
+
+#: assets/build/portals-app.js:21
+msgid "Add to section"
+msgstr "Lägg till i avsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "Loading sections…"
+msgstr "Laddar avsnitt…"
+
+#: assets/build/portals-app.js:21
+msgid "No sections found."
+msgstr "Inga avsnitt hittades."
+
+#: assets/build/portals-app.js:21
+msgid "Enter name…"
+msgstr "Ange namn…"
+
+#: assets/build/portals-app.js:21
+msgid "Duplication failed. Please try again."
+msgstr "Duplicering misslyckades. Försök igen."
+
+#: assets/build/portals-app.js:21
+msgid "Collapse all sections"
+msgstr "Kollapsa alla avsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "Expand all sections"
+msgstr "Expandera alla avsnitt"
+
+#: assets/build/portals-app.js:21
+msgid "selected"
+msgstr "vald"
+
+#: assets/build/portals-app.js:21
+msgid "Status updated."
+msgstr "Status uppdaterad."
+
+#: assets/build/portals-app.js:21
+msgid "Failed to update status."
+msgstr "Misslyckades med att uppdatera status."
+
+#: assets/build/portals-app.js:21
+msgid "Duplicated successfully."
+msgstr "Duplicerat framgångsrikt."
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Resource"
+msgstr "Duplicera resurs"
+
+#: assets/build/portals-app.js:21
+msgid "Edit Event"
+msgstr "Redigera händelse"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Event"
+msgstr "Duplicera händelse"
+
+#: assets/build/portals-app.js:21
+msgid "Customize the portal layout, configure the navigation menu, update colors, and much more from Customize Portal."
+msgstr "Anpassa portalens layout, konfigurera navigationsmenyn, uppdatera färger och mycket mer från Anpassa portal."
+
+#: assets/build/portals-app.js:24
+msgid "Roles & Profile menu"
+msgstr "Roller & Profilmeny"
+
+#: assets/build/portals-app.js:27
+msgid "Screenshot coming soon."
+msgstr "Skärmdump kommer snart."
+
+#: assets/build/portals-app.js:27
+msgid "Mark step incomplete"
+msgstr "Markera steg som ofullständigt"
+
+#: assets/build/portals-app.js:27
+msgid "Mark step complete"
+msgstr "Markera steg som fullständigt"
+
+#: assets/build/portals-app.js:27
+msgid "Read documentation"
+msgstr "Läs dokumentation"
+
+#: assets/build/portals-app.js:27
+msgid "View screenshot"
+msgstr "Visa skärmdump"
+
+#: assets/build/portals-app.js:27
+msgid "Learn how"
+msgstr "Lär dig hur"
+
+#: assets/build/portals-app.js:27
+msgid "Celebration"
+msgstr "Fira"
+
+#: assets/build/portals-app.js:27
+msgid "You've completed setup!"
+msgstr "Du har slutfört installationen!"
+
+#: assets/build/portals-app.js:27
+msgid "Your portal is ready to welcome members. Explore Pro features below to take it further."
+msgstr "Din portal är redo att välkomna medlemmar. Utforska Pro-funktioner nedan för att ta det vidare."
+
+#: assets/build/portals-app.js:27
+msgid "Failed to load learn chapters."
+msgstr "Misslyckades med att ladda lärande kapitel."
+
+#: assets/build/portals-app.js:27
+msgid "Could not update your progress. Please try again."
+msgstr "Kunde inte uppdatera din framsteg. Vänligen försök igen."
+
+#: assets/build/portals-app.js:27
+msgid "Could not dismiss the Learn tab. Please try again."
+msgstr "Kunde inte stänga fliken Lärande. Vänligen försök igen."
+
+#: assets/build/portals-app.js:27
+#: assets/build/portals-app.js:33
+#: assets/build/portals-app.js:36
+msgid "Learn"
+msgstr "Lärande"
+
+#: assets/build/portals-app.js:27
+msgid "To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of instructional videos. These will help you learn how to set up, customize, and grow your portal."
+msgstr "För att hjälpa dig att ta full kontroll och säkerställa framgång för ditt samhälle har vi skissat på några uppgifter och förberett en uppsättning instruktionsvideor. Dessa kommer att hjälpa dig att lära dig hur du sätter upp, anpassar och växer din portal."
+
+#: assets/build/portals-app.js:27
+msgid "No learn chapters available yet."
+msgstr "Inga lärande kapitel tillgängliga än."
+
+#: assets/build/portals-app.js:27
+msgid "Dismiss Learn tab"
+msgstr "Stäng fliken Lärande"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

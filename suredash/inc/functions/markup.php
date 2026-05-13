@@ -793,7 +793,7 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 			$bookmarked    = suredash_is_item_bookmarked( $post_id );
 			$bookmarked    = $bookmarked ? 'bookmarked' : '';
 			$bookmark_type = '';
-			if ( $args['integration'] === 'resource_library' ) {
+			if ( ( $args['integration'] ?? '' ) === 'resource_library' ) {
 				$bookmark_type = 'resource';
 			}
 			?>
@@ -1081,12 +1081,16 @@ function suredash_render_card_grid_item( $args = [] ): void {
 				<?php if ( is_user_logged_in() || $args['space_type'] !== 'resource_library' ) { ?>
 				<div class="sd-px-16 sd-py-12 sd-flex sd-justify-between sd-items-center sd-border-t sd-mt-auto">
 					<?php
-						suredash_render_item_badges_and_options(
-							$args,
-							[
-								'layout_type' => 'card',
-							]
-						);
+					$footer_args = $args;
+					if ( ! empty( $args['hide_visit_link'] ) ) {
+						$footer_args['show_visit_link'] = false;
+					}
+					suredash_render_item_badges_and_options(
+						$footer_args,
+						[
+							'layout_type' => 'card',
+						]
+					);
 					?>
 				</div>
 				<?php } ?>
@@ -1145,8 +1149,9 @@ function suredash_render_card_grid( $items = [], $grid_args = [] ): void {
 					// Assign color from cycle.
 					$color = $colors[ $index % count( $colors ) ];
 
-					// Merge color into item args.
-					$item['color'] = $item['color'] ?? $color;
+					// Merge color and grid-level flags into item args.
+					$item['color']           = $item['color'] ?? $color;
+					$item['hide_visit_link'] = $item['hide_visit_link'] ?? ( $grid_args['hide_visit_link'] ?? false );
 
 					suredash_render_card_grid_item( $item );
 				}

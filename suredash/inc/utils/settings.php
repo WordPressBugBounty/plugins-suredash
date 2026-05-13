@@ -381,6 +381,29 @@ class Settings {
 					'type'    => 'array',
 				],
 
+				// AI / MCP settings.
+				// Abilities default to ON for new installs so AI agents work
+				// out of the box; admins can opt out per scope from the MCP
+				// settings page. The MCP server itself stays OFF until the
+				// admin explicitly opts in (it also requires the MCP Adapter
+				// plugin to be active).
+				'suredash_abilities_api'               => [
+					'default' => true,
+					'type'    => 'boolean',
+				],
+				'suredash_abilities_api_edit'          => [
+					'default' => true,
+					'type'    => 'boolean',
+				],
+				'suredash_abilities_api_delete'        => [
+					'default' => true,
+					'type'    => 'boolean',
+				],
+				'suredash_mcp_server'                  => [
+					'default' => false,
+					'type'    => 'boolean',
+				],
+
 				// Gamification settings.
 				'user_badges'                          => [
 					'default' => [

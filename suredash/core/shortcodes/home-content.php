@@ -345,11 +345,13 @@ class HomeContent {
 				$card_data['avatar']          = 'GraduationCap';
 				$card_data['visit_link_text'] = __( 'Visit Lesson', 'suredash' );
 				$card_data['button_icon']     = 'ArrowRight';
+				$card_data['bookmark']        = true;
 				$lesson_items[]               = $card_data;
 			} elseif ( $type === 'portal' ) {
 				$card_data['avatar']          = 'newspaper';
 				$card_data['visit_link_text'] = __( 'Visit Post', 'suredash' );
 				$card_data['button_icon']     = 'ArrowRight';
+				$card_data['bookmark']        = true;
 				$portal_items[]               = $card_data;
 			} elseif ( $type === 'resource' ) {
 				$resource_type                = sd_get_post_meta( $id, 'resource_type', true );
@@ -366,11 +368,13 @@ class HomeContent {
 				$card_data['avatar']          = 'Calendar';
 				$card_data['visit_link_text'] = __( 'View Event', 'suredash' );
 				$card_data['button_icon']     = 'ArrowRight';
+				$card_data['bookmark']        = true;
 				$events_items[]               = $card_data;
 			} else {
 				$card_data['avatar']          = 'FileText';
 				$card_data['visit_link_text'] = __( 'Read Post', 'suredash' );
 				$card_data['button_icon']     = 'ArrowRight';
+				$card_data['bookmark']        = true;
 				$misc_items[]                 = $card_data;
 			}
 		}
@@ -387,6 +391,7 @@ class HomeContent {
 						'show_title'      => true,
 						'columns'         => 3,
 						'container_class' => 'portal-bookmarks-grid sd-responsive-justify-center sd-responsive-items-center',
+						'hide_visit_link' => true,
 					]
 				);
 			}
@@ -400,6 +405,7 @@ class HomeContent {
 						'show_title'      => true,
 						'columns'         => 3,
 						'container_class' => 'portal-bookmarks-grid sd-responsive-justify-center sd-responsive-items-center',
+						'hide_visit_link' => true,
 					]
 				);
 			}
@@ -413,6 +419,7 @@ class HomeContent {
 						'show_title'      => true,
 						'columns'         => 3,
 						'container_class' => 'portal-bookmarks-grid sd-responsive-justify-center sd-responsive-items-center',
+						'hide_visit_link' => true,
 					]
 				);
 			}
@@ -426,6 +433,7 @@ class HomeContent {
 						'show_title'      => true,
 						'columns'         => 3,
 						'container_class' => 'portal-bookmarks-grid',
+						'hide_visit_link' => true,
 					]
 				);
 			}
@@ -439,6 +447,7 @@ class HomeContent {
 						'show_title'      => true,
 						'columns'         => 3,
 						'container_class' => 'portal-bookmarks-grid sd-responsive-justify-center sd-responsive-items-center',
+						'hide_visit_link' => true,
 					]
 				);
 			}

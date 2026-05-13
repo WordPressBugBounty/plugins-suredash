@@ -263,6 +263,18 @@ class Misc {
 
 		$pinned_posts = Helper::get_pinned_posts( $base_id );
 
+		$page_size = (int) Helper::get_option( 'feeds_per_page', 5 );
+
+		// Mirror `Feeds::get_integration_content()`: fetch a generous candidate
+		// pool and apply the visibility filter in PHP, then slice to the
+		// requested page. Without this, when posts in a space use
+		// `visibility_scope`, sort + pagination can drop entire pages of the
+		// user's visible posts because the SQL `LIMIT` runs before the
+		// filter. See `apply_filters( 'suredash_feeds_visibility_prefilter_cap', ... )`
+		// for sites that need to widen the cap.
+		$prefilter_cap = (int) apply_filters( 'suredash_feeds_visibility_prefilter_cap', 1000 );
+		$prefilter_cap = max( $page_size, $prefilter_cap );
+
 		if ( $user_id ) {
 			$result = Controller::get_user_query_data(
 				'Feeds',
@@ -271,8 +283,8 @@ class Misc {
 					[
 						'post_types'     => [ $post_type ],
 						'user_id'        => $user_id,
-						'posts_per_page' => Helper::get_option( 'feeds_per_page', 5 ),
-						'paged'          => $paged,
+						'posts_per_page' => $prefilter_cap,
+						'paged'          => 1,
 					]
 				)
 			);
@@ -280,9 +292,9 @@ class Misc {
 			$query_args = [
 				'category_id'    => $category_id,
 				'post_type'      => $post_type,
-				'paged'          => $paged,
+				'paged'          => 1,
 				'taxonomy'       => $taxonomy,
-				'posts_per_page' => Helper::get_option( 'feeds_per_page', 5 ),
+				'posts_per_page' => $prefilter_cap,
 				'order_by'       => $order_by,
 				'order'          => $order,
 			];
@@ -296,6 +308,24 @@ class Misc {
 		}
 
 		add_filter( 'suredash_skip_restricted_post', '__return_true' );
+
+		// Filter the candidate pool by the current user's visibility, then
+		// slice to the requested page. Pinned posts are still rendered first
+		// on `$is_first_page` below (they live outside the regular feed loop)
+		// and are filtered by `suredash_is_post_protected()` inline at render
+		// time.
+		if ( ! empty( $result ) && is_array( $result ) ) {
+			$result = array_values(
+				array_filter(
+					$result,
+					static function ( $post ) {
+						return ! empty( $post['ID'] ) && ! suredash_is_post_protected( absint( $post['ID'] ) );
+					}
+				)
+			);
+
+			$result = array_slice( $result, ( $paged - 1 ) * $page_size, $page_size );
+		}
 
 		if ( ! empty( $result ) ) {
 			$is_first_page = $paged === 1;

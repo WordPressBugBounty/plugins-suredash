@@ -329,7 +329,7 @@ class Query {
 	 *
 	 * Only safe identifiers (letters, digits, underscores, dots) are allowed.
 	 *
-	 * @since x.x.x
+	 * @since 1.8.2
 	 *
 	 * @param string $column   Left-hand column reference.
 	 * @param string $operator Comparison operator.

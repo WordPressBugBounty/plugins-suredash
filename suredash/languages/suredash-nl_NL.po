@@ -24,11 +24,11 @@ msgstr "SureDash"
 msgid "https://suredash.com/"
 msgstr "https://suredash.com/"
 
-#: core/integrations/feeds.php:175
-#: core/integrations/feeds.php:185
-#: core/integrations/feeds.php:301
-#: core/integrations/feeds.php:306
-#: core/shortcodes/home-content.php:970
+#: core/integrations/feeds.php:179
+#: core/integrations/feeds.php:189
+#: core/integrations/feeds.php:305
+#: core/integrations/feeds.php:310
+#: core/shortcodes/home-content.php:979
 msgid "Cover Image"
 msgstr "Omslagafbeelding"
 
@@ -37,18 +37,18 @@ msgstr "Omslagafbeelding"
 msgid "Content"
 msgstr "Inhoud"
 
-#: core/routers/backend.php:1138
+#: core/routers/backend.php:1150
 msgid "Content Groups"
 msgstr "Inhoudsgroepen"
 
-#: core/routers/backend.php:1138
+#: core/routers/backend.php:1150
 msgid "Topic Forums"
 msgstr "Onderwerpforums"
 
 #: admin/menu.php:190
 #: admin/menu.php:191
 #: admin/setup.php:65
-#: core/renderer.php:300
+#: core/renderer.php:301
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:33
 msgid "Settings"
@@ -70,8 +70,8 @@ msgstr "Link"
 msgid "Video"
 msgstr "Video"
 
-#: admin/menu.php:626
-#: inc/utils/helper.php:2202
+#: admin/menu.php:629
+#: inc/utils/helper.php:2200
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "Niet gecategoriseerd"
@@ -96,24 +96,24 @@ msgid "Invalid term ID."
 msgstr "Ongeldige term-ID."
 
 #: core/routers/backend.php:56
-#: core/routers/backend.php:979
+#: core/routers/backend.php:991
 msgid "Successfully updated."
 msgstr "Succesvol bijgewerkt."
 
-#: core/routers/backend.php:462
-#: core/routers/backend.php:504
-#: core/routers/backend.php:1002
-#: core/routers/backend.php:1073
-#: core/routers/backend.php:1097
-#: core/routers/backend.php:1296
-#: core/routers/backend.php:2238
+#: core/routers/backend.php:474
+#: core/routers/backend.php:516
+#: core/routers/backend.php:1014
+#: core/routers/backend.php:1085
+#: core/routers/backend.php:1109
+#: core/routers/backend.php:1308
+#: core/routers/backend.php:2516
 msgid "Invalid post ID."
 msgstr "Ongeldige post-ID."
 
-#: core/routers/backend.php:477
-#: core/routers/backend.php:583
-#: core/routers/backend.php:717
-#: core/routers/backend.php:1388
+#: core/routers/backend.php:489
+#: core/routers/backend.php:595
+#: core/routers/backend.php:729
+#: core/routers/backend.php:1400
 msgid "Successfully deleted."
 msgstr "Succesvol verwijderd."
 
@@ -122,37 +122,37 @@ msgid "Invalid item ID."
 msgstr "Ongeldige item-ID."
 
 #: core/ajax/backend.php:203
-#: core/routers/backend.php:676
-#: core/routers/backend.php:711
+#: core/routers/backend.php:688
+#: core/routers/backend.php:723
 msgid "Invalid group ID."
 msgstr "Ongeldige groep-ID."
 
-#: core/routers/backend.php:966
+#: core/routers/backend.php:978
 msgid "Invalid object or term ID."
 msgstr "Ongeldige object- of term-ID."
 
-#: core/routers/backend.php:1135
+#: core/routers/backend.php:1147
 msgid "No store categories found."
 msgstr "Geen winkelcategorieën gevonden."
 
-#: core/routers/backend.php:1184
+#: core/routers/backend.php:1196
 msgid "Category Invalid."
 msgstr "Categorie ongeldig."
 
-#: core/routers/backend.php:1188
+#: core/routers/backend.php:1200
 msgid "Content Group -"
 msgstr "Inhoudsgroep -"
 
-#: core/routers/backend.php:1188
+#: core/routers/backend.php:1200
 msgid "Topic Forum -"
 msgstr "Onderwerp Forum -"
 
-#: core/routers/backend.php:1257
+#: core/routers/backend.php:1269
 #: inc/modules/mcp/module.php:184
 msgid "Invalid settings data."
 msgstr "Ongeldige instellingen gegevens."
 
-#: core/routers/backend.php:1264
+#: core/routers/backend.php:1276
 msgid "Settings saved successfully."
 msgstr "Instellingen succesvol opgeslagen."
 
@@ -433,7 +433,7 @@ msgid "Portal Spaces"
 msgstr "Portalruimtes"
 
 #: core/cpt/portal.php:46
-#: core/renderer.php:228
+#: core/renderer.php:229
 #: assets/build/portals-app.js:21
 msgid "Edit Space"
 msgstr "Ruimte bewerken"
@@ -523,17 +523,17 @@ msgstr "Geen forum gevonden"
 msgid "SureMembers Integration"
 msgstr "SureMembers-integratie"
 
-#: core/integrations/feeds.php:190
-#: core/integrations/feeds.php:311
+#: core/integrations/feeds.php:194
+#: core/integrations/feeds.php:315
 msgid "Cover Embed Media"
 msgstr "Omslag Insluitmedia"
 
-#: core/integrations/feeds.php:205
-#: core/integrations/feeds.php:326
+#: core/integrations/feeds.php:209
+#: core/integrations/feeds.php:330
 msgid "Enter a title"
 msgstr "Voer een titel in"
 
-#: core/integrations/feeds.php:302
+#: core/integrations/feeds.php:306
 msgid "Cover Media Embed"
 msgstr "Media-insluiting bedekken"
 
@@ -549,8 +549,8 @@ msgstr "Onderwerp:"
 msgid "No content found."
 msgstr "Geen inhoud gevonden."
 
-#: core/shortcodes/home-content.php:800
-#: core/shortcodes/home-content.php:801
+#: core/shortcodes/home-content.php:809
+#: core/shortcodes/home-content.php:810
 #: inc/functions/functions.php:1897
 #: inc/functions/functions.php:1903
 #: inc/functions/functions.php:1909
@@ -562,7 +562,7 @@ msgid "User"
 msgstr "Gebruiker"
 
 #: core/assets.php:107
-#: core/shortcodes/home-content.php:956
+#: core/shortcodes/home-content.php:965
 #: assets/build/portals-app.js:8
 msgid "Upload"
 msgstr "Uploaden"
@@ -640,8 +640,8 @@ msgstr "Je reactie wacht op moderatie."
 msgid "Reply"
 msgstr "Antwoord"
 
-#: inc/functions/markup.php:690
-#: inc/utils/helper.php:1761
+#: inc/functions/markup.php:724
+#: inc/utils/helper.php:1759
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
@@ -662,8 +662,8 @@ msgstr "Klik om te uploaden of sleep en zet neer"
 msgid "Allowed file formats:"
 msgstr "Toegestane bestandsformaten:"
 
-#: inc/functions/markup.php:708
-#: inc/utils/helper.php:1789
+#: inc/functions/markup.php:742
+#: inc/utils/helper.php:1787
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Opmerking"
@@ -711,7 +711,7 @@ msgstr "Alle"
 msgid "Back to"
 msgstr "Terug naar"
 
-#: core/shortcodes/home-content.php:1073
+#: core/shortcodes/home-content.php:1082
 #: inc/utils/labels.php:44
 #: assets/build/portals-app.js:24
 msgid "Portal"
@@ -744,7 +744,8 @@ msgstr "Berichten"
 msgid "Liked"
 msgstr "Leuk gevonden"
 
-#: inc/utils/helper.php:1425
+#: inc/utils/helper.php:1427
+#: inc/utils/helper.php:1428
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
@@ -789,7 +790,7 @@ msgstr "Profielfoto"
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: core/shortcodes/home-content.php:1071
+#: core/shortcodes/home-content.php:1080
 #: inc/utils/labels.php:74
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:2
@@ -884,7 +885,7 @@ msgid "If you want to sell products online, you need a sales funnel. A sales fun
 msgstr "Als je producten online wilt verkopen, heb je een verkooptrechter nodig. Een verkooptrechter is de gemakkelijkste manier om een websitebezoeker naar een betalende klant te leiden. Een verkooptrechter bouwt rijkdom op in je bedrijf."
 
 #: core/cpt/content.php:111
-#: inc/functions/markup.php:513
+#: inc/functions/markup.php:547
 #: inc/utils/labels.php:107
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -897,10 +898,12 @@ msgid "Courses"
 msgstr "Cursussen"
 
 #: inc/utils/labels.php:109
+#: assets/build/portals-app.js:21
 msgid "Lesson"
 msgstr "Les"
 
 #: inc/utils/labels.php:110
+#: assets/build/portals-app.js:21
 msgid "Lessons"
 msgstr "Lessen"
 
@@ -956,9 +959,10 @@ msgstr "De inhoud zal beschikbaar zijn in"
 
 #: admin/menu.php:182
 #: admin/menu.php:183
-#: core/renderer.php:288
-#: core/shortcodes/home-content.php:862
-#: core/shortcodes/home-content.php:1068
+#: core/renderer.php:289
+#: core/shortcodes/home-content.php:871
+#: core/shortcodes/home-content.php:1077
+#: inc/utils/helper.php:2915
 #: inc/utils/labels.php:143
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
@@ -1052,7 +1056,7 @@ msgstr "Bericht succesvol leuk gevonden."
 msgid "Post disliked successfully."
 msgstr "Bericht succesvol niet leuk gevonden."
 
-#: inc/utils/post-meta.php:108
+#: inc/utils/post-meta.php:112
 #: assets/build/portals-app.js:21
 msgid "Untitled Section"
 msgstr "Naamloze sectie"
@@ -1109,11 +1113,11 @@ msgstr "Open in volledig scherm"
 msgid "Bookmark Post"
 msgstr "Bericht Bladwijzer"
 
-#: inc/utils/helper.php:1801
+#: inc/utils/helper.php:1799
 msgid "Share Post"
 msgstr "Bericht delen"
 
-#: core/integrations/feeds.php:179
+#: core/integrations/feeds.php:183
 #: inc/utils/labels.php:119
 #: templates/quick-view/post.php:137
 #: assets/build/editor-app.js:2
@@ -1122,7 +1126,7 @@ msgid "Close"
 msgstr "Sluiten"
 
 #: admin/menu.php:214
-#: core/renderer.php:240
+#: core/renderer.php:241
 #: assets/build/portals-app.js:33
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1206,7 +1210,7 @@ msgstr "Weet je zeker dat je deze sectie wilt verwijderen?"
 msgid "You can not remove the last section."
 msgstr "Je kunt het laatste gedeelte niet verwijderen."
 
-#: core/shortcodes/home-content.php:961
+#: core/shortcodes/home-content.php:970
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
@@ -1317,22 +1321,19 @@ msgstr "Nieuwe Ruimte Groep"
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: inc/functions/markup.php:510
+#: inc/functions/markup.php:544
 #: inc/utils/labels.php:117
 msgid "Post"
 msgstr "Post"
 
 #: assets/build/portals-app.js:8
+#: assets/build/portals-app.js:21
 msgid "Event"
 msgstr "Evenement"
 
 #: assets/build/portals-app.js:8
 msgid "Soon"
 msgstr "Snel"
-
-#: assets/build/portals-app.js:8
-msgid "Form"
-msgstr "Formulier"
 
 #: assets/build/portals-app.js:8
 msgid "Space Title"
@@ -1423,7 +1424,7 @@ msgstr "Containerafstand"
 msgid "Select Color"
 msgstr "Selecteer kleur"
 
-#: core/shortcodes/home-content.php:974
+#: core/shortcodes/home-content.php:983
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:36
@@ -1578,7 +1579,7 @@ msgstr "Licenties"
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr "De %1$s %2$s %3$s plugin vereist dat de %1$s %4$s %3$s plugin wordt bijgewerkt naar versie %5$s of hoger!"
 
-#: core/routes.php:70
+#: core/routes.php:71
 msgid "Oops! Something wrong here..."
 msgstr "Oeps! Er is hier iets mis..."
 
@@ -1586,21 +1587,21 @@ msgstr "Oeps! Er is hier iets mis..."
 msgid "Copied!"
 msgstr "Gekopieerd!"
 
-#: inc/utils/helper.php:2236
+#: inc/utils/helper.php:2234
 msgid "This discussion is only available for VIP members."
 msgstr "Deze discussie is alleen beschikbaar voor VIP-leden."
 
-#: inc/utils/helper.php:2238
+#: inc/utils/helper.php:2236
 msgid "Please upgrade to add response."
 msgstr "Upgrade alstublieft om een reactie toe te voegen."
 
-#: inc/utils/helper.php:2239
+#: inc/utils/helper.php:2237
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "Nu upgraden"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2250
+#: inc/utils/helper.php:2248
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -1618,7 +1619,7 @@ msgstr "Deze inhoud is beperkt en kan alleen worden geopend door geautoriseerde 
 msgid "What would you like to share today?"
 msgstr "Wat zou je vandaag willen delen?"
 
-#: loader.php:451
+#: loader.php:452
 msgid "Portal Menu"
 msgstr "Portaalmenu"
 
@@ -1668,6 +1669,7 @@ msgid "Choose Icon"
 msgstr "Kies pictogram"
 
 #: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:8
 msgid "Icon"
 msgstr "Icoon"
 
@@ -1702,6 +1704,7 @@ msgstr "Vereist"
 
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:1
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:27
 msgid "Name"
 msgstr "Naam"
@@ -2537,8 +2540,8 @@ msgstr "Facebook-login inschakelen"
 msgid "Please configure Facebook App settings from"
 msgstr "Configureer de Facebook-app-instellingen vanaf"
 
-#: core/integrations/feeds.php:196
-#: core/integrations/feeds.php:317
+#: core/integrations/feeds.php:200
+#: core/integrations/feeds.php:321
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
@@ -2962,15 +2965,17 @@ msgstr "Ongeldige gegevens"
 msgid "Invalid Authorization"
 msgstr "Ongeldige autorisatie"
 
-#: core/routers/backend.php:468
-#: core/routers/backend.php:510
-#: core/routers/backend.php:1286
-#: core/routers/backend.php:2244
+#: core/routers/backend.php:480
+#: core/routers/backend.php:522
+#: core/routers/backend.php:1298
+#: core/routers/backend.php:2522
 msgid "Invalid post type."
 msgstr "Ongeldig berichttype."
 
 #: admin/menu.php:199
 #: admin/menu.php:200
+#: inc/modules/learn/chapters.php:127
+#: assets/build/portals-app.js:21
 msgid "Customize Portal"
 msgstr "Portal aanpassen"
 
@@ -3035,11 +3040,11 @@ msgstr "Groepstekst voor ruimte"
 msgid "Space Group Background"
 msgstr "Achtergrond van de Ruimtegroep"
 
-#: core/routers/misc.php:1913
+#: core/routers/misc.php:1943
 msgid "Uploaded file is not a valid image."
 msgstr "Geüpload bestand is geen geldige afbeelding."
 
-#: core/routers/misc.php:1917
+#: core/routers/misc.php:1947
 msgid "File size larger than permissible."
 msgstr "Bestandsgrootte groter dan toegestaan."
 
@@ -3241,13 +3246,13 @@ msgstr "Werk Forum bij"
 msgid "Feeds Integration"
 msgstr "Feeds-integratie"
 
-#: core/integrations/feeds.php:195
-#: core/integrations/feeds.php:316
+#: core/integrations/feeds.php:199
+#: core/integrations/feeds.php:320
 msgid "See supported embeds"
 msgstr "Bekijk ondersteunde embeds"
 
-#: core/integrations/feeds.php:201
-#: core/integrations/feeds.php:322
+#: core/integrations/feeds.php:205
+#: core/integrations/feeds.php:326
 msgid "Please enter the URL of the media you want to embed"
 msgstr "Voer de URL in van de media die je wilt embedden"
 
@@ -3259,63 +3264,63 @@ msgstr "SinglePost-integratie"
 msgid "Access Group: "
 msgstr "Toegangs groep:"
 
-#: core/routers/backend.php:402
+#: core/routers/backend.php:414
 msgid "Forum:"
 msgstr "Forum:"
 
-#: core/routers/backend.php:1290
+#: core/routers/backend.php:1302
 msgid "Invalid action or post ID."
 msgstr "Ongeldige actie of post-ID."
 
-#: core/routers/backend.php:1358
+#: core/routers/backend.php:1370
 msgid "Successfully published."
 msgstr "Met succes gepubliceerd."
 
-#: core/routers/backend.php:1359
+#: core/routers/backend.php:1371
 msgid "Failed to publish."
 msgstr "Publiceren mislukt."
 
-#: core/routers/backend.php:1368
+#: core/routers/backend.php:1380
 msgid "Successfully drafted."
 msgstr "Met succes als concept opgeslagen."
 
-#: core/routers/backend.php:1369
+#: core/routers/backend.php:1381
 msgid "Failed to draft."
 msgstr "Concept opslaan mislukt."
 
-#: core/routers/backend.php:1378
+#: core/routers/backend.php:1390
 msgid "Successfully trashed."
 msgstr "Met succes in de prullenbak geplaatst."
 
-#: core/routers/backend.php:1379
+#: core/routers/backend.php:1391
 msgid "Failed to trash."
 msgstr "Prullenbak plaatsen mislukt."
 
-#: core/routers/backend.php:1383
+#: core/routers/backend.php:1395
 msgid "Successfully restored."
 msgstr "Met succes hersteld."
 
-#: core/routers/backend.php:1384
+#: core/routers/backend.php:1396
 msgid "Failed to restore."
 msgstr "Herstellen mislukt."
 
-#: core/routers/backend.php:1389
+#: core/routers/backend.php:1401
 msgid "Failed to delete."
 msgstr "Verwijderen mislukt."
 
-#: core/routers/backend.php:1393
+#: core/routers/backend.php:1405
 msgid "Successfully duplicated."
 msgstr "Met succes gedupliceerd."
 
-#: core/routers/backend.php:1394
+#: core/routers/backend.php:1406
 msgid "Failed to duplicate."
 msgstr "Dupliceren mislukt."
 
-#: core/routers/backend.php:1491
+#: core/routers/backend.php:1769
 msgid "Invalid action or post IDs."
 msgstr "Ongeldige actie of post-ID's."
 
-#: core/routers/backend.php:1532
+#: core/routers/backend.php:1810
 msgid "Bulk action completed successfully."
 msgstr "Bulkactie succesvol voltooid."
 
@@ -3331,11 +3336,11 @@ msgstr "Onboarding succesvol voltooid."
 msgid "Onboarding data updated successfully."
 msgstr "Onboardinggegevens succesvol bijgewerkt."
 
-#: core/routers/onboarding.php:256
+#: core/routers/onboarding.php:269
 msgid "Invalid plugin."
 msgstr "Ongeldige plugin."
 
-#: core/routers/onboarding.php:276
+#: core/routers/onboarding.php:289
 msgid "Plugin activated successfully."
 msgstr "Plugin met succes geactiveerd."
 
@@ -3389,6 +3394,7 @@ msgstr "Nieuwe Post Aanmaken"
 msgid "No post found, create a new one!"
 msgstr "Geen bericht gevonden, maak een nieuwe aan!"
 
+#: inc/utils/helper.php:2907
 #: inc/utils/settings.php:324
 msgid "Bookmarks"
 msgstr "Bladwijzers"
@@ -3551,14 +3557,9 @@ msgstr "Berichten/Discussie"
 msgid "External Link"
 msgstr "Externe Link"
 
-#: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 msgid "Video Playlist"
 msgstr "Video Afspeellijst"
-
-#: assets/build/portals-app.js:8
-msgid "Booking/Appointment"
-msgstr "Boeking/Afspraak"
 
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -3790,11 +3791,11 @@ msgstr "Gepubliceerd"
 msgid "Access Group"
 msgstr "Toegangs Groep"
 
-#: core/integrations/feeds.php:558
-#: core/integrations/feeds.php:605
-#: core/routers/misc.php:343
-#: core/routers/misc.php:395
-#: core/shortcodes/home-content.php:742
+#: core/integrations/feeds.php:593
+#: core/integrations/feeds.php:640
+#: core/routers/misc.php:373
+#: core/routers/misc.php:425
+#: core/shortcodes/home-content.php:751
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
 msgid "View"
@@ -3928,8 +3929,8 @@ msgstr "Prullenbak"
 msgid "Pending Review"
 msgstr "In afwachting van beoordeling"
 
-#: inc/functions/markup.php:527
-#: inc/functions/markup.php:579
+#: inc/functions/markup.php:561
+#: inc/functions/markup.php:613
 #: assets/build/portals-app.js:21
 msgid "Private"
 msgstr "Privé"
@@ -3995,7 +3996,6 @@ msgid "Are you sure you want to delete these posts?"
 msgstr "Weet je zeker dat je deze posts wilt verwijderen?"
 
 #: assets/build/portals-app.js:17
-#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Bulk actions: "
 msgstr "Bulkacties:"
@@ -4140,7 +4140,7 @@ msgstr "Ontwerpinstellingen"
 
 #: admin/menu.php:174
 #: admin/menu.php:175
-#: core/renderer.php:276
+#: core/renderer.php:277
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:33
@@ -4161,15 +4161,15 @@ msgstr "E-mail ontbreekt of is ongeldig."
 msgid "You have used an invalid username."
 msgstr "U heeft een ongeldige gebruikersnaam gebruikt."
 
-#: core/integrations/feeds.php:373
+#: core/integrations/feeds.php:377
 msgid "Write a new post"
 msgstr "Schrijf een nieuw bericht"
 
-#: core/integrations/feeds.php:403
+#: core/integrations/feeds.php:407
 msgid "Private Discussion Area"
 msgstr "Privé Discussiegebied"
 
-#: core/integrations/feeds.php:404
+#: core/integrations/feeds.php:408
 msgid "This discussion space is private. Please log in to view the content."
 msgstr "Deze discussieruimte is privé. Log in om de inhoud te bekijken."
 
@@ -4189,52 +4189,52 @@ msgstr "%1$s, %2$s"
 msgid "New post from %1$s \"%2$s\""
 msgstr "Nieuw bericht van %1$s \"%2$s\""
 
-#: core/renderer.php:231
+#: core/renderer.php:232
 msgid "Go to Space Editor"
 msgstr "Ga naar Space Editor"
 
-#: core/renderer.php:243
+#: core/renderer.php:244
 msgid "Go to Dashboard Page"
 msgstr "Ga naar de Dashboard-pagina"
 
-#: core/renderer.php:252
+#: core/renderer.php:253
 msgid "All Spaces"
 msgstr "Alle ruimtes"
 
-#: core/renderer.php:255
+#: core/renderer.php:256
 msgid "Go to All Spaces Page"
 msgstr "Ga naar de pagina Alle Ruimtes"
 
-#: core/renderer.php:264
+#: core/renderer.php:265
 msgid "All Posts"
 msgstr "Alle berichten"
 
-#: core/renderer.php:267
+#: core/renderer.php:268
 msgid "Go to All Posts Page"
 msgstr "Ga naar Alle Berichten Pagina"
 
-#: core/renderer.php:303
+#: core/renderer.php:304
 msgid "Go to Settings Page"
 msgstr "Ga naar de instellingenpagina"
 
-#: core/routers/backend.php:1302
+#: core/routers/backend.php:1314
 msgid "Failed to update."
 msgstr "Bijwerken mislukt."
 
-#: core/routers/backend.php:2254
+#: core/routers/backend.php:2532
 msgid "Comments status updated to closed."
 msgstr "Reactiestatus bijgewerkt naar gesloten."
 
-#: core/routers/backend.php:2262
+#: core/routers/backend.php:2540
 msgid "Comments status updated to open."
 msgstr "Reactiestatus bijgewerkt naar open."
 
-#: core/routers/backend.php:2631
+#: core/routers/backend.php:2909
 #: assets/build/portals-app.js:27
 msgid "(no title)"
 msgstr "(geen titel)"
 
-#: core/routers/backend.php:2693
+#: core/routers/backend.php:2971
 msgid "Unknown post"
 msgstr "Onbekend bericht"
 
@@ -4244,13 +4244,13 @@ msgid "Visit Lesson"
 msgstr "Les bezoeken"
 
 #: core/shortcodes/home-content.php:165
-#: core/shortcodes/home-content.php:351
+#: core/shortcodes/home-content.php:352
 msgid "Visit Post"
 msgstr "Bericht bezoeken"
 
 #: core/shortcodes/home-content.php:169
 #: core/shortcodes/home-content.php:181
-#: core/shortcodes/home-content.php:372
+#: core/shortcodes/home-content.php:375
 msgid "Read Post"
 msgstr "Bericht lezen"
 
@@ -4269,7 +4269,7 @@ msgid "View Discussion"
 msgstr "Discussie bekijken"
 
 #. translators: %s: Space group name
-#: core/shortcodes/navigation.php:152
+#: core/shortcodes/navigation.php:160
 #, php-format
 msgid "Toggle %s group"
 msgstr "Schakel %s groep"
@@ -4290,7 +4290,7 @@ msgstr "Ongelezen melding"
 msgid "Mark all notifications as read"
 msgstr "Markeer alle meldingen als gelezen"
 
-#: inc/functions/markup.php:425
+#: inc/functions/markup.php:459
 msgid "Submit Comment"
 msgstr "Opmerking indienen"
 
@@ -4407,10 +4407,6 @@ msgstr "items"
 #: assets/build/portals-app.js:21
 msgid "Edit Lesson"
 msgstr "Les bewerken"
-
-#: assets/build/portals-app.js:21
-msgid "Update Comment Status to Open/Closed"
-msgstr "Update commentstatus naar Open/Gesloten"
 
 #: assets/build/portals-app.js:21
 msgid "Comment status updated to closed."
@@ -4741,7 +4737,7 @@ msgid "Unknown error"
 msgstr "Onbekende fout"
 
 #: core/routers/backend.php:180
-#: core/routers/backend.php:303
+#: core/routers/backend.php:315
 msgid "A space with this name and type already exists."
 msgstr "Er bestaat al een ruimte met deze naam en type."
 
@@ -4753,49 +4749,49 @@ msgstr "Combinatie van ruimte naam en type is beschikbaar."
 msgid "Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces."
 msgstr "Collectieruimtes zijn een premium functie. Upgrade naar SureDash Pro om collectieruimtes te maken."
 
-#: core/routers/backend.php:2284
+#: core/routers/backend.php:2562
 msgid "Invalid post IDs."
 msgstr "Ongeldige post-ID's."
 
-#: core/routers/backend.php:2308
+#: core/routers/backend.php:2586
 #: assets/build/portals-app.js:21
 msgid "Comments status updated."
 msgstr "Status van opmerkingen bijgewerkt."
 
-#: core/routers/backend.php:2727
+#: core/routers/backend.php:3005
 msgid "No icons found."
 msgstr "Geen pictogrammen gevonden."
 
-#: core/routers/misc.php:1225
-#: core/routers/misc.php:1302
+#: core/routers/misc.php:1255
+#: core/routers/misc.php:1332
 msgid "Comment not found."
 msgstr "Opmerking niet gevonden."
 
-#: core/routers/misc.php:1230
+#: core/routers/misc.php:1260
 msgid "You are not authorized to edit this comment."
 msgstr "U bent niet gemachtigd om deze opmerking te bewerken."
 
-#: core/routers/misc.php:1261
+#: core/routers/misc.php:1291
 msgid "Failed to update comment."
 msgstr "Het bijwerken van de opmerking is mislukt."
 
-#: core/routers/misc.php:1271
+#: core/routers/misc.php:1301
 msgid "Comment Updated Successfully!"
 msgstr "Opmerking succesvol bijgewerkt!"
 
-#: core/routers/misc.php:1311
+#: core/routers/misc.php:1341
 msgid "You are not authorized to delete this comment."
 msgstr "U bent niet gemachtigd om deze opmerking te verwijderen."
 
-#: core/routers/misc.php:1318
+#: core/routers/misc.php:1348
 msgid "Failed to delete comment."
 msgstr "Het verwijderen van de opmerking is mislukt."
 
-#: core/routers/misc.php:1322
+#: core/routers/misc.php:1352
 msgid "Comment deleted successfully!"
 msgstr "Opmerking succesvol verwijderd!"
 
-#: core/routers/misc.php:1908
+#: core/routers/misc.php:1938
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ongeldig bestandstype. Alleen GIF, PNG, JPEG, JPG en WEBP zijn toegestaan."
 
@@ -4804,11 +4800,11 @@ msgstr "Ongeldig bestandstype. Alleen GIF, PNG, JPEG, JPG en WEBP zijn toegestaa
 msgid "Reset your password here"
 msgstr "Reset hier uw wachtwoord"
 
-#: core/shortcodes/home-content.php:816
+#: core/shortcodes/home-content.php:825
 msgid "Create a new password"
 msgstr "Maak een nieuw wachtwoord aan"
 
-#: core/shortcodes/home-content.php:822
+#: core/shortcodes/home-content.php:831
 msgid "Re-enter your new password"
 msgstr "Voer uw nieuwe wachtwoord opnieuw in"
 
@@ -4833,25 +4829,25 @@ msgstr "Kopieer URL"
 msgid "Write a short bio about yourself..."
 msgstr "Schrijf een korte bio over jezelf..."
 
-#: inc/functions/markup.php:507
+#: inc/functions/markup.php:541
 msgid "Discussion"
 msgstr "Discussie"
 
-#: inc/functions/markup.php:530
-#: inc/functions/markup.php:604
+#: inc/functions/markup.php:564
+#: inc/functions/markup.php:638
 msgid " lesson"
 msgid_plural " lessons"
 msgstr[0] "les"
 msgstr[1] ""
 
-#: inc/functions/markup.php:534
-#: inc/functions/markup.php:589
+#: inc/functions/markup.php:568
+#: inc/functions/markup.php:623
 msgid " thread"
 msgid_plural " threads"
 msgstr[0] "draad"
 msgstr[1] ""
 
-#: inc/functions/markup.php:809
+#: inc/functions/markup.php:843
 msgid "Options"
 msgstr "Opties"
 
@@ -4907,6 +4903,7 @@ msgid "Select Spaces"
 msgstr "Selecteer Ruimtes"
 
 #: assets/build/portals-app.js:8
+#: assets/build/portals-app.js:21
 msgid "Search spaces…"
 msgstr "Zoek ruimtes…"
 
@@ -5004,10 +5001,7 @@ msgstr "Deselecteer Alles"
 msgid "Select All"
 msgstr "Selecteer Alles"
 
-#: assets/build/portals-app.js:21
-msgid "lessons selected"
-msgstr "lessen geselecteerd"
-
+#: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Enable Comments"
 msgstr "Reacties Inschakelen"
@@ -5143,12 +5137,12 @@ msgid "Resources"
 msgstr "Hulpmiddelen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:766
+#: inc/functions/markup.php:800
 msgid "Remove bookmark"
 msgstr "Bladwijzer verwijderen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:766
+#: inc/functions/markup.php:800
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
@@ -5215,7 +5209,7 @@ msgid_plural "%d mins"
 msgstr[0] "%d min"
 msgstr[1] ""
 
-#: inc/functions/markup.php:516
+#: inc/functions/markup.php:550
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:14
@@ -5223,12 +5217,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "Hulpmiddelenbibliotheek"
 
-#: inc/functions/markup.php:736
+#: inc/functions/markup.php:770
 #: assets/build/portals-app.js:27
 msgid "Visit"
 msgstr "Bezoek"
 
-#: inc/functions/markup.php:766
+#: inc/functions/markup.php:800
 msgid "Bookmark"
 msgstr "Bladwijzer"
 
@@ -5240,37 +5234,9 @@ msgstr "Hulpmiddelitem"
 msgid "Resource Items"
 msgstr "Hulpmiddelitems"
 
-#: loader.php:697
+#: loader.php:699
 msgid "Rate our plugin"
 msgstr "Beoordeel onze plugin"
-
-#: assets/build/portals-app.js:8
-msgid "Create structured courses with lessons, progress tracking."
-msgstr "Maak gestructureerde cursussen met lessen en voortgangsregistratie."
-
-#: assets/build/portals-app.js:8
-msgid "Create a collection of related spaces for better organization."
-msgstr "Maak een verzameling van gerelateerde ruimtes voor betere organisatie."
-
-#: assets/build/portals-app.js:8
-msgid "Upload, organize, and share files and links in one place."
-msgstr "Upload, organiseer en deel bestanden en links op één plek."
-
-#: assets/build/portals-app.js:8
-msgid "Organize events and integrate live streaming with third-party tools."
-msgstr "Organiseer evenementen en integreer live streaming met tools van derden."
-
-#: assets/build/portals-app.js:8
-msgid "Create a playlist of videos for easy viewing and sharing."
-msgstr "Maak een afspeellijst van video's voor eenvoudig bekijken en delen."
-
-#: assets/build/portals-app.js:8
-msgid "Create a interactive form space for collecting user information and feedback."
-msgstr "Maak een interactieve formulier ruimte voor het verzamelen van gebruikersinformatie en feedback."
-
-#: assets/build/portals-app.js:8
-msgid "Create a booking or appointment space for scheduling and managing appointments."
-msgstr "Maak een boekings- of afspraakruimte voor het plannen en beheren van afspraken."
 
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:27
@@ -5281,6 +5247,9 @@ msgstr "Upgrade nu"
 msgid "Hidden spaces are excluded from the frontend side navigation."
 msgstr "Verborgen ruimtes zijn uitgesloten van de navigatie aan de voorkant."
 
+#: inc/modules/learn/chapters.php:248
+#: inc/modules/learn/chapters.php:263
+#: inc/modules/learn/chapters.php:278
 #: assets/build/portals-app.js:8
 msgid "Upgrade to Pro"
 msgstr "Upgrade naar Pro"
@@ -5340,10 +5309,6 @@ msgstr "Geen overeenkomende berichten gevonden."
 #: assets/build/portals-app.js:21
 msgid "Click the \"Add Space\" button to start building your collection."
 msgstr "Klik op de knop \"Ruimte toevoegen\" om uw verzameling te beginnen op te bouwen."
-
-#: assets/build/portals-app.js:21
-msgid "Resource Name"
-msgstr "Hulpmiddelnaam"
 
 #: assets/build/portals-app.js:21
 msgid "Add Resource"
@@ -5427,6 +5392,7 @@ msgstr "Download Niet Beschikbaar"
 msgid "Access Resource"
 msgstr "Toegang tot Hulpbron"
 
+#: inc/utils/helper.php:2899
 #: assets/build/portals-app.js:21
 msgid "Resource History"
 msgstr "Hulpbron Geschiedenis"
@@ -5763,7 +5729,7 @@ msgstr "Donkere kleuren"
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "Weet je niet hoe je kleuren moet instellen? Raadpleeg de definitie van 9 kleuren"
 
-#: core/routers/backend.php:2788
+#: core/routers/backend.php:3066
 msgid "Post title is required."
 msgstr "Posttitel is vereist."
 
@@ -6087,7 +6053,7 @@ msgstr "Dank je voor het delen van je feedback 🙏"
 msgid "We truly value your input. Tell us what’s missing or what could be better — we’re here to improve your SureDash experience."
 msgstr "We waarderen je input echt. Vertel ons wat er mist of wat beter kan — we zijn hier om jouw SureDash-ervaring te verbeteren."
 
-#: core/integrations/feeds.php:288
+#: core/integrations/feeds.php:292
 msgid "Edit Post"
 msgstr "Bericht bewerken"
 
@@ -6095,36 +6061,37 @@ msgstr "Bericht bewerken"
 msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Integreert het klantgebied van SureCart met SureDash-ruimtes."
 
-#: core/routers/misc.php:1369
-#: core/routers/misc.php:1469
+#: core/routers/backend.php:3282
+#: core/routers/misc.php:1399
+#: core/routers/misc.php:1499
 msgid "Post not found."
 msgstr "Bericht niet gevonden."
 
-#: core/routers/misc.php:1376
+#: core/routers/misc.php:1406
 msgid "You are not authorized to edit this post."
 msgstr "Je bent niet bevoegd om dit bericht te bewerken."
 
-#: core/routers/misc.php:1418
+#: core/routers/misc.php:1448
 msgid "Failed to update post."
 msgstr "Bijwerken van bericht mislukt."
 
-#: core/routers/misc.php:1437
+#: core/routers/misc.php:1467
 msgid "Post Updated Successfully!"
 msgstr "Bericht succesvol bijgewerkt!"
 
-#: core/routers/misc.php:1473
+#: core/routers/misc.php:1503
 msgid "Invalid Post."
 msgstr "Ongeldig bericht."
 
-#: core/routers/misc.php:1482
+#: core/routers/misc.php:1512
 msgid "You are not authorized to delete this post."
 msgstr "Je bent niet bevoegd om dit bericht te verwijderen."
 
-#: core/routers/misc.php:1489
+#: core/routers/misc.php:1519
 msgid "Failed to delete post."
 msgstr "Verwijderen van bericht mislukt."
 
-#: core/routers/misc.php:1493
+#: core/routers/misc.php:1523
 msgid "Post deleted successfully!"
 msgstr "Bericht succesvol verwijderd!"
 
@@ -6135,7 +6102,7 @@ msgstr "Bericht succesvol verwijderd!"
 msgid "Events"
 msgstr "Evenementen"
 
-#: core/shortcodes/home-content.php:367
+#: core/shortcodes/home-content.php:369
 #: assets/build/portals-app.js:21
 msgid "View Event"
 msgstr "Bekijk evenement"
@@ -6426,31 +6393,31 @@ msgstr "Bekijk evenementen"
 msgid "Effortlessly connect your portal with OttoKit to get a full suite of tools to help you manage your portal."
 msgstr "Verbind moeiteloos uw portal met OttoKit om een volledige suite van tools te krijgen die u helpen uw portal te beheren."
 
-#: core/integrations/feeds.php:176
+#: core/integrations/feeds.php:180
 msgid "Cover Video"
 msgstr "Cover Video"
 
-#: core/integrations/feeds.php:215
+#: core/integrations/feeds.php:219
 msgid "Choose a space to post in"
 msgstr "Kies een ruimte om in te posten"
 
-#: core/renderer.php:218
+#: core/renderer.php:219
 msgid "Menu"
 msgstr "Menu"
 
-#: core/routers/backend.php:2749
+#: core/routers/backend.php:3027
 msgid "No emojis found."
 msgstr "Geen emoji's gevonden."
 
-#: core/routers/backend.php:2893
+#: core/routers/backend.php:3186
 msgid "Content ID is required."
 msgstr "Content-ID is vereist."
 
-#: core/routers/backend.php:2902
+#: core/routers/backend.php:3195
 msgid "Content not found."
 msgstr "Inhoud niet gevonden."
 
-#: core/routers/backend.php:2931
+#: core/routers/backend.php:3235
 msgid "Settings updated successfully."
 msgstr "Instellingen succesvol bijgewerkt."
 
@@ -6514,24 +6481,24 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "Verwijderen van e-mailtriggers mislukt."
 
-#: core/routers/misc.php:694
-#: core/routers/misc.php:1561
+#: core/routers/misc.php:724
 #: core/routers/misc.php:1591
+#: core/routers/misc.php:1621
 msgid "User not logged in."
 msgstr "Gebruiker niet ingelogd."
 
-#: core/routers/misc.php:699
+#: core/routers/misc.php:729
 msgid "User not found."
 msgstr "Gebruiker niet gevonden."
 
 #. translators: %s: Site name
-#: core/routers/misc.php:719
+#: core/routers/misc.php:749
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-e-mail van %s"
 
 #. translators: %1$s: User name, %2$s: Site name
-#: core/routers/misc.php:735
+#: core/routers/misc.php:765
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6540,35 +6507,35 @@ msgid ""
 "\t\t\t\t\t--- This email was sent from %2$s"
 msgstr "Hallo %1$s,<br>Dit is een test-e-mail van %2$s om te verifiëren of je e-mailnotificatie-instellingen correct werken.<br>Als je deze e-mail hebt ontvangen, zijn je notificatie-instellingen goed geconfigureerd!<br>--- Deze e-mail is verzonden vanuit %2$s"
 
-#: core/routers/misc.php:754
+#: core/routers/misc.php:784
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Test-e-mail succesvol verzonden! Controleer je inbox."
 
-#: core/routers/misc.php:761
+#: core/routers/misc.php:791
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Verzenden van test-e-mail mislukt. Controleer je e-mailconfiguratie."
 
-#: core/routers/misc.php:803
+#: core/routers/misc.php:833
 msgid "Failed to update notification settings."
 msgstr "Bijwerken van notificatie-instellingen mislukt."
 
-#: core/routers/misc.php:808
+#: core/routers/misc.php:838
 msgid "Notification settings updated successfully!"
 msgstr "Notificatie-instellingen succesvol bijgewerkt!"
 
-#: core/shortcodes/home-content.php:1079
+#: core/shortcodes/home-content.php:1088
 msgid "Receive all notifications"
 msgstr "Ontvang alle notificaties"
 
-#: core/shortcodes/home-content.php:1113
+#: core/shortcodes/home-content.php:1122
 msgid "When someone replies to my post"
 msgstr "Wanneer iemand op mijn post reageert"
 
-#: core/shortcodes/home-content.php:1130
+#: core/shortcodes/home-content.php:1139
 msgid "When someone replies to my comment"
 msgstr "Wanneer iemand op mijn opmerking reageert"
 
-#: core/shortcodes/home-content.php:1147
+#: core/shortcodes/home-content.php:1156
 msgid "When I'm mentioned"
 msgstr "Wanneer ik word genoemd"
 
@@ -6581,7 +6548,7 @@ msgid "Open notification settings in new tab"
 msgstr "Open notificatie-instellingen in een nieuw tabblad"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1356
+#: inc/functions/markup.php:1395
 msgid "Member"
 msgstr "Lid"
 
@@ -6741,15 +6708,15 @@ msgstr "Tags"
 msgid "Please select a space."
 msgstr "Selecteer een ruimte."
 
-#: inc/utils/settings.php:389
+#: inc/utils/settings.php:412
 msgid "Newbie"
 msgstr "Nieuweling"
 
-#: inc/utils/settings.php:398
+#: inc/utils/settings.php:421
 msgid "Manager"
 msgstr "Manager"
 
-#: inc/utils/settings.php:407
+#: inc/utils/settings.php:430
 msgid "Active Member"
 msgstr "Actief lid"
 
@@ -6893,10 +6860,6 @@ msgid "Save Settings"
 msgstr "Instellingen opslaan"
 
 #: assets/build/portals-app.js:21
-msgid "Edit Event content"
-msgstr "Inhoud van evenement bewerken"
-
-#: assets/build/portals-app.js:21
 msgid "Shows the site home URL."
 msgstr "Toont de URL van de startpagina van de site."
 
@@ -6989,8 +6952,8 @@ msgstr "Selecteer Trigger"
 msgid "Search triggers…"
 msgstr "Zoek triggers…"
 
-#: core/routers/backend.php:266
-#: core/routers/backend.php:276
+#: core/routers/backend.php:278
+#: core/routers/backend.php:288
 #: assets/build/portals-app.js:24
 msgid "Untitled"
 msgstr "Zonder titel"
@@ -7176,11 +7139,11 @@ msgstr "Nog geen likes, wees de eerste die dit leuk vindt!"
 msgid "%s ago"
 msgstr "%s geleden"
 
-#: core/renderer.php:279
+#: core/renderer.php:280
 msgid "Go to All Users Page"
 msgstr "Ga naar de pagina Alle Gebruikers"
 
-#: core/renderer.php:291
+#: core/renderer.php:292
 msgid "Go to Notifications Page"
 msgstr "Ga naar de pagina Meldingen"
 
@@ -7193,7 +7156,7 @@ msgstr "Wachtwoord vergeten?"
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr "Het wachtwoord dat je hebt ingevoerd voor de gebruikersnaam %1$s is onjuist. %2$s"
 
-#: core/shortcodes/home-content.php:1096
+#: core/shortcodes/home-content.php:1105
 msgid "Receive admin notifications"
 msgstr "Ontvang beheerdersmeldingen"
 
@@ -7201,18 +7164,20 @@ msgstr "Ontvang beheerdersmeldingen"
 msgid "Anonymous"
 msgstr "Anoniem"
 
-#: inc/utils/helper.php:1767
+#: inc/utils/helper.php:1765
 msgid "No likes yet."
 msgstr "Nog geen likes."
 
-#: inc/utils/helper.php:1803
+#: inc/utils/helper.php:1801
 msgid "Share"
 msgstr "Delen"
 
+#: inc/utils/helper.php:2937
 #: inc/utils/settings.php:312
 msgid "View Profile"
 msgstr "Profiel bekijken"
 
+#: inc/utils/helper.php:2925
 #: inc/utils/settings.php:318
 msgid "Edit Profile"
 msgstr "Profiel bewerken"
@@ -7294,19 +7259,19 @@ msgstr "Geen toegangsgroepen gevonden"
 msgid "Post Visibility"
 msgstr "Berichtzichtbaarheid"
 
-#: core/routers/backend.php:2510
+#: core/routers/backend.php:2788
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers-plugin is niet actief."
 
-#: core/routers/misc.php:1595
+#: core/routers/misc.php:1625
 msgid "Space ID is required."
 msgstr "Ruimte-ID is vereist."
 
-#: core/routers/misc.php:1604
+#: core/routers/misc.php:1634
 msgid "Space marked as read."
 msgstr "Ruimte gemarkeerd als gelezen."
 
-#: core/routers/misc.php:1608
+#: core/routers/misc.php:1638
 msgid "Failed to mark space as read."
 msgstr "Kan ruimte niet als gelezen markeren."
 
@@ -7435,46 +7400,6 @@ msgstr "SVG-pictogram geselecteerd"
 #: assets/build/portals-app.js:8
 msgid "Insert Custom Icon"
 msgstr "Aangepast pictogram invoegen"
-
-#: assets/build/portals-app.js:8
-msgid "Display a single WordPress post or page with full content control and customization options."
-msgstr "Toon een enkele WordPress-post of -pagina met volledige inhoudscontrole en aanpassingsopties."
-
-#: assets/build/portals-app.js:8
-msgid "Create a discussion forum where members can post, comment, and engage in conversations."
-msgstr "Maak een discussieforum waar leden berichten kunnen plaatsen, reageren en deelnemen aan gesprekken."
-
-#: assets/build/portals-app.js:8
-msgid "Link to external websites or resources, perfect for redirecting to third-party tools or services."
-msgstr "Link naar externe websites of bronnen, perfect voor het doorverwijzen naar tools of diensten van derden."
-
-#: assets/build/portals-app.js:8
-msgid "Build structured learning experiences with lessons, progress tracking, and course completion features."
-msgstr "Bouw gestructureerde leerervaringen met lessen, voortgangsregistratie en cursusvoltooiingsfuncties."
-
-#: assets/build/portals-app.js:8
-msgid "Group related spaces together for better organization and easier navigation for your members."
-msgstr "Groepeer gerelateerde ruimtes voor een betere organisatie en gemakkelijkere navigatie voor je leden."
-
-#: assets/build/portals-app.js:8
-msgid "Centralize all your resources - upload files, share links, and organize documents in one accessible location."
-msgstr "Centraliseer al je middelen - upload bestanden, deel links en organiseer documenten op één toegankelijke locatie."
-
-#: assets/build/portals-app.js:8
-msgid "Manage events, schedule activities, and integrate live streaming with third-party tools for enhanced engagement."
-msgstr "Beheer evenementen, plan activiteiten en integreer live streaming met tools van derden voor verbeterde betrokkenheid."
-
-#: assets/build/portals-app.js:8
-msgid "Create and organize video content into playlists for seamless viewing and sharing experiences."
-msgstr "Maak en organiseer videocontent in afspeellijsten voor naadloze kijk- en deelervaringen."
-
-#: assets/build/portals-app.js:8
-msgid "Create interactive forms to collect user information, feedback, and responses efficiently."
-msgstr "Maak interactieve formulieren om gebruikersinformatie, feedback en reacties efficiënt te verzamelen."
-
-#: assets/build/portals-app.js:8
-msgid "Enable appointment scheduling and booking management for services, consultations, and meetings."
-msgstr "Schakel het plannen van afspraken en het beheer van boekingen in voor diensten, consultaties en vergaderingen."
 
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
@@ -7843,6 +7768,7 @@ msgstr "Bepaalde gebruikers uitsluiten"
 msgid "Unsaved Settings"
 msgstr "Niet-opgeslagen instellingen"
 
+#: inc/utils/helper.php:2883
 #: assets/build/portals-app.js:24
 msgid "Leaderboard"
 msgstr "Ranglijst"
@@ -7868,48 +7794,43 @@ msgid "No events joined yet."
 msgstr "Nog geen evenementen bijgewoond."
 
 #. translators: %1$s: author name, %2$s: post date
-#: core/integrations/feeds.php:538
-#: core/integrations/feeds.php:586
-#: core/routers/misc.php:323
-#: core/routers/misc.php:376
-#: core/shortcodes/home-content.php:723
+#: core/integrations/feeds.php:573
+#: core/integrations/feeds.php:621
+#: core/routers/misc.php:353
+#: core/routers/misc.php:406
+#: core/shortcodes/home-content.php:732
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1413
-#: inc/utils/helper.php:1438
+#: inc/utils/helper.php:1415
+#: inc/utils/helper.php:1416
+#: inc/utils/helper.php:1440
 msgid "Latest"
 msgstr "Laatste"
 
-#: inc/utils/helper.php:1417
+#: inc/utils/helper.php:1419
+#: inc/utils/helper.php:1420
 msgid "Oldest"
 msgstr "Oudste"
 
-#: inc/utils/helper.php:1421
+#: inc/utils/helper.php:1423
+#: inc/utils/helper.php:1424
 msgid "Popular"
 msgstr "Populair"
 
-#: inc/utils/helper.php:1429
+#: inc/utils/helper.php:1431
 msgid "New Activity"
 msgstr "Nieuwe Activiteit"
 
-#: inc/utils/helper.php:1433
+#: inc/utils/helper.php:1435
 msgid "Alphabetical"
 msgstr "Alfabetisch"
 
-#: inc/utils/helper.php:1447
-msgid "Sort by:"
-msgstr "Sorteer op:"
-
-#: inc/utils/helper.php:1455
+#: inc/utils/helper.php:1462
 msgid "Sort options"
 msgstr "Sorteeropties"
 
-#: inc/utils/helper.php:1491
-msgid "Toggle view"
-msgstr "Weergave wisselen"
-
-#: core/shortcodes/navigation.php:245
+#: core/shortcodes/navigation.php:275
 msgid "This community's portal spaces will be listed here."
 msgstr "De portaalruimtes van deze gemeenschap worden hier weergegeven."
 
@@ -7952,6 +7873,7 @@ msgid "Container Width is not applicable when using grid layout."
 msgstr "Containerbreedte is niet van toepassing bij gebruik van de rasterindeling."
 
 #: assets/build/portals-app.js:11
+#: assets/build/portals-app.js:21
 msgid "Select"
 msgstr "Selecteren"
 
@@ -8063,7 +7985,7 @@ msgstr "Selecteer specifieke gebruikersrollen om te targeten. Laat leeg om naar 
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr "Opmerking: Van toepassing op het type Enkele Post/Pagina ruimte en het Portaalindeling sjabloon."
 
-#: core/routers/onboarding.php:261
+#: core/routers/onboarding.php:274
 msgid "Invalid plugin path."
 msgstr "Ongeldig plugin-pad."
 
@@ -8076,16 +7998,16 @@ msgid "Space name and integration type are required."
 msgstr "Ruimte naam en integratietype zijn vereist."
 
 #. translators: %s: space name
-#: core/routers/backend.php:411
+#: core/routers/backend.php:423
 msgid "This forum group is created for the space: %s"
 msgstr "Deze forumgroep is aangemaakt voor de ruimte: %s"
 
 #. translators: %s: original post title
-#: core/routers/backend.php:1398
+#: core/routers/backend.php:1410
 msgid "%s - Copy"
 msgstr "%s - Kopie"
 
-#: core/routers/misc.php:480
+#: core/routers/misc.php:510
 msgid "User ID is required."
 msgstr "Gebruikers-ID is vereist."
 
@@ -8302,15 +8224,15 @@ msgstr "Verwijderd %s bestand"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "Ondersteunt YouTube, Vimeo, Dailymotion, VideoPress en meer"
 
-#: core/routers/misc.php:1628
+#: core/routers/misc.php:1658
 msgid "A valid URL is required."
 msgstr "Een geldige URL is vereist."
 
-#: core/routers/misc.php:1639
+#: core/routers/misc.php:1669
 msgid "This URL is not from a supported video provider."
 msgstr "Deze URL is niet van een ondersteunde videoleverancier."
 
-#: core/routers/misc.php:1651
+#: core/routers/misc.php:1681
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Kon video niet oplossen. Controleer de URL en probeer het opnieuw."
 
@@ -8397,7 +8319,7 @@ msgstr "AI-client"
 
 #: assets/build/portals-app.js:24
 msgid "Create an Application Password — "
-msgstr "Maak een applicatiewachtwoord aan — "
+msgstr "Maak een applicatiewachtwoord aan —"
 
 #: assets/build/portals-app.js:24
 msgid "Open Application Passwords"
@@ -8409,7 +8331,7 @@ msgstr "Of gebruik deze CLI-opdracht om de server snel toe te voegen (u moet nog
 
 #: assets/build/portals-app.js:24
 msgid "Copy the JSON config below into: "
-msgstr "Kopieer de onderstaande JSON-configuratie naar: "
+msgstr "Kopieer de onderstaande JSON-configuratie naar:"
 
 #: assets/build/portals-app.js:24
 msgid "Replace \"your-application-password\" with the password from Step 1."
@@ -8513,7 +8435,9 @@ msgstr "Zichtbaarheid"
 msgid "Usage Data"
 msgstr "Gebruik gegevens"
 
+#: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:27
 msgid "Pro"
 msgstr "Pro"
 
@@ -8594,16 +8518,638 @@ msgid "Login & Registration"
 msgstr "Inloggen & registreren"
 
 #: assets/build/portals-app.js:24
-msgid "Roles & Profile"
-msgstr "Rollen & profiel"
-
-#: assets/build/portals-app.js:24
 msgid "Sidebar"
 msgstr "Zijbalk"
 
 #: assets/js/unminified/login.js:701
 msgid "We couldn't send the reset email. Please try again or contact support."
 msgstr "We konden de reset-e-mail niet verzenden. Probeer het opnieuw of neem contact op met de ondersteuning."
+
+#: core/routers/backend.php:272
+msgid "Please choose a valid portal page."
+msgstr "Kies een geldige portalpagina."
+
+#: core/routers/backend.php:1484
+msgid "Invalid integration type."
+msgstr "Ongeldig integratietype."
+
+#: core/routers/backend.php:1563
+msgid "Invalid item type."
+msgstr "Ongeldig itemtype."
+
+#: core/routers/backend.php:1567
+msgid "Missing required fields."
+msgstr "Vereiste velden ontbreken."
+
+#: core/routers/backend.php:1573
+msgid "Invalid target space."
+msgstr "Ongeldige doelruimte."
+
+#: core/routers/backend.php:1585
+msgid "Target space is not compatible with this item type."
+msgstr "Doelruimte is niet compatibel met dit itemtype."
+
+#: core/routers/backend.php:1591
+msgid "Source item is required."
+msgstr "Bronitem is vereist."
+
+#: core/routers/backend.php:1595
+msgid "Source item not found."
+msgstr "Bronitem niet gevonden."
+
+#: core/routers/backend.php:1598
+msgid "Source item is not a valid SureDash content item."
+msgstr "Bronitem is geen geldig SureDash-inhouditem."
+
+#: core/routers/backend.php:1636
+msgid "Duplication failed."
+msgstr "Duplicatie is mislukt."
+
+#: core/routers/backend.php:3267
+msgid "Post ID is required."
+msgstr "Post-ID is vereist."
+
+#: core/routers/backend.php:3274
+msgid "Permission denied."
+msgstr "Toegang geweigerd."
+
+#: core/routers/onboarding.php:156
+msgid "Failed to encode subscription payload."
+msgstr "Mislukt om het abonnement payload te coderen."
+
+#: inc/modules/learn/chapters.php:65
+msgid "Set Up Your Portal"
+msgstr "Stel uw portal in"
+
+#: inc/modules/learn/chapters.php:66
+msgid "Lay the foundation for your community — your branding, spaces, and layout."
+msgstr "Leg de basis voor uw gemeenschap — uw branding, ruimtes en lay-out."
+
+#: inc/modules/learn/chapters.php:72
+msgid "Configure Portal Settings"
+msgstr "Configureer portalinstellingen"
+
+#: inc/modules/learn/chapters.php:73
+msgid "Set your portal name, font family, community visibility, and homepage to get started."
+msgstr "Stel uw portalnaam, lettertype, zichtbaarheid van de gemeenschap en startpagina in om te beginnen."
+
+#: inc/modules/learn/chapters.php:76
+msgid "Configure portal settings"
+msgstr "Configureer portalinstellingen"
+
+#: inc/modules/learn/chapters.php:80
+msgid "Open Portal Settings"
+msgstr "Open portalinstellingen"
+
+#: inc/modules/learn/chapters.php:88
+msgid "Enable Site Registration"
+msgstr "Schakel site-registratie in"
+
+#: inc/modules/learn/chapters.php:89
+msgid "WordPress registration is currently disabled. Enable it or let SureDash override the setting so new members can sign up."
+msgstr "WordPress-registratie is momenteel uitgeschakeld. Schakel het in of laat SureDash de instelling overschrijven, zodat nieuwe leden zich kunnen aanmelden."
+
+#: inc/modules/learn/chapters.php:92
+msgid "Enable site registration"
+msgstr "Schakel site-registratie in"
+
+#: inc/modules/learn/chapters.php:96
+msgid "Open Login & Registration"
+msgstr "Open inloggen & registratie"
+
+#: inc/modules/learn/chapters.php:104
+msgid "Create Space Groups & Spaces"
+msgstr "Maak ruimtegroepen en ruimtes aan"
+
+#: inc/modules/learn/chapters.php:105
+msgid "Spaces are where members interact — Discussions, Posts, and more. Organize them into groups."
+msgstr "Ruimtes zijn waar leden interactie hebben — Discussies, Berichten en meer. Organiseer ze in groepen."
+
+#: inc/modules/learn/chapters.php:108
+msgid "Create spaces and groups"
+msgstr "Maak ruimtes en groepen aan"
+
+#: inc/modules/learn/chapters.php:112
+msgid "Go to Spaces"
+msgstr "Ga naar ruimtes"
+
+#: inc/modules/learn/chapters.php:119
+msgid "Customize Portal Layout"
+msgstr "Pas de portal lay-out aan"
+
+#: inc/modules/learn/chapters.php:120
+msgid "Configure the header, sidebar, container width, and navigation style."
+msgstr "Configureer de koptekst, zijbalk, containerbreedte en navigatiestijl."
+
+#: inc/modules/learn/chapters.php:123
+msgid "Customize portal layout"
+msgstr "Pas de portal lay-out aan"
+
+#: inc/modules/learn/chapters.php:140
+msgid "Configure Community Settings"
+msgstr "Configureer gemeenschapsinstellingen"
+
+#: inc/modules/learn/chapters.php:141
+msgid "Reduce signup friction, keep members engaged, and show a unified activity feed."
+msgstr "Verminder aanmeldfrictie, houd leden betrokken en toon een uniforme activiteitenfeed."
+
+#: inc/modules/learn/chapters.php:147
+msgid "Enable Social Logins"
+msgstr "Schakel sociale aanmeldingen in"
+
+#: inc/modules/learn/chapters.php:148
+msgid "Let members sign in with Google or Facebook to reduce signup friction."
+msgstr "Laat leden inloggen met Google of Facebook om de aanmeldfrictie te verminderen."
+
+#: inc/modules/learn/chapters.php:151
+msgid "Enable social logins"
+msgstr "Schakel sociale aanmeldingen in"
+
+#: inc/modules/learn/chapters.php:155
+msgid "Configure Logins"
+msgstr "Configureer aanmeldingen"
+
+#: inc/modules/learn/chapters.php:162
+msgid "Set Up Email Notifications"
+msgstr "Stel e-mailmeldingen in"
+
+#: inc/modules/learn/chapters.php:163
+msgid "Configure welcome emails and engagement triggers for new posts, comments, and sign-ups."
+msgstr "Configureer welkomst-e-mails en betrokkenheidstriggers voor nieuwe berichten, opmerkingen en aanmeldingen."
+
+#: inc/modules/learn/chapters.php:166
+msgid "Set up email notifications"
+msgstr "Stel e-mailmeldingen in"
+
+#: inc/modules/learn/chapters.php:170
+msgid "Open Notifications"
+msgstr "Open meldingen"
+
+#: inc/modules/learn/chapters.php:177
+msgid "Enable Community Feeds"
+msgstr "Schakel gemeenschapsfeeds in"
+
+#: inc/modules/learn/chapters.php:178
+msgid "Aggregate posts from all your Discussion spaces into a single feed so members see activity at a glance."
+msgstr "Agregeer berichten uit al uw discussie-ruimtes in één feed, zodat leden activiteiten in één oogopslag zien."
+
+#: inc/modules/learn/chapters.php:181
+msgid "Enable community feeds"
+msgstr "Schakel gemeenschapsfeeds in"
+
+#: inc/modules/learn/chapters.php:185
+msgid "Open Feeds Settings"
+msgstr "Open feedinstellingen"
+
+#: inc/modules/learn/chapters.php:194
+msgid "Connect Integrations"
+msgstr "Verbind integraties"
+
+#: inc/modules/learn/chapters.php:195
+msgid "Link third-party services and AI tools to extend your portal."
+msgstr "Koppel externe diensten en AI-tools om uw portal uit te breiden."
+
+#: inc/modules/learn/chapters.php:201
+msgid "Set Up Integrations"
+msgstr "Stel integraties in"
+
+#: inc/modules/learn/chapters.php:202
+msgid "Connect Google, Facebook, reCAPTCHA, Giphy, and other third-party services to your portal."
+msgstr "Verbind Google, Facebook, reCAPTCHA, Giphy en andere externe diensten met uw portal."
+
+#: inc/modules/learn/chapters.php:205
+msgid "Set up integrations"
+msgstr "Stel integraties in"
+
+#: inc/modules/learn/chapters.php:209
+msgid "Open Integrations"
+msgstr "Open integraties"
+
+#: inc/modules/learn/chapters.php:216
+msgid "Configure MCP Connection"
+msgstr "Configureer MCP-verbinding"
+
+#: inc/modules/learn/chapters.php:217
+msgid "Set up Model Context Protocol to let AI clients interact with your community data."
+msgstr "Stel Model Context Protocol in om AI-clients met uw gemeenschapsgegevens te laten interageren."
+
+#: inc/modules/learn/chapters.php:220
+msgid "Configure MCP connection"
+msgstr "Configureer MCP-verbinding"
+
+#: inc/modules/learn/chapters.php:224
+msgid "Open MCP Settings"
+msgstr "Open MCP-instellingen"
+
+#: inc/modules/learn/chapters.php:233
+msgid "Grow with Pro"
+msgstr "Groeien met Pro"
+
+#: inc/modules/learn/chapters.php:234
+msgid "Scale engagement with advanced features available in SureDash Pro."
+msgstr "Schaal betrokkenheid met geavanceerde functies die beschikbaar zijn in SureDash Pro."
+
+#: inc/modules/learn/chapters.php:240
+msgid "Create an Events Space"
+msgstr "Creëer een Evenementenruimte"
+
+#: inc/modules/learn/chapters.php:241
+msgid "Host webinars, meetups, and live Q&As with RSVP tracking for your members."
+msgstr "Host webinars, meetups en live Q&A's met RSVP-tracking voor je leden."
+
+#: inc/modules/learn/chapters.php:244
+msgid "Create an events space"
+msgstr "Creëer een evenementenruimte"
+
+#: inc/modules/learn/chapters.php:248
+msgid "Create Events Space"
+msgstr "Creëer Evenementenruimte"
+
+#: inc/modules/learn/chapters.php:255
+msgid "Create a Collection Space"
+msgstr "Creëer een Collectieruimte"
+
+#: inc/modules/learn/chapters.php:256
+msgid "Curate and bundle content from across your portal into focused collections for your members."
+msgstr "Curateer en bundel inhoud van je portal in gerichte collecties voor je leden."
+
+#: inc/modules/learn/chapters.php:259
+msgid "Create a collection space"
+msgstr "Creëer een verzamelruimte"
+
+#: inc/modules/learn/chapters.php:263
+msgid "Create Collection Space"
+msgstr "Creëer Collectieruimte"
+
+#: inc/modules/learn/chapters.php:270
+msgid "Set Up the Leaderboard"
+msgstr "Stel het leaderboard in"
+
+#: inc/modules/learn/chapters.php:271
+msgid "Gamify engagement — award points for posts, comments, and reactions."
+msgstr "Gamify betrokkenheid - geef punten voor berichten, opmerkingen en reacties."
+
+#: inc/modules/learn/chapters.php:274
+msgid "Set up the leaderboard"
+msgstr "Stel het leaderboard in"
+
+#: inc/modules/learn/chapters.php:278
+msgid "Open Leaderboard"
+msgstr "Open leaderboard"
+
+#: inc/modules/learn/learn.php:146
+msgid "Invalid chapter or step identifier."
+msgstr "Ongeldig hoofdstuk of stap identificatie."
+
+#: inc/utils/helper.php:1432
+msgid "Activity"
+msgstr "Activiteit"
+
+#: inc/utils/helper.php:1436
+msgid "A→Z"
+msgstr "A→Z"
+
+#: inc/utils/helper.php:1465
+msgid "Sort:"
+msgstr "Sorteren:"
+
+#: inc/utils/helper.php:1476
+msgid "List view"
+msgstr "Lijstweergave"
+
+#: inc/utils/helper.php:1485
+msgid "Grid view"
+msgstr "Rasterweergave"
+
+#: inc/utils/helper.php:2888
+msgid "Points ranking of portal members."
+msgstr "Puntenranglijst van portalleden."
+
+#: inc/utils/helper.php:2891
+msgid "Member Directory"
+msgstr "Ledenregister"
+
+#: inc/utils/helper.php:2896
+msgid "Browse and search portal members."
+msgstr "Blader door en zoek portalleden."
+
+#: inc/utils/helper.php:2904
+msgid "Resources the user has accessed."
+msgstr "Hulpmiddelen die de gebruiker heeft geraadpleegd."
+
+#: inc/utils/helper.php:2912
+msgid "User's saved posts and content."
+msgstr "Opgeslagen berichten en inhoud van de gebruiker."
+
+#: inc/utils/helper.php:2922
+msgid "User's notification preferences."
+msgstr "Meldingsvoorkeuren van de gebruiker."
+
+#: inc/utils/helper.php:2930
+msgid "Form to update profile details."
+msgstr "Formulier om profielgegevens bij te werken."
+
+#: inc/utils/helper.php:2942
+msgid "User's public, read-only profile."
+msgstr "Openbare, alleen-lezen profiel van de gebruiker."
+
+#: assets/build/portals-app.js:8
+msgid "No portal pages are available."
+msgstr "Geen portalpagina's beschikbaar."
+
+#: assets/build/portals-app.js:8
+msgid "Available with SureDash Pro."
+msgstr "Beschikbaar met SureDash Pro."
+
+#: assets/build/portals-app.js:8
+msgid "Add Core Page"
+msgstr "Voeg kernpagina toe"
+
+#: assets/build/portals-app.js:8
+msgid "Choose a page"
+msgstr "Kies een pagina"
+
+#: assets/build/portals-app.js:8
+msgid "Publish a standalone article or announcement."
+msgstr "Publiceer een zelfstandig artikel of aankondiging."
+
+#: assets/build/portals-app.js:8
+msgid "Spark threaded conversations with members."
+msgstr "Start gespreksdraden met leden."
+
+#: assets/build/portals-app.js:8
+msgid "Send members to a URL outside your portal."
+msgstr "Stuur leden naar een URL buiten uw portal."
+
+#: assets/build/portals-app.js:8
+msgid "Deliver lessons with progress tracking."
+msgstr "Lever lessen met voortgangsregistratie."
+
+#: assets/build/portals-app.js:8
+msgid "Group related spaces under one parent."
+msgstr "Groep gerelateerde ruimtes onder één ouder."
+
+#: assets/build/portals-app.js:8
+msgid "Organize searchable files and downloads."
+msgstr "Organiseer doorzoekbare bestanden en downloads."
+
+#: assets/build/portals-app.js:8
+msgid "Schedule live sessions with RSVPs."
+msgstr "Plan live sessies met RSVP's."
+
+#: assets/build/portals-app.js:8
+msgid "Core Pages"
+msgstr "Kernpagina's"
+
+#: assets/build/portals-app.js:8
+msgid "Pre-built utility pages included with your portal."
+msgstr "Vooraf gebouwde utilitypagina's inbegrepen bij uw portal."
+
+#: assets/build/portals-app.js:8
+msgid "Spaces hold a single type of content. Pick the one that fits what you want to share."
+msgstr "Ruimtes bevatten één type inhoud. Kies degene die past bij wat u wilt delen."
+
+#: assets/build/portals-app.js:8
+msgid "New"
+msgstr "Nieuw"
+
+#: assets/build/portals-app.js:11
+msgid "Edit Portal Page"
+msgstr "Bewerk portalpagina"
+
+#: assets/build/portals-app.js:11
+msgid "Portal Page"
+msgstr "Portalpagina"
+
+#: assets/build/portals-app.js:11
+msgid "Enter Title"
+msgstr "Voer titel in"
+
+#: assets/build/portals-app.js:17
+msgid "Lesson Slug"
+msgstr "Les Slug"
+
+#: assets/build/portals-app.js:17
+msgid "Leave empty to auto-generate from title"
+msgstr "Laat leeg om automatisch te genereren op basis van titel"
+
+#: assets/build/portals-app.js:17
+msgid "Leave empty to keep current slug"
+msgstr "Laat leeg om huidige slug te behouden"
+
+#: assets/build/portals-app.js:21
+msgid "Comments enabled — click to disable"
+msgstr "Opmerkingen ingeschakeld - klik om uit te schakelen"
+
+#: assets/build/portals-app.js:21
+msgid "Comments disabled — click to enable"
+msgstr "Opmerkingen uitgeschakeld - klik om in te schakelen"
+
+#: assets/build/portals-app.js:21
+msgid "More options"
+msgstr "Meer opties"
+
+#: assets/build/portals-app.js:21
+msgid "View Lesson"
+msgstr "Bekijk les"
+
+#: assets/build/portals-app.js:21
+msgid "Move Lesson"
+msgstr "Verplaats les"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Lesson"
+msgstr "Dupliceer les"
+
+#: assets/build/portals-app.js:21
+msgid "Section options"
+msgstr "Sectie-opties"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Section"
+msgstr "Dupliceer sectie"
+
+#: assets/build/portals-app.js:21
+msgid "Delete Section"
+msgstr "Verwijder sectie"
+
+#: assets/build/portals-app.js:21
+msgid "Target Section"
+msgstr "Doelsectie"
+
+#: assets/build/portals-app.js:21
+msgid "— Select a section —"
+msgstr "— Selecteer een sectie —"
+
+#: assets/build/portals-app.js:21
+msgid "This lesson is already in the selected section."
+msgstr "Deze les is al in de geselecteerde sectie."
+
+#: assets/build/portals-app.js:21
+msgid "Move"
+msgstr "Verplaatsen"
+
+#: assets/build/portals-app.js:21
+msgid "Section"
+msgstr "Sectie"
+
+#: assets/build/portals-app.js:21
+msgid "Resource"
+msgstr "Hulpbron"
+
+#: assets/build/portals-app.js:21
+msgid "Failed to load spaces."
+msgstr "Laden van ruimtes mislukt."
+
+#: assets/build/portals-app.js:21
+msgid "current"
+msgstr "huidig"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate to space"
+msgstr "Dupliceer naar ruimte"
+
+#: assets/build/portals-app.js:21
+msgid "Loading spaces…"
+msgstr "Ruimtes laden…"
+
+#: assets/build/portals-app.js:21
+msgid "— Select a space —"
+msgstr "— Selecteer een ruimte —"
+
+#: assets/build/portals-app.js:21
+msgid "No compatible spaces found."
+msgstr "Geen compatibele ruimtes gevonden."
+
+#: assets/build/portals-app.js:21
+msgid "Add to section"
+msgstr "Toevoegen aan sectie"
+
+#: assets/build/portals-app.js:21
+msgid "Loading sections…"
+msgstr "Secties laden…"
+
+#: assets/build/portals-app.js:21
+msgid "No sections found."
+msgstr "Geen secties gevonden."
+
+#: assets/build/portals-app.js:21
+msgid "Enter name…"
+msgstr "Voer naam in…"
+
+#: assets/build/portals-app.js:21
+msgid "Duplication failed. Please try again."
+msgstr "Duplicatie mislukt. Probeer het opnieuw."
+
+#: assets/build/portals-app.js:21
+msgid "Collapse all sections"
+msgstr "Vouw alle secties in"
+
+#: assets/build/portals-app.js:21
+msgid "Expand all sections"
+msgstr "Vouw alle secties uit"
+
+#: assets/build/portals-app.js:21
+msgid "selected"
+msgstr "geselecteerd"
+
+#: assets/build/portals-app.js:21
+msgid "Status updated."
+msgstr "Status bijgewerkt."
+
+#: assets/build/portals-app.js:21
+msgid "Failed to update status."
+msgstr "Status bijwerken mislukt."
+
+#: assets/build/portals-app.js:21
+msgid "Duplicated successfully."
+msgstr "Met succes gedupliceerd."
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Resource"
+msgstr "Dupliceer hulpbron"
+
+#: assets/build/portals-app.js:21
+msgid "Edit Event"
+msgstr "Bewerk evenement"
+
+#: assets/build/portals-app.js:21
+msgid "Duplicate Event"
+msgstr "Dupliceer evenement"
+
+#: assets/build/portals-app.js:21
+msgid "Customize the portal layout, configure the navigation menu, update colors, and much more from Customize Portal."
+msgstr "Pas de portalindeling aan, configureer het navigatiemenu, werk kleuren bij en nog veel meer vanuit Portal aanpassen."
+
+#: assets/build/portals-app.js:24
+msgid "Roles & Profile menu"
+msgstr "Rollen & Profielmenu"
+
+#: assets/build/portals-app.js:27
+msgid "Screenshot coming soon."
+msgstr "Screenshot komt binnenkort."
+
+#: assets/build/portals-app.js:27
+msgid "Mark step incomplete"
+msgstr "Markeer stap als onvoltooid"
+
+#: assets/build/portals-app.js:27
+msgid "Mark step complete"
+msgstr "Markeer stap als voltooid"
+
+#: assets/build/portals-app.js:27
+msgid "Read documentation"
+msgstr "Lees documentatie"
+
+#: assets/build/portals-app.js:27
+msgid "View screenshot"
+msgstr "Bekijk screenshot"
+
+#: assets/build/portals-app.js:27
+msgid "Learn how"
+msgstr "Leer hoe"
+
+#: assets/build/portals-app.js:27
+msgid "Celebration"
+msgstr "Viering"
+
+#: assets/build/portals-app.js:27
+msgid "You've completed setup!"
+msgstr "Je hebt de installatie voltooid!"
+
+#: assets/build/portals-app.js:27
+msgid "Your portal is ready to welcome members. Explore Pro features below to take it further."
+msgstr "Je portal is klaar om leden te verwelkomen. Verken de Pro-functies hieronder om het verder te brengen."
+
+#: assets/build/portals-app.js:27
+msgid "Failed to load learn chapters."
+msgstr "Kon de leerhoofdstukken niet laden."
+
+#: assets/build/portals-app.js:27
+msgid "Could not update your progress. Please try again."
+msgstr "Kon je voortgang niet bijwerken. Probeer het opnieuw."
+
+#: assets/build/portals-app.js:27
+msgid "Could not dismiss the Learn tab. Please try again."
+msgstr "Kon het Leer-tabblad niet sluiten. Probeer het opnieuw."
+
+#: assets/build/portals-app.js:27
+#: assets/build/portals-app.js:33
+#: assets/build/portals-app.js:36
+msgid "Learn"
+msgstr "Leren"
+
+#: assets/build/portals-app.js:27
+msgid "To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of instructional videos. These will help you learn how to set up, customize, and grow your portal."
+msgstr "Om je te helpen volledige controle te krijgen en het succes van je gemeenschap te waarborgen, hebben we een aantal taken uiteengezet en een set instructievideo's voorbereid. Deze zullen je helpen leren hoe je je portal kunt opzetten, aanpassen en laten groeien."
+
+#: assets/build/portals-app.js:27
+msgid "No learn chapters available yet."
+msgstr "Geen leerhoofdstukken beschikbaar."
+
+#: assets/build/portals-app.js:27
+msgid "Dismiss Learn tab"
+msgstr "Verwijder het Leren-tabblad"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

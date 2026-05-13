@@ -8,6 +8,7 @@
 namespace SureDashboard\Core;
 
 use SureDashboard\Core\Routers\Backend as BackendRoute;
+use SureDashboard\Core\Routers\Dashboard as DashboardRoute;
 use SureDashboard\Core\Routers\Emails;
 use SureDashboard\Core\Routers\Misc as MiscRoute;
 use SureDashboard\Core\Routers\Onboarding;
@@ -347,6 +348,16 @@ class Routes {
 					'callback'            => [ BackendRoute::get_instance(), 'content_action' ],
 					'permission_callback' => 'admin',
 				],
+				'duplicate-content'                  => [
+					'method'              => 'POST',
+					'callback'            => [ BackendRoute::get_instance(), 'duplicate_content' ],
+					'permission_callback' => 'admin',
+				],
+				'get-compatible-spaces'              => [
+					'method'              => 'POST',
+					'callback'            => [ BackendRoute::get_instance(), 'get_compatible_spaces' ],
+					'permission_callback' => 'admin',
+				],
 				'content-bulk-action'                => [
 					'method'              => 'POST',
 					'callback'            => [ BackendRoute::get_instance(), 'content_bulk_action' ],
@@ -456,6 +467,17 @@ class Routes {
 				'update-content-settings'            => [
 					'method'              => 'POST',
 					'callback'            => [ BackendRoute::get_instance(), 'update_content_settings' ],
+					'permission_callback' => 'admin',
+				],
+				'get-preview-url'                    => [
+					'method'              => 'GET',
+					'callback'            => [ BackendRoute::get_instance(), 'get_preview_url' ],
+					'permission_callback' => 'admin',
+				],
+				// Dashboard routes.
+				'learn-dismiss'                      => [
+					'method'              => 'POST',
+					'callback'            => [ DashboardRoute::get_instance(), 'dismiss_learn' ],
 					'permission_callback' => 'admin',
 				],
 			]

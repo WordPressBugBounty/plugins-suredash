@@ -1407,98 +1407,96 @@ class Helper {
 	 * @since 1.6.3
 	 */
 	public static function render_feeds_controls( $current_sort = 'date_desc', $initial_view = 'grid', $base_id = 0, $category_id = 0, $post_type = '', $taxonomy = '', $space_id = 0, $user_id = 0, $classes = '' ): void {
-		// Define sort options with labels and icons.
+		// Define sort options. `short` is the abbreviation shown inside the
+		// pill trigger so the button stays a predictable, fixed width; the
+		// dropdown still surfaces the full label.
 		$sort_options = [
 			'date_desc'    => [
 				'label' => __( 'Latest', 'suredash' ),
-				'icon'  => 'Clock',
+				'short' => __( 'Latest', 'suredash' ),
 			],
 			'date_asc'     => [
 				'label' => __( 'Oldest', 'suredash' ),
-				'icon'  => 'History',
+				'short' => __( 'Oldest', 'suredash' ),
 			],
 			'popular'      => [
 				'label' => __( 'Popular', 'suredash' ),
-				'icon'  => 'MessageCircle',
+				'short' => __( 'Popular', 'suredash' ),
 			],
 			'likes'        => [
 				'label' => __( 'Likes', 'suredash' ),
-				'icon'  => 'Heart',
+				'short' => __( 'Likes', 'suredash' ),
 			],
 			'new_activity' => [
 				'label' => __( 'New Activity', 'suredash' ),
-				'icon'  => 'Activity',
+				'short' => __( 'Activity', 'suredash' ),
 			],
 			'alphabetical' => [
 				'label' => __( 'Alphabetical', 'suredash' ),
-				'icon'  => 'ArrowDownAZ',
+				'short' => __( 'A→Z', 'suredash' ),
 			],
 		];
 
-		$current_sort_label = $sort_options[ $current_sort ]['label'] ?? __( 'Latest', 'suredash' );
-		$current_sort_icon  = $sort_options[ $current_sort ]['icon'] ?? 'Clock';
+		$current_sort_short = $sort_options[ $current_sort ]['short'] ?? __( 'Latest', 'suredash' );
 		?>
-		<!-- Feeds Controls -->
-		<div class="portal-feeds-controls sd-flex sd-justify-end sd-items-center sd-mb-24 sd-p-8 <?php echo esc_attr( $classes ); ?>">
+		<!-- Feeds Controls — one combined pill: trigger (sort menu) on the -->
+		<!-- left, two icon-only view-toggle halves (list / grid) on the -->
+		<!-- right. Active view carries `.active`; clicking the inactive -->
+		<!-- one re-fetches the feed in that mode. -->
+		<!-- A horizontal divider line fills the empty space to the left of -->
+		<!-- the pill so the controls anchor against the content above. -->
+		<div class="portal-feeds-controls sd-flex sd-justify-end sd-items-center sd-mb-8 sd-p-8 <?php echo esc_attr( $classes ); ?>">
 			<div class="sd-flex-1 sd-border-t sd-mr-8"></div>
-			<!-- Sort Dropdown -->
-			<div class="sd-flex sd-items-center sd-gap-8">
-				<span class="sd-font-14">
-					<?php echo esc_html__( 'Sort by:', 'suredash' ); ?>
-				</span>
-				<div class="portal-feeds-sort-wrapper sd-relative">
-					<button
-						type="button"
-						class="portal-button button-ghost portal-feeds-sort-trigger sd-flex sd-items-center sd-gap-8 sd-pointer"
-						aria-haspopup="true"
-						aria-expanded="false"
-						aria-label="<?php echo esc_attr__( 'Sort options', 'suredash' ); ?>"
-					>
-						<?php self::get_library_icon( $current_sort_icon, true, 'sm' ); ?>
-						<span class="portal-feeds-sort-label"><?php echo esc_html( $current_sort_label ); ?></span>
-						<?php self::get_library_icon( 'ChevronDown', true, 'sm', '' ); ?>
-					</button>
-					<div class="portal-feeds-sort-dropdown sd-absolute sd-display-none sd-bg-content sd-border sd-radius-12 sd-shadow-lg sd-mt-8 sd-z-10 sd-min-w-200"
-						data-base_id="<?php echo esc_attr( (string) $base_id ); ?>"
-						data-category="<?php echo esc_attr( (string) $category_id ); ?>"
-						data-post_type="<?php echo esc_attr( $post_type ); ?>"
-						data-taxonomy="<?php echo esc_attr( $taxonomy ); ?>"
-						data-space_id="<?php echo esc_attr( (string) $space_id ); ?>"
-						data-user_id="<?php echo esc_attr( (string) $user_id ); ?>">
+			<div class="sort-pill portal-feeds-sort-pill"
+				data-base_id="<?php echo esc_attr( (string) $base_id ); ?>"
+				data-category="<?php echo esc_attr( (string) $category_id ); ?>"
+				data-post_type="<?php echo esc_attr( $post_type ); ?>"
+				data-taxonomy="<?php echo esc_attr( $taxonomy ); ?>"
+				data-space_id="<?php echo esc_attr( (string) $space_id ); ?>"
+				data-user_id="<?php echo esc_attr( (string) $user_id ); ?>">
+				<button
+					type="button"
+					class="sort-pill-trigger"
+					aria-haspopup="listbox"
+					aria-expanded="false"
+					aria-label="<?php echo esc_attr__( 'Sort options', 'suredash' ); ?>"
+				>
+					<span class="sort-pill-label">
+						<span class="sort-pill-label-prefix"><?php echo esc_html__( 'Sort:', 'suredash' ); ?></span>
+						<span class="sort-pill-label-value"><?php echo esc_html( $current_sort_short ); ?></span>
+					</span>
+					<span class="sort-pill-chevron" aria-hidden="true"><?php self::get_library_icon( 'ChevronDown', true, 'sm', '', [], true ); ?></span>
+				</button>
+				<!-- View-toggle: two icon-only halves (list + grid). Active option -->
+				<!-- gets `.active`; clicking either switches the feed view. -->
+				<button
+					type="button"
+					class="sort-pill-view-toggle-option <?php echo $initial_view === 'list' ? 'active' : ''; ?>"
+					data-view="list"
+					aria-label="<?php echo esc_attr__( 'List view', 'suredash' ); ?>"
+					aria-pressed="<?php echo $initial_view === 'list' ? 'true' : 'false'; ?>"
+				>
+					<?php self::get_library_icon( 'List', true, 'sm', '', [], true ); ?>
+				</button>
+				<button
+					type="button"
+					class="sort-pill-view-toggle-option <?php echo $initial_view === 'grid' ? 'active' : ''; ?>"
+					data-view="grid"
+					aria-label="<?php echo esc_attr__( 'Grid view', 'suredash' ); ?>"
+					aria-pressed="<?php echo $initial_view === 'grid' ? 'true' : 'false'; ?>"
+				>
+					<?php self::get_library_icon( 'LayoutGrid', true, 'sm', '', [], true ); ?>
+				</button>
+				<div class="sort-pill-menu" role="listbox">
 					<?php foreach ( $sort_options as $sort_key => $sort_data ) { ?>
-						<?php
-						$is_active    = $sort_key === $current_sort;
-						$active_class = $is_active ? 'active' : '';
-						$check_class  = $is_active ? 'portal-feeds-sort-check' : 'portal-feeds-sort-check sd-hidden';
-						?>
-						<button type="button" class="portal-button button-ghost sd-hover-bg-secondary portal-feeds-sort-option sd-font-normal <?php echo esc_attr( $active_class ); ?> sd-w-full sd-justify-between sd-pointer" data-sort="<?php echo esc_attr( $sort_key ); ?>">
-							<div class="sd-flex sd-items-center sd-gap-8">
-								<?php self::get_library_icon( $sort_data['icon'], true, 'sm' ); ?>
-								<span class="portal-feeds-sort-option-label"><?php echo esc_html( $sort_data['label'] ); ?></span>
-							</div>
-							<?php self::get_library_icon( 'Check', true, 'sm', $check_class ); ?>
+						<?php $is_active = $sort_key === $current_sort; ?>
+						<button type="button" class="sort-pill-option <?php echo $is_active ? 'active' : ''; ?>" role="option" aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>" data-sort="<?php echo esc_attr( $sort_key ); ?>" data-short-label="<?php echo esc_attr( $sort_data['short'] ); ?>">
+							<span class="sort-pill-option-label"><?php echo esc_html( $sort_data['label'] ); ?></span>
+							<span class="sort-pill-option-check" aria-hidden="true"><?php self::get_library_icon( 'Check', true, 'sm', '', [], true ); ?></span>
 						</button>
 					<?php } ?>
-					</div>
 				</div>
 			</div>
-
-			<!-- View Toggle -->
-			<button
-				type="button"
-				class="portal-button button-ghost portal-feeds-view-toggle-btn sd-flex sd-items-center sd-gap-8 sd-pointer"
-				data-view="<?php echo esc_attr( $initial_view ); ?>"
-				aria-label="<?php echo esc_attr__( 'Toggle view', 'suredash' ); ?>"
-				data-base_id="<?php echo esc_attr( (string) $base_id ); ?>"
-		data-category="<?php echo esc_attr( (string) $category_id ); ?>"
-		data-post_type="<?php echo esc_attr( $post_type ); ?>"
-		data-taxonomy="<?php echo esc_attr( $taxonomy ); ?>"
-		data-space_id="<?php echo esc_attr( (string) $space_id ); ?>"
-				data-user_id="<?php echo esc_attr( (string) $user_id ); ?>"
-			>
-				<?php self::get_library_icon( 'Rows2', true, 'sm', 'grid-icon ' . ( $initial_view === 'list' ? '' : 'sd-display-none' ) ); ?>
-				<?php self::get_library_icon( 'List', true, 'sm', 'list-icon ' . ( $initial_view === 'grid' ? '' : 'sd-display-none' ) ); ?>
-			</button>
 
 		</div>
 		<?php
@@ -2852,6 +2850,230 @@ class Helper {
 
 		// Fallback to grid.
 		return 'grid';
+	}
+
+	/**
+	 * Built-in portal pages selectable through the Portal Page space type.
+	 *
+	 * Each entry is a target the admin can pick when adding a Portal Page
+	 * space. The popup picker, the sidebar URL resolver, and the duplicate
+	 * check all read from this single source of truth, so adding a new
+	 * built-in page only requires extending this array (and ensuring the
+	 * route exists). The `url` template is resolved via
+	 * `suredash_dynamic_content_support()` at render time so `{portal_slug}`
+	 * and `{portal_logout_url}` substitute correctly per site.
+	 *
+	 * @since 1.8.1
+	 * @return array<string, array{label:string,url:string,icon:string,pro:bool,description:string}>
+	 */
+	public static function get_portal_page_targets(): array {
+		// Order is intentional — feature pages first (most likely picks), then
+		// account-related pages (View Profile, Edit Profile, Logout) at the
+		// bottom because they're already reachable from the profile menu and
+		// shouldn't crowd the picker.
+		//
+		// `edit_profile` must sit AFTER `notifications`: both share the
+		// `user-profile` sub_query, and `get_active_portal_page_target()`
+		// returns the first match. The notifications matcher has a
+		// `tab=notifications` guard and needs first crack at the URL.
+		return apply_filters(
+			'suredash_portal_page_targets',
+			[
+				'leaderboard'      => [
+					'label'       => __( 'Leaderboard', 'suredash' ),
+					'url'         => '/{portal_slug}/leaderboard/',
+					'icon'        => 'Trophy',
+					'pro'         => true,
+					'sub_query'   => 'leaderboard',
+					'description' => __( 'Points ranking of portal members.', 'suredash' ),
+				],
+				'members'          => [
+					'label'       => __( 'Member Directory', 'suredash' ),
+					'url'         => '/{portal_slug}/members/',
+					'icon'        => 'Users',
+					'pro'         => true,
+					'sub_query'   => 'members',
+					'description' => __( 'Browse and search portal members.', 'suredash' ),
+				],
+				'resource_history' => [
+					'label'       => __( 'Resource History', 'suredash' ),
+					'url'         => '/{portal_slug}/resource-history/',
+					'icon'        => 'History',
+					'pro'         => true,
+					'sub_query'   => 'resource-history',
+					'description' => __( 'Resources the user has accessed.', 'suredash' ),
+				],
+				'bookmarks'        => [
+					'label'       => __( 'Bookmarks', 'suredash' ),
+					'url'         => '/{portal_slug}/bookmarks/',
+					'icon'        => 'Bookmark',
+					'pro'         => false,
+					'sub_query'   => 'bookmarks',
+					'description' => __( 'User\'s saved posts and content.', 'suredash' ),
+				],
+				'notifications'    => [
+					'label'       => __( 'Notifications', 'suredash' ),
+					'url'         => '/{portal_slug}/user-profile/?tab=notifications',
+					'icon'        => 'Bell',
+					'pro'         => false,
+					// `notifications` is a tab on the user-profile page — the
+					// active matcher additionally checks the `tab` query arg.
+					'sub_query'   => 'user-profile',
+					'description' => __( 'User\'s notification preferences.', 'suredash' ),
+				],
+				'edit_profile'     => [
+					'label'       => __( 'Edit Profile', 'suredash' ),
+					'url'         => '/{portal_slug}/user-profile/',
+					'icon'        => 'UserPen',
+					'pro'         => false,
+					'sub_query'   => 'user-profile',
+					'description' => __( 'Form to update profile details.', 'suredash' ),
+				],
+				// Key remains `user_profile` for backward compatibility with
+				// existing saved Portal Page spaces; the label is "View
+				// Profile" to match the profile-menu terminology and to
+				// disambiguate from "Edit Profile" above.
+				'user_profile'     => [
+					'label'       => __( 'View Profile', 'suredash' ),
+					'url'         => '/{portal_slug}/{portal_view_profile}/',
+					'icon'        => 'User',
+					'pro'         => false,
+					'sub_query'   => 'user-view',
+					'description' => __( 'User\'s public, read-only profile.', 'suredash' ),
+				],
+			]
+		);
+	}
+
+	/**
+	 * Resolve the rendered URL for a Portal Page space.
+	 *
+	 * Substitutes `{portal_slug}`, `{portal_logout_url}`, and the other
+	 * dynamic tags via the existing `suredash_dynamic_content_support()`
+	 * helper that the profile menu already uses for the same template tags.
+	 *
+	 * @since 1.8.1
+	 * @param string $target One of the keys in `get_portal_page_targets()`.
+	 * @return string Resolved URL, or '#' if the target is unknown.
+	 */
+	public static function get_portal_page_url( string $target ): string {
+		$targets = self::get_portal_page_targets();
+		if ( ! isset( $targets[ $target ]['url'] ) ) {
+			return '#';
+		}
+
+		return (string) suredash_dynamic_content_support( $targets[ $target ]['url'] );
+	}
+
+	/**
+	 * Find which Portal Page target matches the current request, if any.
+	 *
+	 * Used by the sidebar to highlight the active item when the visitor
+	 * lands on `/portal/leaderboard/`, `/portal/members/`, etc. — those
+	 * pages don't have a real post ID, so the post-ID equality check the
+	 * sidebar uses for normal spaces never fires.
+	 *
+	 * @since 1.8.1
+	 * @return string Active target key, or '' when no Portal Page is active.
+	 */
+	public static function get_active_portal_page_target(): string {
+		if ( ! function_exists( 'suredash_get_sub_queried_page' ) ) {
+			return '';
+		}
+
+		$current_sub_query = (string) suredash_get_sub_queried_page();
+		if ( $current_sub_query === '' ) {
+			return '';
+		}
+
+		// `notifications` and `user_profile` both live under the
+		// `user-profile` sub-query but with different `tab` query args.
+		// The notifications target wins only when `tab=notifications`.
+		$is_notifications_tab = $current_sub_query === 'user-profile'
+			&& isset( $_GET['tab'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only navigation match, no state change.
+			&& sanitize_key( wp_unslash( $_GET['tab'] ) ) === 'notifications'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only navigation match, no state change.
+
+		foreach ( self::get_portal_page_targets() as $target_key => $target_data ) {
+			$sub_query = isset( $target_data['sub_query'] ) ? (string) $target_data['sub_query'] : '';
+			if ( $sub_query === '' || $sub_query !== $current_sub_query ) {
+				continue;
+			}
+
+			if ( $target_key === 'notifications' && ! $is_notifications_tab ) {
+				continue;
+			}
+
+			return $target_key;
+		}
+
+		return '';
+	}
+
+	/**
+	 * Resolve the page-header title and icon for the active Portal Page.
+	 *
+	 * When a visitor lands on a sub-query page that the admin has surfaced
+	 * via a Portal Page space (e.g. an "Edit My Profile" Portal Page space
+	 * pointing to the `user-profile` endpoint), the admin almost always
+	 * wants the page header to read the *space's* title rather than the
+	 * canonical sub-query label ("Profile Information"). This helper looks
+	 * up the first matching Portal Page space for the currently active
+	 * target and returns its title + icon, or null when no match exists.
+	 *
+	 * If multiple Portal Page spaces share the same target (e.g. the same
+	 * page surfaced under different sidebar groups with different names),
+	 * the most recent one wins — that's deterministic without needing a
+	 * referrer-based heuristic and matches what the admin most recently
+	 * configured.
+	 *
+	 * @since 1.8.1
+	 * @return array{title:string,emoji:string}|null
+	 */
+	public static function get_active_portal_page_space_meta(): ?array {
+		$active_target = self::get_active_portal_page_target();
+		if ( $active_target === '' ) {
+			return null;
+		}
+
+		$matching = get_posts(
+			[
+				'post_type'      => SUREDASHBOARD_POST_TYPE,
+				'post_status'    => 'publish',
+				'posts_per_page' => 1,
+				'orderby'        => 'modified',
+				'order'          => 'DESC',
+				'fields'         => 'ids',
+				'meta_query'     => [ // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Targeted lookup with a small result set; no scalable alternative.
+					[
+						'key'     => 'integration',
+						'value'   => 'portal_page',
+						'compare' => '=',
+					],
+					[
+						'key'     => 'portal_page_target',
+						'value'   => $active_target,
+						'compare' => '=',
+					],
+				],
+			]
+		);
+
+		if ( empty( $matching ) ) {
+			return null;
+		}
+
+		$post_id = (int) $matching[0];
+		$title   = (string) get_the_title( $post_id );
+		if ( $title === '' ) {
+			return null;
+		}
+
+		$emoji = (string) PostMeta::get_post_meta_value( $post_id, 'item_emoji' );
+
+		return [
+			'title' => $title,
+			'emoji' => $emoji,
+		];
 	}
 
 	/**

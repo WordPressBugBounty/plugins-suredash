@@ -414,7 +414,10 @@ class Menu {
 					'can_user_register'            => boolval( get_option( 'users_can_register', false ) ),
 					'suremembers_active'           => suredash_is_suremembers_active(),
 					'suremembers_access_groups'    => Helper::get_suremembers_access_groups(),
+					'learn_dismissed'              => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed(),
+					'learn_has_new_steps'          => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed() && \SureDashboard\Inc\Modules\Learn\Learn::get_instance()->has_incomplete_free_steps(),
 					'all_spaces_for_dropdown'      => $this->get_all_spaces_for_dropdown(),
+					'portal_page_targets'          => Helper::get_portal_page_targets(),
 					'color_palette_names'          => suredash_get_color_palette_names(),
 					'default_colors_palettes'      => suredash_get_color_palette_defaults(),
 					'backward_compatibility'       => [
@@ -711,4 +714,5 @@ class Menu {
 
 		return $formatted_spaces;
 	}
+
 }

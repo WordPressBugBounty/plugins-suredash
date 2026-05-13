@@ -67,6 +67,10 @@ class PostMeta {
 					'default' => '',
 					'type'    => 'string',
 				],
+				'portal_page_target'      => [
+					'default' => '',
+					'type'    => 'string',
+				],
 				'link_target'             => [
 					'default' => '_blank',
 					'type'    => 'string',

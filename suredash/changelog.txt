@@ -1,4 +1,11 @@
 *** SureDash Changelog ***
+= 2026-05-13 - version 1.8.2 =
+* New: Introduced the Portal Pages space type, allowing admins to display portal pages such as User Profile, Bookmarks, Leaderboard, Memberships, and more as spaces for easier navigation.
+* New: Added a new Learn tab to help admins quickly complete and configure their portal setup.
+* Improvement: Implemented several UI and UX improvements across the plugin for a smoother experience.
+* Fix: Fixed an issue where the Posts Sorting option did not sort correctly in some cases within Discussion spaces.
+* Fix: Fixed an issue where the side border was missing in the List View layout.
+
 = 2026-05-04 - version 1.8.1 =
 * New: Added typography options for the Portal Navigation block to control font family, size, and weight.
 * New: Added a WP-CLI command to enable SureDash AI abilities from the terminal — `wp suredash abilities enable` with optional `--with-edit` and `--with-delete` flags.

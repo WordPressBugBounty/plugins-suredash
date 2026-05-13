@@ -137,17 +137,30 @@ class Onboarding {
 			return;
 		}
 
-		$url  = 'https://websitedemos.net/wp-json/suredash/v1/subscribe/';
-		$args = [
-			'body' => [
-				'EMAIL'      => $user_email,
-				'FIRST_NAME' => $first_name,
-				'LAST_NAME'  => $last_name,
-			],
-		];
+		$domain = wp_parse_url( home_url(), PHP_URL_HOST );
+		if ( ! is_string( $domain ) ) {
+			$domain = '';
+		}
+
+		$url  = 'https://metrics.brainstormforce.com/wp-json/bsf-metrics-server/v1/subscribe/';
+		$body = wp_json_encode(
+			[
+				'email'      => $user_email,
+				'first_name' => $first_name,
+				'last_name'  => $last_name,
+				'domain'     => $domain,
+				'source'     => 'suredash',
+			]
+		);
+		if ( $body === false ) {
+			wp_send_json_error( [ 'message' => __( 'Failed to encode subscription payload.', 'suredash' ) ] );
+		}
 
 		$args = [
-			'body' => $args,
+			'headers' => [
+				'Content-Type' => 'application/json',
+			],
+			'body'    => $body,
 		];
 
 		$response = wp_safe_remote_post( $url, $args );

@@ -176,6 +176,7 @@ class Analytics {
 		$this->track_onboarding_events( $events );
 		$this->track_feature_events( $events );
 		$this->track_integration_events( $events );
+		$this->track_learn_events( $events );
 
 		// pro_license_activated, leaderboard_enabled — handled by suredash-pro via detect_pro_state_events().
 	}
@@ -481,6 +482,73 @@ class Analytics {
 		if ( ! empty( $settings['suredash_mcp_server'] ) ) {
 			$events->track( 'mcp_server_enabled', 'yes' );
 		}
+	}
+
+	/**
+	 * Track Learn tab progress events.
+	 *
+	 * Emits two events on every cycle so the latest state is always reported:
+	 *  - learn_progress       — value `completed` or `in_progress`.
+	 *  - learn_tab_dismissed  — value `yes` or `no`.
+	 *
+	 * Both events share the same properties so the analytics backend can
+	 * correlate dismissal against which steps remain incomplete.
+	 *
+	 * @param \BSF_Analytics_Events $events Event tracker.
+	 *
+	 * @since 1.8.2
+	 */
+	private function track_learn_events( \BSF_Analytics_Events $events ): void {
+		if ( ! class_exists( 'SureDashboard\Inc\Modules\Learn\Learn' ) ) {
+			return;
+		}
+
+		$learn    = \SureDashboard\Inc\Modules\Learn\Learn::get_instance();
+		$chapters = $learn->get_chapters_with_progress();
+
+		$completed_ids  = [];
+		$incomplete_ids = [];
+
+		foreach ( $chapters as $chapter ) {
+			foreach ( $chapter['steps'] ?? [] as $step ) {
+				if ( ! empty( $step['isPro'] ) ) {
+					continue;
+				}
+
+				$step_id = $chapter['id'] . '/' . $step['id'];
+
+				if ( ! empty( $step['completed'] ) ) {
+					$completed_ids[] = $step_id;
+				} else {
+					$incomplete_ids[] = $step_id;
+				}
+			}
+		}
+
+		$all_complete = empty( $incomplete_ids ) && ! empty( $completed_ids );
+		$is_dismissed = \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed();
+
+		$properties = [
+			'completed_steps_count'  => (string) count( $completed_ids ),
+			'incomplete_steps_count' => (string) count( $incomplete_ids ),
+			'completed_steps'        => implode( ',', $completed_ids ),
+			'incomplete_steps'       => implode( ',', $incomplete_ids ),
+		];
+
+		// Re-track on every cycle so properties reflect the latest state.
+		$events->flush_pushed( [ 'learn_progress', 'learn_tab_dismissed' ] );
+
+		$events->track(
+			'learn_progress',
+			$all_complete ? 'completed' : 'in_progress',
+			$properties
+		);
+
+		$events->track(
+			'learn_tab_dismissed',
+			$is_dismissed ? 'yes' : 'no',
+			$properties
+		);
 	}
 
 	/**

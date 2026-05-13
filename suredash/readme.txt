@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,6 +138,13 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-05-13 - version 1.8.2 =
+* New: Introduced the Portal Pages space type, allowing admins to display portal pages such as User Profile, Bookmarks, Leaderboard, Memberships, and more as spaces for easier navigation.
+* New: Added a new Learn tab to help admins quickly complete and configure their portal setup.
+* Improvement: Implemented several UI and UX improvements across the plugin for a smoother experience.
+* Fix: Fixed an issue where the Posts Sorting option did not sort correctly in some cases within Discussion spaces.
+* Fix: Fixed an issue where the side border was missing in the List View layout.
+
 = 2026-05-04 - version 1.8.1 =
 * New: Added typography options for the Portal Navigation block to control font family, size, and weight.
 * New: Added a WP-CLI command to enable SureDash AI abilities from the terminal — `wp suredash abilities enable` with optional `--with-edit` and `--with-delete` flags.
@@ -221,57 +228,3 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * Fix: Removed the visual flicker on the frontend where the site briefly appeared in dark mode before switching to light mode on page load.
 * Fix: Resolved social login button spacing issues and fixed the social button position option in the login form.
 * Fix: Fixed an issue where the emoji selector was not working on the portal frontend.
-
-= 1.5.4 - 29th December 2025 =
-* New: Added 'suredash_post_content' filter to modify post content before it's returned.
-* Improvement: Showing Post Edit and Delete options for Discussion posts only.
-* Improvement: Clicking on a comment author now redirects to the author’s profile.
-* Improvement: Disabled rendering of the SureCart floating cart icon on Portal pages.
-* Fix: Resolved translation word order issue for relative time stamps (e.g., "5 days ago") in non-English languages like French.
-* Fix: Resolved a compatibility issue that prevented SureCart onboarding from completing successfully.
-* Fix: Resolved WordPress import errors caused by a missing SureDash method.
-* Fix: Resolved block editor console errors caused by the 'Back to SureDash' button.
-* Fix: Fixed Notification & Profile menu drawer position for RTL languages.
-* Fix: Resolved an issue where the Turnstile captcha was not refreshing after a failed login attempt.
-* Fix: Fixed special characters (š, č, ž, etc.) appearing bold by including extended Latin subset in Google Fonts loading.
-* Fix: Corrected the “Lost Password” link to redirect to the portal’s password reset screen instead of the default WordPress page.
-
-= 1.5.3 - 1st December 2025 =
-* Fix: Added compatibility for WordPress 6.9.
-* Fix: Updated Portal 'Remember Me' to store cookies for 14 days instead of session-only.
-* Fix: Fixed issue where email notification status was not updating.
-* Fix: Resolved missing first/last name in Portal Google registration and login flow clearing user names.
-* Fix: Fixed Quick View modal content height issue in Zen Browser.
-* Fix: Improved Breakdance compatibility for the Space Editor.
-
-= 1.5.2 - 24th November 2025 =
-* New: Added "Preserve HTML in Excerpts" option in Community Settings to maintain formatting (bold, italic, links, line breaks) in post excerpts. Enabled by default for new installations. ( https://suredash.com/docs/preserve-html-formatting-in-excerpts/ )
-* Improvement: Post likes available with tooltip support in Quick View post modal.
-* Fix: Post author badges displaying twice in the Quick View post modal.
-* Fix: SureMembers Compatibility - The protected media URL from SureMembers was redirecting to a discussion space in some edge cases.
-
-= 1.5.1 - 19th November 2025 =
-* Fix: Quick View post modal was not working for SureDash User role users.
-* Fix: Duplicated More options menu visible on single post view.
-* Fix: Reverted back "Preserve HTML in Excerpts" option due to compatibility issues, until next update.
-
-= 1.5.0 - 19th November 2025 =
-* New: Introducing Notifications for portal users for various purposes. ( https://suredash.com/docs/notifications-system-in-suredash/ )
-* New: Introduced the Badges system for community gamification.
-* New: Administrator users can also be listed from Users > User Roles filter, for assigning badges to admin portal managers.
-* New: Introducing emoji support for space icons to enhance visual communication and express emotions more effectively.
-* New: Introducing "Reset" ability for Light-Dark color palettes to get back to the default configuration.
-* New: Added "Preserve HTML in Excerpts" option in Community Settings to maintain formatting (bold, italic, links, line breaks) in post excerpts. Enabled by default for new installations. ( https://suredash.com/docs/preserve-html-formatting-in-excerpts/ )
-* New: Introduced "Website" & "Headline" fields under user profile settings.
-* New: Introducing Social links for the user profile to showcase on the user view page. ( https://suredash.com/docs/add-social-links-to-your-profile/ )
-* New: Introduced a "Thumbnail Image" option for link space for showcasing on the home page view.
-* Improvement: Improved the design UI for like-comment-share trigger buttons under spaces and posts for better responsive handling and user interaction.
-* Fix: Private community now redirects users back to the originally requested portal space URL after login.
-* Fix: Log out from the portal now redirects to the portal login page instead of the main site URL.
-* Fix: Flushing rewrite rule after post type registration, causing 404 for portal posts.
-* Tweak: The  Comment box with a big-sized image now has a scroll to reach the end.
-* Tweak: The Quick View post modal no longer has a fixed height.
-* Tweak: Allowed all space types to be selected in SureCart integration.
-* Tweak: Previously, a large-sized image upload in the comment box was causing a scrolling UI glitch.
-* Tweak: When navigating from a space edit screen back to the spaces list, the view now automatically scrolls to the recently edited space instead of staying at the top.
-* Tweak: All portal templates adjusted for better mobile responsiveness. ( https://suredash.com/docs/suredash-portal-template-patterns/ )

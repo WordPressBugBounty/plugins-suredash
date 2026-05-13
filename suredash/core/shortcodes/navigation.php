@@ -102,10 +102,18 @@ class Navigation {
 				);
 			}
 
-			$sub_query              = suredash_get_sub_queried_page();
-			$is_feeds               = $sub_query === 'feeds';
-			$is_portal_home         = suredash_is_home();
-			$current_space_id       = get_the_ID();
+			$sub_query          = suredash_get_sub_queried_page();
+			$is_feeds           = $sub_query === 'feeds';
+			$is_portal_home     = suredash_is_home();
+			$current_space_id   = get_the_ID();
+			$active_portal_page = Helper::get_active_portal_page_target();
+			// On sub-query routes (e.g. /portal/bookmarks/, /portal/members/),
+			// `get_the_ID()` returns whichever portal post WP fell back to —
+			// often the home_page setting or the first post in a default
+			// query — which has nothing to do with what's being rendered.
+			// Don't trust it for active-state matching: the post-ID equality
+			// check is only meaningful for singular portal CPT pages.
+			$is_sub_query_route     = $sub_query !== '';
 			$collapsible_navigation = apply_filters( 'suredashboard_enable_collapsible_navigation', false );
 			?>
 
@@ -165,14 +173,36 @@ class Navigation {
 									foreach ( $visible_spaces as $space_item ) {
 										$post_id = (int) $space_item['ID'];
 
-										$active_class   = ! $is_portal_home && $post_id === $current_space_id ? ' active' : '';
 										$content_type   = $space_item['integration'] ?? '';
 										$layout         = $space_item['layout'] ?? '';
 										$featured_image = $space_item['image_url'] ?? '';
 										$icon           = $space_item['item_emoji'] ?? 'Link';
 										$link_target    = $space_item['link_target'] ?? '';
 										$link_attr      = $content_type === 'link' ? 'target="' . esc_attr( $link_target ) . '"' : '';
-										$link           = $content_type === 'link' ? $space_item['link_url'] : get_permalink( $post_id );
+
+										if ( $content_type === 'link' ) {
+											$link = $space_item['link_url'];
+										} elseif ( $content_type === 'portal_page' ) {
+											$link = Helper::get_portal_page_url( (string) ( $space_item['portal_page_target'] ?? '' ) );
+										} else {
+											$link = get_permalink( $post_id );
+										}
+
+										// Portal Page spaces don't carry the visited post's ID, so the
+										// post-ID equality check below would never fire — match on the
+										// resolved target instead so the sidebar highlights correctly.
+										$is_active_portal_page = $content_type === 'portal_page'
+											&& ! empty( $space_item['portal_page_target'] )
+											&& $space_item['portal_page_target'] === $active_portal_page;
+										// `portal-active-sub-link` survives `highlightActiveLink()` in
+										// single.js — that helper strips and re-adds `active` based on
+										// `data-post_id`, but it always re-applies `active` to links with
+										// this class. Use it to keep Portal Page sidebar items lit up
+										// because they don't have a post-ID-based current page.
+										$active_class = ! $is_portal_home && ! $is_sub_query_route && $post_id === $current_space_id ? ' active' : '';
+										if ( $is_active_portal_page ) {
+											$active_class .= ' active portal-active-sub-link';
+										}
 
 										do_action( 'suredash_before_aside_navigation_item', $post_id );
 

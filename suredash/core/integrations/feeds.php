@@ -66,19 +66,23 @@ class Feeds extends Base {
 	/**
 	 * Get Query for Content Groups.
 	 *
-	 * @param int    $category_id Category ID.
-	 * @param string $order_by Order By.
-	 * @param string $order Order.
-	 * @param string $meta_key Meta Key.
+	 * @param int      $category_id Category ID.
+	 * @param string   $order_by    Order By.
+	 * @param string   $order       Order.
+	 * @param string   $meta_key    Meta Key.
+	 * @param int|null $limit       Optional. Override `feeds_per_page` — used by callers that need to
+	 *                              fetch a candidate pool larger than the visible page size (e.g. the
+	 *                              visibility-filter pre-slice in `get_integration_content()`). Falls
+	 *                              back to the `feeds_per_page` admin setting when null.
 	 * @return array<mixed>
 	 * @since 0.0.1
 	 */
-	public function get_query( $category_id, $order_by = 'post_date', $order = 'DESC', $meta_key = '' ) {
+	public function get_query( $category_id, $order_by = 'post_date', $order = 'DESC', $meta_key = '', $limit = null ) {
 		$query_args = [
 			'category_id'    => $category_id,
 			'post_type'      => SUREDASHBOARD_FEED_POST_TYPE,
 			'taxonomy'       => SUREDASHBOARD_FEED_TAXONOMY,
-			'posts_per_page' => Helper::get_option( 'feeds_per_page', 5 ),
+			'posts_per_page' => $limit !== null ? (int) $limit : Helper::get_option( 'feeds_per_page', 5 ),
 			'order_by'       => $order_by,
 			'order'          => $order,
 		];
@@ -436,7 +440,28 @@ class Feeds extends Base {
 			$initial_view            = Helper::get_feeds_view_preference( $space_default_view, $base_id );
 
 			$pinned_posts = Helper::get_pinned_posts( $base_id );
-			$query_posts  = $this->get_query( $feed_group_id, $order_by, $order, $meta_key );
+
+			$page_size = (int) Helper::get_option( 'feeds_per_page', 5 );
+
+			/**
+			 * Cap on the number of posts we pull from the DB before applying
+			 * the visibility filter. Sort happens at SQL, visibility filter
+			 * happens in PHP (`suredash_is_post_protected()`), so without a
+			 * separation between "candidate pool size" and "page size" the
+			 * filter can drop everything on a page and the user sees an
+			 * empty space even when posts they own exist further down.
+			 *
+			 * 1000 covers every real-world community space we've seen; sites
+			 * with larger spaces can bump it via the filter. The cap protects
+			 * us from runaway queries on giant spaces.
+			 *
+			 * @since 1.8.2
+			 * @param int $cap Maximum candidates to consider per request.
+			 */
+			$prefilter_cap = (int) apply_filters( 'suredash_feeds_visibility_prefilter_cap', 1000 );
+			$prefilter_cap = max( $page_size, $prefilter_cap );
+
+			$query_posts = $this->get_query( $feed_group_id, $order_by, $order, $meta_key, $prefilter_cap );
 
 			/**
 			 * Pre-filter restricted posts so the empty state banner shows correctly.
@@ -469,7 +494,10 @@ class Feeds extends Base {
 					update_meta_cache( 'user', $author_ids );
 				}
 
-				// Remove posts the current user cannot see.
+				// Remove posts the current user cannot see. Done BEFORE the
+				// page-size slice so sort changes don't accidentally hide
+				// visible posts when a sort-driven candidate window happens
+				// to be entirely populated by other users' scoped posts.
 				$query_posts = array_values(
 					array_filter(
 						$query_posts,
@@ -478,6 +506,13 @@ class Feeds extends Base {
 						}
 					)
 				);
+
+				// Slice the visibility-filtered set down to the requested
+				// page size for the initial render (page 1). Subsequent
+				// pages are served by the load-more-posts route, which
+				// performs the same fetch / filter / slice cycle for its
+				// own `paged` value.
+				$query_posts = array_slice( $query_posts, 0, $page_size );
 
 				$pinned_posts = array_values(
 					array_filter(

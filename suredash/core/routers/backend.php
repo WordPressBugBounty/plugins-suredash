@@ -261,6 +261,18 @@ class Backend {
 			wp_send_json_error( [ 'message' => __( 'Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces.', 'suredash' ) ] );
 		}
 
+		// Portal Page spaces validate the target against the known map; multiple
+		// spaces with the same target are allowed so admins can surface the same
+		// built-in page in different sidebar groups under different names.
+		if ( ! empty( $space_data['integration'] ) && $space_data['integration'] === 'portal_page' ) {
+			$portal_page_target = isset( $space_data['portal_page_target'] ) ? (string) $space_data['portal_page_target'] : '';
+			$known_targets      = array_keys( Helper::get_portal_page_targets() );
+
+			if ( $portal_page_target === '' || ! in_array( $portal_page_target, $known_targets, true ) ) {
+				wp_send_json_error( [ 'message' => __( 'Please choose a valid portal page.', 'suredash' ) ] );
+			}
+		}
+
 		$term_id   = 0;
 		$post_attr = [
 			'post_title'  => __( 'Untitled', 'suredash' ),
@@ -1447,6 +1459,272 @@ class Backend {
 			'success_message' => $success_message,
 			'error_message'   => $error_message,
 		];
+	}
+
+	/**
+	 * Get compatible spaces for a given integration type.
+	 *
+	 * @param \WP_REST_Request $request Request object.
+	 *
+	 * @since 1.8.0
+	 * @return void
+	 */
+	public function get_compatible_spaces( $request ): void {
+		$nonce = (string) $request->get_header( 'X-WP-Nonce' );
+		if ( ! wp_verify_nonce( sanitize_text_field( $nonce ), 'wp_rest' ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
+		}
+
+		$integration      = ! empty( $_POST['integration'] ) ? sanitize_text_field( wp_unslash( $_POST['integration'] ) ) : '';
+		$current_space_id = ! empty( $_POST['current_space_id'] ) ? absint( $_POST['current_space_id'] ) : 0;
+
+		$allowed_integrations = [ 'course', 'events', 'resource_library', 'feeds', 'membership_directory' ];
+
+		if ( empty( $integration ) || ! in_array( $integration, $allowed_integrations, true ) ) {
+			wp_send_json_error( [ 'message' => __( 'Invalid integration type.', 'suredash' ) ] );
+		}
+
+		/**
+		 * Filter the maximum number of compatible spaces returned.
+		 *
+		 * @param int    $limit       Default 200.
+		 * @param string $integration Integration type being queried.
+		 *
+		 * @since 1.8.0
+		 */
+		$limit = (int) apply_filters( 'suredash_compatible_spaces_limit', 200, $integration );
+
+		$spaces = get_posts(
+			[
+				'post_type'      => SUREDASHBOARD_POST_TYPE,
+				'post_status'    => [ 'publish', 'draft' ],
+				'posts_per_page' => $limit,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+				'meta_query'     => [
+					[
+						'key'     => 'integration',
+						'value'   => $integration,
+						'compare' => '=',
+					],
+				],
+			]
+		);
+
+		$formatted = [];
+		foreach ( $spaces as $space ) {
+			$space_id    = absint( $space->ID );
+			$formatted[] = [
+				'id'         => $space_id,
+				'title'      => $space->post_title,
+				'status'     => $space->post_status,
+				'is_current' => $space_id === $current_space_id,
+			];
+		}
+
+		/**
+		 * Filter the list of compatible spaces before returning.
+		 *
+		 * Implement this filter to scope the list to spaces a Portal Manager
+		 * is allowed to access (e.g. via SureMembers groups or custom rules).
+		 *
+		 * @param array<int, array<string, mixed>> $formatted   Formatted spaces list.
+		 * @param string                           $integration Integration type.
+		 *
+		 * @since 1.8.0
+		 */
+		$formatted = apply_filters( 'suredash_compatible_spaces_list', $formatted, $integration );
+
+		wp_send_json_success( [ 'spaces' => $formatted ] );
+	}
+
+	/**
+	 * Duplicate content item (section, lesson, event, resource) to a target space.
+	 *
+	 * @param \WP_REST_Request $request Request object.
+	 *
+	 * @since 1.8.0
+	 * @return void
+	 */
+	public function duplicate_content( $request ): void {
+		$nonce = (string) $request->get_header( 'X-WP-Nonce' );
+		if ( ! wp_verify_nonce( sanitize_text_field( $nonce ), 'wp_rest' ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
+		}
+
+		$item_type       = ! empty( $_POST['item_type'] ) ? sanitize_text_field( wp_unslash( $_POST['item_type'] ) ) : '';
+		$source_post_id  = ! empty( $_POST['source_post_id'] ) ? absint( $_POST['source_post_id'] ) : 0;
+		$target_space_id = ! empty( $_POST['target_space_id'] ) ? absint( $_POST['target_space_id'] ) : 0;
+		$new_title       = ! empty( $_POST['new_title'] ) ? sanitize_text_field( wp_unslash( $_POST['new_title'] ) ) : '';
+
+		$allowed_item_types = [ 'section', 'lesson', 'event', 'resource' ];
+
+		if ( empty( $item_type ) || ! in_array( $item_type, $allowed_item_types, true ) ) {
+			wp_send_json_error( [ 'message' => __( 'Invalid item type.', 'suredash' ) ] );
+		}
+
+		if ( empty( $target_space_id ) || empty( $new_title ) ) {
+			wp_send_json_error( [ 'message' => __( 'Missing required fields.', 'suredash' ) ] );
+		}
+
+		// Validate target space exists and is a SureDash space.
+		$target_space = get_post( $target_space_id );
+		if ( ! $target_space || $target_space->post_type !== SUREDASHBOARD_POST_TYPE ) {
+			wp_send_json_error( [ 'message' => __( 'Invalid target space.', 'suredash' ) ] );
+		}
+
+		// Validate target space integration matches the item type.
+		$target_integration    = sd_get_post_meta( $target_space_id, 'integration', true );
+		$expected_integrations = [
+			'section'  => 'course',
+			'lesson'   => 'course',
+			'event'    => 'events',
+			'resource' => 'resource_library',
+		];
+		if ( $target_integration !== $expected_integrations[ $item_type ] ) {
+			wp_send_json_error( [ 'message' => __( 'Target space is not compatible with this item type.', 'suredash' ) ] );
+		}
+
+		// Validate source post for non-section items (sections are stored as meta, not posts).
+		if ( $item_type !== 'section' ) {
+			if ( empty( $source_post_id ) ) {
+				wp_send_json_error( [ 'message' => __( 'Source item is required.', 'suredash' ) ] );
+			}
+			$source_post = get_post( $source_post_id );
+			if ( ! $source_post ) {
+				wp_send_json_error( [ 'message' => __( 'Source item not found.', 'suredash' ) ] );
+			}
+			if ( $source_post->post_type !== SUREDASHBOARD_SUB_CONTENT_POST_TYPE ) {
+				wp_send_json_error( [ 'message' => __( 'Source item is not a valid SureDash content item.', 'suredash' ) ] );
+			}
+		}
+
+		// Extract additional params for course duplication.
+		$source_course_id     = ! empty( $_POST['source_course_id'] ) ? absint( $_POST['source_course_id'] ) : 0;
+		$section_index        = isset( $_POST['section_index'] ) ? absint( $_POST['section_index'] ) : null;
+		$target_section_index = isset( $_POST['target_section_index'] ) ? absint( $_POST['target_section_index'] ) : null;
+
+		/**
+		 * Filter to handle content duplication. Pro plugin implements all item type handlers.
+		 *
+		 * @param mixed  $result          Default null — handler should return array on success, false on failure.
+		 * @param string $item_type       Item type: 'section', 'lesson', 'event', 'resource'.
+		 * @param int    $source_post_id  Source post ID (0 for sections).
+		 * @param int    $target_space_id Target space post ID.
+		 * @param string $new_title       Title for the duplicated item.
+		 * @param array  $extra           Additional params: source_course_id, section_index, target_section_index.
+		 */
+		$result = apply_filters(
+			'suredash_duplicate_content',
+			null,
+			$item_type,
+			$source_post_id,
+			$target_space_id,
+			$new_title,
+			[
+				'source_course_id'     => $source_course_id,
+				'section_index'        => $section_index,
+				'target_section_index' => $target_section_index,
+			]
+		);
+
+		if ( is_wp_error( $result ) ) {
+			wp_send_json_error( [ 'message' => $result->get_error_message() ] );
+		}
+
+		if ( ! $result ) {
+			wp_send_json_error( [ 'message' => __( 'Duplication failed.', 'suredash' ) ] );
+		}
+
+		wp_send_json_success( $result );
+	}
+
+	/**
+	 * Deep clone any WordPress post with all its meta and taxonomy terms.
+	 *
+	 * @param int                  $source_post_id Source post ID to clone.
+	 * @param array<string, mixed> $overrides      Optional overrides for post fields (post_title, post_status, etc.).
+	 *
+	 * @since 1.8.0
+	 * @return int|false New post ID on success, false on failure.
+	 */
+	public function deep_clone_post( $source_post_id, $overrides = [] ) {
+		$source_post = get_post( $source_post_id );
+		if ( ! $source_post ) {
+			return false;
+		}
+
+		$post_data = [
+			'post_title'     => $overrides['post_title'] ?? $source_post->post_title,
+			'post_status'    => $overrides['post_status'] ?? $source_post->post_status,
+			'post_type'      => $source_post->post_type,
+			'post_author'    => get_current_user_id(),
+			'post_content'   => $source_post->post_content,
+			'post_excerpt'   => $source_post->post_excerpt,
+			'comment_status' => $source_post->comment_status,
+			'ping_status'    => $source_post->ping_status,
+		];
+
+		$new_id = wp_insert_post( $post_data, true );
+
+		if ( is_wp_error( $new_id ) || ! $new_id ) {
+			return false;
+		}
+
+		/**
+		 * Filter meta keys that should be skipped when deep-cloning a post.
+		 *
+		 * By default all keys starting with `_` (WordPress internal/private meta)
+		 * are skipped. Use this filter to allowlist specific private keys that
+		 * must be cloned, or to add additional public keys to the skip list.
+		 *
+		 * @param array<int, string> $skip_keys     Meta keys to skip.
+		 * @param \WP_Post           $source_post   Source post object.
+		 *
+		 * @since 1.8.0
+		 */
+		$skip_keys = apply_filters(
+			'suredash_deep_clone_skip_meta_keys',
+			[ '_thumbnail_id', '_wp_page_template', '_edit_lock', '_edit_last' ],
+			$source_post
+		);
+
+		// Copy post meta — skip private/underscore-prefixed keys by default to avoid
+		// leaking per-post tracking, edit locks, or other internal state.
+		$post_meta = get_post_meta( $source_post_id );
+		if ( ! empty( $post_meta ) ) {
+			foreach ( $post_meta as $meta_key => $meta_values ) {
+				if ( in_array( $meta_key, $skip_keys, true ) ) {
+					continue;
+				}
+				if ( strpos( $meta_key, '_' ) === 0 ) {
+					continue;
+				}
+				foreach ( $meta_values as $meta_value ) {
+					// Unserialize for the array case so add_post_meta re-serializes correctly;
+					// wp_slash to preserve backslashes through add_post_meta's wp_unslash.
+					$value = maybe_unserialize( $meta_value );
+					add_post_meta( $new_id, $meta_key, is_string( $value ) ? wp_slash( $value ) : $value );
+				}
+			}
+		}
+
+		// Copy featured image.
+		$thumbnail_id = get_post_thumbnail_id( $source_post_id );
+		if ( $thumbnail_id ) {
+			set_post_thumbnail( $new_id, $thumbnail_id );
+		}
+
+		// Copy all taxonomy terms.
+		$taxonomies = get_object_taxonomies( $source_post->post_type );
+		foreach ( $taxonomies as $taxonomy ) {
+			$terms = wp_get_object_terms( $source_post_id, $taxonomy, [ 'fields' => 'slugs' ] );
+			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+				wp_set_object_terms( $new_id, $terms, $taxonomy );
+			}
+		}
+
+		return $new_id;
 	}
 
 	/**
@@ -2803,6 +3081,14 @@ class Backend {
 			$comment_status = 'closed';
 		}
 
+		// Allow comment_status override from the creation form (e.g. course lessons).
+		$comment_status_override = sanitize_text_field( $_POST['comment_status'] ?? '' );
+		if ( in_array( $comment_status_override, [ 'open', 'closed' ], true ) ) {
+			$comment_status = $comment_status_override;
+		}
+
+		$post_slug = sanitize_title( sanitize_text_field( $_POST['post_slug'] ?? '' ) );
+
 		$post_data = [
 			'post_title'     => $post_title,
 			'post_status'    => $post_status,
@@ -2811,6 +3097,10 @@ class Backend {
 			'post_content'   => '',
 			'comment_status' => $comment_status,
 		];
+
+		if ( ! empty( $post_slug ) ) {
+			$post_data['post_name'] = $post_slug;
+		}
 
 		$post_id = wp_insert_post( $post_data );
 
@@ -2851,14 +3141,17 @@ class Backend {
 		$this->save_content_meta_fields( $post_id, $_POST );
 
 		// Prepare response data with saved meta for immediate display.
+		// Re-read post_name from DB — WordPress may have suffixed it (e.g. `slug-2`) to avoid collisions.
 		$response_data = [
-			'id'         => $post_id,
-			'post_id'    => $post_id,
-			'title'      => $post_title,
-			'post_title' => $post_title,
-			'status'     => $post_status,
-			'edit_url'   => admin_url( "post.php?post={$post_id}&action=edit" ),
-			'space_id'   => $space_id,
+			'id'             => $post_id,
+			'post_id'        => $post_id,
+			'title'          => $post_title,
+			'post_title'     => $post_title,
+			'status'         => $post_status,
+			'comment_status' => $comment_status,
+			'post_slug'      => (string) sd_get_post_field( $post_id, 'post_name' ),
+			'edit_url'       => admin_url( "post.php?post={$post_id}&action=edit" ),
+			'space_id'       => $space_id,
 		];
 
 		do_action( 'suredash_after_creating_post_content_for_space', $post_id, $space_id, $post_type, $space_type );
@@ -2904,8 +3197,10 @@ class Backend {
 		}
 
 		// Update post title and status if provided.
-		$post_title  = sanitize_text_field( $_POST['post_title'] ?? '' );
-		$post_status = sanitize_text_field( $_POST['post_status'] ?? '' );
+		$post_title     = sanitize_text_field( $_POST['post_title'] ?? '' );
+		$post_status    = sanitize_text_field( $_POST['post_status'] ?? '' );
+		$post_slug      = sanitize_text_field( $_POST['post_slug'] ?? '' );
+		$comment_status = sanitize_text_field( $_POST['comment_status'] ?? '' );
 
 		$update_data = [ 'ID' => $content_id ];
 
@@ -2915,6 +3210,14 @@ class Backend {
 
 		if ( ! empty( $post_status ) && in_array( $post_status, [ 'publish', 'draft' ], true ) ) {
 			$update_data['post_status'] = $post_status;
+		}
+
+		if ( ! empty( $post_slug ) ) {
+			$update_data['post_name'] = sanitize_title( $post_slug );
+		}
+
+		if ( ! empty( $comment_status ) && in_array( $comment_status, [ 'open', 'closed' ], true ) ) {
+			$update_data['comment_status'] = $comment_status;
 		}
 
 		// Save meta fields BEFORE updating post status.
@@ -2927,8 +3230,10 @@ class Backend {
 			wp_update_post( $update_data );
 		}
 
+		// Re-read post_name from DB — WordPress may have suffixed it to avoid collisions.
 		$response_data = [
-			'message' => __( 'Settings updated successfully.', 'suredash' ),
+			'message'   => __( 'Settings updated successfully.', 'suredash' ),
+			'post_slug' => (string) sd_get_post_field( $content_id, 'post_name' ),
 		];
 
 		/**
@@ -2942,6 +3247,55 @@ class Backend {
 		return [
 			'success' => true,
 			'data'    => $response_data,
+		];
+	}
+
+	/**
+	 * Return the public permalink (published) or admin preview URL (draft) for a post.
+	 *
+	 * @param \WP_REST_Request $request Request object with `post_id` param.
+	 *
+	 * @since 1.8.0
+	 * @return array<string, mixed>
+	 */
+	public function get_preview_url( $request ): array {
+		$post_id = absint( $request->get_param( 'post_id' ) );
+
+		if ( ! $post_id ) {
+			return [
+				'success' => false,
+				'data'    => [ 'message' => __( 'Post ID is required.', 'suredash' ) ],
+			];
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return [
+				'success' => false,
+				'data'    => [ 'message' => __( 'Permission denied.', 'suredash' ) ],
+			];
+		}
+
+		$post = get_post( $post_id );
+		if ( ! $post ) {
+			return [
+				'success' => false,
+				'data'    => [ 'message' => __( 'Post not found.', 'suredash' ) ],
+			];
+		}
+
+		if ( $post->post_status === 'publish' ) {
+			$url = get_permalink( $post_id );
+		} else {
+			$url = add_query_arg(
+				'_wpnonce',
+				wp_create_nonce( 'post_preview_' . $post_id ),
+				admin_url( 'post.php?post=' . $post_id . '&action=preview' )
+			);
+		}
+
+		return [
+			'success' => true,
+			'data'    => [ 'url' => $url ],
 		];
 	}
 

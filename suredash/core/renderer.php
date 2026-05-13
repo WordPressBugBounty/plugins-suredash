@@ -46,6 +46,7 @@ class Renderer {
 		add_action( 'wp', [ $this, 'update_recently_viewed_items' ] );
 		add_action( 'wp', [ $this, 'track_space_visit' ] );
 		add_action( 'template_redirect', [ $this, 'handle_portal_redirection' ], 9 );
+		add_action( 'template_redirect', [ $this, 'redirect_portal_page_space' ], 9 );
 		add_action( 'template_redirect', [ $this, 'redirect_to_login' ] );
 		add_filter( 'template_include', [ $this, 'update_templates' ], 999 );
 		add_filter( 'body_class', [ $this, 'add_body_class' ] );
@@ -495,6 +496,61 @@ class Renderer {
 	}
 
 	/**
+	 * Redirect Portal Page space permalinks to their canonical built-in URL.
+	 *
+	 * A Portal Page space lives as a regular `portal` CPT post for storage,
+	 * but the actual content (Leaderboard, Member Directory, Bookmarks, etc.)
+	 * is rendered by the sub-query routes — `/{portal_slug}/leaderboard/`,
+	 * `/{portal_slug}/members/`, and so on. The space's own permalink
+	 * (`/{portal_slug}/<space-slug>/`) carries no content of its own, so
+	 * land it on the canonical URL instead of an empty CPT view. Admins
+	 * can still rename the space ("Leads" → Leaderboard) — the sidebar
+	 * link goes straight to the canonical URL, this only catches the
+	 * stragglers (eye-icon view button, share links, bookmarks).
+	 *
+	 * @since 1.8.1
+	 * @return void
+	 */
+	public function redirect_portal_page_space(): void {
+		if ( ! is_singular( SUREDASHBOARD_POST_TYPE ) ) {
+			return;
+		}
+
+		$post_id = (int) get_queried_object_id();
+		if ( ! $post_id ) {
+			return;
+		}
+
+		$integration = (string) get_post_meta( $post_id, 'integration', true );
+		if ( $integration !== 'portal_page' ) {
+			return;
+		}
+
+		$target = (string) get_post_meta( $post_id, 'portal_page_target', true );
+		if ( $target === '' ) {
+			return;
+		}
+
+		$target_url = Helper::get_portal_page_url( $target );
+		if ( $target_url === '' || $target_url === '#' ) {
+			return;
+		}
+
+		// Avoid redirect loops if the canonical URL ever resolved back to
+		// the post being requested (shouldn't happen — sub-query routes
+		// don't share permalinks — but guard anyway).
+		$current = home_url( add_query_arg( null, null ) );
+		if ( untrailingslashit( $current ) === untrailingslashit( $target_url ) ) {
+			return;
+		}
+
+		// 302 keeps the relationship explicit — the post still exists, this
+		// is a routing alias, not a permanent rename.
+		wp_safe_redirect( $target_url, 302 );
+		exit;
+	}
+
+	/**
 	 * Redirect to login page if not logged in.
 	 *
 	 * @since 1.0.0
@@ -526,6 +582,15 @@ class Renderer {
 	 */
 	public function update_queried_heading( $title ) {
 		if ( suredash_is_sub_queried_page() ) {
+			// Prefer the linking Portal Page space's title when one exists,
+			// so admins who renamed the space (e.g. "Edit My Profile") see
+			// that name in the header instead of the canonical sub-query
+			// label ("Profile Information").
+			$portal_page_meta = Helper::get_active_portal_page_space_meta();
+			if ( $portal_page_meta !== null ) {
+				return $portal_page_meta['title'];
+			}
+
 			$title = Labels::get_label( suredash_get_sub_queried_page() );
 		}
 
@@ -548,6 +613,14 @@ class Renderer {
 		$updated_title = '';
 
 		if ( suredash_is_sub_queried_page() ) {
+			// Same precedence as the page heading — when the visitor arrived
+			// on this sub-query page via a Portal Page space, surface that
+			// space's title in the document title for consistency.
+			$portal_page_meta = Helper::get_active_portal_page_space_meta();
+			if ( $portal_page_meta !== null ) {
+				return $portal_page_meta['title'];
+			}
+
 			$sub_page   = suredash_get_sub_queried_page();
 			$page_title = Labels::get_label( $sub_page );
 
@@ -581,9 +654,15 @@ class Renderer {
 				$title   = get_the_title( $post_id );
 				break;
 			case suredash_is_sub_queried_page():
-				$caught = true;
-				$emoji  = '';
-				$title  = Labels::get_label( suredash_get_sub_queried_page() );
+				$caught           = true;
+				$portal_page_meta = Helper::get_active_portal_page_space_meta();
+				if ( $portal_page_meta !== null ) {
+					$emoji = $portal_page_meta['emoji'];
+					$title = $portal_page_meta['title'];
+				} else {
+					$emoji = '';
+					$title = Labels::get_label( suredash_get_sub_queried_page() );
+				}
 				break;
 			case get_queried_object():
 				$caught = true;
