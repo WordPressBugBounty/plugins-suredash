@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/register",
+  "title": "Registration Form",
+  "description": "This block lets you add Registration functionality.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "keywords": [
+    "register",
+    "admin register",
+    "portal",
+    "frontend register",
+    "user register",
+    "custom register"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "textdomain": "suredash"
+}

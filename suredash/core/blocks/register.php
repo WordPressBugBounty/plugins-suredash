@@ -32,8 +32,8 @@ class Register {
 
 		add_action( 'suredash_enqueue_register_block_scripts', [ $this, 'enqueue_front_assets' ], 10, 2 );
 
-		register_block_type(
-			'suredash/register',
+		register_block_type_from_metadata(
+			SUREDASHBOARD_DIR . 'assets/build/editor/blocks/Register',
 			[
 				'attributes'      => $this->get_default_attributes(),
 				'render_callback' => [ $this, 'render_html' ],
@@ -438,8 +438,8 @@ class Register {
 	public function render_html( $attributes, $content ) {
 		$wrapper_classes = [
 			'uagb-block-' . $attributes['block_id'],
-			'wp-block-spectra-pro-register',
-			'wp-block-spectra-pro-register__logged-in-message',
+			'wp-block-suredash-register',
+			'wp-block-suredash-register__logged-in-message',
 		];
 
 		$wp_registration_enabled = get_option( 'users_can_register' );
@@ -468,23 +468,31 @@ class Register {
 			return ob_get_clean();
 		}
 
+		// Migrate legacy spectra-pro class names to suredash.
+		$content = str_replace( 'spectra-pro-register-form', 'suredash-register-form', $content );
+		$content = str_replace( 'spectra-pro-register-login-info', 'suredash-register-login-info', $content );
+		$content = str_replace( 'wp-block-spectra-pro-register', 'wp-block-suredash-register', $content );
+		$content = str_replace( 'spectra-pro-register-fbLink', 'suredash-register-fbLink', $content );
+		$content = str_replace( 'spectra-pro-register-googleLink', 'suredash-register-googleLink', $content );
+
 		// Replace the value of the input tag with the actual value.
 		$actual_value = wp_create_nonce( 'portal-register-block-nonce' );
 
-		// add nonce.
+		// add nonce (handle both self-closing formats for apiVersion 2/3 compatibility).
 		$content = str_replace( '<input type="hidden" name="_nonce" value="ssr_nonce_replace"/>', '<input type="hidden" name="_nonce" value="' . $actual_value . '"/>', $content );
+		$content = str_replace( '<input type="hidden" name="_nonce" value="ssr_nonce_replace">', '<input type="hidden" name="_nonce" value="' . $actual_value . '">', $content );
 
 		// Render heading server-side to handle HTML formatting properly.
 		if ( ! empty( $attributes['showFormHeading'] ) && ! empty( $attributes['formHeadingText'] ) ) {
 			$heading_tag  = ! empty( $attributes['formHeadingTag'] ) ? $attributes['formHeadingTag'] : 'h3';
 			$heading_html = sprintf(
-				'<%1$s class="spectra-pro-register-form__heading">%2$s</%1$s>',
+				'<%1$s class="suredash-register-form__heading">%2$s</%1$s>',
 				esc_attr( $heading_tag ),
 				wp_kses_post( $attributes['formHeadingText'] )
 			);
 
 			// Replace the escaped heading with properly formatted heading.
-			$escaped_heading_pattern = '/<(h[1-6]|p|div) class="spectra-pro-register-form__heading">.*?<\/\1>/s';
+			$escaped_heading_pattern = '/<(h[1-6]|p|div) class="suredash-register-form__heading">.*?<\/\1>/s';
 			if ( preg_match( $escaped_heading_pattern, $content ) ) {
 				$content = (string) preg_replace_callback(
 					$escaped_heading_pattern,
@@ -537,7 +545,7 @@ class Register {
 
 			// hide social div.
 			if ( empty( $social_connect['google_token_id'] ) && empty( $social_connect['facebook_token_id'] ) ) {
-				$content = str_replace( '<div class="spectra-pro-register-form__social">', '<div class="spectra-pro-register-form__social" style="display:none;">', $content );
+				$content = str_replace( '<div class="suredash-register-form__social">', '<div class="suredash-register-form__social" style="display:none;">', $content );
 			} elseif ( empty( $social_connect['google_token_id'] ) ) {
 				$content = str_replace( 'data-clientid', 'data-clientid style="display:none;"', $content );
 			} elseif ( empty( $social_connect['facebook_token_id'] ) ) {
@@ -1125,7 +1133,7 @@ class Register {
 
 		$selectors = [
 			// form.
-			'.wp-block-spectra-pro-register'              => array_merge(
+			'.wp-block-suredash-register'                 => array_merge(
 				$form_bg_css_desktop,
 				[
 					'width'          => Helper::get_css_value( $attr['formWidth'], $attr['formWidthType'] ),
@@ -1148,33 +1156,33 @@ class Register {
 				],
 				$form_border
 			),
-			'.wp-block-spectra-pro-register:hover'        => [
+			'.wp-block-suredash-register:hover'           => [
 				'border-color' => $attr['formBorderHColor'],
 			],
-			' .spectra-pro-register-form label, .spectra-pro-register-form input, .spectra-pro-register-form textarea' => [
+			' .suredash-register-form label, .suredash-register-form input, .suredash-register-form textarea' => [
 				'text-align' => $attr['overallAlignment'],
 			],
-			' .spectra-pro-register-form .spectra-pro-register-form__terms-wrap' => [
+			' .suredash-register-form .suredash-register-form__terms-wrap' => [
 				'justify-content' => $overall_flex_alignment,
 			],
 
 			// google and facebook alignment.
-			' .spectra-pro-register-form__social'         => [
+			' .suredash-register-form__social'            => [
 				'justify-content' => $postition_google_facebook_button,
 				'align-items'     => $align_items_google_facebook_button,
 				'flex-direction'  => $apply_stack,
 				'gap'             => $attr['gapSocialLogin'] . 'px',
 			],
 
-			'.wp-block-spectra-pro-register .spectra-pro-register-form' => [
+			'.wp-block-suredash-register .suredash-register-form' => [
 				'gap' => Helper::get_css_value( $attr['rowGap'], $attr['rowGapUnit'] ),
 			],
 			// input.
-			' .spectra-pro-register-form input::placeholder' => [
+			' .suredash-register-form input::placeholder' => [
 				'font-size' => Helper::get_css_value( $attr['inputFontSize'], $attr['inputFontSizeType'] ),
 				'color'     => $attr['inputplaceholderColor'],
 			],
-			' .spectra-pro-register-form input:not([type="checkbox"])' => array_merge(
+			' .suredash-register-form input:not([type="checkbox"])' => array_merge(
 				[
 					'font-size'        => Helper::get_css_value( $attr['inputFontSize'], $attr['inputFontSizeType'] ),
 					'padding-top'      => Helper::get_css_value( $attr['paddingFieldTop'], $attr['paddingFieldUnit'] ) . ' !important',
@@ -1186,20 +1194,20 @@ class Register {
 				],
 				$input_border
 			),
-			' .spectra-pro-register-form input:hover::placeholder' => [
+			' .suredash-register-form input:hover::placeholder' => [
 				'color' => $attr['inputplaceholderHoverColor'] . '!important',
 			],
-			' .spectra-pro-register-form input:focus::placeholder' => [
+			' .suredash-register-form input:focus::placeholder' => [
 				'color' => $attr['inputplaceholderActiveColor'] . '!important',
 			],
-			' .spectra-pro-register-form input:hover'     => [
+			' .suredash-register-form input:hover'        => [
 				'background-color' => $attr['inputBGHoverColor'],
 				'border-color'     => $attr['fieldBorderHColor'],
 			],
-			' .spectra-pro-register-form input:focus'     => [
+			' .suredash-register-form input:focus'        => [
 				'background-color' => $attr['bgActiveColor'],
 			],
-			' form.spectra-pro-register-form .spectra-pro-register-form__field-wrapper>svg' => array_merge(
+			' form.suredash-register-form .suredash-register-form__field-wrapper>svg' => array_merge(
 				[
 					'width'  => Helper::get_css_value( $attr['fieldIconSize'], $attr['fieldIconSizeType'] ),
 					'stroke' => $attr['fieldIconColor'],
@@ -1216,11 +1224,11 @@ class Register {
 					'border-color' => $attr['fieldIconBorderColor'],
 				]
 			),
-			' .spectra-pro-register-form .spectra-pro-register-form__field-wrapper:hover > svg' => [
+			' .suredash-register-form .suredash-register-form__field-wrapper:hover > svg' => [
 				'border-color' => $attr['fieldBorderHColor'],
 			],
 			// checkbox.
-			' .spectra-pro-register-form .spectra-pro-register-form__terms-checkbox-checkmark' => [
+			' .suredash-register-form .suredash-register-form__terms-checkbox-checkmark' => [
 				'width'         => Helper::get_css_value( $attr['checkboxSize'], 'px' ),
 				'height'        => Helper::get_css_value( $attr['checkboxSize'], 'px' ),
 				'background'    => $attr['checkboxBackgroundColor'],
@@ -1228,17 +1236,17 @@ class Register {
 				'border-radius' => Helper::get_css_value( $attr['checkboxBorderRadius'], 'px' ),
 				'border-color'  => $attr['checkboxBorderColor'],
 			],
-			' .spectra-pro-register-form__terms-checkbox .spectra-pro-register-form__terms-checkbox-checkmark:after' => [
+			' .suredash-register-form__terms-checkbox .suredash-register-form__terms-checkbox-checkmark:after' => [
 				'font-size' => Helper::get_css_value( strval( floatval( $attr['checkboxSize'] ) / 2 ), 'px' ),
 				'color'     => $attr['checkboxColor'],
 			],
 			// If the user clicks on the checkbox, light it up with some box shadow to portray some interaction!
-			' .spectra-pro-register-form__terms-checkbox input[type="checkbox"]:focus + .spectra-pro-register-form__terms-checkbox-checkmark' => [
+			' .suredash-register-form__terms-checkbox input[type="checkbox"]:focus + .suredash-register-form__terms-checkbox-checkmark' => [
 				'box-shadow' => $attr['checkboxGlowEnable'] && $attr['checkboxGlowColor'] ? '0 0 0 1px ' . $attr['checkboxGlowColor'] : '',
 			],
 
 			// Info Link.
-			'.wp-block-spectra-pro-register .spectra-pro-register-login-info' => [
+			'.wp-block-suredash-register .suredash-register-login-info' => [
 				'color'           => $attr['labelColor'],
 				'font-size'       => Helper::get_css_value( $attr['labelFontSize'], $attr['labelFontSizeType'] ),
 				'font-family'     => $attr['labelFontFamily'],
@@ -1250,18 +1258,18 @@ class Register {
 				'line-height'     => Helper::get_css_value( $attr['labelLineHeight'], $attr['labelLineHeightType'] ),
 
 			],
-			'.wp-block-spectra-pro-register .spectra-pro-register-login-info a' => [
+			'.wp-block-suredash-register .suredash-register-login-info a' => [
 				'color' => $attr['loginInfoLinkColor'],
 			],
-			'.wp-block-spectra-pro-register .spectra-pro-register-login-info:hover' => [
+			'.wp-block-suredash-register .suredash-register-login-info:hover' => [
 				'color' => $attr['labelHoverColor'],
 			],
-			'.wp-block-spectra-pro-register .spectra-pro-register-login-info a:hover' => [
+			'.wp-block-suredash-register .suredash-register-login-info a:hover' => [
 				'color' => $attr['loginInfoLinkHoverColor'],
 			],
 
 			// heading.
-			'.wp-block-spectra-pro-register .spectra-pro-register-form__heading' => [
+			'.wp-block-suredash-register .suredash-register-form__heading' => [
 				'color'           => $attr['headingColor'],
 				'font-size'       => Helper::get_css_value( $attr['headingFontSize'], $attr['headingFontSizeType'] ),
 				'line-height'     => Helper::get_css_value( $attr['headingLineHeight'], $attr['headingLineHeightType'] ),
@@ -1276,20 +1284,20 @@ class Register {
 				'margin-bottom'   => Helper::get_css_value( $attr['headingBottomMargin'], $attr['headingMarginUnit'] ),
 				'margin-left'     => Helper::get_css_value( $attr['headingLeftMargin'], $attr['headingMarginUnit'] ),
 			],
-			'.wp-block-spectra-pro-register .spectra-pro-register-form__heading:hover' => [
+			'.wp-block-suredash-register .suredash-register-form__heading:hover' => [
 				'color' => $attr['headingHoverColor'],
 			],
 
 			// label.
-			' .spectra-pro-register-form label'           => [
+			' .suredash-register-form label'              => [
 				'color'         => $attr['labelColor'],
 				'font-size'     => Helper::get_css_value( $attr['labelFontSize'], $attr['labelFontSizeType'] ),
 				'margin-bottom' => Helper::get_css_value( $attr['labelGap'], $attr['labelGapUnit'] ),
 			],
-			' .spectra-pro-register-form label:hover'     => [
+			' .suredash-register-form label:hover'        => [
 				'color' => $attr['labelHoverColor'],
 			],
-			' .spectra-pro-register-form .spectra-pro-register-form__terms-label' => [
+			' .suredash-register-form .suredash-register-form__terms-label' => [
 				'color'           => $attr['labelColor'],
 				'font-size'       => Helper::get_css_value( $attr['labelFontSize'], $attr['labelFontSizeType'] ),
 				'line-height'     => Helper::get_css_value( $attr['labelLineHeight'], $attr['labelLineHeightType'] ),
@@ -1300,11 +1308,11 @@ class Register {
 				'font-weight'     => $attr['labelFontWeight'],
 				'letter-spacing'  => Helper::get_css_value( $attr['labelLetterSpacing'], $attr['labelLetterSpacingType'] ),
 			],
-			' .spectra-pro-register-form .spectra-pro-register-form__terms-label:hover' => [
+			' .suredash-register-form .suredash-register-form__terms-label:hover' => [
 				'color' => $attr['labelHoverColor'],
 			],
 
-			'.wp-block-spectra-pro-register.wp-block-spectra-pro-register__logged-in-message' => [
+			'.wp-block-suredash-register.wp-block-suredash-register__logged-in-message' => [
 				'font-family'     => $attr['labelFontFamily'],
 				'font-style'      => $attr['labelFontStyle'],
 				'text-decoration' => $attr['labelDecoration'],
@@ -1316,16 +1324,16 @@ class Register {
 				'color'           => $attr['labelColor'],
 			],
 
-			'.wp-block-spectra-pro-register.wp-block-spectra-pro-register__logged-in-message a' => [
+			'.wp-block-suredash-register.wp-block-suredash-register__logged-in-message a' => [
 				'color' => $attr['loginInfoLinkColor'],
 			],
 
-			'.wp-block-spectra-pro-register.wp-block-spectra-pro-register__logged-in-message a:hover' => [
+			'.wp-block-suredash-register.wp-block-suredash-register__logged-in-message a:hover' => [
 				'color' => $attr['loginInfoLinkHoverColor'],
 			],
 
 			// regisgter button.
-			' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link' => array_merge(
+			' .suredash-register-form .suredash-register-form__submit.wp-block-button__link' => array_merge(
 				[
 					'font-size'        => Helper::get_css_value( $attr['registerBtnFontSize'], $attr['registerBtnFontSizeType'] ),
 					'color'            => $attr['registerBtnColor'],
@@ -1341,19 +1349,19 @@ class Register {
 				$register_btn_border
 			),
 
-			' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link svg' => [
+			' .suredash-register-form .suredash-register-form__submit.wp-block-button__link svg' => [
 				'width'  => Helper::get_css_value( $attr['registerBtnFontSize'], $attr['registerBtnFontSizeType'] ),
 				'height' => Helper::get_css_value( $attr['registerBtnFontSize'], $attr['registerBtnFontSizeType'] ),
 			],
 
-			' .spectra-pro-register-form .spectra-pro-register-form__submit:hover' => [
+			' .suredash-register-form .suredash-register-form__submit:hover' => [
 				'color'            => $attr['registerBtnColorHover'],
 				'background-color' => $attr['registerBtnBgColorHover'],
 				'border-color'     => $attr['btnBorderHColor'],
 			],
 
 			// google button.
-			' .spectra-pro-register-form__social .spectra-pro-register-form__social-google' => array_merge(
+			' .suredash-register-form__social .suredash-register-form__social-google' => array_merge(
 				[
 					'width'            => $attr['googleButtonSize'] === 'full' ? '100%' : '',
 					'font-size'        => Helper::get_css_value( $attr['googleBtnFontSize'], $attr['googleBtnFontSizeType'] ),
@@ -1366,14 +1374,14 @@ class Register {
 				],
 				$google_btn_border
 			),
-			'  .spectra-pro-register-form__social .spectra-pro-register-form__social-google:hover' => [
+			'  .suredash-register-form__social .suredash-register-form__social-google:hover' => [
 				'color'            => $attr['googleBtnColorHover'],
 				'background-color' => $attr['googleBtnBgColorHover'],
 				'border-color'     => $attr['googleBorderHColor'],
 			],
 
 			// facebook button.
-			'  .spectra-pro-register-form__social .spectra-pro-register-form__social-facebook' => array_merge(
+			'  .suredash-register-form__social .suredash-register-form__social-facebook' => array_merge(
 				[
 					'width'            => $attr['facebookButtonSize'] === 'full' ? '100%' : '',
 					'font-size'        => Helper::get_css_value( $attr['facebookBtnFontSize'], $attr['facebookBtnFontSizeType'] ),
@@ -1386,46 +1394,46 @@ class Register {
 				],
 				$facebook_btn_border
 			),
-			' .spectra-pro-register-form__social .spectra-pro-register-form__social-facebook:hover' => [
+			' .suredash-register-form__social .suredash-register-form__social-facebook:hover' => [
 				'color'            => $attr['facebookBtnColorHover'],
 				'background-color' => $attr['facebookBtnBgColorHover'],
 				'border-color'     => $attr['facebookBorderHColor'],
 			],
 
 			// message color control.
-			' .spectra-pro-register-form-status__success' => [
+			' .suredash-register-form-status__success'    => [
 				'border-left-color' => $attr['successMessageBorderColor'],
 				'background-color'  => $attr['successMessageBackground'],
 				'color'             => $attr['successMessageColor'],
 				'text-align'        => $attr['overallAlignment'],
 			],
-			' .spectra-pro-register-form-status__error'   => [
+			' .suredash-register-form-status__error'      => [
 				'border-left-color' => $attr['errorMessageBorderColor'],
 				'background-color'  => $attr['errorMessageBackground'],
 				'color'             => $attr['errorMessageColor'],
 				'text-align'        => $attr['overallAlignment'],
 			],
-			' .spectra-pro-register-form-status__error-item' => [
+			' .suredash-register-form-status__error-item' => [
 				'border-left-color' => $attr['errorMessageBorderColor'],
 				'background-color'  => $attr['errorMessageBackground'],
 				'color'             => $attr['errorMessageColor'],
 				'text-align'        => $attr['overallAlignment'],
 			],
-			' .spectra-pro-register-form__input-error'    => [
+			' .suredash-register-form__input-error'       => [
 				'border-color' => $attr['errorFieldColor'] . '!important',
 			],
-			' .spectra-pro-register-form__field-error-message' => [
+			' .suredash-register-form__field-error-message' => [
 				'color'      => $attr['errorFieldColor'],
 				'text-align' => $attr['overallAlignment'],
 			],
-			' .spectra-pro-register-form__field-success-message' => [
+			' .suredash-register-form__field-success-message' => [
 				'text-align' => $attr['overallAlignment'],
 			],
 		];
 
 		// If hover blur or hover color are set, show the hover shadow.
 		if ( ( $attr['boxShadowBlurHover'] !== '' ) && ( $attr['boxShadowBlurHover'] !== null ) || $attr['boxShadowColorHover'] !== '' ) {
-			$selectors['.wp-block-spectra-pro-register:hover']['box-shadow'] = Helper::get_css_value( $attr['boxShadowHOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowVOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowBlurHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowSpreadHover'], 'px' ) . ' ' . $attr['boxShadowColorHover'] . ' ' . $box_shadow_position_css_hover;
+			$selectors['.wp-block-suredash-register:hover']['box-shadow'] = Helper::get_css_value( $attr['boxShadowHOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowVOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowBlurHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowSpreadHover'], 'px' ) . ' ' . $attr['boxShadowColorHover'] . ' ' . $box_shadow_position_css_hover;
 		}
 
 		$bg_obj_tablet      = array_merge(
@@ -1453,7 +1461,7 @@ class Register {
 
 		$t_selectors = [
 			// google and facebook alignment.
-			' .spectra-pro-register-form__social' => [
+			' .suredash-register-form__social'            => [
 				'justify-content' => $postition_google_facebook_button_tablet,
 				'align-items'     => $align_items_google_facebook_button_tablet,
 				'flex-direction'  => $apply_stack_tablet,
@@ -1461,7 +1469,7 @@ class Register {
 			],
 
 			// form.
-			'.wp-block-spectra-pro-register'      => array_merge(
+			'.wp-block-suredash-register'                 => array_merge(
 				$form_bg_css_tablet,
 				[
 					'width'          => Helper::get_css_value( $attr['formWidthTablet'], $attr['formWidthTypeTablet'] ),
@@ -1472,12 +1480,12 @@ class Register {
 				],
 				$form_border_tablet
 			),
-			'.wp-block-spectra-pro-register .spectra-pro-register-form' => [
+			'.wp-block-suredash-register .suredash-register-form' => [
 				'gap' => Helper::get_css_value( $attr['rowGapTablet'], $attr['rowGapUnit'] ),
 			],
 
 			// input.
-			' .spectra-pro-register-form .spectra-pro-register-form__field-wrapper>svg' => array_merge(
+			' .suredash-register-form .suredash-register-form__field-wrapper>svg' => array_merge(
 				[
 					'height' => array_key_exists( 'border-top-width', $input_border_tablet ) && array_key_exists( 'border-bottom-width', $input_border_tablet ) ?
 								'calc( 100% - ' . $input_border_tablet['border-top-width'] . ' - ' . $input_border_tablet['border-bottom-width'] . ' )'
@@ -1488,10 +1496,10 @@ class Register {
 					'right'  => array_key_exists( 'border-right-width', $input_border_tablet ) ? $input_border_tablet['border-right-width'] : '',
 				]
 			),
-			' .spectra-pro-register-form input::placeholder' => [
+			' .suredash-register-form input::placeholder' => [
 				'font-size' => Helper::get_css_value( $attr['inputFontSizeTablet'], $attr['inputFontSizeType'] ),
 			],
-			' .spectra-pro-register-form input:not([type="checkbox"])' => array_merge(
+			' .suredash-register-form input:not([type="checkbox"])' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['paddingFieldTopTablet'], $attr['paddingFieldUnitTablet'] ) . ' !important',
 					'padding-bottom' => Helper::get_css_value( $attr['paddingFieldBottomTablet'], $attr['paddingFieldUnitTablet'] ) . ' !important',
@@ -1502,26 +1510,26 @@ class Register {
 			),
 
 			// Login Information.
-			'.wp-block-spectra-pro-register .spectra-pro-register-login-info' => [
+			'.wp-block-suredash-register .suredash-register-login-info' => [
 				'font-size'   => Helper::get_css_value( $attr['labelFontSizeTablet'], $attr['labelFontSizeType'] ),
 				'line-height' => Helper::get_css_value( $attr['labelLineHeightTablet'], $attr['labelLineHeightType'] ),
 			],
 
 			// label.
-			' .spectra-pro-register-form label'   => [
+			' .suredash-register-form label'              => [
 				'font-size'     => Helper::get_css_value( $attr['labelFontSizeTablet'], $attr['labelFontSizeType'] ),
 				'margin-bottom' => Helper::get_css_value( $attr['labelGapTablet'], $attr['labelGapUnit'] ),
 
 			],
 
-			' .spectra-pro-register-form .spectra-pro-register-form__terms-label' => [
+			' .suredash-register-form .suredash-register-form__terms-label' => [
 				'font-size'      => Helper::get_css_value( $attr['labelFontSizeTablet'], $attr['labelFontSizeType'] ),
 				'line-height'    => Helper::get_css_value( $attr['labelLineHeightTablet'], $attr['labelLineHeightType'] ),
 				'letter-spacing' => Helper::get_css_value( $attr['labelLetterSpacingTablet'], $attr['labelLetterSpacingType'] ),
 			],
 
 			// register button.
-			' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link' => array_merge(
+			' .suredash-register-form .suredash-register-form__submit.wp-block-button__link' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['registerPaddingBtnTopTablet'], $attr['registerTabletPaddingBtnUnit'] ),
 					'padding-bottom' => Helper::get_css_value( $attr['registerPaddingBtnBottomTablet'], $attr['registerTabletPaddingBtnUnit'] ),
@@ -1534,13 +1542,13 @@ class Register {
 				$register_btn_border_tablet
 			),
 
-			' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link svg' => [
+			' .suredash-register-form .suredash-register-form__submit.wp-block-button__link svg' => [
 				'width'  => Helper::get_css_value( $attr['registerBtnFontSizeTablet'], $attr['registerBtnFontSizeType'] ),
 				'height' => Helper::get_css_value( $attr['registerBtnFontSizeTablet'], $attr['registerBtnFontSizeType'] ),
 			],
 
 			// google button.
-			' .spectra-pro-google-form .spectra-pro-google-form__submit' => array_merge(
+			' .suredash-google-form .suredash-google-form__submit' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['googlePaddingBtnTopTablet'], $attr['googleTabletPaddingBtnUnit'] ),
 					'padding-bottom' => Helper::get_css_value( $attr['googlePaddingBtnBottomTablet'], $attr['googleTabletPaddingBtnUnit'] ),
@@ -1551,7 +1559,7 @@ class Register {
 			),
 
 			// facebook button.
-			' .spectra-pro-register-form__social .spectra-pro-register-form__social-facebook' => array_merge(
+			' .suredash-register-form__social .suredash-register-form__social-facebook' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['facebookPaddingBtnTopTablet'], $attr['facebookTabletPaddingBtnUnit'] ),
 					'padding-bottom' => Helper::get_css_value( $attr['facebookPaddingBtnBottomTablet'], $attr['facebookTabletPaddingBtnUnit'] ),
@@ -1587,7 +1595,7 @@ class Register {
 
 		$m_selectors = [
 			// google and facebook alignment.
-			' .spectra-pro-register-form__social' => [
+			' .suredash-register-form__social'            => [
 				'justify-content' => $postition_google_facebook_button_mobile,
 				'align-items'     => $align_items_google_facebook_button_mobile,
 				'flex-direction'  => $apply_stack_mobile,
@@ -1596,7 +1604,7 @@ class Register {
 			],
 
 			// form.
-			'.wp-block-spectra-pro-register'      => array_merge(
+			'.wp-block-suredash-register'                 => array_merge(
 				$mobile_bg_css_mobile,
 				[
 					'width'          => Helper::get_css_value( $attr['formWidthMobile'], $attr['formWidthTypeMobile'] ),
@@ -1619,12 +1627,12 @@ class Register {
 				],
 				$form_border_mobile
 			),
-			'.wp-block-spectra-pro-register .spectra-pro-register-form' => [
+			'.wp-block-suredash-register .suredash-register-form' => [
 				'gap' => Helper::get_css_value( $attr['rowGapMobile'], $attr['rowGapUnit'] ),
 			],
 
 			// input.
-			' .spectra-pro-register-form .spectra-pro-register-form__field-wrapper>svg' => array_merge(
+			' .suredash-register-form .suredash-register-form__field-wrapper>svg' => array_merge(
 				[
 					'height' => array_key_exists( 'border-top-width', $input_border_mobile ) && array_key_exists( 'border-bottom-width', $input_border_mobile ) ?
 								'calc( 100% - ' . $input_border_mobile['border-top-width'] . ' - ' . $input_border_mobile['border-bottom-width'] . ' )'
@@ -1635,10 +1643,10 @@ class Register {
 					'right'  => array_key_exists( 'border-right-width', $input_border_mobile ) ? $input_border_mobile['border-right-width'] : '',
 				]
 			),
-			' .spectra-pro-register-form input::placeholder' => [
+			' .suredash-register-form input::placeholder' => [
 				'font-size' => Helper::get_css_value( $attr['inputFontSizeMobile'], $attr['inputFontSizeType'] ),
 			],
-			' .spectra-pro-register-form input:not([type="checkbox"])' => array_merge(
+			' .suredash-register-form input:not([type="checkbox"])' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['paddingFieldTopMobile'], $attr['paddingFieldUnitmobile'] ) . ' !important',
 					'padding-bottom' => Helper::get_css_value( $attr['paddingFieldBottomMobile'], $attr['paddingFieldUnitmobile'] ) . ' !important',
@@ -1649,13 +1657,13 @@ class Register {
 			),
 
 			// Login Information.
-			'.wp-block-spectra-pro-register .spectra-pro-register-login-info' => [
+			'.wp-block-suredash-register .suredash-register-login-info' => [
 				'font-size'   => Helper::get_css_value( $attr['labelFontSizeMobile'], $attr['labelFontSizeType'] ),
 				'line-height' => Helper::get_css_value( $attr['labelLineHeightMobile'], $attr['labelLineHeightType'] ),
 			],
 
 			// heading.
-			'.wp-block-spectra-pro-register .spectra-pro-register-form__heading' => [
+			'.wp-block-suredash-register .suredash-register-form__heading' => [
 				'font-size'      => Helper::get_css_value( $attr['headingFontSizeMobile'], $attr['headingFontSizeType'] ),
 				'line-height'    => Helper::get_css_value( $attr['headingLineHeightMobile'], $attr['headingLineHeightType'] ),
 				'letter-spacing' => Helper::get_css_value( $attr['headingLetterSpacingMobile'], $attr['headingLetterSpacingType'] ),
@@ -1666,19 +1674,19 @@ class Register {
 			],
 
 			// label.
-			' .spectra-pro-register-form label'   => [
+			' .suredash-register-form label'              => [
 				'font-size'     => Helper::get_css_value( $attr['labelFontSizeMobile'], $attr['labelFontSizeType'] ),
 				'margin-bottom' => Helper::get_css_value( $attr['labelGapMobile'], $attr['labelGapUnit'] ),
 			],
 
-			' .spectra-pro-register-form .spectra-pro-register-form__terms-label' => [
+			' .suredash-register-form .suredash-register-form__terms-label' => [
 				'font-size'      => Helper::get_css_value( $attr['labelFontSizeMobile'], $attr['labelFontSizeType'] ),
 				'line-height'    => Helper::get_css_value( $attr['labelLineHeightMobile'], $attr['labelLineHeightType'] ),
 				'letter-spacing' => Helper::get_css_value( $attr['labelLetterSpacingMobile'], $attr['labelLetterSpacingType'] ),
 			],
 
 			// register button.
-			' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link' => array_merge(
+			' .suredash-register-form .suredash-register-form__submit.wp-block-button__link' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['registerPaddingBtnTopMobile'], $attr['registerMobilePaddingBtnUnit'] ),
 					'padding-bottom' => Helper::get_css_value( $attr['registerPaddingBtnBottomMobile'], $attr['registerMobilePaddingBtnUnit'] ),
@@ -1692,13 +1700,13 @@ class Register {
 				$register_btn_border_mobile
 			),
 
-			' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link svg' => [
+			' .suredash-register-form .suredash-register-form__submit.wp-block-button__link svg' => [
 				'width'  => Helper::get_css_value( $attr['registerBtnFontSizeMobile'], $attr['registerBtnFontSizeType'] ),
 				'height' => Helper::get_css_value( $attr['registerBtnFontSizeMobile'], $attr['registerBtnFontSizeType'] ),
 			],
 
 			// google button.
-			' .spectra-pro-google-form .spectra-pro-google-form__submit' => array_merge(
+			' .suredash-google-form .suredash-google-form__submit' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['googlePaddingBtnTopMobile'], $attr['googleMobilePaddingBtnUnit'] ),
 					'padding-bottom' => Helper::get_css_value( $attr['googlePaddingBtnBottomMobile'], $attr['googleMobilePaddingBtnUnit'] ),
@@ -1709,7 +1717,7 @@ class Register {
 			),
 
 			// facebook button.
-			' .spectra-pro-register-form__social .spectra-pro-register-form__social-facebook' => array_merge(
+			' .suredash-register-form__social .suredash-register-form__social-facebook' => array_merge(
 				[
 					'padding-top'    => Helper::get_css_value( $attr['facebookPaddingBtnTopMobile'], $attr['facebookMobilePaddingBtnUnit'] ),
 					'padding-bottom' => Helper::get_css_value( $attr['facebookPaddingBtnBottomMobile'], $attr['facebookMobilePaddingBtnUnit'] ),
@@ -1721,17 +1729,17 @@ class Register {
 		];
 
 		if ( $attr['alignRegisterBtn'] === 'full' ) {
-			$selectors[' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link']['width'] = '100%';
+			$selectors[' .suredash-register-form .suredash-register-form__submit.wp-block-button__link']['width'] = '100%';
 		}
 		if ( $attr['alignRegisterBtnTablet'] === 'full' ) {
-			$t_selectors[' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link']['width'] = '100%';
+			$t_selectors[' .suredash-register-form .suredash-register-form__submit.wp-block-button__link']['width'] = '100%';
 		}
 		if ( $attr['alignRegisterBtnMobile'] === 'full' ) {
-			$m_selectors[' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link']['width'] = '100%';
+			$m_selectors[' .suredash-register-form .suredash-register-form__submit.wp-block-button__link']['width'] = '100%';
 		}
 
 		// Tablet heading styles.
-		$t_selectors['.wp-block-spectra-pro-register .spectra-pro-register-form__heading'] = [
+		$t_selectors['.wp-block-suredash-register .suredash-register-form__heading'] = [
 			'font-size'      => Helper::get_css_value( $attr['headingFontSizeTablet'], $attr['headingFontSizeType'] ),
 			'line-height'    => Helper::get_css_value( $attr['headingLineHeightTablet'], $attr['headingLineHeightType'] ),
 			'letter-spacing' => Helper::get_css_value( $attr['headingLetterSpacingTablet'], $attr['headingLetterSpacingType'] ),
@@ -1748,13 +1756,13 @@ class Register {
 		];
 
 		$base_selector      = '.uagb-block-';
-		$combined_selectors = Helper::get_typography_css( $attr, 'input', ' .spectra-pro-register-form input::placeholder', $combined_selectors );
-		$combined_selectors = Helper::get_typography_css( $attr, 'input', ' .spectra-pro-register-form input:not([type="checkbox"])', $combined_selectors );
-		$combined_selectors = Helper::get_typography_css( $attr, 'heading', '.wp-block-spectra-pro-register .spectra-pro-register-form__heading', $combined_selectors );
-		$combined_selectors = Helper::get_typography_css( $attr, 'registerBtn', ' .spectra-pro-register-form .spectra-pro-register-form__submit.wp-block-button__link', $combined_selectors );
-		$combined_selectors = Helper::get_typography_css( $attr, 'googleBtn', ' .spectra-pro-register-form__social .spectra-pro-register-form__social-google', $combined_selectors );
-		$combined_selectors = Helper::get_typography_css( $attr, 'facebookBtn', ' .spectra-pro-register-form__social .spectra-pro-register-form__social-facebook', $combined_selectors );
-		$combined_selectors = Helper::get_typography_css( $attr, 'label', ' .spectra-pro-register-form label', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'input', ' .suredash-register-form input::placeholder', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'input', ' .suredash-register-form input:not([type="checkbox"])', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'heading', '.wp-block-suredash-register .suredash-register-form__heading', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'registerBtn', ' .suredash-register-form .suredash-register-form__submit.wp-block-button__link', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'googleBtn', ' .suredash-register-form__social .suredash-register-form__social-google', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'facebookBtn', ' .suredash-register-form__social .suredash-register-form__social-facebook', $combined_selectors );
+		$combined_selectors = Helper::get_typography_css( $attr, 'label', ' .suredash-register-form label', $combined_selectors );
 
 		return Helper::generate_all_css( $combined_selectors, $base_selector . $id );
 	}

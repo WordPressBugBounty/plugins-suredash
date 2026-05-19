@@ -502,7 +502,26 @@ class Settings {
 
 		$defaults = apply_filters( 'suredashboard_dashboard_rest_options', self::get_default_settings() );
 
-		self::$dashboard_options = wp_parse_args( $db_option, $defaults );
+		$merged = wp_parse_args( $db_option, $defaults );
+
+		// `wp_parse_args()` only fills MISSING keys — it does not replace an
+		// empty stored array with the default. So a setting like
+		// `leaderboard_levels` (default: 9 tiers) collapses to `[]` once the
+		// admin saves the form after clearing every row, and the React UI
+		// then renders an empty section. Walk the defaults once and restore
+		// any non-empty-by-default array whose stored value came back empty.
+		// String / int defaults are intentionally left alone — empty strings
+		// or zero are legitimate stored values for those.
+		foreach ( $defaults as $key => $default_value ) {
+			if ( ! is_array( $default_value ) || empty( $default_value ) ) {
+				continue;
+			}
+			if ( isset( $merged[ $key ] ) && is_array( $merged[ $key ] ) && empty( $merged[ $key ] ) ) {
+				$merged[ $key ] = $default_value;
+			}
+		}
+
+		self::$dashboard_options = $merged;
 
 		return self::$dashboard_options;
 	}

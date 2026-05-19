@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 	<body <?php body_class(); ?>>
 		<?php wp_body_open(); ?>
 
-		<div class="wp-site-blocks portal-container">
+		<div class="portal-container">
 			<?php
 			// Get the portal template part.
 			$portal_template_part = get_block_template( 'suredash/suredash//portal', 'wp_template_part' );

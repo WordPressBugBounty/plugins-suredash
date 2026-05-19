@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/register-first-name",
+  "title": "First Name",
+  "description": "This block helps to add First Name field.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "parent": [
+    "suredash/register"
+  ],
+  "supports": {
+    "multiple": false
+  },
+  "textdomain": "suredash"
+}

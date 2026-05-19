@@ -387,6 +387,7 @@ class Menu {
 					'is_pp_pro_available'          => defined( 'PRESTO_PLAYER_PRO_PLUGIN_FILE' ),
 					'upgrade_link'                 => SUREDASHBOARD_UPGRADE_LINK,
 					'username'                     => suredash_get_user_display_name(),
+					'user_login'                   => wp_get_current_user()->user_login,
 					'email'                        => wp_get_current_user()->user_email,
 					'first_name'                   => wp_get_current_user()->first_name,
 					'last_name'                    => wp_get_current_user()->last_name,

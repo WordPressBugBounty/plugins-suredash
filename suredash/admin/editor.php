@@ -46,6 +46,8 @@ class Editor {
 	 */
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'block_editor_assets' ] );
+		// Use enqueue_block_assets for styles to ensure they load in the iframe editor (Block API v3).
+		add_action( 'enqueue_block_assets', [ $this, 'block_editor_styles' ] );
 
 		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
 			add_filter( 'block_categories_all', [ $this, 'register_block_category' ], 10, 2 );
@@ -147,13 +149,6 @@ class Editor {
 		wp_enqueue_script( $handle, $build_path . 'editor-app.js', $script_dep, $script_info['version'], true );
 		wp_localize_script( $handle, 'portal_blocks', $localized_data );
 
-		wp_enqueue_style(
-			$handle,
-			esc_url( is_rtl() ? $build_path . 'editor-app-rtl.css' : $build_path . 'editor-app.css' ),
-			[ 'wp-edit-blocks' ],
-			$script_info['version']
-		);
-
 		// Internal CPT meta setup.
 		$post_type = strval( get_post_type() );
 		$is_portal = $post_type === SUREDASHBOARD_POST_TYPE;
@@ -240,6 +235,35 @@ class Editor {
 		wp_add_inline_script(
 			'wp-blocks',
 			'window.portal_lucide_icons = ' . (string) wp_json_encode( $this->backend_load_font_awesome_icons()[0] ?? [] ) . ';',
+		);
+	}
+
+	/**
+	 * Enqueue editor styles for Block API v3 iframe compatibility.
+	 *
+	 * Uses enqueue_block_assets hook to ensure styles load inside the iframe editor.
+	 *
+	 * @since 1.8.3
+	 */
+	public function block_editor_styles(): void {
+		// Only load in admin/editor context, not on frontend.
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		$script_asset = SUREDASHBOARD_DIR . 'assets/build/editor-app.asset.php';
+		$build_path   = SUREDASHBOARD_URL . 'assets/build/';
+
+		$script_info = file_exists( $script_asset ) ? include $script_asset : [
+			'dependencies' => [],
+			'version'      => SUREDASHBOARD_VER,
+		];
+
+		wp_enqueue_style(
+			'portal_editor_scripts',
+			esc_url( is_rtl() ? $build_path . 'editor-app-rtl.css' : $build_path . 'editor-app.css' ),
+			[ 'wp-edit-blocks' ],
+			$script_info['version']
 		);
 	}
 

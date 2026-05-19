@@ -121,6 +121,13 @@ class Backend_Feeds {
 			->get( ARRAY_A );
 
 		$uncategorized_items = is_array( $uncategorized_items ) && isset( $uncategorized_items[0]['ids'] ) ? explode( ',', $uncategorized_items[0]['ids'] ) : [];
+
+		// Nothing to fetch — bail before running a second query that would
+		// be filtered by an empty `ID IN ()` list (invalid SQL anyway).
+		if ( empty( $uncategorized_items ) ) {
+			return [];
+		}
+
 		return sd_query()
 			->select( '*' )
 			->from( 'posts' )

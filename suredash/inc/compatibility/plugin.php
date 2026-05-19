@@ -32,6 +32,7 @@ class Plugin {
 		add_action( 'wp', [ $this, 'hide_surecart_icon_on_portal' ], 5 );
 
 		$this->init_breakdance_compatibility();
+		$this->init_etch_compatibility();
 	}
 
 	/**
@@ -149,6 +150,85 @@ class Plugin {
 	}
 
 	/**
+	 * Strip Etch styles, scripts, and inline output on portal pages.
+	 *
+	 * Etch loads its CSS through three different paths — inline `<style>`
+	 * blocks in `wp_head`, enqueued stylesheets/scripts via `wp_enqueue_scripts`,
+	 * and Vite app divs in `wp_footer`. We unhook every Etch-namespaced
+	 * callback on those tags and dequeue any leftover handles as a safety net.
+	 *
+	 * Limitation: callbacks registered as closures cannot be identified by
+	 * namespace and will not be removed by this routine.
+	 *
+	 * Pass `false` to the `suredash_dequeue_etch_on_portal` filter to opt out.
+	 *
+	 * @since 1.8.3
+	 * @return void
+	 */
+	public function dequeue_etch_on_portal(): void {
+		if ( ! suredash_frontend() ) {
+			return;
+		}
+
+		/**
+		 * Allow integrations to opt out of stripping Etch's frontend output on
+		 * portal pages.
+		 *
+		 * @since 1.8.3
+		 *
+		 * @param bool $enabled Whether to strip Etch assets on portal pages.
+		 */
+		if ( ! apply_filters( 'suredash_dequeue_etch_on_portal', true ) ) {
+			return;
+		}
+
+		foreach ( [ 'wp_head', 'wp_footer', 'wp_enqueue_scripts', 'wp_print_styles', 'enqueue_block_assets' ] as $tag ) {
+			$this->remove_hooks_by_namespace( $tag, 'Etch\\' );
+		}
+
+		add_action( 'wp_enqueue_scripts', [ $this, 'dequeue_etch_handles' ], 999 );
+		add_action( 'wp_print_styles', [ $this, 'dequeue_etch_handles' ], 999 );
+	}
+
+	/**
+	 * Dequeue any registered styles/scripts whose handle starts with an Etch
+	 * prefix. Acts as a safety net in case Etch handles are pulled in via
+	 * dependency chains rather than direct enqueue calls.
+	 *
+	 * @since 1.8.3
+	 * @return void
+	 */
+	public function dequeue_etch_handles(): void {
+		global $wp_styles, $wp_scripts;
+
+		$prefixes = [ 'etch-', 'svelte-app-' ];
+
+		if ( $wp_styles instanceof \WP_Styles && is_array( $wp_styles->registered ) ) {
+			foreach ( array_keys( $wp_styles->registered ) as $handle ) {
+				$handle = (string) $handle;
+				foreach ( $prefixes as $prefix ) {
+					if ( strpos( $handle, $prefix ) === 0 ) {
+						wp_dequeue_style( $handle );
+						break;
+					}
+				}
+			}
+		}
+
+		if ( $wp_scripts instanceof \WP_Scripts && is_array( $wp_scripts->registered ) ) {
+			foreach ( array_keys( $wp_scripts->registered ) as $handle ) {
+				$handle = (string) $handle;
+				foreach ( $prefixes as $prefix ) {
+					if ( strpos( $handle, $prefix ) === 0 ) {
+						wp_dequeue_script( $handle );
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	/**
 	 * Initialize Breakdance compatibility if Breakdance is active.
 	 *
 	 * @since 1.3.2
@@ -180,5 +260,66 @@ class Plugin {
 		}
 
 		return $is_portal_url;
+	}
+
+	/**
+	 * Initialize Etch page builder compatibility if Etch is active.
+	 *
+	 * Etch ships its own CSS reset and defaults that load on every front-end
+	 * page, which conflict with portal styles. We hook into template_redirect
+	 * so we can detect a portal page and strip Etch's assets before they reach
+	 * the browser.
+	 *
+	 * @since 1.8.3
+	 * @return void
+	 */
+	private function init_etch_compatibility(): void {
+		if ( ! class_exists( '\Etch\Plugin' ) ) {
+			return;
+		}
+		add_action( 'template_redirect', [ $this, 'dequeue_etch_on_portal' ] );
+	}
+
+	/**
+	 * Walk `$wp_filter` for a tag and unhook every callback whose class lives
+	 * under the given namespace prefix. Closures are skipped — they don't
+	 * carry a class identifier and could belong to anyone.
+	 *
+	 * @param string $tag              Hook name.
+	 * @param string $namespace_prefix Class namespace prefix to match (e.g. `Etch\\`).
+	 *
+	 * @since 1.8.3
+	 * @return void
+	 */
+	private function remove_hooks_by_namespace( string $tag, string $namespace_prefix ): void {
+		global $wp_filter;
+
+		if ( ! isset( $wp_filter[ $tag ] ) || ! is_object( $wp_filter[ $tag ] ) || ! property_exists( $wp_filter[ $tag ], 'callbacks' ) ) {
+			return;
+		}
+
+		$callbacks = $wp_filter[ $tag ]->callbacks;
+		if ( ! is_array( $callbacks ) ) {
+			return;
+		}
+
+		foreach ( $callbacks as $priority => $hooks ) {
+			if ( ! is_array( $hooks ) ) {
+				continue;
+			}
+			foreach ( $hooks as $hook_data ) {
+				if ( ! is_array( $hook_data ) || ! isset( $hook_data['function'] ) ) {
+					continue;
+				}
+				$function = $hook_data['function'];
+				if ( ! is_array( $function ) || ! isset( $function[0] ) ) {
+					continue;
+				}
+				$class_name = is_object( $function[0] ) ? get_class( $function[0] ) : (string) $function[0];
+				if ( strncmp( $class_name, $namespace_prefix, strlen( $namespace_prefix ) ) === 0 ) {
+					remove_action( $tag, $function, (int) $priority );
+				}
+			}
+		}
 	}
 }

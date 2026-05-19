@@ -690,8 +690,8 @@ class Renderer {
 	public function check_if_override_template() {
 		$status = true;
 
-		/* Breakdance & Bricks Builders compatibility */
-		if ( ! empty( $_GET['breakdance'] ) || ( ! empty( $_GET['bricks'] ) && $_GET['bricks'] === 'run' ) ) { // phpcs:ignore
+		/* Breakdance, Bricks & Divi Builders compatibility */
+		if ( ! empty( $_GET['breakdance'] ) || ( ! empty( $_GET['bricks'] ) && $_GET['bricks'] === 'run' ) || ( ! empty( $_GET['et_fb'] ) && $_GET['et_fb'] === '1' ) ) { // phpcs:ignore
 			$status = false;
 		}
 

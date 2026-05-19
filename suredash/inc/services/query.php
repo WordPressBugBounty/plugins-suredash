@@ -278,6 +278,19 @@ class Query {
 		}
 
 		if ( is_array( $param2 ) ) {
+			// Guard against an empty `IN ()` / `NOT IN ()` list — both are
+			// invalid SQL. Substitute a constant predicate that preserves
+			// correct set semantics: `IN ()` matches nothing (`1=0`) and
+			// `NOT IN ()` matches everything (`1=1`).
+			if ( count( $param2 ) === 0 ) {
+				$operator        = is_string( $param1 ) ? strtoupper( trim( $param1 ) ) : '';
+				$this->where[]   = [
+					'joint'     => $joint,
+					'condition' => $operator === 'NOT IN' ? '1=1' : '1=0',
+				];
+				return $this;
+			}
+
 			$escaped = array_map(
 				static function ( $val ) use ( $wpdb ) {
 					return $wpdb->prepare( is_numeric( $val ) ? '%d' : '%s', $val );

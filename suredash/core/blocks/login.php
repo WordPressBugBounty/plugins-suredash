@@ -254,8 +254,8 @@ class Login {
 		self::init();
 		add_action( 'suredash_enqueue_login_block_scripts', [ $this, 'enqueue_front_assets' ], 10, 2 );
 
-		register_block_type(
-			'suredash/login',
+		register_block_type_from_metadata(
+			SUREDASHBOARD_DIR . 'assets/build/editor/blocks/Login',
 			[
 				'attributes'      => $this->get_default_attributes(),
 				'render_callback' => [ $this, 'render_html' ],
@@ -1098,8 +1098,8 @@ class Login {
 
 						var selector      = '<?php echo esc_js( $selector ); ?>';
 						var containerSel  = selector + ' .cf-turnstile';
-						var statusSel     = selector + ' .spectra-pro-login-form-status';
-						var errorSel      = '.spectra-pro-login-form-status__error, .spectra-pro-login-form-status__error-item';
+						var statusSel     = selector + ' .suredash-login-form-status';
+						var errorSel      = '.suredash-login-form-status__error, .suredash-login-form-status__error-item';
 
 						var maxApiRetries = 10;
 						var retryDelay    = 200;
@@ -1247,7 +1247,7 @@ class Login {
 
 		$wrapper_classes = [
 			'uagb-block-' . $attributes['block_id'],
-			'wp-block-spectra-pro-login',
+			'wp-block-suredash-login',
 			'suredash-login-active',
 			$desktop_class,
 			$tab_class,
@@ -1303,7 +1303,7 @@ class Login {
 							// Render forgot password form.
 							?>
 								<?php if ( ! empty( $attributes['showFormHeading'] ) ) { ?>
-									<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="spectra-pro-login-form__heading">
+									<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="suredash-login-form__heading">
 										<?php echo esc_html( $attributes['lostPasswordHeading'] ); ?>
 									</<?php echo esc_attr( $attributes['formHeadingTag'] ); ?>>
 								<?php } ?>
@@ -1333,7 +1333,7 @@ class Login {
 							// Render reset password form.
 							?>
 							<?php if ( ! empty( $attributes['showFormHeading'] ) ) { ?>
-								<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="spectra-pro-login-form__heading">
+								<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="suredash-login-form__heading">
 									<?php echo esc_html( $attributes['resetPasswordHeading'] ); ?>
 								</<?php echo esc_attr( $attributes['formHeadingTag'] ); ?>>
 							<?php } ?>
@@ -1394,7 +1394,7 @@ class Login {
 							if ( ! $attributes['disableFormFields'] ) {
 								?>
 									<?php if ( ! empty( $attributes['showFormHeading'] ) && ! empty( $attributes['formHeadingText'] ) ) { ?>
-										<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="spectra-pro-login-form__heading">
+										<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="suredash-login-form__heading">
 											<?php echo wp_kses_post( $attributes['formHeadingText'] ); ?>
 										</<?php echo esc_attr( $attributes['formHeadingTag'] ); ?>>
 										<?php
@@ -1405,18 +1405,18 @@ class Login {
 									?>
 									<div class='suredash-login-fields'>
 										<form
-											id="<?php echo esc_attr( 'spectra-pro-login-form-' . $attributes['block_id'] ); ?>" action="#" method="post"
-											class="spectra-pro-login-form">
+											id="<?php echo esc_attr( 'suredash-login-form-' . $attributes['block_id'] ); ?>" action="#" method="post"
+											class="suredash-login-form">
 										<?php wp_nonce_field( 'portal_social_google_login', '_nonce' ); ?>
 
-											<div class="spectra-pro-login-form__user-login">
+											<div class="suredash-login-form__user-login">
 											<?php
 											if ( ! empty( $attributes['usernameLabel'] ) ) {
 												?>
 												<label for="<?php echo esc_attr( 'username-' . $attributes['block_id'] ); ?>"><?php echo wp_kses_post( $attributes['usernameLabel'] ); ?></label>
 											<?php } ?>
 
-												<div class='<?php echo ! $attributes['isHideIcon'] ? 'spectra-pro-login-form-username-wrap spectra-pro-login-form-username-wrap--have-icon' : 'spectra-pro-login-form-username-wrap'; ?>'>
+												<div class='<?php echo ! $attributes['isHideIcon'] ? 'suredash-login-form-username-wrap suredash-login-form-username-wrap--have-icon' : 'suredash-login-form-username-wrap'; ?>'>
 													<?php
 													if ( ! $attributes['isHideIcon'] ) {
 														Helper::get_library_icon( 'User', true );
@@ -1425,7 +1425,7 @@ class Login {
 													<input id="<?php echo esc_attr( 'username-' . $attributes['block_id'] ); ?>" type="text" name="username" placeholder="<?php echo esc_attr( $attributes['usernamePlaceholder'] ); ?>" />
 												</div>
 											</div>
-											<div class="spectra-pro-login-form__user-pass">
+											<div class="suredash-login-form__user-pass">
 													<?php
 													if ( ! empty( $attributes['passwordLabel'] ) ) {
 														?>
@@ -1433,7 +1433,7 @@ class Login {
 														<?php
 													}
 													?>
-												<div class='<?php echo ! $attributes['isHideIcon'] ? 'spectra-pro-login-form-pass-wrap spectra-pro-login-form-pass-wrap--have-icon' : 'spectra-pro-login-form-pass-wrap'; ?>'>
+												<div class='<?php echo ! $attributes['isHideIcon'] ? 'suredash-login-form-pass-wrap suredash-login-form-pass-wrap--have-icon' : 'suredash-login-form-pass-wrap'; ?>'>
 													<?php
 													if ( ! $attributes['isHideIcon'] ) {
 														Helper::get_library_icon( 'Lock', true );
@@ -1443,17 +1443,17 @@ class Login {
 													<button id="<?php echo esc_attr( 'password-visibility-' . $attributes['block_id'] ); ?>" type='button' aria-label="<?php echo esc_attr( __( 'Show Password', 'suredash' ) ); ?>" ><span class="dashicons dashicons-visibility"></span></button>
 												</div>
 											</div>
-											<div class="spectra-pro-login-form__forgetmenot">
-												<div class="spectra-pro-login-form-rememberme">
+											<div class="suredash-login-form__forgetmenot">
+												<div class="suredash-login-form-rememberme">
 													<label for="<?php echo esc_attr( 'rememberme-' . $attributes['block_id'] ); ?>">
 														<input name="rememberme" type="checkbox" id="<?php echo esc_attr( 'rememberme-' . $attributes['block_id'] ); ?>" />
-														<span class="spectra-pro-login-form-rememberme__checkmark"></span>
+														<span class="suredash-login-form-rememberme__checkmark"></span>
 													<?php
 													if ( ! empty( $attributes['rememberMeLabel'] ) ) {
 														// The div below ensures that the label is unaffected by flex styling on it's parent.
 														// Flex styling strips away the spaces in rich-text.
 														?>
-																<div class="spectra-pro-login-form-rememberme__checkmark-label">
+																<div class="suredash-login-form-rememberme__checkmark-label">
 																<?php
 																	echo wp_kses_post( $attributes['rememberMeLabel'] );
 																?>
@@ -1466,7 +1466,7 @@ class Login {
 													<?php
 													if ( ! empty( $attributes['forgotPasswordLabel'] ) ) {
 														?>
-												<div class="spectra-pro-login-form-forgot-password">
+												<div class="suredash-login-form-forgot-password">
 													<a href="<?php echo esc_url( add_query_arg( 'action', 'lostpassword', get_permalink() ) ); ?>">
 														<?php echo esc_html( $attributes['forgotPasswordLabel'] ); ?>
 													</a>
@@ -1474,7 +1474,7 @@ class Login {
 													<?php } ?>
 											</div>
 											<?php if ( $attributes['spamProtection'] === 'recaptcha' && $attributes['reCaptchaType'] === 'v2' ) { ?>
-											<div class="spectra-pro-login-form__recaptcha">
+											<div class="suredash-login-form__recaptcha">
 													<div class="g-recaptcha" data-sitekey="<?php echo esc_attr( $recaptcha_site_key ); ?>"></div>
 													<input
 															type="hidden"
@@ -1482,12 +1482,12 @@ class Login {
 													/>
 											</div>
 											<?php } elseif ( $attributes['spamProtection'] === 'turnstile' ) { ?>
-											<div class="spectra-pro-login-form__turnstile">
+											<div class="suredash-login-form__turnstile">
 													<div class="cf-turnstile" data-sitekey="<?php echo esc_attr( $turnstile_site_key ); ?>" data-theme="<?php echo esc_attr( $attributes['turnstileAppearance'] ); ?>"></div>
 											</div>
 											<?php } ?>
-											<div class="spectra-pro-login-form__submit wp-block-button">
-												<button class="spectra-pro-login-form-submit-button wp-block-button__link" type="submit">
+											<div class="suredash-login-form__submit wp-block-button">
+												<button class="suredash-login-form-submit-button wp-block-button__link" type="submit">
 													<?php
 													if ( $attributes['ctaIconPosition'] === 'before' ) {
 														Helper::get_library_icon( $attributes['ctaIcon'], true );
@@ -1516,16 +1516,16 @@ class Login {
 					}
 					?>
 
-					<div id="<?php echo esc_attr( 'spectra-pro-login-form-status-' . $attributes['block_id'] ); ?>" class="spectra-pro-login-form-status"></div>
+					<div id="<?php echo esc_attr( 'suredash-login-form-status-' . $attributes['block_id'] ); ?>" class="suredash-login-form-status"></div>
 
 					<?php
 
 					if ( $attributes['showRegisterInfo'] ) {
 						?>
-						<div class='wp-block-spectra-pro-login__footer'>
-							<p class='wp-block-spectra-pro-login-info'><?php echo esc_html( $attributes['registerInfo'] ); ?>
+						<div class='wp-block-suredash-login__footer'>
+							<p class='wp-block-suredash-login-info'><?php echo esc_html( $attributes['registerInfo'] ); ?>
 								<a
-									class="spectra-pro-login-form-register"
+									class="suredash-login-form-register"
 									href="<?php echo is_array( $attributes['registerButtonLink'] ) && ! empty( $attributes['registerButtonLink']['url'] ) ? esc_url( $attributes['registerButtonLink']['url'] ) : esc_url( wp_registration_url() ); ?>"
 									<?php
 										echo is_array( $attributes['registerButtonLink'] ) && isset( $attributes['registerButtonLink']['opensInNewTab'] ) ? ' target="_blank"' : '';
@@ -1573,11 +1573,11 @@ class Login {
 
 			if ( ! $attributes['socialReverseToogle'] ) {
 				?>
-				<div class="spectra-pro-login-form__social">
+				<div class="suredash-login-form__social">
 					<?php
 					if ( $attributes['enableGoogleLogin'] && is_string( $social_connect['google_token_id'] ) && ! empty( $social_connect['google_token_id'] ) ) {
 						?>
-					<button type="button" class="spectra-pro-login-form__social-google" id="uagb-pro-login-googleLink" data-clientid="<?php echo esc_attr( $social_connect['google_token_id'] ); ?>">
+					<button type="button" class="suredash-login-form__social-google" id="uagb-pro-login-googleLink" data-clientid="<?php echo esc_attr( $social_connect['google_token_id'] ); ?>">
 						<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_1327_4903)">
 							<path d="M15.29 8.16667C15.29 7.64667 15.2433 7.14667 15.1567 6.66667H8.25V9.50333H12.1967C12.0267 10.42 11.51 11.1967 10.7333 11.7167V13.5567H13.1033C14.49 12.28 15.29 10.4 15.29 8.16667Z" fill="#4285F4"/>
@@ -1598,7 +1598,7 @@ class Login {
 
 					if ( $attributes['enableFacebookLogin'] && ! empty( $social_connect['facebook_token_id'] ) && is_string( $social_connect['facebook_token_id'] ) && ! empty( $social_connect['facebook_token_secret'] ) ) {
 						?>
-					<button type="button" class="spectra-pro-login-form__social-facebook" id="uagb-pro-login-fbLink" data-appid="<?php echo esc_attr( $social_connect['facebook_token_id'] ); ?>">
+					<button type="button" class="suredash-login-form__social-facebook" id="uagb-pro-login-fbLink" data-appid="<?php echo esc_attr( $social_connect['facebook_token_id'] ); ?>">
 						<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_1327_4911)">
 							<path d="M16.75 8C16.75 3.58172 13.1683 -2.86102e-06 8.75 -2.86102e-06C4.33172 -2.86102e-06 0.75 3.58172 0.75 8C0.75 11.993 3.67548 15.3027 7.5 15.9028V10.3125H5.46875V8H7.5V6.2375C7.5 4.2325 8.69434 3.125 10.5217 3.125C11.397 3.125 12.3125 3.28125 12.3125 3.28125V5.25H11.3037C10.3099 5.25 10 5.86667 10 6.49933V8H12.2188L11.8641 10.3125H10V15.9028C13.8245 15.3027 16.75 11.993 16.75 8Z" fill="#1877F2"/>
@@ -1619,12 +1619,12 @@ class Login {
 				<?php
 			} else {
 				?>
-				<div class="spectra-pro-login-form__social">
+				<div class="suredash-login-form__social">
 					<?php
 					if ( $attributes['enableFacebookLogin'] && ! empty( $social_connect['facebook_token_id'] ) && is_string( $social_connect['facebook_token_id'] ) && ! empty( $social_connect['facebook_token_secret'] ) ) {
 						?>
 
-					<button type="button" class="spectra-pro-login-form__social-facebook" id="uagb-pro-login-fbLink" data-appid="<?php echo esc_attr( $social_connect['facebook_token_id'] ); ?>">
+					<button type="button" class="suredash-login-form__social-facebook" id="uagb-pro-login-fbLink" data-appid="<?php echo esc_attr( $social_connect['facebook_token_id'] ); ?>">
 						<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_1327_4911)">
 							<path d="M16.75 8C16.75 3.58172 13.1683 -2.86102e-06 8.75 -2.86102e-06C4.33172 -2.86102e-06 0.75 3.58172 0.75 8C0.75 11.993 3.67548 15.3027 7.5 15.9028V10.3125H5.46875V8H7.5V6.2375C7.5 4.2325 8.69434 3.125 10.5217 3.125C11.397 3.125 12.3125 3.28125 12.3125 3.28125V5.25H11.3037C10.3099 5.25 10 5.86667 10 6.49933V8H12.2188L11.8641 10.3125H10V15.9028C13.8245 15.3027 16.75 11.993 16.75 8Z" fill="#1877F2"/>
@@ -1643,7 +1643,7 @@ class Login {
 
 					if ( $attributes['enableGoogleLogin'] && ! empty( $social_connect['google_token_id'] ) && is_string( $social_connect['google_token_id'] ) ) {
 						?>
-						<button type="button" class="spectra-pro-login-form__social-google" id="uagb-pro-login-googleLink" data-clientid="<?php echo esc_attr( $social_connect['google_token_id'] ); ?>">
+						<button type="button" class="suredash-login-form__social-google" id="uagb-pro-login-googleLink" data-clientid="<?php echo esc_attr( $social_connect['google_token_id'] ); ?>">
 							<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_1327_4903)">
 								<path d="M15.29 8.16667C15.29 7.64667 15.2433 7.14667 15.1567 6.66667H8.25V9.50333H12.1967C12.0267 10.42 11.51 11.1967 10.7333 11.7167V13.5567H13.1033C14.49 12.28 15.29 10.4 15.29 8.16667Z" fill="#4285F4"/>
@@ -1752,8 +1752,8 @@ class Login {
 			'right'  => array_key_exists( 'border-right-width', $fields_border_css_mobile ) ? $fields_border_css_mobile['border-right-width'] : '',
 		];
 
-		$username_icon_input_selector = '.wp-block-spectra-pro-login.wp-block-spectra-pro-login .spectra-pro-login-form__user-login .spectra-pro-login-form-username-wrap.spectra-pro-login-form-username-wrap--have-icon input';
-		$password_icon_input_selector = '.wp-block-spectra-pro-login.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass .spectra-pro-login-form-pass-wrap.spectra-pro-login-form-pass-wrap--have-icon input';
+		$username_icon_input_selector = '.wp-block-suredash-login.wp-block-suredash-login .suredash-login-form__user-login .suredash-login-form-username-wrap.suredash-login-form-username-wrap--have-icon input';
+		$password_icon_input_selector = '.wp-block-suredash-login.wp-block-suredash-login .suredash-login-form__user-pass .suredash-login-form-pass-wrap.suredash-login-form-pass-wrap--have-icon input';
 
 		// shadow.
 		$box_shadow_position_css = $attr['boxShadowPosition'];
@@ -1962,7 +1962,7 @@ class Login {
 		);
 
 		$selectors = [
-			'.wp-block-spectra-pro-login'             => array_merge(
+			'.wp-block-suredash-login'                   => array_merge(
 				[
 					'width'          => Helper::get_css_value( $attr['formWidth'], $attr['formWidthType'] ),
 					'padding-top'    => Helper::get_css_value( $attr['formTopPadding'], $attr['formPaddingUnit'] ),
@@ -1985,13 +1985,13 @@ class Login {
 				$form_border_css,
 				$container_bg_css_desktop
 			),
-			'.wp-block-spectra-pro-login:hover'       => [
+			'.wp-block-suredash-login:hover'             => [
 				'border-color' => $attr['formBorderHColor'],
 			],
-			' .spectra-pro-login-form__field-error-message' => [
+			' .suredash-login-form__field-error-message' => [
 				'text-align' => $attr['overallAlignment'],
 			],
-			' .suredash-forgot-password-form .spectra-pro-login-form__field-error-message' => [
+			' .suredash-forgot-password-form .suredash-login-form__field-error-message' => [
 				'display'       => 'block',
 				'font-size'     => '13px',
 				'color'         => '#ef4444',
@@ -2019,10 +2019,10 @@ class Login {
 				'border-left'      => '4px solid #ef4444',
 				'border-radius'    => '4px',
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login' => [
 				'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),
 			],
-			'.wp-block-spectra-pro-login .wp-block-spectra-pro-login__logged-in-message' => [
+			'.wp-block-suredash-login .wp-block-suredash-login__logged-in-message' => [
 				'font-family'     => $attr['labelFontFamily'],
 				'font-style'      => $attr['labelFontStyle'],
 				'text-decoration' => $attr['labelDecoration'],
@@ -2036,125 +2036,125 @@ class Login {
 				'letter-spacing'  => Helper::get_css_value( $attr['labelLetterSpacing'], $attr['labelLetterSpacingType'] ),
 				'color'           => $attr['labelColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__heading' => $form_title_style,
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__heading:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__heading' => $form_title_style,
+			'.wp-block-suredash-login .suredash-login-form__heading:hover' => [
 				'color' => $attr['headingHoverColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login label' => $form_label_style,
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login label:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login label' => $form_label_style,
+			'.wp-block-suredash-login .suredash-login-form__user-login label:hover' => [
 				'color' => $attr['labelHoverColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input' => $form_input_style,
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login input' => $form_input_style,
+			'.wp-block-suredash-login .suredash-login-form__user-login input:hover' => [
 				'border-color' => $attr['fieldsBorderHColor'],
 				'background'   => $attr['fieldsBackgroundHover'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input:focus' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login input:focus' => [
 				'background' => $attr['fieldsBackgroundActive'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input::placeholder' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login input::placeholder' => [
 				'color' => $attr['placeholderColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input:hover::placeholder' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login input:hover::placeholder' => [
 				'color' => $attr['placeholderColorHover'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input:focus::placeholder' => [
+			'.wp-block-suredash-login .suredash-login-form__user-login input:focus::placeholder' => [
 				'color' => $attr['placeholderColorActive'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input::placeholder' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass input::placeholder' => [
 				'color' => $attr['placeholderColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input:hover::placeholder' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass input:hover::placeholder' => [
 				'color' => $attr['placeholderColorHover'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input:focus::placeholder' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass input:focus::placeholder' => [
 				'color' => $attr['placeholderColorActive'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__recaptcha' => [
+			'.wp-block-suredash-login .suredash-login-form__recaptcha' => [
 				'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__turnstile' => [
+			'.wp-block-suredash-login .suredash-login-form__turnstile' => [
 				'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass' => [
 				'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass button' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass button' => [
 				'color'        => $attr['eyeIconColor'],
 				'margin-right' => array_key_exists( 'border-right-width', $fields_border_css ) && ( ! $is_rtl ) ? 'calc( ' . $fields_border_css['border-right-width'] . ' + 5px )' : '',
 				'margin-left'  => array_key_exists( 'border-left-width', $fields_border_css ) && $is_rtl ? 'calc( ' . $fields_border_css['border-left-width'] . ' + 5px )' : '',
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass button span' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass button span' => [
 				'font-size' => Helper::get_css_value( $attr['eyeIconSize'], $attr['eyeIconSizeType'] ),
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass label' => $form_label_style,
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass label:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass label' => $form_label_style,
+			'.wp-block-suredash-login .suredash-login-form__user-pass label:hover' => [
 				'color' => $attr['labelHoverColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input' => $form_input_style,
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass input' => $form_input_style,
+			'.wp-block-suredash-login .suredash-login-form__user-pass input:hover' => [
 				'color'        => $attr['labelHoverColor'],
 				'border-color' => $attr['fieldsBorderHColor'],
 				'background'   => $attr['fieldsBackgroundHover'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input:focus' => [
+			'.wp-block-suredash-login .suredash-login-form__user-pass input:focus' => [
 				'background' => $attr['fieldsBackgroundActive'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot' => [
+			'.wp-block-suredash-login .suredash-login-form__forgetmenot' => [
 				'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-forgot-password' => [
+			'.wp-block-suredash-login .suredash-login-form-forgot-password' => [
 				'margin-top'    => Helper::get_css_value( $attr['labelTopMargin'], $attr['labelMarginUnit'] ),
 				'margin-right'  => Helper::get_css_value( $attr['labelRightMargin'], $attr['labelMarginUnit'] ),
 				'margin-bottom' => Helper::get_css_value( $attr['labelBottomMargin'], $attr['labelMarginUnit'] ),
 				// Left margin not required.
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-forgot-password a' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form-forgot-password a' => array_merge(
 				$form_label_style,
 				[
 					'margin' => 'unset',
 					'color'  => $attr['linkColor'],
 				]
 			),
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-forgot-password a:hover' => [
+			'.wp-block-suredash-login .suredash-login-form-forgot-password a:hover' => [
 				'color' => $attr['linkHColor'],
 			],
 
-			$username_icon_input_selector             => [
+			$username_icon_input_selector                => [
 				'padding-left' => Helper::get_css_value( $attr['paddingFieldLeft'], $attr['paddingFieldUnit'] ),
 			],
 
-			$password_icon_input_selector             => [
+			$password_icon_input_selector                => [
 				'padding-left' => Helper::get_css_value( $attr['paddingFieldLeft'], $attr['paddingFieldUnit'] ),
 			],
 
 			// Field icon - Username.
-			'.wp-block-spectra-pro-login .spectra-pro-login-form .spectra-pro-login-form-username-wrap--have-icon svg' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form .suredash-login-form-username-wrap--have-icon svg' => array_merge(
 				$field_icon_css
 			),
 
 			// Field icon - Password.
-			'.wp-block-spectra-pro-login .spectra-pro-login-form .spectra-pro-login-form__user-pass .spectra-pro-login-form-pass-wrap--have-icon svg' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form .suredash-login-form__user-pass .suredash-login-form-pass-wrap--have-icon svg' => array_merge(
 				$field_icon_css
 			),
 
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-rememberme label' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form-rememberme label' => array_merge(
 				$form_label_style,
 				[
 					'margin' => 'unset',
 				]
 			),
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-rememberme label:hover' => [
+			'.wp-block-suredash-login .suredash-login-form-rememberme label:hover' => [
 				'color' => $attr['labelHoverColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-rememberme' => [
+			'.wp-block-suredash-login .suredash-login-form-rememberme' => [
 				'margin-top'    => Helper::get_css_value( $attr['labelTopMargin'], $attr['labelMarginUnit'] ),
 				// Right margin not required.
 				'margin-bottom' => Helper::get_css_value( $attr['labelBottomMargin'], $attr['labelMarginUnit'] ),
 				'margin-left'   => Helper::get_css_value( $attr['labelLeftMargin'], $attr['labelMarginUnit'] ),
 			],
 			// checkbox.
-			' .spectra-pro-login-form-rememberme .spectra-pro-login-form-rememberme__checkmark' => [
+			' .suredash-login-form-rememberme .suredash-login-form-rememberme__checkmark' => [
 				'width'         => Helper::get_css_value( $attr['checkboxSize'], 'px' ),
 				'height'        => Helper::get_css_value( $attr['checkboxSize'], 'px' ),
 				'background'    => $attr['checkboxBackgroundColor'],
@@ -2162,22 +2162,22 @@ class Login {
 				'border-radius' => Helper::get_css_value( $attr['checkboxBorderRadius'], 'px' ),
 				'border-color'  => $attr['checkboxBorderColor'],
 			],
-			' .spectra-pro-login-form-rememberme .spectra-pro-login-form-rememberme__checkmark:after' => [
+			' .suredash-login-form-rememberme .suredash-login-form-rememberme__checkmark:after' => [
 				'font-size' => Helper::get_css_value( strval( floatval( $attr['checkboxSize'] ) / 2 ), 'px' ),
 				'color'     => $attr['checkboxColor'],
 			],
 			// If the user clicks on the checkbox, light it up with some box shadow to portray some interaction!
-			' .spectra-pro-login-form-rememberme input[type="checkbox"]:focus + .spectra-pro-login-form-rememberme__checkmark' => [
+			' .suredash-login-form-rememberme input[type="checkbox"]:focus + .suredash-login-form-rememberme__checkmark' => [
 				'box-shadow' => $attr['checkboxGlowEnable'] && $attr['checkboxGlowColor'] ? '0 0 0 1px ' . $attr['checkboxGlowColor'] : '',
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-register:hover' => [
+			'.wp-block-suredash-login .suredash-login-form-register:hover' => [
 				'color' => $attr['linkHColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__submit' => [
+			'.wp-block-suredash-login .suredash-login-form__submit' => [
 				'justify-content' => $attr['alignLoginBtn'],
 				'margin-bottom'   => Helper::get_css_value( $attr['formRowsGapSpace'], $attr['formRowsGapSpaceUnit'] ),
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form-submit-button' => array_merge(
 				[
 					'font-family'     => $attr['loginFontFamily'],
 					'font-style'      => $attr['loginFontStyle'],
@@ -2199,7 +2199,7 @@ class Login {
 				$full_width_login_btn,
 				$login_border_css
 			),
-			'.wp-block-spectra-pro-login .suredash-reset-password-submit' => array_merge(
+			'.wp-block-suredash-login .suredash-reset-password-submit' => array_merge(
 				[
 					'font-family'     => $attr['loginFontFamily'],
 					'font-style'      => $attr['loginFontStyle'],
@@ -2221,24 +2221,24 @@ class Login {
 				$full_width_login_btn,
 				$login_border_css
 			),
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button:hover' => [
+			'.wp-block-suredash-login .suredash-login-form-submit-button:hover' => [
 				'border-color' => $attr['loginBorderHColor'],
 				'background'   => $attr['loginHBackground'],
 				'color'        => $attr['loginHColor'],
 			],
-			'.wp-block-spectra-pro-login .suredash-reset-password-submit:hover' => [
+			'.wp-block-suredash-login .suredash-reset-password-submit:hover' => [
 				'border-color' => $attr['loginBorderHColor'],
 				'background'   => $attr['loginHBackground'],
 				'color'        => $attr['loginHColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button:hover svg' => [
+			'.wp-block-suredash-login .suredash-login-form-submit-button:hover svg' => [
 				'stroke' => $attr['loginHColor'],
 			],
-			'.wp-block-spectra-pro-login .suredash-reset-password-submit:hover svg' => [
+			'.wp-block-suredash-login .suredash-reset-password-submit:hover svg' => [
 				'stroke' => $attr['loginHColor'],
 			],
 
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__social-google' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form__social-google' => array_merge(
 				[
 					'width'           => $attr['googleSize'] === 'full' ? '100%' : '',
 					'font-family'     => $attr['googleFontFamily'],
@@ -2258,12 +2258,12 @@ class Login {
 				],
 				$google_border_css
 			),
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__social-google:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__social-google:hover' => [
 				'border-color' => $attr['googleBorderHColor'],
 				'background'   => $attr['googleHBackground'],
 				'color'        => $attr['googleHColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__social-facebook' => array_merge(
+			'.wp-block-suredash-login .suredash-login-form__social-facebook' => array_merge(
 				[
 					'width'           => $attr['facebookSize'] === 'full' ? '100%' : '',
 					'font-family'     => $attr['facebookFontFamily'],
@@ -2283,24 +2283,24 @@ class Login {
 				],
 				$facebook_border_css
 			),
-			'.wp-block-spectra-pro-login .spectra-pro-login-form__social-facebook:hover' => [
+			'.wp-block-suredash-login .suredash-login-form__social-facebook:hover' => [
 				'border-color' => $attr['facebookBorderHColor'],
 				'background'   => $attr['facebookHBackground'],
 				'color'        => $attr['facebookHColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-status .spectra-pro-login-form-status__success' => [
+			'.wp-block-suredash-login .suredash-login-form-status .suredash-login-form-status__success' => [
 				'border-left-color' => $attr['successMessageBorderColor'],
 				'background-color'  => $attr['successMessageBackground'],
 				'color'             => $attr['successMessageColor'],
 			],
-			'.wp-block-spectra-pro-login .spectra-pro-login-form-status .spectra-pro-login-form-status__error' => [
+			'.wp-block-suredash-login .suredash-login-form-status .suredash-login-form-status__error' => [
 				'border-left-color' => $attr['errorMessageBorderColor'],
 				'background-color'  => $attr['errorMessageBackground'],
 				'color'             => $attr['errorMessageColor'],
 			],
 
 			// google and facebook alignment.
-			' .spectra-pro-login-form__social'        => [
+			' .suredash-login-form__social'              => [
 				'justify-content' => $postition_google_facebook_button,
 				'align-items'     => $align_items_google_facebook_button,
 				'flex-direction'  => $apply_stack,
@@ -2309,7 +2309,7 @@ class Login {
 			],
 
 			// Info Link.
-			' .wp-block-spectra-pro-login-info'       => [
+			' .wp-block-suredash-login-info'             => [
 				'color'           => $attr['labelColor'],
 				'font-family'     => $attr['labelFontFamily'],
 				'font-style'      => $attr['labelFontStyle'],
@@ -2323,27 +2323,27 @@ class Login {
 				'margin-bottom'   => Helper::get_css_value( $attr['labelBottomMargin'], $attr['labelMarginUnit'] ),
 				'margin-left'     => Helper::get_css_value( $attr['labelLeftMargin'], $attr['labelMarginUnit'] ),
 			],
-			' .wp-block-spectra-pro-login-info a'     => [
+			' .wp-block-suredash-login-info a'           => [
 				'color' => $attr['linkColor'],
 			],
-			' .wp-block-spectra-pro-login__logged-in-message a' => [
+			' .wp-block-suredash-login__logged-in-message a' => [
 				'color' => $attr['linkColor'],
 			],
-			' .wp-block-spectra-pro-login-info:hover' => [
+			' .wp-block-suredash-login-info:hover'       => [
 				'color' => $attr['labelHoverColor'],
 			],
-			' .wp-block-spectra-pro-login__logged-in-message a:hover' => [
+			' .wp-block-suredash-login__logged-in-message a:hover' => [
 				'color' => $attr['linkHColor'],
 			],
 		];
 
 		// If hover blur or hover color are set, show the hover shadow.
 		if ( ( $attr['boxShadowBlurHover'] !== '' ) && ( $attr['boxShadowBlurHover'] !== null ) || $attr['boxShadowColorHover'] !== '' ) {
-			$selectors['.wp-block-spectra-pro-login:hover']['box-shadow'] = Helper::get_css_value( $attr['boxShadowHOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowVOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowBlurHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowSpreadHover'], 'px' ) . ' ' . $attr['boxShadowColorHover'] . ' ' . $box_shadow_position_css_hover;
+			$selectors['.wp-block-suredash-login:hover']['box-shadow'] = Helper::get_css_value( $attr['boxShadowHOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowVOffsetHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowBlurHover'], 'px' ) . ' ' . Helper::get_css_value( $attr['boxShadowSpreadHover'], 'px' ) . ' ' . $attr['boxShadowColorHover'] . ' ' . $box_shadow_position_css_hover;
 		}
 
 		// tablet.
-		$t_selectors['.wp-block-spectra-pro-login'] = array_merge(
+		$t_selectors['.wp-block-suredash-login'] = array_merge(
 			[
 				'width'          => Helper::get_css_value( $attr['formWidthTablet'], $attr['formWidthTypeTablet'] ),
 				'padding-top'    => Helper::get_css_value( $attr['formTopPaddingTablet'], $attr['formPaddingUnitTablet'] ),
@@ -2355,7 +2355,7 @@ class Login {
 			$form_border_css_tablet
 		);
 
-		$t_selectors[' .wp-block-spectra-pro-login-info']                                     = [
+		$t_selectors[' .wp-block-suredash-login-info']                                  = [
 			'font-size'      => Helper::get_css_value( $attr['labelFontSizeTablet'], $attr['labelFontSizeType'] ),
 			'letter-spacing' => Helper::get_css_value( $attr['labelLetterSpacingTablet'], $attr['labelLetterSpacingType'] ),
 			'line-height'    => Helper::get_css_value( $attr['labelLineHeightTablet'], $attr['labelLineHeightType'] ),
@@ -2364,7 +2364,7 @@ class Login {
 			'margin-bottom'  => Helper::get_css_value( $attr['labelBottomMarginTablet'], $attr['labelMarginUnitTablet'] ),
 			'margin-left'    => Helper::get_css_value( $attr['labelLeftMarginTablet'], $attr['labelMarginUnitTablet'] ),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-login label'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-login label'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeTablet'],
 				$attr['labelFontSizeType']
@@ -2392,7 +2392,7 @@ class Login {
 			),
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass label'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-pass label'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeTablet'],
 				$attr['labelFontSizeType']
@@ -2420,7 +2420,7 @@ class Login {
 			),
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__heading'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__heading'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['headingFontSizeTablet'],
 				$attr['headingFontSizeType']
@@ -2448,8 +2448,8 @@ class Login {
 			),
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input'] = $form_input_style_tablet;
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input']  = $form_input_style_tablet;
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-login input'] = $form_input_style_tablet;
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-pass input']  = $form_input_style_tablet;
 
 		$t_selectors[ $username_icon_input_selector ] = [
 			'padding-left' => Helper::get_css_value( $attr['paddingFieldLeftTablet'], $attr['paddingFieldUnitTablet'] ),
@@ -2460,21 +2460,21 @@ class Login {
 		];
 
 		// Field Icon - Username.
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-username-wrap--have-icon svg'] = array_merge(
+		$t_selectors['.wp-block-suredash-login .suredash-login-form-username-wrap--have-icon svg'] = array_merge(
 			$field_icon_css_tablet
 		);
 
 		// Field Icon - Password.
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass .spectra-pro-login-form-pass-wrap--have-icon svg'] = array_merge(
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-pass .suredash-login-form-pass-wrap--have-icon svg'] = array_merge(
 			$field_icon_css_tablet
 		);
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass button'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-pass button'] = [
 			'margin-right' => array_key_exists( 'border-right-width', $fields_border_css_tablet ) && ( ! $is_rtl ) ? $fields_border_css_tablet['border-right-width'] : '',
 			'margin-left'  => array_key_exists( 'border-left-width', $fields_border_css_tablet ) && $is_rtl ? $fields_border_css_tablet['border-left-width'] : '',
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-rememberme'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-rememberme'] = [
 			'margin-top'    => Helper::get_css_value(
 				$attr['labelTopMarginTablet'],
 				$attr['labelMarginUnitTablet']
@@ -2490,7 +2490,7 @@ class Login {
 			),
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-rememberme label'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-rememberme label'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeTablet'],
 				$attr['labelFontSizeType']
@@ -2502,7 +2502,7 @@ class Login {
 			),
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-forgot-password'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-forgot-password'] = [
 			'margin-top'    => Helper::get_css_value(
 				$attr['labelTopMarginTablet'],
 				$attr['labelMarginUnitTablet']
@@ -2518,7 +2518,7 @@ class Login {
 			// Margin left not required.
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-forgot-password a'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-forgot-password a'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeTablet'],
 				$attr['labelFontSizeType']
@@ -2529,11 +2529,11 @@ class Login {
 				$attr['labelLineHeightType']
 			),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__submit'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__submit'] = [
 			'justify-content' => $attr['alignLoginBtnTablet'],
 		];
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button'] = array_merge(
+		$t_selectors['.wp-block-suredash-login .suredash-login-form-submit-button'] = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['loginFontSizeTablet'],
@@ -2565,7 +2565,7 @@ class Login {
 			$full_width_login_btn_tablet,
 			$login_border_css_tablet
 		);
-		$t_selectors['.wp-block-spectra-pro-login .suredash-reset-password-submit']       = array_merge(
+		$t_selectors['.wp-block-suredash-login .suredash-reset-password-submit']    = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['loginFontSizeTablet'],
@@ -2598,7 +2598,7 @@ class Login {
 			$login_border_css_tablet
 		);
 
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__social-facebook'] = array_merge(
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__social-facebook'] = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['facebookFontSizeTablet'],
@@ -2628,7 +2628,7 @@ class Login {
 			],
 			$google_border_css_tablet
 		);
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__social-google']   = array_merge(
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__social-google']   = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['googleFontSizeTablet'],
@@ -2658,7 +2658,7 @@ class Login {
 			],
 			$google_border_css_tablet
 		);
-		$t_selectors[' .spectra-pro-login-form__social']                                     = [
+		$t_selectors[' .suredash-login-form__social']                                  = [
 			'justify-content' => $postition_google_facebook_button_tablet,
 			'align-items'     => $align_items_google_facebook_button_tablet,
 			'flex-direction'  => $apply_stack_tablet,
@@ -2666,7 +2666,7 @@ class Login {
 		];
 
 		// mobile.
-		$m_selectors['.wp-block-spectra-pro-login'] = array_merge(
+		$m_selectors['.wp-block-suredash-login'] = array_merge(
 			[
 				'width'          => Helper::get_css_value( $attr['formWidthMobile'], $attr['formWidthTypeMobile'] ),
 				'padding-top'    => Helper::get_css_value(
@@ -2690,7 +2690,7 @@ class Login {
 			$form_border_css_mobile
 		);
 
-		$m_selectors[' .wp-block-spectra-pro-login-info']                                     = [
+		$m_selectors[' .wp-block-suredash-login-info']                                  = [
 			'font-size'      => Helper::get_css_value( $attr['labelFontSizeMobile'], $attr['labelFontSizeType'] ),
 			'letter-spacing' => Helper::get_css_value( $attr['labelLetterSpacingMobile'], $attr['labelLetterSpacingType'] ),
 			'line-height'    => Helper::get_css_value( $attr['labelLineHeightMobile'], $attr['labelLineHeightType'] ),
@@ -2699,7 +2699,7 @@ class Login {
 			'margin-bottom'  => Helper::get_css_value( $attr['labelBottomMarginMobile'], $attr['labelMarginUnitMobile'] ),
 			'margin-left'    => Helper::get_css_value( $attr['labelLeftMarginMobile'], $attr['labelMarginUnitMobile'] ),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-login label'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-login label'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeMobile'],
 				$attr['labelFontSizeType']
@@ -2727,7 +2727,7 @@ class Login {
 			),
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass label'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-pass label'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeMobile'],
 				$attr['labelFontSizeType']
@@ -2755,7 +2755,7 @@ class Login {
 			),
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__heading'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__heading'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['headingFontSizeMobile'],
 				$attr['headingFontSizeType']
@@ -2783,8 +2783,8 @@ class Login {
 			),
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-login input'] = $form_input_style_mobile;
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass input']  = $form_input_style_mobile;
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-login input'] = $form_input_style_mobile;
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-pass input']  = $form_input_style_mobile;
 
 		$m_selectors[ $username_icon_input_selector ] = [
 			'padding-left' => Helper::get_css_value( $attr['paddingFieldLeftMobile'], $attr['paddingFieldUnitmobile'] ),
@@ -2795,21 +2795,21 @@ class Login {
 		];
 
 		// Field Icon - Username.
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-username-wrap--have-icon svg'] = array_merge(
+		$m_selectors['.wp-block-suredash-login .suredash-login-form-username-wrap--have-icon svg'] = array_merge(
 			$field_icon_css_mobile
 		);
 
 		// Field Icon - Password.
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass .spectra-pro-login-form-pass-wrap--have-icon svg'] = array_merge(
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-pass .suredash-login-form-pass-wrap--have-icon svg'] = array_merge(
 			$field_icon_css_mobile
 		);
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass button'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-pass button'] = [
 			'margin-right' => array_key_exists( 'border-right-width', $fields_border_css_mobile ) && ( ! $is_rtl ) ? $fields_border_css_mobile['border-right-width'] : '',
 			'margin-left'  => array_key_exists( 'border-left-width', $fields_border_css_mobile ) && $is_rtl ? $fields_border_css_mobile['border-left-width'] : '',
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-rememberme'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-rememberme'] = [
 			'margin-top'    => Helper::get_css_value(
 				$attr['labelTopMarginMobile'],
 				$attr['labelMarginUnitMobile']
@@ -2825,7 +2825,7 @@ class Login {
 			),
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-rememberme label'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-rememberme label'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeMobile'],
 				$attr['labelFontSizeType']
@@ -2837,7 +2837,7 @@ class Login {
 			),
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-forgot-password'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-forgot-password'] = [
 			'margin-top'    => Helper::get_css_value(
 				$attr['labelTopMarginMobile'],
 				$attr['labelMarginUnitMobile']
@@ -2853,7 +2853,7 @@ class Login {
 			// Margin left not required.
 		];
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot .spectra-pro-login-form-forgot-password a'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot .suredash-login-form-forgot-password a'] = [
 			'font-size'      => Helper::get_css_value(
 				$attr['labelFontSizeMobile'],
 				$attr['labelFontSizeType']
@@ -2864,10 +2864,10 @@ class Login {
 				$attr['labelLineHeightType']
 			),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__submit']       = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__submit']       = [
 			'justify-content' => $attr['alignLoginBtnMobile'],
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button'] = array_merge(
+		$m_selectors['.wp-block-suredash-login .suredash-login-form-submit-button'] = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['loginFontSizeMobile'],
@@ -2900,7 +2900,7 @@ class Login {
 			$login_border_css_mobile
 		);
 
-		$m_selectors['.wp-block-spectra-pro-login .suredash-reset-password-submit'] = array_merge(
+		$m_selectors['.wp-block-suredash-login .suredash-reset-password-submit'] = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['loginFontSizeMobile'],
@@ -2933,7 +2933,7 @@ class Login {
 			$login_border_css_mobile
 		);
 
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__social-facebook'] = array_merge(
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__social-facebook'] = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['facebookFontSizeMobile'],
@@ -2963,7 +2963,7 @@ class Login {
 			],
 			$facebook_border_css_mobile
 		);
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__social-google']   = array_merge(
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__social-google']   = array_merge(
 			[
 				'font-size'      => Helper::get_css_value(
 					$attr['googleFontSizeMobile'],
@@ -2993,7 +2993,7 @@ class Login {
 			],
 			$facebook_border_css_mobile
 		);
-		$m_selectors[' .spectra-pro-login-form__social']                                     = [
+		$m_selectors[' .suredash-login-form__social']                                  = [
 			'justify-content' => $postition_google_facebook_button_mobile,
 			'align-items'     => $align_items_google_facebook_button_mobile,
 			'flex-direction'  => $apply_stack_mobile,
@@ -3001,7 +3001,7 @@ class Login {
 		];
 
 		if ( $attr['ctaIconPosition'] === 'before' ) {
-			$selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button svg']   = [
+			$selectors['.wp-block-suredash-login .suredash-login-form-submit-button svg']   = [
 				'width'  => Helper::get_css_value(
 					$attr['loginFontSize'],
 					$attr['loginFontSizeType']
@@ -3012,7 +3012,7 @@ class Login {
 				),
 				'stroke' => $attr['loginColor'],
 			];
-			$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button svg'] = [
+			$t_selectors['.wp-block-suredash-login .suredash-login-form-submit-button svg'] = [
 				'width'  => Helper::get_css_value(
 					$attr['loginFontSizeTablet'],
 					$attr['loginFontSizeType']
@@ -3022,7 +3022,7 @@ class Login {
 					$attr['loginFontSizeType']
 				),
 			];
-			$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button svg'] = [
+			$m_selectors['.wp-block-suredash-login .suredash-login-form-submit-button svg'] = [
 				'width'  => Helper::get_css_value(
 					$attr['loginFontSizeMobile'],
 					$attr['loginFontSizeType']
@@ -3035,7 +3035,7 @@ class Login {
 		}
 
 		if ( $attr['ctaIconPosition'] === 'after' ) {
-			$selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button svg'] = [
+			$selectors['.wp-block-suredash-login .suredash-login-form-submit-button svg'] = [
 				'width'  => Helper::get_css_value(
 					$attr['loginFontSize'],
 					$attr['loginFontSizeType']
@@ -3047,7 +3047,7 @@ class Login {
 				'stroke' => $attr['loginColor'],
 			];
 
-			$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button svg'] = [
+			$t_selectors['.wp-block-suredash-login .suredash-login-form-submit-button svg'] = [
 				'width'  => Helper::get_css_value(
 					$attr['loginFontSizeTablet'],
 					$attr['loginFontSizeType']
@@ -3057,7 +3057,7 @@ class Login {
 					$attr['loginFontSizeType']
 				),
 			];
-			$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form-submit-button svg'] = [
+			$m_selectors['.wp-block-suredash-login .suredash-login-form-submit-button svg'] = [
 				'width'  => Helper::get_css_value(
 					$attr['loginFontSizeMobile'],
 					$attr['loginFontSizeType']
@@ -3070,42 +3070,42 @@ class Login {
 		}
 
 		// Grouping together Row Gap Selectors - Tablet.
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-login']  = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-login']  = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceTablet'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__recaptcha']   = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__recaptcha']   = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceTablet'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__turnstile']   = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__turnstile']   = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceTablet'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass']   = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__user-pass']   = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceTablet'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot'] = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot'] = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceTablet'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$t_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__submit']      = [
+		$t_selectors['.wp-block-suredash-login .suredash-login-form__submit']      = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceTablet'], $attr['formRowsGapSpaceUnit'] ),
 		];
 
 		// Grouping together Row Gap Selectors - Mobile.
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-login']  = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-login']  = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceMobile'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__recaptcha']   = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__recaptcha']   = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceMobile'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__turnstile']   = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__turnstile']   = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceMobile'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__user-pass']   = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__user-pass']   = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceMobile'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__forgetmenot'] = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__forgetmenot'] = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceMobile'], $attr['formRowsGapSpaceUnit'] ),
 		];
-		$m_selectors['.wp-block-spectra-pro-login .spectra-pro-login-form__submit']      = [
+		$m_selectors['.wp-block-suredash-login .suredash-login-form__submit']      = [
 			'margin-bottom' => Helper::get_css_value( $attr['formRowsGapSpaceMobile'], $attr['formRowsGapSpaceUnit'] ),
 		];
 

@@ -2,9 +2,9 @@
 Contributors: brainstormforce
 Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
-Tested up to: 6.9
+Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,8 +45,10 @@ SureDash gives you a third option — a ready-to-go community platform built rig
 == Free Features ==
 
 * Beautiful member dashboard with light and dark mode
+* Multiple portal layouts — Classic, Modern, and Application to match your community style
 * Custom login and registration pages (with Google and Facebook sign-in)
 * Discussion forums with threaded comments and reactions
+* Modern commenting system with rich text, mentions, and reactions
 * Multiple spaces to organize your community
 * User profiles with social links and activity feeds
 * Badges to reward active members
@@ -55,8 +57,10 @@ SureDash gives you a third option — a ready-to-go community platform built rig
 * List and grid view layouts
 * Sorting and filtering options
 * Visual customizer — match your brand colors and style
+* Built-in analytics — track registered users over time, recent activities, and top-performing content
 * Mobile-friendly responsive design
 * Works with any WordPress theme
+* One-click AI portal creation *(coming soon)* — spin up your community portal instantly with AI
 
 == SureDash Pro ==
 
@@ -67,9 +71,12 @@ Take your community further:
 * **Private Spaces** — Restrict spaces to specific members or groups
 * **Resource Library** — Organize and share files, documents, and links
 * **Events** — Schedule events and display them beautifully
+* **Member Directory** — Let members browse, search, and connect with each other from one place
+* **Collection Space** — Group and display multiple spaces together for easier navigation
 * **Email Notifications** — Keep members engaged with automatic email updates
 * **Leaderboard** — Gamify your community with points, levels, and member rankings
 * **Priority Support** — Get help directly from our team
+* **Course Quiz** *(coming soon)* — Add quizzes to your courses to test and reinforce learning
 
 [Learn more about SureDash Pro](https://suredash.com)
 
@@ -138,6 +145,13 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-05-19 - version 1.8.3 =
+* New: Added the `suredash_allowed_iframe_hosts` filter to let developers allow iframe embeds from custom hosts (e.g. self-hosted video CDNs like bunny.net) in posts and comments.
+* Improvement: Added compatibility with WordPress 7 for the Portal Login and Registration blocks.
+* Improvement: Refined the Login and Registration blocks with cleaner markup and minor styling enhancements.
+* Fix: Fixed portal CSS breaking when the Etch page builder plugin or theme was active.
+* Fix: Fixed a JavaScript console error in the comment editor when pressing Enter that could disrupt typing flow.
+
 = 2026-05-13 - version 1.8.2 =
 * New: Introduced the Portal Pages space type, allowing admins to display portal pages such as User Profile, Bookmarks, Leaderboard, Memberships, and more as spaces for easier navigation.
 * New: Added a new Learn tab to help admins quickly complete and configure their portal setup.

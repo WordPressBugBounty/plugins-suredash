@@ -1866,11 +1866,16 @@ class Misc {
 	}
 
 	/**
-	 * Validate iframe src URL against WordPress registered oEmbed providers.
+	 * Validate iframe src URL against WordPress registered oEmbed providers
+	 * and any extra hosts opted in via the `suredash_allowed_iframe_hosts` filter.
 	 *
 	 * Instead of a hardcoded allowlist, this checks the iframe src host against
 	 * all domains registered as oEmbed providers in WordPress core. This automatically
 	 * supports any provider WordPress supports (YouTube, Vimeo, Dailymotion, Spotify, etc.).
+	 *
+	 * Site owners who need to allow embeds from a self-hosted video CDN
+	 * (e.g. bunny.net / Bunny Stream) that does not ship oEmbed metadata can
+	 * extend the allowlist via the `suredash_allowed_iframe_hosts` filter.
 	 *
 	 * @param string $url The iframe src URL.
 	 * @return bool True if the URL is valid, false otherwise.
@@ -1889,6 +1894,35 @@ class Misc {
 		}
 
 		$host = strtolower( $parsed_url['host'] );
+
+		/**
+		 * Filter the list of extra iframe hosts allowed alongside WordPress's
+		 * oEmbed providers. Hosts are matched as exact strings or proper
+		 * subdomains — the same way oEmbed provider hosts are matched.
+		 *
+		 * Use this to allow embeds from self-hosted video CDNs or any service
+		 * that ships iframes but does not register an oEmbed provider.
+		 *
+		 * Example — allow bunny.net Stream embeds:
+		 *
+		 *     add_filter( 'suredash_allowed_iframe_hosts', function ( $hosts ) {
+		 *         return array_merge( $hosts, [
+		 *             'iframe.mediadelivery.net',
+		 *             'iframe.bunny.net',
+		 *             'video.bunnycdn.com',
+		 *         ] );
+		 *     } );
+		 *
+		 * @since 1.8.3
+		 *
+		 * @param array<int, string> $hosts Hosts to allow in addition to oEmbed providers.
+		 * @param string             $host  The iframe src host being validated.
+		 * @param string             $url   The full iframe src URL being validated.
+		 */
+		$extra_hosts = (array) apply_filters( 'suredash_allowed_iframe_hosts', [], $host, $url );
+		if ( $this->host_matches_any( $host, $extra_hosts ) ) {
+			return true;
+		}
 
 		// Collect endpoint hosts from WordPress registered oEmbed providers.
 		// Cached per-request because the provider list is stable for the request lifetime.
@@ -1910,15 +1944,34 @@ class Misc {
 			wp_cache_set( 'oembed_provider_hosts', $oembed_domains, 'suredash', HOUR_IN_SECONDS );
 		}
 
-		// Allow if the host is an exact match or a subdomain of any provider host.
-		// Previous "last two dotted segments" check was incorrect for multi-part
-		// TLDs (e.g. *.co.uk) and let unrelated hosts through / rejected valid ones.
-		foreach ( $oembed_domains as $domain ) {
-			if ( $host === $domain || ( strlen( $host ) > strlen( $domain ) && substr( $host, -( strlen( $domain ) + 1 ) ) === '.' . $domain ) ) {
+		return $this->host_matches_any( $host, $oembed_domains );
+	}
+
+	/**
+	 * Check whether a host matches any entry in a list, allowing exact match
+	 * or proper subdomain match.
+	 *
+	 * Proper subdomain match means `foo.example.com` matches `example.com`,
+	 * but `evilexample.com` does NOT match `example.com` — the dot boundary
+	 * prevents look-alike host attacks.
+	 *
+	 * @param string             $host    Host to check (already lowercased).
+	 * @param array<int, string> $domains Allowed domain list (will be lowercased).
+	 * @return bool True if the host matches an allowed entry, false otherwise.
+	 * @since 1.8.3
+	 */
+	private function host_matches_any( string $host, array $domains ): bool {
+		foreach ( $domains as $domain ) {
+			$domain = strtolower( (string) $domain );
+			if ( $domain === '' ) {
+				continue;
+			}
+			if ( $host === $domain
+				|| ( strlen( $host ) > strlen( $domain )
+					&& substr( $host, -( strlen( $domain ) + 1 ) ) === '.' . $domain ) ) {
 				return true;
 			}
 		}
-
 		return false;
 	}
 

@@ -73,11 +73,14 @@ class Setup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array<int, string> $post_states Array of post states.
+	 * @param array<int|string, string>|null $post_states Array of post states. May be null when an earlier filter
+	 *                                                    in the `display_post_states` chain breaks the contract.
 	 *
 	 * @return array<int|string, string>
 	 */
-	public function show_custom_post_statuses( array $post_states ): array {
+	public function show_custom_post_statuses( $post_states ): array {
+		$post_states = is_array( $post_states ) ? $post_states : [];
+
 		global $post;
 
 		if ( ! is_object( $post ) || ! isset( $post->post_content ) ) {

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "suredash/login",
+  "title": "Login Form",
+  "description": "This block lets you add Login functionality.",
+  "version": "1.0.0",
+  "category": "suredash",
+  "keywords": [
+    "login",
+    "admin login",
+    "portal",
+    "frontend login",
+    "user login",
+    "custom login"
+  ],
+  "supports": {
+    "anchor": true
+  },
+  "textdomain": "suredash"
+}

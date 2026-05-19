@@ -1,4 +1,11 @@
 *** SureDash Changelog ***
+= 2026-05-19 - version 1.8.3 =
+* New: Added the `suredash_allowed_iframe_hosts` filter to let developers allow iframe embeds from custom hosts (e.g. self-hosted video CDNs like bunny.net) in posts and comments.
+* Improvement: Added compatibility with WordPress 7 for the Portal Login and Registration blocks.
+* Improvement: Refined the Login and Registration blocks with cleaner markup and minor styling enhancements.
+* Fix: Fixed portal CSS breaking when the Etch page builder plugin or theme was active.
+* Fix: Fixed a JavaScript console error in the comment editor when pressing Enter that could disrupt typing flow.
+
 = 2026-05-13 - version 1.8.2 =
 * New: Introduced the Portal Pages space type, allowing admins to display portal pages such as User Profile, Bookmarks, Leaderboard, Memberships, and more as spaces for easier navigation.
 * New: Added a new Learn tab to help admins quickly complete and configure their portal setup.
