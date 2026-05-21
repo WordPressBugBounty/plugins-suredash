@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.8.3
+Stable tag: 1.8.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,10 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-05-21 - version 1.8.4 =
+* Fix: Fixed an issue where a duplicate header appeared on mobile devices.
+* Fix: Fixed comment timestamps showing an incorrect relative time (e.g. ~2942w ago) when the comment date was missing or invalid.
+
 = 2026-05-19 - version 1.8.3 =
 * New: Added the `suredash_allowed_iframe_hosts` filter to let developers allow iframe embeds from custom hosts (e.g. self-hosted video CDNs like bunny.net) in posts and comments.
 * Improvement: Added compatibility with WordPress 7 for the Portal Login and Registration blocks.

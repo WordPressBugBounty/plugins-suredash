@@ -703,11 +703,25 @@ function suredash_update_mention_links( $comment_text, $comment, $args ) {
  * @return string The formatted time (e.g., 2h, 1d, 1w).
  */
 function suredash_get_shorthand_comment_time( $comment_id ) {
-	$comment_time      = get_comment_date( 'Y-m-d H:i:s', $comment_id ); // Get the comment time.
-	$comment_timestamp = strtotime( $comment_time );
-	$current_timestamp = suredash_get_timestamp();
+	$comment   = get_comment( $comment_id );
+	$zero_date = '0000-00-00 00:00:00';
+	$date      = '';
 
-	$time_difference = $current_timestamp - $comment_timestamp;
+	if ( $comment ) {
+		if ( ! empty( $comment->comment_date_gmt ) && $comment->comment_date_gmt !== $zero_date ) {
+			$date = $comment->comment_date_gmt;
+		} elseif ( ! empty( $comment->comment_date ) && $comment->comment_date !== $zero_date ) {
+			$date = get_gmt_from_date( $comment->comment_date );
+		}
+	}
+
+	$comment_timestamp = $date ? strtotime( $date ) : false;
+
+	if ( ! $comment_timestamp ) {
+		return esc_html__( 'Some time ago', 'suredash' );
+	}
+
+	$time_difference = time() - $comment_timestamp;
 	$shorthand_time  = '';
 
 	switch ( true ) {
