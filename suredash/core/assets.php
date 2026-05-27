@@ -252,6 +252,7 @@ class Assets {
 		);
 		$post_type             = array_keys( $searchable_post_types );
 		$post_type             = implode( ',', $post_type );
+		$current_portal_id     = $this->resolve_current_portal_id();
 		$localize_data         = [
 			'portal_search_result'  => wp_create_nonce( 'portal_search_result' ),
 			'ajaxurl'               => admin_url( 'admin-ajax.php' ),
@@ -259,17 +260,71 @@ class Assets {
 			'end_point_error'       => Labels::get_label( 'end_point_error' ),
 			'searchable_post_types' => $searchable_post_types,
 			'post_type'             => $post_type,
+			'placeholder'           => Labels::get_label( 'search_placeholder' ),
+			'portal_id'             => $current_portal_id,
+			'rest_url'              => esc_url_raw( rest_url( 'suredash/v1/search' ) ),
+			'wp_rest_nonce'         => wp_create_nonce( 'wp_rest' ),
+			'i18n'                  => [
+				'placeholder'       => __( 'Search posts, people, lessons…', 'suredash' ),
+				'clear'             => __( 'Clear search', 'suredash' ),
+				'emptyHint'         => __( 'Search across posts, comments, people, lessons, events, spaces and more.', 'suredash' ),
+				'noResultsTitle'    => __( "We couldn't find anything matching your search.", 'suredash' ),
+				'noResultsHint'     => __( 'Try again with a different term.', 'suredash' ),
+				/* translators: %s: search query */
+				'resultsFor'        => __( 'Search results for "%s"', 'suredash' ),
+				/* translators: %d: number of results */
+				'resultCount'       => __( '%d result', 'suredash' ),
+				/* translators: %d: number of results */
+				'resultCountPlural' => __( '%d results', 'suredash' ),
+				'newest'            => __( 'Newest first', 'suredash' ),
+				'oldest'            => __( 'Oldest first', 'suredash' ),
+				'move'              => __( 'Move', 'suredash' ),
+				'select'            => __( 'Select', 'suredash' ),
+				'close'             => __( 'Close', 'suredash' ),
+				'esc'               => __( 'ESC', 'suredash' ),
+				'prev'              => __( 'Previous page', 'suredash' ),
+				'next'              => __( 'Next page', 'suredash' ),
+				/* translators: %d: result count */
+				'viewAll'           => __( 'View all %d', 'suredash' ),
+				'allLabel'          => __( 'All', 'suredash' ),
+				'searchAll'         => __( 'Search all content', 'suredash' ),
+				'view'              => __( 'View', 'suredash' ),
+				'recentTitle'       => __( 'Recent searches', 'suredash' ),
+				'recentClear'       => __( 'Clear all', 'suredash' ),
+				'recentRemove'      => __( 'Remove from recent searches', 'suredash' ),
+				'commentedOn'       => __( 'commented on', 'suredash' ),
+				'metaIn'            => __( 'in', 'suredash' ),
+				'errorGeneric'      => Labels::get_label( 'end_point_error' ),
+			],
 			'recent_items'          => [
 				'enabled'         => apply_filters( 'portal_search_recent_items_default_option', true ),
 				'cookie_duration' => apply_filters( 'portal_search_recent_items_cookie_duration', 7 * 86400 ), // default to 7 days.
 			],
 		];
 
+		// Legacy trigger-input styles (.portal-search-container, .pfd-header-search, .portal-search-input).
+		// The new frontend-search.css only styles the popup modal — this stylesheet still
+		// styles the inline shortcode-rendered input that opens the modal.
 		wp_enqueue_style( 'portal-search', esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'search-rtl' : 'search' ) . SUREDASHBOARD_CSS_SUFFIX ), [], SUREDASHBOARD_VER );
 
-		wp_enqueue_script( 'underscore' );
-		wp_enqueue_script( 'portal-search', SUREDASHBOARD_JS_ASSETS_FOLDER . 'search' . SUREDASHBOARD_JS_SUFFIX, [ 'jquery' ], SUREDASHBOARD_VER, true );
-		wp_localize_script( 'portal-search', 'portal_search', $localize_data );
+		// Frontend search modal — vanilla ES6 (no React / no build step).
+		// Depends on portal-badges so avatar sizing classes (portal-avatar-24) are guaranteed to cascade.
+		wp_enqueue_style(
+			'suredash-frontend-search',
+			esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'frontend-search-rtl' : 'frontend-search' ) . SUREDASHBOARD_CSS_SUFFIX ),
+			[ 'portal-badges' ],
+			SUREDASHBOARD_VER
+		);
+
+		wp_enqueue_script(
+			'suredash-frontend-search',
+			SUREDASHBOARD_JS_ASSETS_FOLDER . 'frontend-search' . SUREDASHBOARD_JS_SUFFIX,
+			[],
+			SUREDASHBOARD_VER,
+			true
+		);
+
+		wp_localize_script( 'suredash-frontend-search', 'portal_search', $localize_data );
 	}
 
 	/**
@@ -915,5 +970,19 @@ class Assets {
 		foreach ( $style_assets as $handle ) {
 			wp_dequeue_style( $handle );
 		}
+	}
+
+	/**
+	 * Best-effort current portal ID for scoping search results.
+	 *
+	 * Defaults to 0 (global) — the new search UI is global across the
+	 * whole site per the Figma designs. Site owners can filter to scope
+	 * to the current portal via `suredash_frontend_search_portal_id`.
+	 *
+	 * @since 1.3.0
+	 * @return int
+	 */
+	private function resolve_current_portal_id(): int {
+		return (int) apply_filters( 'suredash_frontend_search_portal_id', 0 );
 	}
 }

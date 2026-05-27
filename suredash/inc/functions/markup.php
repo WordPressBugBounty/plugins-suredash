@@ -151,7 +151,7 @@ function suredash_visibility_scope_list_markup( $post_id ): void {
 					$user    = get_user_by( 'ID', $user_id );
 
 					if ( $user ) {
-						$user_view = home_url( "/portal/user-view/{$user_id}/" );
+						$user_view = suredash_get_user_view_link( $user_id );
 						?>
 						<a href="<?php echo esc_url( $user_view ); ?>" target="_blank" class="portal-visibility-scope-item sd-text-color">
 							<?php echo wp_kses_post( (string) suredash_get_user_avatar( $user_id ) ); ?>

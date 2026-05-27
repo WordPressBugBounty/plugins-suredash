@@ -12,6 +12,7 @@ use SureDashboard\Core\Routers\Dashboard as DashboardRoute;
 use SureDashboard\Core\Routers\Emails;
 use SureDashboard\Core\Routers\Misc as MiscRoute;
 use SureDashboard\Core\Routers\Onboarding;
+use SureDashboard\Core\Routers\Search as SearchRoute;
 use SureDashboard\Core\Routers\Social_Logins;
 use SureDashboard\Core\Routers\User as UserRoute;
 use SureDashboard\Inc\Services\Router;
@@ -134,6 +135,50 @@ class Routes {
 					'method'              => 'POST',
 					'callback'            => [ MiscRoute::get_instance(), 'search_user' ],
 					'permission_callback' => 'user',
+				],
+				'search'                             => [
+					'method'              => 'GET',
+					'callback'            => [ SearchRoute::get_instance(), 'handle' ],
+					// Public — server-side enforces visibility_scope so
+					// guests only see content with no access restrictions.
+					'permission_callback' => '',
+					'args'                => [
+						'q'         => [
+							'required'          => true,
+							'type'              => 'string',
+							'sanitize_callback' => 'sanitize_text_field',
+						],
+						'type'      => [
+							'default'           => 'all',
+							'type'              => 'string',
+							'sanitize_callback' => 'sanitize_key',
+						],
+						'page'      => [
+							'default'           => 1,
+							'type'              => 'integer',
+							'sanitize_callback' => 'absint',
+						],
+						'per_page'  => [
+							'default'           => 5,
+							'type'              => 'integer',
+							'sanitize_callback' => 'absint',
+						],
+						'orderby'   => [
+							'default'           => 'date',
+							'type'              => 'string',
+							'sanitize_callback' => 'sanitize_key',
+						],
+						'order'     => [
+							'default'           => 'desc',
+							'type'              => 'string',
+							'sanitize_callback' => 'sanitize_key',
+						],
+						'portal_id' => [
+							'default'           => 0,
+							'type'              => 'integer',
+							'sanitize_callback' => 'absint',
+						],
+					],
 				],
 				'post-reactor-data'                  => [
 					'method'              => 'POST',

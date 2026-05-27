@@ -1,4 +1,9 @@
 *** SureDash Changelog ***
+= 2026-05-27 - version 1.9.0 =
+* New: Added an Advanced settings tab to customize URL slugs for portal endpoints for cleaner, more brand-friendly URLs.
+* New: Enhanced the Search modal with a modernized UI, improved functionality, and better categorized results for a smoother and more intuitive user experience.
+* New: Added an option to notify admins and portal managers via email when community members create a new post.
+
 = 2026-05-21 - version 1.8.4 =
 * Fix: Fixed an issue where a duplicate header appeared on mobile devices.
 * Fix: Fixed comment timestamps showing an incorrect relative time (e.g. ~2942w ago) when the comment date was missing or invalid.

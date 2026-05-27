@@ -54,11 +54,12 @@ msgstr "Fora tematyczne"
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: inc/utils/settings.php:256
+#: inc/utils/settings.php:264
 #: assets/build/portals-app.js:21
 msgid "Home"
 msgstr "Dom"
 
+#: inc/services/search/search-comments-service.php:465
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -66,12 +67,13 @@ msgstr "Dom"
 msgid "Link"
 msgstr "Link"
 
+#: inc/services/search/search-comments-service.php:437
 #: assets/build/editor-app.js:6
 msgid "Video"
 msgstr "Wideo"
 
-#: admin/menu.php:629
-#: inc/utils/helper.php:2200
+#: admin/menu.php:672
+#: inc/utils/helper.php:2220
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "Nieskategoryzowane"
@@ -82,17 +84,17 @@ msgstr "Nieskategoryzowane"
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr "Wtyczka %1$s %2$s %3$s wymaga, aby wtyczka %1$s %4$s %3$s została zaktualizowana do wersji %5$s lub wyższej!"
 
-#: admin/setup.php:99
+#: admin/setup.php:102
 #: inc/compatibility/starter-content.php:42
 msgid "Portal Login"
 msgstr "Logowanie do portalu"
 
-#: admin/setup.php:104
+#: admin/setup.php:107
 #: inc/compatibility/starter-content.php:78
 msgid "Portal Register"
 msgstr "Rejestracja w portalu"
 
-#: admin/setup.php:135
+#: admin/setup.php:138
 #: assets/build/portals-app.js:8
 msgid "Visit Portal"
 msgstr "<translatedOdwiedź portal"
@@ -198,56 +200,56 @@ msgid "This field"
 msgstr "To pole"
 
 #: core/blocks/register.php:85
-#: core/blocks/register.php:981
+#: core/blocks/register.php:989
 msgid "You have used an invalid email."
 msgstr "Użyłeś nieprawidłowego adresu e-mail."
 
 #. translators: abbreviation for units
 #: core/blocks/login.php:169
-#: core/blocks/register.php:982
+#: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
 msgid "Please enter a valid email address."
 msgstr "Proszę wprowadzić prawidłowy adres e-mail."
 
-#: core/blocks/register.php:983
+#: core/blocks/register.php:991
 #: assets/build/editor-app.js:2
 msgid "Email already in use. Please try to sign in."
 msgstr "Adres e-mail jest już używany. Spróbuj się zalogować."
 
-#: core/blocks/register.php:984
+#: core/blocks/register.php:992
 #: assets/build/editor-app.js:2
 msgid "Invalid user name. Please try again."
 msgstr "Nieprawidłowa nazwa użytkownika. Proszę spróbować ponownie."
 
-#: core/blocks/register.php:985
+#: core/blocks/register.php:993
 #: assets/build/editor-app.js:2
 msgid "Username is already taken."
 msgstr "Nazwa użytkownika jest już zajęta."
 
-#: core/blocks/register.php:986
+#: core/blocks/register.php:994
 #: assets/build/editor-app.js:2
 msgid "Password cannot be accepted. Please try something else."
 msgstr "Hasło nie może zostać zaakceptowane. Proszę spróbować czegoś innego."
 
 #: core/blocks/login.php:215
-#: core/blocks/register.php:987
+#: core/blocks/register.php:995
 #: inc/utils/labels.php:88
 #: assets/build/editor-app.js:2
 #: assets/js/unminified/login.js:745
 msgid "Passwords do not match."
 msgstr "Hasła nie pasują."
 
-#: core/blocks/register.php:988
+#: core/blocks/register.php:996
 #: assets/build/editor-app.js:2
 msgid "Please try again after accepting terms & conditions."
 msgstr "Proszę spróbować ponownie po zaakceptowaniu warunków i zasad."
 
-#: core/blocks/register.php:989
+#: core/blocks/register.php:997
 #: assets/build/editor-app.js:2
 msgid "Something went wrong! Please try again."
 msgstr "Coś poszło nie tak! Proszę spróbuj ponownie."
 
-#: core/blocks/register.php:990
+#: core/blocks/register.php:998
 #: assets/build/editor-app.js:2
 msgid "Registration successful. Please check your email inbox."
 msgstr "Rejestracja zakończona sukcesem. Proszę sprawdzić swoją skrzynkę odbiorczą."
@@ -577,7 +579,7 @@ msgstr "Zarejestrowano i logowanie zakończone sukcesem"
 msgid "Google API Error."
 msgstr "Błąd interfejsu API Google."
 
-#: core/routes.php:71
+#: core/routes.php:72
 msgid "Oops! Something wrong here..."
 msgstr "Ups! Coś tu jest nie tak..."
 
@@ -591,9 +593,9 @@ msgstr "Oznacz wszystkie jako przeczytane"
 
 #: core/shortcodes/home-content.php:809
 #: core/shortcodes/home-content.php:810
-#: inc/functions/functions.php:1897
-#: inc/functions/functions.php:1903
-#: inc/functions/functions.php:1909
+#: inc/functions/functions.php:2018
+#: inc/functions/functions.php:2024
+#: inc/functions/functions.php:2030
 msgid "Enter"
 msgstr "Wprowadź"
 
@@ -607,28 +609,18 @@ msgstr "Użytkownik"
 msgid "Upload"
 msgstr "Prześlij"
 
-#: core/shortcodes/search.php:89
 #: inc/utils/labels.php:101
 msgid "Search must be at least 3 characters."
 msgstr "Wyszukiwanie musi mieć co najmniej 3 znaki."
 
-#: core/shortcodes/search.php:106
-msgid "Recently viewed"
-msgstr "Ostatnio oglądane"
-
-#: core/shortcodes/search.php:139
-msgid "Quick Links"
-msgstr "Szybkie linki"
-
-#: core/shortcodes/search.php:67
-#: core/shortcodes/search.php:191
+#: core/shortcodes/search.php:57
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:24
 msgid "Search"
 msgstr "Szukaj"
 
 #: core/shortcodes/user-profile.php:164
-#: inc/functions/functions.php:2720
+#: inc/functions/functions.php:2841
 msgid "Guest User"
 msgstr "Użytkownik gość"
 
@@ -651,44 +643,44 @@ msgstr "Nazwa użytkownika:"
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "Jeśli to była pomyłka, po prostu zignoruj ten e-mail i nic się nie stanie."
 
-#: inc/functions/functions.php:716
-#: inc/functions/functions.php:2371
+#: inc/functions/functions.php:801
+#: inc/functions/functions.php:2492
 #: assets/build/portals-app.js:8
 msgid "Just now"
 msgstr "Właśnie teraz"
 
-#: inc/functions/functions.php:797
+#: inc/functions/functions.php:882
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: inc/functions/functions.php:797
+#: inc/functions/functions.php:882
 msgid "(Edit)"
 msgstr "(Edytuj)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:810
+#: inc/functions/functions.php:895
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s o %2$s"
 
-#: inc/functions/functions.php:887
-#: inc/functions/functions.php:888
+#: inc/functions/functions.php:972
+#: inc/functions/functions.php:973
 msgid "Your comment is awaiting moderation."
 msgstr "Twój komentarz oczekuje na moderację."
 
-#: inc/functions/functions.php:927
+#: inc/functions/functions.php:1012
 msgid "Reply"
 msgstr "Odpowiedz"
 
-#: inc/functions/markup.php:724
-#: inc/utils/helper.php:1759
+#: inc/functions/markup.php:756
+#: inc/utils/helper.php:1779
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
 msgstr[0] "Lubić"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1528
+#: inc/functions/functions.php:1613
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Unknown"
@@ -702,8 +694,8 @@ msgstr "Kliknij, aby przesłać lub przeciągnij i upuść"
 msgid "Allowed file formats:"
 msgstr "Dopuszczalne formaty plików:"
 
-#: inc/functions/markup.php:742
-#: inc/utils/helper.php:1787
+#: inc/functions/markup.php:774
+#: inc/utils/helper.php:1807
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Komentarz"
@@ -742,12 +734,13 @@ msgstr "Typ wpisu bieżącego wpisu nie jest związany z tą wtyczką."
 msgid "Data saved successfully."
 msgstr "Dane zostały pomyślnie zapisane."
 
+#: core/assets.php:289
 #: inc/traits/post-type.php:141
 #: inc/utils/labels.php:153
 msgid "All"
 msgstr "Wszystko"
 
-#: inc/utils/helper.php:1799
+#: inc/utils/helper.php:1819
 msgid "Share Post"
 msgstr "Udostępnij post"
 
@@ -755,21 +748,21 @@ msgstr "Udostępnij post"
 msgid "Copied!"
 msgstr "Skopiowano!"
 
-#: inc/utils/helper.php:2234
+#: inc/utils/helper.php:2254
 msgid "This discussion is only available for VIP members."
 msgstr "Ta dyskusja jest dostępna tylko dla członków VIP."
 
-#: inc/utils/helper.php:2236
+#: inc/utils/helper.php:2256
 msgid "Please upgrade to add response."
 msgstr "Proszę zaktualizować, aby dodać odpowiedź."
 
-#: inc/utils/helper.php:2237
+#: inc/utils/helper.php:2257
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "Zaktualizuj teraz"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2248
+#: inc/utils/helper.php:2268
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -798,12 +791,14 @@ msgid "Portal Items"
 msgstr "Elementy portalu"
 
 #: inc/utils/labels.php:55
+#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 msgid "User Profile"
 msgstr "Profil użytkownika"
 
 #: admin/menu.php:166
 #: admin/menu.php:167
+#: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
@@ -816,13 +811,14 @@ msgstr "Posty"
 msgid "Liked"
 msgstr "Polubione"
 
-#: inc/utils/helper.php:1427
-#: inc/utils/helper.php:1428
+#: inc/utils/helper.php:1447
+#: inc/utils/helper.php:1448
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
 msgstr "Polubienia"
 
+#: inc/services/search/search-response-builder.php:127
 #: inc/utils/labels.php:60
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
@@ -957,7 +953,7 @@ msgid "If you want to sell products online, you need a sales funnel. A sales fun
 msgstr "Jeśli chcesz sprzedawać produkty online, potrzebujesz lejka sprzedażowego. Lejek sprzedażowy to najprostszy sposób na przekształcenie odwiedzającego stronę w płacącego klienta. Lejek sprzedażowy buduje bogactwo w Twoim biznesie."
 
 #: core/cpt/content.php:111
-#: inc/functions/markup.php:547
+#: inc/functions/markup.php:579
 #: inc/utils/labels.php:107
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -974,6 +970,7 @@ msgstr "Kursy"
 msgid "Lesson"
 msgstr "Lekcja"
 
+#: inc/services/search/search-response-builder.php:129
 #: inc/utils/labels.php:110
 #: assets/build/portals-app.js:21
 msgid "Lessons"
@@ -1034,7 +1031,7 @@ msgstr "Zawartość będzie dostępna w"
 #: core/renderer.php:289
 #: core/shortcodes/home-content.php:871
 #: core/shortcodes/home-content.php:1077
-#: inc/utils/helper.php:2915
+#: inc/utils/helper.php:2935
 #: inc/utils/labels.php:143
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
@@ -1099,7 +1096,7 @@ msgid "Post disliked successfully."
 msgstr "Post nie został polubiony."
 
 #: inc/utils/labels.php:176
-#: inc/utils/settings.php:300
+#: inc/utils/settings.php:308
 #: assets/build/portals-app.js:21
 msgid "Restricted Content"
 msgstr "Zawartość ograniczona"
@@ -1113,17 +1110,17 @@ msgstr "Ta treść jest ograniczona i może być dostępna tylko dla autoryzowan
 msgid "Untitled Section"
 msgstr "Sekcja bez tytułu"
 
-#: inc/utils/settings.php:268
+#: inc/utils/settings.php:276
 #: assets/build/portals-app.js:21
 msgid "Your Bookmarks"
 msgstr "Twoje zakładki"
 
-#: inc/utils/settings.php:272
+#: inc/utils/settings.php:280
 #: assets/build/portals-app.js:21
 msgid "Profile Information"
 msgstr "Informacje o profilu"
 
-#: inc/utils/settings.php:276
+#: inc/utils/settings.php:284
 #: assets/build/portals-app.js:21
 msgid "Pinned Post"
 msgstr "Przypięty post"
@@ -1132,11 +1129,11 @@ msgstr "Przypięty post"
 msgid "Back to Course"
 msgstr "Powrót do kursu"
 
-#: inc/utils/settings.php:288
+#: inc/utils/settings.php:296
 msgid "What would you like to share today?"
 msgstr "Co chciałbyś dzisiaj udostępnić?"
 
-#: inc/utils/settings.php:304
+#: inc/utils/settings.php:312
 msgid "This content is not available with your current membership."
 msgstr "Ta treść nie jest dostępna w ramach Twojego obecnego członkostwa."
 
@@ -1181,6 +1178,7 @@ msgstr "Styl"
 
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:24
 msgid "Advanced"
 msgstr "Zaawansowane"
 
@@ -1221,6 +1219,7 @@ msgstr "Resetuj"
 msgid "Icon Library"
 msgstr "Biblioteka ikon"
 
+#: core/assets.php:283
 #: core/integrations/feeds.php:183
 #: inc/utils/labels.php:119
 #: templates/quick-view/post.php:137
@@ -1267,16 +1266,8 @@ msgid "Please add a preview image."
 msgstr "Proszę dodać obraz podglądu."
 
 #: assets/build/editor-app.js:2
-msgid "This block helps to add Email field."
-msgstr "Ten blok pomaga dodać pole e-mail."
-
-#: assets/build/editor-app.js:2
 msgid "required"
 msgstr "wymagane"
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Password field."
-msgstr "Ten blok pomaga dodać pole hasła."
 
 #: assets/build/editor-app.js:2
 msgid "Required"
@@ -1290,24 +1281,8 @@ msgid "Name"
 msgstr "Nazwa"
 
 #: assets/build/editor-app.js:2
-msgid "This block helps to add Username field."
-msgstr "Ten blok pomaga dodać pole Nazwa użytkownika."
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add First Name field."
-msgstr "Ten blok pomaga dodać pole Imię."
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Last Name field."
-msgstr "Ten blok pomaga dodać pole Nazwisko."
-
-#: assets/build/editor-app.js:2
 msgid "Re-Enter Password"
 msgstr "Wprowadź ponownie hasło"
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Re-Enter Password field."
-msgstr "Ten blok pomaga dodać pole Ponownie wprowadź hasło."
 
 #: assets/build/editor-app.js:2
 msgid "I Accept the Terms and Conditions."
@@ -1316,14 +1291,6 @@ msgstr "Akceptuję warunki i zasady."
 #: assets/build/editor-app.js:2
 msgid "Terms and Conditions notice."
 msgstr "Powiadomienie o warunkach i zasadach."
-
-#: assets/build/editor-app.js:2
-msgid "Terms & Condition"
-msgstr "Warunki i zasady"
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Terms & Condtions field."
-msgstr "Ten blok pomaga dodać pole Warunki i Zasady."
 
 #: assets/build/editor-app.js:2
 #: assets/build/editor-app.js:4
@@ -1604,6 +1571,7 @@ msgstr "Potwierdź"
 msgid "Processing…"
 msgstr "Przetwarzanie…"
 
+#: inc/services/search/search-comments-service.php:418
 #: assets/build/editor-app.js:6
 msgid "Image"
 msgstr "Obraz"
@@ -1985,7 +1953,7 @@ msgstr "Etykiety pól"
 msgid "Typography"
 msgstr "Typografia"
 
-#: inc/functions/functions.php:2133
+#: inc/functions/functions.php:2254
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "Tekst"
@@ -2290,30 +2258,6 @@ msgid "login"
 msgstr "zaloguj się"
 
 #: assets/build/editor-app.js:6
-msgid "This block lets you add Login functionality."
-msgstr "Ten blok pozwala dodać funkcjonalność logowania."
-
-#: assets/build/editor-app.js:6
-msgid "admin login"
-msgstr "logowanie administratora"
-
-#: assets/build/editor-app.js:6
-msgid "portal"
-msgstr "portal"
-
-#: assets/build/editor-app.js:6
-msgid "frontend login"
-msgstr "logowanie frontend"
-
-#: assets/build/editor-app.js:6
-msgid "user login"
-msgstr "logowanie użytkownika"
-
-#: assets/build/editor-app.js:6
-msgid "custom login"
-msgstr "niestandardowe logowanie"
-
-#: assets/build/editor-app.js:6
 msgid "Registration Form"
 msgstr "Formularz rejestracyjny"
 
@@ -2513,30 +2457,6 @@ msgstr "Zarejestruj się"
 msgid "Already have an account?"
 msgstr "Masz już konto?"
 
-#: assets/build/editor-app.js:6
-msgid "This block lets you add Registration functionality."
-msgstr "Ten blok pozwala dodać funkcjonalność rejestracji."
-
-#: assets/build/editor-app.js:6
-msgid "register"
-msgstr "zarejestruj"
-
-#: assets/build/editor-app.js:6
-msgid "admin register"
-msgstr "rejestracja administratora"
-
-#: assets/build/editor-app.js:6
-msgid "frontend register"
-msgstr "rejestracja frontend"
-
-#: assets/build/editor-app.js:6
-msgid "user register"
-msgstr "rejestracja użytkownika"
-
-#: assets/build/editor-app.js:6
-msgid "custom register"
-msgstr "niestandardowy rejestr"
-
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:36
 msgid "What's New?"
@@ -2557,7 +2477,7 @@ msgid "V %s"
 msgstr "V %s"
 
 #: core/shortcodes/single-content.php:394
-#: inc/functions/functions.php:863
+#: inc/functions/functions.php:948
 #: templates/single/post.php:166
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2679,7 +2599,7 @@ msgid "Error updating settings: "
 msgstr "Błąd podczas aktualizacji ustawień:"
 
 #: core/shortcodes/single-content.php:399
-#: inc/functions/functions.php:868
+#: inc/functions/functions.php:953
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2709,7 +2629,7 @@ msgstr "Wstecz"
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: inc/functions/markup.php:544
+#: inc/functions/markup.php:576
 #: inc/utils/labels.php:117
 msgid "Post"
 msgstr "Post"
@@ -2743,7 +2663,7 @@ msgstr "Ta funkcja jest dostępna tylko w SureDash Pro."
 msgid "Portal Name"
 msgstr "Nazwa portalu"
 
-#: inc/functions/functions.php:2130
+#: inc/functions/functions.php:2251
 msgid "Branding"
 msgstr "Branding"
 
@@ -3040,15 +2960,15 @@ msgstr "Tekst grupy przestrzennej"
 msgid "Space Group Background"
 msgstr "Tło grupy przestrzennej"
 
-#: core/routers/misc.php:1943
+#: core/routers/misc.php:1996
 msgid "Uploaded file is not a valid image."
 msgstr "Przesłany plik nie jest prawidłowym obrazem."
 
-#: core/routers/misc.php:1947
+#: core/routers/misc.php:2000
 msgid "File size larger than permissible."
 msgstr "Rozmiar pliku większy niż dozwolony."
 
-#: inc/functions/functions.php:1627
+#: inc/functions/functions.php:1712
 msgid "No matching template found."
 msgstr "Nie znaleziono pasującego szablonu."
 
@@ -3121,6 +3041,7 @@ msgstr "Miniatura obrazu"
 
 #: admin/menu.php:158
 #: admin/menu.php:159
+#: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:33
@@ -3381,25 +3302,26 @@ msgstr "Proszę wypełnić wszystkie wymagane pola."
 msgid "– Select –"
 msgstr "– Wybierz –"
 
-#: inc/utils/settings.php:280
+#: inc/utils/settings.php:288
 msgid "No posts found yet. Stay tuned — new content will be shared here soon!"
 msgstr "Nie znaleziono jeszcze postów. Bądź na bieżąco — nowe treści będą wkrótce udostępnione!"
 
-#: inc/utils/settings.php:292
+#: inc/utils/settings.php:300
 #: assets/build/portals-app.js:17
 msgid "Create New Post"
 msgstr "Utwórz nowy post"
 
-#: inc/utils/settings.php:296
+#: inc/utils/settings.php:304
 msgid "No post found, create a new one!"
 msgstr "Nie znaleziono postu, utwórz nowy!"
 
-#: inc/utils/helper.php:2907
-#: inc/utils/settings.php:324
+#: inc/utils/helper.php:2927
+#: inc/utils/settings.php:332
+#: assets/build/portals-app.js:24
 msgid "Bookmarks"
 msgstr "Zakładki"
 
-#: inc/utils/settings.php:334
+#: inc/utils/settings.php:342
 msgid "Log out"
 msgstr "Wyloguj się"
 
@@ -3791,6 +3713,7 @@ msgstr "Opublikowane"
 msgid "Access Group"
 msgstr "Grupa dostępu"
 
+#: core/assets.php:291
 #: core/integrations/feeds.php:593
 #: core/integrations/feeds.php:640
 #: core/routers/misc.php:373
@@ -3929,8 +3852,8 @@ msgstr "W koszu"
 msgid "Pending Review"
 msgstr "Oczekuje na recenzję"
 
-#: inc/functions/markup.php:561
-#: inc/functions/markup.php:613
+#: inc/functions/markup.php:593
+#: inc/functions/markup.php:645
 #: assets/build/portals-app.js:21
 msgid "Private"
 msgstr "Prywatny"
@@ -4290,7 +4213,7 @@ msgstr "Nieprzeczytane powiadomienie"
 msgid "Mark all notifications as read"
 msgstr "Oznacz wszystkie powiadomienia jako przeczytane"
 
-#: inc/functions/markup.php:459
+#: inc/functions/markup.php:491
 msgid "Submit Comment"
 msgstr "Prześlij komentarz"
 
@@ -4310,19 +4233,19 @@ msgstr "Usunięto z zakładek."
 msgid "Notification marked as read."
 msgstr "Powiadomienie oznaczone jako przeczytane."
 
-#: inc/utils/settings.php:260
+#: inc/utils/settings.php:268
 msgid "Howdy,"
 msgstr "Cześć,"
 
-#: inc/utils/settings.php:264
+#: inc/utils/settings.php:272
 msgid "Latest Posts"
 msgstr "Najnowsze posty"
 
-#: inc/utils/settings.php:284
+#: inc/utils/settings.php:292
 msgid "To add to the discussion, join the mastermind."
 msgstr "Aby dołączyć do dyskusji, dołącz do grupy mastermind."
 
-#: inc/utils/settings.php:346
+#: inc/utils/settings.php:354
 msgid "SureDash User"
 msgstr "Użytkownik SureDash"
 
@@ -4477,6 +4400,7 @@ msgid "Recent Comments"
 msgstr "Najnowsze komentarze"
 
 #: assets/build/portals-app.js:17
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Search users…"
 msgstr "Wyszukaj użytkowników…"
@@ -4546,10 +4470,12 @@ msgid "Incompatible %s Version"
 msgstr "Niekompatybilna wersja %s"
 
 #: core/assets.php:249
+#: inc/services/search/search-posts-service.php:58
 msgid "Portal Posts"
 msgstr "Posty Portalu"
 
 #: core/assets.php:250
+#: inc/services/search/search-posts-service.php:59
 msgid "Portal Contents"
 msgstr "Treści Portalu"
 
@@ -4791,7 +4717,7 @@ msgstr "Nie udało się usunąć komentarza."
 msgid "Comment deleted successfully!"
 msgstr "Komentarz usunięty pomyślnie!"
 
-#: core/routers/misc.php:1938
+#: core/routers/misc.php:1991
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Nieprawidłowy typ pliku. Dozwolone są tylko GIF, PNG, JPEG, JPG i WEBP."
 
@@ -4809,45 +4735,45 @@ msgid "Re-enter your new password"
 msgstr "Wprowadź ponownie swoje nowe hasło"
 
 #: core/shortcodes/single-content.php:355
-#: inc/functions/functions.php:905
+#: inc/functions/functions.php:990
 #: templates/quick-view/post.php:83
 #: templates/single/post.php:103
 msgid "Edited"
 msgstr "Edytowane"
 
-#: inc/functions/functions.php:852
+#: inc/functions/functions.php:937
 msgid "Comment actions"
 msgstr "Akcje komentarza"
 
 #: core/shortcodes/single-content.php:404
-#: inc/functions/functions.php:872
+#: inc/functions/functions.php:957
 #: templates/single/post.php:176
 msgid "Copy URL"
 msgstr "Skopiuj URL"
 
-#: inc/functions/functions.php:1916
+#: inc/functions/functions.php:2037
 msgid "Write a short bio about yourself..."
 msgstr "Napisz krótki opis o sobie..."
 
-#: inc/functions/markup.php:541
+#: inc/functions/markup.php:573
 msgid "Discussion"
 msgstr "Dyskusja"
 
-#: inc/functions/markup.php:564
-#: inc/functions/markup.php:638
+#: inc/functions/markup.php:596
+#: inc/functions/markup.php:670
 msgid " lesson"
 msgid_plural " lessons"
 msgstr[0] "lekcja"
 msgstr[1] ""
 
-#: inc/functions/markup.php:568
-#: inc/functions/markup.php:623
+#: inc/functions/markup.php:600
+#: inc/functions/markup.php:655
 msgid " thread"
 msgid_plural " threads"
 msgstr[0] "wątek"
 msgstr[1] ""
 
-#: inc/functions/markup.php:843
+#: inc/functions/markup.php:875
 msgid "Options"
 msgstr "Opcje"
 
@@ -5114,7 +5040,7 @@ msgstr "Pole nazwy użytkownika"
 msgid "Password Field"
 msgstr "Pole hasła"
 
-#: admin/editor.php:177
+#: admin/editor.php:172
 #: assets/build/portals-app.js:11
 msgid "Lesson Duration (in minutes)"
 msgstr "Czas trwania lekcji (w minutach)"
@@ -5132,17 +5058,18 @@ msgid "Switch to %s"
 msgstr "Przełącz na %s"
 
 #: core/shortcodes/endpoint-navigation.php:93
+#: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:21
 msgid "Resources"
 msgstr "Zasoby"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:832
 msgid "Remove bookmark"
 msgstr "Usuń zakładkę"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:832
 msgid "Add bookmark"
 msgstr "Dodaj zakładkę"
 
@@ -5154,39 +5081,39 @@ msgstr "Przestrzeń zasobów jest dostępna w wersji premium SureDash."
 msgid "To reset your password, visit the following URL:"
 msgstr "Aby zresetować hasło, odwiedź następujący adres URL:"
 
-#: inc/functions/functions.php:2131
+#: inc/functions/functions.php:2252
 #: assets/build/portals-app.js:36
 msgid "Links"
 msgstr "Linki"
 
-#: inc/functions/functions.php:2132
+#: inc/functions/functions.php:2253
 msgid "Headings"
 msgstr "Nagłówki"
 
-#: inc/functions/functions.php:2134
+#: inc/functions/functions.php:2255
 #: assets/build/portals-app.js:36
 msgid "Content Background"
 msgstr "Tło treści"
 
-#: inc/functions/functions.php:2135
+#: inc/functions/functions.php:2256
 #: assets/build/portals-app.js:36
 msgid "Portal Background"
 msgstr "Tło portalu"
 
-#: inc/functions/functions.php:2136
+#: inc/functions/functions.php:2257
 msgid "Alternate Background"
 msgstr "Alternatywne tło"
 
-#: inc/functions/functions.php:2137
+#: inc/functions/functions.php:2258
 msgid "Subtle Background"
 msgstr "Subtelne tło"
 
-#: inc/functions/functions.php:2138
+#: inc/functions/functions.php:2259
 msgid "Other Supporting"
 msgstr "Inne wsparcie"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2306
+#: inc/functions/functions.php:2427
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5194,7 +5121,7 @@ msgstr[0] "%1$d godz %2$d min"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2310
+#: inc/functions/functions.php:2431
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5202,14 +5129,14 @@ msgstr[0] "%d godz"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2314
+#: inc/functions/functions.php:2435
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
 msgstr[0] "%d min"
 msgstr[1] ""
 
-#: inc/functions/markup.php:550
+#: inc/functions/markup.php:582
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:14
@@ -5217,12 +5144,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "Biblioteka zasobów"
 
-#: inc/functions/markup.php:770
+#: inc/functions/markup.php:802
 #: assets/build/portals-app.js:27
 msgid "Visit"
 msgstr "Odwiedź"
 
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:832
 msgid "Bookmark"
 msgstr "Zakładka"
 
@@ -5234,7 +5161,7 @@ msgstr "Element zasobu"
 msgid "Resource Items"
 msgstr "Elementy zasobów"
 
-#: loader.php:699
+#: loader.php:700
 msgid "Rate our plugin"
 msgstr "Oceń naszą wtyczkę"
 
@@ -5392,8 +5319,9 @@ msgstr "Pobieranie niedostępne"
 msgid "Access Resource"
 msgstr "Uzyskaj dostęp do zasobu"
 
-#: inc/utils/helper.php:2899
+#: inc/utils/helper.php:2919
 #: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Resource History"
 msgstr "Historia zasobów"
 
@@ -6096,6 +6024,7 @@ msgid "Post deleted successfully!"
 msgstr "Post usunięty pomyślnie!"
 
 #: core/shortcodes/endpoint-navigation.php:101
+#: inc/services/search/search-response-builder.php:130
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
@@ -6552,7 +6481,9 @@ msgid "Open notification settings in new tab"
 msgstr "Otwórz ustawienia powiadomień w nowej karcie"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1395
+#: inc/functions/markup.php:1427
+#: inc/services/search/search-people-service.php:248
+#: inc/services/search/search-people-service.php:254
 msgid "Member"
 msgstr "Członek"
 
@@ -6712,15 +6643,15 @@ msgstr "Tagi"
 msgid "Please select a space."
 msgstr "Proszę wybrać przestrzeń."
 
-#: inc/utils/settings.php:412
+#: inc/utils/settings.php:436
 msgid "Newbie"
 msgstr "Nowicjusz"
 
-#: inc/utils/settings.php:421
+#: inc/utils/settings.php:445
 msgid "Manager"
 msgstr "Kierownik"
 
-#: inc/utils/settings.php:430
+#: inc/utils/settings.php:454
 msgid "Active Member"
 msgstr "Aktywny członek"
 
@@ -7139,7 +7070,7 @@ msgstr "Brak polubień, bądź pierwszy, który polubi!"
 #. translators: %s: time ago
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
-#: inc/functions/functions.php:2375
+#: inc/functions/functions.php:2496
 msgid "%s ago"
 msgstr "%s temu"
 
@@ -7164,25 +7095,26 @@ msgstr "Hasło, które wprowadziłeś dla nazwy użytkownika %1$s, jest nieprawi
 msgid "Receive admin notifications"
 msgstr "Otrzymuj powiadomienia administracyjne"
 
-#: inc/functions/functions.php:2723
+#: inc/functions/functions.php:2844
 msgid "Anonymous"
 msgstr "Anonimowy"
 
-#: inc/utils/helper.php:1765
+#: inc/utils/helper.php:1785
 msgid "No likes yet."
 msgstr "Brak polubień."
 
-#: inc/utils/helper.php:1801
+#: inc/utils/helper.php:1821
 msgid "Share"
 msgstr "Udostępnij"
 
-#: inc/utils/helper.php:2937
-#: inc/utils/settings.php:312
+#: inc/utils/helper.php:2957
+#: inc/utils/settings.php:320
+#: assets/build/portals-app.js:24
 msgid "View Profile"
 msgstr "Wyświetl profil"
 
-#: inc/utils/helper.php:2925
-#: inc/utils/settings.php:318
+#: inc/utils/helper.php:2945
+#: inc/utils/settings.php:326
 msgid "Edit Profile"
 msgstr "Edytuj profil"
 
@@ -7258,7 +7190,7 @@ msgstr "Błąd podczas wyszukiwania użytkowników"
 msgid "No access groups found"
 msgstr "Nie znaleziono grup dostępu"
 
-#: core/rewrite-rules.php:294
+#: core/rewrite-rules.php:313
 #: assets/build/portals-app.js:17
 msgid "Post Visibility"
 msgstr "Widoczność posta"
@@ -7772,7 +7704,7 @@ msgstr "Wyklucz określonych użytkowników"
 msgid "Unsaved Settings"
 msgstr "Niezapisane ustawienia"
 
-#: inc/utils/helper.php:2883
+#: inc/utils/helper.php:2903
 #: assets/build/portals-app.js:24
 msgid "Leaderboard"
 msgstr "Tablica wyników"
@@ -7806,31 +7738,31 @@ msgstr "Nie dołączono jeszcze do żadnych wydarzeń."
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1415
-#: inc/utils/helper.php:1416
-#: inc/utils/helper.php:1440
+#: inc/utils/helper.php:1435
+#: inc/utils/helper.php:1436
+#: inc/utils/helper.php:1460
 msgid "Latest"
 msgstr "Najnowsze"
 
-#: inc/utils/helper.php:1419
-#: inc/utils/helper.php:1420
+#: inc/utils/helper.php:1439
+#: inc/utils/helper.php:1440
 msgid "Oldest"
 msgstr "Najstarsze"
 
-#: inc/utils/helper.php:1423
-#: inc/utils/helper.php:1424
+#: inc/utils/helper.php:1443
+#: inc/utils/helper.php:1444
 msgid "Popular"
 msgstr "Popularne"
 
-#: inc/utils/helper.php:1431
+#: inc/utils/helper.php:1451
 msgid "New Activity"
 msgstr "Nowa aktywność"
 
-#: inc/utils/helper.php:1435
+#: inc/utils/helper.php:1455
 msgid "Alphabetical"
 msgstr "Alfabetycznie"
 
-#: inc/utils/helper.php:1462
+#: inc/utils/helper.php:1482
 msgid "Sort options"
 msgstr "Opcje sortowania"
 
@@ -7839,7 +7771,7 @@ msgid "This community's portal spaces will be listed here."
 msgstr "Portale tej społeczności będą wymienione tutaj."
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2397
+#: inc/functions/functions.php:2518
 msgid "in %s"
 msgstr "w %s"
 
@@ -7876,6 +7808,7 @@ msgstr "Etykieta tytułu"
 msgid "Container Width is not applicable when using grid layout."
 msgstr "Szerokość kontenera nie ma zastosowania przy użyciu układu siatki."
 
+#: core/assets.php:282
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
 msgid "Select"
@@ -8805,55 +8738,55 @@ msgstr "Otwórz tablicę wyników"
 msgid "Invalid chapter or step identifier."
 msgstr "Nieprawidłowy identyfikator rozdziału lub kroku."
 
-#: inc/utils/helper.php:1432
+#: inc/utils/helper.php:1452
 msgid "Activity"
 msgstr "Aktywność"
 
-#: inc/utils/helper.php:1436
+#: inc/utils/helper.php:1456
 msgid "A→Z"
 msgstr "A→Z"
 
-#: inc/utils/helper.php:1465
+#: inc/utils/helper.php:1485
 msgid "Sort:"
 msgstr "Sortuj:"
 
-#: inc/utils/helper.php:1476
+#: inc/utils/helper.php:1496
 msgid "List view"
 msgstr "Widok listy"
 
-#: inc/utils/helper.php:1485
+#: inc/utils/helper.php:1505
 msgid "Grid view"
 msgstr "Widok siatki"
 
-#: inc/utils/helper.php:2888
+#: inc/utils/helper.php:2908
 msgid "Points ranking of portal members."
 msgstr "Ranking punktów członków portalu."
 
-#: inc/utils/helper.php:2891
+#: inc/utils/helper.php:2911
 msgid "Member Directory"
 msgstr "Katalog członków"
 
-#: inc/utils/helper.php:2896
+#: inc/utils/helper.php:2916
 msgid "Browse and search portal members."
 msgstr "Przeglądaj i wyszukuj członków portalu."
 
-#: inc/utils/helper.php:2904
+#: inc/utils/helper.php:2924
 msgid "Resources the user has accessed."
 msgstr "Zasoby, do których użytkownik uzyskał dostęp."
 
-#: inc/utils/helper.php:2912
+#: inc/utils/helper.php:2932
 msgid "User's saved posts and content."
 msgstr "Zapisane posty i treści użytkownika."
 
-#: inc/utils/helper.php:2922
+#: inc/utils/helper.php:2942
 msgid "User's notification preferences."
 msgstr "Preferencje powiadomień użytkownika."
 
-#: inc/utils/helper.php:2930
+#: inc/utils/helper.php:2950
 msgid "Form to update profile details."
 msgstr "Formularz aktualizacji danych profilu."
 
-#: inc/utils/helper.php:2942
+#: inc/utils/helper.php:2962
 msgid "User's public, read-only profile."
 msgstr "Publiczny profil użytkownika, tylko do odczytu."
 
@@ -8989,6 +8922,7 @@ msgstr "— Wybierz sekcję —"
 msgid "This lesson is already in the selected section."
 msgstr "Ta lekcja jest już w wybranej sekcji."
 
+#: core/assets.php:281
 #: assets/build/portals-app.js:21
 msgid "Move"
 msgstr "Przenieś"
@@ -9154,6 +9088,241 @@ msgstr "Brak dostępnych rozdziałów nauki."
 #: assets/build/portals-app.js:27
 msgid "Dismiss Learn tab"
 msgstr "Zamknij zakładkę Nauka"
+
+#: core/assets.php:268
+msgid "Search posts, people, lessons…"
+msgstr "Szukaj postów, osób, lekcji…"
+
+#: core/assets.php:269
+msgid "Clear search"
+msgstr "Wyczyść wyszukiwanie"
+
+#: core/assets.php:270
+msgid "Search across posts, comments, people, lessons, events, spaces and more."
+msgstr "Szukaj w postach, komentarzach, osobach, lekcjach, wydarzeniach, przestrzeniach i nie tylko."
+
+#: core/assets.php:271
+msgid "We couldn't find anything matching your search."
+msgstr "Nie znaleziono niczego pasującego do twojego wyszukiwania."
+
+#: core/assets.php:272
+msgid "Try again with a different term."
+msgstr "Spróbuj ponownie z innym terminem."
+
+#. translators: %s: search query
+#: core/assets.php:274
+msgid "Search results for \"%s\""
+msgstr "Wyniki wyszukiwania dla \"%s\""
+
+#. translators: %d: number of results
+#: core/assets.php:276
+msgid "%d result"
+msgstr "%d wynik"
+
+#. translators: %d: number of results
+#: core/assets.php:278
+msgid "%d results"
+msgstr "%d wyniki"
+
+#: core/assets.php:279
+msgid "Newest first"
+msgstr "Najpierw najnowsze"
+
+#: core/assets.php:280
+msgid "Oldest first"
+msgstr "Najpierw najstarsze"
+
+#: core/assets.php:284
+msgid "ESC"
+msgstr "ESC"
+
+#: core/assets.php:285
+msgid "Previous page"
+msgstr "Poprzednia strona"
+
+#: core/assets.php:286
+msgid "Next page"
+msgstr "Następna strona"
+
+#. translators: %d: result count
+#: core/assets.php:288
+msgid "View all %d"
+msgstr "Zobacz wszystkie %d"
+
+#: core/assets.php:290
+msgid "Search all content"
+msgstr "Szukaj całej zawartości"
+
+#: core/assets.php:292
+msgid "Recent searches"
+msgstr "Ostatnie wyszukiwania"
+
+#: core/assets.php:293
+msgid "Clear all"
+msgstr "Wyczyść wszystko"
+
+#: core/assets.php:294
+msgid "Remove from recent searches"
+msgstr "Usuń z ostatnich wyszukiwań"
+
+#: core/assets.php:295
+msgid "commented on"
+msgstr "skomentował"
+
+#: core/assets.php:296
+msgid "in"
+msgstr "w"
+
+#: core/routers/search.php:78
+msgid "A search term is required."
+msgstr "Wymagany jest termin wyszukiwania."
+
+#. translators: %d: minimum number of characters.
+#: core/routers/search.php:88
+msgid "Search query must be at least %d characters."
+msgstr "Zapytanie wyszukiwania musi mieć co najmniej %d znaków."
+
+#: inc/functions/functions.php:792
+msgid "Some time ago"
+msgstr "Jakiś czas temu"
+
+#. translators: %1$s: portal name, %2$s: post title.
+#: inc/modules/email-notifications/email-triggers.php:278
+msgid "[%1$s] New community post: %2$s"
+msgstr "[%1$s] Nowy post w społeczności: %2$s"
+
+#: inc/modules/email-notifications/emails.php:112
+msgid "A community member"
+msgstr "Członek społeczności"
+
+#: inc/modules/email-notifications/emails.php:121
+msgid "Hi Admin,"
+msgstr "Cześć Adminie,"
+
+#. translators: %1$s: author name, %2$s: portal name.
+#: inc/modules/email-notifications/emails.php:127
+msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
+msgstr "%1$s właśnie przesłał nowy post w społeczności na <strong>%2$s</strong>."
+
+#: inc/modules/email-notifications/emails.php:140
+msgid "View the post"
+msgstr "Zobacz post"
+
+#. translators: %d: number of image attachments.
+#: inc/services/search/search-comments-service.php:422
+msgid "%d attachment"
+msgid_plural "%d attachments"
+msgstr[0] "%d załącznik"
+msgstr[1] ""
+
+#: inc/services/search/search-comments-service.php:450
+msgid "File"
+msgstr "Plik"
+
+#: inc/services/search/search-comments-service.php:533
+msgid "Shared an image"
+msgstr "Udostępniono obraz"
+
+#: inc/services/search/search-comments-service.php:536
+msgid "Shared a video"
+msgstr "Udostępniono wideo"
+
+#: inc/services/search/search-comments-service.php:539
+msgid "Shared a link"
+msgstr "Udostępniono link"
+
+#: inc/services/search/search-comments-service.php:542
+msgid "View comment"
+msgstr "Zobacz komentarz"
+
+#. translators: %s: month and year the user registered (e.g., "Feb 2025").
+#: inc/services/search/search-people-service.php:174
+msgid "joined %s"
+msgstr "dołączył do %s"
+
+#: inc/services/search/search-response-builder.php:128
+msgid "People"
+msgstr "Ludzie"
+
+#: assets/build/portals-app.js:21
+msgid "Navigates to the bookmarks page."
+msgstr "Przechodzi do strony zakładek."
+
+#: assets/build/portals-app.js:21
+msgid "Notify Admins on New Community Posts"
+msgstr "Powiadom administratorów o nowych postach w społeczności"
+
+#: assets/build/portals-app.js:21
+msgid "Send an email when a community member submits a new post."
+msgstr "Wyślij e-mail, gdy członek społeczności przesyła nowy post."
+
+#: assets/build/portals-app.js:21
+msgid "Recipients"
+msgstr "Odbiorcy"
+
+#: assets/build/portals-app.js:21
+msgid "All admins and portal managers"
+msgstr "Wszyscy administratorzy i menedżerowie portalu"
+
+#: assets/build/portals-app.js:21
+msgid "Pick admins and portal managers who should receive these emails. Leave empty to send to all admins and portal managers."
+msgstr "Wybierz administratorów i menedżerów portalu, którzy powinni otrzymywać te e-maile. Pozostaw puste, aby wysłać do wszystkich administratorów i menedżerów portalu."
+
+#: assets/build/portals-app.js:21
+msgid "sender@example.com"
+msgstr "sender@example.com"
+
+#: assets/build/portals-app.js:21
+msgid "Email Templates"
+msgstr "Szablony e-maili"
+
+#: assets/build/portals-app.js:24
+msgid "Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
+msgstr "Zaktualizowane adresy URL punktów końcowych. Wbudowane linki menu profilu aktualizują się automatycznie — ale wszelkie linki, które ręcznie dodałeś w menu WordPress, treści stron lub niestandardowych blokach wskazujące na stare adresy URL, będą wymagały aktualizacji."
+
+#: assets/build/portals-app.js:24
+msgid "Use only lowercase letters, numbers, and hyphens."
+msgstr "Używaj tylko małych liter, cyfr i myślników."
+
+#: assets/build/portals-app.js:24
+msgid "This slug is already used by another endpoint."
+msgstr "Ten slug jest już używany przez inny punkt końcowy."
+
+#: assets/build/portals-app.js:24
+msgid "URL preview:"
+msgstr "Podgląd URL:"
+
+#: assets/build/portals-app.js:24
+msgid "Logged-in member’s profile edit page."
+msgstr "Strona edycji profilu zalogowanego członka."
+
+#: assets/build/portals-app.js:24
+msgid "Public profile page for any member (URL includes the user ID)."
+msgstr "Publiczna strona profilu dla każdego członka (adres URL zawiera identyfikator użytkownika)."
+
+#: assets/build/portals-app.js:24
+msgid "Member’s saved/bookmarked items."
+msgstr "Zapisane/zakładkowane przedmioty członka."
+
+#: assets/build/portals-app.js:24
+msgid "Public leaderboard / points ranking page."
+msgstr "Publiczna strona rankingu / punktów."
+
+#: assets/build/portals-app.js:24
+msgid "Members Directory"
+msgstr "Katalog członków"
+
+#: assets/build/portals-app.js:24
+msgid "Browseable directory of community members."
+msgstr "Przeglądany katalog członków społeczności."
+
+#: assets/build/portals-app.js:24
+msgid "Member’s accessed-resources history page."
+msgstr "Historia dostępu do zasobów członka."
+
+#: assets/build/portals-app.js:24
+msgid "URL Endpoints"
+msgstr "Punkty końcowe URL"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

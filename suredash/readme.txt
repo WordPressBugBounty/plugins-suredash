@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.8.4
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,11 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-05-27 - version 1.9.0 =
+* New: Added an Advanced settings tab to customize URL slugs for portal endpoints for cleaner, more brand-friendly URLs.
+* New: Enhanced the Search modal with a modernized UI, improved functionality, and better categorized results for a smoother and more intuitive user experience.
+* New: Added an option to notify admins and portal managers via email when community members create a new post.
+
 = 2026-05-21 - version 1.8.4 =
 * Fix: Fixed an issue where a duplicate header appeared on mobile devices.
 * Fix: Fixed comment timestamps showing an incorrect relative time (e.g. ~2942w ago) when the comment date was missing or invalid.

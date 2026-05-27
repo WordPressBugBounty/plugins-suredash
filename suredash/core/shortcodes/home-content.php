@@ -1239,7 +1239,7 @@ class HomeContent {
 											$user_headline = sd_get_user_meta( $user_id, 'headline', true );
 										if ( ! empty( $user_headline ) ) {
 											?>
-												<span class="sd-font-14"><?php echo esc_html( strval( $user_headline ) ); ?></span><span class="sd-hide-mobile">|</span>
+												<span class="sd-font-14" title="<?php echo esc_attr( strval( $user_headline ) ); ?>"><?php echo esc_html( suredash_truncate_headline( strval( $user_headline ), 60 ) ); ?></span><span class="sd-hide-mobile">|</span>
 												<?php
 										}
 

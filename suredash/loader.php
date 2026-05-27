@@ -535,6 +535,7 @@ class Portals_Loader {
 		Admin_Updates::get_instance();
 		Email_Dispatcher::get_instance();
 		Email_Triggers::get_instance();
+
 		Learn::get_instance();
 
 		/* MCP Module init */

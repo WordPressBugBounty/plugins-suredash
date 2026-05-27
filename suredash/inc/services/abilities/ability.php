@@ -160,12 +160,15 @@ abstract class Ability {
 	/**
 	 * Get the namespaced ability name for WordPress Abilities API.
 	 *
-	 * Format: suredash/{ability-id}
+	 * Format: suredash/{ability-id}. The result is forced to lowercase so it
+	 * always satisfies the WP Abilities API contract (which requires
+	 * lowercase, non-empty strings) regardless of how a subclass formats its
+	 * `get_id()` output.
 	 *
-	 * @return string
+	 * @return lowercase-string&non-falsy-string
 	 */
 	public function get_wp_ability_name(): string {
-		return 'suredash/' . $this->get_id();
+		return strtolower( 'suredash/' . $this->get_id() );
 	}
 
 	/**

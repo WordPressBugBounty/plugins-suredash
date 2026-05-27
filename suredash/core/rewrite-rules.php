@@ -110,10 +110,15 @@ class RewriteRules {
 		$sub_queries    = suredash_sub_queries();
 		$community_slug = suredash_get_community_slug();
 
-		// Add specific rule for user-view with ID parameter.
+		// Add specific rule for user-view with ID parameter. The public-facing
+		// slug is admin-overridable via Advanced settings, but the dispatched
+		// `portal_subpage` query var is always the canonical `user-view` so
+		// downstream code that compares `$queried_page === 'user-view'`
+		// continues to work unchanged.
 		if ( in_array( 'user-view', $sub_queries ) ) {
+			$user_view_public_slug = suredash_get_endpoint_slug( 'user-view' );
 			add_rewrite_rule(
-				'^' . $community_slug . '/user-view/([0-9]+)/?$',
+				'^' . $community_slug . '/' . esc_attr( $user_view_public_slug ) . '/([0-9]+)/?$',
 				'index.php?portal_subpage=user-view&user_id=$matches[1]&post_type=' . SUREDASHBOARD_POST_TYPE,
 				'top'
 			);
@@ -127,14 +132,28 @@ class RewriteRules {
 			);
 		}
 
+		// Reverse map of public-facing slug → canonical slug to prevent two
+		// endpoints from binding the same URL (last-write-wins).
+		$used_slugs = [];
+
 		foreach ( $sub_queries as $query ) {
 			// Skip user-view as it has its own rule above.
 			if ( $query === 'user-view' ) {
 				continue;
 			}
 
+			$public_slug = suredash_get_endpoint_slug( $query );
+
+			// On collision (configured override clashes with another endpoint
+			// or with itself via filter), drop back to the canonical slug so
+			// at least one rule still resolves.
+			if ( isset( $used_slugs[ $public_slug ] ) ) {
+				$public_slug = $query;
+			}
+			$used_slugs[ $public_slug ] = $query;
+
 			add_rewrite_rule(
-				'^' . $community_slug . '/' . esc_attr( $query ) . '/?$',
+				'^' . $community_slug . '/' . esc_attr( $public_slug ) . '/?$',
 				'index.php?portal_subpage=' . esc_attr( $query ) . '&post_type=' . SUREDASHBOARD_POST_TYPE . '&suredash_portal=1',
 				'top'
 			);

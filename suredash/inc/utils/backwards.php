@@ -115,4 +115,31 @@ class Backwards {
 			update_option( SUREDASHBOARD_SETTINGS, $db_options );
 		}
 	}
+
+	/**
+	 * Backward compatibility for the new "Notify Admins on New Community Posts"
+	 * setting introduced in 1.9.0.
+	 *
+	 * Case: New installs default to true (see `settings.php`). Existing installs
+	 * upgrading into 1.9.0 should NOT auto-receive these emails — admins who
+	 * didn't ask for them shouldn't be surprised. Default to false only when
+	 * the key isn't already present so an admin who flipped it on after the
+	 * upgrade isn't reverted on the next page load.
+	 *
+	 * @param string $saved_version The saved version number.
+	 * @since 1.9.0
+	 * @return void
+	 */
+	public static function version_1_9_0( $saved_version ): void {
+		if ( version_compare( $saved_version, '1.9.0', '<' ) ) {
+			$db_options = get_option( SUREDASHBOARD_SETTINGS, [] );
+			if ( ! is_array( $db_options ) ) {
+				$db_options = [];
+			}
+			if ( ! isset( $db_options['notify_admins_on_new_post'] ) ) {
+				$db_options['notify_admins_on_new_post'] = false;
+				update_option( SUREDASHBOARD_SETTINGS, $db_options );
+			}
+		}
+	}
 }

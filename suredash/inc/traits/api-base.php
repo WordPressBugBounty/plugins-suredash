@@ -19,7 +19,7 @@ trait API_Base {
 	/**
 	 * Endpoint namespace.
 	 *
-	 * @var string
+	 * @var non-falsy-string
 	 */
 	protected $namespace = 'portal/v1';
 

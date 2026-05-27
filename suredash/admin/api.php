@@ -29,7 +29,7 @@ class API {
 	/**
 	 * Route base.
 	 *
-	 * @var string $rest_base REST base.
+	 * @var non-falsy-string $rest_base REST base.
 	 */
 	protected string $rest_base = '/dataset/';
 

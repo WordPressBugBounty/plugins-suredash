@@ -81,6 +81,14 @@ class Settings {
 					'default' => true,
 					'type'    => 'boolean',
 				],
+				'notify_admins_on_new_post'            => [
+					'default' => true,
+					'type'    => 'boolean',
+				],
+				'admin_notification_recipients'        => [
+					'default' => [],
+					'type'    => 'array',
+				],
 				// Social settings.
 				'google_token_id'                      => [
 					'default' => '',
@@ -318,13 +326,13 @@ class Settings {
 							'title' => __( 'Edit Profile', 'suredash' ),
 							'icon'  => 'UserPen',
 							'slug'  => 'user-profile',
-							'link'  => '/{portal_slug}/user-profile/',
+							'link'  => '/{portal_slug}/{user_profile}/',
 						],
 						[
 							'title' => __( 'Bookmarks', 'suredash' ),
 							'icon'  => 'Bookmark',
 							'slug'  => 'bookmarks',
-							'link'  => '/{portal_slug}/bookmarks/',
+							'link'  => '/{portal_slug}/{bookmarks}/',
 						],
 					],
 					'type'    => 'array',
@@ -369,6 +377,22 @@ class Settings {
 				'custom_css'                           => [
 					'default' => '',
 					'type'    => 'css',
+				],
+
+				// Advanced — overridable URL slugs for portal sub-queries.
+				// Keys are canonical slugs and must never change; values are
+				// the public-facing slug shown in URLs. Defaults match the
+				// canonical slugs so URLs stay backward-compatible.
+				'endpoint_slugs'                       => [
+					'default' => [
+						'user-profile'     => 'user-profile',
+						'bookmarks'        => 'bookmarks',
+						'leaderboard'      => 'leaderboard',
+						'members'          => 'members',
+						'resource-history' => 'resource-history',
+						'user-view'        => 'user-view',
+					],
+					'type'    => 'array',
 				],
 
 				// Integration settings.

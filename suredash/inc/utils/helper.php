@@ -553,6 +553,14 @@ class Helper {
 	/**
 	 * Return search results only by post title.
 	 *
+	 * Match mode is filterable via `suredash_search_title_match_mode`:
+	 *   - 'contains' (default): `LIKE '%term%'` — finds term anywhere in
+	 *     title. Safe, familiar UX; slower on large tables (full scan).
+	 *   - 'prefix': `LIKE 'term%'` — finds only titles starting with term.
+	 *     100–1000× faster IF an index exists on `wp_posts.post_title`.
+	 *     Site owners who've added their own index can opt in. UX caveat:
+	 *     "React" won't match when searching "act".
+	 *
 	 * @param string $search   Search SQL for WHERE clause.
 	 * @param object $wp_query The current WP_Query object.
 	 *
@@ -565,10 +573,22 @@ class Helper {
 			$q = $wp_query->query_vars;
 			$n = ! empty( $q['exact'] ) ? '' : '%';
 
+			/**
+			 * Filter: title-search match mode.
+			 *
+			 * Return 'prefix' to use `LIKE 'term%'` (requires index on
+			 * wp_posts.post_title to actually be fast). Any other value
+			 * keeps the default `LIKE '%term%'` contains-match.
+			 *
+			 * @param string $mode Match mode: 'contains' (default) | 'prefix'.
+			 */
+			$mode             = (string) apply_filters( 'suredash_search_title_match_mode', 'contains' );
+			$leading_wildcard = $mode === 'prefix' ? '' : $n;
+
 			$search = [];
 
 			foreach ( (array) $q['search_terms'] as $term ) {
-				$search[] = $wpdb->prepare( "{$wpdb->posts}.post_title LIKE %s", $n . $wpdb->esc_like( $term ) . $n );
+				$search[] = $wpdb->prepare( "{$wpdb->posts}.post_title LIKE %s", $leading_wildcard . $wpdb->esc_like( $term ) . $n );
 			}
 
 			if ( ! is_user_logged_in() ) {

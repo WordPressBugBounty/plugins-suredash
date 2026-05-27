@@ -54,11 +54,12 @@ msgstr "פורומים בנושא"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: inc/utils/settings.php:256
+#: inc/utils/settings.php:264
 #: assets/build/portals-app.js:21
 msgid "Home"
 msgstr "בית"
 
+#: inc/services/search/search-comments-service.php:465
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -66,12 +67,13 @@ msgstr "בית"
 msgid "Link"
 msgstr "קישור"
 
+#: inc/services/search/search-comments-service.php:437
 #: assets/build/editor-app.js:6
 msgid "Video"
 msgstr "וידאו"
 
-#: admin/menu.php:629
-#: inc/utils/helper.php:2200
+#: admin/menu.php:672
+#: inc/utils/helper.php:2220
 #: assets/build/portals-app.js:20
 msgid "Uncategorized"
 msgstr "לא מסווג"
@@ -82,17 +84,17 @@ msgstr "לא מסווג"
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr "הפלאגין %1$s %2$s %3$s דורש עדכון של הפלאגין %1$s %4$s %3$s לגרסה %5$s או גבוהה יותר!"
 
-#: admin/setup.php:99
+#: admin/setup.php:102
 #: inc/compatibility/starter-content.php:42
 msgid "Portal Login"
 msgstr "כניסה לפורטל"
 
-#: admin/setup.php:104
+#: admin/setup.php:107
 #: inc/compatibility/starter-content.php:78
 msgid "Portal Register"
 msgstr "רישום פורטל"
 
-#: admin/setup.php:135
+#: admin/setup.php:138
 #: assets/build/portals-app.js:8
 msgid "Visit Portal"
 msgstr "בקר בפורטל"
@@ -198,56 +200,56 @@ msgid "This field"
 msgstr "שדה זה"
 
 #: core/blocks/register.php:85
-#: core/blocks/register.php:981
+#: core/blocks/register.php:989
 msgid "You have used an invalid email."
 msgstr "השתמשת בדוא\"ל לא חוקי."
 
 #. translators: abbreviation for units
 #: core/blocks/login.php:169
-#: core/blocks/register.php:982
+#: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
 msgid "Please enter a valid email address."
 msgstr "אנא הזן כתובת דוא\"ל תקינה."
 
-#: core/blocks/register.php:983
+#: core/blocks/register.php:991
 #: assets/build/editor-app.js:2
 msgid "Email already in use. Please try to sign in."
 msgstr "כתובת האימייל כבר בשימוש. אנא נסה להיכנס."
 
-#: core/blocks/register.php:984
+#: core/blocks/register.php:992
 #: assets/build/editor-app.js:2
 msgid "Invalid user name. Please try again."
 msgstr "שם משתמש לא חוקי. אנא נסה שוב."
 
-#: core/blocks/register.php:985
+#: core/blocks/register.php:993
 #: assets/build/editor-app.js:2
 msgid "Username is already taken."
 msgstr "שם המשתמש כבר תפוס."
 
-#: core/blocks/register.php:986
+#: core/blocks/register.php:994
 #: assets/build/editor-app.js:2
 msgid "Password cannot be accepted. Please try something else."
 msgstr "לא ניתן לקבל את הסיסמה. אנא נסה משהו אחר."
 
 #: core/blocks/login.php:215
-#: core/blocks/register.php:987
+#: core/blocks/register.php:995
 #: inc/utils/labels.php:88
 #: assets/build/editor-app.js:2
 #: assets/js/unminified/login.js:745
 msgid "Passwords do not match."
 msgstr "הסיסמאות אינן תואמות."
 
-#: core/blocks/register.php:988
+#: core/blocks/register.php:996
 #: assets/build/editor-app.js:2
 msgid "Please try again after accepting terms & conditions."
 msgstr "אנא נסה שוב לאחר קבלת התנאים וההגבלות."
 
-#: core/blocks/register.php:989
+#: core/blocks/register.php:997
 #: assets/build/editor-app.js:2
 msgid "Something went wrong! Please try again."
 msgstr "משהו השתבש! אנא נסה שוב."
 
-#: core/blocks/register.php:990
+#: core/blocks/register.php:998
 #: assets/build/editor-app.js:2
 msgid "Registration successful. Please check your email inbox."
 msgstr "ההרשמה הצליחה. אנא בדוק את תיבת הדואר האלקטרוני שלך."
@@ -577,7 +579,7 @@ msgstr "הרשמה והתחברות הצליחו"
 msgid "Google API Error."
 msgstr "שגיאת API של Google."
 
-#: core/routes.php:71
+#: core/routes.php:72
 msgid "Oops! Something wrong here..."
 msgstr "אופס! משהו לא בסדר כאן..."
 
@@ -591,9 +593,9 @@ msgstr "סמן הכל כנקרא"
 
 #: core/shortcodes/home-content.php:809
 #: core/shortcodes/home-content.php:810
-#: inc/functions/functions.php:1897
-#: inc/functions/functions.php:1903
-#: inc/functions/functions.php:1909
+#: inc/functions/functions.php:2018
+#: inc/functions/functions.php:2024
+#: inc/functions/functions.php:2030
 msgid "Enter"
 msgstr "הזן"
 
@@ -607,28 +609,18 @@ msgstr "משתמש"
 msgid "Upload"
 msgstr "העלה"
 
-#: core/shortcodes/search.php:89
 #: inc/utils/labels.php:101
 msgid "Search must be at least 3 characters."
 msgstr "החיפוש חייב להיות לפחות 3 תווים."
 
-#: core/shortcodes/search.php:106
-msgid "Recently viewed"
-msgstr "נצפה לאחרונה"
-
-#: core/shortcodes/search.php:139
-msgid "Quick Links"
-msgstr "קישורים מהירים"
-
-#: core/shortcodes/search.php:67
-#: core/shortcodes/search.php:191
+#: core/shortcodes/search.php:57
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:24
 msgid "Search"
 msgstr "חיפוש"
 
 #: core/shortcodes/user-profile.php:164
-#: inc/functions/functions.php:2720
+#: inc/functions/functions.php:2841
 msgid "Guest User"
 msgstr "משתמש אורח"
 
@@ -651,44 +643,44 @@ msgstr "שם משתמש:"
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "אם זו הייתה טעות, פשוט התעלם מהאימייל הזה ושום דבר לא יקרה."
 
-#: inc/functions/functions.php:716
-#: inc/functions/functions.php:2371
+#: inc/functions/functions.php:801
+#: inc/functions/functions.php:2492
 #: assets/build/portals-app.js:8
 msgid "Just now"
 msgstr "כרגע"
 
-#: inc/functions/functions.php:797
+#: inc/functions/functions.php:882
 msgid "Pingback:"
 msgstr "פינגבק:"
 
-#: inc/functions/functions.php:797
+#: inc/functions/functions.php:882
 msgid "(Edit)"
 msgstr "(עריכה)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:810
+#: inc/functions/functions.php:895
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s ב־%2$s"
 
-#: inc/functions/functions.php:887
-#: inc/functions/functions.php:888
+#: inc/functions/functions.php:972
+#: inc/functions/functions.php:973
 msgid "Your comment is awaiting moderation."
 msgstr "התגובה שלך ממתינה לאישור."
 
-#: inc/functions/functions.php:927
+#: inc/functions/functions.php:1012
 msgid "Reply"
 msgstr "השב"
 
-#: inc/functions/markup.php:724
-#: inc/utils/helper.php:1759
+#: inc/functions/markup.php:756
+#: inc/utils/helper.php:1779
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
 msgstr[0] "אהבתי"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1528
+#: inc/functions/functions.php:1613
 #: assets/build/portals-app.js:17
 #: assets/build/portals-app.js:21
 msgid "Unknown"
@@ -702,8 +694,8 @@ msgstr "לחץ להעלאה או גרור ושחרר"
 msgid "Allowed file formats:"
 msgstr "פורמטים מותרים של קבצים:"
 
-#: inc/functions/markup.php:742
-#: inc/utils/helper.php:1787
+#: inc/functions/markup.php:774
+#: inc/utils/helper.php:1807
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "תגובה"
@@ -742,12 +734,13 @@ msgstr "סוג הפוסט הנוכחי אינו של תוסף זה."
 msgid "Data saved successfully."
 msgstr "הנתונים נשמרו בהצלחה."
 
+#: core/assets.php:289
 #: inc/traits/post-type.php:141
 #: inc/utils/labels.php:153
 msgid "All"
 msgstr "הכל"
 
-#: inc/utils/helper.php:1799
+#: inc/utils/helper.php:1819
 msgid "Share Post"
 msgstr "שתף פוסט"
 
@@ -755,21 +748,21 @@ msgstr "שתף פוסט"
 msgid "Copied!"
 msgstr "הועתק!"
 
-#: inc/utils/helper.php:2234
+#: inc/utils/helper.php:2254
 msgid "This discussion is only available for VIP members."
 msgstr "דיון זה זמין רק לחברי VIP."
 
-#: inc/utils/helper.php:2236
+#: inc/utils/helper.php:2256
 msgid "Please upgrade to add response."
 msgstr "אנא שדרג כדי להוסיף תגובה."
 
-#: inc/utils/helper.php:2237
+#: inc/utils/helper.php:2257
 #: assets/build/portals-app.js:8
 msgid "Upgrade Now"
 msgstr "שדרג עכשיו"
 
 #: core/shortcodes/user-profile.php:158
-#: inc/utils/helper.php:2248
+#: inc/utils/helper.php:2268
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -798,12 +791,14 @@ msgid "Portal Items"
 msgstr "פריטי פורטל"
 
 #: inc/utils/labels.php:55
+#: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:27
 msgid "User Profile"
 msgstr "פרופיל משתמש"
 
 #: admin/menu.php:166
 #: admin/menu.php:167
+#: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
@@ -816,13 +811,14 @@ msgstr "פוסטים"
 msgid "Liked"
 msgstr "אהבתי"
 
-#: inc/utils/helper.php:1427
-#: inc/utils/helper.php:1428
+#: inc/utils/helper.php:1447
+#: inc/utils/helper.php:1448
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:8
 msgid "Likes"
 msgstr "לייקים"
 
+#: inc/services/search/search-response-builder.php:127
 #: inc/utils/labels.php:60
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:21
@@ -957,7 +953,7 @@ msgid "If you want to sell products online, you need a sales funnel. A sales fun
 msgstr "אם אתה רוצה למכור מוצרים באינטרנט, אתה צריך משפך מכירות. משפך מכירות הוא הדרך הקלה ביותר להוביל מבקר באתר להפוך ללקוח משלם. משפך מכירות בונה עושר בעסק שלך."
 
 #: core/cpt/content.php:111
-#: inc/functions/markup.php:547
+#: inc/functions/markup.php:579
 #: inc/utils/labels.php:107
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
@@ -974,6 +970,7 @@ msgstr "קורסים"
 msgid "Lesson"
 msgstr "שיעור"
 
+#: inc/services/search/search-response-builder.php:129
 #: inc/utils/labels.php:110
 #: assets/build/portals-app.js:21
 msgid "Lessons"
@@ -1034,7 +1031,7 @@ msgstr "התוכן יהיה זמין ב"
 #: core/renderer.php:289
 #: core/shortcodes/home-content.php:871
 #: core/shortcodes/home-content.php:1077
-#: inc/utils/helper.php:2915
+#: inc/utils/helper.php:2935
 #: inc/utils/labels.php:143
 #: assets/build/portals-app.js:24
 #: assets/build/portals-app.js:33
@@ -1099,7 +1096,7 @@ msgid "Post disliked successfully."
 msgstr "הפוסט לא אהוב בהצלחה."
 
 #: inc/utils/labels.php:176
-#: inc/utils/settings.php:300
+#: inc/utils/settings.php:308
 #: assets/build/portals-app.js:21
 msgid "Restricted Content"
 msgstr "תוכן מוגבל"
@@ -1113,17 +1110,17 @@ msgstr "תוכן זה מוגבל וניתן לגשת אליו רק על ידי �
 msgid "Untitled Section"
 msgstr "קטע ללא כותרת"
 
-#: inc/utils/settings.php:268
+#: inc/utils/settings.php:276
 #: assets/build/portals-app.js:21
 msgid "Your Bookmarks"
 msgstr "הסימניות שלך"
 
-#: inc/utils/settings.php:272
+#: inc/utils/settings.php:280
 #: assets/build/portals-app.js:21
 msgid "Profile Information"
 msgstr "מידע על הפרופיל"
 
-#: inc/utils/settings.php:276
+#: inc/utils/settings.php:284
 #: assets/build/portals-app.js:21
 msgid "Pinned Post"
 msgstr "פוסט מוצמד"
@@ -1132,11 +1129,11 @@ msgstr "פוסט מוצמד"
 msgid "Back to Course"
 msgstr "חזרה לקורס"
 
-#: inc/utils/settings.php:288
+#: inc/utils/settings.php:296
 msgid "What would you like to share today?"
 msgstr "מה תרצה לשתף היום?"
 
-#: inc/utils/settings.php:304
+#: inc/utils/settings.php:312
 msgid "This content is not available with your current membership."
 msgstr "תוכן זה אינו זמין עם החברות הנוכחית שלך."
 
@@ -1181,6 +1178,7 @@ msgstr "סגנון"
 
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:24
 msgid "Advanced"
 msgstr "מתקדם"
 
@@ -1221,6 +1219,7 @@ msgstr "איפוס"
 msgid "Icon Library"
 msgstr "ספריית אייקונים"
 
+#: core/assets.php:283
 #: core/integrations/feeds.php:183
 #: inc/utils/labels.php:119
 #: templates/quick-view/post.php:137
@@ -1267,16 +1266,8 @@ msgid "Please add a preview image."
 msgstr "אנא הוסף תמונת תצוגה מקדימה."
 
 #: assets/build/editor-app.js:2
-msgid "This block helps to add Email field."
-msgstr "בלוק זה עוזר להוסיף שדה דוא\"ל."
-
-#: assets/build/editor-app.js:2
 msgid "required"
 msgstr "נדרש"
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Password field."
-msgstr "בלוק זה עוזר להוסיף שדה סיסמה."
 
 #: assets/build/editor-app.js:2
 msgid "Required"
@@ -1290,24 +1281,8 @@ msgid "Name"
 msgstr "שם"
 
 #: assets/build/editor-app.js:2
-msgid "This block helps to add Username field."
-msgstr "בלוק זה עוזר להוסיף שדה שם משתמש."
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add First Name field."
-msgstr "בלוק זה עוזר להוסיף שדה שם פרטי."
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Last Name field."
-msgstr "בלוק זה עוזר להוסיף שדה שם משפחה."
-
-#: assets/build/editor-app.js:2
 msgid "Re-Enter Password"
 msgstr "הזן מחדש את הסיסמה"
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Re-Enter Password field."
-msgstr "בלוק זה עוזר להוסיף שדה הזנת סיסמה מחדש."
 
 #: assets/build/editor-app.js:2
 msgid "I Accept the Terms and Conditions."
@@ -1316,14 +1291,6 @@ msgstr "אני מקבל את התנאים וההגבלות."
 #: assets/build/editor-app.js:2
 msgid "Terms and Conditions notice."
 msgstr "הודעת תנאים והגבלות."
-
-#: assets/build/editor-app.js:2
-msgid "Terms & Condition"
-msgstr "תנאים והגבלות"
-
-#: assets/build/editor-app.js:2
-msgid "This block helps to add Terms & Condtions field."
-msgstr "בלוק זה עוזר להוסיף שדה תנאים והגבלות."
 
 #: assets/build/editor-app.js:2
 #: assets/build/editor-app.js:4
@@ -1604,6 +1571,7 @@ msgstr "אשר"
 msgid "Processing…"
 msgstr "מעבד…"
 
+#: inc/services/search/search-comments-service.php:418
 #: assets/build/editor-app.js:6
 msgid "Image"
 msgstr "תמונה"
@@ -1985,7 +1953,7 @@ msgstr "תוויות שדה"
 msgid "Typography"
 msgstr "טיפוגרפיה"
 
-#: inc/functions/functions.php:2133
+#: inc/functions/functions.php:2254
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "טקסט"
@@ -2290,30 +2258,6 @@ msgid "login"
 msgstr "התחברות"
 
 #: assets/build/editor-app.js:6
-msgid "This block lets you add Login functionality."
-msgstr "בלוק זה מאפשר לך להוסיף פונקציונליות התחברות."
-
-#: assets/build/editor-app.js:6
-msgid "admin login"
-msgstr "כניסת מנהל"
-
-#: assets/build/editor-app.js:6
-msgid "portal"
-msgstr "פורטל"
-
-#: assets/build/editor-app.js:6
-msgid "frontend login"
-msgstr "כניסה לממשק הקדמי"
-
-#: assets/build/editor-app.js:6
-msgid "user login"
-msgstr "התחברות משתמש"
-
-#: assets/build/editor-app.js:6
-msgid "custom login"
-msgstr "כניסה מותאמת אישית"
-
-#: assets/build/editor-app.js:6
 msgid "Registration Form"
 msgstr "טופס הרשמה"
 
@@ -2513,30 +2457,6 @@ msgstr "הרשמה"
 msgid "Already have an account?"
 msgstr "כבר יש לך חשבון?"
 
-#: assets/build/editor-app.js:6
-msgid "This block lets you add Registration functionality."
-msgstr "בלוק זה מאפשר לך להוסיף פונקציונליות של רישום."
-
-#: assets/build/editor-app.js:6
-msgid "register"
-msgstr "הרשמה"
-
-#: assets/build/editor-app.js:6
-msgid "admin register"
-msgstr "רישום מנהל"
-
-#: assets/build/editor-app.js:6
-msgid "frontend register"
-msgstr "רישום חזיתי"
-
-#: assets/build/editor-app.js:6
-msgid "user register"
-msgstr "הרשמת משתמש"
-
-#: assets/build/editor-app.js:6
-msgid "custom register"
-msgstr "רישום מותאם אישית"
-
 #: assets/build/portals-app.js:27
 #: assets/build/portals-app.js:36
 msgid "What's New?"
@@ -2557,7 +2477,7 @@ msgid "V %s"
 msgstr "V %s"
 
 #: core/shortcodes/single-content.php:394
-#: inc/functions/functions.php:863
+#: inc/functions/functions.php:948
 #: templates/single/post.php:166
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2679,7 +2599,7 @@ msgid "Error updating settings: "
 msgstr "שגיאה בעדכון ההגדרות:"
 
 #: core/shortcodes/single-content.php:399
-#: inc/functions/functions.php:868
+#: inc/functions/functions.php:953
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:17
@@ -2709,7 +2629,7 @@ msgstr "חזור"
 msgid "Continue"
 msgstr "המשך"
 
-#: inc/functions/markup.php:544
+#: inc/functions/markup.php:576
 #: inc/utils/labels.php:117
 msgid "Post"
 msgstr "פרסם"
@@ -2743,7 +2663,7 @@ msgstr "תכונה זו זמינה רק ב-SureDash Pro."
 msgid "Portal Name"
 msgstr "שם הפורטל"
 
-#: inc/functions/functions.php:2130
+#: inc/functions/functions.php:2251
 msgid "Branding"
 msgstr "מיתוג"
 
@@ -3040,15 +2960,15 @@ msgstr "טקסט קבוצת חלל"
 msgid "Space Group Background"
 msgstr "רקע קבוצת חלל"
 
-#: core/routers/misc.php:1943
+#: core/routers/misc.php:1996
 msgid "Uploaded file is not a valid image."
 msgstr "הקובץ שהועלה אינו תמונה חוקית."
 
-#: core/routers/misc.php:1947
+#: core/routers/misc.php:2000
 msgid "File size larger than permissible."
 msgstr "גודל הקובץ גדול מהמותר."
 
-#: inc/functions/functions.php:1627
+#: inc/functions/functions.php:1712
 msgid "No matching template found."
 msgstr "לא נמצאה תבנית תואמת."
 
@@ -3121,6 +3041,7 @@ msgstr "תמונת ממוזערת"
 
 #: admin/menu.php:158
 #: admin/menu.php:159
+#: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:33
@@ -3381,25 +3302,26 @@ msgstr "אנא מלא את כל השדות הנדרשים."
 msgid "– Select –"
 msgstr "– בחר –"
 
-#: inc/utils/settings.php:280
+#: inc/utils/settings.php:288
 msgid "No posts found yet. Stay tuned — new content will be shared here soon!"
 msgstr "עדיין לא נמצאו פוסטים. הישאר מעודכן — תוכן חדש יישלח כאן בקרוב!"
 
-#: inc/utils/settings.php:292
+#: inc/utils/settings.php:300
 #: assets/build/portals-app.js:17
 msgid "Create New Post"
 msgstr "צור פוסט חדש"
 
-#: inc/utils/settings.php:296
+#: inc/utils/settings.php:304
 msgid "No post found, create a new one!"
 msgstr "לא נמצא פוסט, צור חדש!"
 
-#: inc/utils/helper.php:2907
-#: inc/utils/settings.php:324
+#: inc/utils/helper.php:2927
+#: inc/utils/settings.php:332
+#: assets/build/portals-app.js:24
 msgid "Bookmarks"
 msgstr "מועדפים"
 
-#: inc/utils/settings.php:334
+#: inc/utils/settings.php:342
 msgid "Log out"
 msgstr "התנתק"
 
@@ -3791,6 +3713,7 @@ msgstr "פורסם"
 msgid "Access Group"
 msgstr "קבוצת גישה"
 
+#: core/assets.php:291
 #: core/integrations/feeds.php:593
 #: core/integrations/feeds.php:640
 #: core/routers/misc.php:373
@@ -3929,8 +3852,8 @@ msgstr "מושלך"
 msgid "Pending Review"
 msgstr "ממתין לסקירה"
 
-#: inc/functions/markup.php:561
-#: inc/functions/markup.php:613
+#: inc/functions/markup.php:593
+#: inc/functions/markup.php:645
 #: assets/build/portals-app.js:21
 msgid "Private"
 msgstr "פרטי"
@@ -4290,7 +4213,7 @@ msgstr "התראה שלא נקראה"
 msgid "Mark all notifications as read"
 msgstr "סמן את כל ההתראות כנקראו"
 
-#: inc/functions/markup.php:459
+#: inc/functions/markup.php:491
 msgid "Submit Comment"
 msgstr "שלח תגובה"
 
@@ -4310,19 +4233,19 @@ msgstr "הוסר מהמועדפים."
 msgid "Notification marked as read."
 msgstr "ההתראה סומנה כנקראה."
 
-#: inc/utils/settings.php:260
+#: inc/utils/settings.php:268
 msgid "Howdy,"
 msgstr "שלום,"
 
-#: inc/utils/settings.php:264
+#: inc/utils/settings.php:272
 msgid "Latest Posts"
 msgstr "פוסטים אחרונים"
 
-#: inc/utils/settings.php:284
+#: inc/utils/settings.php:292
 msgid "To add to the discussion, join the mastermind."
 msgstr "כדי להצטרף לדיון, הצטרף למאסטרמיינד."
 
-#: inc/utils/settings.php:346
+#: inc/utils/settings.php:354
 msgid "SureDash User"
 msgstr "משתמש SureDash"
 
@@ -4477,6 +4400,7 @@ msgid "Recent Comments"
 msgstr "תגובות אחרונות"
 
 #: assets/build/portals-app.js:17
+#: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:24
 msgid "Search users…"
 msgstr "חפש משתמשים…"
@@ -4546,10 +4470,12 @@ msgid "Incompatible %s Version"
 msgstr "גרסת %s לא תואמת"
 
 #: core/assets.php:249
+#: inc/services/search/search-posts-service.php:58
 msgid "Portal Posts"
 msgstr "פוסטים בפורטל"
 
 #: core/assets.php:250
+#: inc/services/search/search-posts-service.php:59
 msgid "Portal Contents"
 msgstr "תוכן הפורטל"
 
@@ -4791,7 +4717,7 @@ msgstr "נכשל במחיקת התגובה."
 msgid "Comment deleted successfully!"
 msgstr "התגובה נמחקה בהצלחה!"
 
-#: core/routers/misc.php:1938
+#: core/routers/misc.php:1991
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "סוג קובץ לא חוקי. רק GIF, PNG, JPEG, JPG ו- WEBP מותרים."
 
@@ -4809,45 +4735,45 @@ msgid "Re-enter your new password"
 msgstr "הזן שוב את הסיסמה החדשה שלך"
 
 #: core/shortcodes/single-content.php:355
-#: inc/functions/functions.php:905
+#: inc/functions/functions.php:990
 #: templates/quick-view/post.php:83
 #: templates/single/post.php:103
 msgid "Edited"
 msgstr "נערך"
 
-#: inc/functions/functions.php:852
+#: inc/functions/functions.php:937
 msgid "Comment actions"
 msgstr "פעולות תגובה"
 
 #: core/shortcodes/single-content.php:404
-#: inc/functions/functions.php:872
+#: inc/functions/functions.php:957
 #: templates/single/post.php:176
 msgid "Copy URL"
 msgstr "העתק URL"
 
-#: inc/functions/functions.php:1916
+#: inc/functions/functions.php:2037
 msgid "Write a short bio about yourself..."
 msgstr "כתוב ביוגרפיה קצרה על עצמך..."
 
-#: inc/functions/markup.php:541
+#: inc/functions/markup.php:573
 msgid "Discussion"
 msgstr "דיון"
 
-#: inc/functions/markup.php:564
-#: inc/functions/markup.php:638
+#: inc/functions/markup.php:596
+#: inc/functions/markup.php:670
 msgid " lesson"
 msgid_plural " lessons"
 msgstr[0] "שיעור"
 msgstr[1] ""
 
-#: inc/functions/markup.php:568
-#: inc/functions/markup.php:623
+#: inc/functions/markup.php:600
+#: inc/functions/markup.php:655
 msgid " thread"
 msgid_plural " threads"
 msgstr[0] "שרשור"
 msgstr[1] ""
 
-#: inc/functions/markup.php:843
+#: inc/functions/markup.php:875
 msgid "Options"
 msgstr "אפשרויות"
 
@@ -5114,7 +5040,7 @@ msgstr "שדה שם משתמש"
 msgid "Password Field"
 msgstr "שדה סיסמה"
 
-#: admin/editor.php:177
+#: admin/editor.php:172
 #: assets/build/portals-app.js:11
 msgid "Lesson Duration (in minutes)"
 msgstr "משך השיעור (בדקות)"
@@ -5132,17 +5058,18 @@ msgid "Switch to %s"
 msgstr "מעבר ל %s"
 
 #: core/shortcodes/endpoint-navigation.php:93
+#: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:21
 msgid "Resources"
 msgstr "משאבים"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:832
 msgid "Remove bookmark"
 msgstr "הסר סימניה"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:832
 msgid "Add bookmark"
 msgstr "הוסף סימניה"
 
@@ -5154,39 +5081,39 @@ msgstr "מרחב המשאבים זמין בגרסה הפרימיום של SureDa
 msgid "To reset your password, visit the following URL:"
 msgstr "כדי לאפס את הסיסמה שלך, בקר ב-URL הבא:"
 
-#: inc/functions/functions.php:2131
+#: inc/functions/functions.php:2252
 #: assets/build/portals-app.js:36
 msgid "Links"
 msgstr "קישורים"
 
-#: inc/functions/functions.php:2132
+#: inc/functions/functions.php:2253
 msgid "Headings"
 msgstr "כותרות"
 
-#: inc/functions/functions.php:2134
+#: inc/functions/functions.php:2255
 #: assets/build/portals-app.js:36
 msgid "Content Background"
 msgstr "רקע תוכן"
 
-#: inc/functions/functions.php:2135
+#: inc/functions/functions.php:2256
 #: assets/build/portals-app.js:36
 msgid "Portal Background"
 msgstr "רקע פורטל"
 
-#: inc/functions/functions.php:2136
+#: inc/functions/functions.php:2257
 msgid "Alternate Background"
 msgstr "רקע חלופי"
 
-#: inc/functions/functions.php:2137
+#: inc/functions/functions.php:2258
 msgid "Subtle Background"
 msgstr "רקע עדין"
 
-#: inc/functions/functions.php:2138
+#: inc/functions/functions.php:2259
 msgid "Other Supporting"
 msgstr "תמיכה אחרת"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2306
+#: inc/functions/functions.php:2427
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5194,7 +5121,7 @@ msgstr[0] "%1$d ש' %2$d ד'"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2310
+#: inc/functions/functions.php:2431
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5202,14 +5129,14 @@ msgstr[0] "%d ש'"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2314
+#: inc/functions/functions.php:2435
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
 msgstr[0] "%d ד'"
 msgstr[1] ""
 
-#: inc/functions/markup.php:550
+#: inc/functions/markup.php:582
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:14
@@ -5217,12 +5144,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "ספריית משאבים"
 
-#: inc/functions/markup.php:770
+#: inc/functions/markup.php:802
 #: assets/build/portals-app.js:27
 msgid "Visit"
 msgstr "בקר"
 
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:832
 msgid "Bookmark"
 msgstr "סימניה"
 
@@ -5234,7 +5161,7 @@ msgstr "פריט משאב"
 msgid "Resource Items"
 msgstr "פריטי משאב"
 
-#: loader.php:699
+#: loader.php:700
 msgid "Rate our plugin"
 msgstr "דרג את התוסף שלנו"
 
@@ -5392,8 +5319,9 @@ msgstr "ההורדה אינה זמינה"
 msgid "Access Resource"
 msgstr "גשת למשאב"
 
-#: inc/utils/helper.php:2899
+#: inc/utils/helper.php:2919
 #: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:24
 msgid "Resource History"
 msgstr "היסטוריית משאבים"
 
@@ -6096,6 +6024,7 @@ msgid "Post deleted successfully!"
 msgstr "הפוסט נמחק בהצלחה!"
 
 #: core/shortcodes/endpoint-navigation.php:101
+#: inc/services/search/search-response-builder.php:130
 #: assets/build/portals-app.js:8
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
@@ -6552,7 +6481,9 @@ msgid "Open notification settings in new tab"
 msgstr "פתח את הגדרות ההודעה בכרטיסייה חדשה"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1395
+#: inc/functions/markup.php:1427
+#: inc/services/search/search-people-service.php:248
+#: inc/services/search/search-people-service.php:254
 msgid "Member"
 msgstr "חבר"
 
@@ -6712,15 +6643,15 @@ msgstr "תגיות"
 msgid "Please select a space."
 msgstr "אנא בחר מרחב."
 
-#: inc/utils/settings.php:412
+#: inc/utils/settings.php:436
 msgid "Newbie"
 msgstr "טירון"
 
-#: inc/utils/settings.php:421
+#: inc/utils/settings.php:445
 msgid "Manager"
 msgstr "מנהל"
 
-#: inc/utils/settings.php:430
+#: inc/utils/settings.php:454
 msgid "Active Member"
 msgstr "חבר פעיל"
 
@@ -7139,7 +7070,7 @@ msgstr "עדיין אין לייקים, היה הראשון לעשות לייק!
 #. translators: %s: time ago
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
-#: inc/functions/functions.php:2375
+#: inc/functions/functions.php:2496
 msgid "%s ago"
 msgstr "לפני %s"
 
@@ -7164,25 +7095,26 @@ msgstr "הסיסמה שהזנת עבור שם המשתמש %1$s שגויה. %2$s
 msgid "Receive admin notifications"
 msgstr "קבל התראות מנהל"
 
-#: inc/functions/functions.php:2723
+#: inc/functions/functions.php:2844
 msgid "Anonymous"
 msgstr "אנונימי"
 
-#: inc/utils/helper.php:1765
+#: inc/utils/helper.php:1785
 msgid "No likes yet."
 msgstr "עדיין אין לייקים."
 
-#: inc/utils/helper.php:1801
+#: inc/utils/helper.php:1821
 msgid "Share"
 msgstr "שתף"
 
-#: inc/utils/helper.php:2937
-#: inc/utils/settings.php:312
+#: inc/utils/helper.php:2957
+#: inc/utils/settings.php:320
+#: assets/build/portals-app.js:24
 msgid "View Profile"
 msgstr "צפה בפרופיל"
 
-#: inc/utils/helper.php:2925
-#: inc/utils/settings.php:318
+#: inc/utils/helper.php:2945
+#: inc/utils/settings.php:326
 msgid "Edit Profile"
 msgstr "ערוך פרופיל"
 
@@ -7258,7 +7190,7 @@ msgstr "שגיאה בחיפוש משתמשים"
 msgid "No access groups found"
 msgstr "לא נמצאו קבוצות גישה"
 
-#: core/rewrite-rules.php:294
+#: core/rewrite-rules.php:313
 #: assets/build/portals-app.js:17
 msgid "Post Visibility"
 msgstr "נראות הפוסט"
@@ -7772,7 +7704,7 @@ msgstr "החרג משתמשים ספציפיים"
 msgid "Unsaved Settings"
 msgstr "הגדרות לא שמורות"
 
-#: inc/utils/helper.php:2883
+#: inc/utils/helper.php:2903
 #: assets/build/portals-app.js:24
 msgid "Leaderboard"
 msgstr "לוח תוצאות"
@@ -7806,31 +7738,31 @@ msgstr "עדיין לא הצטרפת לאירועים."
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1415
-#: inc/utils/helper.php:1416
-#: inc/utils/helper.php:1440
+#: inc/utils/helper.php:1435
+#: inc/utils/helper.php:1436
+#: inc/utils/helper.php:1460
 msgid "Latest"
 msgstr "החדש ביותר"
 
-#: inc/utils/helper.php:1419
-#: inc/utils/helper.php:1420
+#: inc/utils/helper.php:1439
+#: inc/utils/helper.php:1440
 msgid "Oldest"
 msgstr "הישן ביותר"
 
-#: inc/utils/helper.php:1423
-#: inc/utils/helper.php:1424
+#: inc/utils/helper.php:1443
+#: inc/utils/helper.php:1444
 msgid "Popular"
 msgstr "פופולרי"
 
-#: inc/utils/helper.php:1431
+#: inc/utils/helper.php:1451
 msgid "New Activity"
 msgstr "פעילות חדשה"
 
-#: inc/utils/helper.php:1435
+#: inc/utils/helper.php:1455
 msgid "Alphabetical"
 msgstr "אלפביתית"
 
-#: inc/utils/helper.php:1462
+#: inc/utils/helper.php:1482
 msgid "Sort options"
 msgstr "אפשרויות מיון"
 
@@ -7839,7 +7771,7 @@ msgid "This community's portal spaces will be listed here."
 msgstr "מרחבי הפורטל של הקהילה הזו יופיעו כאן."
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2397
+#: inc/functions/functions.php:2518
 msgid "in %s"
 msgstr "ב-%s"
 
@@ -7876,6 +7808,7 @@ msgstr "תווית כותרת"
 msgid "Container Width is not applicable when using grid layout."
 msgstr "רוחב המיכל אינו חל כאשר משתמשים בפריסת רשת."
 
+#: core/assets.php:282
 #: assets/build/portals-app.js:11
 #: assets/build/portals-app.js:21
 msgid "Select"
@@ -8805,55 +8738,55 @@ msgstr "פתח לוח מובילים"
 msgid "Invalid chapter or step identifier."
 msgstr "מזהה פרק או שלב לא חוקי."
 
-#: inc/utils/helper.php:1432
+#: inc/utils/helper.php:1452
 msgid "Activity"
 msgstr "פעילות"
 
-#: inc/utils/helper.php:1436
+#: inc/utils/helper.php:1456
 msgid "A→Z"
 msgstr "א→ת"
 
-#: inc/utils/helper.php:1465
+#: inc/utils/helper.php:1485
 msgid "Sort:"
 msgstr "מיין:"
 
-#: inc/utils/helper.php:1476
+#: inc/utils/helper.php:1496
 msgid "List view"
 msgstr "תצוגת רשימה"
 
-#: inc/utils/helper.php:1485
+#: inc/utils/helper.php:1505
 msgid "Grid view"
 msgstr "תצוגת רשת"
 
-#: inc/utils/helper.php:2888
+#: inc/utils/helper.php:2908
 msgid "Points ranking of portal members."
 msgstr "דירוג נקודות של חברי הפורטל."
 
-#: inc/utils/helper.php:2891
+#: inc/utils/helper.php:2911
 msgid "Member Directory"
 msgstr "מדריך חברים"
 
-#: inc/utils/helper.php:2896
+#: inc/utils/helper.php:2916
 msgid "Browse and search portal members."
 msgstr "עיין וחפש חברי פורטל."
 
-#: inc/utils/helper.php:2904
+#: inc/utils/helper.php:2924
 msgid "Resources the user has accessed."
 msgstr "משאבים שהמשתמש גישה אליהם."
 
-#: inc/utils/helper.php:2912
+#: inc/utils/helper.php:2932
 msgid "User's saved posts and content."
 msgstr "פוסטים ותוכן שמורים של המשתמש."
 
-#: inc/utils/helper.php:2922
+#: inc/utils/helper.php:2942
 msgid "User's notification preferences."
 msgstr "העדפות ההודעות של המשתמש."
 
-#: inc/utils/helper.php:2930
+#: inc/utils/helper.php:2950
 msgid "Form to update profile details."
 msgstr "טופס לעדכון פרטי פרופיל."
 
-#: inc/utils/helper.php:2942
+#: inc/utils/helper.php:2962
 msgid "User's public, read-only profile."
 msgstr "פרופיל ציבורי של המשתמש, לקריאה בלבד."
 
@@ -8989,6 +8922,7 @@ msgstr "— בחר סעיף —"
 msgid "This lesson is already in the selected section."
 msgstr "השיעור הזה כבר נמצא בסעיף שנבחר."
 
+#: core/assets.php:281
 #: assets/build/portals-app.js:21
 msgid "Move"
 msgstr "העבר"
@@ -9154,6 +9088,241 @@ msgstr "אין פרקי לימוד זמינים עדיין."
 #: assets/build/portals-app.js:27
 msgid "Dismiss Learn tab"
 msgstr "סגור את לשונית הלימוד"
+
+#: core/assets.php:268
+msgid "Search posts, people, lessons…"
+msgstr "חפש פוסטים, אנשים, שיעורים…"
+
+#: core/assets.php:269
+msgid "Clear search"
+msgstr "נקה חיפוש"
+
+#: core/assets.php:270
+msgid "Search across posts, comments, people, lessons, events, spaces and more."
+msgstr "חפש בכל הפוסטים, תגובות, אנשים, שיעורים, אירועים, חללים ועוד."
+
+#: core/assets.php:271
+msgid "We couldn't find anything matching your search."
+msgstr "לא הצלחנו למצוא שום דבר התואם את החיפוש שלך."
+
+#: core/assets.php:272
+msgid "Try again with a different term."
+msgstr "נסה שוב עם מונח שונה."
+
+#. translators: %s: search query
+#: core/assets.php:274
+msgid "Search results for \"%s\""
+msgstr "תוצאות חיפוש עבור \"%s\""
+
+#. translators: %d: number of results
+#: core/assets.php:276
+msgid "%d result"
+msgstr "%d תוצאה"
+
+#. translators: %d: number of results
+#: core/assets.php:278
+msgid "%d results"
+msgstr "%d תוצאות"
+
+#: core/assets.php:279
+msgid "Newest first"
+msgstr "החדש ביותר קודם"
+
+#: core/assets.php:280
+msgid "Oldest first"
+msgstr "הישן ביותר קודם"
+
+#: core/assets.php:284
+msgid "ESC"
+msgstr "ESC"
+
+#: core/assets.php:285
+msgid "Previous page"
+msgstr "עמוד קודם"
+
+#: core/assets.php:286
+msgid "Next page"
+msgstr "עמוד הבא"
+
+#. translators: %d: result count
+#: core/assets.php:288
+msgid "View all %d"
+msgstr "הצג את כל %d"
+
+#: core/assets.php:290
+msgid "Search all content"
+msgstr "חפש בכל התוכן"
+
+#: core/assets.php:292
+msgid "Recent searches"
+msgstr "חיפושים אחרונים"
+
+#: core/assets.php:293
+msgid "Clear all"
+msgstr "נקה הכל"
+
+#: core/assets.php:294
+msgid "Remove from recent searches"
+msgstr "הסר מחיפושים אחרונים"
+
+#: core/assets.php:295
+msgid "commented on"
+msgstr "הגיב על"
+
+#: core/assets.php:296
+msgid "in"
+msgstr "ב"
+
+#: core/routers/search.php:78
+msgid "A search term is required."
+msgstr "נדרש מונח חיפוש."
+
+#. translators: %d: minimum number of characters.
+#: core/routers/search.php:88
+msgid "Search query must be at least %d characters."
+msgstr "מונח החיפוש חייב להיות לפחות %d תווים."
+
+#: inc/functions/functions.php:792
+msgid "Some time ago"
+msgstr "לפני זמן מה"
+
+#. translators: %1$s: portal name, %2$s: post title.
+#: inc/modules/email-notifications/email-triggers.php:278
+msgid "[%1$s] New community post: %2$s"
+msgstr "[%1$s] פוסט חדש בקהילה: %2$s"
+
+#: inc/modules/email-notifications/emails.php:112
+msgid "A community member"
+msgstr "חבר קהילה"
+
+#: inc/modules/email-notifications/emails.php:121
+msgid "Hi Admin,"
+msgstr "שלום מנהל,"
+
+#. translators: %1$s: author name, %2$s: portal name.
+#: inc/modules/email-notifications/emails.php:127
+msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
+msgstr "%1$s רק הגיש פוסט חדש בקהילה ב<strong>%2$s</strong>."
+
+#: inc/modules/email-notifications/emails.php:140
+msgid "View the post"
+msgstr "הצג את הפוסט"
+
+#. translators: %d: number of image attachments.
+#: inc/services/search/search-comments-service.php:422
+msgid "%d attachment"
+msgid_plural "%d attachments"
+msgstr[0] "%d קובץ מצורף"
+msgstr[1] ""
+
+#: inc/services/search/search-comments-service.php:450
+msgid "File"
+msgstr "קובץ"
+
+#: inc/services/search/search-comments-service.php:533
+msgid "Shared an image"
+msgstr "שיתף תמונה"
+
+#: inc/services/search/search-comments-service.php:536
+msgid "Shared a video"
+msgstr "שיתף סרטון"
+
+#: inc/services/search/search-comments-service.php:539
+msgid "Shared a link"
+msgstr "שיתף קישור"
+
+#: inc/services/search/search-comments-service.php:542
+msgid "View comment"
+msgstr "הצג תגובה"
+
+#. translators: %s: month and year the user registered (e.g., "Feb 2025").
+#: inc/services/search/search-people-service.php:174
+msgid "joined %s"
+msgstr "הצטרף ל%s"
+
+#: inc/services/search/search-response-builder.php:128
+msgid "People"
+msgstr "אנשים"
+
+#: assets/build/portals-app.js:21
+msgid "Navigates to the bookmarks page."
+msgstr "מנווט לדף המועדפים."
+
+#: assets/build/portals-app.js:21
+msgid "Notify Admins on New Community Posts"
+msgstr "הודע למנהלים על פוסטים חדשים בקהילה"
+
+#: assets/build/portals-app.js:21
+msgid "Send an email when a community member submits a new post."
+msgstr "שלח דוא\"ל כאשר חבר קהילה מגיש פוסט חדש."
+
+#: assets/build/portals-app.js:21
+msgid "Recipients"
+msgstr "נמענים"
+
+#: assets/build/portals-app.js:21
+msgid "All admins and portal managers"
+msgstr "כל המנהלים ומנהלי הפורטל"
+
+#: assets/build/portals-app.js:21
+msgid "Pick admins and portal managers who should receive these emails. Leave empty to send to all admins and portal managers."
+msgstr "בחר מנהלים ומנהלי פורטל שיקבלו את המיילים הללו. השאר ריק כדי לשלוח לכל המנהלים ומנהלי הפורטל."
+
+#: assets/build/portals-app.js:21
+msgid "sender@example.com"
+msgstr "sender@example.com"
+
+#: assets/build/portals-app.js:21
+msgid "Email Templates"
+msgstr "תבניות דוא\"ל"
+
+#: assets/build/portals-app.js:24
+msgid "Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
+msgstr "כתובות ה-URL של נקודות הקצה עודכנו. קישורי תפריט הפרופיל המובנים מתעדכנים אוטומטית — אך כל הקישורים שהוספת ידנית בתפריטי WordPress, תוכן עמודים או בלוקים מותאמים אישית המצביעים על כתובות ה-URL הישנות ידרשו עדכון."
+
+#: assets/build/portals-app.js:24
+msgid "Use only lowercase letters, numbers, and hyphens."
+msgstr "השתמש רק באותיות קטנות, מספרים ומקפים."
+
+#: assets/build/portals-app.js:24
+msgid "This slug is already used by another endpoint."
+msgstr "הסלאג הזה כבר בשימוש על ידי נקודת קצה אחרת."
+
+#: assets/build/portals-app.js:24
+msgid "URL preview:"
+msgstr "תצוגה מקדימה של URL:"
+
+#: assets/build/portals-app.js:24
+msgid "Logged-in member’s profile edit page."
+msgstr "דף עריכת פרופיל של חבר מחובר."
+
+#: assets/build/portals-app.js:24
+msgid "Public profile page for any member (URL includes the user ID)."
+msgstr "דף פרופיל ציבורי עבור כל חבר (ה-URL כולל את מזהה המשתמש)."
+
+#: assets/build/portals-app.js:24
+msgid "Member’s saved/bookmarked items."
+msgstr "פריטים שמורים/מסומנים של חבר."
+
+#: assets/build/portals-app.js:24
+msgid "Public leaderboard / points ranking page."
+msgstr "דף דירוג ציבורי / דירוג נקודות."
+
+#: assets/build/portals-app.js:24
+msgid "Members Directory"
+msgstr "מדריך חברים"
+
+#: assets/build/portals-app.js:24
+msgid "Browseable directory of community members."
+msgstr "מדריך נגיש של חברי הקהילה."
+
+#: assets/build/portals-app.js:24
+msgid "Member’s accessed-resources history page."
+msgstr "דף היסטוריית משאבים שניגש אליהם על ידי חבר."
+
+#: assets/build/portals-app.js:24
+msgid "URL Endpoints"
+msgstr "נקודות קצה של URL"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

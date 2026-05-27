@@ -9,6 +9,7 @@
 namespace SureDashboard\Inc\Modules\EmailNotifications;
 
 use SureDashboard\Inc\Traits\Get_Instance;
+use SureDashboard\Inc\Utils\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -172,6 +173,135 @@ class Email_Triggers {
 	}
 
 	/**
+	 * Email selected admins / portal managers when a member submits a post.
+	 *
+	 * Gated by the `notify_admins_on_new_post` general setting.
+	 *
+	 * Recipient resolution:
+	 *   - If `admin_notification_recipients` (an array of user IDs) is set,
+	 *     restrict to those users — but only if each still holds either
+	 *     `manage_options` or `manage_portal_dashboard` at send time, so
+	 *     users who've been demoted since being picked stop receiving the
+	 *     email.
+	 *   - If the list is empty, fall back to every administrator + portal
+	 *     manager on the site (sensible default for fresh installs).
+	 *
+	 * The post author is always removed from the final list (no self-emails),
+	 * and the result is passed through `Admin_Updates::filter_admin_email_recipients`
+	 * so each recipient's personal `enable_all_email_notifications` /
+	 * `enable_admin_email` user-meta opt-outs are still honored.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param array<string, mixed> $args Notifier args; expects `topic_id`.
+	 *
+	 * @return void
+	 */
+	public function handle_new_post_admin_notification( $args ): void {
+		// Setting must be on.
+		if ( ! Helper::get_option( 'notify_admins_on_new_post' ) ) {
+			return;
+		}
+
+		$post_id = ! empty( $args['topic_id'] ) ? absint( $args['topic_id'] ) : 0;
+		if ( ! $post_id ) {
+			return;
+		}
+
+		$post = get_post( $post_id );
+		if ( ! $post || $post->post_type !== SUREDASHBOARD_FEED_POST_TYPE ) {
+			return;
+		}
+
+		$post_author_id = (int) $post->post_author;
+
+		// Build the candidate user-ID list. Picked recipients win when set,
+		// otherwise we fall back to all admins + portal managers.
+		$picked     = Helper::get_option( 'admin_notification_recipients', [] );
+		$picked_ids = is_array( $picked )
+			? array_values( array_unique( array_filter( array_map( 'absint', $picked ) ) ) )
+			: [];
+
+		if ( ! empty( $picked_ids ) ) {
+			// Validate each picked ID still has admin/portal-manager privileges.
+			$candidate_ids = array_values(
+				array_filter(
+					$picked_ids,
+					static function ( int $id ): bool {
+						return user_can( $id, 'manage_options' )
+							|| user_can( $id, 'manage_portal_dashboard' );
+					}
+				)
+			);
+		} else {
+			$fallback_users = get_users(
+				[
+					'role__in' => [ 'administrator', 'portal_manager' ],
+					'fields'   => 'ID',
+				]
+			);
+			$candidate_ids  = array_map( 'absint', $fallback_users );
+		}
+
+		// Never email the author about their own post, even if they were
+		// explicitly picked or happen to be an admin/portal manager.
+		$candidate_ids = array_values(
+			array_filter(
+				$candidate_ids,
+				static function ( int $id ) use ( $post_author_id ): bool {
+					return $id > 0 && $id !== $post_author_id;
+				}
+			)
+		);
+		if ( empty( $candidate_ids ) ) {
+			return;
+		}
+
+		// Respect each user's personal email-notification preferences.
+		$allowed_ids = Admin_Updates::filter_admin_email_recipients( $candidate_ids );
+		if ( empty( $allowed_ids ) ) {
+			return;
+		}
+
+		$portal_name = Helper::get_option( 'portal_name', get_bloginfo( 'name' ) );
+		$post_title  = (string) get_the_title( $post );
+		// Keep the subject readable in client previews — RFC suggests staying
+		// under ~78 chars total, so cap the post title at 60 chars with an
+		// ellipsis when needed. The portal-name prefix is short for most sites.
+		if ( function_exists( 'mb_strlen' ) && mb_strlen( $post_title ) > 60 ) {
+			$post_title = rtrim( mb_substr( $post_title, 0, 57 ) ) . '…';
+		} elseif ( strlen( $post_title ) > 60 ) {
+			$post_title = rtrim( substr( $post_title, 0, 57 ) ) . '…';
+		}
+		$subject = sprintf(
+			/* translators: %1$s: portal name, %2$s: post title. */
+			__( '[%1$s] New community post: %2$s', 'suredash' ),
+			$portal_name,
+			$post_title
+		);
+		$body = suredash_new_post_admin_email_body( $post_id );
+		if ( $body === '' ) {
+			return;
+		}
+
+		// Batch-fetch all recipients in one query instead of N `get_userdata`
+		// calls, then look up by ID for each send.
+		$recipients = get_users(
+			[
+				'include' => array_map( 'intval', $allowed_ids ),
+				'fields'  => [ 'ID', 'user_email' ],
+			]
+		);
+
+		foreach ( $recipients as $user ) {
+			if ( empty( $user->user_email ) ) {
+				continue;
+			}
+			suredash_send_email( (string) $user->user_email, $subject, $body );
+		}
+	}
+
+	/**
 	 * Initialize email trigger hooks.
 	 *
 	 * @since 1.5.0
@@ -186,6 +316,9 @@ class Email_Triggers {
 
 		// Post is created trigger.
 		add_action( 'transition_post_status', [ $this, 'handle_post_created' ], 10, 3 );
+
+		// Notify admins by email when a user submits a community post.
+		add_action( 'suredashboard_user_submitted_topic', [ $this, 'handle_new_post_admin_notification' ], 10, 1 );
 	}
 
 	/**

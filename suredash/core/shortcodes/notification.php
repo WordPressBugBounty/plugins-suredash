@@ -132,7 +132,7 @@ class Notification {
 							</span>
 						</span>
 						<a
-						href="<?php echo esc_url( home_url( 'portal/user-profile/?tab=notifications' ) ); ?>"
+						href="<?php echo esc_url( suredash_get_endpoint_url( 'user-profile', [ 'tab' => 'notifications' ] ) ); ?>"
 						class="notification-settings sd-flex sd-items-center sd-p-4 sd-gap-8 sd-font-semibold sd-cursor-pointer sd-text-color sd-transition sd-hover-bg-subtle sd-rounded"
 						title="<?php echo esc_attr( __( 'Notification Settings', 'suredash' ) ); ?>"
 						aria-label="<?php echo esc_attr( __( 'Open notification settings in new tab', 'suredash' ) ); ?>">

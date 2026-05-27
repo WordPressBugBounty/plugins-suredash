@@ -350,82 +350,83 @@ class Menu {
 			$localized_data = apply_filters(
 				'portal_localized_admin_data',
 				[
-					'dashboard_url'                => admin_url( 'admin.php?page=' . self::PAGE_ID ),
-					'edit_post_link'               => admin_url( 'post.php?post={{POST_ID}}&action=edit' ),
-					'ajax_url'                     => admin_url( 'admin-ajax.php' ),
-					'wp_discussion_link'           => admin_url( 'options-discussion.php' ),
-					'wp_general_settings_link'     => admin_url( 'options-general.php' ),
-					'customize_link'               => wp_is_block_theme() ? admin_url( '/site-editor.php?postId=suredash%2Fsuredash%2F%2Fportal&postType=wp_template&canvas=edit' ) : admin_url( '/site-editor.php?postType=wp_template_part&postId=suredash%2Fsuredash%2F%2Fportal&canvas=edit' ),
-					'version'                      => SUREDASHBOARD_VER,
-					'notice'                       => $notice_messages,
-					'update_nonce'                 => wp_create_nonce( 'portals_update_admin_setting' ),
-					'resource_file_upload_nonce'   => wp_create_nonce( 'suredash_media_context' ),
-					'home_slug'                    => self::PAGE_ID,
-					'wp_timezone'                  => wp_timezone_string(),
-					'wp_date_format'               => get_option( 'date_format' ),
-					'wp_time_format'               => get_option( 'time_format' ),
-					'group_items_dataset'          => $portal_dataset,
-					'group_items_count'            => $portal_items_count,
-					'spaces_meta_set'              => $spaces_meta_set,
-					'space_groups_meta_set'        => $portal_space_groups_meta_set,
-					'group_name_ids'               => $portal_name_n_id,
-					'first_group_id'               => $first_group_id,
-					'all_community_contents'       => admin_url( 'edit.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE ),
-					'create_community_content'     => admin_url( 'post-new.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE ),
-					'create_sd_post'               => admin_url( 'post-new.php?post_type=' . SUREDASHBOARD_FEED_POST_TYPE ),
-					'settings'                     => Settings::get_suredash_settings(),
-					'user_roles'                   => $this->get_formatted_user_roles(),
-					'is_pro_available'             => suredash_is_pro_active(),
-					'pro_version'                  => suredash_is_pro_active() ? SUREDASH_PRO_VER : 0,
-					'color_presets'                => suredash_get_active_palette_colors(),
-					'create_community_content_src' => $community_content_src,
-					'feed_post_type'               => SUREDASHBOARD_FEED_POST_TYPE,
-					'feed_forum_tax'               => SUREDASHBOARD_FEED_TAXONOMY,
-					'community_content_post_type'  => SUREDASHBOARD_SUB_CONTENT_POST_TYPE,
-					'pro_product_name'             => suredash_is_pro_active() ? SUREDASH_PRO_PRODUCT : '',
-					'is_pp_free_available'         => defined( 'PRESTO_PLAYER_PLUGIN_FILE' ),
-					'is_pp_pro_available'          => defined( 'PRESTO_PLAYER_PRO_PLUGIN_FILE' ),
-					'upgrade_link'                 => SUREDASHBOARD_UPGRADE_LINK,
-					'username'                     => suredash_get_user_display_name(),
-					'user_login'                   => wp_get_current_user()->user_login,
-					'email'                        => wp_get_current_user()->user_email,
-					'first_name'                   => wp_get_current_user()->first_name,
-					'last_name'                    => wp_get_current_user()->last_name,
-					'is_user_onboarded'            => get_option( 'suredash_onboarding_completed', false ) === 'yes' || get_option( 'suredash_onboarding_skipped' ) === 'yes' ? true : false,
-					'portal_url'                   => esc_url_raw( home_url( suredash_get_community_slug() ) ),
-					'suremembers_status'           => $this->get_plugin_status( 'suremembers/suremembers.php' ),
-					'surecart_status'              => $this->get_plugin_status( 'surecart/surecart.php' ),
-					'suretriggers_status'          => $this->get_plugin_status( 'suretriggers/suretriggers.php' ),
-					'sureforms_status'             => $this->get_plugin_status( 'sureforms/sureforms.php' ),
-					'suremails_status'             => $this->get_plugin_status( 'suremails/suremails.php' ),
-					'mcp_adapter_status'           => $this->get_plugin_status( 'mcp-adapter/mcp-adapter.php' ),
-					'mcp_settings'                 => \SureDashboard\Inc\Modules\MCP\Module::get_settings(),
-					'site_url'                     => get_site_url(),
-					'all_community_posts'          => Helper::get_community_posts(),
-					'community_posts_count'        => sd_count_posts( SUREDASHBOARD_FEED_POST_TYPE ),
-					'view_members_link'            => admin_url( 'users.php' ),
-					'is_site_editor_screen'        => $pagenow === 'site-editor.php',
-					'user_notices'                 => [
+					'dashboard_url'                 => admin_url( 'admin.php?page=' . self::PAGE_ID ),
+					'edit_post_link'                => admin_url( 'post.php?post={{POST_ID}}&action=edit' ),
+					'ajax_url'                      => admin_url( 'admin-ajax.php' ),
+					'wp_discussion_link'            => admin_url( 'options-discussion.php' ),
+					'wp_general_settings_link'      => admin_url( 'options-general.php' ),
+					'customize_link'                => wp_is_block_theme() ? admin_url( '/site-editor.php?postId=suredash%2Fsuredash%2F%2Fportal&postType=wp_template&canvas=edit' ) : admin_url( '/site-editor.php?postType=wp_template_part&postId=suredash%2Fsuredash%2F%2Fportal&canvas=edit' ),
+					'version'                       => SUREDASHBOARD_VER,
+					'notice'                        => $notice_messages,
+					'update_nonce'                  => wp_create_nonce( 'portals_update_admin_setting' ),
+					'resource_file_upload_nonce'    => wp_create_nonce( 'suredash_media_context' ),
+					'home_slug'                     => self::PAGE_ID,
+					'wp_timezone'                   => wp_timezone_string(),
+					'wp_date_format'                => get_option( 'date_format' ),
+					'wp_time_format'                => get_option( 'time_format' ),
+					'group_items_dataset'           => $portal_dataset,
+					'group_items_count'             => $portal_items_count,
+					'spaces_meta_set'               => $spaces_meta_set,
+					'space_groups_meta_set'         => $portal_space_groups_meta_set,
+					'group_name_ids'                => $portal_name_n_id,
+					'first_group_id'                => $first_group_id,
+					'all_community_contents'        => admin_url( 'edit.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE ),
+					'create_community_content'      => admin_url( 'post-new.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE ),
+					'create_sd_post'                => admin_url( 'post-new.php?post_type=' . SUREDASHBOARD_FEED_POST_TYPE ),
+					'settings'                      => Settings::get_suredash_settings(),
+					'user_roles'                    => $this->get_formatted_user_roles(),
+					'is_pro_available'              => suredash_is_pro_active(),
+					'pro_version'                   => suredash_is_pro_active() ? SUREDASH_PRO_VER : 0,
+					'color_presets'                 => suredash_get_active_palette_colors(),
+					'create_community_content_src'  => $community_content_src,
+					'feed_post_type'                => SUREDASHBOARD_FEED_POST_TYPE,
+					'feed_forum_tax'                => SUREDASHBOARD_FEED_TAXONOMY,
+					'community_content_post_type'   => SUREDASHBOARD_SUB_CONTENT_POST_TYPE,
+					'pro_product_name'              => suredash_is_pro_active() ? SUREDASH_PRO_PRODUCT : '',
+					'is_pp_free_available'          => defined( 'PRESTO_PLAYER_PLUGIN_FILE' ),
+					'is_pp_pro_available'           => defined( 'PRESTO_PLAYER_PRO_PLUGIN_FILE' ),
+					'upgrade_link'                  => SUREDASHBOARD_UPGRADE_LINK,
+					'username'                      => suredash_get_user_display_name(),
+					'user_login'                    => wp_get_current_user()->user_login,
+					'email'                         => wp_get_current_user()->user_email,
+					'first_name'                    => wp_get_current_user()->first_name,
+					'last_name'                     => wp_get_current_user()->last_name,
+					'is_user_onboarded'             => get_option( 'suredash_onboarding_completed', false ) === 'yes' || get_option( 'suredash_onboarding_skipped' ) === 'yes' ? true : false,
+					'portal_url'                    => esc_url_raw( home_url( suredash_get_community_slug() ) ),
+					'suremembers_status'            => $this->get_plugin_status( 'suremembers/suremembers.php' ),
+					'surecart_status'               => $this->get_plugin_status( 'surecart/surecart.php' ),
+					'suretriggers_status'           => $this->get_plugin_status( 'suretriggers/suretriggers.php' ),
+					'sureforms_status'              => $this->get_plugin_status( 'sureforms/sureforms.php' ),
+					'suremails_status'              => $this->get_plugin_status( 'suremails/suremails.php' ),
+					'mcp_adapter_status'            => $this->get_plugin_status( 'mcp-adapter/mcp-adapter.php' ),
+					'mcp_settings'                  => \SureDashboard\Inc\Modules\MCP\Module::get_settings(),
+					'site_url'                      => get_site_url(),
+					'all_community_posts'           => Helper::get_community_posts(),
+					'community_posts_count'         => sd_count_posts( SUREDASHBOARD_FEED_POST_TYPE ),
+					'view_members_link'             => admin_url( 'users.php' ),
+					'is_site_editor_screen'         => $pagenow === 'site-editor.php',
+					'user_notices'                  => [
 						'posts_performance_notice'      => sd_get_user_meta( $user_id, 'posts_performance_notice', true ),
 						'design_settings_info_notice'   => sd_get_user_meta( $user_id, 'design_settings_info_notice', true ),
 						'comments_info_notice'          => sd_get_user_meta( $user_id, 'comments_info_notice', true ),
 						'user_registration_info_notice' => sd_get_user_meta( $user_id, 'user_registration_info_notice', true ),
 					],
-					'onboarding_image'             => SUREDASHBOARD_URL . 'assets/images/onboarding.svg',
-					'can_user_register'            => boolval( get_option( 'users_can_register', false ) ),
-					'suremembers_active'           => suredash_is_suremembers_active(),
-					'suremembers_access_groups'    => Helper::get_suremembers_access_groups(),
-					'learn_dismissed'              => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed(),
-					'learn_has_new_steps'          => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed() && \SureDashboard\Inc\Modules\Learn\Learn::get_instance()->has_incomplete_free_steps(),
-					'all_spaces_for_dropdown'      => $this->get_all_spaces_for_dropdown(),
-					'portal_page_targets'          => Helper::get_portal_page_targets(),
-					'color_palette_names'          => suredash_get_color_palette_names(),
-					'default_colors_palettes'      => suredash_get_color_palette_defaults(),
-					'backward_compatibility'       => [
+					'onboarding_image'              => SUREDASHBOARD_URL . 'assets/images/onboarding.svg',
+					'can_user_register'             => boolval( get_option( 'users_can_register', false ) ),
+					'suremembers_active'            => suredash_is_suremembers_active(),
+					'suremembers_access_groups'     => Helper::get_suremembers_access_groups(),
+					'learn_dismissed'               => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed(),
+					'learn_has_new_steps'           => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed() && \SureDashboard\Inc\Modules\Learn\Learn::get_instance()->has_incomplete_free_steps(),
+					'all_spaces_for_dropdown'       => $this->get_all_spaces_for_dropdown(),
+					'portal_page_targets'           => Helper::get_portal_page_targets(),
+					'color_palette_names'           => suredash_get_color_palette_names(),
+					'default_colors_palettes'       => suredash_get_color_palette_defaults(),
+					'backward_compatibility'        => [
 						'backward_color_options' => Helper::get_option( 'backward_color_options' ),
 					],
-					'timezone_options'             => $timezone_options,
-					'user_view_url'                => home_url( '/' . suredash_get_community_slug() . '/user-view/{{USER_ID}}/' ),
+					'timezone_options'              => $timezone_options,
+					'user_view_url'                 => home_url( '/' . suredash_get_community_slug() . '/' . suredash_get_endpoint_slug( 'user-view' ) . '/{{USER_ID}}/' ),
+					'admin_notification_candidates' => $this->get_admin_notification_candidates(),
 				]
 			);
 
@@ -518,6 +519,47 @@ class Menu {
 
 		$included_roles = array_diff( $available_roles_names, $excluded_roles );
 		return Helper::get_react_select_format( $included_roles );
+	}
+
+	/**
+	 * List of administrators + portal managers eligible to receive
+	 * new-community-post admin emails.
+	 *
+	 * Surfaces a small `{ value, label }` array (value = user ID) for the
+	 * multi-select picker in General settings. The list combines the WP
+	 * `administrator` role with SureDash's `portal_manager` role; if either
+	 * role isn't registered yet on this site, `get_users` simply skips it.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @return array<int, array{value: int, label: string}>
+	 */
+	public function get_admin_notification_candidates(): array {
+		// `user_login` is requested as a label fallback when `display_name` is
+		// empty — keeping admin email addresses out of the JS bundle. Admins
+		// can still see emails in WP admin proper if they need them.
+		$users = get_users(
+			[
+				'role__in' => [ 'administrator', 'portal_manager' ],
+				'fields'   => [ 'ID', 'display_name', 'user_login' ],
+				'orderby'  => 'display_name',
+				'order'    => 'ASC',
+			]
+		);
+
+		$candidates = [];
+		foreach ( $users as $user ) {
+			$id           = (int) $user->ID;
+			$label        = ! empty( $user->display_name )
+				? (string) $user->display_name
+				: (string) $user->user_login;
+			$candidates[] = [
+				'value' => $id,
+				'label' => $label,
+			];
+		}
+
+		return $candidates;
 	}
 
 	/**

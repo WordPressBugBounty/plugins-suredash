@@ -20,7 +20,7 @@ class Router extends \WP_REST_Controller {
 	/**
 	 * Namespace for the API.
 	 *
-	 * @var string
+	 * @var non-falsy-string
 	 */
 	protected $namespace = 'suredash/v1'; // Default namespace, can be overridden.
 

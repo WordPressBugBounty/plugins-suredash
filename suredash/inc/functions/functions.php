@@ -364,6 +364,77 @@ function suredash_sub_queries() {
 }
 
 /**
+ * Canonical sub-query slugs whose public-facing URL slug is admin-overridable
+ * via the `endpoint_slugs` setting. Sub-queries not in this list use a fixed
+ * slug (e.g. `feeds`, `screen`).
+ *
+ * @return array<int, string>
+ * @since 1.8.2
+ */
+function suredash_overridable_endpoints() {
+	return apply_filters(
+		'suredash_overridable_endpoints',
+		[
+			'user-profile',
+			'bookmarks',
+			'leaderboard',
+			'members',
+			'resource-history',
+			'user-view',
+		]
+	);
+}
+
+/**
+ * Return the public-facing slug for a canonical sub-query endpoint.
+ *
+ * Falls back to the canonical slug when the endpoint isn't overridable, when
+ * no override is saved, or when the saved value is empty/invalid. Callers
+ * should always pass the canonical slug.
+ *
+ * @param string $canonical Canonical slug (e.g. `bookmarks`, `leaderboard`).
+ * @return string Public-facing slug to use in URLs.
+ * @since 1.8.2
+ */
+function suredash_get_endpoint_slug( $canonical ) {
+	$canonical = sanitize_key( (string) $canonical );
+
+	if ( $canonical === '' || ! in_array( $canonical, suredash_overridable_endpoints(), true ) ) {
+		return $canonical;
+	}
+
+	$slugs = Helper::get_option( 'endpoint_slugs' );
+	$slugs = is_array( $slugs ) ? $slugs : [];
+
+	$override = isset( $slugs[ $canonical ] ) ? (string) $slugs[ $canonical ] : '';
+	$override = strtolower( trim( $override, " \t\n\r\0\x0B/" ) );
+
+	if ( $override === '' || ! preg_match( '/^[a-z0-9][a-z0-9\-]*$/', $override ) ) {
+		return $canonical;
+	}
+
+	return $override;
+}
+
+/**
+ * Build a full portal sub-query URL using the configured public-facing slug.
+ *
+ * @param string                $canonical Canonical slug.
+ * @param array<string, string> $args      Optional query args appended to the URL.
+ * @return string Absolute URL (no trailing slash beyond the endpoint segment).
+ * @since 1.8.2
+ */
+function suredash_get_endpoint_url( $canonical, $args = [] ) {
+	$url = home_url( '/' . suredash_get_community_slug() . '/' . suredash_get_endpoint_slug( $canonical ) . '/' );
+
+	if ( ! empty( $args ) && is_array( $args ) ) {
+		$url = add_query_arg( $args, $url );
+	}
+
+	return $url;
+}
+
+/**
  * Validate if current page is of Portal's sub queried page.
  *
  * @return bool Return endpoint if true else false.
@@ -1528,7 +1599,7 @@ function suredash_get_course_progress_bar( $lesson_data, $lessons_completed ) {
  * @return string
  */
 function suredash_get_user_view_link( $user_id ) {
-	return home_url( '/' . suredash_get_community_slug() . '/user-view/' . $user_id . '/' );
+	return home_url( '/' . suredash_get_community_slug() . '/' . suredash_get_endpoint_slug( 'user-view' ) . '/' . $user_id . '/' );
 }
 
 /**
@@ -1678,6 +1749,8 @@ function suredash_get_portal_menu_id() {
  * {site_url} => Site URL.
  * {portal_slug} => suredash_get_community_slug().
  * %7Bportal_slug%7D => suredash_get_community_slug().
+ * {user_profile}, {bookmarks}, {leaderboard}, {members}, {resource_history}
+ *   => the admin-configured public-facing slug for that endpoint.
  *
  * @param string $content content.
  * @since 1.0.0
@@ -1687,13 +1760,47 @@ function suredash_dynamic_content_support( $content ) {
 	$site_url       = esc_url( site_url() );
 	$portal_slug    = suredash_get_community_slug();
 	$user_id        = get_current_user_id();
-	$user_view_link = 'user-view/' . $user_id;
+	$user_view_link = suredash_get_endpoint_slug( 'user-view' ) . '/' . $user_id;
 
-	return str_replace(
-		[ '{site_url}', '{portal_slug}', '%7Bportal_slug%7D', '{portal_view_profile}', '%7Bportal_view_profile%7D' ],
-		[ $site_url, $portal_slug, $portal_slug, $user_view_link, $user_view_link ],
-		$content
-	);
+	$search  = [ '{site_url}', '{portal_slug}', '%7Bportal_slug%7D', '{portal_view_profile}', '%7Bportal_view_profile%7D' ];
+	$replace = [ $site_url, $portal_slug, $portal_slug, $user_view_link, $user_view_link ];
+
+	// Named per-endpoint placeholders. Token uses underscores (matches the
+	// {portal_slug} / {portal_view_profile} convention) while the canonical
+	// slug uses hyphens — convert hyphens to underscores when building the
+	// placeholder name. URL-encoded variants are included so values pasted
+	// from a browser address bar still resolve.
+	foreach ( suredash_overridable_endpoints() as $canonical ) {
+		$public = suredash_get_endpoint_slug( $canonical );
+		$token  = '{' . str_replace( '-', '_', $canonical ) . '}';
+
+		$search[]  = $token;
+		$replace[] = $public;
+
+		$encoded   = '%7B' . str_replace( '-', '_', $canonical ) . '%7D';
+		$search[]  = $encoded;
+		$replace[] = $public;
+	}
+
+	$content = str_replace( $search, $replace, $content );
+
+	// Backward-compatible segment substitution: any URL still referencing the
+	// canonical slug under the portal path (e.g. existing saved profile_links
+	// using `/{portal_slug}/bookmarks/`) resolves to the configured override
+	// without a DB migration.
+	foreach ( suredash_overridable_endpoints() as $canonical ) {
+		$public = suredash_get_endpoint_slug( $canonical );
+		if ( $public === $canonical ) {
+			continue;
+		}
+		$content = str_replace(
+			'/' . $portal_slug . '/' . $canonical . '/',
+			'/' . $portal_slug . '/' . $public . '/',
+			$content
+		);
+	}
+
+	return $content;
 }
 
 /**
@@ -2735,6 +2842,26 @@ function suredash_get_user_display_name( $user_id = 0 ) {
 	}
 	$user = get_user_by( 'ID', $user_id );
 	return is_object( $user ) ? $user->display_name : __( 'Anonymous', 'suredash' );
+}
+
+/**
+ * Truncate a user headline for compact display.
+ *
+ * Crops headlines longer than `$max_length` characters and appends an ellipsis.
+ * Intended for compact contexts (leaderboard rows, member directory cards) where
+ * the full text is preserved separately (e.g. in a `title` attribute).
+ *
+ * @param string $headline   Headline text to truncate.
+ * @param int    $max_length Max number of characters before truncation. Default 120.
+ * @return string Truncated headline (with appended ellipsis) or the original if short enough.
+ * @since 1.9.0
+ */
+function suredash_truncate_headline( $headline, $max_length = 120 ) {
+	$headline = (string) $headline;
+	if ( mb_strlen( $headline ) <= $max_length ) {
+		return $headline;
+	}
+	return mb_substr( $headline, 0, $max_length ) . '…';
 }
 
 /**

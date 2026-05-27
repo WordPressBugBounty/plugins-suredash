@@ -90,5 +90,9 @@ class Maintenance {
 
 		// Case 4: Forcefully disable preserve excerpt HTML compatibility -- due to hotfix needed.
 		Backwards::version_1_5_1( $saved_version );
+
+		// Case 5: Keep the new "Notify Admins on New Community Posts" toggle
+		// off for sites that upgrade into 1.8.4.
+		Backwards::version_1_9_0( $saved_version );
 	}
 }
