@@ -100,7 +100,10 @@ class Misc {
 					break;
 
 				case 'custom_post_content':
-					$filtered_data['post_content'] = do_shortcode( $this->strip_jodit_markers( $value ) );
+					// Run iframe-placeholder pass first so the `suredash_allowed_iframe_hosts`.
+					// filter gets to decide which iframes survive, matching the behavior of
+					// edit_post / submit_comment / edit_comment.
+					$filtered_data['post_content'] = do_shortcode( $this->strip_jodit_markers( $this->process_iframe_placeholders( strval( $value ) ) ) );
 					break;
 
 				case 'custom_post_tax_id':
@@ -993,15 +996,27 @@ class Misc {
 		}
 
 		$search = ! empty( $_POST['search'] ) ? sanitize_text_field( wp_unslash( $_POST['search'] ) ) : '';
-		$users  = new \WP_User_Query(
-			[
-				'search'         => '*' . esc_attr( $search ) . '*',
-				'fields'         => [ 'ID', 'display_name' ],
-				'search_columns' => [ 'display_name', 'user_email' ],
-				'orderby'        => 'display_name',
-				'count_total'    => false,
-			]
-		);
+
+		$user_query_args = [
+			'search'         => '*' . esc_attr( $search ) . '*',
+			'fields'         => [ 'ID', 'display_name' ],
+			'search_columns' => [ 'display_name', 'user_email' ],
+			'orderby'        => 'display_name',
+			'count_total'    => false,
+		];
+
+		/**
+		 * Filter the user-search query args. Lets membership/access plugins
+		 * (e.g. SureMembers) scope or restrict who can be enumerated through
+		 * the search-user endpoint.
+		 *
+		 * @since 1.9.1
+		 * @param array<string, mixed> $user_query_args WP_User_Query args.
+		 * @param string               $search          The search term.
+		 */
+		$user_query_args = (array) apply_filters( 'suredash_search_user_query_args', $user_query_args, $search );
+
+		$users = new \WP_User_Query( $user_query_args );
 
 		$users    = $users->get_results();
 		$response = [];

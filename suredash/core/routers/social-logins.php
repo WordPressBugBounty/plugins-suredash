@@ -544,7 +544,7 @@ class Social_Logins {
 		}
 
 		$message      = $saved_attributes[ $block_name ]['messageSuccessRegistration'] ?? $default_attributes['messageSuccessRegistration']['default'];
-		$redirect_url = isset( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) && $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ? esc_url( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) : esc_url( home_url( '/' . suredash_get_community_slug() . '/' ) );
+		$redirect_url = isset( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) && $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ? esc_url( suredash_resolve_portal_url( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) ) : esc_url( home_url( '/' . suredash_get_community_slug() . '/' ) );
 
 		/* Login user after registration and redirect to home page if not currently logged in */
 		$after_register_actions = $saved_attributes[ $block_name ]['afterRegisterActions'] ?? $default_attributes['afterRegisterActions']['default'];
@@ -914,7 +914,7 @@ class Social_Logins {
 				$this->email_settings['headers'] = 'Content-Type: text/' . ( $headers ? $headers : 'html' ) . '; charset=UTF-8' . "\r\n";
 			}
 
-			$redirect_url = isset( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) && $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ? esc_url( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) : esc_url( home_url( '/' . suredash_get_community_slug() . '/' ) );
+			$redirect_url = isset( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) && $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ? esc_url( suredash_resolve_portal_url( $saved_attributes[ $block_name ]['autoLoginRedirectURL']['url'] ) ) : esc_url( home_url( '/' . suredash_get_community_slug() . '/' ) );
 
 			wp_send_json_success(
 				[

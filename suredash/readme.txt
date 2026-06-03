@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 5.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,13 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-06-03 - version 1.9.1 =
+* Improvement: Refined the SureMembers integration UI to reference the free SureMembers Core plugin instead of the premium version.
+* Improvement: Refined the Search results with cleaner space result cards, and mobile dismiss button.
+* Fix: Tightened access control in Search so results respect post and comment visibility — hidden or restricted content no longer appears.
+* Fix: Fixed an issue where portal links — including the mobile bottom navigation (Notifications, Profile) and social login redirects — did not update after changing the portal URL slug.
+* Fix: Resolved an issue where iframe embed code was not rendering properly inside community posts.
+
 = 2026-05-27 - version 1.9.0 =
 * New: Added an Advanced settings tab to customize URL slugs for portal endpoints for cleaner, more brand-friendly URLs.
 * New: Enhanced the Search modal with a modernized UI, improved functionality, and better categorized results for a smoother and more intuitive user experience.

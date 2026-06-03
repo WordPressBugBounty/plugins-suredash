@@ -125,7 +125,7 @@ class SearchResponseBuilder {
 		$default = [
 			'posts'     => __( 'Posts', 'suredash' ),
 			'comments'  => __( 'Comments', 'suredash' ),
-			'people'    => __( 'People', 'suredash' ),
+			'people'    => __( 'Members', 'suredash' ),
 			'lessons'   => __( 'Lessons', 'suredash' ),
 			'events'    => __( 'Events', 'suredash' ),
 			'resources' => __( 'Resources', 'suredash' ),

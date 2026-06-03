@@ -393,7 +393,7 @@ class Menu {
 					'last_name'                     => wp_get_current_user()->last_name,
 					'is_user_onboarded'             => get_option( 'suredash_onboarding_completed', false ) === 'yes' || get_option( 'suredash_onboarding_skipped' ) === 'yes' ? true : false,
 					'portal_url'                    => esc_url_raw( home_url( suredash_get_community_slug() ) ),
-					'suremembers_status'            => $this->get_plugin_status( 'suremembers/suremembers.php' ),
+					'suremembers_status'            => $this->get_combined_plugin_status( [ 'suremembers/suremembers.php', 'suremembers-core/suremembers-core.php' ] ),
 					'surecart_status'               => $this->get_plugin_status( 'surecart/surecart.php' ),
 					'suretriggers_status'           => $this->get_plugin_status( 'suretriggers/suretriggers.php' ),
 					'sureforms_status'              => $this->get_plugin_status( 'sureforms/sureforms.php' ),
@@ -497,6 +497,34 @@ class Menu {
 		}
 
 		return 'inactive';
+	}
+
+	/**
+	 * Get the strongest plugin status across multiple plugin variants.
+	 *
+	 * Useful for plugins that ship both a premium and a free/core build under
+	 * different init files (e.g. SureMembers and SureMembers Core). Returns
+	 * 'active' if any variant is active, otherwise 'inactive' if any variant is
+	 * installed but inactive, otherwise 'not-installed'.
+	 *
+	 * @since 1.9.2
+	 *
+	 * @param  array<string> $plugin_init_files List of plugin init files to check.
+	 * @return string
+	 */
+	public function get_combined_plugin_status( array $plugin_init_files ) {
+
+		$statuses = array_map( [ $this, 'get_plugin_status' ], $plugin_init_files );
+
+		if ( in_array( 'active', $statuses, true ) ) {
+			return 'active';
+		}
+
+		if ( in_array( 'inactive', $statuses, true ) ) {
+			return 'inactive';
+		}
+
+		return 'not-installed';
 	}
 
 	/**

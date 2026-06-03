@@ -88,17 +88,23 @@ class SearchPeopleService {
 	private function build_query_args( array $args ) {
 		$term = trim( (string) ( $args['q'] ?? '' ) );
 
+		// Scope to portal users only. WP admins, customers from other
+		// plugins (WooCommerce, SureCart, etc.) and any non-portal accounts
+		// are intentionally excluded — the Members tab represents the
+		// portal's member roster, not the WP-wide user list. Sites that
+		// want a different roster can override via the filter below.
 		$query_args = [
 			'search'              => '*' . esc_attr( $term ) . '*',
 			'search_columns'      => [ 'display_name', 'user_email', 'user_login', 'user_nicename' ],
+			'role__in'            => [ 'suredash_user' ],
 			'orderby'             => 'display_name',
 			'order'               => 'ASC',
 			'has_published_posts' => false,
 		];
 
 		/**
-		 * Filter: restrict the user search to specific user IDs (e.g., only
-		 * portal members). Pro can hook in here to scope people search.
+		 * Filter: adjust the user search (e.g. expand to additional roles
+		 * or scope to specific user IDs).
 		 *
 		 * @param array<string,mixed> $query_args WP_User_Query args.
 		 * @param array<string,mixed> $args       Full normalized search args.
@@ -176,9 +182,11 @@ class SearchPeopleService {
 			)
 			: '';
 
-		// Default meta line: "Member · joined Feb 2025". Pro can filter this
-		// to render group-specific strings like "Group · 128 members".
-		$meta_line = implode( ' · ', array_filter( [ $role_label, $joined_display ] ) );
+		// Default meta line: "Member • joined Feb 2025". Pro can filter this
+		// to render group-specific strings like "Group • 128 members".
+		// Bullet (•) matches the separator used in other meta rows (spaces /
+		// lessons / resources / events / posts / comments) for visual parity.
+		$meta_line = implode( ' • ', array_filter( [ $role_label, $joined_display ] ) );
 
 		$result = [
 			'id'          => $user_id,

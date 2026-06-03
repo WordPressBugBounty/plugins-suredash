@@ -1820,6 +1820,43 @@ function suredash_get_community_slug() {
 }
 
 /**
+ * Swap the default portal slug in a URL for the current (filtered) slug.
+ *
+ * Only touches a leading `/portal/` segment (or the exact `/portal` path) and
+ * only when the slug has actually been changed via the `suredash_portal_slug`
+ * filter. Anything else — a different leading path, an external link, an
+ * in-page anchor, or a lookalike like `/portal-news/` — is returned untouched.
+ *
+ * @param string $url URL to resolve (e.g. a block link).
+ * @since 1.9.1
+ * @return string URL with the current portal slug.
+ */
+function suredash_resolve_portal_url( $url ) {
+	$url     = (string) $url;
+	$current = suredash_get_community_slug();
+	$default = SUREDASHBOARD_SLUG;
+
+	// Nothing to do when the slug is unchanged, or the value isn't a path.
+	if ( $current === $default || $url === '' || $url[0] === '#' ) {
+		return $url;
+	}
+
+	$prefix = '/' . $default;
+
+	// Leading "/portal/..." → "/<current>/...".
+	if ( strpos( $url, $prefix . '/' ) === 0 ) {
+		return '/' . $current . substr( $url, strlen( $prefix ) );
+	}
+
+	// Exact "/portal" → "/<current>".
+	if ( $url === $prefix ) {
+		return '/' . $current;
+	}
+
+	return $url;
+}
+
+/**
  * Detect the page builder used for a post.
  *
  * @param int $post_id Post ID.

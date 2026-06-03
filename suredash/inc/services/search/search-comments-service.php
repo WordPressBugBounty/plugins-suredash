@@ -43,13 +43,37 @@ class SearchCommentsService {
 		}
 
 		$query_args           = $this->build_query_args( $args );
-		$query_args['count']  = true;
 		$query_args['number'] = 0;
-		unset( $query_args['paged'] );
+		$query_args['fields'] = 'ids';
+		unset( $query_args['paged'], $query_args['offset'], $query_args['count'] );
 
-		$query = $this->run_query( $query_args );
+		$query       = $this->run_query( $query_args );
+		$comment_ids = (array) $query->get_comments();
 
-		return (int) $query->get_comments();
+		// Admins and free-only installs (no protection helper) get the raw
+		// match count. Otherwise walk IDs and drop comments whose parent
+		// post the user can't see — matches the items walk in query() so
+		// the tab badge stays in sync with rendered items.
+		if ( current_user_can( 'manage_options' ) || ! function_exists( 'suredash_is_post_protected' ) ) {
+			return count( $comment_ids );
+		}
+
+		$count = 0;
+		foreach ( $comment_ids as $cid ) {
+			$comment_id = $cid instanceof \WP_Comment ? (int) $cid->comment_ID : (int) $cid;
+			$comment    = get_comment( $comment_id );
+			if ( ! $comment instanceof \WP_Comment ) {
+				continue;
+			}
+			if ( suredash_is_post_protected( (int) $comment->comment_post_ID ) ) {
+				continue;
+			}
+			if ( ! (bool) apply_filters( 'suredash_search_comment_visible', true, $comment ) ) {
+				continue;
+			}
+			$count++;
+		}
+		return $count;
 	}
 
 	/**
@@ -68,44 +92,76 @@ class SearchCommentsService {
 			];
 		}
 
-		$per_page = isset( $args['per_page'] ) ? max( 1, (int) $args['per_page'] ) : 5;
-		$page     = isset( $args['page'] ) ? max( 1, (int) $args['page'] ) : 1;
+		$per_page    = isset( $args['per_page'] ) ? max( 1, (int) $args['per_page'] ) : 5;
+		$page        = isset( $args['page'] ) ? max( 1, (int) $args['page'] ) : 1;
+		$target_skip = ( $page - 1 ) * $per_page;
 
-		$query_args           = $this->build_query_args( $args );
-		$query_args['number'] = $per_page;
-		$query_args['offset'] = ( $page - 1 ) * $per_page;
+		$query_args = $this->build_query_args( $args );
+		// We'll set number + offset per batch in the loop. Drop any caller-set
+		// pagination so it doesn't pin us to a single-page worth of raw rows.
+		unset( $query_args['number'], $query_args['offset'], $query_args['paged'] );
 
-		$query    = $this->run_query( $query_args );
-		$comments = (array) $query->get_comments();
+		$enforce_protected = ! current_user_can( 'manage_options' )
+			&& function_exists( 'suredash_is_post_protected' );
 
-		// Use the caller-supplied count if available (computed once by
-		// SearchResponseBuilder::get_counts); otherwise fall back to a
-		// dedicated COUNT query.
-		if ( isset( $args['known_total'] ) ) {
-			$total = (int) $args['known_total'];
-		} else {
-			$count_args          = $query_args;
-			$count_args['count'] = true;
-			unset( $count_args['number'], $count_args['offset'] );
-			$count_query = $this->run_query( $count_args );
-			$total       = (int) $count_query->get_comments();
-		}
+		// Same over-fetch + loop strategy as SearchPostsService::query() so
+		// comments don't silently render an empty page when the first batch
+		// happens to be all parent-post-protected. Items and pages track the
+		// visible-only set; no fake "raw_total" leaks into pagination.
+		$batch_size   = max( $per_page * 4, 20 );
+		$max_iter     = 10;
+		$raw_offset   = 0;
+		$visible_seen = 0;
+		$items        = [];
 
-		$items = [];
-		foreach ( $comments as $comment ) {
-			if ( ! $comment instanceof \WP_Comment ) {
-				continue;
+		for ( $iter = 0; $iter < $max_iter; $iter++ ) {
+			$query_args['number'] = $batch_size;
+			$query_args['offset'] = $raw_offset;
+
+			$query = $this->run_query( $query_args );
+			$batch = (array) $query->get_comments();
+			if ( empty( $batch ) ) {
+				break;
 			}
-			$items[] = $this->format_result( $comment, (string) $args['q'] );
+
+			foreach ( $batch as $comment ) {
+				if ( ! $comment instanceof \WP_Comment ) {
+					continue;
+				}
+				if ( $enforce_protected && suredash_is_post_protected( (int) $comment->comment_post_ID ) ) {
+					continue;
+				}
+				if ( ! (bool) apply_filters( 'suredash_search_comment_visible', true, $comment ) ) {
+					continue;
+				}
+
+				if ( $visible_seen < $target_skip ) {
+					$visible_seen++;
+					continue;
+				}
+
+				$items[] = $this->format_result( $comment, (string) $args['q'] );
+				if ( count( $items ) >= $per_page ) {
+					break 2;
+				}
+			}
+
+			// Stop when the last batch was short — WP_Comment_Query has
+			// returned everything matching the query.
+			if ( count( $batch ) < $batch_size ) {
+				break;
+			}
+			$raw_offset += $batch_size;
 		}
 
-		$pages = $per_page > 0 ? (int) ceil( $total / $per_page ) : 1;
+		$total = isset( $args['known_total'] ) ? (int) $args['known_total'] : $this->count( $args );
+		$pages = $per_page > 0 ? (int) max( 1, ceil( $total / $per_page ) ) : 1;
 
 		return [
 			'items'   => $items,
 			'total'   => $total,
-			'pages'   => max( 1, $pages ),
-			'current' => $page,
+			'pages'   => $pages,
+			'current' => min( $page, $pages ),
 		];
 	}
 
@@ -190,23 +246,12 @@ class SearchCommentsService {
 	}
 
 	/**
-	 * Execute the WP_Comment_Query (filterable for overrides).
+	 * Execute the WP_Comment_Query.
 	 *
 	 * @param array<string,mixed> $query_args Query args.
 	 * @return \WP_Comment_Query
 	 */
 	private function run_query( array $query_args ) {
-		/**
-		 * Filter: full override of the comments search query.
-		 *
-		 * @param \WP_Comment_Query|null $override   Overridden query (null to run default).
-		 * @param array<string,mixed>    $query_args WP_Comment_Query args.
-		 */
-		$override = apply_filters( 'suredash_search_comments_override', null, $query_args );
-		if ( $override instanceof \WP_Comment_Query ) {
-			return $override;
-		}
-
 		return new \WP_Comment_Query( $query_args );
 	}
 

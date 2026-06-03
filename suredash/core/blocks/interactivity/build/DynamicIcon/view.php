@@ -42,6 +42,11 @@ if ( ! $url ) {
 	return '';
 }
 
+// Swap a leading default-slug segment (e.g. `/portal/user-profile/`) for the
+// current slug so saved icons follow a portal renamed via the
+// `suredash_portal_slug` filter. A no-op when the slug is unchanged.
+$url = suredash_resolve_portal_url( $url );
+
 $wrapper_attributes = get_block_wrapper_attributes(
 	[
 		'class' => 'wp-social-link wp-social-link-' . $service . suredash_dynamic_icon_get_color_classes( $block->context ),
