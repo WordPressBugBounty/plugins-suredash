@@ -47,7 +47,8 @@ class Common_Notifier extends Base {
 		$dataset = [
 			'new_space'     => [
 				'icon'                => 'SquarePlus',
-				'description'         => '{{SPACE}} ' . __( 'new space has been introduced.', 'suredash' ),
+				/* translators: %s: space name */
+				'description'         => __( 'The space "%s" has been created.', 'suredash' ),
 				'trigger'             => 'suredashboard_new_space',
 				'callback'            => [ $this, 'new_space_callback' ],
 				'formatting_callback' => [ $this, 'new_space_format' ],
@@ -61,14 +62,14 @@ class Common_Notifier extends Base {
 			],
 			'topic_comment' => [
 				'icon'                => 'Bell',
-				'description'         => Labels::get_label( 'plural_post_comment_message' ),
+				'description'         => Labels::get_label( 'single_post_comment_message' ),
 				'trigger'             => 'suredashboard_topic_comment',
 				'callback'            => [ $this, 'post_comment_callback' ],
 				'formatting_callback' => [ $this, 'topic_comment_format' ],
 			],
 			'entity_like'   => [
 				'icon'                => 'Heart',
-				'description'         => Labels::get_label( 'entity_likes' ),
+				'description'         => Labels::get_label( 'like_post_single' ),
 				'trigger'             => 'suredashboard_entity_like',
 				'callback'            => [ $this, 'entity_like_callback' ],
 				'formatting_callback' => [ $this, 'entity_like_format' ],
@@ -387,7 +388,7 @@ class Common_Notifier extends Base {
 
 			$space_title = '<a href="' . get_permalink( $space_id ) . '"><strong>' . get_the_title( $space_id ) . '</strong></a>';
 
-			$description = str_replace( '{{SPACE}}', $space_title, $description );
+			$description = sprintf( (string) $description, $space_title );
 			$this->format_notification( $icon, $description, $value );
 		}
 
@@ -451,13 +452,7 @@ class Common_Notifier extends Base {
 			$comment_link_url = $comment_link_url ? $comment_link_url : '#';
 			$comment_link     = '<a href="' . esc_url( $comment_link_url ) . '"><strong>' . __( 'Comment:', 'suredash' ) . '</strong> ' . esc_html( $excerpt ) . '</a>';
 
-			$description = str_replace( '{{COMMENT}}', $comment_link, $description );
-			$description = str_replace( '{{CALLER}}', $caller_name, $description );
-			if ( is_array( $description ) ) {
-				$description = implode( ' ', $description );
-			}
-
-			$description = (string) $description;
+			$description = sprintf( (string) $description, $caller_name, $comment_link );
 			$this->format_notification( $icon, $description, $value );
 		}
 
@@ -508,19 +503,23 @@ class Common_Notifier extends Base {
 			$comment_link = $comment_id ? get_comment_link( $comment_id ) : get_permalink( $topic_id );
 			$comment_link = $comment_link ? $comment_link : '';
 			$topic_link   = '<a href="' . esc_url( $comment_link ) . '"><strong>' . get_the_title( $topic_id ) . '</strong></a>';
+			$others       = $count - 1;
 			if ( $count <= 1 ) {
-				$description = Labels::get_label( 'single_post_comment_message' );
+				$description = sprintf(
+					Labels::get_label( 'single_post_comment_message' ),
+					$caller_name,
+					$topic_link
+				);
 			} else {
-				$description = str_replace( '{{COUNT}}', strval( $count - 1 ), (string) $description );
+				/* translators: 1: commenter name, 2: number of other commenters, 3: post title */
+				$template    = _n(
+					'%1$s and %2$s other commented on your post "%3$s".',
+					'%1$s and %2$s others commented on your post "%3$s".',
+					$others,
+					'suredash'
+				);
+				$description = sprintf( $template, $caller_name, '<strong>' . $others . '</strong>', $topic_link );
 			}
-			$description = str_replace( '{{COUNT}}', '<strong>' . ( $count - 1 ) . '</strong>', $description );
-			$description = str_replace( '{{TOPIC}}', $topic_link, $description );
-			$description = str_replace( '{{CALLER}}', $caller_name, $description );
-
-			if ( is_array( $description ) ) {
-				$description = implode( ' ', $description );
-			}
-			$description = (string) $description;
 			$this->format_notification( $icon, $description, $value );
 		}
 
@@ -583,22 +582,47 @@ class Common_Notifier extends Base {
 			$caller_name = suredash_get_notifier_caller( $caller );
 			$description = ! empty( $args['description'] ) ? $args['description'] : '';
 			$title       = wp_trim_words( suredash_clean_text( $title ), 5, '...' );
-			$entity_link = '<a href="' . get_permalink( $entity_id ) . '"><strong>' . esc_html( $title ) . '</strong></a>';
 
-			// Choose between singular and plural messages.
-			if ( $count <= 1 ) {
-				$description = Labels::get_label( 'entity_like' );
+			if ( $entity === 'comment' ) {
+				$entity_url = get_comment_link( $entity_id );
+				if ( ! $entity_url ) {
+					$entity_url = get_permalink( absint( $comment->comment_post_ID ?? 0 ) );
+				}
 			} else {
-				$description = str_replace( '{{COUNT}}', strval( $count - 1 ), (string) $description );
+				$entity_url = get_permalink( $entity_id );
 			}
+			$entity_url  = $entity_url ? $entity_url : '#';
+			$entity_link = '<a href="' . esc_url( $entity_url ) . '"><strong>' . esc_html( $title ) . '</strong></a>';
 
-			$description = str_replace( '{{TOPIC}}', $entity_link, $description );
-			$description = str_replace( '{{ENTITY}}', $entity, $description );
-			$description = str_replace( '{{CALLER}}', '<strong>' . $caller_name . '</strong>', $description );
-			if ( is_array( $description ) ) {
-				$description = implode( ' ', $description );
+			$caller_html = '<strong>' . $caller_name . '</strong>';
+			$others      = $count - 1;
+
+			// Choose between singular and plural messages, per entity type.
+			if ( $count <= 1 ) {
+				$template    = $entity === 'comment'
+					? Labels::get_label( 'like_comment_single' )
+					: Labels::get_label( 'like_post_single' );
+				$description = sprintf( $template, $caller_html, $entity_link );
+			} else {
+				if ( $entity === 'comment' ) {
+					/* translators: 1: liker name, 2: number of other likers, 3: comment excerpt */
+					$template = _n(
+						'%1$s and %2$s other liked your comment "%3$s".',
+						'%1$s and %2$s others liked your comment "%3$s".',
+						$others,
+						'suredash'
+					);
+				} else {
+					/* translators: 1: liker name, 2: number of other likers, 3: post title */
+					$template = _n(
+						'%1$s and %2$s other liked your post "%3$s".',
+						'%1$s and %2$s others liked your post "%3$s".',
+						$others,
+						'suredash'
+					);
+				}
+				$description = sprintf( $template, $caller_html, $others, $entity_link );
 			}
-			$description = (string) $description;
 			$this->format_notification( $icon, $description, $value );
 		}
 

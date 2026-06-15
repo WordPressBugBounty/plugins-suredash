@@ -1983,7 +1983,10 @@ function suredash_get_excerpt( $post_id, $length = 20 ) {
 		$text = is_string( $text ) ? $text : '';
 		$text = suredash_excerpt_with_html( $text, $length );
 	} else {
-		// Strip all HTML and return plain text excerpt.
+		// Insert a space before every tag so block boundaries (</p><p>, <br>,
+		// </li><li>) don't mash adjacent words together once tags are removed.
+		// wp_strip_all_tags() normalizes whitespace, collapsing the extras.
+		$text = is_string( $text ) ? str_replace( '<', ' <', $text ) : '';
 		$text = wp_trim_words( wp_strip_all_tags( $text ), $length, '' );
 	}
 

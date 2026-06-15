@@ -144,11 +144,14 @@ class Labels {
 				'no_notifications_title'            => __( 'No New Notifications', 'suredash' ),
 				'no_notifications'                  => __( 'Ta-da! You\'re up to date.', 'suredash' ),
 
-				'comment_reply_message'             => '{{CALLER}} ' . __( 'has replied to your ', 'suredash' ) . '{{COMMENT}}.',
-				'single_post_comment_message'       => '{{CALLER}} ' . __( 'has commented on your post ', 'suredash' ) . '"{{TOPIC}}".',
-				'plural_post_comment_message'       => '{{CALLER}} ' . __( ' and ', 'suredash' ) . '{{COUNT}} ' . __( ' others have commented on your post ', 'suredash' ) . ' "{{TOPIC}}".',
-				'entity_like'                       => '{{CALLER}}' . __( ' has liked your ', 'suredash' ) . '{{ENTITY}} {{TOPIC}}',
-				'entity_likes'                      => '{{CALLER}}' . __( ' and ', 'suredash' ) . '{{COUNT}} ' . __( ' others have liked your ', 'suredash' ) . '{{ENTITY}} "{{TOPIC}}".',
+				/* translators: 1: commenter name, 2: replied-to comment link */
+				'comment_reply_message'             => __( '%1$s has replied to your %2$s.', 'suredash' ),
+				/* translators: 1: commenter name, 2: post title */
+				'single_post_comment_message'       => __( '%1$s commented on your post "%2$s".', 'suredash' ),
+				/* translators: 1: liker name, 2: post title */
+				'like_post_single'                  => __( '%1$s liked your post "%2$s".', 'suredash' ),
+				/* translators: 1: liker name, 2: comment excerpt */
+				'like_comment_single'               => __( '%1$s liked your comment "%2$s".', 'suredash' ),
 
 				'all_notifications'                 => __( 'All', 'suredash' ),
 				'unread'                            => __( 'Unread', 'suredash' ),

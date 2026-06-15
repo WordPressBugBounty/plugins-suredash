@@ -550,3 +550,66 @@ function sd_get_content_space_by_post( $post_id ) {
 
 	return [ absint( $space_id ) ];
 }
+
+/**
+ * Get the location data for an event.
+ *
+ * Returns a normalized array describing where the event takes place.
+ * Use this anywhere the location needs to be rendered or inspected
+ * (frontend templates, emails, ICS exports, REST responses, etc.).
+ *
+ * Shape of the returned array:
+ * - type:        '' | 'in_person' | 'tbd' | 'online'
+ * - has_value:   bool — true when type is set with meaningful data
+ * - join_link:   string — populated only for 'online' (from existing event_joining_link meta)
+ * - address:     string — populated only for 'in_person'
+ *
+ * Back-compat: if no event_location_type is stored but an event_joining_link exists,
+ * the event is implicitly treated as 'online'.
+ *
+ * @param int $event_id Event (community-content) post ID.
+ * @return array<string, mixed>
+ */
+function sd_get_event_location( $event_id ) {
+	$event_id = absint( $event_id );
+
+	$result = [
+		'type'      => '',
+		'has_value' => false,
+		'join_link' => '',
+		'address'   => '',
+	];
+
+	if ( ! $event_id ) {
+		return $result;
+	}
+
+	$type      = (string) sd_get_post_meta( $event_id, 'event_location_type', true );
+	$join_link = (string) sd_get_post_meta( $event_id, 'event_joining_link', true );
+
+	// Back-compat: pre-existing events with a join link but no explicit type.
+	if ( $type === '' && $join_link !== '' ) {
+		$type = 'online';
+	}
+
+	$result['type'] = $type;
+
+	switch ( $type ) {
+		case 'online':
+			$result['join_link'] = $join_link;
+			$result['has_value'] = $join_link !== '';
+			break;
+
+		case 'in_person':
+			$address             = (string) sd_get_post_meta( $event_id, 'event_location_address', true );
+			$result['address']   = $address;
+			$result['has_value'] = $address !== '';
+			break;
+
+		case 'tbd':
+			$result['has_value'] = true;
+			break;
+	}
+
+	return $result;
+}

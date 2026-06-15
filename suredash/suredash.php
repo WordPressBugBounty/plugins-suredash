@@ -5,7 +5,7 @@
  * Description: SureDash turns your WordPress site into a community hub with unified login, custom dashboard, and improved user engagement.
  * Author: SureDash
  * Author URI: https://suredash.com/
- * Version: 1.9.1
+ * Version: 1.9.2
  * License: GPL v2
  * Text Domain: suredash
  * Domain Path: /languages
@@ -16,8 +16,8 @@
 /**
  * Set constants.
  */
-define( 'SUREDASHBOARD_VER', '1.9.1' );
+define( 'SUREDASHBOARD_VER', '1.9.2' );
 define( 'SUREDASHBOARD_FILE', __FILE__ );
-define( 'SUREDASH_PRO_MINIMUM_VER', '1.8.2' );
+define( 'SUREDASH_PRO_MINIMUM_VER', '1.8.4' );
 
 require_once __DIR__ . '/loader.php';

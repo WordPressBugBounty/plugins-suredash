@@ -1,10 +1,10 @@
 === SureDash - Community, Courses & Member Dashboard ===
 Contributors: brainstormforce
 Tags: community, membership, courses, user dashboard, discussion forum
-Requires at least: 5.6
+Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,11 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-06-15 - version 1.9.2 =
+* New: Revamped the onboarding experience with AI-powered and preset-based portal creation, allowing users to set up their portal in just a few minutes.
+* Improvement: Added Breakdance compatibility for the “Disable theme” option to prevent portal styling issues.
+* Improvement: Enhanced excerpt handling to improve formatting and avoid unexpected text spacing issues.
+
 = 2026-06-03 - version 1.9.1 =
 * Improvement: Refined the SureMembers integration UI to reference the free SureMembers Core plugin instead of the premium version.
 * Improvement: Refined the Search results with cleaner space result cards, and mobile dismiss button.

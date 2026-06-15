@@ -393,35 +393,17 @@ function suredash_get_user_avatar( $user_id, $echo = true, $size = 40, $add_data
 		// to those.
 		$initials_style = 'display:inline-block;font-style:normal;';
 		if ( ! empty( $gravatar_url ) ) {
-			// Hide the initials by default when we're going to overlay a
-			// Gravatar. If the Gravatar 404s the onerror handler reveals
-			// them again before removing the image. This stops the initials
-			// from "peeking" through the Gravatar (around the rounded edges,
-			// during the lazy-load wait, or if the image has any
-			// transparency). When the Gravatar exists, only the Gravatar
-			// is visible; when it doesn't, only the initials are visible.
-			//
-			// Use `opacity` instead of `visibility` here: a descendant with
-			// `visibility:visible` would override an ancestor's
-			// `visibility:hidden` (per CSS spec), which made these initials
-			// "punch through" any hidden popover/dropdown the avatar happens
-			// to live inside (e.g. the All Members access-group selector in
-			// the Create/Edit Post dialog). `opacity` doesn't have that
-			// escape hatch — when the ancestor is hidden, the element stays
-			// hidden too.
-			$initials_style = 'display:inline-block;font-style:normal;opacity:0;';
-
-			// `!important` on width/height/max-* defeats the global
-			// `.portal-avatar-XX img { width: XXpx; max-width: XXpx; ... }`
-			// rule in badges.css, which would otherwise pin the overlay
-			// to the requested size even when surrounding layout (e.g.
-			// the leaderboard hero card) upscales the outer container.
-			//
-			// The onerror handler walks up to the wrapper, reveals the
-			// `.portal-avatar-initials-text` span we rendered behind the
-			// image, then removes itself.
+			// Initials stay visible as the base layer. `onload` hides them
+			// once the opaque Gravatar overlay covers the box; `onerror`
+			// removes the overlay on a 404, leaving the initials. Keeping
+			// them visible up front fixes the empty/"?" avatar (#1382) on the
+			// synchronously-rendered first batch, whose `loading="lazy"`
+			// overlay had not resolved at first paint. `opacity` (not
+			// `visibility`) is used so initials inside a hidden popover stay
+			// hidden. `!important` on width/height defeats the per-size
+			// `.portal-avatar-XX img` rule in badges.css.
 			$gravatar_overlay = sprintf(
-				'<img class="portal-user-gravatar" src="%s" alt="" loading="lazy" onerror="var t=this.parentNode&&this.parentNode.querySelector(\'.portal-avatar-initials-text\');if(t){t.style.opacity=\'1\';}this.remove();" style="position:absolute;top:0;left:0;width:100%% !important;height:100%% !important;max-width:none !important;max-height:none !important;object-fit:cover;border-radius:inherit;display:block;" />',
+				'<img class="portal-user-gravatar" src="%s" alt="" loading="lazy" onload="var t=this.parentNode&&this.parentNode.querySelector(\'.portal-avatar-initials-text\');if(t){t.style.opacity=\'0\';}" onerror="this.remove();" style="position:absolute;top:0;left:0;width:100%% !important;height:100%% !important;max-width:none !important;max-height:none !important;object-fit:cover;border-radius:inherit;display:block;" />',
 				esc_url( $gravatar_url )
 			);
 		}

@@ -383,6 +383,16 @@ class Routes {
 					'callback'            => [ Onboarding::get_instance(), 'process_onboarding' ],
 					'permission_callback' => 'admin',
 				],
+				'ai-generate-portal'                 => [
+					'method'              => 'POST',
+					'callback'            => [ Onboarding::get_instance(), 'ai_generate_portal' ],
+					'permission_callback' => 'admin',
+				],
+				'ai-discover-credentials'            => [
+					'method'              => 'POST',
+					'callback'            => [ Onboarding::get_instance(), 'ai_discover_credentials' ],
+					'permission_callback' => 'admin',
+				],
 				'activate-plugin'                    => [
 					'method'              => 'POST',
 					'callback'            => [ Onboarding::get_instance(), 'activate_plugin' ],

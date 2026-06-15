@@ -76,77 +76,98 @@ class Update_Content_Settings extends Ability {
 	 */
 	public function get_parameters(): array {
 		return [
-			'content_id'          => [
+			'content_id'             => [
 				'type'        => 'integer',
 				'required'    => true,
 				'description' => __( 'The ID of the sub-content post to update (lesson, event, resource, or collection item).', 'suredash' ),
 			],
-			'post_title'          => [
+			'post_title'             => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'New title for the content item.', 'suredash' ),
 			],
-			'post_status'         => [
+			'post_status'            => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'New status for the content item.', 'suredash' ),
 				'enum'        => [ 'publish', 'draft' ],
 			],
-			'lesson_duration'     => [
+			'lesson_duration'        => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Lesson duration in minutes. Only for lessons.', 'suredash' ),
 			],
-			'resource_type'       => [
+			'resource_type'          => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Resource type: "upload" or "external". Only for resources.', 'suredash' ),
 				'enum'        => [ 'upload', 'external' ],
 			],
-			'attachment_id'       => [
+			'attachment_id'          => [
 				'type'        => 'integer',
 				'required'    => false,
 				'description' => __( 'WordPress media attachment ID. Only for resources with type "upload".', 'suredash' ),
 			],
-			'external_url'        => [
+			'external_url'           => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'External URL. Only for resources with type "external".', 'suredash' ),
 			],
-			'event_date'          => [
+			'event_date'             => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Event date in YYYY-MM-DD format. Only for events.', 'suredash' ),
 			],
-			'event_start_time'    => [
+			'event_start_time'       => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Event start time in HH:MM format (24-hour). Only for events.', 'suredash' ),
 			],
-			'event_duration'      => [
-				'type'        => 'string',
-				'required'    => false,
-				'description' => __( 'Event duration in minutes. Only for events.', 'suredash' ),
-			],
-			'event_timezone'      => [
+			'event_timezone'         => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Timezone identifier (e.g. "America/New_York"). Only for events.', 'suredash' ),
 			],
-			'rsvp_link'           => [
+			'rsvp_link'              => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'RSVP link URL. Only for events.', 'suredash' ),
 			],
-			'event_joining_link'  => [
+			'event_joining_link'     => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Live event joining link URL. Only for events.', 'suredash' ),
 			],
-			'recorded_video_link' => [
+			'recorded_video_link'    => [
 				'type'        => 'string',
 				'required'    => false,
 				'description' => __( 'Recorded video link URL. Only for events.', 'suredash' ),
+			],
+			'event_location_type'    => [
+				'type'        => 'string',
+				'required'    => false,
+				'enum'        => [ 'in_person', 'tbd', 'online', '' ],
+				'description' => __( 'Event location type: in_person, tbd, online, or empty. Only for events.', 'suredash' ),
+			],
+			'event_location_address' => [
+				'type'        => 'string',
+				'required'    => false,
+				'description' => __( 'Human-readable address for in-person events. Only used when event_location_type is in_person.', 'suredash' ),
+			],
+			'event_end_date'         => [
+				'type'        => 'string',
+				'required'    => false,
+				'description' => __( 'Event end date in YYYY-MM-DD format. Only for events.', 'suredash' ),
+			],
+			'event_end_time'         => [
+				'type'        => 'string',
+				'required'    => false,
+				'description' => __( 'Event end time in HH:MM format (24-hour). Only for events.', 'suredash' ),
+			],
+			'event_host'             => [
+				'type'        => 'integer',
+				'required'    => false,
+				'description' => __( 'WP user ID of the portal manager hosting the event. Only for events.', 'suredash' ),
 			],
 		];
 	}
@@ -214,12 +235,16 @@ class Update_Content_Settings extends Ability {
 			'attachment_id',
 			'external_url',
 			'event_date',
+			'event_end_date',
 			'event_start_time',
-			'event_duration',
+			'event_end_time',
 			'event_timezone',
+			'event_host',
 			'rsvp_link',
 			'event_joining_link',
 			'recorded_video_link',
+			'event_location_type',
+			'event_location_address',
 		];
 
 		foreach ( $allowed_fields as $field ) {

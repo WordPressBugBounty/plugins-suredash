@@ -68,6 +68,14 @@ class Plugin {
 			case 'suretriggers/suretriggers.php':
 				delete_transient( 'st-redirect-after-activation' );
 				break;
+			case 'presto-player/presto-player.php':
+				delete_transient( 'presto_player_activation_redirect' );
+				break;
+			case 'suremembers-core/suremembers-core.php':
+				// SureMembers gates its onboarding redirect on an option rather than a transient.
+				update_option( '__suremembers_do_redirect', false );
+				update_option( 'suremembers_onboarding_skipped', 'yes' );
+				break;
 			default:
 				break;
 		}
@@ -247,6 +255,16 @@ class Plugin {
 	 */
 	private function is_suredash_portal_request() {
 		global $wp;
+
+		// Quick-view iframes load the post's permalink with `?simply_content=1`.
+		// That URL usually lives outside the portal slug (e.g. /community-post/foo/),
+		// so the slug check below would miss it. Renderer::update_templates() handles
+		// the entire response for these requests — we must keep Breakdance's
+		// template_include from clobbering it, otherwise both templates render
+		// inside the iframe (see the "Disable Theme" mode failure).
+		if ( function_exists( 'suredash_simply_content' ) && suredash_simply_content() ) {
+			return true;
+		}
 
 		$portal_slug  = defined( 'SUREDASHBOARD_SLUG' ) ? SUREDASHBOARD_SLUG : 'portal';
 		$current_path = trim( $wp->request, '/' );

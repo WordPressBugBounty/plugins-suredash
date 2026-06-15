@@ -186,6 +186,10 @@ class PostMeta {
 					'default' => true,
 					'type'    => 'boolean',
 				],
+				'show_add_to_calendar'    => [
+					'default' => false,
+					'type'    => 'boolean',
+				],
 				'default_list_view'       => [
 					'default' => false,
 					'type'    => 'boolean',

@@ -3342,11 +3342,14 @@ class Backend {
 		if ( isset( $data['event_date'] ) ) {
 			update_post_meta( $post_id, 'event_date', sanitize_text_field( $data['event_date'] ) );
 		}
+		if ( isset( $data['event_end_date'] ) ) {
+			update_post_meta( $post_id, 'event_end_date', sanitize_text_field( $data['event_end_date'] ) );
+		}
 		if ( isset( $data['event_start_time'] ) ) {
 			update_post_meta( $post_id, 'event_start_time', sanitize_text_field( $data['event_start_time'] ) );
 		}
-		if ( isset( $data['event_duration'] ) ) {
-			update_post_meta( $post_id, 'event_duration', sanitize_text_field( $data['event_duration'] ) );
+		if ( isset( $data['event_end_time'] ) ) {
+			update_post_meta( $post_id, 'event_end_time', sanitize_text_field( $data['event_end_time'] ) );
 		}
 		if ( isset( $data['event_timezone'] ) ) {
 			update_post_meta( $post_id, 'event_timezone', sanitize_text_field( $data['event_timezone'] ) );
@@ -3359,6 +3362,20 @@ class Backend {
 		}
 		if ( isset( $data['recorded_video_link'] ) ) {
 			update_post_meta( $post_id, 'recorded_video_link', esc_url_raw( $data['recorded_video_link'] ) );
+		}
+		if ( isset( $data['event_host'] ) ) {
+			update_post_meta( $post_id, 'event_host', absint( $data['event_host'] ) );
+		}
+		if ( isset( $data['event_location_type'] ) ) {
+			$allowed_types = [ 'in_person', 'tbd', 'online', '' ];
+			$location_type = sanitize_text_field( $data['event_location_type'] );
+			if ( ! in_array( $location_type, $allowed_types, true ) ) {
+				$location_type = '';
+			}
+			update_post_meta( $post_id, 'event_location_type', $location_type );
+		}
+		if ( isset( $data['event_location_address'] ) ) {
+			update_post_meta( $post_id, 'event_location_address', sanitize_text_field( $data['event_location_address'] ) );
 		}
 		if ( isset( $data['visibility_scope'] ) ) {
 			// Follow same pattern as misc.php - convert comma-separated string to sanitized array.

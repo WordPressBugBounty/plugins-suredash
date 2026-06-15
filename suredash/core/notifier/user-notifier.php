@@ -56,14 +56,16 @@ class User_Notifier extends Base {
 		$dataset = [
 			'topic_approved' => [
 				'icon'                => 'FilePen',
-				'description'         => '"{{TOPIC}}" ' . __( 'your topic has been approved.', 'suredash' ),
+				/* translators: %s: topic title */
+				'description'         => __( 'Your topic "%s" has been approved.', 'suredash' ),
 				'trigger'             => 'suredashboard_topic_approved',
 				'callback'            => [ $this, 'topic_approved_callback' ],
 				'formatting_callback' => [ $this, 'topic_approved_format' ],
 			],
 			'user_mentioned' => [
 				'icon'                => 'Bell',
-				'description'         => '{{CALLER}} ' . __( 'has mentioned you in a ', 'suredash' ) . '{{TOPIC}}.',
+				/* translators: 1: mentioner name, 2: topic or comment link */
+				'description'         => __( '%1$s mentioned you in a %2$s.', 'suredash' ),
 				'trigger'             => 'suredashboard_user_mentioned',
 				'callback'            => [ $this, 'user_mentioned_callback' ],
 				'formatting_callback' => [ $this, 'user_mentioned_format' ],
@@ -201,7 +203,7 @@ class User_Notifier extends Base {
 			}
 
 			$topic_title = '<a href="' . get_permalink( $topic_id ) . '"><strong>' . get_the_title( $topic_id ) . '</strong></a>';
-			$description = str_replace( '{{TOPIC}}', $topic_title, $description );
+			$description = sprintf( (string) $description, $topic_title );
 
 			$this->format_notification( $icon, $description, $value );
 		}
@@ -306,8 +308,8 @@ class User_Notifier extends Base {
 
 		$topic_title  = $topic_id !== 0 ? __( 'Topic:', 'suredash' ) . '<a href="' . get_permalink( $topic_id ) . '"><strong>' . get_the_title( $topic_id ) . '</strong></a>' : '';
 		$comment_link = $comment_id !== 0 ? '<a href="' . get_comment_link( $comment_id ) . '"><strong> Comment </strong></a>' : '';
-		$description  = str_replace( '{{TOPIC}}', $topic_title ? $topic_title : $comment_link, $description );
-		$description  = str_replace( '{{CALLER}}', $caller_name, $description );
+		$mention_link = $topic_title ? $topic_title : $comment_link;
+		$description  = sprintf( (string) $description, $caller_name, $mention_link );
 
 		if ( ! is_string( $description ) ) {
 			$description = '';

@@ -48,7 +48,8 @@ class Admin_Notifier extends Base {
 		$dataset = [
 			'users_registered' => [
 				'icon'                => 'UserPlus',
-				'description'         => '{{CALLER}}' . __( ' and ', 'suredash' ) . '{{COUNT}} ' . __( 'new users have registered on the ', 'suredash' ) . Helper::get_option( 'portal_name' ) . '.',
+				/* translators: 1: user name, 2: portal name */
+				'description'         => __( '%1$s has registered on %2$s.', 'suredash' ),
 				'trigger'             => 'suredashboard_user_registered',
 				'callback'            => [ $this, 'user_registered_callback' ],
 				'formatting_callback' => [ $this, 'user_registered_format' ],
@@ -178,19 +179,23 @@ class Admin_Notifier extends Base {
 		ob_start();
 
 		$caller_name = suredash_get_notifier_caller( $caller );
-		$description = ! empty( $args['description'] ) ? $args['description'] : '';
+		$caller_html = '<strong>' . $caller_name . '</strong>';
+		$portal_name = Helper::get_option( 'portal_name' );
+		$others      = $count - 1;
 
 		// Choose between singular and plural messages.
 		if ( $count <= 1 ) {
-			$description = '{{CALLER}} ' . __( ' has registered on the ', 'suredash' ) . ' ' . Helper::get_option( 'portal_name' ) . '.';
+			/* translators: 1: user name, 2: portal name */
+			$description = sprintf( __( '%1$s has registered on %2$s.', 'suredash' ), $caller_html, $portal_name );
 		} else {
-			$description = str_replace( '{{COUNT}}', strval( $count - 1 ), $description );
-		}
-
-		$description = str_replace( '{{CALLER}}', '<strong>' . $caller_name . '</strong>', $description );
-
-		if ( ! is_string( $description ) ) {
-			$description = '';
+			/* translators: 1: user name, 2: number of other users, 3: portal name */
+			$template    = _n(
+				'%1$s and %2$s other registered on %3$s.',
+				'%1$s and %2$s others registered on %3$s.',
+				$others,
+				'suredash'
+			);
+			$description = sprintf( $template, $caller_html, $others, $portal_name );
 		}
 
 		$this->format_notification( $icon, $description, $value );
