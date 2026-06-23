@@ -68,11 +68,24 @@ class Get_Space_Meta extends Ability {
 	 */
 	public function get_parameters(): array {
 		return [
-			'post_id' => [
+			'space_id' => [
 				'type'        => 'integer',
 				'required'    => true,
-				'description' => __( 'The ID of the space to get metadata for.', 'suredash' ),
+				'description' => __( 'WordPress post ID of the space to get metadata for (the space is stored as a portal post). This is the same value create-space returns as space_id. Use list-spaces to find space IDs.', 'suredash' ),
 			],
+		];
+	}
+
+	/**
+	 * Deprecated input aliases.
+	 *
+	 * @since 1.9.3
+	 *
+	 * @return array<string, array<int, string>>
+	 */
+	public function get_aliases(): array {
+		return [
+			'space_id' => [ 'post_id' ],
 		];
 	}
 
@@ -83,9 +96,13 @@ class Get_Space_Meta extends Ability {
 		return [
 			'type'       => 'object',
 			'properties' => [
+				'space_id'    => [
+					'type'        => 'integer',
+					'description' => __( 'Space ID (WordPress post ID of the space).', 'suredash' ),
+				],
 				'post_id'     => [
 					'type'        => 'integer',
-					'description' => __( 'Space ID.', 'suredash' ),
+					'description' => __( 'Deprecated alias for space_id; kept for backward compatibility.', 'suredash' ),
 				],
 				'integration' => [
 					'type'        => 'string',
@@ -129,7 +146,7 @@ class Get_Space_Meta extends Ability {
 	public function execute( array $params ): array {
 		$this->setup_post_data(
 			[
-				'post_id' => absint( $params['post_id'] ),
+				'post_id' => absint( $params['space_id'] ),
 			]
 		);
 
@@ -147,6 +164,7 @@ class Get_Space_Meta extends Ability {
 
 		$meta     = $result['data'];
 		$filtered = [
+			'space_id'              => $meta['post_id'] ?? 0,
 			'post_id'               => $meta['post_id'] ?? 0,
 			'title'                 => get_the_title( $meta['post_id'] ?? 0 ),
 			'integration'           => $meta['integration'] ?? '',

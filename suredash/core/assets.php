@@ -915,7 +915,11 @@ class Assets {
 		// On singular and home views get_single_item_css() owns --portal-content-aside-margin.
 		// Both enqueue paths run on every portal page (renderer.php), so skipping the
 		// override here prevents the archive default from clobbering the layout-aware value.
-		if ( is_singular() || suredash_is_home() || suredash_cpt() ) {
+		// The feeds page is an archive but gets its layout-aware margin from
+		// get_single_item_css() too (boxed + the global width), so skip it here as
+		// well — otherwise the archive default flattens the horizontal margin to 0.
+		$is_feeds_page = Helper::get_option( 'enable_feeds' ) && suredash_get_sub_queried_page() === 'feeds';
+		if ( is_singular() || suredash_is_home() || suredash_cpt() || $is_feeds_page ) {
 			return apply_filters( 'suredashboard_archive_group_dynamic_css', '' );
 		}
 

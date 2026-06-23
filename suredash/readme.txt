@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,11 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-06-23 - version 1.9.3 =
+* Improvement: Improved navigation speed by prefetching portal links on deliberate hover, so pages load faster.
+* Improvement: Enhanced the WordPress Abilities (MCP) integration with clearer parameter descriptions and standardized argument names, while keeping older names supported for backward compatibility.
+* Fix: Fixed an issue in the Course editor where a section could be dragged into another section's lesson list, where it appeared as a blank lesson that could not be deleted.
+
 = 2026-06-15 - version 1.9.2 =
 * New: Revamped the onboarding experience with AI-powered and preset-based portal creation, allowing users to set up their portal in just a few minutes.
 * Improvement: Added Breakdance compatibility for the “Disable theme” option to prevent portal styling issues.

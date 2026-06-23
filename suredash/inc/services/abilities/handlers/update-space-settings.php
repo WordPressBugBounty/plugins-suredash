@@ -75,10 +75,10 @@ class Update_Space_Settings extends Ability {
 	 */
 	public function get_parameters(): array {
 		return [
-			'content_id'            => [
+			'space_id'              => [
 				'type'        => 'integer',
 				'required'    => true,
-				'description' => __( 'The ID of the space to update.', 'suredash' ),
+				'description' => __( 'WordPress post ID of the space to update (the space is stored as a portal post). This is the same value create-space returns as space_id. Use list-spaces to find space IDs.', 'suredash' ),
 			],
 			'post_title'            => [
 				'type'        => 'string',
@@ -200,6 +200,19 @@ class Update_Space_Settings extends Ability {
 	}
 
 	/**
+	 * Deprecated input aliases.
+	 *
+	 * @since 1.9.3
+	 *
+	 * @return array<string, array<int, string>>
+	 */
+	public function get_aliases(): array {
+		return [
+			'space_id' => [ 'content_id' ],
+		];
+	}
+
+	/**
 	 * Get usage instructions for AI agents.
 	 *
 	 * @since 1.6.3
@@ -207,7 +220,7 @@ class Update_Space_Settings extends Ability {
 	 * @return string
 	 */
 	public function get_instructions(): string {
-		return 'Only provided fields are updated — omitted fields stay unchanged. Use get-space-meta first to see current values. Use content_id (the space post ID) from list-spaces. Use space_status to change publish/draft state.';
+		return 'Only provided fields are updated — omitted fields stay unchanged. Use get-space-meta first to see current values. Use space_id (the space post ID) from list-spaces or create-space. Use space_status to change publish/draft state.';
 	}
 
 	/**
@@ -216,12 +229,12 @@ class Update_Space_Settings extends Ability {
 	 * @param array<string, mixed> $params Validated parameters.
 	 */
 	public function execute( array $params ): array {
-		$post_id = absint( $params['content_id'] ?? 0 );
+		$post_id = absint( $params['space_id'] ?? 0 );
 
 		if ( ! $post_id ) {
 			return [
 				'success' => false,
-				'data'    => [ 'message' => __( 'Content ID is required.', 'suredash' ) ],
+				'data'    => [ 'message' => __( 'Space ID is required.', 'suredash' ) ],
 			];
 		}
 

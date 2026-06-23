@@ -33,15 +33,15 @@ msgid "Cover Image"
 msgstr "Image de couverture"
 
 #: inc/utils/labels.php:115
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Content"
 msgstr "Contenu"
 
-#: core/routers/backend.php:1150
+#: core/routers/backend.php:1186
 msgid "Content Groups"
 msgstr "Groupes de contenu"
 
-#: core/routers/backend.php:1150
+#: core/routers/backend.php:1186
 msgid "Topic Forums"
 msgstr "Forums de discussion"
 
@@ -50,12 +50,12 @@ msgstr "Forums de discussion"
 #: admin/setup.php:65
 #: core/renderer.php:301
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Settings"
 msgstr "Paramètres"
 
 #: inc/utils/settings.php:264
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Home"
 msgstr "Accueil"
 
@@ -65,7 +65,7 @@ msgstr "Accueil"
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Link"
 msgstr "Lien"
 
@@ -74,9 +74,9 @@ msgstr "Lien"
 msgid "Video"
 msgstr "Vidéo"
 
-#: admin/menu.php:700
+#: admin/menu.php:710
 #: inc/utils/helper.php:2220
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "Uncategorized"
 msgstr "Non classé"
 
@@ -282,7 +282,7 @@ msgstr "Quelque chose s'est mal passé lors de la création du nouvel utilisateu
 #: core/cpt/portal.php:50
 #: core/cpt/posts.php:47
 #: core/cpt/posts.php:49
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Add New"
 msgstr "Ajouter nouveau"
 
@@ -297,13 +297,13 @@ msgstr "Espaces du portail"
 
 #: core/cpt/portal.php:46
 #: core/renderer.php:229
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Edit Space"
 msgstr "Modifier l'espace"
 
 #: core/cpt/portal.php:47
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View Space"
 msgstr "Voir l'espace"
 
@@ -382,7 +382,7 @@ msgstr "Aucun forum trouvé"
 
 #: core/integrations/sure-members.php:38
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "SureMembers Integration"
 msgstr "Intégration SureMembers"
 
@@ -420,17 +420,17 @@ msgstr "Mise à jour réussie."
 #: core/routers/backend.php:474
 #: core/routers/backend.php:516
 #: core/routers/backend.php:1014
-#: core/routers/backend.php:1085
-#: core/routers/backend.php:1109
-#: core/routers/backend.php:1308
-#: core/routers/backend.php:2516
+#: core/routers/backend.php:1121
+#: core/routers/backend.php:1145
+#: core/routers/backend.php:1344
+#: core/routers/backend.php:2552
 msgid "Invalid post ID."
 msgstr "ID de publication invalide."
 
 #: core/routers/backend.php:489
 #: core/routers/backend.php:595
 #: core/routers/backend.php:729
-#: core/routers/backend.php:1400
+#: core/routers/backend.php:1436
 msgid "Successfully deleted."
 msgstr "Supprimé avec succès."
 
@@ -438,28 +438,28 @@ msgstr "Supprimé avec succès."
 msgid "Invalid object or term ID."
 msgstr "ID d'objet ou de terme invalide."
 
-#: core/routers/backend.php:1147
+#: core/routers/backend.php:1183
 msgid "No store categories found."
 msgstr "Aucune catégorie de magasin trouvée."
 
-#: core/routers/backend.php:1196
+#: core/routers/backend.php:1232
 msgid "Category Invalid."
 msgstr "Catégorie invalide."
 
-#: core/routers/backend.php:1200
+#: core/routers/backend.php:1236
 msgid "Content Group -"
 msgstr "Groupe de contenu -"
 
-#: core/routers/backend.php:1200
+#: core/routers/backend.php:1236
 msgid "Topic Forum -"
 msgstr "Forum de discussion -"
 
-#: core/routers/backend.php:1269
+#: core/routers/backend.php:1305
 #: inc/modules/mcp/module.php:184
 msgid "Invalid settings data."
 msgstr "Données de paramètres invalides."
 
-#: core/routers/backend.php:1276
+#: core/routers/backend.php:1312
 msgid "Settings saved successfully."
 msgstr "Paramètres enregistrés avec succès."
 
@@ -569,9 +569,9 @@ msgstr "Marquer tout comme lu"
 
 #: core/shortcodes/home-content.php:809
 #: core/shortcodes/home-content.php:810
-#: inc/functions/functions.php:2058
-#: inc/functions/functions.php:2064
-#: inc/functions/functions.php:2070
+#: inc/functions/functions.php:2131
+#: inc/functions/functions.php:2137
+#: inc/functions/functions.php:2143
 msgid "Enter"
 msgstr "Entrer"
 
@@ -591,12 +591,12 @@ msgstr "La recherche doit comporter au moins 3 caractères."
 
 #: core/shortcodes/search.php:57
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Search"
 msgstr "Recherche"
 
 #: core/shortcodes/user-profile.php:164
-#: inc/functions/functions.php:2881
+#: inc/functions/functions.php:2954
 msgid "Guest User"
 msgstr "Utilisateur invité"
 
@@ -619,36 +619,36 @@ msgstr "Nom d'utilisateur :"
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "Si c'était une erreur, ignorez simplement cet e-mail et rien ne se passera."
 
-#: inc/functions/functions.php:801
-#: inc/functions/functions.php:2532
+#: inc/functions/functions.php:807
+#: inc/functions/functions.php:2605
 #: assets/build/portals-app.js:10
 msgid "Just now"
 msgstr "À l'instant"
 
-#: inc/functions/functions.php:882
+#: inc/functions/functions.php:888
 msgid "Pingback:"
 msgstr "Rétroaction :"
 
-#: inc/functions/functions.php:882
+#: inc/functions/functions.php:888
 msgid "(Edit)"
 msgstr "(Modifier)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:895
+#: inc/functions/functions.php:901
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: inc/functions/functions.php:972
-#: inc/functions/functions.php:973
+#: inc/functions/functions.php:978
+#: inc/functions/functions.php:979
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: inc/functions/functions.php:1012
+#: inc/functions/functions.php:1018
 msgid "Reply"
 msgstr "Répondre"
 
-#: inc/functions/markup.php:738
+#: inc/functions/markup.php:777
 #: inc/utils/helper.php:1779
 #: inc/utils/labels.php:57
 msgid "Like"
@@ -656,9 +656,9 @@ msgid_plural "Likes"
 msgstr[0] "Aimer"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1613
+#: inc/functions/functions.php:1686
 #: assets/build/portals-app.js:19
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -670,7 +670,7 @@ msgstr "Cliquez pour télécharger ou glisser-déposer"
 msgid "Allowed file formats:"
 msgstr "Formats de fichiers autorisés :"
 
-#: inc/functions/markup.php:756
+#: inc/functions/markup.php:795
 #: inc/utils/helper.php:1807
 msgid "Comment"
 msgid_plural "Comments"
@@ -720,8 +720,8 @@ msgstr "Tous"
 msgid "Share Post"
 msgstr "Partager la publication"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Copied!"
 msgstr "Copié !"
 
@@ -751,7 +751,7 @@ msgstr "Retour à"
 
 #: core/shortcodes/home-content.php:1082
 #: inc/utils/labels.php:44
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Portal"
 msgstr "Portail"
 
@@ -768,8 +768,8 @@ msgid "Portal Items"
 msgstr "Éléments du portail"
 
 #: inc/utils/labels.php:55
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
 msgid "User Profile"
 msgstr "Profil utilisateur"
 
@@ -778,9 +778,9 @@ msgstr "Profil utilisateur"
 #: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:31
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:52
 msgid "Posts"
 msgstr "Articles"
 
@@ -798,14 +798,14 @@ msgstr "Aime"
 #: inc/services/search/search-response-builder.php:127
 #: inc/utils/labels.php:60
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
 msgid "Comments"
 msgstr "Commentaires"
 
 #: inc/utils/labels.php:62
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No comments yet."
 msgstr "Pas encore de commentaires."
 
@@ -840,8 +840,8 @@ msgstr "Nom d'utilisateur"
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:2
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
 msgid "Email"
 msgstr "Email"
 
@@ -868,10 +868,10 @@ msgstr "Description"
 
 #: inc/utils/labels.php:84
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:55
 msgid "Save"
 msgstr "Sauvegarder"
 
@@ -921,7 +921,7 @@ msgid "Data is insufficient."
 msgstr "Les données sont insuffisantes."
 
 #: inc/utils/labels.php:105
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Course Playlist"
 msgstr "Liste de lecture du cours"
 
@@ -937,7 +937,8 @@ msgstr "Si vous voulez vendre des produits en ligne, vous avez besoin d'un enton
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
 msgid "Course"
 msgstr "Cours"
 
@@ -946,20 +947,21 @@ msgid "Courses"
 msgstr "Cours"
 
 #: inc/utils/labels.php:109
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Lesson"
 msgstr "Leçon"
 
 #: inc/services/search/search-response-builder.php:129
 #: inc/utils/labels.php:110
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
 msgid "Lessons"
 msgstr "Leçons"
 
 #: inc/utils/labels.php:114
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Title"
 msgstr "Titre"
 
@@ -973,13 +975,14 @@ msgstr "Voir plus"
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Cancel"
 msgstr "Annuler"
 
 #: inc/utils/labels.php:126
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Course Progress"
 msgstr "Progression du cours"
 
@@ -1015,8 +1018,8 @@ msgstr "Le contenu sera disponible en"
 #: inc/utils/helper.php:2935
 #: inc/utils/labels.php:143
 #: assets/build/portals-app.js:1
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:52
 msgid "Notifications"
 msgstr "Notifications"
 
@@ -1067,7 +1070,7 @@ msgstr "Publication désapprouvée avec succès."
 
 #: inc/utils/labels.php:179
 #: inc/utils/settings.php:308
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Restricted Content"
 msgstr "Contenu restreint"
 
@@ -1076,26 +1079,26 @@ msgid "This content is restricted and can only be accessed by authorized users."
 msgstr "Ce contenu est restreint et ne peut être consulté que par des utilisateurs autorisés."
 
 #: inc/utils/post-meta.php:112
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Untitled Section"
 msgstr "Section sans titre"
 
 #: inc/utils/settings.php:276
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Your Bookmarks"
 msgstr "Vos favoris"
 
 #: inc/utils/settings.php:280
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Profile Information"
 msgstr "Informations du profil"
 
 #: inc/utils/settings.php:284
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Pinned Post"
 msgstr "Publication épinglée"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Back to Course"
 msgstr "Retour au cours"
 
@@ -1137,8 +1140,8 @@ msgstr "Ajouter aux favoris"
 #: core/routers/onboarding.php:556
 #: core/routers/onboarding.php:559
 #: assets/build/editor-app.js:1
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "General"
 msgstr "Général"
 
@@ -1150,7 +1153,7 @@ msgstr "Style"
 
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Advanced"
 msgstr "Avancé"
 
@@ -1182,8 +1185,8 @@ msgstr "Facebook"
 
 #: core/shortcodes/home-content.php:983
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:55
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -1196,7 +1199,7 @@ msgstr "Bibliothèque d'icônes"
 #: inc/utils/labels.php:119
 #: templates/quick-view/post.php:137
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Close"
 msgstr "Fermer"
 
@@ -1246,8 +1249,8 @@ msgid "Required"
 msgstr "Requis"
 
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
 msgid "Name"
 msgstr "Nom"
 
@@ -1295,7 +1298,7 @@ msgstr "Marge"
 
 #: assets/build/editor-app.js:4
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Default"
 msgstr "Par défaut"
 
@@ -1309,7 +1312,7 @@ msgid "VW"
 msgstr "VW"
 
 #: assets/build/editor-app.js:4
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Font Family"
 msgstr "Famille de polices"
 
@@ -1362,7 +1365,7 @@ msgstr "Décoration"
 
 #: assets/build/editor-app.js:4
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "None"
 msgstr "Aucun"
 
@@ -1401,13 +1404,13 @@ msgid "Left"
 msgstr "Gauche"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:24
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:34
+#: assets/build/portals-app.js:41
 msgid "Clear"
 msgstr "Effacer"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select Color"
 msgstr "Sélectionner la couleur"
 
@@ -1420,7 +1423,7 @@ msgid "Radius"
 msgstr "Rayon"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Color"
 msgstr "Couleur"
 
@@ -1509,6 +1512,7 @@ msgid "Color 2"
 msgstr "Couleur 2"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:21
 msgid "Type"
 msgstr "Type"
 
@@ -1534,7 +1538,7 @@ msgstr "Angle"
 
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Confirm"
 msgstr "Confirmer"
 
@@ -1544,6 +1548,7 @@ msgstr "Traitement…"
 
 #: inc/services/search/search-comments-service.php:463
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:21
 msgid "Image"
 msgstr "Image"
 
@@ -1573,6 +1578,7 @@ msgstr "Modifier SVG"
 
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:21
 msgid "Select Image"
 msgstr "Sélectionner l'image"
 
@@ -1783,8 +1789,8 @@ msgstr "Encart (10px)"
 
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Search…"
 msgstr "Rechercher…"
 
@@ -1913,7 +1919,7 @@ msgid "Row Gap"
 msgstr "Écart entre les rangées"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Background"
 msgstr "Contexte"
 
@@ -1925,7 +1931,7 @@ msgstr "Étiquettes de champ"
 msgid "Typography"
 msgstr "Typographie"
 
-#: inc/functions/functions.php:2294
+#: inc/functions/functions.php:2367
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "Texte"
@@ -2091,9 +2097,9 @@ msgstr "Veuillez configurer les paramètres de l'application Facebook depuis"
 #: core/integrations/feeds.php:200
 #: core/integrations/feeds.php:321
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:55
 msgid "here"
 msgstr "ici"
 
@@ -2309,8 +2315,8 @@ msgstr "HTML pris en charge"
 
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:55
 msgid "Note:"
 msgstr "Remarque :"
 
@@ -2430,31 +2436,31 @@ msgstr "Inscrire"
 msgid "Already have an account?"
 msgstr "Vous avez déjà un compte ?"
 
-#: assets/build/portals-app.js:31
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:46
+#: assets/build/portals-app.js:55
 msgid "What's New?"
 msgstr "Quoi de neuf ?"
 
 #: admin/menu.php:214
 #: core/renderer.php:241
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
 #. translators: %s is the version number.
 #. translators: %s is the pro_version number.
-#: assets/build/portals-app.js:34
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:49
+#: assets/build/portals-app.js:52
 #, js-format
 msgid "V %s"
 msgstr "V %s"
 
 #: core/shortcodes/single-content.php:394
-#: inc/functions/functions.php:948
+#: inc/functions/functions.php:954
 #: templates/single/post.php:166
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Edit"
 msgstr "Modifier"
 
@@ -2474,14 +2480,16 @@ msgstr "Statut de l'espace"
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:44
 msgid "Draft"
 msgstr "Brouillon"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Publish"
 msgstr "Publier"
 
@@ -2489,19 +2497,15 @@ msgstr "Publier"
 msgid "Enabling this will allow viewers to comment on this space."
 msgstr "Activer cette option permettra aux spectateurs de commenter cet espace."
 
-#: assets/build/portals-app.js:25
-msgid "Add Lesson"
-msgstr "Ajouter une leçon"
-
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "You need to delete the lessons in this section first."
 msgstr "Vous devez d'abord supprimer les leçons dans cette section."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to remove this section?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette section ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "You can not remove the last section."
 msgstr "Vous ne pouvez pas supprimer la dernière section."
 
@@ -2509,11 +2513,11 @@ msgstr "Vous ne pouvez pas supprimer la dernière section."
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Remove"
 msgstr "Supprimer"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Delete Lesson"
 msgstr "Supprimer la leçon"
 
@@ -2531,11 +2535,11 @@ msgid "Excerpt"
 msgstr "Extrait"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Full Width"
 msgstr "Pleine largeur"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Narrow Width"
 msgstr "Petite largeur"
 
@@ -2544,41 +2548,41 @@ msgid "Space Group Name"
 msgstr "Nom du groupe d'espace"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:55
 msgid "Saving…"
 msgstr "Enregistrement…"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:55
 msgid "Saved"
 msgstr "Enregistré"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Settings Saved Successfully!"
 msgstr "Paramètres enregistrés avec succès !"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:55
 msgid "Failed to Save."
 msgstr "Échec de l'enregistrement."
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:55
 msgid "Error updating settings: "
 msgstr "Erreur lors de la mise à jour des paramètres :"
 
 #: core/shortcodes/single-content.php:399
-#: inc/functions/functions.php:953
+#: inc/functions/functions.php:959
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -2600,7 +2604,7 @@ msgstr "Retour"
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Continue"
 msgstr "Continuer"
 
@@ -2613,7 +2617,7 @@ msgstr "Publier"
 #: inc/services/search/search-posts-service.php:502
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Event"
 msgstr "Événement"
 
@@ -2629,230 +2633,230 @@ msgstr "Titre de l'espace"
 msgid "Create Space"
 msgstr "Créer un espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enabling this will hide the SureDash branding from the public."
 msgstr "Activer cette option masquera la marque SureDash du public."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "This feature is only available in SureDash Pro."
 msgstr "Cette fonctionnalité est uniquement disponible dans SureDash Pro."
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Portal Name"
 msgstr "Nom du portail"
 
-#: inc/functions/functions.php:2291
+#: inc/functions/functions.php:2364
 msgid "Branding"
 msgstr "Image de marque"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Make Community Private"
 msgstr "Rendre la communauté privée"
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enabling this will hide the community from the public and require a login to view."
 msgstr "L'activation de cette option masquera la communauté du public et nécessitera une connexion pour la visualiser."
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Set Portal as Homepage"
 msgstr "Définir Portal comme page d'accueil"
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enabling this option will set the portal as your site homepage."
 msgstr "Activer cette option définira le portail comme page d'accueil de votre site."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable Lightbox"
 msgstr "Activer la Lightbox"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enabling this will allow lightweight lightbox for your content images."
 msgstr "Activer cette option permettra une lightbox légère pour les images de votre contenu."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Facebook Token ID"
 msgstr "ID de jeton Facebook"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Facebook Token Secret"
 msgstr "Secret du jeton Facebook"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Google reCaptcha"
 msgstr "Google reCaptcha"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Select Login Page"
 msgstr "Sélectionner la page de connexion"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Select Registration Page"
 msgstr "Sélectionner la page d'inscription"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No fonts found!"
 msgstr "Aucune police trouvée !"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
 msgstr "Entrez au moins 3 caractères pour rechercher une famille de polices (par défaut : Figtree). La génération de polices peut prendre quelques instants pour l'auto-hébergement."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Global Container Type"
 msgstr "Type de conteneur global"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Narrow Container Width"
 msgstr "Largeur de conteneur étroite"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Course Container Width"
 msgstr "Largeur du conteneur de cours"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Container Spacing"
 msgstr "Espacement du conteneur"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Global"
 msgstr "Global"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Secondary color is used as secondary purposes under the portal."
 msgstr "La couleur secondaire est utilisée à des fins secondaires sous le portail."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Content background color is for mainly content background color of the portal."
 msgstr "La couleur de fond du contenu est principalement destinée à la couleur de fond du contenu du portail."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Profile Links:"
 msgstr "Liens de profil :"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add Link"
 msgstr "Ajouter un lien"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Delete Link"
 msgstr "Supprimer le lien"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Start typing…"
 msgstr "Commencez à taper…"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Displays the username."
 msgstr "Affiche le nom d'utilisateur."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "From Email"
 msgstr "De l'email"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Forgot Password Mail Message"
 msgstr "Message de réinitialisation de mot de passe oublié"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Welcome Text"
 msgstr "Texte de bienvenue"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No Posts Found"
 msgstr "Aucun message trouvé"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Mark as Complete"
 msgstr "Marquer comme terminé"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Start Writing Your Post"
 msgstr "Commencez à rédiger votre publication"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Write a Post"
 msgstr "Écrire un message"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Bypass WordPress Interactions"
 msgstr "Contourner les interactions WordPress"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enabling this option will bypass WordPress interactions within the portal and improve performance."
 msgstr "L'activation de cette option contournera les interactions avec WordPress dans le portail et améliorera les performances."
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Activate"
 msgstr "Activer"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Deactivate"
 msgstr "Désactiver"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Your license is activated"
 msgstr "Votre licence est activée"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Paste your license key here"
 msgstr "Collez votre clé de licence ici"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "You are using"
 msgstr "Vous utilisez"
 
 #. translators: %1$s: first anchor tag start, %2$s: first anchor tag end, %3$s second anchor tag start, %4$s second anchor tag end, %5$s: break tag, %6$s: plugin name.
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 #, js-format
 msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
 msgstr "Activez %1$s%6$s%2$s pour obtenir un support professionnel et des mises à jour automatiques depuis votre tableau de bord WordPress. Si vous n'avez pas de licence, vous pouvez %3$sl'obtenir ici »%4$s %5$sVeuillez entrer votre clé de licence ci-dessous pour activer %6$s !"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Deactivating"
 msgstr "Désactivation"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Deactivated"
 msgstr "Désactivé"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Please enter a license key"
 msgstr "Veuillez entrer une clé de licence"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Activating"
 msgstr "Activation"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Activated"
 msgstr "Activé"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Text Labels"
 msgstr "Étiquettes de texte"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Layout"
 msgstr "Mise en page"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Colors"
 msgstr "Couleurs"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Licensing"
 msgstr "Licences"
 
@@ -2868,15 +2872,15 @@ msgstr "Autorisation invalide"
 
 #: core/routers/backend.php:480
 #: core/routers/backend.php:522
-#: core/routers/backend.php:1298
-#: core/routers/backend.php:2522
+#: core/routers/backend.php:1334
+#: core/routers/backend.php:2558
 msgid "Invalid post type."
 msgstr "Type de publication invalide."
 
 #: admin/menu.php:199
 #: admin/menu.php:200
 #: inc/modules/learn/chapters.php:127
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Customize Portal"
 msgstr "Personnaliser le portail"
 
@@ -2949,7 +2953,7 @@ msgstr "Le fichier téléchargé n'est pas une image valide."
 msgid "File size larger than permissible."
 msgstr "Taille du fichier supérieure à la limite autorisée."
 
-#: inc/functions/functions.php:1712
+#: inc/functions/functions.php:1785
 msgid "No matching template found."
 msgstr "Aucun modèle correspondant trouvé."
 
@@ -3024,8 +3028,8 @@ msgstr "Image miniature"
 #: admin/menu.php:159
 #: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:52
 msgid "Spaces"
 msgstr "Espaces"
 
@@ -3116,7 +3120,7 @@ msgid "Forums"
 msgstr "Forums"
 
 #: core/cpt/posts.php:88
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Forum"
 msgstr "Forum"
 
@@ -3170,59 +3174,59 @@ msgstr "Groupe d'accès :"
 msgid "Forum:"
 msgstr "Forum :"
 
-#: core/routers/backend.php:1302
+#: core/routers/backend.php:1338
 msgid "Invalid action or post ID."
 msgstr "Action ou ID de post invalide."
 
-#: core/routers/backend.php:1370
+#: core/routers/backend.php:1406
 msgid "Successfully published."
 msgstr "Publié avec succès."
 
-#: core/routers/backend.php:1371
+#: core/routers/backend.php:1407
 msgid "Failed to publish."
 msgstr "Échec de la publication."
 
-#: core/routers/backend.php:1380
+#: core/routers/backend.php:1416
 msgid "Successfully drafted."
 msgstr "Brouillon enregistré avec succès."
 
-#: core/routers/backend.php:1381
+#: core/routers/backend.php:1417
 msgid "Failed to draft."
 msgstr "Échec de l'enregistrement du brouillon."
 
-#: core/routers/backend.php:1390
+#: core/routers/backend.php:1426
 msgid "Successfully trashed."
 msgstr "Corbeille enregistrée avec succès."
 
-#: core/routers/backend.php:1391
+#: core/routers/backend.php:1427
 msgid "Failed to trash."
 msgstr "Échec de la mise à la corbeille."
 
-#: core/routers/backend.php:1395
+#: core/routers/backend.php:1431
 msgid "Successfully restored."
 msgstr "Restauration réussie."
 
-#: core/routers/backend.php:1396
+#: core/routers/backend.php:1432
 msgid "Failed to restore."
 msgstr "Échec de la restauration."
 
-#: core/routers/backend.php:1401
+#: core/routers/backend.php:1437
 msgid "Failed to delete."
 msgstr "Échec de la suppression."
 
-#: core/routers/backend.php:1405
+#: core/routers/backend.php:1441
 msgid "Successfully duplicated."
 msgstr "Dupliqué avec succès."
 
-#: core/routers/backend.php:1406
+#: core/routers/backend.php:1442
 msgid "Failed to duplicate."
 msgstr "Échec de la duplication."
 
-#: core/routers/backend.php:1769
+#: core/routers/backend.php:1805
 msgid "Invalid action or post IDs."
 msgstr "Action ou ID de post invalide."
 
-#: core/routers/backend.php:1810
+#: core/routers/backend.php:1846
 msgid "Bulk action completed successfully."
 msgstr "Action groupée complétée avec succès."
 
@@ -3291,7 +3295,7 @@ msgstr "Aucun post trouvé, créez-en un nouveau !"
 #: inc/utils/helper.php:2927
 #: inc/utils/settings.php:332
 #: assets/build/portals-app.js:1
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Bookmarks"
 msgstr "Signets"
 
@@ -3311,11 +3315,11 @@ msgstr "Popup vidéo"
 msgid "Make this a private community"
 msgstr "Faire de ceci une communauté privée"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable Feeds"
 msgstr "Activer les flux"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable this to add a \"Feeds\" page where your community can see all the latest posts."
 msgstr "Activez ceci pour ajouter une page \"Flux\" où votre communauté peut voir tous les derniers posts."
 
@@ -3421,7 +3425,7 @@ msgstr "Ouvrir le lien dans un nouvel onglet"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Single Page/Post"
 msgstr "Page/Post unique"
 
@@ -3445,13 +3449,13 @@ msgstr "Playlist vidéo"
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Collection"
 msgstr "Collection"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Premium"
 msgstr "Premium"
 
@@ -3464,12 +3468,12 @@ msgid "Space Content Type"
 msgstr "Type de contenu de l'espace"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add Space"
 msgstr "Ajouter un espace"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No Date"
 msgstr "Pas de date"
 
@@ -3495,7 +3499,7 @@ msgstr "Appliquer"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Free"
 msgstr "Gratuit"
 
@@ -3508,29 +3512,29 @@ msgid "Launch powerful forms in minutes!"
 msgstr "Lancez des formulaires puissants en quelques minutes !"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "SureCart"
 msgstr "SureCart"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "The new way to sell on WordPress."
 msgstr "La nouvelle façon de vendre sur WordPress."
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Automate your WordPress setup."
 msgstr "Automatisez votre configuration WordPress."
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "SureMembers"
 msgstr "SureMembers"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Membership tiers and content protection."
 msgstr "Niveaux d'adhésion et protection du contenu."
 
@@ -3547,13 +3551,13 @@ msgid "Quick Access"
 msgstr "Accès rapide"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Another plugin operation is in progress. Please wait."
 msgstr "Une autre opération de plugin est en cours. Veuillez patienter."
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Install & Activate"
 msgstr "Installer et activer"
 
@@ -3623,7 +3627,7 @@ msgid "Delete Space Group?"
 msgstr "Supprimer le groupe d'espaces ?"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to delete this space?"
 msgstr "Êtes-vous sûr de vouloir supprimer cet espace ?"
 
@@ -3648,7 +3652,7 @@ msgid "Your spaces will be displayed here"
 msgstr "Vos espaces seront affichés ici"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add New Space"
 msgstr "Ajouter un nouvel espace"
 
@@ -3663,25 +3667,26 @@ msgstr "Veuillez définir ce type"
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:44
 msgid "Published"
 msgstr "Publié"
 
 #: inc/functions/markup.php:199
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Access Group"
 msgstr "Groupe d'accès"
 
 #: core/assets.php:291
-#: core/integrations/feeds.php:593
-#: core/integrations/feeds.php:640
+#: core/integrations/feeds.php:591
+#: core/integrations/feeds.php:636
 #: core/routers/misc.php:376
 #: core/routers/misc.php:428
 #: core/shortcodes/home-content.php:751
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View"
 msgstr "Voir"
 
@@ -3701,15 +3706,15 @@ msgstr "Supprimer l'espace"
 msgid "Save to Draft"
 msgstr "Enregistrer comme brouillon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Unsaved Changes"
 msgstr "Modifications non enregistrées"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Leave"
 msgstr "Quitter"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Stay"
 msgstr "Rester"
 
@@ -3753,277 +3758,275 @@ msgstr "Activer cela permettra aux membres de publier pour créer une zone de di
 msgid "Gain complete control over who can access this space with SureMembers."
 msgstr "Obtenez un contrôle total sur qui peut accéder à cet espace avec SureMembers."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure?"
 msgstr "Êtes-vous sûr ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to proceed?"
 msgstr "Êtes-vous sûr de vouloir continuer ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "All Status"
 msgstr "Tous les statuts"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate"
 msgstr "Dupliquer"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Save as Draft"
 msgstr "Enregistrer comme brouillon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Mark as Publish"
 msgstr "Marquer comme publié"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Move to Trash"
 msgstr "Déplacer vers la corbeille"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Delete Permanently"
 msgstr "Supprimer définitivement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Restore"
 msgstr "Restaurer"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "All Author"
 msgstr "Tous les auteurs"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "All Group"
 msgstr "Tous les groupes"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Your community posts will be displayed here."
 msgstr "Vos publications communautaires seront affichées ici."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Trashed"
 msgstr "Corbeille"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Pending Review"
 msgstr "En attente de révision"
 
 #: inc/functions/markup.php:575
-#: inc/functions/markup.php:627
-#: assets/build/portals-app.js:25
+#: inc/functions/markup.php:640
+#: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "Privé"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No matching content."
 msgstr "Aucun contenu correspondant."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Try a different search term or filter."
 msgstr "Essayez un terme de recherche ou un filtre différent."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate?"
 msgstr "Dupliquer ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to duplicate this post?"
 msgstr "Êtes-vous sûr de vouloir dupliquer ce post ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Save as Draft?"
 msgstr "Enregistrer comme brouillon ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to mark this post as a draft?"
 msgstr "Êtes-vous sûr de vouloir marquer ce post comme brouillon ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Publish?"
 msgstr "Publier ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to publish this post?"
 msgstr "Êtes-vous sûr de vouloir publier ce post ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Move to Trash?"
 msgstr "Déplacer vers la corbeille ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to move this post to the trash?"
 msgstr "Êtes-vous sûr de vouloir déplacer ce post vers la corbeille ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Delete?"
 msgstr "Supprimer ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to delete this post?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce post ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Restore?"
 msgstr "Restaurer ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to restore this post?"
 msgstr "Êtes-vous sûr de vouloir restaurer ce post ?"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Are you sure you want to delete these posts?"
 msgstr "Êtes-vous sûr de vouloir supprimer ces posts ?"
 
-#: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:38
 msgid "Bulk actions: "
 msgstr "Actions groupées :"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:31
 msgid "posts selected"
 msgstr "posts sélectionnés"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Performance Tip:"
 msgstr "Astuce de performance :"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Want your posts/discussion space to load quicker on the frontend? Use WordPress default blocks and go easy on the heavy custom ones."
 msgstr "Vous voulez que vos posts/espace de discussion se chargent plus rapidement sur le frontend ? Utilisez les blocs par défaut de WordPress et évitez les blocs personnalisés lourds."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "New Post"
 msgstr "Nouveau post"
 
-#: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:38
 msgid "Filters: "
 msgstr "Filtres :"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:45
 msgid "Status"
 msgstr "Statut"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Author"
 msgstr "Auteur"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "You can assign a post to a forum from the post editor."
 msgstr "Vous pouvez assigner un post à un forum depuis l'éditeur de post."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Remove Section"
 msgstr "Supprimer la section"
 
-#: assets/build/portals-app.js:25
-msgid "Remove Lesson"
-msgstr "Supprimer la leçon"
-
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Course Space is only available in Pro version"
 msgstr "L'espace de cours n'est disponible que dans la version Pro"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "To customize the Course Space, please upgrade to the Pro version."
 msgstr "Pour personnaliser l'espace de cours, veuillez passer à la version Pro."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Course Lessons"
 msgstr "Leçons de cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "New Section"
 msgstr "Nouvelle section"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Google Token ID"
 msgstr "ID de jeton Google"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Google Token Secret"
 msgstr "Secret de jeton Google"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No results found"
 msgstr "Aucun résultat trouvé"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No Discussion Found"
 msgstr "Aucune discussion trouvée"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Giphy API Key"
 msgstr "Clé API Giphy"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Performance"
 msgstr "Performance"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Profile Menu"
 msgstr "Menu de profil"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "User Roles"
 msgstr "Rôles d'utilisateur"
 
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Knowledge base"
 msgstr "Base de connaissances"
 
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Support ticket"
 msgstr "Ticket de support"
 
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Video tutorials"
 msgstr "Tutoriels vidéo"
 
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Incompatible Core Version"
 msgstr "Version de noyau incompatible"
 
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Core"
 msgstr "Noyau"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Normal Width"
 msgstr "Largeur normale"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Global Container Style"
 msgstr "Style de conteneur global"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Boxed"
 msgstr "Encadré"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Unboxed"
 msgstr "Non encadré"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Normal Container Width"
 msgstr "Largeur normale du conteneur"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Design Settings"
 msgstr "Paramètres de conception"
 
 #: admin/menu.php:174
 #: admin/menu.php:175
 #: core/renderer.php:277
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:52
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -4097,24 +4100,24 @@ msgstr "Aller à la page Tous les articles"
 msgid "Go to Settings Page"
 msgstr "Aller à la page des paramètres"
 
-#: core/routers/backend.php:1314
+#: core/routers/backend.php:1350
 msgid "Failed to update."
 msgstr "Échec de la mise à jour."
 
-#: core/routers/backend.php:2532
+#: core/routers/backend.php:2568
 msgid "Comments status updated to closed."
 msgstr "Statut des commentaires mis à jour en fermé."
 
-#: core/routers/backend.php:2540
+#: core/routers/backend.php:2576
 msgid "Comments status updated to open."
 msgstr "Statut des commentaires mis à jour pour ouvert."
 
-#: core/routers/backend.php:2909
-#: assets/build/portals-app.js:31
+#: core/routers/backend.php:2945
+#: assets/build/portals-app.js:41
 msgid "(no title)"
 msgstr "(pas de titre)"
 
-#: core/routers/backend.php:2971
+#: core/routers/backend.php:3007
 msgid "Unknown post"
 msgstr "Publication inconnue"
 
@@ -4140,7 +4143,7 @@ msgid "Visit Space"
 msgstr "Visiter l'espace"
 
 #: core/shortcodes/home-content.php:178
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resume Course"
 msgstr "Reprendre le cours"
 
@@ -4149,7 +4152,7 @@ msgid "View Discussion"
 msgstr "Voir la discussion"
 
 #. translators: %s: Space group name
-#: core/shortcodes/navigation.php:160
+#: core/shortcodes/navigation.php:179
 #, php-format
 msgid "Toggle %s group"
 msgstr "Basculer le groupe %s"
@@ -4239,189 +4242,185 @@ msgstr "Cette description apparaît dans la vue en grille de la page d'accueil. 
 msgid "WordPress Post/Page"
 msgstr "Article/Page WordPress"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "Search posts…"
 msgstr "Rechercher des publications…"
 
 #. translators: %d is the number of posts per page.
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 #, js-format
 msgid "%d Posts per page"
 msgstr "%d Publications par page"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "10 Posts per page"
 msgstr "10 publications par page"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "25 Posts per page"
 msgstr "25 publications par page"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "50 Posts per page"
 msgstr "50 publications par page"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "75 Posts per page"
 msgstr "75 publications par page"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "100 Posts per page"
 msgstr "100 publications par page"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable to keep comment status open. Disable to close comments."
 msgstr "Activer pour garder le statut des commentaires ouvert. Désactiver pour fermer les commentaires."
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
 msgid "of"
 msgstr "de"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "items"
 msgstr "articles"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Edit Lesson"
 msgstr "Modifier la leçon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Comment status updated to closed."
 msgstr "Statut du commentaire mis à jour en fermé."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Comment status updated to open."
 msgstr "Statut du commentaire mis à jour en ouvert."
 
-#: assets/build/portals-app.js:25
-msgid "Are you sure you want to remove this lesson? It will be deleted when you save the space."
-msgstr "Êtes-vous sûr de vouloir supprimer cette leçon ? Elle sera supprimée lorsque vous enregistrerez l'espace."
-
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Site Key"
 msgstr "Clé du site"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Secret Key"
 msgstr "Clé secrète"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Google reCAPTCHA v2 Settings"
 msgstr "Paramètres de Google reCAPTCHA v2"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Google reCAPTCHA v3 Settings"
 msgstr "Paramètres de Google reCAPTCHA v3"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "To enable reCAPTCHA for your form, please follow the steps mentioned"
 msgstr "Pour activer reCAPTCHA pour votre formulaire, veuillez suivre les étapes mentionnées"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Feeds Page"
 msgstr "Page des flux"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "First Space"
 msgstr "Premier Espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Portal Homepage Displays"
 msgstr "Affichages de la page d'accueil du portail"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Newly registered users will be assigned the capabilities of the selected user roles."
 msgstr "Les utilisateurs nouvellement enregistrés se verront attribuer les capacités des rôles d'utilisateur sélectionnés."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "SureDash User role is automatically included and cannot be removed."
 msgstr "Le rôle d'utilisateur SureDash est automatiquement inclus et ne peut pas être supprimé."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Feeds Label"
 msgstr "Étiquette des flux"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Login or Join Text"
 msgstr "Connexion ou Inscription Texte"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Recent Posts"
 msgstr "Articles récents"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Recent Comments"
 msgstr "Commentaires récents"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Search users…"
 msgstr "Rechercher des utilisateurs…"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No users found"
 msgstr "Aucun utilisateur trouvé"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Try adjusting your search or filter criteria"
 msgstr "Essayez de modifier vos critères de recherche ou de filtrage"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Users will appear here once they register on your site."
 msgstr "Les utilisateurs apparaîtront ici une fois qu'ils se seront inscrits sur votre site."
 
 #. translators: %d is the number of users per page.
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 #, js-format
 msgid "%d Users per page"
 msgstr "%d utilisateurs par page"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "10 per page"
 msgstr "10 par page"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "25 per page"
 msgstr "25 par page"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "50 per page"
 msgstr "50 par page"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "75 per page"
 msgstr "75 par page"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "100 per page"
 msgstr "100 par page"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "users"
 msgstr "utilisateurs"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No posts created yet."
 msgstr "Aucun message créé pour le moment."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Commented"
 msgstr "Commenté"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "on"
 msgstr "sur"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No comments posted yet."
 msgstr "Aucun commentaire publié pour le moment."
 
 #. translators: %s is the pro plugin name.
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 #, js-format
 msgid "Incompatible %s Version"
 msgstr "Version %s incompatible"
@@ -4449,24 +4448,24 @@ msgid "CAPTCHA Type"
 msgstr "Type de CAPTCHA"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Appearance"
 msgstr "Apparence"
 
 #: core/blocks/interactivity/build/Switcher/view.php:33
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Dark"
 msgstr "Sombre"
 
 #: core/blocks/interactivity/build/Switcher/view.php:32
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Light"
 msgstr "Clair"
 
@@ -4481,28 +4480,28 @@ msgstr "Élevez votre vidéo et impressionnez votre public avec une expérience 
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Learn More"
 msgstr "En savoir plus"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Published on"
 msgstr "Publié le"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "To enable Cloudflare Turnstile for your form, please follow the steps mentioned"
 msgstr "Pour activer Cloudflare Turnstile pour votre formulaire, veuillez suivre les étapes mentionnées"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "To enable Facebook login and registration for your form, please follow the steps mentioned"
 msgstr "Pour activer la connexion et l'inscription Facebook pour votre formulaire, veuillez suivre les étapes mentionnées"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "To enable Google login and registration for your form, please follow the steps mentioned"
 msgstr "Pour activer la connexion et l'inscription Google pour votre formulaire, veuillez suivre les étapes mentionnées"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No Users Yet."
 msgstr "Aucun utilisateur pour l'instant."
 
@@ -4511,7 +4510,7 @@ msgid "Start Organizing: Drag Spaces Here or Add a New One"
 msgstr "Commencer à organiser : faites glisser des espaces ici ou ajoutez-en un nouveau"
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "WordPress General Settings."
 msgstr "les paramètres généraux de WordPress."
 
@@ -4628,16 +4627,16 @@ msgstr "La combinaison nom et type d'espace est disponible."
 msgid "Collection spaces are a premium feature. Please upgrade to SureDash Pro to create collection spaces."
 msgstr "Les espaces de collection sont une fonctionnalité premium. Veuillez passer à SureDash Pro pour créer des espaces de collection."
 
-#: core/routers/backend.php:2562
+#: core/routers/backend.php:2598
 msgid "Invalid post IDs."
 msgstr "Identifiants de publication invalides."
 
-#: core/routers/backend.php:2586
-#: assets/build/portals-app.js:25
+#: core/routers/backend.php:2622
+#: assets/build/portals-app.js:35
 msgid "Comments status updated."
 msgstr "Statut des commentaires mis à jour."
 
-#: core/routers/backend.php:3005
+#: core/routers/backend.php:3041
 msgid "No icons found."
 msgstr "Aucune icône trouvée."
 
@@ -4688,23 +4687,23 @@ msgid "Re-enter your new password"
 msgstr "Ressaisissez votre nouveau mot de passe"
 
 #: core/shortcodes/single-content.php:355
-#: inc/functions/functions.php:990
+#: inc/functions/functions.php:996
 #: templates/quick-view/post.php:83
 #: templates/single/post.php:103
 msgid "Edited"
 msgstr "Édité"
 
-#: inc/functions/functions.php:937
+#: inc/functions/functions.php:943
 msgid "Comment actions"
 msgstr "Actions sur les commentaires"
 
 #: core/shortcodes/single-content.php:404
-#: inc/functions/functions.php:957
+#: inc/functions/functions.php:963
 #: templates/single/post.php:176
 msgid "Copy URL"
 msgstr "Copier l'URL"
 
-#: inc/functions/functions.php:2077
+#: inc/functions/functions.php:2150
 msgid "Write a short bio about yourself..."
 msgstr "Écrivez une courte biographie sur vous..."
 
@@ -4714,21 +4713,21 @@ msgstr "Écrivez une courte biographie sur vous..."
 msgid "Discussion"
 msgstr "Discussion"
 
-#: inc/functions/markup.php:578
-#: inc/functions/markup.php:652
+#: inc/functions/markup.php:582
+#: inc/functions/markup.php:684
 msgid " lesson"
 msgid_plural " lessons"
 msgstr[0] "leçon"
 msgstr[1] ""
 
-#: inc/functions/markup.php:582
-#: inc/functions/markup.php:637
+#: inc/functions/markup.php:592
+#: inc/functions/markup.php:650
 msgid " thread"
 msgid_plural " threads"
 msgstr[0] "fil"
 msgstr[1] ""
 
-#: inc/functions/markup.php:857
+#: inc/functions/markup.php:897
 msgid "Options"
 msgstr "Options"
 
@@ -4775,7 +4774,7 @@ msgid "Page/Post"
 msgstr "Page/Publication"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Posts Discussion"
 msgstr "Discussion des publications"
 
@@ -4784,7 +4783,7 @@ msgid "Select Spaces"
 msgstr "Sélectionner des espaces"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Search spaces…"
 msgstr "Rechercher des espaces…"
 
@@ -4801,14 +4800,14 @@ msgid "No spaces available to add"
 msgstr "Aucun espace disponible à ajouter"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Untitled Space"
 msgstr "Espace sans titre"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Hidden"
 msgstr "Caché"
 
@@ -4821,7 +4820,7 @@ msgstr "Ajouter sélectionné"
 msgid "Space Icon"
 msgstr "Icône de l'espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Select Icon"
 msgstr "Sélectionner une icône"
 
@@ -4866,119 +4865,119 @@ msgstr "Masquer des résultats de recherche"
 msgid "Hides this hidden space from search block results."
 msgstr "Masque cet espace caché des résultats du bloc de recherche."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Just Now"
 msgstr "À l'instant"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Click the \"New Post\" button to create a new post."
 msgstr "Cliquez sur le bouton \"Nouvelle publication\" pour créer une nouvelle publication."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Unselect All"
 msgstr "Désélectionner tout"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Select All"
 msgstr "Sélectionner tout"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable Comments"
 msgstr "Activer les commentaires"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Disable Comments"
 msgstr "Désactiver les commentaires"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Space Name"
 msgstr "Nom de l'espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Space Type"
 msgstr "Type d'espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Remove from Collection"
 msgstr "Retirer de la collection"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Your collection spaces will be displayed here."
 msgstr "Vos espaces de collection seront affichés ici."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Collection Space is only available in Premium version"
 msgstr "L'espace de collection est uniquement disponible dans la version Premium"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "To customize the Collection Space, please upgrade to the Premium version."
 msgstr "Pour personnaliser l'espace de collection, veuillez passer à la version Premium."
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Or"
 msgstr "Ou"
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Override WordPress Registration Setting"
 msgstr "Remplacer les paramètres d'enregistrement WordPress"
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Allow users to register through SureDash even if the WordPress registration is disabled."
 msgstr "Permet aux utilisateurs de s'inscrire via SureDash même si l'enregistrement WordPress est désactivé."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Lesson Upcoming"
 msgstr "Leçon à venir"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Lesson Completed"
 msgstr "Leçon terminée"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Collection Space"
 msgstr "Espace de collection"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "For best results, keep the label under 20 characters."
 msgstr "Pour de meilleurs résultats, gardez l'étiquette sous 20 caractères."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Unlock Space"
 msgstr "Déverrouiller l'espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Start Course"
 msgstr "Commencer le cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Join Discussion"
 msgstr "Rejoindre la discussion"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Continue Course"
 msgstr "Continuer le cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Visit Link"
 msgstr "Visiter le lien"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "User Roles: "
 msgstr "Rôles d'utilisateur :"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Select roles…"
 msgstr "Sélectionner des rôles…"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Search roles…"
 msgstr "Rechercher des rôles…"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Role"
 msgstr "Rôle"
 
@@ -4999,7 +4998,6 @@ msgid "Password Field"
 msgstr "Champ de mot de passe"
 
 #: admin/editor.php:172
-#: assets/build/portals-app.js:13
 msgid "Lesson Duration (in minutes)"
 msgstr "Durée de la leçon (en minutes)"
 
@@ -5018,17 +5016,17 @@ msgstr "Passer à %s"
 #: core/shortcodes/endpoint-navigation.php:93
 #: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:1
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resources"
 msgstr "Ressources"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:814
+#: inc/functions/markup.php:853
 msgid "Remove bookmark"
 msgstr "Supprimer le signet"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:814
+#: inc/functions/markup.php:853
 msgid "Add bookmark"
 msgstr "Ajouter un signet"
 
@@ -5040,39 +5038,39 @@ msgstr "L'espace de ressources est disponible dans la version premium de SureDas
 msgid "To reset your password, visit the following URL:"
 msgstr "Pour réinitialiser votre mot de passe, visitez l'URL suivante :"
 
-#: inc/functions/functions.php:2292
-#: assets/build/portals-app.js:40
+#: inc/functions/functions.php:2365
+#: assets/build/portals-app.js:55
 msgid "Links"
 msgstr "Liens"
 
-#: inc/functions/functions.php:2293
+#: inc/functions/functions.php:2366
 msgid "Headings"
 msgstr "Titres"
 
-#: inc/functions/functions.php:2295
-#: assets/build/portals-app.js:40
+#: inc/functions/functions.php:2368
+#: assets/build/portals-app.js:55
 msgid "Content Background"
 msgstr "Fond de contenu"
 
-#: inc/functions/functions.php:2296
-#: assets/build/portals-app.js:40
+#: inc/functions/functions.php:2369
+#: assets/build/portals-app.js:55
 msgid "Portal Background"
 msgstr "Fond du portail"
 
-#: inc/functions/functions.php:2297
+#: inc/functions/functions.php:2370
 msgid "Alternate Background"
 msgstr "Fond alternatif"
 
-#: inc/functions/functions.php:2298
+#: inc/functions/functions.php:2371
 msgid "Subtle Background"
 msgstr "Fond subtil"
 
-#: inc/functions/functions.php:2299
+#: inc/functions/functions.php:2372
 msgid "Other Supporting"
 msgstr "Autres supports"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2467
+#: inc/functions/functions.php:2540
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5080,7 +5078,7 @@ msgstr[0] "%1$d h %2$d min"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2471
+#: inc/functions/functions.php:2544
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5088,7 +5086,7 @@ msgstr[0] "%d h"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2475
+#: inc/functions/functions.php:2548
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
@@ -5101,16 +5099,16 @@ msgstr[1] ""
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:16
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resource Library"
 msgstr "Bibliothèque de ressources"
 
-#: inc/functions/markup.php:784
-#: assets/build/portals-app.js:31
+#: inc/functions/markup.php:823
+#: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "Visiter"
 
-#: inc/functions/markup.php:814
+#: inc/functions/markup.php:853
 msgid "Bookmark"
 msgstr "Signet"
 
@@ -5127,7 +5125,7 @@ msgid "Rate our plugin"
 msgstr "Évaluez notre plugin"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Upgrade now"
 msgstr "Mettez à niveau maintenant"
 
@@ -5194,432 +5192,432 @@ msgstr "ID :"
 msgid "No matching posts found."
 msgstr "Aucun article correspondant trouvé."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Click the \"Add Space\" button to start building your collection."
 msgstr "Cliquez sur le bouton \"Ajouter un espace\" pour commencer à construire votre collection."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add Resource"
 msgstr "Ajouter une ressource"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
 msgid "Untitled Resource"
 msgstr "Ressource sans titre"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View Resource"
 msgstr "Voir la ressource"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Edit Resource"
 msgstr "Modifier la ressource"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Remove from Library"
 msgstr "Retirer de la bibliothèque"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Your resources will be displayed here."
 msgstr "Vos ressources seront affichées ici."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Click the \"Add Resource\" button to start building your library."
 msgstr "Cliquez sur le bouton \"Ajouter une ressource\" pour commencer à construire votre bibliothèque."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resource Library is only available in Premium version"
 msgstr "La bibliothèque de ressources n'est disponible que dans la version Premium"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "To access the Resource Library feature, please upgrade to the Premium version."
 msgstr "Pour accéder à la fonctionnalité de bibliothèque de ressources, veuillez passer à la version Premium."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Feeds Icon"
 msgstr "Icône des flux"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Copy"
 msgstr "Copier"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Dynamic Shorthand URLs"
 msgstr "URLs abrégées dynamiques"
 
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Dynamic Tags"
 msgstr "Tags dynamiques"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Copy Shorthand URL Tags & Utilize"
 msgstr "Copier les balises d'URL abrégées et utiliser"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Displays the password reset URL."
 msgstr "Affiche l'URL de réinitialisation du mot de passe."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Course Description"
 msgstr "Description du cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resource Space"
 msgstr "Espace de ressources"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Download Resource"
 msgstr "Télécharger la ressource"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Download Unavailable"
 msgstr "Téléchargement indisponible"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Access Resource"
 msgstr "Accéder à la ressource"
 
 #: inc/utils/helper.php:2919
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Resource History"
 msgstr "Historique des ressources"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Content Heading"
 msgstr "Titre du contenu"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Content Notice"
 msgstr "Avis sur le contenu"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Global Color Palette"
 msgstr "Palette de couleurs globale"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Accent Color"
 msgstr "Couleur d'accent"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Branding Color"
 msgstr "Couleur de marque"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Headings Color"
 msgstr "Couleur des titres"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Texts Color"
 msgstr "Couleur des textes"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Primary Background Color"
 msgstr "Couleur de fond primaire"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Secondary Background Color"
 msgstr "Couleur de fond secondaire"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Alternate Background Color"
 msgstr "Couleur de fond alternative"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Subtle Background Color"
 msgstr "Couleur de fond subtile"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Other Supporting Color"
 msgstr "Autre couleur de soutien"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Misc Color Settings"
 msgstr "Paramètres de couleur divers"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Font Family (Figtree)"
 msgstr "Famille de polices (Figtree)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Input Placeholders Color (#9CA3AF)"
 msgstr "Couleur des espaces réservés d'entrée (#9CA3AF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Primary Button Text Color (#FFFFFF)"
 msgstr "Couleur du texte du bouton principal (#FFFFFF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Primary Button Background Color (#4338CA)"
 msgstr "Couleur de fond du bouton principal (#4338CA)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Primary Button Hover Text Color (#FFFFFF)"
 msgstr "Couleur du texte du bouton principal au survol (#FFFFFF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Primary Button Hover Background Color (#4338CA)"
 msgstr "Couleur de fond du bouton principal au survol (#4338CA)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Secondary Button Text Color (#020617)"
 msgstr "Couleur du texte du bouton secondaire (#020617)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Secondary Button Background Color (#FFFFFF)"
 msgstr "Couleur de fond du bouton secondaire (#FFFFFF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Secondary Button Hover Text Color (#020617)"
 msgstr "Couleur du texte du bouton secondaire au survol (#020617)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Secondary Button Hover Background Color (#FFFFFF)"
 msgstr "Couleur de fond du bouton secondaire au survol (#FFFFFF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Danger Button Background Color (#DC2626)"
 msgstr "Couleur de fond du bouton danger (#DC2626)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Layout Settings"
 msgstr "Paramètres de mise en page"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Narrow Container Width (600px)"
 msgstr "Largeur de conteneur étroite (600px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Normal Container Width (800px)"
 msgstr "Largeur de conteneur normale (800px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Course Container Width (800px)"
 msgstr "Largeur de conteneur de cours (800px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Container Spacing (20px)"
 msgstr "Espacement du conteneur (20px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Narrow Grid Width (948px)"
 msgstr "Largeur de grille étroite (948px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Wide Grid Width (1320px)"
 msgstr "Largeur de grille large (1320px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Grid Card Width (296px)"
 msgstr "Largeur de carte de grille (296px)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Notification Colors"
 msgstr "Couleurs de notification"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Success Notification Background (#DCFCE7)"
 msgstr "Couleur de fond de notification de succès (#DCFCE7)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Success Notification Text Color (#16A34A)"
 msgstr "Couleur du texte de notification de succès (#16A34A)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Error Notification Background (#FEE2E2)"
 msgstr "Couleur de fond de notification d'erreur (#FEE2E2)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Error Notification Text Color (#DC2626)"
 msgstr "Couleur du texte de notification d'erreur (#DC2626)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Warning Notification Background (#FEF9C3)"
 msgstr "Couleur de fond de notification d'avertissement (#FEF9C3)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Warning Notification Text Color (#EAB308)"
 msgstr "Couleur du texte de notification d'avertissement (#EAB308)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Info Notification Background (#E0F2FE)"
 msgstr "Couleur de fond de notification d'information (#E0F2FE)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Info Notification Text Color (#0284C7)"
 msgstr "Couleur du texte de notification d'information (#0284C7)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Neutral Notification Background (#FFFFFF)"
 msgstr "Couleur de fond de notification neutre (#FFFFFF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Neutral Notification Text Color (#6B7280)"
 msgstr "Couleur du texte de notification neutre (#6B7280)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Grid Placeholder Colors"
 msgstr "Couleurs des espaces réservés de grille"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Blue primary grid placeholder (#E0F2FE)"
 msgstr "Espace réservé de grille primaire bleu (#E0F2FE)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Yellow primary grid placeholder (#FEF3C7)"
 msgstr "Espace réservé de grille primaire jaune (#FEF3C7)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Green primary grid placeholder (#D1FAE5)"
 msgstr "Espace réservé de grille primaire vert (#D1FAE5)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Blue secondary grid placeholder (#F0F9FF)"
 msgstr "Espace réservé de grille secondaire bleu (#F0F9FF)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Yellow secondary grid placeholder (#FFFBEB)"
 msgstr "Espace réservé de grille secondaire jaune (#FFFBEB)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Green secondary grid placeholder (#ECFDF5)"
 msgstr "Espace réservé de grille secondaire vert (#ECFDF5)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Blue stroke placeholder icon (#0EA5E9)"
 msgstr "Icône d'espace réservé de trait bleu (#0EA5E9)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Yellow stroke placeholder icon (#F59E0B)"
 msgstr "Icône d'espace réservé de trait jaune (#F59E0B)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Green stroke placeholder icon (#10B981)"
 msgstr "Icône d'espace réservé de trait vert (#10B981)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add your custom CSS code below. This CSS will be applied globally across your SureDash portal."
 msgstr "Ajoutez votre code CSS personnalisé ci-dessous. Ce CSS sera appliqué globalement sur votre portail SureDash."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Custom CSS Editor"
 msgstr "Éditeur CSS personnalisé"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "CSS Cheat Sheet:"
 msgstr "Fiche de triche CSS :"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Copy a CSS Variable & Utilize"
 msgstr "Copier une variable CSS et utiliser"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Quick Info:"
 msgstr "Infos rapides :"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Use browser developer tools to inspect elements."
 msgstr "Utilisez les outils de développement du navigateur pour inspecter les éléments."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Note: Custom CSS will be loaded after all other styles, allowing you to override default styling."
 msgstr "Remarque : le CSS personnalisé sera chargé après tous les autres styles, vous permettant de remplacer le style par défaut."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "How to use CSS cheat sheet? Copy any CSS variable and override:"
 msgstr "Comment utiliser la feuille de triche CSS ? Copiez n'importe quelle variable CSS et remplacez-la :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Custom CSS"
 msgstr "CSS personnalisé"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Accessed Resources"
 msgstr "Ressources accessibles"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Date not available"
 msgstr "Date non disponible"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No resources accessed yet."
 msgstr "Aucune ressource n'a encore été consultée."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Dismiss"
 msgstr "Ignorer"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Accent"
 msgstr "Accent"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Link Hover/Active"
 msgstr "Lien survolé/actif"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Headings (H1-H6)"
 msgstr "Titres (H1-H6)"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Body Text"
 msgstr "Texte du corps"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Borders"
 msgstr "Bordures"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Primary Button"
 msgstr "Bouton principal"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Primary Button BG"
 msgstr "Fond du bouton principal"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Secondary Button"
 msgstr "Bouton secondaire"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Secondary Button BG"
 msgstr "Fond du bouton secondaire"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Legacy Colors Detected"
 msgstr "Couleurs héritées détectées"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Using old colors? Sync Global Palette to the Light for improved experience and Dark Mode support."
 msgstr "Vous utilisez des couleurs anciennes ? Synchronisez la palette globale avec la lumière pour une expérience améliorée et un support du mode sombre."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Note: Please review your portal frontend and adjust template colors accordingly if needed."
 msgstr "Remarque : veuillez examiner l'interface de votre portail et ajuster les couleurs du modèle en conséquence si nécessaire."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Migrate"
 msgstr "Migrer"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Select Default Palette"
 msgstr "Sélectionner la palette par défaut"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Light Colors"
 msgstr "Couleurs claires"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Dark Colors"
 msgstr "Couleurs sombres"
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "Vous ne savez pas comment configurer les couleurs ? Consultez la définition des 9 couleurs"
 
-#: core/routers/backend.php:3066
+#: core/routers/backend.php:3102
 msgid "Post title is required."
 msgstr "Le titre du post est requis."
 
@@ -5951,7 +5949,7 @@ msgstr "Modifier le post"
 msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Intègre la zone client SureCart avec les espaces SureDash."
 
-#: core/routers/backend.php:3282
+#: core/routers/backend.php:3337
 #: core/routers/misc.php:1414
 #: core/routers/misc.php:1514
 msgid "Post not found."
@@ -5990,12 +5988,12 @@ msgstr "Post supprimé avec succès !"
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Events"
 msgstr "Événements"
 
 #: core/shortcodes/home-content.php:369
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View Event"
 msgstr "Voir l'événement"
 
@@ -6128,123 +6126,123 @@ msgstr "Entrez le titre de l'événement…"
 msgid "Event Status"
 msgstr "Statut de l'événement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No date set"
 msgstr "Aucune date définie"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Invalid date"
 msgstr "Date invalide"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add Event"
 msgstr "Ajouter un événement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Upcoming"
 msgstr "À venir"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Past"
 msgstr "Passé"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Ongoing"
 msgstr "En cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Event thumbnail"
 msgstr "Miniature de l'événement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Untitled Event"
 msgstr "Événement sans titre"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Remove Event"
 msgstr "Supprimer l'événement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "events"
 msgstr "événements"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Your events will be displayed here."
 msgstr "Vos événements seront affichés ici."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Click the \"Add Event\" button to start creating your events."
 msgstr "Cliquez sur le bouton \"Ajouter un événement\" pour commencer à créer vos événements."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Events is only available in Premium version"
 msgstr "Les événements ne sont disponibles que dans la version Premium"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "To access the Events feature, please upgrade to the Premium version."
 msgstr "Pour accéder à la fonctionnalité Événements, veuillez passer à la version Premium."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "You have unsaved changes. Are you sure you want to leave without saving?"
 msgstr "Vous avez des modifications non enregistrées. Êtes-vous sûr de vouloir quitter sans enregistrer ?"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Section Label"
 msgstr "Étiquette de section"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Section Label (Plural)"
 msgstr "Étiquette de section (pluriel)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Lesson Label"
 msgstr "Étiquette de leçon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Lesson Label (Plural)"
 msgstr "Étiquette de leçon (pluriel)"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Online Event Label"
 msgstr "Étiquette d'événement en ligne"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Hosted By Label"
 msgstr "Étiquette hébergée par"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "RSVP Button"
 msgstr "Bouton RSVP"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Customer Dashboard Redirection Space"
 msgstr "Espace de redirection du tableau de bord client"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select a space…"
 msgstr "Sélectionnez un espace…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select the space where users will be redirected after purchasing from SureCart. If \"None\" is selected, users will be redirected to the default SureCart customer dashboard page."
 msgstr "Sélectionnez l'espace où les utilisateurs seront redirigés après avoir acheté depuis SureCart. Si \"Aucun\" est sélectionné, les utilisateurs seront redirigés vers la page de tableau de bord client par défaut de SureCart."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Integrations"
 msgstr "Intégrations"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Ready to go beyond free plan?"
 msgstr "Prêt à aller au-delà du plan gratuit ?"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "and unlock the full power of"
 msgstr "et débloquer toute la puissance de"
 
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:52
 msgid "Upgrade"
 msgstr "Mettre à niveau"
 
@@ -6261,27 +6259,27 @@ msgid "Please enter a valid URL (e.g., https://www.example.com)"
 msgstr "Veuillez entrer une URL valide (par exemple, https://www.example.com)"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "OttoKit"
 msgstr "OttoKit"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Watch Recording"
 msgstr "Regarder l'enregistrement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Join Now"
 msgstr "Rejoindre maintenant"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View Course"
 msgstr "Voir le cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View Events"
 msgstr "Voir les événements"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Effortlessly connect your portal with OttoKit to get a full suite of tools to help you manage your portal."
 msgstr "Connectez facilement votre portail avec OttoKit pour obtenir une suite complète d'outils pour vous aider à gérer votre portail."
 
@@ -6297,19 +6295,19 @@ msgstr "Choisissez un espace pour publier"
 msgid "Menu"
 msgstr "Menu"
 
-#: core/routers/backend.php:3027
+#: core/routers/backend.php:3063
 msgid "No emojis found."
 msgstr "Aucun emoji trouvé."
 
-#: core/routers/backend.php:3186
+#: core/routers/backend.php:3234
 msgid "Content ID is required."
 msgstr "L'ID de contenu est requis."
 
-#: core/routers/backend.php:3195
+#: core/routers/backend.php:3243
 msgid "Content not found."
 msgstr "Contenu non trouvé."
 
-#: core/routers/backend.php:3235
+#: core/routers/backend.php:3290
 msgid "Settings updated successfully."
 msgstr "Paramètres mis à jour avec succès."
 
@@ -6444,7 +6442,7 @@ msgid "Open notification settings in new tab"
 msgstr "Ouvrir les paramètres de notification dans un nouvel onglet"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1409
+#: inc/functions/markup.php:1449
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -6707,17 +6705,17 @@ msgid "Recorded Video URL"
 msgstr "URL de la vidéo enregistrée"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Lesson Settings"
 msgstr "Paramètres de leçon"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resource Settings"
 msgstr "Paramètres des ressources"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Event Settings"
 msgstr "Paramètres de l'événement"
 
@@ -6725,283 +6723,283 @@ msgstr "Paramètres de l'événement"
 msgid "Content Settings"
 msgstr "Paramètres de contenu"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:31
 msgid "Failed to save settings"
 msgstr "Échec de l'enregistrement des paramètres"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:31
 msgid "An error occurred while saving the settings"
 msgstr "Une erreur s'est produite lors de l'enregistrement des paramètres"
 
-#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:31
 msgid "Save Settings"
 msgstr "Enregistrer les paramètres"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Shows the site home URL."
 msgstr "Affiche l'URL de la page d'accueil du site."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Shows the \"portal\" slug in the URL."
 msgstr "Affiche le slug \"portal\" dans l'URL."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Shows the portal logout URL."
 msgstr "Affiche l'URL de déconnexion du portail."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Effortlessly connect your portal with"
 msgstr "Connectez facilement votre portail avec"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "to handle purchases, customer dashboards, and redirects."
 msgstr "pour gérer les achats, les tableaux de bord des clients et les redirections."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Edit Badge"
 msgstr "Modifier le badge"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Icon Visibility"
 msgstr "Visibilité de l'icône"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Visible"
 msgstr "Visible"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Return to Save"
 msgstr "Retourner pour enregistrer"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "User Badges:"
 msgstr "Badges utilisateur :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Top Contributor"
 msgstr "Meilleur contributeur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Add Badge"
 msgstr "Ajouter un badge"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Delete Badge"
 msgstr "Supprimer le badge"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Are you sure you want to delete this badge? This action cannot be undone."
 msgstr "Êtes-vous sûr de vouloir supprimer ce badge ? Cette action ne peut pas être annulée."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Learn more."
 msgstr "En savoir plus."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Gamification"
 msgstr "Gamification"
 
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:41
 msgid "Badges"
 msgstr "Badges"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Edit Trigger"
 msgstr "Modifier le déclencheur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Add New Email Notification"
 msgstr "Ajouter une nouvelle notification par e-mail"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enter notification title…"
 msgstr "Entrez le titre de la notification…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Trigger"
 msgstr "Déclencheur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select Trigger"
 msgstr "Sélectionner le déclencheur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Search triggers…"
 msgstr "Rechercher des déclencheurs…"
 
 #: core/routers/backend.php:278
 #: core/routers/backend.php:288
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Untitled"
 msgstr "Sans titre"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Create"
 msgstr "Créer"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Email Template Variables"
 msgstr "Variables de modèle d'email"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Trigger: "
 msgstr "Déclencheur :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Email Subject"
 msgstr "Objet de l'email"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enter email subject…"
 msgstr "Entrez l'objet de l'email…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Email Body"
 msgstr "Corps de l'email"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enter email body…"
 msgstr "Entrez le corps de l'email…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select Tag"
 msgstr "Sélectionner une étiquette"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Test email sent successfully!"
 msgstr "E-mail de test envoyé avec succès !"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Please save the notification first before sending a test email"
 msgstr "Veuillez d'abord enregistrer la notification avant d'envoyer un e-mail de test"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to send test email"
 msgstr "Échec de l'envoi de l'e-mail de test"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "An error occurred while sending the test email: "
 msgstr "Une erreur s'est produite lors de l'envoi de l'e-mail de test :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 #: assets/js/unminified/login.js:675
 msgid "Sending…"
 msgstr "Envoi…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Send Test Email"
 msgstr "Envoyer un e-mail de test"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Please fill in all required fields"
 msgstr "Veuillez remplir tous les champs obligatoires"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "triggers selected"
 msgstr "déclencheurs sélectionnés"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to fetch triggers"
 msgstr "Échec de la récupération des déclencheurs"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to fetch dynamic tags"
 msgstr "Échec de la récupération des balises dynamiques"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to add trigger"
 msgstr "Échec de l'ajout du déclencheur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to update status"
 msgstr "Échec de la mise à jour du statut"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to update template"
 msgstr "Échec de la mise à jour du modèle"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to delete trigger"
 msgstr "Échec de la suppression du déclencheur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to delete triggers"
 msgstr "Échec de la suppression des déclencheurs"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "No notification triggers found."
 msgstr "Aucun déclencheur de notification trouvé."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Click the \"Add New\" button to create your first notification trigger."
 msgstr "Cliquez sur le bouton \"Ajouter nouveau\" pour créer votre premier déclencheur de notification."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Are you sure you want to delete the selected email triggers?"
 msgstr "Êtes-vous sûr de vouloir supprimer les déclencheurs d'e-mails sélectionnés ?"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Selected email triggers deleted successfully"
 msgstr "Déclencheurs d'e-mails sélectionnés supprimés avec succès"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to delete selected triggers"
 msgstr "Échec de la suppression des déclencheurs sélectionnés"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Receivers"
 msgstr "Récepteurs"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "All users"
 msgstr "Tous les utilisateurs"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Status updated successfully"
 msgstr "Statut mis à jour avec succès"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Edit Template"
 msgstr "Modifier le modèle"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Are you sure you want to delete this email trigger?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce déclencheur d'e-mail ?"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Email trigger deleted successfully"
 msgstr "Déclencheur d'email supprimé avec succès"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "No matching triggers found."
 msgstr "Aucun déclencheur correspondant trouvé."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Try a different search term or clear your search."
 msgstr "Essayez un autre terme de recherche ou effacez votre recherche."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Notification updated successfully"
 msgstr "Notification mise à jour avec succès"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Notification created successfully"
 msgstr "Notification créée avec succès"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Failed to save notification"
 msgstr "Échec de l'enregistrement de la notification"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Add Badges"
 msgstr "Ajouter des badges"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Drag badges to rearrange their order."
 msgstr "Faites glisser les badges pour réorganiser leur ordre."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Registered"
 msgstr "Enregistré"
 
@@ -7013,7 +7011,7 @@ msgstr "Pas encore de mentions J'aime, soyez le premier à aimer !"
 #. translators: %s: time ago
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
-#: inc/functions/functions.php:2536
+#: inc/functions/functions.php:2609
 msgid "%s ago"
 msgstr "il y a %s"
 
@@ -7038,7 +7036,7 @@ msgstr "Le mot de passe que vous avez saisi pour le nom d'utilisateur %1$s est i
 msgid "Receive admin notifications"
 msgstr "Recevoir les notifications administratives"
 
-#: inc/functions/functions.php:2884
+#: inc/functions/functions.php:2957
 msgid "Anonymous"
 msgstr "Anonyme"
 
@@ -7052,7 +7050,7 @@ msgstr "Partager"
 
 #: inc/utils/helper.php:2957
 #: inc/utils/settings.php:320
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "View Profile"
 msgstr "Voir le profil"
 
@@ -7069,47 +7067,47 @@ msgstr "Utilisé comme image de prévisualisation pour l'espace dans la vue en g
 msgid "Displayed at the top of the space page when the user opens the space. Recommended size is 1920*600px (Ratio 16:5)."
 msgstr "Affiché en haut de la page de l'espace lorsque l'utilisateur ouvre l'espace. La taille recommandée est de 1920*600px (Ratio 16:5)."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Scheduled"
 msgstr "Prévu"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Navigates to the profile edit page."
 msgstr "Navigue vers la page de modification du profil."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Navigates to the view profile page."
 msgstr "Navigue vers la page de consultation du profil."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Show users accessed resources."
 msgstr "Afficher les ressources consultées par les utilisateurs."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Show user notification settings."
 msgstr "Afficher les paramètres de notification de l'utilisateur."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Sent to: "
 msgstr "Envoyé à :"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No badges assigned"
 msgstr "Aucun badge attribué"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Badges:"
 msgstr "Badges :"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Loading…"
 msgstr "Chargement…"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No badges assigned."
 msgstr "Aucun badge attribué."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Preview is disabled in the editor to prevent conflicts with color settings."
 msgstr "L'aperçu est désactivé dans l'éditeur pour éviter les conflits avec les paramètres de couleur."
 
@@ -7138,7 +7136,7 @@ msgstr "Aucun groupe d'accès trouvé"
 msgid "Post Visibility"
 msgstr "Visibilité de la publication"
 
-#: core/routers/backend.php:2788
+#: core/routers/backend.php:2824
 msgid "SureMembers plugin is not active."
 msgstr "Le plugin SureMembers n'est pas actif."
 
@@ -7165,7 +7163,7 @@ msgstr "Aucun aperçu disponible."
 
 #: core/shortcodes/widgets/cta-info-box.php:47
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Info"
 msgstr "Info"
 
@@ -7268,7 +7266,7 @@ msgid "Upgrade to SureDash Premium to unlock the ability to upload and use your 
 msgstr "Passez à SureDash Premium pour débloquer la possibilité de télécharger et d'utiliser vos propres icônes SVG personnalisées. Personnalisez vos espaces avec des icônes personnalisées illimitées !"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Upgrade to Premium"
 msgstr "Passer à Premium"
 
@@ -7281,7 +7279,7 @@ msgid "Insert Custom Icon"
 msgstr "Insérer une icône personnalisée"
 
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Custom SVG"
 msgstr "SVG personnalisé"
 
@@ -7343,7 +7341,7 @@ msgid "Spaces are dedicated areas where members can collaborate, share content, 
 msgstr "Les espaces sont des zones dédiées où les membres peuvent collaborer, partager du contenu et participer à des discussions autour d'un sujet, projet ou intérêt spécifique."
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Content List"
 msgstr "Liste de contenu"
 
@@ -7364,6 +7362,7 @@ msgid "Select or Upload Image"
 msgstr "Sélectionner ou télécharger une image"
 
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:21
 msgid "Use this image"
 msgstr "Utilisez cette image"
 
@@ -7384,7 +7383,7 @@ msgid "https://example.com"
 msgstr "https://example.com"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Profiles"
 msgstr "Profils"
 
@@ -7421,7 +7420,7 @@ msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add Widget"
 msgstr "Ajouter un widget"
 
@@ -7478,7 +7477,7 @@ msgid "Open Global Sidebar Settings"
 msgstr "Ouvrir les paramètres de la barre latérale globale"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add widget"
 msgstr "Ajouter un widget"
 
@@ -7503,7 +7502,7 @@ msgid "Select portal users"
 msgstr "Sélectionner les utilisateurs du portail"
 
 #: assets/build/portals-app.js:21
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select access groups…"
 msgstr "Sélectionner des groupes d'accès…"
 
@@ -7527,156 +7526,157 @@ msgstr "Titre de la publication"
 msgid "Enter feed post title…"
 msgstr "Entrez le titre de la publication…"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Select Space"
 msgstr "Sélectionner l'espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Global sidebar's widgets will be displayed here"
 msgstr "Les widgets de la barre latérale globale seront affichés ici"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Click the \"Add Widget\" button to add widget to global sidebar"
 msgstr "Cliquez sur le bouton \"Ajouter un widget\" pour ajouter un widget à la barre latérale globale"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Navigates to the leaderboard page."
 msgstr "Navigue vers la page du classement."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Assets Upload Limit"
 msgstr "Limite de téléchargement des actifs"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Set the maximum file size limit for users to upload assets like images, documents, and other media files in posts, comments, and other content areas."
 msgstr "Définissez la limite de taille maximale des fichiers que les utilisateurs peuvent télécharger pour des ressources telles que des images, des documents et d'autres fichiers multimédias dans les publications, les commentaires et d'autres zones de contenu."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Profile and Cover Image Upload Limit"
 msgstr "Limite de téléchargement de l'image de profil et de couverture"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies only to user profile images."
 msgstr "Définissez la limite de taille de fichier maximale spécifiquement pour les téléchargements de photos de profil et d'images de couverture/bannière. Cette limite s'applique uniquement aux images de profil utilisateur."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "groups selected"
 msgstr "groupes sélectionnés"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enable Leaderboard"
 msgstr "Activer le classement"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Assign levels to users based on their points"
 msgstr "Attribuer des niveaux aux utilisateurs en fonction de leurs points"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "User scores are based on likes received on their posts and comments. Each like equals 1 point."
 msgstr "Les scores des utilisateurs sont basés sur les mentions \"j'aime\" reçues sur leurs publications et commentaires. Chaque mention \"j'aime\" équivaut à 1 point."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Post like = +1"
 msgstr "Publier comme = +1"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Comment like = +1"
 msgstr "Commentaire j'aime = +1"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "How Points are Calculated?"
 msgstr "Comment les points sont-ils calculés ?"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "#"
 msgstr "#"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Title & Description"
 msgstr "Titre et description"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Minimum Points"
 msgstr "Points minimum"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enter level title"
 msgstr "Entrez le titre du niveau"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enter level description"
 msgstr "Entrez la description du niveau"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Exclude selected users from the leaderboard"
 msgstr "Exclure les utilisateurs sélectionnés du classement"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Users excluded from the leaderboard will not be assigned levels and will not appear in leaderboard rankings."
 msgstr "Les utilisateurs exclus du classement ne se verront pas attribuer de niveaux et n'apparaîtront pas dans les classements du tableau de bord."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Leaderboard is a Premium Feature"
 msgstr "Le classement est une fonctionnalité premium"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Unlock the Leaderboard feature to engage your community with gamification. Rank users based on their activity points and assign custom levels to encourage participation."
 msgstr "Débloquez la fonctionnalité de classement pour engager votre communauté avec la gamification. Classez les utilisateurs en fonction de leurs points d'activité et attribuez des niveaux personnalisés pour encourager la participation."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "What you get with Leaderboard:"
 msgstr "Ce que vous obtenez avec Leaderboard :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Points based on likes received"
 msgstr "Points basés sur les mentions J'aime reçues"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Custom achievement levels"
 msgstr "Niveaux de réussite personnalisés"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "User ranking system"
 msgstr "Système de classement des utilisateurs"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Exclude specific users"
 msgstr "Exclure des utilisateurs spécifiques"
 
-#: assets/build/portals-app.js:28
-#: assets/build/portals-app.js:37
+#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:52
 msgid "Unsaved Settings"
 msgstr "Paramètres non enregistrés"
 
 #: inc/utils/helper.php:2903
 #: assets/build/portals-app.js:1
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Leaderboard"
 msgstr "Classement"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "Events Joined"
 msgstr "Événements rejoints"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "lessons completed"
 msgstr "leçons terminées"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:45
 msgid "Completed"
 msgstr "Terminé"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No course progress yet."
 msgstr "Pas encore de progression dans le cours."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:41
 msgid "No events joined yet."
 msgstr "Aucun événement rejoint pour le moment."
 
 #. translators: %1$s: author name, %2$s: post date
-#: core/integrations/feeds.php:573
-#: core/integrations/feeds.php:621
+#: core/integrations/feeds.php:571
+#: core/integrations/feeds.php:617
 #: core/routers/misc.php:356
 #: core/routers/misc.php:409
 #: core/shortcodes/home-content.php:732
@@ -7711,12 +7711,12 @@ msgstr "Alphabétique"
 msgid "Sort options"
 msgstr "Options de tri"
 
-#: core/shortcodes/navigation.php:275
+#: core/shortcodes/navigation.php:294
 msgid "This community's portal spaces will be listed here."
 msgstr "Les espaces de portail de cette communauté seront listés ici."
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2558
+#: inc/functions/functions.php:2631
 msgid "in %s"
 msgstr "dans %s"
 
@@ -7755,12 +7755,12 @@ msgstr "La largeur du conteneur n'est pas applicable lors de l'utilisation de la
 
 #: core/assets.php:282
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Select"
 msgstr "Sélectionner"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Default to List View"
 msgstr "Défaut sur la vue en liste"
 
@@ -7769,7 +7769,7 @@ msgid "Enable this to show posts in list view by default. When disabled, post vi
 msgstr "Activez ceci pour afficher les publications en vue liste par défaut. Lorsque désactivé, la vue des publications sera par défaut."
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Memberships"
 msgstr "Adhésions"
 
@@ -7785,85 +7785,85 @@ msgstr "Sélectionner une publication"
 msgid "\"About Space\" and \"Recent Activities\" widgets will appear only once on the frontend, whether added from global sidebar or space sidebar."
 msgstr "Les widgets \"À propos de l'espace\" et \"Activités récentes\" n'apparaîtront qu'une seule fois sur le frontend, qu'ils soient ajoutés depuis la barre latérale globale ou la barre latérale de l'espace."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Preserve HTML in Excerpts"
 msgstr "Préserver le HTML dans les extraits"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Keep line breaks and formatting tags (like bold, italic) in post excerpts. Disable to show plain text only."
 msgstr "Conservez les sauts de ligne et les balises de formatage (comme gras, italique) dans les extraits de publication. Désactivez pour afficher uniquement du texte brut."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Show Full Content in Feeds"
 msgstr "Afficher le contenu complet dans les flux"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable this to show full post content in feeds. When disabled, only post excerpts will be shown."
 msgstr "Activez ceci pour afficher le contenu complet des publications dans les flux. Lorsque désactivé, seuls les extraits de publication seront affichés."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enable this to show feeds in list view by default. When disabled, post view will be the default."
 msgstr "Activez ceci pour afficher les flux en vue liste par défaut. Lorsque désactivé, la vue des publications sera par défaut."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Learn more about sidebar settings "
 msgstr "En savoir plus sur les paramètres de la barre latérale"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Auto-Assign New Users to memberships"
 msgstr "Attribution automatique des nouveaux utilisateurs aux adhésions"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select one or more SureMembers membership that new users will be automatically assigned to when they register on your portal. Leave empty for no automatic assignment."
 msgstr "Sélectionnez une ou plusieurs adhésions SureMembers auxquelles les nouveaux utilisateurs seront automatiquement attribués lors de leur inscription sur votre portail. Laissez vide pour aucune attribution automatique."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "to automatically assign new users to memberships."
 msgstr "pour attribuer automatiquement de nouveaux utilisateurs aux adhésions."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Leaderboard Integration"
 msgstr "Intégration du tableau de classement"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Assign Badge When User Achieves the Level"
 msgstr "Attribuer un badge lorsque l'utilisateur atteint le niveau"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Search levels…"
 msgstr "Rechercher des niveaux…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Assign Badge When User Gets In membership"
 msgstr "Attribuer un badge lorsque l'utilisateur obtient l'adhésion"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Did you know? With SureMembers, you can automatically assign badges based on memberships."
 msgstr "Le saviez-vous ? Avec SureMembers, vous pouvez attribuer automatiquement des badges en fonction des adhésions."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Learn more about leaderboard "
 msgstr "En savoir plus sur le tableau de classement"
 
 #: core/blocks/interactivity/build/Title/view.php:56
 #: core/shortcodes/content-header.php:82
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Feeds"
 msgstr "Flux"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "User Roles & Memberships"
 msgstr "Rôles d'utilisateur et adhésions"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select specific user roles or memberships to target. Leave empty to send to all users."
 msgstr "Sélectionnez des rôles d'utilisateur ou des adhésions spécifiques à cibler. Laissez vide pour envoyer à tous les utilisateurs."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Select specific user roles to target. Leave empty to send to all users."
 msgstr "Sélectionnez des rôles d'utilisateur spécifiques à cibler. Laissez vide pour envoyer à tous les utilisateurs."
 
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:55
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr "Remarque : S'applique uniquement au type d'espace de publication/page unique et au modèle de mise en page du portail."
 
@@ -7885,7 +7885,7 @@ msgid "This forum group is created for the space: %s"
 msgstr "Ce groupe de forum est créé pour l'espace : %s"
 
 #. translators: %s: original post title
-#: core/routers/backend.php:1410
+#: core/routers/backend.php:1446
 msgid "%s - Copy"
 msgstr "%s - Copie"
 
@@ -7952,32 +7952,32 @@ msgstr "Empilé"
 msgid "Grid"
 msgstr "Grille"
 
-#: assets/build/portals-app.js:24
+#: assets/build/portals-app.js:34
 msgid "Toggle comments"
 msgstr "Basculer les commentaires"
 
 #. translators: %s: comment count
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "%s comments. Click to view."
 msgstr "%s commentaires. Cliquez pour voir."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Post Settings"
 msgstr "Paramètres du post"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "More Options"
 msgstr "Plus d'options"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Course Label"
 msgstr "Étiquette de cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Help shape the future of SureDash"
 msgstr "Aidez à façonner l'avenir de SureDash"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions. "
 msgstr "Partagez comment vous utilisez le plugin afin que nous puissions construire des fonctionnalités qui comptent, résoudre les problèmes plus rapidement et prendre des décisions plus intelligentes."
 
@@ -8143,135 +8143,135 @@ msgstr "URL de l'image de couverture"
 msgid "Embed Media URL"
 msgstr "URL du média intégré"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papiers"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Claude Desktop"
 msgstr "Claude Bureau"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
 msgstr "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) ou %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Claude Code"
 msgstr "Code Claude"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid ".mcp.json (project) or ~/.claude.json (global)"
 msgstr ".mcp.json (projet) ou ~/.claude.json (global)"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Cursor"
 msgstr "Curseur"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "~/.cursor/mcp.json"
 msgstr "~/.cursor/mcp.json"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "VS Code (Copilot)"
 msgstr "VS Code (Copilot)"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid ".vscode/mcp.json (project) or settings.json > mcp.servers (global)"
 msgstr ".vscode/mcp.json (projet) ou settings.json > mcp.servers (global)"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "~/.continue/config.yaml or config.json"
 msgstr "~/.continue/config.yaml ou config.json"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Other"
 msgstr "Autre"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Your client's MCP configuration file"
 msgstr "Le fichier de configuration MCP de votre client"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Connect Your AI Client"
 msgstr "Connectez votre client IA"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "AI Client"
 msgstr "Client IA"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Create an Application Password — "
 msgstr "Créer un mot de passe d'application —"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Open Application Passwords"
 msgstr "Ouvrir les mots de passe d'application"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Or use this CLI command to add the server quickly (you will still need to set the environment variables):"
 msgstr "Ou utilisez cette commande CLI pour ajouter le serveur rapidement (vous devrez toujours définir les variables d'environnement) :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Copy the JSON config below into: "
 msgstr "Copiez la configuration JSON ci-dessous dans :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Replace \"your-application-password\" with the password from Step 1."
 msgstr "Remplacez \"votre-mot-de-passe-d'application\" par le mot de passe de l'étape 1."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
 msgstr "WP_API_URL — le point de terminaison MCP de votre site. WP_API_USERNAME — votre nom d'utilisateur WordPress. WP_API_PASSWORD — le mot de passe d'application que vous avez généré."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "View setup docs"
 msgstr "Voir la documentation de configuration"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Activating…"
 msgstr "Activation en cours…"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Activate MCP Adapter"
 msgstr "Activer l'adaptateur MCP"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Download MCP Adapter"
 msgstr "Télécharger l'adaptateur MCP"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enable Abilities"
 msgstr "Activer les capacités"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions."
 msgstr "Enregistrer les capacités SureDash avec l'API des capacités WordPress. Lorsqu'elles sont activées, les clients IA peuvent lister, lire, créer, modifier et gérer votre portail. Lorsqu'elles sont désactivées, aucune capacité n'est enregistrée et les clients IA ne peuvent effectuer aucune action."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enable Edit Abilities"
 msgstr "Activer les capacités de modification"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
 msgstr "Lorsqu'elles sont activées, les clients IA peuvent mettre à jour les espaces, les paramètres, les publications, les groupes et d'autres contenus. Lorsqu'elles sont désactivées, ces capacités ne sont pas enregistrées et les clients IA ne peuvent que lire vos données."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enable Delete Abilities"
 msgstr "Activer les capacités de suppression"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
 msgstr "Lorsqu'elles sont activées, les clients IA peuvent supprimer définitivement des espaces, des publications et des groupes. Les données supprimées ne peuvent pas être récupérées. Lorsqu'elles sont désactivées, les capacités de suppression ne sont pas enregistrées et les clients IA ne peuvent pas supprimer de données."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Enable MCP Server"
 msgstr "Activer le serveur MCP"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
 msgstr "Crée un point de terminaison MCP SureDash dédié auquel les clients IA comme Claude peuvent se connecter. Lorsqu'il est désactivé, le point de terminaison est supprimé et les clients IA externes ne peuvent pas découvrir ou appeler les capacités SureDash."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "MCP"
 msgstr "MCP"
 
@@ -8305,103 +8305,103 @@ msgstr "Utiliser la miniature du cours par défaut"
 msgid "When no featured image is set, use the course thumbnail"
 msgstr "Lorsque aucune image à la une n'est définie, utilisez la miniature du cours"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Portal Identity"
 msgstr "Identité du portail"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Visibility"
 msgstr "Visibilité"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Usage Data"
 msgstr "Données d'utilisation"
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
-#: assets/build/portals-app.js:25
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:46
 msgid "Pro"
 msgstr "Pro"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Hide SureDash Branding"
 msgstr "Masquer la marque SureDash"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Posts Per Page"
 msgstr "Articles par page"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Applies to feeds, discussion spaces, and user profile posts."
 msgstr "S'applique aux flux, espaces de discussion et publications de profil utilisateur."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "- Select -"
 msgstr "- Sélectionner -"
 
 #: assets/build/portals-app.js:3
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" option in your"
 msgstr "L'enregistrement des utilisateurs est actuellement désactivé. Pour permettre aux nouveaux utilisateurs de s'inscrire, veuillez activer l'option \"Tout le monde peut s'inscrire\" dans vos"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Login & Registration Pages"
 msgstr "Pages de connexion et d'inscription"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Navigates to the members page."
 msgstr "Navigue vers la page des membres."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Uploads"
 msgstr "Téléchargements"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Maximum upload size for user-posted files."
 msgstr "Taille maximale de téléchargement pour les fichiers postés par les utilisateurs."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Maximum size for profile and cover image uploads."
 msgstr "Taille maximale pour les téléchargements d'images de profil et de couverture."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Google Login"
 msgstr "Connexion Google"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Facebook Login"
 msgstr "Connexion Facebook"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Social Login & Security"
 msgstr "Connexion sociale et sécurité"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Giphy"
 msgstr "Giphy"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Add your Giphy API key to enable GIF support in comments. <a>Get key</a>."
 msgstr "Ajoutez votre clé API Giphy pour activer le support GIF dans les commentaires. <a>Obtenir la clé</a>."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Plugins"
 msgstr "Plugins"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Requires the MCP Adapter plugin."
 msgstr "Nécessite le plugin MCP Adapter."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Feeds & Content"
 msgstr "Flux et contenu"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Login & Registration"
 msgstr "Connexion et inscription"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Sidebar"
 msgstr "Barre latérale"
 
@@ -8413,47 +8413,47 @@ msgstr "Nous n'avons pas pu envoyer l'e-mail de réinitialisation. Veuillez rée
 msgid "Please choose a valid portal page."
 msgstr "Veuillez choisir une page de portail valide."
 
-#: core/routers/backend.php:1484
+#: core/routers/backend.php:1520
 msgid "Invalid integration type."
 msgstr "Type d'intégration invalide."
 
-#: core/routers/backend.php:1563
+#: core/routers/backend.php:1599
 msgid "Invalid item type."
 msgstr "Type d'élément invalide."
 
-#: core/routers/backend.php:1567
+#: core/routers/backend.php:1603
 msgid "Missing required fields."
 msgstr "Champs requis manquants."
 
-#: core/routers/backend.php:1573
+#: core/routers/backend.php:1609
 msgid "Invalid target space."
 msgstr "Espace cible invalide."
 
-#: core/routers/backend.php:1585
+#: core/routers/backend.php:1621
 msgid "Target space is not compatible with this item type."
 msgstr "L'espace cible n'est pas compatible avec ce type d'élément."
 
-#: core/routers/backend.php:1591
+#: core/routers/backend.php:1627
 msgid "Source item is required."
 msgstr "L'élément source est requis."
 
-#: core/routers/backend.php:1595
+#: core/routers/backend.php:1631
 msgid "Source item not found."
 msgstr "Élément source introuvable."
 
-#: core/routers/backend.php:1598
+#: core/routers/backend.php:1634
 msgid "Source item is not a valid SureDash content item."
 msgstr "L'élément source n'est pas un élément de contenu SureDash valide."
 
-#: core/routers/backend.php:1636
+#: core/routers/backend.php:1672
 msgid "Duplication failed."
 msgstr "La duplication a échoué."
 
-#: core/routers/backend.php:3267
+#: core/routers/backend.php:3322
 msgid "Post ID is required."
 msgstr "L'ID de publication est requis."
 
-#: core/routers/backend.php:3274
+#: core/routers/backend.php:3329
 msgid "Permission denied."
 msgstr "Permission refusée."
 
@@ -8819,223 +8819,219 @@ msgstr "Slug de la leçon"
 msgid "Leave empty to auto-generate from title"
 msgstr "Laissez vide pour générer automatiquement à partir du titre"
 
-#: assets/build/portals-app.js:21
-msgid "Leave empty to keep current slug"
-msgstr "Laissez vide pour conserver le slug actuel"
-
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Comments enabled — click to disable"
 msgstr "Commentaires activés — cliquez pour désactiver"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Comments disabled — click to enable"
 msgstr "Commentaires désactivés — cliquez pour activer"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "More options"
 msgstr "Plus d'options"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "View Lesson"
 msgstr "Voir la leçon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Move Lesson"
 msgstr "Déplacer la leçon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate Lesson"
 msgstr "Dupliquer la leçon"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Section options"
 msgstr "Options de section"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate Section"
 msgstr "Dupliquer la section"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Delete Section"
 msgstr "Supprimer la section"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Target Section"
 msgstr "Section cible"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "— Select a section —"
 msgstr "— Sélectionner une section —"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "This lesson is already in the selected section."
 msgstr "Cette leçon est déjà dans la section sélectionnée."
 
 #: core/assets.php:281
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Move"
 msgstr "Déplacer"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Section"
 msgstr "Section"
 
 #: inc/services/search/search-posts-service.php:503
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Resource"
 msgstr "Ressource"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Failed to load spaces."
 msgstr "Échec du chargement des espaces."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "current"
 msgstr "actuel"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate to space"
 msgstr "Dupliquer vers l'espace"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Loading spaces…"
 msgstr "Chargement des espaces…"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "— Select a space —"
 msgstr "— Sélectionner un espace —"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No compatible spaces found."
 msgstr "Aucun espace compatible trouvé."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Add to section"
 msgstr "Ajouter à la section"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Loading sections…"
 msgstr "Chargement des sections…"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "No sections found."
 msgstr "Aucune section trouvée."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Enter name…"
 msgstr "Entrer le nom…"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplication failed. Please try again."
 msgstr "Échec de la duplication. Veuillez réessayer."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Collapse all sections"
 msgstr "Réduire toutes les sections"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Expand all sections"
 msgstr "Développer toutes les sections"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "selected"
 msgstr "sélectionné"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Status updated."
 msgstr "Statut mis à jour."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Failed to update status."
 msgstr "Échec de la mise à jour du statut."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicated successfully."
 msgstr "Dupliqué avec succès."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate Resource"
 msgstr "Dupliquer la ressource"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Edit Event"
 msgstr "Modifier l'événement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Duplicate Event"
 msgstr "Dupliquer l'événement"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Customize the portal layout, configure the navigation menu, update colors, and much more from Customize Portal."
 msgstr "Personnalisez la mise en page du portail, configurez le menu de navigation, mettez à jour les couleurs, et bien plus depuis Personnaliser le portail."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Roles & Profile menu"
 msgstr "Menu Rôles & Profil"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Screenshot coming soon."
 msgstr "Capture d'écran à venir."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Mark step incomplete"
 msgstr "Marquer l'étape comme incomplète"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Mark step complete"
 msgstr "Marquer l'étape comme complète"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Read documentation"
 msgstr "Lire la documentation"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "View screenshot"
 msgstr "Voir la capture d'écran"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Learn how"
 msgstr "Apprendre comment"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Celebration"
 msgstr "Célébration"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "You've completed setup!"
 msgstr "Vous avez terminé la configuration !"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Your portal is ready to welcome members. Explore Pro features below to take it further."
 msgstr "Votre portail est prêt à accueillir des membres. Explorez les fonctionnalités Pro ci-dessous pour aller plus loin."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Failed to load learn chapters."
 msgstr "Échec du chargement des chapitres d'apprentissage."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Could not update your progress. Please try again."
 msgstr "Impossible de mettre à jour vos progrès. Veuillez réessayer."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Could not dismiss the Learn tab. Please try again."
 msgstr "Impossible de fermer l'onglet Apprendre. Veuillez réessayer."
 
-#: assets/build/portals-app.js:31
-#: assets/build/portals-app.js:37
-#: assets/build/portals-app.js:40
+#: assets/build/portals-app.js:46
+#: assets/build/portals-app.js:52
+#: assets/build/portals-app.js:55
 msgid "Learn"
 msgstr "Apprendre"
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of instructional videos. These will help you learn how to set up, customize, and grow your portal."
 msgstr "Pour vous aider à prendre le contrôle total et garantir le succès de votre communauté, nous avons décrit quelques tâches et préparé un ensemble de vidéos d'instruction. Celles-ci vous aideront à apprendre comment configurer, personnaliser et développer votre portail."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "No learn chapters available yet."
 msgstr "Aucun chapitre d'apprentissage disponible pour le moment."
 
-#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:46
 msgid "Dismiss Learn tab"
 msgstr "Fermer l'onglet Apprendre"
 
@@ -9132,7 +9128,7 @@ msgstr "Un terme de recherche est requis."
 msgid "Search query must be at least %d characters."
 msgstr "La requête de recherche doit comporter au moins %d caractères."
 
-#: inc/functions/functions.php:792
+#: inc/functions/functions.php:798
 msgid "Some time ago"
 msgstr "Il y a quelque temps"
 
@@ -9190,83 +9186,83 @@ msgstr "Voir le commentaire"
 msgid "joined %s"
 msgstr "a rejoint %s"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Navigates to the bookmarks page."
 msgstr "Navigue vers la page des signets."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Notify Admins on New Community Posts"
 msgstr "Notifier les admins des nouveaux posts de la communauté"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Send an email when a community member submits a new post."
 msgstr "Envoyer un e-mail lorsqu'un membre de la communauté soumet un nouveau post."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Recipients"
 msgstr "Destinataires"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "All admins and portal managers"
 msgstr "Tous les admins et gestionnaires de portail"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Pick admins and portal managers who should receive these emails. Leave empty to send to all admins and portal managers."
 msgstr "Choisissez les admins et gestionnaires de portail qui doivent recevoir ces e-mails. Laissez vide pour envoyer à tous les admins et gestionnaires de portail."
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "sender@example.com"
 msgstr "expediteur@example.com"
 
-#: assets/build/portals-app.js:25
+#: assets/build/portals-app.js:35
 msgid "Email Templates"
 msgstr "Modèles d'e-mail"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
 msgstr "URLs de point de terminaison mises à jour. Les liens du menu de profil intégré se mettent à jour automatiquement — mais tous les liens que vous avez ajoutés manuellement dans les menus WordPress, le contenu des pages ou les blocs personnalisés pointant vers les anciennes URLs devront être mis à jour."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Use only lowercase letters, numbers, and hyphens."
 msgstr "Utilisez uniquement des lettres minuscules, des chiffres et des tirets."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "This slug is already used by another endpoint."
 msgstr "Ce slug est déjà utilisé par un autre point de terminaison."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "URL preview:"
 msgstr "Aperçu de l'URL :"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Logged-in member’s profile edit page."
 msgstr "Page d'édition du profil du membre connecté."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Public profile page for any member (URL includes the user ID)."
 msgstr "Page de profil public pour tout membre (l'URL inclut l'ID utilisateur)."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Member’s saved/bookmarked items."
 msgstr "Articles sauvegardés/marqués par le membre."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Public leaderboard / points ranking page."
 msgstr "Page publique du classement / tableau des points."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Members Directory"
 msgstr "Annuaire des membres"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Browseable directory of community members."
 msgstr "Annuaire consultable des membres de la communauté."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Member’s accessed-resources history page."
 msgstr "Page d'historique des ressources consultées par le membre."
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "URL Endpoints"
 msgstr "Points de terminaison URL"
 
@@ -10103,11 +10099,11 @@ msgstr "Tapez une adresse pour voir la mise à jour du pin."
 msgid "Remove location"
 msgstr "Supprimer l'emplacement"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Badge ID"
 msgstr "ID de badge"
 
-#: assets/build/portals-app.js:28
+#: assets/build/portals-app.js:38
 msgid "Copy badge ID for use with suredash_assign_badge() in PHP"
 msgstr "Copier l'ID de badge pour utilisation avec suredash_assign_badge() en PHP"
 
@@ -10137,14 +10133,14 @@ msgstr[0] "%1$s et %2$s autres ont commenté votre publication \"%3$s\"."
 msgstr[1] ""
 
 #. translators: 1: liker name, 2: number of other likers, 3: comment excerpt
-#: core/notifier/common-notifier.php:609
+#: core/notifier/common-notifier.php:620
 msgid "%1$s and %2$s other liked your comment \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your comment \"%3$s\"."
 msgstr[0] "%1$s et %2$s autres ont aimé votre commentaire \"%3$s\"."
 msgstr[1] ""
 
 #. translators: 1: liker name, 2: number of other likers, 3: post title
-#: core/notifier/common-notifier.php:617
+#: core/notifier/common-notifier.php:628
 msgid "%1$s and %2$s other liked your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your post \"%3$s\"."
 msgstr[0] "%1$s et %2$s autres ont aimé votre publication \"%3$s\"."
@@ -10179,6 +10175,450 @@ msgstr "%1$s a aimé votre publication \"%2$s\"."
 #: inc/utils/labels.php:154
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr "%1$s a aimé votre commentaire \"%2$s\"."
+
+#: inc/functions/markup.php:587
+#: inc/functions/markup.php:688
+msgid " quiz"
+msgid_plural " quizzes"
+msgstr[0] "quiz"
+msgstr[1] ""
+
+#: inc/functions/markup.php:678
+msgid " module"
+msgid_plural " modules"
+msgstr[0] "module"
+msgstr[1] ""
+
+#: assets/build/portals-app.js:10
+msgid "Dismiss welcome banner"
+msgstr "Ignorer la bannière de bienvenue"
+
+#: assets/build/portals-app.js:10
+msgid "Top Performing Courses"
+msgstr "Cours les plus performants"
+
+#: assets/build/portals-app.js:10
+msgid "Preview of the Course Analytics report."
+msgstr "Aperçu du rapport d'analyse du cours."
+
+#: assets/build/portals-app.js:10
+msgid "Pin to header"
+msgstr "Épingler à l'en-tête"
+
+#: assets/build/portals-app.js:10
+msgid "Toggle the Course Analytics tab in the top navigation. Off hides it from the header but the report stays accessible from this card."
+msgstr "Basculer l'onglet d'analyse du cours dans la navigation supérieure. Désactivé le cache de l'en-tête, mais le rapport reste accessible depuis cette carte."
+
+#: assets/build/portals-app.js:10
+msgid "See all"
+msgstr "Voir tout"
+
+#: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:41
+msgid "Enrolled"
+msgstr "Inscrits"
+
+#: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:41
+msgid "Users who have completed at least one lesson in this course."
+msgstr "Utilisateurs ayant terminé au moins une leçon dans ce cours."
+
+#: assets/build/portals-app.js:10
+msgid "Completions"
+msgstr "Achèvements"
+
+#: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:41
+msgid "Users who have finished every lesson in this course."
+msgstr "Utilisateurs ayant terminé chaque leçon de ce cours."
+
+#: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:45
+msgid "Completion Rate"
+msgstr "Taux d'achèvement"
+
+#: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:41
+msgid "Percentage of enrolled learners who finished the entire course."
+msgstr "Pourcentage d'apprenants inscrits ayant terminé l'ensemble du cours."
+
+#: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:44
+msgid "No courses yet."
+msgstr "Pas encore de cours."
+
+#: assets/build/portals-app.js:13
+msgid "Lesson order enforcement"
+msgstr "Application de l'ordre des leçons"
+
+#: assets/build/portals-app.js:13
+msgid "Your members need to complete each lesson in order before moving to the next one."
+msgstr "Vos membres doivent terminer chaque leçon dans l'ordre avant de passer à la suivante."
+
+#: assets/build/portals-app.js:13
+msgid "Allow comments"
+msgstr "Autoriser les commentaires"
+
+#: assets/build/portals-app.js:13
+msgid "Let learners discuss this lesson in the comments."
+msgstr "Permettre aux apprenants de discuter de cette leçon dans les commentaires."
+
+#: assets/build/portals-app.js:21
+msgid "Create New Quiz"
+msgstr "Créer un nouveau quiz"
+
+#: assets/build/portals-app.js:21
+msgid "Quiz Title"
+msgstr "Titre du quiz"
+
+#: assets/build/portals-app.js:21
+msgid "Enter quiz title…"
+msgstr "Entrez le titre du quiz…"
+
+#: assets/build/portals-app.js:21
+msgid "Quiz Status"
+msgstr "Statut du quiz"
+
+#: assets/build/portals-app.js:21
+msgid "Single Choice"
+msgstr "Choix unique"
+
+#: assets/build/portals-app.js:21
+msgid "Multiple Choice"
+msgstr "Choix multiple"
+
+#: assets/build/portals-app.js:21
+msgid "Hide answers on result page"
+msgstr "Masquer les réponses sur la page de résultats"
+
+#: assets/build/portals-app.js:21
+msgid "Do not reveal which options were correct after submission."
+msgstr "Ne pas révéler quelles options étaient correctes après la soumission."
+
+#: assets/build/portals-app.js:21
+msgid "Has passing grade"
+msgstr "A un grade de passage"
+
+#: assets/build/portals-app.js:21
+msgid "Turn on to grade as pass/fail."
+msgstr "Activez pour noter comme réussi/échoué."
+
+#: assets/build/portals-app.js:21
+msgid "Pass Mark"
+msgstr "Note de passage"
+
+#: assets/build/portals-app.js:21
+msgid "Require passing this quiz to complete the course"
+msgstr "Exiger de réussir ce quiz pour compléter le cours"
+
+#: assets/build/portals-app.js:21
+msgid "When on, learners must pass this quiz for it to count toward course completion. When off, any attempt, even a failed one, counts."
+msgstr "Lorsque activé, les apprenants doivent réussir ce quiz pour qu'il compte pour l'achèvement du cours. Lorsque désactivé, toute tentative, même échouée, compte."
+
+#: assets/build/portals-app.js:21
+msgid "Questions"
+msgstr "Questions"
+
+#: assets/build/portals-app.js:21
+msgid "No questions yet. Click \"Add Question\" to start."
+msgstr "Pas encore de questions. Cliquez sur \"Ajouter une question\" pour commencer."
+
+#: assets/build/portals-app.js:21
+msgid "Select one correct answer"
+msgstr "Sélectionnez une réponse correcte"
+
+#: assets/build/portals-app.js:21
+msgid "Select one or more correct answers"
+msgstr "Sélectionnez une ou plusieurs réponses correctes"
+
+#: assets/build/portals-app.js:21
+msgid "Untitled question"
+msgstr "Question sans titre"
+
+#: assets/build/portals-app.js:21
+msgid "Drag to reorder"
+msgstr "Faites glisser pour réorganiser"
+
+#: assets/build/portals-app.js:21
+msgid "Collapse question"
+msgstr "Réduire la question"
+
+#: assets/build/portals-app.js:21
+msgid "Expand question"
+msgstr "Développer la question"
+
+#: assets/build/portals-app.js:21
+msgid "Delete question"
+msgstr "Supprimer la question"
+
+#: assets/build/portals-app.js:21
+msgid "Question"
+msgstr "Question"
+
+#: assets/build/portals-app.js:21
+msgid "Enter question text…"
+msgstr "Entrez le texte de la question…"
+
+#: assets/build/portals-app.js:21
+msgid "Replace"
+msgstr "Remplacer"
+
+#: assets/build/portals-app.js:21
+msgid "Alt text"
+msgstr "Texte alternatif"
+
+#: assets/build/portals-app.js:21
+msgid "Describe the image for screen readers. Leave empty if purely decorative."
+msgstr "Décrivez l'image pour les lecteurs d'écran. Laissez vide si purement décoratif."
+
+#: assets/build/portals-app.js:21
+msgid "Add image"
+msgstr "Ajouter une image"
+
+#: assets/build/portals-app.js:21
+msgid "Option"
+msgstr "Option"
+
+#: assets/build/portals-app.js:21
+msgid "Add Option"
+msgstr "Ajouter une option"
+
+#: assets/build/portals-app.js:21
+msgid "Help text (optional)"
+msgstr "Texte d'aide (facultatif)"
+
+#: assets/build/portals-app.js:21
+msgid "Shown below the options as a hint"
+msgstr "Affiché sous les options comme un indice"
+
+#: assets/build/portals-app.js:21
+msgid "Add Question"
+msgstr "Ajouter une question"
+
+#: assets/build/portals-app.js:21
+#: assets/build/portals-app.js:35
+msgid "Quiz Settings"
+msgstr "Paramètres du quiz"
+
+#: assets/build/portals-app.js:21
+msgid "Duration (mins)"
+msgstr "Durée (mins)"
+
+#: assets/build/portals-app.js:21
+msgid "Quiz Slug"
+msgstr "Slug du quiz"
+
+#: assets/build/portals-app.js:21
+msgid "Could not load the quiz. Close and reopen this dialog to try again."
+msgstr "Impossible de charger le quiz. Fermez et rouvrez cette boîte de dialogue pour réessayer."
+
+#: assets/build/portals-app.js:21
+msgid "Quiz could not be loaded. Close and reopen this dialog before saving."
+msgstr "Le quiz n'a pas pu être chargé. Fermez et rouvrez cette boîte de dialogue avant de sauvegarder."
+
+#: assets/build/portals-app.js:21
+msgid "Please add at least one question."
+msgstr "Veuillez ajouter au moins une question."
+
+#. translators: %d: question number.
+#: assets/build/portals-app.js:23
+msgid "Question %d is missing text."
+msgstr "La question %d est manquante de texte."
+
+#. translators: %d: question number.
+#: assets/build/portals-app.js:25
+msgid "Question %d needs at least two options."
+msgstr "La question %d nécessite au moins deux options."
+
+#. translators: %d: question number.
+#: assets/build/portals-app.js:27
+msgid "All options in question %d need text."
+msgstr "Toutes les options de la question %d doivent avoir du texte."
+
+#. translators: %d: question number.
+#: assets/build/portals-app.js:29
+msgid "Mark at least one correct option for question %d."
+msgstr "Marquez au moins une option correcte pour la question %d."
+
+#. translators: %d: question number.
+#: assets/build/portals-app.js:31
+msgid "Single-choice question %d can only have one correct option."
+msgstr "La question à choix unique %d ne peut avoir qu'une seule option correcte."
+
+#: assets/build/portals-app.js:31
+#: assets/build/portals-app.js:35
+msgid "Untitled Quiz"
+msgstr "Quiz sans titre"
+
+#: assets/build/portals-app.js:31
+msgid "Failed to create quiz."
+msgstr "Échec de la création du quiz."
+
+#: assets/build/portals-app.js:35
+msgid "Quiz"
+msgstr "Quiz"
+
+#: assets/build/portals-app.js:35
+msgid "Edit Quiz"
+msgstr "Modifier le quiz"
+
+#: assets/build/portals-app.js:35
+msgid "View Quiz"
+msgstr "Voir le quiz"
+
+#: assets/build/portals-app.js:35
+msgid "Move Quiz"
+msgstr "Déplacer le quiz"
+
+#: assets/build/portals-app.js:35
+msgid "Duplicate Quiz"
+msgstr "Dupliquer le quiz"
+
+#: assets/build/portals-app.js:35
+msgid "Delete Quiz"
+msgstr "Supprimer le quiz"
+
+#: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:45
+msgid "Quizzes"
+msgstr "Quiz"
+
+#: assets/build/portals-app.js:35
+msgid "Add"
+msgstr "Ajouter"
+
+#: assets/build/portals-app.js:35
+msgid "This quiz is already in the selected section."
+msgstr "Ce quiz est déjà dans la section sélectionnée."
+
+#: assets/build/portals-app.js:35
+msgid "Are you sure you want to delete this quiz? It will be removed from the course page after you save your changes."
+msgstr "Êtes-vous sûr de vouloir supprimer ce quiz ? Il sera retiré de la page du cours après que vous ayez enregistré vos modifications."
+
+#: assets/build/portals-app.js:35
+msgid "Are you sure you want to delete this lesson? It will be removed from the course page after you save your changes."
+msgstr "Êtes-vous sûr de vouloir supprimer cette leçon ? Elle sera retirée de la page du cours après que vous ayez enregistré vos modifications."
+
+#: assets/build/portals-app.js:35
+msgid "Settings saved, but the change could not be persisted. Use the header Save button to retry."
+msgstr "Paramètres enregistrés, mais le changement n'a pas pu être enregistré. Utilisez le bouton Enregistrer dans l'en-tête pour réessayer."
+
+#: assets/build/portals-app.js:41
+msgid "Course Completions"
+msgstr "Achèvements de cours"
+
+#. translators: 1: first row index, 2: last row index, 3: total row count
+#: assets/build/portals-app.js:42
+msgid "%1$s–%2$s of %3$s courses"
+msgstr "%1$s–%2$s sur %3$s cours"
+
+#: assets/build/portals-app.js:42
+msgid "Course Analytics"
+msgstr "Analytique des cours"
+
+#. translators: %d: number of published courses
+#: assets/build/portals-app.js:43
+msgid "%d Published"
+msgid_plural "%d Published"
+msgstr[0] "%d Publiés"
+msgstr[1] ""
+
+#. translators: %d: number of draft courses
+#: assets/build/portals-app.js:44
+msgid "%d Draft"
+msgid_plural "%d Drafts"
+msgstr[0] "%d Brouillons"
+msgstr[1] ""
+
+#: assets/build/portals-app.js:44
+msgid "Which courses are working. Who's started and how far they've got."
+msgstr "Quels cours fonctionnent. Qui a commencé et jusqu'où ils sont allés."
+
+#: assets/build/portals-app.js:44
+msgid "Search courses…"
+msgstr "Rechercher des cours…"
+
+#: assets/build/portals-app.js:44
+msgid "No courses match your search."
+msgstr "Aucun cours ne correspond à votre recherche."
+
+#: assets/build/portals-app.js:44
+msgid "Back to Course Analytics"
+msgstr "Retour à l'analytique des cours"
+
+#: assets/build/portals-app.js:44
+msgid "Course not found."
+msgstr "Cours non trouvé."
+
+#. translators: %d: number of lessons
+#: assets/build/portals-app.js:45
+msgid "%d Lesson"
+msgid_plural "%d Lessons"
+msgstr[0] "%d Leçon"
+msgstr[1] ""
+
+#: assets/build/portals-app.js:45
+msgid "Search learners…"
+msgstr "Rechercher des apprenants…"
+
+#: assets/build/portals-app.js:45
+msgid "No learners match your search."
+msgstr "Aucun apprenant ne correspond à votre recherche."
+
+#: assets/build/portals-app.js:45
+msgid "No learners yet."
+msgstr "Pas encore d'apprenants."
+
+#: assets/build/portals-app.js:45
+msgid "Learner"
+msgstr "Apprenant"
+
+#: assets/build/portals-app.js:45
+msgid "Lessons Completed"
+msgstr "Leçons terminées"
+
+#: assets/build/portals-app.js:45
+msgid "Number of lessons the learner has finished out of the total in this course."
+msgstr "Nombre de leçons que l'apprenant a terminées sur le total de ce cours."
+
+#: assets/build/portals-app.js:45
+msgid "Quizzes the learner has cleared out of the total in this course. Practice quizzes count as cleared once attempted."
+msgstr "Quiz que l'apprenant a réussis sur le total de ce cours. Les quiz de pratique comptent comme réussis une fois tentés."
+
+#: assets/build/portals-app.js:45
+msgid "Attempts"
+msgstr "Tentatives"
+
+#: assets/build/portals-app.js:45
+msgid "Total quiz submissions across all quizzes in this course."
+msgstr "Total des soumissions de quiz dans tous les quiz de ce cours."
+
+#: assets/build/portals-app.js:45
+msgid "Avg Score"
+msgstr "Score moyen"
+
+#: assets/build/portals-app.js:45
+msgid "Average score across the quizzes the learner has attempted."
+msgstr "Score moyen sur les quiz que l'apprenant a tentés."
+
+#: assets/build/portals-app.js:45
+msgid "Percentage of this course the learner has finished."
+msgstr "Pourcentage de ce cours que l'apprenant a terminé."
+
+#: assets/build/portals-app.js:45
+msgid "In Progress"
+msgstr "En cours"
+
+#. translators: 1: first row index, 2: last row index, 3: total row count
+#: assets/build/portals-app.js:46
+msgid "%1$s–%2$s of %3$s learners"
+msgstr "%1$s–%2$s sur %3$s apprenants"
+
+#: assets/build/portals-app.js:52
+msgid "Analytics"
+msgstr "Analytique"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

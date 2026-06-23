@@ -84,7 +84,7 @@ class Create_Post_For_Space extends Ability {
 			'space_id'       => [
 				'type'        => 'integer',
 				'required'    => true,
-				'description' => __( 'ID of the parent space.', 'suredash' ),
+				'description' => __( 'WordPress post ID of the parent space (the space is stored as a portal post). Use list-spaces to find space IDs.', 'suredash' ),
 			],
 			'post_status'    => [
 				'type'        => 'string',

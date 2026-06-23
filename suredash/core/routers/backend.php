@@ -1050,14 +1050,50 @@ class Backend {
 			foreach ( $post_meta['pp_course_section_loop'] as $key => $section ) {
 				if ( ! empty( $section['section_medias'] ) ) {
 					foreach ( $section['section_medias'] as $key2 => $media ) {
+						$media_id = absint( $media['value'] );
 						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['comment_status']  = sd_get_post_field( $media['value'], 'comment_status' );
 						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['post_status']     = sd_get_post_field( $media['value'], 'post_status' );
-						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['lesson_duration'] = sd_get_post_meta( absint( $media['value'] ), 'lesson_duration', true );
-						$use_space_thumbnail = sd_get_post_meta( absint( $media['value'] ), 'use_space_thumbnail', true );
+						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['post_slug']       = (string) sd_get_post_field( $media_id, 'post_name' );
+						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['lesson_duration'] = sd_get_post_meta( $media_id, 'lesson_duration', true );
+						$use_space_thumbnail = sd_get_post_meta( $media_id, 'use_space_thumbnail', true );
 						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['use_space_thumbnail'] = (bool) $use_space_thumbnail;
+						$post_meta['pp_course_section_loop'][ $key ]['section_medias'][ $key2 ]['content_type']        = (string) sd_get_post_meta( $media_id, 'content_type', true );
 					}
 				}
 			}
+		}
+
+		// Expose quiz meta when fetching a quiz post directly.
+		if ( (string) sd_get_post_meta( $post_id, 'content_type', true ) === 'quiz' ) {
+			$quiz_questions  = sd_get_post_meta( $post_id, 'quiz_questions', true );
+			$has_passing_raw = get_post_meta( $post_id, 'quiz_has_passing', true );
+
+			// Resolve each question's image URL fresh from its attachment ID
+			// so the admin preview reflects the current media-library state.
+			if ( is_array( $quiz_questions ) ) {
+				$quiz_questions = array_map(
+					static function ( $question ) {
+						if ( ! is_array( $question ) ) {
+							return $question;
+						}
+						$attachment_id = isset( $question['image_id'] ) ? absint( $question['image_id'] ) : 0;
+						if ( $attachment_id ) {
+							$url                   = wp_get_attachment_url( $attachment_id );
+							$question['image_url'] = $url ? $url : '';
+						} else {
+							$question['image_url'] = '';
+						}
+						return $question;
+					},
+					$quiz_questions
+				);
+			}
+
+			$post_meta['quiz_has_passing']            = $has_passing_raw === '' ? false : (bool) $has_passing_raw;
+			$post_meta['quiz_pass_mark']              = (int) sd_get_post_meta( $post_id, 'quiz_pass_mark', true );
+			$post_meta['quiz_questions']              = is_array( $quiz_questions ) ? $quiz_questions : [];
+			$post_meta['quiz_enforce_pass']           = (bool) sd_get_post_meta( $post_id, 'quiz_enforce_pass', true );
+			$post_meta['quiz_hide_answers_on_result'] = (bool) sd_get_post_meta( $post_id, 'quiz_hide_answers_on_result', true );
 		}
 
 		$post_meta = array_merge( $post_meta, $meta_set );
@@ -3114,7 +3150,18 @@ class Backend {
 		// Save post meta based on context and parameters.
 		if ( $belong_to_course > 0 ) {
 			update_post_meta( $post_id, 'belong_to_course', $belong_to_course );
-			update_post_meta( $post_id, 'content_type', 'lesson' );
+			$course_content_type = $context === 'course_quiz' ? 'quiz' : 'lesson';
+			update_post_meta( $post_id, 'content_type', $course_content_type );
+
+			// Seed default quiz meta so the editor has a stable shape to work with.
+			if ( $course_content_type === 'quiz' ) {
+				if ( get_post_meta( $post_id, 'quiz_pass_mark', true ) === '' ) {
+					update_post_meta( $post_id, 'quiz_pass_mark', 50 );
+				}
+				if ( get_post_meta( $post_id, 'quiz_questions', true ) === '' ) {
+					update_post_meta( $post_id, 'quiz_questions', [] );
+				}
+			}
 		}
 
 		if ( $forum_category > 0 ) {
@@ -3152,6 +3199,7 @@ class Backend {
 			'post_slug'      => (string) sd_get_post_field( $post_id, 'post_name' ),
 			'edit_url'       => admin_url( "post.php?post={$post_id}&action=edit" ),
 			'space_id'       => $space_id,
+			'content_type'   => (string) get_post_meta( $post_id, 'content_type', true ),
 		];
 
 		do_action( 'suredash_after_creating_post_content_for_space', $post_id, $space_id, $post_type, $space_type );
@@ -3214,6 +3262,13 @@ class Backend {
 
 		if ( ! empty( $post_slug ) ) {
 			$update_data['post_name'] = sanitize_title( $post_slug );
+		} elseif ( ! empty( $post_title )
+			&& (string) sd_get_post_meta( $content_id, 'content_type', true ) === 'quiz'
+		) {
+			// Quizzes have no slug input in the admin dialog, so resync the
+			// slug to the title on every save. wp_unique_post_slug() handles
+			// collision suffixes automatically.
+			$update_data['post_name'] = sanitize_title( $post_title );
 		}
 
 		if ( ! empty( $comment_status ) && in_array( $comment_status, [ 'open', 'closed' ], true ) ) {
@@ -3307,7 +3362,7 @@ class Backend {
 	 * @return void
 	 * @since 1.5.0
 	 */
-	private function save_content_meta_fields( int $post_id, array $data ): void {
+	public function save_content_meta_fields( int $post_id, array $data ): void {
 		// Single post space meta fields.
 		if ( isset( $data['single_post_id'] ) ) {
 			update_post_meta( $post_id, 'single_post_id', absint( $data['single_post_id'] ) );
@@ -3322,6 +3377,32 @@ class Backend {
 		}
 		if ( isset( $data['use_space_thumbnail'] ) ) {
 			update_post_meta( $post_id, 'use_space_thumbnail', filter_var( $data['use_space_thumbnail'], FILTER_VALIDATE_BOOLEAN ) );
+		}
+
+		// Quiz meta fields.
+		if ( isset( $data['quiz_pass_mark'] ) ) {
+			$pass_mark = (int) $data['quiz_pass_mark'];
+			$pass_mark = max( 0, min( 100, $pass_mark ) );
+			update_post_meta( $post_id, 'quiz_pass_mark', $pass_mark );
+		}
+		if ( isset( $data['quiz_questions'] ) ) {
+			$raw_questions = $data['quiz_questions'];
+			if ( is_string( $raw_questions ) ) {
+				$decoded       = json_decode( wp_unslash( $raw_questions ), true );
+				$raw_questions = is_array( $decoded ) ? $decoded : [];
+			}
+			update_post_meta( $post_id, 'quiz_questions', $this->sanitize_quiz_questions( $raw_questions ) );
+		}
+		if ( isset( $data['quiz_has_passing'] ) ) {
+			// Store as '1' / '0' so we can distinguish "never set" from explicit false.
+			$has_passing = filter_var( $data['quiz_has_passing'], FILTER_VALIDATE_BOOLEAN );
+			update_post_meta( $post_id, 'quiz_has_passing', $has_passing ? '1' : '0' );
+		}
+		if ( isset( $data['quiz_enforce_pass'] ) ) {
+			update_post_meta( $post_id, 'quiz_enforce_pass', filter_var( $data['quiz_enforce_pass'], FILTER_VALIDATE_BOOLEAN ) );
+		}
+		if ( isset( $data['quiz_hide_answers_on_result'] ) ) {
+			update_post_meta( $post_id, 'quiz_hide_answers_on_result', filter_var( $data['quiz_hide_answers_on_result'], FILTER_VALIDATE_BOOLEAN ) );
 		}
 
 		// Resource meta fields.
@@ -3397,6 +3478,62 @@ class Backend {
 		if ( isset( $data['custom_post_embed_media'] ) ) {
 			update_post_meta( $post_id, 'custom_post_embed_media', sanitize_text_field( $data['custom_post_embed_media'] ) );
 		}
+	}
+
+	/**
+	 * Sanitize quiz questions payload to a strict shape.
+	 *
+	 * Each question: { id, type: 'single'|'multiple', text, options: [ { id, text, is_correct } ] }.
+	 *
+	 * @param array<int|string, mixed> $questions Raw questions.
+	 * @return array<int, array<string, mixed>> Sanitized questions.
+	 * @since 1.7.4
+	 */
+	private function sanitize_quiz_questions( array $questions ): array {
+		$clean = [];
+
+		foreach ( $questions as $question ) {
+			if ( ! is_array( $question ) ) {
+				continue;
+			}
+
+			$type = isset( $question['type'] ) && in_array( $question['type'], [ 'single', 'multiple' ], true )
+				? $question['type']
+				: 'single';
+
+			$options = [];
+			if ( ! empty( $question['options'] ) && is_array( $question['options'] ) ) {
+				foreach ( $question['options'] as $option ) {
+					if ( ! is_array( $option ) ) {
+						continue;
+					}
+					$options[] = [
+						'id'         => sanitize_text_field( (string) ( $option['id'] ?? uniqid( 'opt_' ) ) ),
+						'text'       => sanitize_text_field( (string) ( $option['text'] ?? '' ) ),
+						'is_correct' => filter_var( $option['is_correct'] ?? false, FILTER_VALIDATE_BOOLEAN ),
+					];
+				}
+			}
+
+			// Store the attachment ID only — URL is derived at read time via
+			// wp_get_attachment_url(), so the image survives renames/CDN swaps
+			// and breakage from manual media deletion is detectable.
+			$image_id  = isset( $question['image_id'] ) ? absint( $question['image_id'] ) : 0;
+			$image_alt = isset( $question['image_alt'] ) ? sanitize_text_field( (string) $question['image_alt'] ) : '';
+			$helptext  = isset( $question['helptext'] ) ? sanitize_text_field( (string) $question['helptext'] ) : '';
+
+			$clean[] = [
+				'id'        => sanitize_text_field( (string) ( $question['id'] ?? uniqid( 'q_' ) ) ),
+				'type'      => $type,
+				'text'      => sanitize_text_field( (string) ( $question['text'] ?? '' ) ),
+				'helptext'  => $helptext,
+				'image_id'  => $image_id,
+				'image_alt' => $image_alt,
+				'options'   => $options,
+			];
+		}
+
+		return $clean;
 	}
 
 }

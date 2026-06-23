@@ -573,10 +573,20 @@ function suredash_render_item_title_description( $item_data = [], $args = [] ): 
 
 			if ( ! empty( $item_data['private'] ) && $item_data['private'] === true ) {
 				$labels[] = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary sd-capitalize">' . esc_html__( 'Private', 'suredash' ) . '</span>';
-			} elseif ( isset( $item_data['lesson'] ) && $item_data['lesson'] !== 0 ) {
-				$lesson_count = intval( $item_data['lesson'] );
-				$lesson_label = sprintf( _n( ' lesson', ' lessons', $lesson_count, 'suredash' ) );
-				$labels[]     = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $lesson_count . $lesson_label ) . '</span>';
+			} elseif (
+				( isset( $item_data['lesson'] ) && $item_data['lesson'] !== 0 ) ||
+				( isset( $item_data['quiz'] ) && $item_data['quiz'] !== 0 )
+			) {
+				if ( isset( $item_data['lesson'] ) && $item_data['lesson'] !== 0 ) {
+					$lesson_count = intval( $item_data['lesson'] );
+					$lesson_label = sprintf( _n( ' lesson', ' lessons', $lesson_count, 'suredash' ) );
+					$labels[]     = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $lesson_count . $lesson_label ) . '</span>';
+				}
+				if ( isset( $item_data['quiz'] ) && $item_data['quiz'] !== 0 ) {
+					$quiz_count = intval( $item_data['quiz'] );
+					$quiz_label = sprintf( _n( ' quiz', ' quizzes', $quiz_count, 'suredash' ) );
+					$labels[]   = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $quiz_count . $quiz_label ) . '</span>';
+				}
 			} elseif ( isset( $item_data['post_count'] ) && $item_data['post_count'] !== 0 ) {
 				$post_count = intval( $item_data['post_count'] );
 				$post_label = sprintf( _n( ' thread', ' threads', $post_count, 'suredash' ) );
@@ -617,11 +627,14 @@ function suredash_render_item_title_description( $item_data = [], $args = [] ): 
 /**
  * Display the appropriate badge based on item type and state.
  *
- * @param array<string,mixed> $args Item arguments containing badge data.
+ * @param array<string,mixed> $args   Item arguments containing badge data.
+ * @param array<string,mixed> $config Optional render config (currently reads `layout_type`).
  * @return void
  * @since 1.2.0
  */
-function suredash_display_item_badge( $args ): void {
+function suredash_display_item_badge( $args, array $config = [] ): void {
+	$layout_type = $config['layout_type'] ?? '';
+
 	// Priority 1: Private badge.
 	if ( ! empty( $args['private'] ) && $args['private'] === true ) {
 		Helper::show_badge( 'neutral', 'lock', __( 'Private', 'suredash' ), 'sm' );
@@ -646,11 +659,37 @@ function suredash_display_item_badge( $args ): void {
 					} else {
 						Helper::show_badge( 'success', '', '100%', 'sm', '', [], true );
 					}
-				} elseif ( isset( $args['lesson'] ) && $args['lesson'] !== 0 ) {
-					// Show lesson count for courses without progress.
-					$lesson_count = intval( $args['lesson'] );
-					$lesson_label = sprintf( _n( ' lesson', ' lessons', $lesson_count, 'suredash' ) );
-					Helper::show_badge( 'neutral', '', $lesson_count . $lesson_label, 'sm', '', [], true );
+				} elseif ( $layout_type !== 'list' ) {
+					// List view shows counts in the inline meta line, so badges are
+					// only rendered here for grid and stacked layouts.
+					$lesson_count = isset( $args['lesson'] ) ? intval( $args['lesson'] ) : 0;
+					$quiz_count   = isset( $args['quiz'] ) ? intval( $args['quiz'] ) : 0;
+
+					if ( $layout_type === 'card' || $layout_type === 'grid' ) {
+						// Card view: collapse lesson + quiz into one "L + Q modules" pill
+						// to keep the card footer compact.
+						$total = $lesson_count + $quiz_count;
+						if ( $total > 0 ) {
+							if ( $lesson_count > 0 && $quiz_count > 0 ) {
+								$count_text = $lesson_count . ' + ' . $quiz_count;
+							} else {
+								$count_text = (string) $total;
+							}
+							$module_label = sprintf( _n( ' module', ' modules', $total, 'suredash' ) );
+							Helper::show_badge( 'neutral', '', $count_text . $module_label, 'sm', '', [], true );
+						}
+					} elseif ( $lesson_count > 0 || $quiz_count > 0 ) {
+						echo '<span class="sd-flex sd-items-center sd-gap-8 sd-flex-wrap">';
+						if ( $lesson_count > 0 ) {
+							$lesson_label = sprintf( _n( ' lesson', ' lessons', $lesson_count, 'suredash' ) );
+							Helper::show_badge( 'neutral', '', $lesson_count . $lesson_label, 'sm', '', [], true );
+						}
+						if ( $quiz_count > 0 ) {
+							$quiz_label = sprintf( _n( ' quiz', ' quizzes', $quiz_count, 'suredash' ) );
+							Helper::show_badge( 'neutral', '', $quiz_count . $quiz_label, 'sm', '', [], true );
+						}
+						echo '</span>';
+					}
 				}
 				break;
 
@@ -692,7 +731,7 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 		Helper::show_badge( 'neutral', 'Pin', Labels::get_label( 'pinned_post' ), 'sm', 'sd-color-text-tertiary' );
 	}
 
-	suredash_display_item_badge( $args );
+	suredash_display_item_badge( $args, $config );
 
 	// Likes enabled check.
 	$space_id = Helper::get_space_id_for_post( $post_id ) ? Helper::get_space_id_for_post( $post_id ) : 0;
@@ -848,6 +887,7 @@ function suredash_render_list_item( $args = [] ): void {
 		'link'        => '',
 		'private'     => null,
 		'lesson'      => null,
+		'quiz'        => null,
 		'progress'    => null,
 		'options'     => [
 			[

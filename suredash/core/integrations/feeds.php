@@ -559,11 +559,9 @@ class Feeds extends Base {
 					if ( ! empty( $pinned_posts ) ) {
 						foreach ( $pinned_posts as $pinned_post_id ) {
 							if ( sd_post_exists( $pinned_post_id ) ) {
-								// Skip posts the current user is not allowed to see (matches grid view behavior).
-								if ( suredash_is_post_protected( $pinned_post_id ) ) {
-									continue;
-								}
-
+								// Visibility was already applied to $pinned_posts during the
+								// pre-filter above, so no per-post suredash_is_post_protected()
+								// re-check is needed here (matches grid view behavior).
 								$post_link   = get_permalink( $pinned_post_id );
 								$author_id   = get_post_field( 'post_author', $pinned_post_id );
 								$author_name = suredash_get_user_display_name( (int) $author_id );
@@ -607,11 +605,9 @@ class Feeds extends Base {
 							continue;
 						}
 
-						// Skip posts the current user is not allowed to see (matches grid view behavior).
-						if ( suredash_is_post_protected( $post_id ) ) {
-							continue;
-						}
-
+						// $query_posts is already visibility-filtered during the
+						// pre-filter above, so no per-post suredash_is_post_protected()
+						// re-check is needed here (matches grid view behavior).
 						$post_link   = get_permalink( $post_id );
 						$author_id   = get_post_field( 'post_author', $post_id );
 						$author_name = suredash_get_user_display_name( (int) $author_id );

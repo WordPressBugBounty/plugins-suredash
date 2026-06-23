@@ -257,6 +257,25 @@ class Base {
 		krsort( $notifications );
 
 		if ( ! empty( $notifications ) ) {
+			// Prime post caches in a single batch before the render loop. The
+			// per-notification format callbacks call get_post_status(),
+			// get_the_title() and get_permalink() on these post IDs; without
+			// priming, each call lazily loads its post + meta one query at a
+			// time. The IDs live under the `space_id`, `topic_id` and
+			// `entity_id` keys across the notifier dataset.
+			$notification_post_ids = [];
+			foreach ( $notifications as $notification ) {
+				foreach ( [ 'space_id', 'topic_id', 'entity_id' ] as $id_key ) {
+					if ( ! empty( $notification[ $id_key ] ) ) {
+						$notification_post_ids[] = absint( $notification[ $id_key ] );
+					}
+				}
+			}
+			$notification_post_ids = array_values( array_unique( array_filter( $notification_post_ids ) ) );
+			if ( ! empty( $notification_post_ids ) ) {
+				_prime_post_caches( $notification_post_ids, true, true );
+			}
+
 			$markup .= '<ul class="portal-notification-list sd-no-space">';
 			foreach ( $notifications as $notification ) {
 				$trigger             = ! empty( $notification['trigger'] ) ? $notification['trigger'] : '';

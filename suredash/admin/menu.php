@@ -427,6 +427,16 @@ class Menu {
 					'timezone_options'              => $timezone_options,
 					'user_view_url'                 => home_url( '/' . suredash_get_community_slug() . '/' . suredash_get_endpoint_slug( 'user-view' ) . '/{{USER_ID}}/' ),
 					'admin_notification_candidates' => $this->get_admin_notification_candidates(),
+					/**
+					 * Filter: surface the Edit button on quiz rows in the
+					 * course-content listing. Defaults to false — quizzes are
+					 * authored via the Settings dialog. Pro / integrations can
+					 * flip this on if they ship a full quiz editor.
+					 *
+					 * @param bool $enabled Whether to render the Edit button on
+					 *                       quiz rows.
+					 */
+					'quiz_edit_enabled'             => (bool) apply_filters( 'suredash_quiz_edit_enabled', false ),
 				]
 			);
 

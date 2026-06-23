@@ -186,6 +186,10 @@ class PostMeta {
 					'default' => true,
 					'type'    => 'boolean',
 				],
+				'enforce_lesson_order'    => [
+					'default' => false,
+					'type'    => 'boolean',
+				],
 				'show_add_to_calendar'    => [
 					'default' => false,
 					'type'    => 'boolean',
@@ -457,6 +461,15 @@ class PostMeta {
 								$section_loop[ $section_index ]['section_medias'][ $media_index ]['post_status'] = $post_status;
 							} else {
 								$section_loop[ $section_index ]['section_medias'][ $media_index ]['post_status'] = false;
+							}
+							// Surface content_type (lesson vs quiz) on every read so
+							// any caller — initial space fetch, duplicate response,
+							// reorder, etc. — gets a consistent row shape and React
+							// can render the correct chrome (quiz badge, no Edit
+							// button) without a page reload.
+							$content_type = sd_get_post_meta( $lesson_id, 'content_type', true );
+							if ( $content_type ) {
+								$section_loop[ $section_index ]['section_medias'][ $media_index ]['content_type'] = (string) $content_type;
 							}
 						}
 					}

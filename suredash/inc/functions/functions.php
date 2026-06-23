@@ -670,6 +670,7 @@ function suredash_all_content_types( $get_frontend_slugs = false ) {
 				suredash_get_community_content_slug( 'lesson' ),
 				suredash_get_community_content_slug( 'resource' ),
 				suredash_get_community_content_slug( 'event' ),
+				suredash_get_community_content_slug( 'quiz' ),
 			]
 		);
 	}
@@ -680,6 +681,7 @@ function suredash_all_content_types( $get_frontend_slugs = false ) {
 			'lesson',
 			'resource',
 			'event',
+			'quiz',
 		]
 	);
 }
@@ -703,8 +705,12 @@ function suredash_content_post() {
 			case 'event':
 				$type = 'event';
 				break;
+			case 'quiz':
 			case 'lesson':
 			default:
+				// Quizzes piggy-back on the lesson endpoint so they get the
+				// course sidebar + lesson top bar. The quiz UI replaces the
+				// lesson body via the `the_content` filter below.
 				$type = 'lesson';
 				break;
 
@@ -1325,6 +1331,73 @@ function suredash_get_lesson_ids_from_course_loop( $course_loop ) {
 	}
 
 		return $lesson_ids;
+}
+
+/**
+ * Get published content IDs from a course loop filtered by content_type.
+ *
+ * Walks the course's `pp_course_section_loop` and returns the IDs of every
+ * published item whose `content_type` post meta matches the filter. Items
+ * created before the quiz feature shipped have no `content_type` meta and
+ * are treated as lessons (back-compat).
+ *
+ * @param array<mixed> $course_loop  Course section loop.
+ * @param string       $content_type 'lesson' or 'quiz'.
+ * @return array<int> Published post IDs of the requested content type.
+ * @since 1.x.x
+ */
+function suredash_get_course_content_ids( $course_loop, $content_type = 'lesson' ) {
+	$ids = [];
+
+	if ( ! is_array( $course_loop ) ) {
+		return $ids;
+	}
+
+	foreach ( $course_loop as $section ) {
+		if ( empty( $section['section_medias'] ) || ! is_array( $section['section_medias'] ) ) {
+			continue;
+		}
+
+		foreach ( $section['section_medias'] as $media ) {
+			$post_id = absint( $media['value'] ?? 0 );
+			if ( ! $post_id || get_post_status( $post_id ) !== 'publish' ) {
+				continue;
+			}
+
+			$type = (string) sd_get_post_meta( $post_id, 'content_type', true );
+			if ( $type === '' ) {
+				$type = 'lesson';
+			}
+
+			if ( $type === $content_type ) {
+				$ids[] = $post_id;
+			}
+		}
+	}
+
+	return $ids;
+}
+
+/**
+ * Count published lessons in a course loop (excludes quizzes).
+ *
+ * @param array<mixed> $course_loop Course section loop.
+ * @return int
+ * @since 1.x.x
+ */
+function suredash_get_course_lessons_count( $course_loop ) {
+	return count( suredash_get_course_content_ids( $course_loop, 'lesson' ) );
+}
+
+/**
+ * Count published quizzes in a course loop.
+ *
+ * @param array<mixed> $course_loop Course section loop.
+ * @return int
+ * @since 1.x.x
+ */
+function suredash_get_course_quizzes_count( $course_loop ) {
+	return count( suredash_get_course_content_ids( $course_loop, 'quiz' ) );
 }
 
 /**

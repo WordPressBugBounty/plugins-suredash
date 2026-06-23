@@ -76,11 +76,24 @@ class Delete_Space extends Ability {
 	 */
 	public function get_parameters(): array {
 		return [
-			'post_id' => [
+			'space_id' => [
 				'type'        => 'integer',
 				'required'    => true,
-				'description' => __( 'The ID of the space to delete.', 'suredash' ),
+				'description' => __( 'WordPress post ID of the space to delete (the space is stored as a portal post). This is the same value create-space returns as space_id. Use list-spaces to find space IDs.', 'suredash' ),
 			],
+		];
+	}
+
+	/**
+	 * Deprecated input aliases.
+	 *
+	 * @since 1.9.3
+	 *
+	 * @return array<string, array<int, string>>
+	 */
+	public function get_aliases(): array {
+		return [
+			'space_id' => [ 'post_id' ],
 		];
 	}
 
@@ -129,7 +142,7 @@ class Delete_Space extends Ability {
 	public function execute( array $params ): array {
 		$this->setup_post_data(
 			[
-				'post_id' => absint( $params['post_id'] ),
+				'post_id' => absint( $params['space_id'] ),
 			]
 		);
 

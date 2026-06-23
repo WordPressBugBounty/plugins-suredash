@@ -594,6 +594,17 @@ class Common_Notifier extends Base {
 			$entity_url  = $entity_url ? $entity_url : '#';
 			$entity_link = '<a href="' . esc_url( $entity_url ) . '"><strong>' . esc_html( $title ) . '</strong></a>';
 
+			if ( $entity === 'comment' ) {
+				$entity_url = get_comment_link( $entity_id );
+				if ( ! $entity_url ) {
+					$entity_url = get_permalink( absint( $comment->comment_post_ID ?? 0 ) );
+				}
+			} else {
+				$entity_url = get_permalink( $entity_id );
+			}
+			$entity_url  = $entity_url ? $entity_url : '#';
+			$entity_link = '<a href="' . esc_url( $entity_url ) . '"><strong>' . esc_html( $title ) . '</strong></a>';
+
 			$caller_html = '<strong>' . $caller_name . '</strong>';
 			$others      = $count - 1;
 

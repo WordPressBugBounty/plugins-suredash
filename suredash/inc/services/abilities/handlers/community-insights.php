@@ -120,7 +120,7 @@ class Community_Insights extends Ability {
 			'filters'  => [
 				'type'        => 'object',
 				'required'    => false,
-				'description' => __( 'Query-specific filters. Common: days (integer), start_date/end_date (Y-m-d), space_id (integer), user_id (integer), period (7d/30d/90d), metric (likes/comments/all), limit (integer).', 'suredash' ),
+				'description' => __( 'Query-specific filters. Common: days (integer), start_date/end_date (Y-m-d), space_id (WordPress post ID of the space, from list-spaces), user_id (integer), period (7d/30d/90d), metric (likes/comments/all), limit (integer).', 'suredash' ),
 				'default'     => [],
 			],
 			'per_page' => [

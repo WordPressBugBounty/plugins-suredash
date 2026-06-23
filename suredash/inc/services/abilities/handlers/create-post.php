@@ -88,7 +88,7 @@ class Create_Post extends Ability {
 				'type'        => 'integer',
 				'required'    => false,
 				'default'     => 0,
-				'description' => __( 'Space ID to create the post in. The post will be assigned to the forum category linked to this space.', 'suredash' ),
+				'description' => __( 'WordPress post ID of the space to create the post in (the space is stored as a portal post). The post will be assigned to the forum category linked to this space. Use list-spaces to find space IDs.', 'suredash' ),
 			],
 		];
 	}

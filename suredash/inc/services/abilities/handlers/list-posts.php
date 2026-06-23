@@ -49,7 +49,7 @@ class List_Posts extends Ability {
 	 * @return string
 	 */
 	public function get_description(): string {
-		return __( 'Lists community/discussion posts with optional filtering. Returns post ID, title, author, date, status, and engagement data. Filter by space_id (discussion space post ID) or forum_term_id (taxonomy term ID). Use list-spaces with content_type "posts_discussion" to find discussion space IDs.', 'suredash' );
+		return __( 'Lists community/discussion posts with optional filtering. Returns post ID, title, author, date, status, and engagement data. Filter by space_id (the WordPress post ID of the discussion space) or forum_term_id (taxonomy term ID). Use list-spaces with content_type "posts_discussion" to find discussion space IDs.', 'suredash' );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class List_Posts extends Ability {
 				'type'        => 'integer',
 				'required'    => false,
 				'default'     => 0,
-				'description' => __( 'Discussion space post ID to list posts from. The forum term is resolved automatically. Use list-spaces to find space IDs.', 'suredash' ),
+				'description' => __( 'WordPress post ID of the discussion space to list posts from (the space is stored as a portal post). The forum term is resolved automatically. Use list-spaces to find space IDs.', 'suredash' ),
 			],
 			'forum_term_id' => [
 				'type'        => 'integer',

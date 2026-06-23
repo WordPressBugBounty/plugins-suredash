@@ -122,6 +122,23 @@ abstract class Ability {
 	}
 
 	/**
+	 * Get deprecated parameter aliases for this ability.
+	 *
+	 * Maps a canonical parameter name to the deprecated alias names that are
+	 * also accepted on input. Aliases are exposed in the input schema (so the
+	 * Abilities API does not reject them) and normalized to the canonical key
+	 * before validation. This lets abilities standardize on a single argument
+	 * name (e.g. `space_id`) without breaking callers that still send an older
+	 * name such as `post_id` or `content_id`.
+	 *
+	 * @since 1.9.3
+	 * @return array<string, array<int, string>> Map of canonical name => list of alias names.
+	 */
+	public function get_aliases(): array {
+		return [];
+	}
+
+	/**
 	 * Get MCP tool annotations describing behavioral characteristics.
 	 *
 	 * Keys use MCP protocol naming: readOnlyHint, destructiveHint, idempotentHint.
@@ -250,6 +267,29 @@ abstract class Ability {
 			}
 		}
 
+		// Expose deprecated aliases as optional properties so the Abilities API
+		// schema layer (additionalProperties: false) accepts them. A canonical
+		// key that has aliases is dropped from the JSON Schema `required` list —
+		// an alias may satisfy it — and the requirement is enforced instead by
+		// validate() after normalize_aliases() runs.
+		foreach ( $this->get_aliases() as $canonical => $alias_names ) {
+			if ( ! isset( $properties[ $canonical ] ) ) {
+				continue;
+			}
+
+			$required = array_values( array_diff( $required, [ $canonical ] ) );
+
+			foreach ( $alias_names as $alias ) {
+				$alias_property                = $properties[ $canonical ];
+				$alias_property['description'] = sprintf(
+					/* translators: %s: canonical parameter name */
+					__( 'Deprecated alias for "%s"; accepted for backward compatibility. Prefer the canonical name.', 'suredash' ),
+					$canonical
+				);
+				$properties[ $alias ] = $alias_property;
+			}
+		}
+
 		$schema = [
 			'type'                 => 'object',
 			'properties'           => $properties,
@@ -275,6 +315,7 @@ abstract class Ability {
 	 * @return array<string, mixed> Result array.
 	 */
 	public function handle_execute( array $input ): array {
+		$input  = $this->normalize_aliases( $input );
 		$params = $this->apply_defaults( $input );
 
 		$validation = $this->validate( $params );
@@ -380,6 +421,41 @@ abstract class Ability {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Normalize deprecated parameter aliases to their canonical keys.
+	 *
+	 * For each canonical => aliases mapping from get_aliases(): when the
+	 * canonical key is absent (or empty) but an alias is provided, the alias
+	 * value is copied to the canonical key. Alias keys are always removed from
+	 * the returned array so the canonical name is the single source of truth
+	 * downstream. The canonical value wins if both are sent.
+	 *
+	 * @since 1.9.3
+	 *
+	 * @param array<string, mixed> $input Raw input parameters.
+	 * @return array<string, mixed> Parameters keyed by canonical names.
+	 */
+	public function normalize_aliases( array $input ): array {
+		foreach ( $this->get_aliases() as $canonical => $alias_names ) {
+			$has_canonical = isset( $input[ $canonical ] ) && $input[ $canonical ] !== '';
+
+			foreach ( $alias_names as $alias ) {
+				if ( ! isset( $input[ $alias ] ) ) {
+					continue;
+				}
+
+				if ( ! $has_canonical ) {
+					$input[ $canonical ] = $input[ $alias ];
+					$has_canonical       = true;
+				}
+
+				unset( $input[ $alias ] );
+			}
+		}
+
+		return $input;
 	}
 
 	/**

@@ -359,6 +359,14 @@ class Renderer {
 			return;
 		}
 
+		// Quizzes are managed through the course dashboard's Quiz Settings
+		// dialog, not the WordPress post editor — hide the edit link entirely.
+		$content_id = get_queried_object_id();
+		if ( (string) sd_get_post_meta( $content_id, 'content_type', true ) === 'quiz' ) {
+			$wp_admin_bar->remove_node( 'edit' );
+			return;
+		}
+
 		// Get the existing edit node.
 		$edit_node = $wp_admin_bar->get_node( 'edit' );
 		if ( ! $edit_node || ! is_object( $edit_node ) ) {

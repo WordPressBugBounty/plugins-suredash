@@ -101,6 +101,25 @@ class Navigation {
 					}
 				);
 			}
+			unset( $group );
+
+			// Prime post meta for every space in a single query before the
+			// per-space visibility filter runs below. `suredash_is_space_hidden()`
+			// reads space meta (e.g. `hidden_space`, and the SureMembers
+			// `sm_space_ruleset` / `sm_space_membership_rule` keys in Pro) for
+			// each space; without priming, the first read for each space lazily
+			// fires its own meta query. Batching collapses ~N queries into one.
+			$space_ids_to_prime = [];
+			foreach ( $space_groups as $space_group ) {
+				foreach ( $space_group as $space_item ) {
+					if ( ! empty( $space_item['ID'] ) ) {
+						$space_ids_to_prime[] = (int) $space_item['ID'];
+					}
+				}
+			}
+			if ( ! empty( $space_ids_to_prime ) ) {
+				update_meta_cache( 'post', array_values( array_unique( $space_ids_to_prime ) ) );
+			}
 
 			$sub_query          = suredash_get_sub_queried_page();
 			$is_feeds           = $sub_query === 'feeds';
