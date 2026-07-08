@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.9.3
+Stable tag: 1.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,15 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-07-08 - version 1.9.4 =
+* Improvement: Added automatic text direction support so right-to-left languages such as Arabic, Hebrew, and Urdu display and align correctly in posts, comments, and the editor.
+* Improvement: Refreshed the WordPress Abilities (MCP) settings interface for a cleaner configuration experience.
+* Improvement: Strengthened security and access controls across community interactions and notification emails to better handle edge cases and safeguard restricted content.
+* Fix: Fixed an issue where feeds with pinned posts could show empty pages or stop loading more posts while scrolling.
+* Fix: Fixed comment pages not loading correctly on individual posts.
+* Fix: Fixed the Profile block navigation menu not applying its horizontal layout and sticky position on the frontend.
+* Fix: Fixed avatar images not keeping their correct dimensions in the profile overlay.
+
 = 2026-06-23 - version 1.9.3 =
 * Improvement: Improved navigation speed by prefetching portal links on deliberate hover, so pages load faster.
 * Improvement: Enhanced the WordPress Abilities (MCP) integration with clearer parameter descriptions and standardized argument names, while keeping older names supported for backward compatibility.

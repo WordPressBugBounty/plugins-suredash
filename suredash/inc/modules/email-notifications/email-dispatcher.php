@@ -388,16 +388,20 @@ class Email_Dispatcher {
 	 */
 	private function replace_email_variables( string $content, \WP_User $user, array $context_data ): string {
 		// Basic user variables.
+		// These values are substituted into an HTML email body, so every
+		// user-influenced text value is escaped for the HTML context here
+		// (the body is only wpautop()'d afterwards, never re-escaped) and
+		// URLs are passed through esc_url() to prevent stored XSS.
 		$variables = [
-			'{{user_name}}'         => $user->display_name,
-			'{{user_email}}'        => $user->user_email,
-			'{{user_login}}'        => $user->user_login,
-			'{{user_display_name}}' => $user->display_name,
-			'{{user_first_name}}'   => sd_get_user_meta( $user->ID, 'first_name', true ),
-			'{{user_last_name}}'    => sd_get_user_meta( $user->ID, 'last_name', true ),
-			'{{user_registered}}'   => date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ),
-			'{{portal_name}}'       => Helper::get_option( 'portal_name', get_bloginfo( 'name' ) ),
-			'{{portal_url}}'        => home_url(),
+			'{{user_name}}'         => esc_html( $user->display_name ),
+			'{{user_email}}'        => esc_html( $user->user_email ),
+			'{{user_login}}'        => esc_html( $user->user_login ),
+			'{{user_display_name}}' => esc_html( $user->display_name ),
+			'{{user_first_name}}'   => esc_html( (string) sd_get_user_meta( $user->ID, 'first_name', true ) ),
+			'{{user_last_name}}'    => esc_html( (string) sd_get_user_meta( $user->ID, 'last_name', true ) ),
+			'{{user_registered}}'   => esc_html( date_i18n( get_option( 'date_format' ), strtotime( $user->user_registered ) ) ),
+			'{{portal_name}}'       => esc_html( (string) Helper::get_option( 'portal_name', get_bloginfo( 'name' ) ) ),
+			'{{portal_url}}'        => esc_url( home_url() ),
 		];
 
 		// Context-specific variables for basic features.
@@ -405,17 +409,17 @@ class Email_Dispatcher {
 			$space_id   = $context_data['space_id'];
 			$space_data = $context_data['space_data'] ?? [];
 
-			$variables['{{space_name}}'] = $space_data['title'] ?? get_the_title( $space_id );
-			$variables['{{space_url}}']  = get_permalink( $space_id );
+			$variables['{{space_name}}'] = esc_html( (string) ( $space_data['title'] ?? get_the_title( $space_id ) ) );
+			$variables['{{space_url}}']  = esc_url( (string) get_permalink( $space_id ) );
 		}
 
 		if ( isset( $context_data['post_id'] ) ) {
 			$post_id   = $context_data['post_id'];
 			$post_data = $context_data['post_data'] ?? [];
 
-			$variables['{{post_title}}']   = $post_data['title'] ?? get_the_title( $post_id );
-			$variables['{{post_url}}']     = get_permalink( $post_id );
-			$variables['{{post_excerpt}}'] = ! empty( $post_data['excerpt'] ) ? $post_data['excerpt'] : get_the_excerpt( $post_id );
+			$variables['{{post_title}}']   = esc_html( (string) ( $post_data['title'] ?? get_the_title( $post_id ) ) );
+			$variables['{{post_url}}']     = esc_url( (string) get_permalink( $post_id ) );
+			$variables['{{post_excerpt}}'] = esc_html( (string) ( ! empty( $post_data['excerpt'] ) ? $post_data['excerpt'] : get_the_excerpt( $post_id ) ) );
 		}
 
 		/**

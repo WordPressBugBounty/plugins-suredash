@@ -189,7 +189,7 @@ do_action( 'suredashboard_single_post_template', $p_id );
 	<?php Helper::suredash_featured_cover( $p_id ); ?>
 
 	<div class="sd-p-container sd-force-pt-0">
-		<div class="portal-space-post-content">
+		<div class="portal-space-post-content" dir="auto">
 			<h3 class="portal-store-post-title"><?php echo esc_html( $post_title ); ?></h3>
 			<?php
 			// Process content based on whether it's excerpt or full content.

@@ -61,7 +61,7 @@ do_action( 'suredashboard_single_comment_template', $p_id );
 								<?php echo esc_html( $post_title ); ?>
 							</a>
 						</div>
-						<div class="portal-user-comment-content">
+						<div class="portal-user-comment-content" dir="auto">
 							<?php echo wp_kses_post( $comment_content ); ?>
 						</div>
 					</div>

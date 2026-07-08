@@ -21,10 +21,11 @@ if ( ! suredash_content_post() ) {
 	$block_atts = [
 		'onlyavatar'                   => boolval( $attributes['onlyavatar'] ),
 		'menuopenverposition'          => $attributes['menuopenverposition'] ?? 'top',
-		'menuopenhorposition'          => is_rtl() ? 'left' : 'right',
+		'menuopenhorposition'          => ! empty( $attributes['menuopenhorposition'] ) ? $attributes['menuopenhorposition'] : ( is_rtl() ? 'left' : 'right' ),
 		'menuhorpositionoffset'        => $attributes['menuhorpositionoffset'] ?? '',
 		'menuverpositionoffset'        => $attributes['menuverpositionoffset'] ?? '',
 		'makefixed'                    => boolval( $attributes['makefixed'] ),
+		'blockstickyverposition'       => isset( $attributes['blockstickyverposition'] ) && $attributes['blockstickyverposition'] === 'top' ? 'top' : 'bottom',
 		'blockstickyverpositionoffset' => $attributes['blockstickyverpositionoffset'] ?? '',
 		'blockmaxwidth'                => $attributes['blockmaxwidth'] ?? '',
 		'stickyhorpositionoffset'      => $attributes['stickyhorpositionoffset'] ?? '',
@@ -55,7 +56,7 @@ if ( ! suredash_content_post() ) {
 							height:' . esc_attr( $avatar_size ) . ' !important;
 						}
 						.suredash-profile--fixed .portal-user-profiles-wrap {
-							bottom: ' . esc_attr( $sticky_ver_position_offset ) . ';
+							' . esc_attr( $block_atts['blockstickyverposition'] ) . ': ' . esc_attr( $sticky_ver_position_offset ) . ';
 							max-width: ' . esc_attr( $block_max_width ) . ';
 							width: 100%;
 						}

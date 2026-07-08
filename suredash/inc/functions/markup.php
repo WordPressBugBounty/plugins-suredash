@@ -400,10 +400,15 @@ function suredash_get_user_avatar( $user_id, $echo = true, $size = 40, $add_data
 			// synchronously-rendered first batch, whose `loading="lazy"`
 			// overlay had not resolved at first paint. `opacity` (not
 			// `visibility`) is used so initials inside a hidden popover stay
-			// hidden. `!important` on width/height defeats the per-size
-			// `.portal-avatar-XX img` rule in badges.css.
+			// hidden. The overlay must fill its wrapper at whatever size the
+			// wrapper currently is, so it neutralises every dimension of the
+			// per-size `.portal-avatar-XX img` rule in badges.css — width,
+			// height AND min-width/min-height. Resetting `min-*` matters when
+			// responsive CSS shrinks the wrapper below the size class (e.g. the
+			// 32px list-view avatar on mobile): without it the `min-width:40px`
+			// from that rule wins and the overlay overflows the 32px wrapper.
 			$gravatar_overlay = sprintf(
-				'<img class="portal-user-gravatar" src="%s" alt="" loading="lazy" onload="var t=this.parentNode&&this.parentNode.querySelector(\'.portal-avatar-initials-text\');if(t){t.style.opacity=\'0\';}" onerror="this.remove();" style="position:absolute;top:0;left:0;width:100%% !important;height:100%% !important;max-width:none !important;max-height:none !important;object-fit:cover;border-radius:inherit;display:block;" />',
+				'<img class="portal-user-gravatar" src="%s" alt="" loading="lazy" onload="var t=this.parentNode&&this.parentNode.querySelector(\'.portal-avatar-initials-text\');if(t){t.style.opacity=\'0\';}" onerror="this.remove();" style="position:absolute;top:0;left:0;width:100%% !important;height:100%% !important;min-width:0 !important;min-height:0 !important;max-width:none !important;max-height:none !important;object-fit:cover;border-radius:inherit;display:block;" />',
 				esc_url( $gravatar_url )
 			);
 		}

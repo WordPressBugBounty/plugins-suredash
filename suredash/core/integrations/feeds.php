@@ -206,7 +206,7 @@ class Feeds extends Base {
 							</div>
 
 							<div class="portal-custom-topic-field">
-								<input type="text" id="custom_post_title" name="custom_post_title" class="portal_topic_input post_creation_title sd-force-font-28 sd-force-font-medium sd-force-p-0 sd-force-border-none sd-force-shadow-none sd-force-bg-transparent sd-heading-title" autocomplete="off" placeholder="<?php echo esc_attr__( 'Enter a title', 'suredash' ); ?>" />
+								<input type="text" id="custom_post_title" name="custom_post_title" class="portal_topic_input post_creation_title sd-force-font-28 sd-force-font-medium sd-force-p-0 sd-force-border-none sd-force-shadow-none sd-force-bg-transparent sd-heading-title" autocomplete="off" dir="auto" placeholder="<?php echo esc_attr__( 'Enter a title', 'suredash' ); ?>" />
 
 								<textarea id="custom_post_content" name="custom_post_content" class="portal_topic_input post_creation_content"></textarea>
 							</div>
@@ -327,7 +327,7 @@ class Feeds extends Base {
 					</div>
 
 					<div class="portal-custom-topic-field">
-						<input type="text" id="edit_post_title" name="edit_post_title" class="portal_topic_input post_creation_title sd-force-font-28 sd-force-font-medium sd-force-p-0 sd-force-border-none sd-force-shadow-none sd-force-bg-transparent sd-heading-title" autocomplete="off" placeholder="<?php echo esc_attr__( 'Enter a title', 'suredash' ); ?>" />
+						<input type="text" id="edit_post_title" name="edit_post_title" class="portal_topic_input post_creation_title sd-force-font-28 sd-force-font-medium sd-force-p-0 sd-force-border-none sd-force-shadow-none sd-force-bg-transparent sd-heading-title" autocomplete="off" dir="auto" placeholder="<?php echo esc_attr__( 'Enter a title', 'suredash' ); ?>" />
 
 						<textarea id="edit_post_content" name="edit_post_content" class="portal_topic_input post_creation_content"></textarea>
 					</div>
@@ -507,25 +507,47 @@ class Feeds extends Base {
 					)
 				);
 
+				// Pinned posts render in their own section (and are skipped in the
+				// regular loop), so leaving them in the pool lets them consume page
+				// slots and strand later posts — a page whose only slot held a pinned
+				// post comes back empty and infinite scroll stops. Drop them here so
+				// pagination counts only regular posts. Pinned visibility is handled
+				// just below where $pinned_posts is filtered for separate rendering.
+				$query_posts = array_values(
+					array_filter(
+						$query_posts,
+						static function ( $post ) use ( $pinned_posts ) {
+							return ! in_array( absint( $post['ID'] ?? 0 ), $pinned_posts, true );
+						}
+					)
+				);
+
 				// Slice the visibility-filtered set down to the requested
 				// page size for the initial render (page 1). Subsequent
 				// pages are served by the load-more-posts route, which
 				// performs the same fetch / filter / slice cycle for its
 				// own `paged` value.
 				$query_posts = array_slice( $query_posts, 0, $page_size );
-
-				$pinned_posts = array_values(
-					array_filter(
-						$pinned_posts,
-						static function ( $pinned_post_id ) {
-							return sd_post_exists( $pinned_post_id ) && ! suredash_is_post_protected( $pinned_post_id );
-						}
-					)
-				);
 			}
 
+			// Filter pinned posts for existence + visibility UNCONDITIONALLY. A
+			// space with only pinned posts (or whose regular posts are all filtered
+			// out by visibility) leaves $query_posts empty and skips the block
+			// above, but the render gate below still renders pinned posts — so this
+			// must run outside the block or protected pinned posts leak into the
+			// list view, whose render loop relies on this pre-filter (no per-item
+			// re-check). Grid view is guarded again inside Helper::render_post().
+			$pinned_posts = array_values(
+				array_filter(
+					$pinned_posts,
+					static function ( $pinned_post_id ) {
+						return sd_post_exists( $pinned_post_id ) && ! suredash_is_post_protected( $pinned_post_id );
+					}
+				)
+			);
+
 			// Render controls (sort + view toggle).
-			if ( ! empty( $query_posts ) && is_array( $query_posts ) ) {
+			if ( ( ! empty( $query_posts ) || ! empty( $pinned_posts ) ) && is_array( $query_posts ) ) {
 				Helper::render_feeds_controls(
 					$feeds_sort,
 					$initial_view,
@@ -546,7 +568,7 @@ class Feeds extends Base {
 			<div class="portal-feeds-posts-container" data-view-mode="<?php echo esc_attr( $initial_view ); ?>">
 			<?php
 
-			if ( ! empty( $query_posts ) && is_array( $query_posts ) ) {
+			if ( ( ! empty( $query_posts ) || ! empty( $pinned_posts ) ) && is_array( $query_posts ) ) {
 				// Only show discussion space name on the main feeds page, not inside a specific discussion space.
 				$is_feeds_page = suredash_get_sub_queried_page() === 'feeds';
 

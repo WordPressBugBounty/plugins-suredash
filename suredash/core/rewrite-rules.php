@@ -178,7 +178,11 @@ class RewriteRules {
 		$new_rules = [];
 
 		foreach ( suredash_all_content_types( true ) as $type ) {
-			$new_rules[ "{$type}/([^/]+)/?$" ] = 'index.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE . '&name=$matches[1]';
+			// Match comment-pagination URLs (generated when "Break comments into pages"
+			// is enabled) before the catch-all, so /comment-page-N/ resolves via cpage
+			// instead of 404ing. cpage is a core public query var, no registration needed.
+			$new_rules[ "{$type}/([^/]+)/comment-page-([0-9]+)/?$" ] = 'index.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE . '&name=$matches[1]&cpage=$matches[2]';
+			$new_rules[ "{$type}/([^/]+)/?$" ]                       = 'index.php?post_type=' . SUREDASHBOARD_SUB_CONTENT_POST_TYPE . '&name=$matches[1]';
 		}
 
 		return $new_rules + $rules;

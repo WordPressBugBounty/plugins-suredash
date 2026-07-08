@@ -966,7 +966,7 @@ function suredash_comments_list_callback( $comment, $args, $depth ) {
 									</div>
 								</div>
 
-								<section class="portal-comment-content comment">
+								<section class="portal-comment-content comment" dir="auto">
 									<?php
 										remove_filter( 'comment_text', 'wpautop', 30 );
 										add_filter( 'comment_text', 'suredash_update_mention_links', 10, 3 );

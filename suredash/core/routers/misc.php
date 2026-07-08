@@ -327,11 +327,28 @@ class Misc {
 				)
 			);
 
+			// Pinned posts render in their own section (first page only) and are
+			// skipped in the loop below, so drop them from the pool before slicing —
+			// otherwise they consume page slots and a later page can come back empty,
+			// making infinite scroll stop early. Mirrors Feeds::get_integration_content().
+			$result = array_values(
+				array_filter(
+					$result,
+					static function ( $post ) use ( $pinned_posts ) {
+						return ! in_array( absint( $post['ID'] ?? 0 ), $pinned_posts, true );
+					}
+				)
+			);
+
 			$result = array_slice( $result, ( $paged - 1 ) * $page_size, $page_size );
 		}
 
-		if ( ! empty( $result ) ) {
-			$is_first_page = $paged === 1;
+		$is_first_page = $paged === 1;
+
+		// Pinned posts only render on the first page; include them in the gate so a
+		// space whose visible posts are all pinned (or a first-page sort/view toggle)
+		// still renders them instead of falling through to an empty container.
+		if ( ! empty( $result ) || ( $is_first_page && ! empty( $pinned_posts ) ) ) {
 
 			// Check if we should render in list view.
 			if ( $view_type === 'list' ) {
@@ -440,6 +457,14 @@ class Misc {
 				if ( $is_first_page && ! empty( $pinned_posts ) ) {
 					foreach ( $pinned_posts as $pinned_post_id ) {
 						if ( sd_post_exists( $pinned_post_id ) ) {
+							// Skip posts the current user is not allowed to see (matches list view behavior).
+							// render_post() would drop these anyway under the active
+							// suredash_skip_restricted_post filter, but guard explicitly so
+							// visibility doesn't hinge on that filter staying in place.
+							if ( suredash_is_post_protected( $pinned_post_id ) ) {
+								continue;
+							}
+
 							$pinned_post = (array) sd_get_post( $pinned_post_id );
 							Helper::render_post( $pinned_post, $base_id, true, $queried_page === 'feeds' );
 						}
@@ -904,6 +929,22 @@ class Misc {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
 		}
 
+		// IDOR guard: resolve the target post (the parent post for a comment)
+		// and deny unless the current user may access that SureDash object.
+		if ( $is_comment_ent ) {
+			$comment_obj = get_comment( $entity_id );
+			if ( ! $comment_obj instanceof \WP_Comment ) {
+				wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
+			}
+			$target_post_id = (int) $comment_obj->comment_post_ID;
+		} else {
+			$target_post_id = $entity_id;
+		}
+
+		if ( ! $this->can_access_feed_object( $target_post_id ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'permission' ) ] );
+		}
+
 		// Gather the response data.
 		$response = [];
 
@@ -1058,6 +1099,12 @@ class Misc {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
 		}
 
+		// IDOR guard: only expose reaction/comment markup for objects the
+		// current user is permitted to access.
+		if ( ! $this->can_access_feed_object( $post_id ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'permission' ) ] );
+		}
+
 		// Handle data_only request for visibility scope.
 		if ( $react_type === 'visibility' && current_user_can( 'administrator' ) && $data_only ) {
 			$visibility_data = $this->get_visibility_scope_data( $post_id );
@@ -1100,6 +1147,12 @@ class Misc {
 		// Check if required data exists and if the user is logged in.
 		if ( empty( $_POST['comment'] ) || empty( $_POST['comment_post_ID'] ) || ! is_user_logged_in() ) {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
+		}
+
+		// IDOR guard: only allow commenting on SureDash objects the current
+		// user may access.
+		if ( ! $this->can_access_feed_object( absint( $_POST['comment_post_ID'] ) ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'permission' ) ] );
 		}
 
 		$comment_data    = stripslashes( $_POST['comment'] ); // phpcs:ignore -- Data is sanitized in the wp_kses_post() method.
@@ -1697,6 +1750,45 @@ class Misc {
 		}
 
 		wp_send_json_success( [ 'html' => $embed_html ] );
+	}
+
+	/**
+	 * Verify the current user may interact with a SureDash feed/content object.
+	 *
+	 * Guards the reaction/comment/reactor routes against IDOR: the target must
+	 * be one of the plugin's own community post types and, for non-managers,
+	 * must not be protected or hidden from the current user by visibility scope
+	 * or access rules. Portal managers bypass. Safe-deny by default.
+	 *
+	 * @since 1.9.4
+	 * @param int $post_id The target post ID (for comments, pass the parent post ID).
+	 * @return bool True when the current user is allowed to access the object.
+	 */
+	private function can_access_feed_object( int $post_id ): bool {
+		if ( $post_id <= 0 ) {
+			return false;
+		}
+
+		// Only the plugin's own community post types are valid targets — this
+		// blocks like/comment meta tampering on arbitrary site-wide objects.
+		$post_type = (string) sd_get_post_field( $post_id, 'post_type' );
+		$allowed   = [ SUREDASHBOARD_FEED_POST_TYPE, SUREDASHBOARD_SUB_CONTENT_POST_TYPE ];
+		if ( ! in_array( $post_type, $allowed, true ) ) {
+			return false;
+		}
+
+		// Portal managers can access everything.
+		if ( suredash_is_user_manager() ) {
+			return true;
+		}
+
+		// Deny when the object is protected/hidden from the current user
+		// (space restriction, visibility scope, third-party/Pro access rules).
+		if ( function_exists( 'suredash_is_post_protected' ) && suredash_is_post_protected( $post_id ) ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
