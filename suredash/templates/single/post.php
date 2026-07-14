@@ -71,7 +71,7 @@ $post_content = Helper::get_post_content( $p_id, $content_type );
 do_action( 'suredashboard_single_post_template', $p_id );
 
 ?>
-<div id="portal-post-<?php echo esc_attr( (string) $p_id ); ?>" class="portal-store-list-post portal-content sd-relative sd-bg-content sd-overflow-hidden sd-transition-fast">
+<div id="portal-post-<?php echo esc_attr( (string) $p_id ); ?>" class="portal-store-list-post portal-content sd-relative sd-bg-content sd-overflow-hidden sd-transition-fast<?php echo ! empty( $args['is_locked'] ) ? ' is-locked portal-locked-post portal-locked-frost' : ''; ?>"<?php echo ! empty( $args['is_locked'] ) && function_exists( 'suredash_locked_data_attrs' ) ? suredash_locked_data_attrs( $args['lock_action'] ?? [], $p_id ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- pre-escaped attrs ?>>
 
 	<section class="portal-store-post-header sd-p-container">
 		<div class="portal-store-post-author-data sd-flex sd-justify-between sd-items-start">
@@ -192,44 +192,56 @@ do_action( 'suredashboard_single_post_template', $p_id );
 		<div class="portal-space-post-content" dir="auto">
 			<h3 class="portal-store-post-title"><?php echo esc_html( $post_title ); ?></h3>
 			<?php
-			// Process content based on whether it's excerpt or full content.
-			if ( $content_type === 'excerpt' ) {
-				// Build the Read More link.
-				$read_more_link = sprintf(
-					'<a href="%1$s" data-post_id="%2$s" data-post_type="%3$s" data-comments="%4$s" class="portal-read-more-post more-link sd-font-16 sd-font-semibold" style="text-decoration: none !important;">%5$s</a>',
-					esc_url( $permalink ),
-					esc_attr( (string) $p_id ),
-					esc_attr( $p_type ),
-					esc_attr( (string) $p_comments ),
-					sprintf( /* translators: %1$s Read More, %2$s Post title markup */'%1$s %2$s', esc_html( Labels::get_label( 'read_more' ) ), '<span class="screen-reader-text">' . esc_html( $post_title ) . '</span>' )
-				);
+			if ( ! empty( $args['is_locked'] ) ) {
+				// The whole container is blurred via CSS and the centered .portal-locked-overlay
+				// (rendered below) carries the lock cue, so the body just needs placeholder text
+				// to give the post some bulk underneath the frosted layer.
+				?>
+				<p class="portal-locked-post-text"><?php echo esc_html( $args['lock_message'] ); ?></p>
+			<?php } else { ?>
+				<?php
+				// Process content based on whether it's excerpt or full content.
+				if ( $content_type === 'excerpt' ) {
+					// Build the Read More link.
+					$read_more_link = sprintf(
+						'<a href="%1$s" data-post_id="%2$s" data-post_type="%3$s" data-comments="%4$s" class="portal-read-more-post more-link sd-font-16 sd-font-semibold" style="text-decoration: none !important;">%5$s</a>',
+						esc_url( $permalink ),
+						esc_attr( (string) $p_id ),
+						esc_attr( $p_type ),
+						esc_attr( (string) $p_comments ),
+						sprintf( /* translators: %1$s Read More, %2$s Post title markup */'%1$s %2$s', esc_html( Labels::get_label( 'read_more' ) ), '<span class="screen-reader-text">' . esc_html( $post_title ) . '</span>' )
+					);
 
-				// Add ellipsis and Read More link inline.
-				$ellipsis_and_link = '<span class="more-link-ellipsis"> ... </span>' . $read_more_link;
+					// Add ellipsis and Read More link inline.
+					$ellipsis_and_link = '<span class="more-link-ellipsis"> ... </span>' . $read_more_link;
 
-				// Find the last closing tag and insert before it to keep inline.
-				$pos = strrpos( $post_content, '</' );
-				if ( $pos !== false ) {
-					$post_content = substr_replace( $post_content, $ellipsis_and_link, $pos, 0 );
+					// Find the last closing tag and insert before it to keep inline.
+					$pos = strrpos( $post_content, '</' );
+					if ( $pos !== false ) {
+						$post_content = substr_replace( $post_content, $ellipsis_and_link, $pos, 0 );
+					} else {
+						$post_content .= $ellipsis_and_link;
+					}
+
+					// Allow custom data attributes in the content.
+					$allowed_html                        = wp_kses_allowed_html( 'post' );
+					$allowed_html['a']['data-post_id']   = true;
+					$allowed_html['a']['data-post_type'] = true;
+					$allowed_html['a']['data-comments']  = true;
+
+					echo '<div class="sd-m-0">' . wp_kses( $post_content, $allowed_html ) . '</div>';
 				} else {
-					$post_content .= $ellipsis_and_link;
+					echo do_shortcode( suredash_render_post_content( $post_content ) );
 				}
-
-				// Allow custom data attributes in the content.
-				$allowed_html                        = wp_kses_allowed_html( 'post' );
-				$allowed_html['a']['data-post_id']   = true;
-				$allowed_html['a']['data-post_type'] = true;
-				$allowed_html['a']['data-comments']  = true;
-
-				echo '<div class="sd-m-0">' . wp_kses( $post_content, $allowed_html ) . '</div>';
-			} else {
-				echo do_shortcode( suredash_render_post_content( $post_content ) );
-			}
-			?>
+				?>
+			<?php } ?>
 		</div>
 
 		<?php
-		if ( is_user_logged_in() ) {
+		// Locked posts never emit real reactions/comments — they'd otherwise sit readable in the
+		// DOM under the frosted layer. The lock overlay replaces them entirely.
+		$render_comments = empty( $args['is_locked'] );
+		if ( $render_comments && is_user_logged_in() ) {
 			ob_start();
 			Helper::render_post_reaction( $p_id, 'portal-comments-block', boolval( $p_comments ) );
 			$reaction_html = (string) ob_get_clean();
@@ -241,7 +253,7 @@ do_action( 'suredashboard_single_post_template', $p_id );
 				</div>
 				<?php
 			}
-		} elseif ( boolval( $p_comments ) ) {
+		} elseif ( $render_comments && boolval( $p_comments ) ) {
 			?>
 					<div class="portal-comments-wrapper sd-w-full sd-mt-16 sd-border-t">
 					<?php Helper::get_login_notice( 'comment' ); ?>
@@ -250,5 +262,11 @@ do_action( 'suredashboard_single_post_template', $p_id );
 		}
 		?>
 	</div>
+
+	<?php
+	if ( ! empty( $args['is_locked'] ) && function_exists( 'suredash_locked_overlay' ) ) {
+		echo suredash_locked_overlay(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup
+	}
+	?>
 </div>
 <?php

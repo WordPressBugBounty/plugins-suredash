@@ -1374,9 +1374,30 @@ class Helper {
 			return '';
 		}
 
+		$lock_action = suredash_sm_item_action( $post_id );
+		$is_locked   = ! empty( $lock_action );
+
+		if ( $is_locked && suredash_sm_should_hide() ) {
+			return ''; // opt-in hide.
+		}
+
 		ob_start();
 
-		if ( suredash_is_post_protected( $post_id ) ) {
+		if ( $is_locked ) {
+			// SECURITY: never emit the real body. Blank it before render; the template shows a
+			// placeholder which JS blurs. Removing the blur in dev-tools reveals nothing real.
+			$post['post_content'] = '';
+			$post['post_excerpt'] = '';
+			$args['post']         = $post;
+			$args['is_locked']    = true;
+			$args['lock_action']  = $lock_action;
+			$args['lock_message'] = suredash_sm_locked_placeholder_text();
+			suredash_get_template_part( 'single', 'post', $args );
+		} elseif ( suredash_is_post_protected( $post_id ) ) {
+			// SECURITY: protected by a NON-SureMembers mechanism (visibility scope, private, drip,
+			// third-party). suredash_sm_item_action() only covers SureMembers, so without this branch
+			// the real body would render in feed/grid listings. suredash_is_post_protected() already
+			// returns false for SureMembers per-item exceptions ('show'), so doorway items are unaffected.
 			if ( ! apply_filters( 'suredash_skip_restricted_post', false, $post_id ) ) {
 				suredash_get_restricted_template_part(
 					$post_id,
@@ -2026,6 +2047,7 @@ class Helper {
 				}
 
 				// If the topic is private, skip rendering.
+				// suredash_is_post_protected() honors SureMembers per-item exceptions centrally.
 				if ( suredash_is_post_protected( absint( $post['ID'] ) ) ) {
 					continue;
 				}

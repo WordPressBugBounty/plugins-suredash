@@ -88,8 +88,19 @@ class Email_Dispatcher {
 			return;
 		}
 
+		// A trigger that carries a post or space can leak restricted titles/excerpts to recipients
+		// who cannot access that content. Gate per recipient against SureMembers when so.
+		$gated_post_id  = absint( $context_data['post_id'] ?? 0 );
+		$gated_space_id = absint( $context_data['space_id'] ?? 0 );
+		$gate_content   = ( $gated_post_id > 0 || $gated_space_id > 0 )
+			&& suredash_is_suremembers_active()
+			&& class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' );
+
 		// Send emails to each user in the batch.
 		foreach ( $users as $user ) {
+			if ( $gate_content && $this->recipient_blocked_from_content( (int) $user->ID, $gated_post_id, $gated_space_id ) ) {
+				continue;
+			}
 			$this->send_trigger_email( $user, $trigger_config, $context_data );
 		}
 	}
@@ -121,6 +132,31 @@ class Email_Dispatcher {
 			unset( $trigger_config ); // Suppress unused variable warning.
 			$this->schedule_email_trigger( $trigger_key, $config_id, $context_data );
 		}
+	}
+
+	/**
+	 * Whether a recipient must be skipped because SureMembers restricts the triggered content
+	 * from them. Evaluated as the recipient via the shared restriction engine, so the full
+	 * space / parent-space / collection-cascade logic applies.
+	 *
+	 * @since 1.10.0
+	 * @param int $user_id  Recipient user ID.
+	 * @param int $post_id  Community post ID from the trigger context (0 when the trigger is space-level).
+	 * @param int $space_id Space (portal) ID from the trigger context (0 when the trigger is post-level).
+	 * @return bool True to skip the recipient.
+	 */
+	private function recipient_blocked_from_content( int $user_id, int $post_id, int $space_id ): bool {
+		$helper = \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance();
+
+		return (bool) $helper->as_user(
+			$user_id,
+			static function ( $engine ) use ( $post_id, $space_id ) {
+				if ( $post_id > 0 ) {
+					return $engine->get_item_state( $post_id ) === 'hidden';
+				}
+				return $engine->get_space_state( $space_id ) === 'locked';
+			}
+		);
 	}
 
 	/**

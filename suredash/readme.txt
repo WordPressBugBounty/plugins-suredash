@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.9.4
+Stable tag: 1.10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,15 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-07-14 - version 1.10.0 =
+* New: SureDash now fully supports SureMembers "Exceptions" (excluded content). When you exclude a specific lesson, event, resource, or discussion from an access group, it now stays open to everyone — even when a broader portal-wide or content-type restriction applies — exactly as SureMembers behaves across the rest of your site.
+* Improvement: Reworked how SureDash enforces SureMembers restrictions across every community space, listing, and piece of sub-content. Restricted items now appear as locked cards with an informative access modal, and access is re-checked accurately in each context.
+* Improvement: Tightened access controls so notification emails and community listings evaluate each recipient's SureMembers access individually, keeping restricted post titles and excerpts limited to members who are allowed to see them.
+* Improvement: The user picker in widget settings now supports type-ahead search, making it faster to find and select members.
+* Fix: The member "since" date now follows your site's configured date format and locale instead of a fixed format.
+* Fix: Corrected icon alignment in the Login form fields.
+* Important: This release significantly improves how SureDash honors SureMembers access rules. If you use SureMembers to restrict community content, we recommend reviewing your locked spaces, lessons, and posts once after updating to confirm the right content is visible and that any Exceptions you configured are opening as expected.
+
 = 2026-07-08 - version 1.9.4 =
 * Improvement: Added automatic text direction support so right-to-left languages such as Arabic, Hebrew, and Urdu display and align correctly in posts, comments, and the editor.
 * Improvement: Refreshed the WordPress Abilities (MCP) settings interface for a cleaner configuration experience.

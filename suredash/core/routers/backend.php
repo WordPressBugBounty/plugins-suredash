@@ -3361,6 +3361,7 @@ class Backend {
 	 * @param array<string, mixed> $data    POST data array.
 	 * @return void
 	 * @since 1.5.0
+	 * @since 1.8.5 Made public so abilities (e.g. course migration / Add_Quiz_To_Course) can reuse the shared sanitizer.
 	 */
 	public function save_content_meta_fields( int $post_id, array $data ): void {
 		// Single post space meta fields.

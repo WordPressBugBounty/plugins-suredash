@@ -498,11 +498,24 @@ class Feeds extends Base {
 				// page-size slice so sort changes don't accidentally hide
 				// visible posts when a sort-driven candidate window happens
 				// to be entirely populated by other users' scoped posts.
+				// Locked posts (SureMembers) are kept unless the site opts
+				// into hiding them via suredash_sm_should_hide().
 				$query_posts = array_values(
 					array_filter(
 						$query_posts,
 						static function ( $post ) {
-							return ! suredash_is_post_protected( absint( $post['ID'] ) );
+							$post_id = absint( $post['ID'] ?? 0 );
+							if ( ! $post_id ) {
+								return false;
+							}
+							// Keep SureMembers-locked posts (rendered as locked cards) unless hide-mode is
+							// on; otherwise defer to the full protection check so non-SureMembers
+							// protections (visibility scope, private, drip, third-party) stay hidden.
+							$is_locked = function_exists( 'suredash_sm_item_action' ) && ! empty( suredash_sm_item_action( $post_id ) );
+							if ( $is_locked ) {
+								return ! ( function_exists( 'suredash_sm_should_hide' ) && suredash_sm_should_hide() );
+							}
+							return ! suredash_is_post_protected( $post_id );
 						}
 					)
 				);
@@ -528,6 +541,25 @@ class Feeds extends Base {
 				// performs the same fetch / filter / slice cycle for its
 				// own `paged` value.
 				$query_posts = array_slice( $query_posts, 0, $page_size );
+
+				$pinned_posts = array_values(
+					array_filter(
+						$pinned_posts,
+						static function ( $pinned_post_id ) {
+							if ( ! sd_post_exists( $pinned_post_id ) ) {
+								return false;
+							}
+							$pinned_post_id = absint( $pinned_post_id );
+							// Same rule as the regular feed: keep SureMembers-locked pins (locked cards)
+							// unless hide-mode; drop posts protected by any non-SureMembers mechanism.
+							$is_locked = function_exists( 'suredash_sm_item_action' ) && ! empty( suredash_sm_item_action( $pinned_post_id ) );
+							if ( $is_locked ) {
+								return ! ( function_exists( 'suredash_sm_should_hide' ) && suredash_sm_should_hide() );
+							}
+							return ! suredash_is_post_protected( $pinned_post_id );
+						}
+					)
+				);
 			}
 
 			// Filter pinned posts for existence + visibility UNCONDITIONALLY. A
@@ -581,6 +613,11 @@ class Feeds extends Base {
 					if ( ! empty( $pinned_posts ) ) {
 						foreach ( $pinned_posts as $pinned_post_id ) {
 							if ( sd_post_exists( $pinned_post_id ) ) {
+								$pin_lock = suredash_sm_item_action( $pinned_post_id );
+								if ( ! empty( $pin_lock ) && suredash_sm_should_hide() ) {
+									continue;
+								}
+
 								// Visibility was already applied to $pinned_posts during the
 								// pre-filter above, so no per-post suredash_is_post_protected()
 								// re-check is needed here (matches grid view behavior).
@@ -605,6 +642,8 @@ class Feeds extends Base {
 									'enable_likes'       => true,
 									'enable_comments'    => true,
 									'is_pinned'          => true,
+									'is_locked'          => ! empty( $pin_lock ),
+									'lock_action'        => $pin_lock,
 									'options'            => [
 										[
 											'icon'    => 'ChevronRight',
@@ -624,6 +663,11 @@ class Feeds extends Base {
 
 						// Skip if already rendered as pinned.
 						if ( in_array( $post_id, $pinned_posts, true ) ) {
+							continue;
+						}
+
+						$li_lock = suredash_sm_item_action( $post_id );
+						if ( ! empty( $li_lock ) && suredash_sm_should_hide() ) {
 							continue;
 						}
 
@@ -650,6 +694,8 @@ class Feeds extends Base {
 							'user_id'            => $author_id,
 							'enable_likes'       => true,
 							'enable_comments'    => true,
+							'is_locked'          => ! empty( $li_lock ),
+							'lock_action'        => $li_lock,
 							'options'            => [
 								[
 									'icon'    => 'ChevronRight',

@@ -322,7 +322,19 @@ class Misc {
 				array_filter(
 					$result,
 					static function ( $post ) {
-						return ! empty( $post['ID'] ) && ! suredash_is_post_protected( absint( $post['ID'] ) );
+						$post_id = absint( $post['ID'] ?? 0 );
+						if ( ! $post_id ) {
+							return false;
+						}
+						// Keep SureMembers-locked items so they render as locked cards (dropped only
+						// under opt-in hide-mode). Everything else still defers to the full protection
+						// check, so non-SureMembers-protected posts (visibility scope, private, drip,
+						// third-party) stay hidden as before.
+						$is_locked = function_exists( 'suredash_sm_item_action' ) && ! empty( suredash_sm_item_action( $post_id ) );
+						if ( $is_locked ) {
+							return ! ( function_exists( 'suredash_sm_should_hide' ) && suredash_sm_should_hide() );
+						}
+						return ! suredash_is_post_protected( $post_id );
 					}
 				)
 			);
@@ -410,11 +422,6 @@ class Misc {
 
 					$post_id = absint( $post['ID'] );
 
-					// Skip posts the current user is not allowed to see (matches grid view behavior).
-					if ( suredash_is_post_protected( $post_id ) ) {
-						continue;
-					}
-
 					$post_link = get_permalink( $post_id );
 
 					// Build description: author name and relative date.
@@ -428,6 +435,8 @@ class Misc {
 						$post_date
 					);
 
+					$li_lock = suredash_sm_item_action( $post_id );
+
 					$list_items[] = [
 						'id'                 => $post_id,
 						'title'              => sd_get_post_field( $post_id ),
@@ -437,6 +446,8 @@ class Misc {
 						'user_id'            => $author_id,
 						'enable_likes'       => true,
 						'enable_comments'    => true,
+						'is_locked'          => ! empty( $li_lock ),
+						'lock_action'        => $li_lock,
 						'options'            => [
 							[
 								'icon'    => 'ChevronRight',
@@ -1637,6 +1648,96 @@ class Misc {
 				'status'           => $post->post_status,
 				'cover_image_url'  => $cover_image_url,
 				'visibility_scope' => $visibility_scope,
+			]
+		);
+	}
+
+	/**
+	 * Return the rendered page/post that a locked item's access group points to.
+	 *
+	 * Security: verifies the caller is genuinely locked out of $item_id, then renders the
+	 * group's configured page_post target — NEVER the locked item's own content.
+	 *
+	 * @param \WP_REST_Request<array<string, mixed>> $request Request.
+	 * @return void
+	 * @since 1.10.0
+	 */
+	public function get_restricted_preview( $request ): void {
+		$item_id = absint( $request->get_param( 'item_id' ) );
+		$action  = function_exists( 'suredash_sm_item_action' ) ? suredash_sm_item_action( $item_id ) : [];
+
+		// Collection cards point to a referenced SPACE (not a child item) — resolve its space action.
+		if ( empty( $action ) && function_exists( 'suredash_sm_space_action' ) ) {
+			$action = suredash_sm_space_action( $item_id );
+		}
+
+		if ( empty( $action ) ) {
+			wp_send_json_error( [ 'message' => __( 'No preview available.', 'suredash' ) ], 404 );
+		}
+
+		// Message action: return the EXACT restriction message the banner uses, with the original
+		// flow intact — get_restricted_message() renders the SureDash template only when the group's
+		// "in content" setting is on (otherwise it returns empty, just like before).
+		if ( ( $action['action'] ?? '' ) === 'message' ) {
+			$restrict = is_array( $action['restrict'] ?? null ) ? $action['restrict'] : [];
+
+			$content = '';
+			if ( class_exists( '\SureDashboard\Core\Integrations\SureMembers' ) && is_callable( [ \SureDashboard\Core\Integrations\SureMembers::get_instance(), 'get_restricted_message' ] ) ) {
+				$content = (string) \SureDashboard\Core\Integrations\SureMembers::get_instance()->get_restricted_message( '', $restrict );
+			}
+
+			// "In content" off → get_restricted_message() returns empty (the banner let SureMembers take
+			// over the whole page). A modal can't do that, so show the generic restricted notice instead
+			// of an empty popup.
+			if ( trim( $content ) === '' && function_exists( 'suredash_get_restricted_template_part' ) ) {
+				$content = (string) suredash_get_restricted_template_part(
+					$item_id,
+					'parts',
+					'restricted',
+					[
+						'icon'                   => 'Lock',
+						'label'                  => 'restricted_content',
+						'description'            => 'restricted_content_description',
+						'skip_restriction_check' => true,
+					],
+					true
+				);
+			}
+
+			wp_send_json_success(
+				[
+					'title'   => '',
+					'content' => $content,
+				]
+			);
+		}
+
+		if ( ( $action['action'] ?? '' ) !== 'page' || empty( $action['page_id'] ) ) {
+			wp_send_json_error( [ 'message' => __( 'No preview available.', 'suredash' ) ], 404 );
+		}
+
+		$page = get_post( (int) $action['page_id'] );
+		if ( ! $page || $page->post_status !== 'publish' ) {
+			wp_send_json_error( [ 'message' => __( 'Preview not found.', 'suredash' ) ], 404 );
+		}
+
+		// Render the target page like a normal single page: run the block content through the_content
+		// (which runs do_blocks) + shortcodes. Wrap it in `.entry-content` so basic blocks pick up the
+		// portal's block styles, and in `.portal-locked-page-content` — a marker the modal CSS uses to
+		// switch from the centered message layout to a left-aligned, scrollable document layout.
+		// The page title is rendered INSIDE this wrapper (as the page's heading) so it scrolls with the
+		// content like a normal page — not as a sticky modal header. The separate modal-title slot is
+		// left empty (and hidden by CSS for this layout).
+		$rendered_page = do_shortcode( (string) apply_filters( 'the_content', $page->post_content ) );
+		$entry_class   = function_exists( 'suredash_is_post_by_block_editor' ) && suredash_is_post_by_block_editor( (int) $page->ID ) ? 'entry-content' : '';
+		$page_title    = (string) get_the_title( $page );
+		$title_markup  = $page_title !== '' ? '<h1 class="portal-locked-page-title">' . esc_html( $page_title ) . '</h1>' : '';
+		$content       = '<div class="portal-locked-page-content ' . esc_attr( trim( $entry_class ) ) . '">' . $title_markup . $rendered_page . '</div>';
+
+		wp_send_json_success(
+			[
+				'title'   => '',
+				'content' => $content,
 			]
 		);
 	}

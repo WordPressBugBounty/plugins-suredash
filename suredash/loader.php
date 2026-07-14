@@ -345,6 +345,7 @@ class Portals_Loader {
 		// Include required functions.
 		require_once SUREDASHBOARD_DIR . 'inc/functions/functions.php';
 		require_once SUREDASHBOARD_DIR . 'inc/functions/markup.php';
+		require_once SUREDASHBOARD_DIR . 'inc/functions/locked-markup.php';
 		require_once SUREDASHBOARD_DIR . 'inc/functions/operations.php';
 		require_once SUREDASHBOARD_DIR . 'inc/functions/patterns.php';
 

@@ -11,6 +11,13 @@ defined( 'ABSPATH' ) || exit;
 // Get current space ID.
 $space_id = get_queried_object_id();
 
+// Skip the sidebar entirely when the space is fully restricted with no exceptions — the page shows a
+// locked banner instead of any content, so its widgets (About, Recent Activities, etc.) shouldn't
+// render. A 'show' (doorway) or 'normal' state still renders the sidebar; admins are never blocked.
+if ( $space_id && function_exists( 'suredash_sm_space_state' ) && suredash_sm_space_state( $space_id ) === 'locked' ) {
+	return;
+}
+
 // Get space sidebar widgets from meta.
 $sidebar_widgets = sd_get_post_meta( $space_id, 'space_sidebar_widgets', true );
 

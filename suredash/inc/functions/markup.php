@@ -911,6 +911,11 @@ function suredash_render_list_item( $args = [] ): void {
 		return;
 	}
 
+	if ( ! empty( $args['is_locked'] ) ) {
+		suredash_render_locked_card( $args, 'list' );
+		return;
+	}
+
 	$wrapper_link = ! empty( $args['link'] ) ? $args['link'] : ( ! empty( $args['visit_link_url'] ) ? $args['visit_link_url'] : '#' );
 
 	ob_start();
@@ -1103,6 +1108,11 @@ function suredash_render_card_grid_item( $args = [] ): void {
 		return;
 	}
 
+	if ( ! empty( $args['is_locked'] ) ) {
+		suredash_render_locked_card( $args, 'grid' );
+		return;
+	}
+
 	if ( isset( $args['thumbnail_label'] ) ) {
 		$thumbnail_html = Helper::get_space_featured_image( $args['id'], true, $args['color'], $args['avatar'], $args['thumbnail_label'] ?? '' );
 	} else {
@@ -1114,7 +1124,11 @@ function suredash_render_card_grid_item( $args = [] ): void {
 	ob_start();
 	?>
 		<!-- Single wrapper link for entire card -->
-		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-card-wrapper sd-color-inherit" data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>" data-post_id="<?php echo esc_attr( $args['id'] ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>">
+		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-card-wrapper sd-color-inherit"
+			data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>"
+			data-post_id="<?php echo esc_attr( $args['id'] ); ?>"
+			data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>"
+		>
 			<div class="portal-grid-item-content portal-home-grid-item-content-minimal sd-border sd-hover-shadow-2xl" id="portal-post-<?php echo esc_attr( $args['id'] ); ?>">
 				<!-- Thumbnail (no longer wrapped in separate link) -->
 				<div class="portal-card-thumbnail">
@@ -1262,6 +1276,11 @@ function suredash_render_stacked_list_item( $args = [] ): void {
 
 	// Bail if no title provided.
 	if ( empty( $args['title'] ) ) {
+		return;
+	}
+
+	if ( ! empty( $args['is_locked'] ) ) {
+		suredash_render_locked_card( $args, 'stacked' );
 		return;
 	}
 

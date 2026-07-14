@@ -53,8 +53,8 @@ class SureMembers extends Base {
 		add_filter( 'suredash_home_content', [ $this, 'maybe_restrict_feeds_page_content' ], 10, 2 );
 		add_filter( 'suredash_user_view_show_posts', [ $this, 'maybe_restrict_user_view_posts' ], 10, 1 );
 		add_filter( 'suredash_user_view_show_comments', [ $this, 'maybe_restrict_user_view_posts' ], 10, 1 );
-		add_filter( 'suredash_show_discussion_space_content', [ $this, 'maybe_restrict_discussion_space_content' ], 10, 1 );
-		add_filter( 'suredash_discussion_space_restriction_content', [ $this, 'get_discussion_space_restriction_html' ], 10, 1 );
+		add_filter( 'suredash_show_discussion_space_content', [ $this, 'maybe_restrict_discussion_space_content' ], 10, 2 );
+		add_filter( 'suredash_discussion_space_restriction_content', [ $this, 'get_discussion_space_restriction_html' ], 10, 2 );
 
 		add_action( 'suredash_before_title_block', [ $this, 'check_restriction_navigation_space_icon' ], 10, 1 );
 		add_action( 'suredash_after_title_block', [ $this, 'revert_navigation_space_icon' ], 10, 1 );
@@ -62,6 +62,9 @@ class SureMembers extends Base {
 		add_action( 'suredash_after_aside_navigation_item', [ $this, 'revert_navigation_space_icon' ], 10, 1 );
 
 		add_filter( 'suredash_post_backend_restriction_details', [ $this, 'check_suremembers_restriction_status' ], 10, 2 );
+
+		// Enforce the collection cascade on direct post access (covers deep-links SureMembers can't see).
+		add_filter( 'suredash_post_protection', [ SureMembers_Helper::get_instance(), 'enforce_cascade_protection' ], 20, 2 );
 
 		add_action( 'template_redirect', [ $this, 'init_suremembers_integration' ], 1 );
 
@@ -89,6 +92,9 @@ class SureMembers extends Base {
 		 * @since 1.6.0
 		 */
 		add_action( 'suredash_user_registered', [ $this, 'auto_assign_access_group_on_registration' ], 20, 1 );
+
+		// Output the shared locked-item modal once on portal pages.
+		add_action( 'suredash_footer', [ $this, 'render_locked_modal' ] );
 	}
 
 	/**
@@ -116,9 +122,9 @@ class SureMembers extends Base {
 			return $content;
 		}
 
-		$access = $this->current_user_has_global_portal_access();
-
-		if ( $access === null || $access ) {
+		// Render the feed (not the banner) when the listing is viewable — access, ungated, or a
+		// doorway. The feed's per-post filter then lists only the freed posts and locks the rest.
+		if ( SureMembers_Helper::get_instance()->can_view_feed_listing() ) {
 			return $content;
 		}
 
@@ -153,9 +159,9 @@ class SureMembers extends Base {
 			return $show;
 		}
 
-		$access = $this->current_user_has_global_portal_access();
-
-		return $access === null ? $show : $access;
+		// Render the posts/comments tab when the listing is viewable (access, ungated, or a
+		// doorway). The per-post loop then shows only the freed posts/comments.
+		return SureMembers_Helper::get_instance()->can_view_feed_listing();
 	}
 
 	/**
@@ -165,34 +171,51 @@ class SureMembers extends Base {
 	 * infinite-scroll trigger from rendering — all of which would otherwise
 	 * expose restricted content or fire unprotected API calls.
 	 *
-	 * @param bool $show Current visibility state.
+	 * Honors the doorway: a discussion space with an excepted thread ('show') still
+	 * renders, and the feed's own visibility filter lists only the freed thread(s).
+	 *
+	 * @param bool $show     Current visibility state.
+	 * @param int  $space_id Discussion space (portal) post ID.
 	 * @return bool
 	 * @since 1.6.3
 	 */
-	public function maybe_restrict_discussion_space_content( $show ) {
+	public function maybe_restrict_discussion_space_content( $show, $space_id = 0 ) {
 		if ( ! $show ) {
 			return $show;
 		}
 
-		$access = $this->current_user_has_global_portal_access();
+		// Space-state covers both portal-wide and community-post blocks, plus exceptions.
+		$state = suredash_sm_space_state( absint( $space_id ) );
+		if ( $state !== 'normal' ) {
+			return $state === 'show'; // doorway renders; locked hides.
+		}
 
-		return $access === null ? $show : $access;
+		return $show;
 	}
 
 	/**
-	 * Provide restriction HTML for the discussion space when portal is globally restricted.
+	 * Provide restriction HTML for a locked discussion space.
 	 *
 	 * Callback for `suredash_discussion_space_restriction_content`. Only fires when
 	 * `suredash_show_discussion_space_content` has already returned false, so there is
-	 * no need to re-check global access here.
+	 * no need to re-check access here.
 	 *
-	 * @param string $content Existing content from earlier filter callbacks (passed through if non-empty).
+	 * @param string $content  Existing content from earlier filter callbacks (passed through if non-empty).
+	 * @param int    $space_id Discussion space (portal) post ID.
 	 * @return string Restriction HTML or empty string (caller falls back to generic template).
 	 * @since 1.6.3
 	 */
-	public function get_discussion_space_restriction_html( $content ) {
+	public function get_discussion_space_restriction_html( $content, $space_id = 0 ) {
 		if ( ! empty( $content ) ) {
 			return $content;
+		}
+
+		// The space is locked by its own rule or the collection cascade — render THAT group's
+		// configured template. get_space_action() resolves both; the global set only ever applied
+		// when broad blocks bannered this page, which they no longer do (they blur the posts).
+		$action = suredash_sm_space_action( absint( $space_id ) );
+		if ( ! empty( $action['restrict'] ) ) {
+			return (string) $this->get_restricted_message( '', $action['restrict'] );
 		}
 
 		return $this->get_global_restriction_content();
@@ -220,9 +243,17 @@ class SureMembers extends Base {
 			return $icon;
 		}
 
-		$user_id    = intval( get_current_user_id() );
-		$post_type  = sd_get_post_field( $post_id, 'post_type' );
 		$post_title = get_the_title( $post_id );
+
+		// A space the engine reports as locked (community-content / community-post / cascade / direct)
+		// gets a padlock even when no rule targets the space post itself.
+		if ( suredash_sm_space_state( $post_id ) === 'locked' ) {
+			$this->set_navigation_restriction_label( $post_id, $post_title, esc_attr__( 'content requires membership access', 'suredash' ) );
+			return Helper::get_library_icon( 'Lock', false );
+		}
+
+		$user_id   = intval( get_current_user_id() );
+		$post_type = sd_get_post_field( $post_id, 'post_type' );
 
 		$option = [
 			'include'           => SUREMEMBERS_PLAN_INCLUDE,
@@ -266,18 +297,7 @@ class SureMembers extends Base {
 
 		// Add accessibility attributes to navigation item if content is restricted.
 		if ( $is_restricted ) {
-			add_filter(
-				'suredash_navigation_item_attributes_' . $post_id,
-				static function( $attributes ) use ( $post_title, $restriction_type ) {
-					$attributes['aria-label'] = sprintf(
-					/* translators: 1: Post title, 2: Restriction type */
-						esc_attr__( '%1$s, %2$s', 'suredash' ),
-						esc_attr( $post_title ),
-						esc_attr( $restriction_type )
-					);
-					return $attributes;
-				}
-			);
+			$this->set_navigation_restriction_label( $post_id, $post_title, $restriction_type );
 		}
 		return $icon;
 	}
@@ -325,6 +345,22 @@ class SureMembers extends Base {
 
 		$access_groups = \SureMembers\Inc\Restricted::by_access_groups( SUREMEMBERS_POST_TYPE, $option );
 		if ( empty( $access_groups ) || empty( $access_groups[ SUREMEMBERS_POST_TYPE ] ) ) {
+			// The native lookup only sees rules aimed at THIS post. Blocks the engine resolves
+			// indirectly — a child item locked via its space's rule, or a space/item locked only by
+			// the collection cascade — miss here and would fall back to the generic restricted
+			// template. Consult the engine so those banners render the blocking group's configured
+			// template too. The action is empty for admins, members with access, and freed items.
+			if ( empty( $dataset['status'] ) ) {
+				$action = get_post_type( absint( $post_id ) ) === SUREDASHBOARD_POST_TYPE
+					? suredash_sm_space_action( absint( $post_id ) )
+					: suredash_sm_item_action( absint( $post_id ) );
+				if ( ! empty( $action['restrict'] ) ) {
+					return [
+						'status'  => true,
+						'content' => $this->get_restricted_message( '', $action['restrict'] ),
+					];
+				}
+			}
 			return $dataset;
 		}
 
@@ -525,24 +561,35 @@ class SureMembers extends Base {
 	}
 
 	/**
-	 * Get the restricted message.
+	 * Render the restriction output for a restricted post.
 	 *
-	 * @param string               $content Content.
-	 * @param array<string, mixed> $restriction Restriction Rule.
+	 * The VALUES come from SureMembers (the access group's configured heading, message, action button
+	 * preview_button → redirect_url and the optional login CTA), but they are rendered through the
+	 * portal's own `parts/sm-restriction` template so the layout and button placement stay consistent
+	 * with the rest of the portal (centered `.portal-restricted-content` card, `.portal-button`
+	 * styling). The same markup is reused by the quick-view body, the locked modal and the
+	 * single-page view.
+	 *
+	 * Note: this returns the template for any restricted post regardless of the group's "In content"
+	 * toggle. That toggle no longer decides whether the message is shown — it decides HOW the locked
+	 * item opens (bare restriction popup vs. the post's quick-view with its content swapped), which is
+	 * handled where the locked item is rendered/opened, not here.
+	 *
+	 * @param string               $content     Fallback content returned when there is nothing to render.
+	 * @param array<string, mixed> $restriction Access-group restriction settings (the `restrict` array).
 	 * @since 1.0.0
 	 * @return string|false
 	 */
 	public function get_restricted_message( $content, $restriction = [] ) {
-		$is_in_content   = $restriction['in_content'] ?? true;
-		$enable_login    = $restriction['enablelogin'] ?? false;
-		$preview_button  = $restriction['preview_button'] ?? '';
-		$redirect_url    = $restriction['redirect_url'] ?? '';
-		$preview_content = $restriction['preview_content'] ?? Labels::get_label( 'restricted_content_notice' );
-		$preview_heading = $restriction['preview_heading'] ?? Labels::get_label( 'restricted_content_heading' );
-
-		if ( ! $is_in_content ) {
+		if ( ! is_array( $restriction ) || empty( $restriction ) ) {
 			return $content;
 		}
+
+		$preview_heading = $restriction['preview_heading'] ?? Labels::get_label( 'restricted_content_heading' );
+		$preview_content = $restriction['preview_content'] ?? Labels::get_label( 'restricted_content_notice' );
+		$preview_button  = $restriction['preview_button'] ?? '';
+		$redirect_url    = $restriction['redirect_url'] ?? '';
+		$enable_login    = $restriction['enablelogin'] ?? false;
 
 		ob_start();
 
@@ -758,6 +805,40 @@ class SureMembers extends Base {
 	}
 
 	/**
+	 * Output the shared locked-item modal markup (once per portal page).
+	 *
+	 * @return void
+	 * @since 1.10.0
+	 */
+	public function render_locked_modal(): void {
+		suredash_get_template_part( 'parts', 'sm-locked-modal' );
+	}
+
+	/**
+	 * Add an accessible "title, restriction type" label to a restricted navigation item.
+	 *
+	 * @param int    $post_id          Space post ID.
+	 * @param string $post_title       Space title.
+	 * @param string $restriction_type Short restriction descriptor.
+	 * @return void
+	 * @since 1.0.0
+	 */
+	private function set_navigation_restriction_label( $post_id, $post_title, $restriction_type ): void {
+		add_filter(
+			'suredash_navigation_item_attributes_' . $post_id,
+			static function( $attributes ) use ( $post_title, $restriction_type ) {
+				$attributes['aria-label'] = sprintf(
+				/* translators: 1: Post title, 2: Restriction type */
+					esc_attr__( '%1$s, %2$s', 'suredash' ),
+					esc_attr( $post_title ),
+					esc_attr( $restriction_type )
+				);
+				return $attributes;
+			}
+		);
+	}
+
+	/**
 	 * Build the SureMembers restriction HTML for a globally-restricted content area.
 	 *
 	 * Reads the restriction settings from the first (highest-priority) access group
@@ -773,7 +854,7 @@ class SureMembers extends Base {
 	 * @since 1.6.3
 	 */
 	private function get_global_restriction_content(): string {
-		$merged_groups = $this->get_portal_restricting_access_groups();
+		$merged_groups = SureMembers_Helper::get_instance()->feed_blocking_groups();
 
 		if ( empty( $merged_groups ) ) {
 			return '';
@@ -785,105 +866,5 @@ class SureMembers extends Base {
 			: [];
 
 		return (string) $this->get_restricted_message( '', $restriction_details );
-	}
-
-	/**
-	 * Get SureMembers access groups that restrict all portal content globally.
-	 *
-	 * Covers three rule types:
-	 *   - portal|all                 (All Portal singular content)
-	 *   - portal_group|all|archive   (All Portal Space Group Archive)
-	 *   - community-post|all         (All Community Posts)
-	 *
-	 * @return array<int|string, mixed> Merged access group data keyed by group ID, or empty array.
-	 * @since 1.6.3
-	 */
-	private function get_portal_restricting_access_groups(): array {
-		if ( ! class_exists( '\SureMembers\Inc\Restricted' ) ) {
-			return [];
-		}
-
-		$base_option = [
-			'include'         => SUREMEMBERS_PLAN_INCLUDE,
-			'exclusion'       => SUREMEMBERS_PLAN_EXCLUDE,
-			'priority'        => SUREMEMBERS_PLAN_PRIORITY,
-			'current_post_id' => 0,
-		];
-
-		$checks = [
-			array_merge(
-				$base_option,
-				[
-					'current_post_type' => SUREDASHBOARD_POST_TYPE,
-					'current_page_type' => 'is_singular',
-				]
-			),
-			array_merge(
-				$base_option,
-				[
-					'current_post_type' => SUREDASHBOARD_TAXONOMY,
-					'current_page_type' => 'is_archive',
-				]
-			),
-			array_merge(
-				$base_option,
-				[
-					'current_post_type' => SUREDASHBOARD_FEED_POST_TYPE,
-					'current_page_type' => 'is_singular',
-				]
-			),
-		];
-
-		$merged_groups = [];
-
-		foreach ( $checks as $option ) {
-			$result = \SureMembers\Inc\Restricted::by_access_groups( SUREMEMBERS_POST_TYPE, $option );
-			if ( ! empty( $result[ SUREMEMBERS_POST_TYPE ] ) ) {
-				$merged_groups += $result[ SUREMEMBERS_POST_TYPE ];
-			}
-		}
-
-		return $merged_groups;
-	}
-
-	/**
-	 * Check whether the current user has access to globally-restricted portal content.
-	 *
-	 * Returns null when no global restriction exists (callers should treat as "no restriction").
-	 * Returns true when a restriction exists and the user has access.
-	 * Returns false when a restriction exists and the user is restricted.
-	 * Admins always get null (bypass).
-	 *
-	 * @return bool|null null = no global restriction, true = has access, false = restricted.
-	 * @since 1.6.3
-	 */
-	private function current_user_has_global_portal_access(): ?bool {
-		if ( ! $this->is_active ) {
-			return null;
-		}
-
-		if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
-			return null;
-		}
-
-		$merged_groups = $this->get_portal_restricting_access_groups();
-
-		if ( empty( $merged_groups ) ) {
-			return null;
-		}
-
-		if ( ! is_user_logged_in() ) {
-			return false;
-		}
-
-		if ( class_exists( '\SureMembers\Inc\Access_Groups' ) && is_callable( [ '\SureMembers\Inc\Access_Groups', 'check_user_has_post_access' ] ) ) {
-			return (bool) \SureMembers\Inc\Access_Groups::check_user_has_post_access(
-				0,
-				[ SUREMEMBERS_POST_TYPE => $merged_groups ],
-				get_current_user_id()
-			);
-		}
-
-		return false;
 	}
 }

@@ -34,6 +34,10 @@ $show_comments = comments_open( $p_id );
 $post_content    = sd_get_post_field( $p_id, 'post_content' );
 $hide_fullscreen = $integration_resource_library && empty( trim( $post_content ) );
 
+// When the post is restricted, the body is the restriction template (not the real post), so the
+// bookmark action is meaningless — hide it for this in-content/restricted quick-view.
+$is_restricted_quick_view = function_exists( 'suredash_is_post_protected' ) && suredash_is_post_protected( $p_id );
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="suredash-quick-post">
@@ -106,7 +110,7 @@ $hide_fullscreen = $integration_resource_library && empty( trim( $post_content )
 					<?php
 					do_action( 'suredash_post_visibility_button', $p_id );
 
-					if ( is_user_logged_in() && ! suredash_content_post() ) {
+					if ( is_user_logged_in() && ! suredash_content_post() && ! $is_restricted_quick_view ) {
 						$bookmarked = suredash_is_item_bookmarked( absint( $p_id ) );
 						$bookmarked = $bookmarked ? 'bookmarked' : '';
 						?>
@@ -147,7 +151,10 @@ $hide_fullscreen = $integration_resource_library && empty( trim( $post_content )
 				do_action( 'suredash_quick_view_resource_content', $p_id, $hide_fullscreen );
 			}
 
-			if ( ! $hide_fullscreen ) {
+			// Render the post-content hook when there is content to show, OR always when the item is
+			// restricted — a restricted item (e.g. an empty resource) must still show its restriction
+			// banner here instead of an empty, broken-looking popup.
+			if ( ! $hide_fullscreen || $is_restricted_quick_view ) {
 				do_action( 'suredashboard_quick_view_post_content', $p_id, $p_comments, $integration );
 			}
 			?>

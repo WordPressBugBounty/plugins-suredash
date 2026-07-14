@@ -1555,6 +1555,13 @@ function suredash_is_post_protected( $post_id, $get_only_status = true ) {
 		return $is_protected;
 	}
 
+	// A SureMembers per-item exception ('show') frees this item even though its group/space is
+	// restricted. Resolve it up front — before the direct-match and space-inheritance checks
+	// below — so every caller of this function treats the excepted item as accessible.
+	if ( function_exists( 'suredash_sm_item_state' ) && suredash_sm_item_state( $post_id ) === 'show' ) {
+		return apply_filters( 'suredash_post_protection', $get_only_status ? false : $restriction, $post_id );
+	}
+
 	// Check if the post is restricted.
 	$restriction  = Helper::maybe_third_party_restricted( $post_id );
 	$is_protected = $restriction['status'] ?? false;
@@ -1597,6 +1604,128 @@ function suredash_is_post_protected( $post_id, $get_only_status = true ) {
 
 	// Fallback to the default behavior.
 	return apply_filters( 'suredash_post_protection', $get_only_status ? $is_protected : $restriction, $post_id );
+}
+
+/**
+ * Get the SureMembers restriction state for a single child item.
+ *
+ * Works for any space type (lessons, events, resources, discussion threads).
+ *
+ * @param int $item_id  Child post ID.
+ * @param int $space_id Optional parent space ID (resolved from the item when 0).
+ * @return string 'normal' | 'show' | 'hidden'
+ * @since 1.10.0
+ */
+function suredash_sm_item_state( $item_id, $space_id = 0 ): string {
+	if ( ! class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' ) ) {
+		return 'normal';
+	}
+	return \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->get_item_state( $item_id, $space_id );
+}
+
+/**
+ * Alias of suredash_sm_item_state() kept for existing course-path callers.
+ *
+ * @param int $lesson_id Lesson post ID.
+ * @param int $space_id  Optional resolved course/space ID.
+ * @return string
+ * @since 1.10.0
+ */
+function suredash_sm_lesson_state( $lesson_id, $space_id = 0 ): string {
+	return suredash_sm_item_state( $lesson_id, $space_id );
+}
+
+/**
+ * Get the SureMembers restriction state for a space page.
+ *
+ * @param int $space_id Space (portal) post ID.
+ * @return string 'normal' | 'show' (doorway) | 'locked' (banner)
+ * @since 1.10.0
+ */
+function suredash_sm_space_state( $space_id ): string {
+	if ( ! class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' ) ) {
+		return 'normal';
+	}
+	return \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->get_space_state( $space_id );
+}
+
+/**
+ * Resolve the restriction action payload for a locked item. Empty when not locked.
+ *
+ * @param int $item_id  Child post ID.
+ * @param int $space_id Optional parent space ID.
+ * @return array<string, mixed>
+ * @since 1.10.0
+ */
+function suredash_sm_item_action( $item_id, $space_id = 0 ): array {
+	if ( ! class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' ) ) {
+		return [];
+	}
+	return \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->get_item_action( $item_id, $space_id );
+}
+
+/**
+ * Resolve the restriction action payload for a locked space (e.g. a collection card). Empty when not locked.
+ *
+ * @param int $space_id Space (portal) post ID.
+ * @return array<string, mixed>
+ * @since 1.10.0
+ */
+function suredash_sm_space_action( $space_id ): array {
+	if ( ! class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' ) ) {
+		return [];
+	}
+	return \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->get_space_action( $space_id );
+}
+
+/**
+ * Whether restricted items should be omitted from listings (opt-in) instead of locked.
+ *
+ * @return bool
+ * @since 1.10.0
+ */
+function suredash_sm_should_hide(): bool {
+	return class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' )
+		&& \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->should_hide_restricted();
+}
+
+/**
+ * Whether a locked item should be omitted from a listing (hide-mode) instead of shown locked.
+ * Listing filters should call this so the hide-mode rule is single-sourced, not re-implemented.
+ *
+ * @param int $item_id  Child post ID.
+ * @param int $space_id Optional parent space ID.
+ * @return bool
+ * @since 1.10.0
+ */
+function suredash_sm_should_hide_item( $item_id, $space_id = 0 ): bool {
+	return class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' )
+		&& \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->should_hide_item( $item_id, $space_id );
+}
+
+/**
+ * Space-level counterpart of suredash_sm_should_hide_item(), for listings of spaces.
+ *
+ * @param int $space_id Space (portal) post ID.
+ * @return bool
+ * @since 1.10.0
+ */
+function suredash_sm_should_hide_space( $space_id ): bool {
+	return class_exists( 'SureDashboard\Core\Integrations\SureMembers_Helper' )
+		&& \SureDashboard\Core\Integrations\SureMembers_Helper::get_instance()->should_hide_space( $space_id );
+}
+
+/**
+ * Placeholder body shown (blurred) in place of a locked feed post's real content.
+ *
+ * @return string
+ * @since 1.10.0
+ */
+function suredash_sm_locked_placeholder_text(): string {
+	return (string) apply_filters(
+		'suredash_sm_locked_placeholder',
+		__( 'This content is restricted to members. Unlock access to view the full post.', 'suredash' )
+	);
 }
 
 /**

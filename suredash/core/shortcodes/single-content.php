@@ -267,7 +267,15 @@ class SingleContent {
 
 		do_action( 'suredashboard_before_single_content_load', $post_id );
 
-		if ( suredash_is_post_protected( $post_id ) ) {
+		// A community-wide block can be "broken open" by exceptions: if this space
+		// holds an excepted lesson, render it as a doorway (the lesson listing then
+		// shows only the freed lessons) instead of the full-page restriction banner.
+		// A 'locked' state means a course caught by the block with no freed lessons —
+		// show the banner rather than an empty course page.
+		$space_state      = suredash_sm_space_state( $post_id );
+		$space_is_doorway = $space_state === 'show';
+
+		if ( $space_state === 'locked' || ( ! $space_is_doorway && suredash_is_post_protected( $post_id ) ) ) {
 			suredash_get_restricted_template_part(
 				$post_id,
 				'parts',

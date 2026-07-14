@@ -201,7 +201,32 @@ class RewriteRules {
 		ob_start();
 
 		// If the discussion area is private, we don't show the content.
+		// suredash_is_post_protected() now honors SureMembers per-item exceptions centrally.
 		if ( suredash_is_post_protected( $post_id ) ) {
+			$lock_action = function_exists( 'suredash_sm_item_action' ) ? suredash_sm_item_action( $post_id ) : [];
+
+			// SureMembers restriction → keep the post's title (the author header is already rendered by
+			// the quick-view template) and swap the body for SureMembers' own restriction template
+			// (message + button + login), exactly as configured in the access group.
+			if ( ! empty( $lock_action ) && class_exists( '\SureDashboard\Core\Integrations\SureMembers' ) ) {
+				$restriction_settings  = is_array( $lock_action['restrict'] ?? null ) ? $lock_action['restrict'] : [];
+				$restriction_html      = (string) \SureDashboard\Core\Integrations\SureMembers::get_instance()->get_restricted_message( '', $restriction_settings );
+				$restricted_post_title = get_the_title( $post_id );
+				?>
+				<div class="sd-post-content sd-post-content-wrapper sd-px-20 sd-pt-4">
+					<?php if ( $integration !== 'resource_library' && $restricted_post_title !== '' ) { ?>
+						<h1 class="portal-store-post-title" title="<?php echo esc_attr( $restricted_post_title ); ?>">
+							<?php echo esc_html( $restricted_post_title ); ?>
+						</h1>
+					<?php } ?>
+					<?php echo do_shortcode( $restriction_html ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- rendered by SureMembers, already escaped. ?>
+				</div>
+				<?php
+				echo do_shortcode( strval( ob_get_clean() ) );
+				return;
+			}
+
+			// Non-SureMembers restriction (drip, private post, visibility scope) → generic notice.
 			suredash_get_restricted_template_part(
 				$post_id,
 				'parts',

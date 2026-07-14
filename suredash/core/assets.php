@@ -200,6 +200,17 @@ class Assets {
 		wp_enqueue_script( 'jodit-custom', SUREDASHBOARD_JS_ASSETS_FOLDER . 'jodit-custom' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common' ], SUREDASHBOARD_VER, true );
 		wp_enqueue_script( 'portal-global', SUREDASHBOARD_JS_ASSETS_FOLDER . 'global' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common' ], SUREDASHBOARD_VER, true );
 		wp_localize_script( 'portal-global', 'portal_global', $localized_data );
+		wp_enqueue_script( 'suredash-sm-locked', SUREDASHBOARD_JS_ASSETS_FOLDER . 'sm-locked' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common' ], SUREDASHBOARD_VER, true );
+		wp_localize_script(
+			'suredash-sm-locked',
+			'suredashSMLocked',
+			[
+				'rest'    => esc_url_raw( rest_url( 'suredash/v1/' ) ),
+				'nonce'   => wp_create_nonce( 'wp_rest' ),
+				'loading' => __( 'Loading…', 'suredash' ),
+				'error'   => __( 'Unable to load content.', 'suredash' ),
+			]
+		);
 		wp_enqueue_script( 'portal-comments', SUREDASHBOARD_JS_ASSETS_FOLDER . 'comments' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'jodit-custom', 'portal-global' ], SUREDASHBOARD_VER, true );
 		wp_enqueue_script( 'portal-highlight-comments', SUREDASHBOARD_JS_ASSETS_FOLDER . 'highlight-comments' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'portal-global' ], SUREDASHBOARD_VER, true );
 		wp_enqueue_script( 'portal-post-actions', SUREDASHBOARD_JS_ASSETS_FOLDER . 'post-actions' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'portal-global', 'jodit-custom' ], SUREDASHBOARD_VER, true );

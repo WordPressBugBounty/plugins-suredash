@@ -230,6 +230,14 @@ class Routes {
 					'callback'            => [ MiscRoute::get_instance(), 'get_oembed' ],
 					'permission_callback' => 'user',
 				],
+				// Public: returns only the access group's configured restriction message/page (never the
+				// locked item's real content), so guests/logged-out visitors see the same locked popup
+				// as members instead of a failed request.
+				'/restricted-preview/'               => [
+					'method'              => 'GET',
+					'callback'            => [ MiscRoute::get_instance(), 'get_restricted_preview' ],
+					'permission_callback' => '',
+				],
 
 				// Calls which does not required callback permission_callback.
 				'block-login'                        => [

@@ -262,13 +262,22 @@ class HomeContent {
 		$thumbnail_html  = Helper::get_space_featured_image( $post_id, true, $placeholder_color, $space_icon );
 		$has_description = ! empty( $post_description ) ? 'has-description' : '';
 
+		// SureMembers: render a restricted space as a locked card (frost + padlock) instead of a
+		// normal clickable one. A doorway space ('show') stays a normal card; only 'locked' locks.
+		$space_lock = function_exists( 'suredash_sm_space_action' ) ? suredash_sm_space_action( $post_id ) : [];
+		$is_locked  = ! empty( $space_lock );
+		if ( function_exists( 'suredash_sm_should_hide_space' ) && suredash_sm_should_hide_space( $post_id ) ) {
+			return; // opt-in hide.
+		}
+		$lock_attrs = $is_locked && function_exists( 'suredash_locked_data_attrs' ) ? suredash_locked_data_attrs( $space_lock, $post_id ) : '';
+
 		ob_start();
 		?>
 		<div class="portal-grid-row-container">
-			<a class="portal-home-grid-item-content portal-home-grid-item-content-minimal sd-border sd-hover-shadow-2xl <?php echo esc_attr( $has_description ); ?>"
-				href="<?php echo esc_url( $space_link ); ?>"
+			<a class="portal-home-grid-item-content portal-home-grid-item-content-minimal sd-border sd-hover-shadow-2xl <?php echo esc_attr( $has_description ); ?><?php echo $is_locked ? ' portal-locked-card is-locked portal-locked-frost' : ''; ?>"
+				href="<?php echo $is_locked ? '#' : esc_url( $space_link ); ?>"
 				target="<?php echo esc_attr( $space_target ); ?>"
-				data-id="<?php echo esc_attr( (string) $post_id ); ?>">
+				data-id="<?php echo esc_attr( (string) $post_id ); ?>"<?php echo $lock_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- pre-escaped attrs ?>>
 				<?php echo do_shortcode( $thumbnail_html ); ?>
 				<div class="sd-flex-col sd-p-20 sd-gap-16 sd-card-main-container">
 					<div class="sd-flex-col sd-gap-4 sd-card-content-container sd-relative sd-text-color">
@@ -288,6 +297,11 @@ class HomeContent {
 						<p class="sd-no-space"><?php echo wp_kses_post( $post_excerpt ); ?></p>
 					<?php } ?>
 				</div>
+				<?php
+				if ( $is_locked && function_exists( 'suredash_locked_overlay' ) ) {
+					echo suredash_locked_overlay(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup
+				}
+				?>
 			</a>
 		</div>
 		<?php
@@ -330,6 +344,15 @@ class HomeContent {
 				continue;
 			}
 
+			// Locked-not-hidden: a bookmarked item whose access was later restricted renders as a
+			// locked card instead of a normal one. In hide-mode (opt-in) it is omitted entirely,
+			// matching every other listing. suredash_sm_item_action() is non-empty only when the item
+			// is locked for the current user (admin bypass and per-item exceptions already honored).
+			if ( function_exists( 'suredash_sm_should_hide_item' ) && suredash_sm_should_hide_item( $id ) ) {
+				continue;
+			}
+			$lock_action = function_exists( 'suredash_sm_item_action' ) ? suredash_sm_item_action( $id ) : [];
+
 			// Prepare card data with button option.
 			$card_data = [
 				'id'              => $id,
@@ -338,6 +361,8 @@ class HomeContent {
 				'show_visit_link' => true,
 				'visit_link_url'  => get_permalink( $id ),
 				'avatar'          => '', // Will use featured image.
+				'is_locked'       => ! empty( $lock_action ),
+				'lock_action'     => $lock_action,
 			];
 
 			// Add type-specific data and button text.
@@ -670,7 +695,15 @@ class HomeContent {
 				array_filter(
 					$feeds_posts,
 					static function ( $post ) {
-						return ! suredash_is_post_protected( absint( $post['ID'] ) );
+						$post_id = absint( $post['ID'] );
+						// Locked-not-hidden: keep locked posts (they render as locked cards) so the
+						// empty-state 404 only fires when there's genuinely nothing to show. Drop
+						// locked posts only under opt-in hide; other protections still hide normally.
+						$is_locked = function_exists( 'suredash_sm_item_action' ) && ! empty( suredash_sm_item_action( $post_id ) );
+						if ( $is_locked ) {
+							return ! ( function_exists( 'suredash_sm_should_hide' ) && suredash_sm_should_hide() );
+						}
+						return ! suredash_is_post_protected( $post_id );
 					}
 				)
 			);
@@ -716,10 +749,10 @@ class HomeContent {
 						foreach ( $feeds_posts as $post ) {
 							$post_id = absint( $post['ID'] );
 
-							// Skip posts the current user is not allowed to see (matches grid view behavior).
-							if ( suredash_is_post_protected( $post_id ) ) {
-								continue;
-							}
+							// Locked-not-hidden: render locked posts as locked list cards. The pre-filter
+							// above already dropped hidden / non-accessible posts.
+							$lock_action = function_exists( 'suredash_sm_item_action' ) ? suredash_sm_item_action( $post_id ) : [];
+							$is_locked   = ! empty( $lock_action );
 
 							$post_link = get_permalink( $post_id );
 
@@ -743,6 +776,8 @@ class HomeContent {
 								'user_id'            => $author_id,
 								'enable_likes'       => true,
 								'enable_comments'    => true,
+								'is_locked'          => $is_locked,
+								'lock_action'        => $lock_action,
 								'options'            => [
 									[
 										'icon'    => 'ChevronRight',
@@ -1251,7 +1286,8 @@ class HomeContent {
 													<?php
 														Helper::get_library_icon( 'Calendar', true, 'sm', 'sd-mr-4' );
 														Labels::get_label( 'member_since', true );
-														echo ' ' . esc_attr( date_i18n( 'F Y', $member_since_time ) );
+														// Use the site's configured date format (Settings > General) so the date respects the site locale.
+														echo ' ' . esc_attr( date_i18n( (string) get_option( 'date_format', 'F Y' ), $member_since_time ) );
 													?>
 													</span>
 												<?php
