@@ -82,8 +82,13 @@ class User_Profile {
 
 		$menu_direction_css = '';
 		if ( isset( $atts['menuopenverposition'] ) ) {
-			$menu_direction_css .= $atts['menuopenverposition'] . ':' . $atts['menuverpositionoffset'] . ';';
-			$menu_direction_css .= $atts['menuopenhorposition'] . ':' . $atts['menuhorpositionoffset'] . ';';
+			$ver_position = in_array( $atts['menuopenverposition'], [ 'top', 'bottom' ], true ) ? $atts['menuopenverposition'] : 'top';
+			$hor_position = in_array( $atts['menuopenhorposition'] ?? '', [ 'left', 'right' ], true ) ? $atts['menuopenhorposition'] : ( is_rtl() ? 'left' : 'right' );
+			$ver_offset   = $this->sanitize_css_length( $atts['menuverpositionoffset'] ?? '' );
+			$hor_offset   = $this->sanitize_css_length( $atts['menuhorpositionoffset'] ?? '' );
+
+			$menu_direction_css .= $ver_position . ':' . $ver_offset . ';';
+			$menu_direction_css .= $hor_position . ':' . $hor_offset . ';';
 		}
 
 		ob_start();
@@ -108,7 +113,7 @@ class User_Profile {
 						</button>
 					<?php } ?>
 				</div>
-				<div class="portal-avatar-menu" style="<?php echo do_shortcode( $menu_direction_css ); ?>">
+				<div class="portal-avatar-menu" style="<?php echo esc_attr( $menu_direction_css ); ?>">
 					<div class="portal-user-menu-links">
 						<?php
 						if ( is_array( $portal_user_menu_links ) ) {
@@ -172,5 +177,26 @@ class User_Profile {
 		<?php
 
 		return apply_filters( 'suredashboard_non_logged_in_user_header', ob_get_clean() );
+	}
+
+	/**
+	 * Sanitize a CSS length value used for menu position offsets.
+	 *
+	 * Only an empty string or a numeric value with an optional CSS unit is
+	 * allowed; anything else (e.g. attribute-breakout payloads) is rejected
+	 * and returns an empty string.
+	 *
+	 * @param mixed $value The raw offset value.
+	 * @since 1.10.1
+	 * @return string A safe CSS length, or an empty string.
+	 */
+	private function sanitize_css_length( $value ): string {
+		$value = trim( (string) $value );
+
+		if ( $value === '' ) {
+			return '';
+		}
+
+		return preg_match( '/^-?\d+(\.\d+)?(px|em|rem|%|vh|vw|vmin|vmax)?$/', $value ) ? $value : '';
 	}
 }

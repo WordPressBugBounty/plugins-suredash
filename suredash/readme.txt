@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.10.0
+Stable tag: 1.10.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,9 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-07-20 - version 1.10.1 =
+* Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-07-14 - version 1.10.0 =
 * New: SureDash now fully supports SureMembers "Exceptions" (excluded content). When you exclude a specific lesson, event, resource, or discussion from an access group, it now stays open to everyone — even when a broader portal-wide or content-type restriction applies — exactly as SureMembers behaves across the rest of your site.
 * Improvement: Reworked how SureDash enforces SureMembers restrictions across every community space, listing, and piece of sub-content. Restricted items now appear as locked cards with an informative access modal, and access is re-checked accurately in each context.
