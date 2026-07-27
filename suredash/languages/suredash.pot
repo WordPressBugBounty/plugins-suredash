@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2.
 msgid ""
 msgstr ""
-"Project-Id-Version: SureDash 1.10.0\n"
+"Project-Id-Version: SureDash 1.10.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/suredash\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-10T12:42:24+00:00\n"
+"POT-Creation-Date: 2026-07-27T06:38:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: suredash\n"
@@ -584,7 +584,7 @@ msgstr ""
 #: core/blocks/register.php:995
 #: inc/utils/labels.php:88
 #: assets/build/editor-app.js:2
-#: assets/js/unminified/login.js:745
+#: assets/js/unminified/login.js:772
 msgid "Passwords do not match."
 msgstr ""
 
@@ -1110,17 +1110,17 @@ msgstr ""
 msgid "SureMembers Integration"
 msgstr ""
 
-#: core/integrations/sure-members.php:242
-#: core/integrations/sure-members.php:268
+#: core/integrations/sure-members.php:251
+#: core/integrations/sure-members.php:277
 msgid "content requires membership access"
 msgstr ""
 
-#: core/integrations/sure-members.php:488
+#: core/integrations/sure-members.php:513
 msgid "Access Group: "
 msgstr ""
 
 #. translators: 1: Post title, 2: Restriction type
-#: core/integrations/sure-members.php:807
+#: core/integrations/sure-members.php:832
 #, php-format
 msgid "%1$s, %2$s"
 msgstr ""
@@ -1916,7 +1916,7 @@ msgid "[%s] Password Reset"
 msgstr ""
 
 #: core/routers/social-logins.php:323
-#: assets/js/unminified/login.js:692
+#: assets/js/unminified/login.js:719
 msgid "Please check your email for the password reset link."
 msgstr ""
 
@@ -2231,14 +2231,14 @@ msgstr ""
 msgid "Copy URL"
 msgstr ""
 
-#: core/shortcodes/user-profile.php:158
+#: core/shortcodes/user-profile.php:163
 #: inc/utils/helper.php:2290
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
 msgstr ""
 
-#: core/shortcodes/user-profile.php:164
+#: core/shortcodes/user-profile.php:169
 #: inc/functions/functions.php:3083
 msgid "Guest User"
 msgstr ""
@@ -10007,7 +10007,7 @@ msgid "An error occurred while sending the test email: "
 msgstr ""
 
 #: assets/build/portals-app.js:38
-#: assets/js/unminified/login.js:675
+#: assets/js/unminified/login.js:702
 msgid "Sending…"
 msgstr ""
 
@@ -10635,66 +10635,66 @@ msgstr ""
 msgid "This field cannot be blank."
 msgstr ""
 
-#: assets/js/unminified/login.js:347
+#: assets/js/unminified/login.js:374
 #: assets/js/unminified/register.js:445
 #: assets/js/unminified/register.js:490
 msgid "Error:"
 msgstr ""
 
-#: assets/js/unminified/login.js:347
+#: assets/js/unminified/login.js:374
 #: assets/js/unminified/register.js:490
 msgid "User cancelled login or did not fully authorize."
 msgstr ""
 
-#: assets/js/unminified/login.js:474
+#: assets/js/unminified/login.js:501
 msgid "Failed to login. Please try again."
 msgstr ""
 
-#: assets/js/unminified/login.js:499
+#: assets/js/unminified/login.js:526
 #: assets/js/unminified/register.js:642
 msgid "Authorization failed. Please try again."
 msgstr ""
 
-#: assets/js/unminified/login.js:540
+#: assets/js/unminified/login.js:567
 #: assets/js/unminified/register.js:684
 msgid "Unexpected error occurred."
 msgstr ""
 
-#: assets/js/unminified/login.js:545
+#: assets/js/unminified/login.js:572
 #: assets/js/unminified/register.js:689
 msgid "An error occurred during login. Please try again."
 msgstr ""
 
-#: assets/js/unminified/login.js:667
+#: assets/js/unminified/login.js:694
 msgid "Please enter your email."
 msgstr ""
 
-#: assets/js/unminified/login.js:701
+#: assets/js/unminified/login.js:728
 msgid "We couldn't send the reset email. Please try again or contact support."
 msgstr ""
 
-#: assets/js/unminified/login.js:709
-#: assets/js/unminified/login.js:823
+#: assets/js/unminified/login.js:736
+#: assets/js/unminified/login.js:850
 msgid "Something went wrong."
 msgstr ""
 
-#: assets/js/unminified/login.js:736
+#: assets/js/unminified/login.js:763
 msgid "Both fields are required."
 msgstr ""
 
-#: assets/js/unminified/login.js:753
+#: assets/js/unminified/login.js:780
 msgid "Resetting password…"
 msgstr ""
 
-#: assets/js/unminified/login.js:767
+#: assets/js/unminified/login.js:794
 msgid "Invalid reset link."
 msgstr ""
 
-#: assets/js/unminified/login.js:789
+#: assets/js/unminified/login.js:816
 msgid "Password reset successful. Redirecting to login…"
 msgstr ""
 
-#: assets/js/unminified/login.js:818
+#: assets/js/unminified/login.js:845
 msgid "Reset failed."
 msgstr ""
 
