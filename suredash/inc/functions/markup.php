@@ -584,18 +584,21 @@ function suredash_render_item_title_description( $item_data = [], $args = [] ): 
 			) {
 				if ( isset( $item_data['lesson'] ) && $item_data['lesson'] !== 0 ) {
 					$lesson_count = intval( $item_data['lesson'] );
-					$lesson_label = sprintf( _n( ' lesson', ' lessons', $lesson_count, 'suredash' ) );
-					$labels[]     = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $lesson_count . $lesson_label ) . '</span>';
+					/* translators: %s: number of lessons. */
+					$lesson_label = sprintf( _n( '%s lesson', '%s lessons', $lesson_count, 'suredash' ), $lesson_count );
+					$labels[]     = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $lesson_label ) . '</span>';
 				}
 				if ( isset( $item_data['quiz'] ) && $item_data['quiz'] !== 0 ) {
 					$quiz_count = intval( $item_data['quiz'] );
-					$quiz_label = sprintf( _n( ' quiz', ' quizzes', $quiz_count, 'suredash' ) );
-					$labels[]   = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $quiz_count . $quiz_label ) . '</span>';
+					/* translators: %s: number of quizzes. */
+					$quiz_label = sprintf( _n( '%s quiz', '%s quizzes', $quiz_count, 'suredash' ), $quiz_count );
+					$labels[]   = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $quiz_label ) . '</span>';
 				}
 			} elseif ( isset( $item_data['post_count'] ) && $item_data['post_count'] !== 0 ) {
 				$post_count = intval( $item_data['post_count'] );
-				$post_label = sprintf( _n( ' thread', ' threads', $post_count, 'suredash' ) );
-				$labels[]   = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $post_count . $post_label ) . '</span>';
+				/* translators: %s: number of threads. */
+				$post_label = sprintf( _n( '%s thread', '%s threads', $post_count, 'suredash' ), $post_count );
+				$labels[]   = '<span class="sd-font-14 sd-line-20 sd-font-normal sd-color-text-tertiary">' . esc_html( $post_label ) . '</span>';
 			}
 
 			// Output labels with centered dot separator if more than one.
@@ -652,8 +655,9 @@ function suredash_display_item_badge( $args, array $config = [] ): void {
 			case 'posts_discussion':
 				if ( isset( $args['post_count'] ) && $args['post_count'] !== 0 ) {
 					$post_count = intval( $args['post_count'] );
-					$post_label = sprintf( _n( ' thread', ' threads', $post_count, 'suredash' ) );
-					Helper::show_badge( 'neutral', '', $post_count . $post_label, 'sm', '', [], true );
+					/* translators: %s: number of threads. */
+					$post_label = sprintf( _n( '%s thread', '%s threads', $post_count, 'suredash' ), $post_count );
+					Helper::show_badge( 'neutral', '', $post_label, 'sm', '', [], true );
 				}
 				break;
 
@@ -680,18 +684,21 @@ function suredash_display_item_badge( $args, array $config = [] ): void {
 							} else {
 								$count_text = (string) $total;
 							}
-							$module_label = sprintf( _n( ' module', ' modules', $total, 'suredash' ) );
-							Helper::show_badge( 'neutral', '', $count_text . $module_label, 'sm', '', [], true );
+							/* translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2"). */
+							$module_label = sprintf( _n( '%s module', '%s modules', $total, 'suredash' ), $count_text );
+							Helper::show_badge( 'neutral', '', $module_label, 'sm', '', [], true );
 						}
 					} elseif ( $lesson_count > 0 || $quiz_count > 0 ) {
 						echo '<span class="sd-flex sd-items-center sd-gap-8 sd-flex-wrap">';
 						if ( $lesson_count > 0 ) {
-							$lesson_label = sprintf( _n( ' lesson', ' lessons', $lesson_count, 'suredash' ) );
-							Helper::show_badge( 'neutral', '', $lesson_count . $lesson_label, 'sm', '', [], true );
+							/* translators: %s: number of lessons. */
+							$lesson_label = sprintf( _n( '%s lesson', '%s lessons', $lesson_count, 'suredash' ), $lesson_count );
+							Helper::show_badge( 'neutral', '', $lesson_label, 'sm', '', [], true );
 						}
 						if ( $quiz_count > 0 ) {
-							$quiz_label = sprintf( _n( ' quiz', ' quizzes', $quiz_count, 'suredash' ) );
-							Helper::show_badge( 'neutral', '', $quiz_count . $quiz_label, 'sm', '', [], true );
+							/* translators: %s: number of quizzes. */
+							$quiz_label = sprintf( _n( '%s quiz', '%s quizzes', $quiz_count, 'suredash' ), $quiz_count );
+							Helper::show_badge( 'neutral', '', $quiz_label, 'sm', '', [], true );
 						}
 						echo '</span>';
 					}

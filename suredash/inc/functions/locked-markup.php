@@ -109,14 +109,15 @@ if ( ! function_exists( 'suredash_locked_overlay' ) ) {
 	 * where the whole container is blurred via CSS and this padlock is the one sharp element.
 	 * The solid dark circle behind the padlock is styled via CSS — see `.portal-locked-lock svg`.
 	 *
+	 * @param string $icon Library icon to render — 'Lock' (default), or 'Clock' for dripping content.
 	 * @return string
 	 * @since 1.10.0
 	 */
-	function suredash_locked_overlay(): string {
+	function suredash_locked_overlay( $icon = 'Lock' ): string {
 		ob_start();
 		?>
 		<div class="portal-locked-overlay" aria-hidden="true">
-			<span class="portal-locked-lock"><?php Helper::get_library_icon( 'Lock', true ); ?></span>
+			<span class="portal-locked-lock"><?php Helper::get_library_icon( $icon, true ); ?></span>
 		</div>
 		<?php
 		return (string) ob_get_clean();
@@ -174,6 +175,7 @@ if ( ! function_exists( 'suredash_render_locked_card' ) ) {
 		$opens_quick_view = suredash_locked_opens_quick_view( $lock );
 		$wrapper_attrs    = $opens_quick_view ? suredash_quick_view_trigger_attrs( $args ) : $attrs;
 		$wrapper_href     = $opens_quick_view && ! empty( $args['link'] ) ? (string) $args['link'] : '#';
+		$overlay_icon     = ! empty( $lock['drip'] ) ? 'Clock' : 'Lock';
 
 		// Thumbnail markup, identical to the normal renderers.
 		$thumbnail_html = isset( $args['thumbnail_label'] )
@@ -208,7 +210,7 @@ if ( ! function_exists( 'suredash_render_locked_card' ) ) {
 						<div class="sd-px-16 sd-py-12 sd-flex sd-justify-between sd-items-center sd-border-t sd-mt-auto">
 							<?php echo suredash_locked_footer_actions(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
 						</div>
-						<?php echo suredash_locked_overlay(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
+						<?php echo suredash_locked_overlay( $overlay_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
 					</div>
 				</a>
 				<?php
@@ -239,7 +241,7 @@ if ( ! function_exists( 'suredash_render_locked_card' ) ) {
 								?>
 							</div>
 						</div>
-						<?php echo suredash_locked_overlay(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
+						<?php echo suredash_locked_overlay( $overlay_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
 					</div>
 				</a>
 				<?php
@@ -281,7 +283,7 @@ if ( ! function_exists( 'suredash_render_locked_card' ) ) {
 							);
 							?>
 						</div>
-						<?php echo suredash_locked_overlay(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
+						<?php echo suredash_locked_overlay( $overlay_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
 					</div>
 				</a>
 				<?php

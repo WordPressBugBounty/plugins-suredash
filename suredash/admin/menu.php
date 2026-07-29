@@ -376,6 +376,7 @@ class Menu {
 					'settings'                      => Settings::get_suredash_settings(),
 					'user_roles'                    => $this->get_formatted_user_roles(),
 					'is_pro_available'              => suredash_is_pro_active(),
+					'pro_plugin_status'             => $this->get_plugin_status( 'suredash-pro/suredash-pro.php' ),
 					'pro_version'                   => suredash_is_pro_active() ? SUREDASH_PRO_VER : 0,
 					'color_presets'                 => suredash_get_active_palette_colors(),
 					'create_community_content_src'  => $community_content_src,

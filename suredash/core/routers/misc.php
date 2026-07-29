@@ -1675,6 +1675,21 @@ class Misc {
 			wp_send_json_error( [ 'message' => __( 'No preview available.', 'suredash' ) ], 404 );
 		}
 
+		// Dripped content: the viewer is a member, so show the same "available in" message the
+		// single page renders — not the group's restriction template (that's for non-members).
+		if ( ! empty( $action['drip'] ) ) {
+			$content = '';
+			if ( class_exists( '\SureDashboard\Core\Integrations\SureMembers' ) && is_callable( [ \SureDashboard\Core\Integrations\SureMembers::get_instance(), 'get_dripped_message' ] ) ) {
+				$content = (string) \SureDashboard\Core\Integrations\SureMembers::get_instance()->get_dripped_message( '', (string) ( $action['time'] ?? '' ) );
+			}
+			wp_send_json_success(
+				[
+					'title'   => '',
+					'content' => $content,
+				]
+			);
+		}
+
 		// Message action: return the EXACT restriction message the banner uses, with the original
 		// flow intact — get_restricted_message() renders the SureDash template only when the group's
 		// "in content" setting is on (otherwise it returns empty, just like before).
@@ -1857,9 +1872,10 @@ class Misc {
 	 * Verify the current user may interact with a SureDash feed/content object.
 	 *
 	 * Guards the reaction/comment/reactor routes against IDOR: the target must
-	 * be one of the plugin's own community post types and, for non-managers,
-	 * must not be protected or hidden from the current user by visibility scope
-	 * or access rules. Portal managers bypass. Safe-deny by default.
+	 * be one of the plugin's own post types (community post, community content,
+	 * or a portal space) and, for non-managers, must not be protected or hidden
+	 * from the current user by visibility scope or access rules. Portal managers
+	 * bypass. Safe-deny by default.
 	 *
 	 * @since 1.9.4
 	 * @param int $post_id The target post ID (for comments, pass the parent post ID).
@@ -1870,10 +1886,12 @@ class Misc {
 			return false;
 		}
 
-		// Only the plugin's own community post types are valid targets — this
-		// blocks like/comment meta tampering on arbitrary site-wide objects.
+		// Only the plugin's own post types are valid targets — this blocks
+		// like/comment meta tampering on arbitrary site-wide objects. Portal
+		// spaces are included because a single-post space stores its likes and
+		// comments on the space post itself.
 		$post_type = (string) sd_get_post_field( $post_id, 'post_type' );
-		$allowed   = [ SUREDASHBOARD_FEED_POST_TYPE, SUREDASHBOARD_SUB_CONTENT_POST_TYPE ];
+		$allowed   = [ SUREDASHBOARD_POST_TYPE, SUREDASHBOARD_FEED_POST_TYPE, SUREDASHBOARD_SUB_CONTENT_POST_TYPE ];
 		if ( ! in_array( $post_type, $allowed, true ) ) {
 			return false;
 		}

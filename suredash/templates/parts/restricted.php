@@ -27,8 +27,12 @@ $extra_content = $args['extra_content'] ?? '';
 	<?php Helper::get_library_icon( $icon, true, 'lg' ); ?>
 	<h2> <?php Labels::get_label( $label, true ); ?> </h2>
 	<div class="sd-flex-col sd-gap-8">
-		<p class="portal-restricted-content-notice"> <?php Labels::get_label( $description, true ); ?> </p>
-		<p class="sd-no-space"> <?php echo esc_html( $extra_content ); ?> </p>
+		<?php if ( ! empty( $description ) ) { ?>
+			<p class="portal-restricted-content-notice"> <?php Labels::get_label( $description, true ); ?> </p>
+		<?php } ?>
+		<?php if ( ! empty( $extra_content ) ) { ?>
+			<div class="sd-no-space"> <?php echo wp_kses_post( $extra_content ); ?> </div>
+		<?php } ?>
 	</div>
 </div>
 

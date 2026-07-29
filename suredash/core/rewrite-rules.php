@@ -8,6 +8,7 @@
 namespace SureDashboard\Core;
 
 use SureDashboard\Core\Integrations\SinglePost;
+use SureDashboard\Core\Shortcodes\Notification;
 use SureDashboard\Core\Shortcodes\SingleComments;
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Utils\Helper;
@@ -53,6 +54,13 @@ class RewriteRules {
 	private $search_modal_loaded = false;
 
 	/**
+	 * Set status for mobile notification popup loaded.
+	 *
+	 * @var bool
+	 */
+	private $mobile_notification_loaded = false;
+
+	/**
 	 * Constructor
 	 *
 	 * @since 0.0.1
@@ -81,6 +89,7 @@ class RewriteRules {
 		add_action( 'suredashboard_quick_view_post_content', [ $this, 'load_quick_view_post_content' ], 10, 3 );
 
 		add_action( 'suredash_footer', [ $this, 'render_search_modal' ] );
+		add_action( 'suredash_footer', [ $this, 'render_mobile_notification_popup' ] );
 		add_action( 'suredash_footer', [ $this, 'add_post_reaction_modal' ] );
 		add_action( 'suredash_footer', [ $this, 'quick_view_popup' ] );
 		add_action( 'suredash_footer', [ $this, 'load_branding' ] );
@@ -318,6 +327,35 @@ class RewriteRules {
 		?>
 			<div id="portal-notification-toaster" class="portal-notification-toaster portal-content" aria-live="assertive"></div>
 		<?php
+	}
+
+	/**
+	 * Render the mobile notification popup.
+	 *
+	 * Rendered once in the portal footer for logged-in users. The bottom-bar
+	 * Bell link toggles this popup open/close (see initializeMobileNotificationPopup
+	 * in global.js) instead of navigating to the notification screen. Reuses the
+	 * same notification list markup as the desktop drawer so the existing
+	 * read/unread, tab and unread-count JS binds automatically via the shared
+	 * `sd-notification-list` class.
+	 *
+	 * @return void
+	 * @since 1.5.0
+	 */
+	public function render_mobile_notification_popup(): void {
+		if ( $this->mobile_notification_loaded || ! is_user_logged_in() ) {
+			return;
+		}
+
+		?>
+		<div class="portal-mobile-notification-backdrop"></div>
+		<div id="portal-mobile-notification" class="portal-mobile-notification-popup portal-content sd-bg-content sd-flex sd-flex-col sd-radius-12 sd-shadow-lg sd-border sd-notification-list" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr( Labels::get_label( 'notifications' ) ); ?>">
+			<span class="portal-mobile-notification-arrow" aria-hidden="true"></span>
+			<?php Notification::get_instance()->get_user_notification_list( true ); ?>
+		</div>
+		<?php
+
+		$this->mobile_notification_loaded = true;
 	}
 
 	/**

@@ -74,7 +74,7 @@ msgstr "Link"
 msgid "Video"
 msgstr "Video"
 
-#: admin/menu.php:710
+#: admin/menu.php:711
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -634,7 +634,7 @@ msgstr "Je reactie wacht op moderatie."
 msgid "Reply"
 msgstr "Antwoord"
 
-#: inc/functions/markup.php:782
+#: inc/functions/markup.php:789
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
@@ -656,7 +656,7 @@ msgstr "Klik om te uploaden of sleep en zet neer"
 msgid "Allowed file formats:"
 msgstr "Toegestane bestandsformaten:"
 
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:807
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgid_plural "Comments"
@@ -1483,6 +1483,7 @@ msgstr "Begin met het schrijven van je bericht"
 msgid "Write a Post"
 msgstr "Een bericht schrijven"
 
+#: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -2946,11 +2947,11 @@ msgstr "Groepstekst voor ruimte"
 msgid "Space Group Background"
 msgstr "Achtergrond van de Ruimtegroep"
 
-#: core/routers/misc.php:2204
+#: core/routers/misc.php:2222
 msgid "Uploaded file is not a valid image."
 msgstr "Geüpload bestand is geen geldige afbeelding."
 
-#: core/routers/misc.php:2208
+#: core/routers/misc.php:2226
 msgid "File size larger than permissible."
 msgstr "Bestandsgrootte groter dan toegestaan."
 
@@ -3167,7 +3168,7 @@ msgstr "Voer de URL in van de media die je wilt embedden"
 msgid "SinglePost Integration"
 msgstr "SinglePost-integratie"
 
-#: core/integrations/sure-members.php:513
+#: core/integrations/sure-members.php:525
 msgid "Access Group: "
 msgstr "Toegangs groep:"
 
@@ -3816,7 +3817,7 @@ msgid "Pending Review"
 msgstr "In afwachting van beoordeling"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:645
+#: inc/functions/markup.php:648
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "Privé"
@@ -4063,7 +4064,7 @@ msgid "content requires membership access"
 msgstr "inhoud vereist lidmaatschapstoegang"
 
 #. translators: 1: Post title, 2: Restriction type
-#: core/integrations/sure-members.php:832
+#: core/integrations/sure-members.php:850
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
@@ -4672,7 +4673,7 @@ msgstr "Het verwijderen van de opmerking is mislukt."
 msgid "Comment deleted successfully!"
 msgstr "Opmerking succesvol verwijderd!"
 
-#: core/routers/misc.php:2199
+#: core/routers/misc.php:2217
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ongeldig bestandstype. Alleen GIF, PNG, JPEG, JPG en WEBP zijn toegestaan."
 
@@ -4716,21 +4717,7 @@ msgstr "Schrijf een korte bio over jezelf..."
 msgid "Discussion"
 msgstr "Discussie"
 
-#: inc/functions/markup.php:587
-#: inc/functions/markup.php:689
-msgid " lesson"
-msgid_plural " lessons"
-msgstr[0] "les"
-msgstr[1] ""
-
-#: inc/functions/markup.php:597
-#: inc/functions/markup.php:655
-msgid " thread"
-msgid_plural " threads"
-msgstr[0] "draad"
-msgstr[1] ""
-
-#: inc/functions/markup.php:902
+#: inc/functions/markup.php:909
 msgid "Options"
 msgstr "Opties"
 
@@ -5024,12 +5011,12 @@ msgid "Resources"
 msgstr "Hulpmiddelen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Remove bookmark"
 msgstr "Bladwijzer verwijderen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
@@ -5106,12 +5093,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "Hulpmiddelenbibliotheek"
 
-#: inc/functions/markup.php:828
+#: inc/functions/markup.php:835
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "Bezoek"
 
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Bookmark"
 msgstr "Bladwijzer"
 
@@ -6375,8 +6362,8 @@ msgid "Failed to delete email triggers."
 msgstr "Verwijderen van e-mailtriggers mislukt."
 
 #: core/routers/misc.php:763
-#: core/routers/misc.php:1760
-#: core/routers/misc.php:1790
+#: core/routers/misc.php:1775
+#: core/routers/misc.php:1805
 msgid "User not logged in."
 msgstr "Gebruiker niet ingelogd."
 
@@ -6441,7 +6428,7 @@ msgid "Open notification settings in new tab"
 msgstr "Open notificatie-instellingen in een nieuw tabblad"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1473
+#: inc/functions/markup.php:1480
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -7133,7 +7120,7 @@ msgstr "Fout bij het zoeken naar gebruikers"
 msgid "No access groups found"
 msgstr "Geen toegangsgroepen gevonden"
 
-#: core/rewrite-rules.php:342
+#: core/rewrite-rules.php:380
 #: assets/build/portals-app.js:21
 msgid "Post Visibility"
 msgstr "Berichtzichtbaarheid"
@@ -7142,15 +7129,15 @@ msgstr "Berichtzichtbaarheid"
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers-plugin is niet actief."
 
-#: core/routers/misc.php:1794
+#: core/routers/misc.php:1809
 msgid "Space ID is required."
 msgstr "Ruimte-ID is vereist."
 
-#: core/routers/misc.php:1803
+#: core/routers/misc.php:1818
 msgid "Space marked as read."
 msgstr "Ruimte gemarkeerd als gelezen."
 
-#: core/routers/misc.php:1807
+#: core/routers/misc.php:1822
 msgid "Failed to mark space as read."
 msgstr "Kan ruimte niet als gelezen markeren."
 
@@ -7650,7 +7637,6 @@ msgid "Unsaved Settings"
 msgstr "Niet-opgeslagen instellingen"
 
 #: inc/utils/helper.php:2925
-#: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
 msgid "Leaderboard"
 msgstr "Ranglijst"
@@ -8120,15 +8106,15 @@ msgstr "Verwijderd %s bestand"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "Ondersteunt YouTube, Vimeo, Dailymotion, VideoPress en meer"
 
-#: core/routers/misc.php:1827
+#: core/routers/misc.php:1842
 msgid "A valid URL is required."
 msgstr "Een geldige URL is vereist."
 
-#: core/routers/misc.php:1838
+#: core/routers/misc.php:1853
 msgid "This URL is not from a supported video provider."
 msgstr "Deze URL is niet van een ondersteunde videoleverancier."
 
-#: core/routers/misc.php:1850
+#: core/routers/misc.php:1865
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Kon video niet oplossen. Controleer de URL en probeer het opnieuw."
 
@@ -9579,10 +9565,6 @@ msgid "PDFs, worksheets, and supplementary downloads."
 msgstr "PDF's, werkbladen en aanvullende downloads."
 
 #: assets/build/portals-app.js:1
-msgid "Top students by points and activity."
-msgstr "Topstudenten op basis van punten en activiteit."
-
-#: assets/build/portals-app.js:1
 msgid "A getting-started guide for new members."
 msgstr "Een gids voor beginners voor nieuwe leden."
 
@@ -9695,14 +9677,6 @@ msgid "Standups, all-hands, and training sessions."
 msgstr "Standups, all-hands en trainingssessies."
 
 #: assets/build/portals-app.js:1
-msgid "Team Directory"
-msgstr "Teamdirectory"
-
-#: assets/build/portals-app.js:1
-msgid "Find and contact teammates."
-msgstr "Vind en neem contact op met teamgenoten."
-
-#: assets/build/portals-app.js:1
 msgid "Introduce yourself and your community."
 msgstr "Stel jezelf en je community voor."
 
@@ -9777,10 +9751,6 @@ msgstr "Open forum met geneste gesprekken."
 #: assets/build/portals-app.js:1
 msgid "A static page to introduce your community."
 msgstr "Een statische pagina om je gemeenschap voor te stellen."
-
-#: assets/build/portals-app.js:1
-msgid "Post important updates and news."
-msgstr "Plaats belangrijke updates en nieuws."
 
 #: assets/build/portals-app.js:1
 msgid "Sidebar link to an external website."
@@ -10215,19 +10185,6 @@ msgstr "%1$s heeft je bericht \"%2$s\" leuk gevonden."
 #, php-format
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr "%1$s heeft je opmerking \"%2$s\" leuk gevonden."
-
-#: inc/functions/markup.php:592
-#: inc/functions/markup.php:693
-msgid " quiz"
-msgid_plural " quizzes"
-msgstr[0] "quiz"
-msgstr[1] ""
-
-#: inc/functions/markup.php:683
-msgid " module"
-msgid_plural " modules"
-msgstr[0] "module"
-msgstr[1] ""
 
 #: assets/build/portals-app.js:10
 msgid "Dismiss welcome banner"
@@ -10695,17 +10652,68 @@ msgid "Unable to load content."
 msgstr "Inhoud kan niet worden geladen."
 
 #: core/routers/misc.php:1675
-#: core/routers/misc.php:1716
+#: core/routers/misc.php:1731
 msgid "No preview available."
 msgstr "Geen voorbeeld beschikbaar."
 
-#: core/routers/misc.php:1721
+#: core/routers/misc.php:1736
 msgid "Preview not found."
 msgstr "Voorbeeld niet gevonden."
 
 #: inc/functions/functions.php:1727
 msgid "This content is restricted to members. Unlock access to view the full post."
 msgstr "Deze inhoud is beperkt tot leden. Ontgrendel toegang om de volledige post te bekijken."
+
+#. translators: %s: number of lessons.
+#: inc/functions/markup.php:588
+#: inc/functions/markup.php:695
+#, php-format
+msgid "%s lesson"
+msgid_plural "%s lessons"
+msgstr[0] "%s les"
+msgstr[1] ""
+
+#. translators: %s: number of quizzes.
+#: inc/functions/markup.php:594
+#: inc/functions/markup.php:700
+#, php-format
+msgid "%s quiz"
+msgid_plural "%s quizzes"
+msgstr[0] "%s quiz"
+msgstr[1] ""
+
+#. translators: %s: number of threads.
+#: inc/functions/markup.php:600
+#: inc/functions/markup.php:659
+#, php-format
+msgid "%s thread"
+msgid_plural "%s threads"
+msgstr[0] "%s discussie"
+msgstr[1] ""
+
+#. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
+#: inc/functions/markup.php:688
+#, php-format
+msgid "%s module"
+msgid_plural "%s modules"
+msgstr[0] "%s module"
+msgstr[1] ""
+
+#: assets/build/portals-app.js:1
+msgid "Tutorials"
+msgstr "Tutorials"
+
+#: assets/build/portals-app.js:1
+msgid "Step-by-step guides that walk users through your product."
+msgstr "Stap-voor-stap handleidingen die gebruikers door uw product leiden."
+
+#: assets/build/portals-app.js:1
+msgid "Members save posts and resources."
+msgstr "Leden slaan berichten en bronnen op."
+
+#: assets/build/portals-app.js:3
+msgid "SureDash Pro is installed but not active. Activate it to unlock the Pro spaces."
+msgstr "SureDash Pro is geïnstalleerd maar niet actief. Activeer het om de Pro-ruimtes te ontgrendelen."
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

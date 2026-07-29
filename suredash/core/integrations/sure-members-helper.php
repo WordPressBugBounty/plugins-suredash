@@ -141,13 +141,13 @@ class SureMembers_Helper {
 	 */
 	public function get_item_action( $item_id, $space_id = 0 ): array {
 		if ( $this->get_item_state( $item_id, $space_id ) !== 'hidden' ) {
-			return [];
+			// The viewer has access — but a member's item (lesson, event, resource) may still be
+			// dripping for them; surface it as a lock action, same as spaces.
+			return $this->drip_action( $this->groups_for_item( absint( $item_id ), $space_id ), absint( $item_id ) );
 		}
 
 		$space_id = $space_id ? absint( $space_id ) : $this->space_of( absint( $item_id ) );
-		$groups   = $this->blocking_groups( $space_id, (string) get_post_type( $item_id ) )
-			+ $this->post_groups( absint( $item_id ) );
-		$action   = $this->build_action( $groups );
+		$action   = $this->build_action( $this->groups_for_item( absint( $item_id ), $space_id ) );
 
 		// A cascade-only lock leaves the item's own group set empty (the block lives on the
 		// collections) — take the payload from the space, which resolves the collections' groups.
@@ -167,12 +167,18 @@ class SureMembers_Helper {
 	 */
 	public function get_space_action( $space_id ): array {
 		$space_id = absint( $space_id );
-		if ( $space_id <= 0 || $this->is_admin() || $this->get_space_state( $space_id ) !== 'locked' ) {
+		if ( $space_id <= 0 || $this->is_admin() ) {
 			return [];
 		}
 
 		$config = $this->config_for_space( $space_id );
 		$groups = $this->blocking_groups( $space_id, (string) ( $config['child_post_type'] ?? '' ) );
+
+		if ( $this->get_space_state( $space_id ) !== 'locked' ) {
+			// A member keeps access ('normal'), but the space may still be dripping for them —
+			// surface it as a lock action so listing cards frost instead of opening early.
+			return $this->drip_action( $groups, $space_id );
+		}
 
 		// Cascade-only lock (no rule on the space itself): use the restricting collections' groups.
 		if ( empty( $groups ) ) {
@@ -345,6 +351,23 @@ class SureMembers_Helper {
 	}
 
 	/**
+	 * Every access group protecting a child item — its space's rules plus rules targeting the
+	 * item directly. This is the set SureMembers checks (access, drip) must receive for child
+	 * items: a space-level rule never matches the item's own native lookup, so feeding that
+	 * lookup alone silently drops inherited protection.
+	 *
+	 * @param int $item_id  Child post ID.
+	 * @param int $space_id Optional parent space ID (resolved from the item when 0).
+	 * @return array<int|string, mixed> Groups keyed by group ID.
+	 * @since 1.10.3
+	 */
+	private function groups_for_item( $item_id, $space_id = 0 ): array {
+		$item_id  = absint( $item_id );
+		$space_id = $space_id ? absint( $space_id ) : $this->space_of( $item_id );
+		return $this->blocking_groups( $space_id, (string) get_post_type( $item_id ) ) + $this->post_groups( $item_id );
+	}
+
+	/**
 	 * Build the normalized action payload from a set of blocking groups (highest priority wins).
 	 *
 	 * @param array<int|string, mixed> $groups Blocking access groups keyed by ID.
@@ -391,6 +414,39 @@ class SureMembers_Helper {
 			// Raw SureMembers restriction settings, so the message modal can render the exact
 			// same template the banner uses via SureMembers::get_restricted_message().
 			'restrict'     => is_array( $restrict ) ? $restrict : [],
+		];
+	}
+
+	/**
+	 * Build the drip lock payload for content a member can access but that has not dripped yet.
+	 *
+	 * Self-guarding: SureMembers only reports dripping for groups the resolved user holds with
+	 * 'active' status, so non-members can never receive this payload; admins are skipped here.
+	 *
+	 * @param array<int|string, mixed> $groups  Groups protecting the content (engine union).
+	 * @param int                      $post_id Space or child post ID.
+	 * @return array<string, mixed> Empty when not dripping.
+	 * @since 1.10.3
+	 */
+	private function drip_action( array $groups, $post_id ): array {
+		$post_id = absint( $post_id );
+		if ( $post_id <= 0 || empty( $groups ) || $this->is_admin() || ! is_callable( [ '\SureMembers\Inc\Access_Groups', 'check_is_post_is_dripping' ] ) ) {
+			return [];
+		}
+
+		$drip = \SureMembers\Inc\Access_Groups::check_is_post_is_dripping( // @phpstan-ignore class.notFound (SureMembers external plugin)
+			$post_id,
+			[ SUREMEMBERS_POST_TYPE => $groups ],
+			$this->resolve_user()
+		);
+		if ( empty( $drip['status'] ) ) {
+			return [];
+		}
+
+		return [
+			'action' => 'message',
+			'drip'   => true,
+			'time'   => (string) ( $drip['time'] ?? '' ),
 		];
 	}
 
@@ -514,7 +570,11 @@ class SureMembers_Helper {
 	}
 
 	/**
-	 * The blocking group with the highest SureMembers priority (lowest number = highest).
+	 * The blocking group whose restriction settings win.
+	 *
+	 * Mirrors native Access_Groups::get_priority_id(): the HIGHER priority number wins, and a
+	 * group with no priority meta casts to 0 and ranks last — the portal must show the same
+	 * group's template a native SureMembers page shows for the same content.
 	 *
 	 * @param array<int|string, mixed> $groups Blocking groups keyed by ID.
 	 * @return int Group ID, or 0.
@@ -524,11 +584,8 @@ class SureMembers_Helper {
 		$best_id  = 0;
 		$best_pri = null;
 		foreach ( array_keys( $groups ) as $group_id ) {
-			$raw_priority = get_post_meta( (int) $group_id, 'suremembers_plan_priority', true );
-			// A group with no explicit priority must rank LAST, not first — an empty meta cast to 0
-			// would otherwise win as the highest priority over groups with real priorities.
-			$priority = $raw_priority === '' || $raw_priority === null ? PHP_INT_MAX : (int) $raw_priority;
-			if ( $best_pri === null || $priority < $best_pri ) {
+			$priority = (int) get_post_meta( (int) $group_id, 'suremembers_plan_priority', true );
+			if ( $best_pri === null || $priority > $best_pri ) {
 				$best_pri = $priority;
 				$best_id  = (int) $group_id;
 			}
@@ -626,9 +683,6 @@ class SureMembers_Helper {
 		if ( $user_id <= 0 ) {
 			return true;
 		}
-		if ( ! is_callable( [ '\SureMembers\Inc\Access_Groups', 'check_user_access_by_id' ] ) ) {
-			return true;
-		}
 
 		// Drop groups whose access has time-expired for this user. check_user_access_by_id() only
 		// tests the stored 'active' status, which SureMembers revokes lazily on the affected
@@ -647,10 +701,24 @@ class SureMembers_Helper {
 			return true; // Every protecting group has expired for this user.
 		}
 
-		return ! \SureMembers\Inc\Access_Groups::check_user_access_by_id( // @phpstan-ignore class.notFound (SureMembers external plugin)
-			$user_id,
-			$group_ids
-		);
+		if ( is_callable( [ '\SureMembers\Inc\Access_Groups', 'check_user_access_by_id' ] ) ) {
+			return ! \SureMembers\Inc\Access_Groups::check_user_access_by_id( // @phpstan-ignore class.notFound (SureMembers external plugin)
+				$user_id,
+				$group_ids
+			);
+		}
+
+		// check_user_access_by_id() only exists in SureMembers ≥ 2.0.2 (and 1.10.14). On older
+		// releases fall back to check_if_user_has_access(), which has existed since 1.0 but always
+		// evaluates the CURRENT user — valid for every front-end context, never for as_user()
+		// evaluating someone else. Never fail closed on the missing helper alone: that locked ALL
+		// members out of every engine surface when SureDash 1.10.0 met an outdated SureMembers.
+		if ( $user_id === get_current_user_id() && is_callable( [ '\SureMembers\Inc\Access_Groups', 'check_if_user_has_access' ] ) ) {
+			return ! \SureMembers\Inc\Access_Groups::check_if_user_has_access( $group_ids ); // @phpstan-ignore class.notFound (SureMembers external plugin)
+		}
+
+		// Background context (email gating) on an outdated SureMembers: keep the content gated.
+		return true;
 	}
 
 	// === Exceptions & children ===

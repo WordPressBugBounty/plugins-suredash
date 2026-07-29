@@ -351,13 +351,25 @@ class SureMembers extends Base {
 			// template. Consult the engine so those banners render the blocking group's configured
 			// template too. The action is empty for admins, members with access, and freed items.
 			if ( empty( $dataset['status'] ) ) {
-				$action = get_post_type( absint( $post_id ) ) === SUREDASHBOARD_POST_TYPE
+				$is_space = get_post_type( absint( $post_id ) ) === SUREDASHBOARD_POST_TYPE;
+				$action   = $is_space
 					? suredash_sm_space_action( absint( $post_id ) )
 					: suredash_sm_item_action( absint( $post_id ) );
 				if ( ! empty( $action['restrict'] ) ) {
 					return [
 						'status'  => true,
 						'content' => $this->get_restricted_message( '', $action['restrict'] ),
+					];
+				}
+
+				// A drip action means the viewer is a member whose content has not dripped yet — the
+				// engine already resolved it from the full protecting group set (space-level rules
+				// never surface in the native lookup above). Render the same dripped template the
+				// native path uses.
+				if ( ! empty( $action['drip'] ) ) {
+					return [
+						'status'  => true,
+						'content' => $this->get_dripped_message( '', (string) ( $action['time'] ?? '' ) ),
 					];
 				}
 			}
@@ -612,12 +624,19 @@ class SureMembers extends Base {
 	/**
 	 * Get the restricted message.
 	 *
+	 * The body paragraph runs through SureMembers' own `suremembers_restricted_dripped_message`
+	 * filter — the hook its native template output uses — so a site's customized/translated drip
+	 * message renders inside the portal too. Unfiltered, the output matches the previous default.
+	 *
 	 * @param string $content Content.
 	 * @param string $time Time.
 	 * @since 1.0.0
 	 * @return string|false
 	 */
 	public function get_dripped_message( $content, $time ) {
+		$default_message = '<p>' . esc_html( (string) Labels::get_label( 'dripped_content_notice' ) ) . '<br/>' . esc_html( (string) $time ) . '</p>';
+		$drip_message    = (string) apply_filters( 'suremembers_restricted_dripped_message', $default_message, (string) $time );
+
 		ob_start();
 
 		suredash_get_template_part(
@@ -626,8 +645,7 @@ class SureMembers extends Base {
 			[
 				'icon'          => 'Clock',
 				'label'         => 'dripped_content_heading',
-				'description'   => 'dripped_content_notice',
-				'extra_content' => $time,
+				'extra_content' => $drip_message,
 			]
 		);
 

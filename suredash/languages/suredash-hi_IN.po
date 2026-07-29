@@ -74,7 +74,7 @@ msgstr "लिंक"
 msgid "Video"
 msgstr "वीडियो"
 
-#: admin/menu.php:710
+#: admin/menu.php:711
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -634,7 +634,7 @@ msgstr "आपकी टिप्पणी की समीक्षा की �
 msgid "Reply"
 msgstr "जवाब दें"
 
-#: inc/functions/markup.php:782
+#: inc/functions/markup.php:789
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
@@ -656,7 +656,7 @@ msgstr "अपलोड करने के लिए क्लिक करे�
 msgid "Allowed file formats:"
 msgstr "अनुमत फ़ाइल प्रारूप:"
 
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:807
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgid_plural "Comments"
@@ -1483,6 +1483,7 @@ msgstr "अपनी पोस्ट लिखना शुरू करें"
 msgid "Write a Post"
 msgstr "एक पोस्ट लिखें"
 
+#: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -2946,11 +2947,11 @@ msgstr "स्पेस ग्रुप टेक्स्ट"
 msgid "Space Group Background"
 msgstr "स्पेस ग्रुप पृष्ठभूमि"
 
-#: core/routers/misc.php:2204
+#: core/routers/misc.php:2222
 msgid "Uploaded file is not a valid image."
 msgstr "अपलोड की गई फ़ाइल एक मान्य छवि नहीं है।"
 
-#: core/routers/misc.php:2208
+#: core/routers/misc.php:2226
 msgid "File size larger than permissible."
 msgstr "फ़ाइल का आकार अनुमेय से बड़ा है।"
 
@@ -3167,7 +3168,7 @@ msgstr "कृपया उस मीडिया का URL दर्ज कर
 msgid "SinglePost Integration"
 msgstr "सिंगलपोस्ट एकीकरण"
 
-#: core/integrations/sure-members.php:513
+#: core/integrations/sure-members.php:525
 msgid "Access Group: "
 msgstr "एक्सेस समूह:"
 
@@ -3816,7 +3817,7 @@ msgid "Pending Review"
 msgstr "समीक्षा के लिए लंबित"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:645
+#: inc/functions/markup.php:648
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "निजी"
@@ -4063,7 +4064,7 @@ msgid "content requires membership access"
 msgstr "सामग्री के लिए सदस्यता पहुंच आवश्यक है"
 
 #. translators: 1: Post title, 2: Restriction type
-#: core/integrations/sure-members.php:832
+#: core/integrations/sure-members.php:850
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
@@ -4672,7 +4673,7 @@ msgstr "टिप्पणी को हटाने में विफल।"
 msgid "Comment deleted successfully!"
 msgstr "टिप्पणी सफलतापूर्वक हटा दी गई!"
 
-#: core/routers/misc.php:2199
+#: core/routers/misc.php:2217
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "अमान्य फ़ाइल प्रकार। केवल GIF, PNG, JPEG, JPG, और WEBP की अनुमति है।"
 
@@ -4716,21 +4717,7 @@ msgstr "अपने बारे में एक संक्षिप्त �
 msgid "Discussion"
 msgstr "चर्चा"
 
-#: inc/functions/markup.php:587
-#: inc/functions/markup.php:689
-msgid " lesson"
-msgid_plural " lessons"
-msgstr[0] "पाठ"
-msgstr[1] ""
-
-#: inc/functions/markup.php:597
-#: inc/functions/markup.php:655
-msgid " thread"
-msgid_plural " threads"
-msgstr[0] "थ्रेड"
-msgstr[1] ""
-
-#: inc/functions/markup.php:902
+#: inc/functions/markup.php:909
 msgid "Options"
 msgstr "विकल्प"
 
@@ -5024,12 +5011,12 @@ msgid "Resources"
 msgstr "संसाधन"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Remove bookmark"
 msgstr "बुकमार्क हटाएं"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Add bookmark"
 msgstr "बुकमार्क जोड़ें"
 
@@ -5106,12 +5093,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "संसाधन पुस्तकालय"
 
-#: inc/functions/markup.php:828
+#: inc/functions/markup.php:835
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "जाएं"
 
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Bookmark"
 msgstr "बुकमार्क"
 
@@ -6375,8 +6362,8 @@ msgid "Failed to delete email triggers."
 msgstr "ईमेल ट्रिगर हटाने में विफल।"
 
 #: core/routers/misc.php:763
-#: core/routers/misc.php:1760
-#: core/routers/misc.php:1790
+#: core/routers/misc.php:1775
+#: core/routers/misc.php:1805
 msgid "User not logged in."
 msgstr "उपयोगकर्ता लॉग इन नहीं है।"
 
@@ -6445,7 +6432,7 @@ msgid "Open notification settings in new tab"
 msgstr "नई टैब में अधिसूचना सेटिंग्स खोलें"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1473
+#: inc/functions/markup.php:1480
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -7137,7 +7124,7 @@ msgstr "उपयोगकर्ताओं की खोज में त्�
 msgid "No access groups found"
 msgstr "कोई एक्सेस समूह नहीं मिला"
 
-#: core/rewrite-rules.php:342
+#: core/rewrite-rules.php:380
 #: assets/build/portals-app.js:21
 msgid "Post Visibility"
 msgstr "पोस्ट दृश्यता"
@@ -7146,15 +7133,15 @@ msgstr "पोस्ट दृश्यता"
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers प्लगइन सक्रिय नहीं है।"
 
-#: core/routers/misc.php:1794
+#: core/routers/misc.php:1809
 msgid "Space ID is required."
 msgstr "स्पेस आईडी आवश्यक है।"
 
-#: core/routers/misc.php:1803
+#: core/routers/misc.php:1818
 msgid "Space marked as read."
 msgstr "स्थान को पढ़ा हुआ चिह्नित किया गया।"
 
-#: core/routers/misc.php:1807
+#: core/routers/misc.php:1822
 msgid "Failed to mark space as read."
 msgstr "स्थान को पढ़ा हुआ चिह्नित करने में विफल।"
 
@@ -7654,7 +7641,6 @@ msgid "Unsaved Settings"
 msgstr "असहेजित सेटिंग्स"
 
 #: inc/utils/helper.php:2925
-#: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
 msgid "Leaderboard"
 msgstr "लीडरबोर्ड"
@@ -8124,15 +8110,15 @@ msgstr "%s फ़ाइल हटा दी गई"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "YouTube, Vimeo, Dailymotion, VideoPress और अधिक का समर्थन करता है"
 
-#: core/routers/misc.php:1827
+#: core/routers/misc.php:1842
 msgid "A valid URL is required."
 msgstr "एक मान्य URL आवश्यक है।"
 
-#: core/routers/misc.php:1838
+#: core/routers/misc.php:1853
 msgid "This URL is not from a supported video provider."
 msgstr "यह URL समर्थित वीडियो प्रदाता से नहीं है।"
 
-#: core/routers/misc.php:1850
+#: core/routers/misc.php:1865
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "वीडियो को हल नहीं किया जा सका। कृपया URL की जांच करें और फिर से प्रयास करें।"
 
@@ -9583,10 +9569,6 @@ msgid "PDFs, worksheets, and supplementary downloads."
 msgstr "PDFs, कार्यपत्रक, और पूरक डाउनलोड।"
 
 #: assets/build/portals-app.js:1
-msgid "Top students by points and activity."
-msgstr "अंक और गतिविधि के अनुसार शीर्ष छात्र।"
-
-#: assets/build/portals-app.js:1
 msgid "A getting-started guide for new members."
 msgstr "नए सदस्यों के लिए एक प्रारंभिक गाइड।"
 
@@ -9699,14 +9681,6 @@ msgid "Standups, all-hands, and training sessions."
 msgstr "स्टैंडअप, सभी हाथ, और प्रशिक्षण सत्र।"
 
 #: assets/build/portals-app.js:1
-msgid "Team Directory"
-msgstr "टीम निर्देशिका"
-
-#: assets/build/portals-app.js:1
-msgid "Find and contact teammates."
-msgstr "टीम के साथियों को खोजें और संपर्क करें।"
-
-#: assets/build/portals-app.js:1
 msgid "Introduce yourself and your community."
 msgstr "अपने आप को और अपने समुदाय को पेश करें।"
 
@@ -9781,10 +9755,6 @@ msgstr "थ्रेडेड बातचीत के साथ खुला �
 #: assets/build/portals-app.js:1
 msgid "A static page to introduce your community."
 msgstr "आपके समुदाय का परिचय देने के लिए एक स्थिर पृष्ठ।"
-
-#: assets/build/portals-app.js:1
-msgid "Post important updates and news."
-msgstr "महत्वपूर्ण अपडेट और समाचार पोस्ट करें।"
 
 #: assets/build/portals-app.js:1
 msgid "Sidebar link to an external website."
@@ -10219,19 +10189,6 @@ msgstr "%1$s ने आपके पोस्ट \"%2$s\" को पसंद �
 #, php-format
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr "%1$s ने आपके टिप्पणी \"%2$s\" को पसंद किया।"
-
-#: inc/functions/markup.php:592
-#: inc/functions/markup.php:693
-msgid " quiz"
-msgid_plural " quizzes"
-msgstr[0] "क्विज़"
-msgstr[1] ""
-
-#: inc/functions/markup.php:683
-msgid " module"
-msgid_plural " modules"
-msgstr[0] "मॉड्यूल"
-msgstr[1] ""
 
 #: assets/build/portals-app.js:10
 msgid "Dismiss welcome banner"
@@ -10699,17 +10656,68 @@ msgid "Unable to load content."
 msgstr "सामग्री लोड करने में असमर्थ।"
 
 #: core/routers/misc.php:1675
-#: core/routers/misc.php:1716
+#: core/routers/misc.php:1731
 msgid "No preview available."
 msgstr "कोई पूर्वावलोकन उपलब्ध नहीं है।"
 
-#: core/routers/misc.php:1721
+#: core/routers/misc.php:1736
 msgid "Preview not found."
 msgstr "पूर्वावलोकन नहीं मिला।"
 
 #: inc/functions/functions.php:1727
 msgid "This content is restricted to members. Unlock access to view the full post."
 msgstr "यह सामग्री सदस्यों के लिए प्रतिबंधित है। पूरा पोस्ट देखने के लिए पहुँच अनलॉक करें।"
+
+#. translators: %s: number of lessons.
+#: inc/functions/markup.php:588
+#: inc/functions/markup.php:695
+#, php-format
+msgid "%s lesson"
+msgid_plural "%s lessons"
+msgstr[0] "%s पाठ"
+msgstr[1] ""
+
+#. translators: %s: number of quizzes.
+#: inc/functions/markup.php:594
+#: inc/functions/markup.php:700
+#, php-format
+msgid "%s quiz"
+msgid_plural "%s quizzes"
+msgstr[0] "%s क्विज़"
+msgstr[1] ""
+
+#. translators: %s: number of threads.
+#: inc/functions/markup.php:600
+#: inc/functions/markup.php:659
+#, php-format
+msgid "%s thread"
+msgid_plural "%s threads"
+msgstr[0] "%s थ्रेड"
+msgstr[1] ""
+
+#. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
+#: inc/functions/markup.php:688
+#, php-format
+msgid "%s module"
+msgid_plural "%s modules"
+msgstr[0] "%s मॉड्यूल"
+msgstr[1] ""
+
+#: assets/build/portals-app.js:1
+msgid "Tutorials"
+msgstr "ट्यूटोरियल"
+
+#: assets/build/portals-app.js:1
+msgid "Step-by-step guides that walk users through your product."
+msgstr "चरण-दर-चरण गाइड जो उपयोगकर्ताओं को आपके उत्पाद के माध्यम से मार्गदर्शन करती हैं।"
+
+#: assets/build/portals-app.js:1
+msgid "Members save posts and resources."
+msgstr "सदस्य पोस्ट और संसाधनों को सहेजते हैं।"
+
+#: assets/build/portals-app.js:3
+msgid "SureDash Pro is installed but not active. Activate it to unlock the Pro spaces."
+msgstr "SureDash Pro स्थापित है लेकिन सक्रिय नहीं है। प्रो स्पेस को अनलॉक करने के लिए इसे सक्रिय करें।"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

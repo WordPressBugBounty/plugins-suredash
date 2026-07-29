@@ -194,7 +194,7 @@ msgstr "Dashboard"
 msgid "Version %1$s or higher required!"
 msgstr "Version %1$s oder höher erforderlich!"
 
-#: admin/menu.php:710
+#: admin/menu.php:711
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -1150,12 +1150,12 @@ msgid "content requires membership access"
 msgstr "Inhalt erfordert Mitgliedszugang"
 
 #. translators: 1: Post title, 2: Restriction type
-#: core/integrations/sure-members.php:832
+#: core/integrations/sure-members.php:850
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
 
-#: core/integrations/sure-members.php:513
+#: core/integrations/sure-members.php:525
 msgid "Access Group: "
 msgstr "Zugriffsgruppe:"
 
@@ -1222,7 +1222,7 @@ msgstr "Gehe zur Benachrichtigungsseite"
 msgid "Go to Settings Page"
 msgstr "Gehe zur Einstellungsseite"
 
-#: core/rewrite-rules.php:342
+#: core/rewrite-rules.php:380
 #: assets/build/portals-app.js:21
 msgid "Post Visibility"
 msgstr "Sichtbarkeit des Beitrags"
@@ -1573,8 +1573,8 @@ msgid "User ID is required."
 msgstr "Benutzer-ID ist erforderlich."
 
 #: core/routers/misc.php:763
-#: core/routers/misc.php:1760
-#: core/routers/misc.php:1790
+#: core/routers/misc.php:1775
+#: core/routers/misc.php:1805
 msgid "User not logged in."
 msgstr "Benutzer nicht angemeldet."
 
@@ -1675,39 +1675,39 @@ msgstr "Beitrag konnte nicht gelöscht werden."
 msgid "Post deleted successfully!"
 msgstr "Beitrag erfolgreich gelöscht!"
 
-#: core/routers/misc.php:1794
+#: core/routers/misc.php:1809
 msgid "Space ID is required."
 msgstr "Space-ID ist erforderlich."
 
-#: core/routers/misc.php:1803
+#: core/routers/misc.php:1818
 msgid "Space marked as read."
 msgstr "Bereich als gelesen markiert."
 
-#: core/routers/misc.php:1807
+#: core/routers/misc.php:1822
 msgid "Failed to mark space as read."
 msgstr "Fehler beim Markieren des Bereichs als gelesen."
 
-#: core/routers/misc.php:1827
+#: core/routers/misc.php:1842
 msgid "A valid URL is required."
 msgstr "Eine gültige URL ist erforderlich."
 
-#: core/routers/misc.php:1838
+#: core/routers/misc.php:1853
 msgid "This URL is not from a supported video provider."
 msgstr "Diese URL stammt nicht von einem unterstützten Videoanbieter."
 
-#: core/routers/misc.php:1850
+#: core/routers/misc.php:1865
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Video konnte nicht aufgelöst werden. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
 
-#: core/routers/misc.php:2199
+#: core/routers/misc.php:2217
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ungültiger Dateityp. Nur GIF, PNG, JPEG, JPG und WEBP sind erlaubt."
 
-#: core/routers/misc.php:2204
+#: core/routers/misc.php:2222
 msgid "Uploaded file is not a valid image."
 msgstr "Die hochgeladene Datei ist kein gültiges Bild."
 
-#: core/routers/misc.php:2208
+#: core/routers/misc.php:2226
 msgid "File size larger than permissible."
 msgstr "Dateigröße größer als zulässig."
 
@@ -1979,12 +1979,12 @@ msgid "Events"
 msgstr "Veranstaltungen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Remove bookmark"
 msgstr "Lesezeichen entfernen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Add bookmark"
 msgstr "Lesezeichen hinzufügen"
 
@@ -2411,7 +2411,7 @@ msgid "Allowed file formats:"
 msgstr "Erlaubte Dateiformate:"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1473
+#: inc/functions/markup.php:1480
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -2454,48 +2454,32 @@ msgid "Resource Library"
 msgstr "Ressourcenbibliothek"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:645
+#: inc/functions/markup.php:648
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "Privat"
 
-#: inc/functions/markup.php:587
-#: inc/functions/markup.php:689
-#, fuzzy
-msgid " lesson"
-msgid_plural " lessons"
-msgstr[0] "Lektion"
-msgstr[1] "Lektion"
-
-#: inc/functions/markup.php:597
-#: inc/functions/markup.php:655
-#, fuzzy
-msgid " thread"
-msgid_plural " threads"
-msgstr[0] "Diskussion"
-msgstr[1] "Diskussion"
-
-#: inc/functions/markup.php:782
+#: inc/functions/markup.php:789
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
 msgstr "Gefällt mir"
 
-#: inc/functions/markup.php:800
+#: inc/functions/markup.php:807
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgstr "Kommentar"
 
-#: inc/functions/markup.php:828
+#: inc/functions/markup.php:835
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "Besuchen"
 
-#: inc/functions/markup.php:858
+#: inc/functions/markup.php:865
 msgid "Bookmark"
 msgstr "Lesezeichen"
 
-#: inc/functions/markup.php:902
+#: inc/functions/markup.php:909
 msgid "Options"
 msgstr "Optionen"
 
@@ -3283,7 +3267,6 @@ msgid "Upgrade Now"
 msgstr "Jetzt upgraden"
 
 #: inc/utils/helper.php:2925
-#: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
 msgid "Leaderboard"
 msgstr "Bestenliste"
@@ -4955,6 +4938,7 @@ msgstr "Gestapelt"
 msgid "Grid"
 msgstr "Raster"
 
+#: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -6130,10 +6114,6 @@ msgid "PDFs, worksheets, and supplementary downloads."
 msgstr "PDFs, Arbeitsblätter und ergänzende Downloads."
 
 #: assets/build/portals-app.js:1
-msgid "Top students by points and activity."
-msgstr "Die besten Schüler nach Punkten und Aktivität."
-
-#: assets/build/portals-app.js:1
 msgid "A getting-started guide for new members."
 msgstr "Ein Leitfaden für den Einstieg für neue Mitglieder."
 
@@ -6246,14 +6226,6 @@ msgid "Standups, all-hands, and training sessions."
 msgstr "Standups, All-Hands-Meetings und Schulungssitzungen."
 
 #: assets/build/portals-app.js:1
-msgid "Team Directory"
-msgstr "Teamverzeichnis"
-
-#: assets/build/portals-app.js:1
-msgid "Find and contact teammates."
-msgstr "Finden und kontaktieren Sie Teamkollegen."
-
-#: assets/build/portals-app.js:1
 msgid "Introduce yourself and your community."
 msgstr "Stellen Sie sich und Ihre Community vor."
 
@@ -6328,10 +6300,6 @@ msgstr "Offenes Forum mit thematisierten Gesprächen."
 #: assets/build/portals-app.js:1
 msgid "A static page to introduce your community."
 msgstr "Eine statische Seite zur Vorstellung Ihrer Gemeinschaft."
-
-#: assets/build/portals-app.js:1
-msgid "Post important updates and news."
-msgstr "Wichtige Updates und Nachrichten posten."
 
 #: assets/build/portals-app.js:1
 msgid "Sidebar link to an external website."
@@ -10219,19 +10187,6 @@ msgstr "Wir konnten die Zurücksetzen-E-Mail nicht senden. Bitte versuchen Sie e
 msgid "You can only upload up to %s files."
 msgstr "Sie können nur bis zu %s Dateien hochladen."
 
-#: inc/functions/markup.php:592
-#: inc/functions/markup.php:693
-msgid " quiz"
-msgid_plural " quizzes"
-msgstr[0] "Quiz"
-msgstr[1] ""
-
-#: inc/functions/markup.php:683
-msgid " module"
-msgid_plural " modules"
-msgstr[0] "Modul"
-msgstr[1] ""
-
 #: assets/build/portals-app.js:10
 msgid "Dismiss welcome banner"
 msgstr "Willkommensbanner schließen"
@@ -10698,17 +10653,68 @@ msgid "Unable to load content."
 msgstr "Inhalt kann nicht geladen werden."
 
 #: core/routers/misc.php:1675
-#: core/routers/misc.php:1716
+#: core/routers/misc.php:1731
 msgid "No preview available."
 msgstr "Keine Vorschau verfügbar."
 
-#: core/routers/misc.php:1721
+#: core/routers/misc.php:1736
 msgid "Preview not found."
 msgstr "Vorschau nicht gefunden."
 
 #: inc/functions/functions.php:1727
 msgid "This content is restricted to members. Unlock access to view the full post."
 msgstr "Dieser Inhalt ist nur für Mitglieder zugänglich. Entsperren Sie den Zugriff, um den vollständigen Beitrag zu sehen."
+
+#. translators: %s: number of lessons.
+#: inc/functions/markup.php:588
+#: inc/functions/markup.php:695
+#, php-format
+msgid "%s lesson"
+msgid_plural "%s lessons"
+msgstr[0] "%s Lektion"
+msgstr[1] ""
+
+#. translators: %s: number of quizzes.
+#: inc/functions/markup.php:594
+#: inc/functions/markup.php:700
+#, php-format
+msgid "%s quiz"
+msgid_plural "%s quizzes"
+msgstr[0] "%s Quiz"
+msgstr[1] ""
+
+#. translators: %s: number of threads.
+#: inc/functions/markup.php:600
+#: inc/functions/markup.php:659
+#, php-format
+msgid "%s thread"
+msgid_plural "%s threads"
+msgstr[0] "%s Thread"
+msgstr[1] ""
+
+#. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
+#: inc/functions/markup.php:688
+#, php-format
+msgid "%s module"
+msgid_plural "%s modules"
+msgstr[0] "%s Modul"
+msgstr[1] ""
+
+#: assets/build/portals-app.js:1
+msgid "Tutorials"
+msgstr "Tutorials"
+
+#: assets/build/portals-app.js:1
+msgid "Step-by-step guides that walk users through your product."
+msgstr "Schritt-für-Schritt-Anleitungen, die Benutzer durch Ihr Produkt führen."
+
+#: assets/build/portals-app.js:1
+msgid "Members save posts and resources."
+msgstr "Mitglieder speichern Beiträge und Ressourcen."
+
+#: assets/build/portals-app.js:3
+msgid "SureDash Pro is installed but not active. Activate it to unlock the Pro spaces."
+msgstr "SureDash Pro ist installiert, aber nicht aktiv. Aktivieren Sie es, um die Pro-Bereiche freizuschalten."
 
 #: core/cpt/content.php:39
 msgctxt "content general name"

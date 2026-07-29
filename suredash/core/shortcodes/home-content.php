@@ -299,7 +299,7 @@ class HomeContent {
 				</div>
 				<?php
 				if ( $is_locked && function_exists( 'suredash_locked_overlay' ) ) {
-					echo suredash_locked_overlay(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup
+					echo suredash_locked_overlay( ! empty( $space_lock['drip'] ) ? 'Clock' : 'Lock' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup
 				}
 				?>
 			</a>
