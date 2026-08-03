@@ -262,6 +262,21 @@ class Social_Logins {
 			wp_send_json_error( [ 'message' => esc_html__( 'The username/password field is empty. Please add a valid username/email to reset your password.', 'suredash' ) ] );
 		}
 
+		// Throttle by client IP to mitigate account enumeration and reset-email
+		// flooding on this public, unauthenticated endpoint. REMOTE_ADDR is used
+		// deliberately (X-Forwarded-For is client-controlled and spoofable) and
+		// is read via filter_input() with FILTER_VALIDATE_IP so it is validated
+		// at the point of access.
+		$client_ip = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP );
+		if ( ! empty( $client_ip ) ) {
+			$rate_key   = 'suredash_forgot_pw_' . md5( $client_ip );
+			$rate_count = (int) get_transient( $rate_key );
+			if ( $rate_count >= 5 ) {
+				wp_send_json_error( [ 'message' => esc_html__( 'Too many password reset requests. Please try again in a few minutes.', 'suredash' ) ], 429 );
+			}
+			set_transient( $rate_key, $rate_count + 1, 15 * MINUTE_IN_SECONDS );
+		}
+
 		$user_login = sanitize_text_field( wp_unslash( $_POST['username'] ) );
 
 		$user_data = get_user_by( 'login', $user_login );
@@ -271,59 +286,60 @@ class Social_Logins {
 			$user_data = get_user_by( 'email', $user_login );
 		}
 
-		// We need to check $user_data again since get_user_by() used above might return false value.
-		if ( ! $user_data instanceof \WP_User ) {
-			wp_send_json_error( [ 'message' => esc_html__( 'No user found. Please add a registered username/email to reset your password, else create an account.', 'suredash' ) ] );
+		// Generic, account-existence-agnostic response. To prevent username/email
+		// enumeration, this endpoint MUST return the exact same reply whether or
+		// not a matching account exists (mirrors WordPress core's lost-password
+		// behaviour). Never branch the user-facing message on user existence,
+		// reset-key errors, or mail-send success.
+		$generic_message = esc_html__( 'If an account matching that username or email exists, a password reset link has been sent. Please check your email.', 'suredash' );
+
+		// Only perform the reset work when a real account is found; otherwise fall
+		// through silently to the same generic response.
+		if ( $user_data instanceof \WP_User ) {
+			$user_login = $user_data->user_login;
+			$user_email = $user_data->user_email;
+
+			$key = get_password_reset_key( $user_data );
+
+			if ( ! is_wp_error( $key ) ) {
+				$reset_url = suredash_get_login_page_url();
+				$reset_url = add_query_arg(
+					[
+						'action' => 'resetpassword',
+						'key'    => $key,
+						'login'  => rawurlencode( $user_login ),
+					],
+					$reset_url
+				);
+				$key       = ! is_string( $key ) ? '' : $key;
+				$message   = (string) Helper::get_option( 'forgot_password_mail_body' );
+				$message   = str_replace( '{{user_login}}', esc_html( $user_login ), $message );
+				$message   = str_replace( 'user_login', esc_html( $user_login ), $message );
+
+				$message = str_replace( '{{password_reset_key}}', $key, $message );
+				$message = str_replace( '{{password_reset_url}}', '<a href="' . esc_url( $reset_url ) . '">' . esc_html__( 'Reset your password here', 'suredash' ) . '</a>', $message );
+
+				$message = str_replace( 'password_reset_key', $key, $message );
+				$message = str_replace( 'password_reset_url', '<a href="' . esc_url( $reset_url ) . '">' . esc_html__( 'Reset your password here', 'suredash' ) . '</a>', $message );
+				// Get site name and ensure it's a string.
+				$blog_name = Helper::get_option( 'portal_name' );
+
+				// Send email. The boolean result is intentionally not surfaced to
+				// the caller so a mail-delivery failure cannot become an existence
+				// oracle.
+				suredash_send_email(
+					$user_email,
+					sprintf(
+						// translators: %s: Password reset.
+						__( '[%s] Password Reset', 'suredash' ),
+						wp_specialchars_decode( $blog_name )  // strval() - we use this function as wp_specialchars_decode() expects 'string' type parameter (and not 'mixed').
+					),
+					$message
+				);
+			}
 		}
 
-		$user_login = $user_data->user_login;
-		$user_email = $user_data->user_email;
-
-		$key = get_password_reset_key( $user_data );
-
-		if ( is_wp_error( $key ) ) {
-			wp_send_json_error( [ 'message' => $key->get_error_message() ] );
-		}
-
-		$reset_url = suredash_get_login_page_url();
-		$reset_url = add_query_arg(
-			[
-				'action' => 'resetpassword',
-				'key'    => $key,
-				'login'  => rawurlencode( $user_login ),
-			],
-			$reset_url
-		);
-		$key       = ! is_string( $key ) ? '' : $key;
-		$message   = (string) Helper::get_option( 'forgot_password_mail_body' );
-		$message   = str_replace( '{{user_login}}', esc_html( $user_login ), $message );
-		$message   = str_replace( 'user_login', esc_html( $user_login ), $message );
-
-		$message = str_replace( '{{password_reset_key}}', $key, $message );
-		$message = str_replace( '{{password_reset_url}}', '<a href="' . esc_url( $reset_url ) . '">' . esc_html__( 'Reset your password here', 'suredash' ) . '</a>', $message );
-
-		$message = str_replace( 'password_reset_key', $key, $message );
-		$message = str_replace( 'password_reset_url', '<a href="' . esc_url( $reset_url ) . '">' . esc_html__( 'Reset your password here', 'suredash' ) . '</a>', $message );
-		// Get site name and ensure it's a string.
-		$blog_name = Helper::get_option( 'portal_name' );
-
-		// Send email.
-		$send_wp_mail = suredash_send_email(
-			$user_email,
-			sprintf(
-				// translators: %s: Password reset.
-				__( '[%s] Password Reset', 'suredash' ),
-				wp_specialchars_decode( $blog_name )  // strval() - we use this function as wp_specialchars_decode() expects 'string' type parameter (and not 'mixed').
-			),
-			$message
-		);
-
-		// Check if email is sent and reply accordingly.
-		if ( $send_wp_mail ) {
-			wp_send_json_success( [ 'message' => esc_html__( 'Please check your email for the password reset link.', 'suredash' ) ] );
-		} else {
-			wp_send_json_error( [ 'message' => esc_html__( 'Email failed to send.', 'suredash' ) ] );
-		}
+		wp_send_json_success( [ 'message' => $generic_message ] );
 	}
 
 	/**

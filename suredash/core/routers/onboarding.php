@@ -349,6 +349,15 @@ class Onboarding {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
 		}
 
+		// Activating a plugin is a site-level administrative action. The 'admin'
+		// permission_callback only guarantees the Portal Manager capability
+		// ( manage_portal_dashboard ), which intentionally does NOT include
+		// activate_plugins. Enforce the core capability explicitly so a Portal
+		// Manager cannot activate arbitrary installed plugins.
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			wp_send_json_error( [ 'message' => __( 'You do not have permission to activate plugins.', 'suredash' ) ], 403 );
+		}
+
 		$plugin_path = ! empty( $_POST['plugin_init'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_init'] ) ) : '';
 		$plugin_slug = ! empty( $_POST['plugin_slug'] ) ? sanitize_text_field( wp_unslash( $_POST['plugin_slug'] ) ) : '';
 

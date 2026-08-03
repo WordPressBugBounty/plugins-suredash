@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.10.3
+Stable tag: 1.10.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,9 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-08-03 - version 1.10.4 =
+* Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-07-29 - version 1.10.3 =
 * Improvement: On mobile, the bottom bar notification bell now opens your notifications in a popup right above the bar instead of loading a separate page, matching the in-place Search and Post overlays. The active bottom bar tab is also highlighted.
 * Improvement: Polished the onboarding flow with interface and behavior refinements and updated starter space templates.

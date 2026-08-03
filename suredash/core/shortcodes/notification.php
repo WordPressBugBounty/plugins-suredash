@@ -175,18 +175,22 @@ class Notification {
 		$notification_block_css = '';
 
 		// Check if any unit added to this offset otherwise add 'px' unit by default.
-		$vertical_position_offset   = suredash_get_default_value_with_unit( $atts['drawerverpositionoffset'] );
-		$horizontal_position_offset = suredash_get_default_value_with_unit( $atts['drawerhorpositionoffset'] );
+		$vertical_position_offset   = suredash_get_default_value_with_unit( $atts['drawerverpositionoffset'] ?? '' );
+		$horizontal_position_offset = suredash_get_default_value_with_unit( $atts['drawerhorpositionoffset'] ?? '' );
 
-		if ( isset( $atts['draweropenverposition'] ) ) {
-			$notification_block_css .= $atts['draweropenverposition'] . ':' . $vertical_position_offset . ';';
+		// Positions are CSS property names, so only the supported keywords are allowed.
+		$vertical_position   = in_array( $atts['draweropenverposition'] ?? '', [ 'top', 'bottom' ], true ) ? $atts['draweropenverposition'] : '';
+		$horizontal_position = in_array( $atts['draweropenhorposition'] ?? '', [ 'left', 'right' ], true ) ? $atts['draweropenhorposition'] : '';
+
+		if ( $vertical_position !== '' && $vertical_position_offset !== '' ) {
+			$notification_block_css .= $vertical_position . ':' . $vertical_position_offset . ';';
 		}
-		if ( isset( $atts['draweropenhorposition'] ) ) {
-			$notification_block_css .= $atts['draweropenhorposition'] . ':' . $horizontal_position_offset . ';';
+		if ( $horizontal_position !== '' && $horizontal_position_offset !== '' ) {
+			$notification_block_css .= $horizontal_position . ':' . $horizontal_position_offset . ';';
 		}
 
 		?>
-		<div class="portal-notification-drawer portal-content sd-bg-content sd-absolute sd-flex sd-flex-col sd-bg-content sd-radius-12 sd-shadow-lg sd-border sd-overflow-hidden sd-hidden sd-notification-list" style="<?php echo do_shortcode( $notification_block_css ); ?>">
+		<div class="portal-notification-drawer portal-content sd-bg-content sd-absolute sd-flex sd-flex-col sd-bg-content sd-radius-12 sd-shadow-lg sd-border sd-overflow-hidden sd-hidden sd-notification-list" style="<?php echo esc_attr( $notification_block_css ); ?>">
 			<?php $this->get_user_notification_list(); ?>
 		</div>
 		<?php

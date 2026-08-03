@@ -69,7 +69,7 @@ if ( $resp_aside_menu ) {
 					}
 				</style>',
 				esc_attr( $unique_id ),
-				esc_attr( $attributes['width'] ?? '120px' ),
+				esc_attr( suredash_sanitize_css_value( $attributes['width'] ?? '120px' ) ),
 				esc_attr( $unique_id ),
 				esc_attr( $unique_id )
 			);

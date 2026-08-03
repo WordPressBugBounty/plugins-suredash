@@ -2781,15 +2781,44 @@ function suredash_get_relative_time( $post_id, $echo = true, $show_discussion_sp
  *
  * Case: Block editor block setting values.
  *
+ * Only a plain number with an optional CSS unit is accepted. Block attributes
+ * are attacker controlled (they live in the post content), so anything else is
+ * rejected instead of being passed through to inline CSS.
+ *
  * @param string $value The value to check.
  *
- * @return string
+ * @return string A safe CSS length, or an empty string.
  * @since 1.4.0
  */
 function suredash_get_default_value_with_unit( $value ) {
-	if ( ! preg_match( '/[a-zA-Z]+$/', strval( $value ) ) ) {
-		$value .= 'px';
+	$value = trim( strval( $value ) );
+
+	if ( ! preg_match( '/^-?(?:\d+(?:\.\d+)?|\.\d+)(px|em|rem|%|vh|vw|vmin|vmax|pt|pc|ch|ex|in|cm|mm)?$/i', $value, $unit ) ) {
+		return '';
 	}
+
+	return empty( $unit[1] ) ? $value . 'px' : $value;
+}
+
+/**
+ * Sanitize a value that gets interpolated into inline CSS.
+ *
+ * Used for free-form values (colors, radii, font sizes) coming from block
+ * attributes. Rejects anything that could end the current declaration, start a
+ * new rule, break out of the surrounding markup or make an outbound request.
+ *
+ * @param string $value The raw value.
+ *
+ * @return string A safe CSS value, or an empty string.
+ * @since 1.10.4
+ */
+function suredash_sanitize_css_value( $value ) {
+	$value = trim( strval( $value ) );
+
+	if ( $value === '' || preg_match( '#[<>{};@\\\\]|/\*|\burl\s*\(|\bexpression\s*\(#i', $value ) ) {
+		return '';
+	}
+
 	return $value;
 }
 

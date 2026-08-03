@@ -38,7 +38,7 @@ if ( ! suredash_content_post() ) {
 							border-radius:%1$s !important;
 						}
 					</style>',
-					esc_attr( ! empty( $attributes['inputborderradius'] ) ? $attributes['inputborderradius'] : '' )
+					esc_attr( suredash_sanitize_css_value( $attributes['inputborderradius'] ?? '' ) )
 				);
 				echo do_shortcode( $placeholder );
 			if ( $responsive_only_icon ) {

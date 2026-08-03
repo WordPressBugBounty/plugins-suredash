@@ -18,14 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $elements = ! empty( $attributes['style']['elements'] ) ? $attributes['style']['elements'] : []; // Extended color options support.
 
-/**
- * Helper function to convert typography object to CSS string
- *
- * @param array $typography Typography attributes array.
- * @return string CSS string with typography properties.
- */
 if ( ! function_exists( 'suredash_get_typography_css' ) ) {
-	function suredash_get_typography_css( $typography ) {
+	/**
+	 * Helper function to convert typography object to CSS string
+	 *
+	 * @param array<string, string> $typography Typography attributes array.
+	 * @return string CSS string with typography properties.
+	 */
+	function suredash_get_typography_css( $typography ): string {
 		if ( empty( $typography ) || ! is_array( $typography ) ) {
 			return '';
 		}
@@ -33,15 +33,15 @@ if ( ! function_exists( 'suredash_get_typography_css' ) ) {
 		$css = '';
 
 		if ( ! empty( $typography['fontSize'] ) ) {
-			$css .= 'font-size: ' . esc_attr( $typography['fontSize'] ) . ';';
+			$css .= 'font-size: ' . esc_attr( suredash_sanitize_css_value( $typography['fontSize'] ) ) . ';';
 		}
 
 		if ( ! empty( $typography['fontWeight'] ) ) {
-			$css .= 'font-weight: ' . esc_attr( $typography['fontWeight'] ) . ';';
+			$css .= 'font-weight: ' . esc_attr( suredash_sanitize_css_value( $typography['fontWeight'] ) ) . ';';
 		}
 
 		if ( ! empty( $typography['lineHeight'] ) ) {
-			$css .= 'line-height: ' . esc_attr( $typography['lineHeight'] ) . ';';
+			$css .= 'line-height: ' . esc_attr( suredash_sanitize_css_value( $typography['lineHeight'] ) ) . ';';
 		}
 
 		return $css;
@@ -91,12 +91,12 @@ $space_typo_css       = suredash_get_typography_css( $space_typography );
 			esc_attr( ! empty( $attributes['spacegroupsgap'] ) ? suredash_get_default_value_with_unit( $attributes['spacegroupsgap'] ) : '' ),
 			esc_attr( ! empty( $attributes['spacesgap'] ) ? suredash_get_default_value_with_unit( $attributes['spacesgap'] ) : '' ),
 			esc_attr( ! empty( $attributes['spacegrouptitlefirstspacegap'] ) ? suredash_get_default_value_with_unit( $attributes['spacegrouptitlefirstspacegap'] ) : '' ),
-			esc_attr( ! empty( $elements['spaceactivetext']['color']['color'] ) ? $elements['spaceactivetext']['color']['color'] : '' ),
-			esc_attr( ! empty( $elements['spaceactivebackground']['color']['background'] ) ? $elements['spaceactivebackground']['color']['background'] : '' ),
-			esc_attr( ! empty( $elements['spacegrouptext']['color']['color'] ) ? $elements['spacegrouptext']['color']['color'] : '' ),
-			esc_attr( ! empty( $elements['spacegroupbackground']['color']['background'] ) ? $elements['spacegroupbackground']['color']['background'] : '' ),
-			wp_strip_all_tags( $space_typo_css ),
-			wp_strip_all_tags( $space_group_typo_css ),
+			esc_attr( suredash_sanitize_css_value( $elements['spaceactivetext']['color']['color'] ?? '' ) ),
+			esc_attr( suredash_sanitize_css_value( $elements['spaceactivebackground']['color']['background'] ?? '' ) ),
+			esc_attr( suredash_sanitize_css_value( $elements['spacegrouptext']['color']['color'] ?? '' ) ),
+			esc_attr( suredash_sanitize_css_value( $elements['spacegroupbackground']['color']['background'] ?? '' ) ),
+			esc_attr( $space_typo_css ),
+			esc_attr( $space_group_typo_css ),
 		);
 
 		$content  = '';

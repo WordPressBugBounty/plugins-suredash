@@ -18,7 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $content    = $content ?? '';
 $attributes = $attributes ?? [];
-$top_offset = ( $attributes['sidebartopoffset'] ?? '0px' );
+$top_offset = suredash_sanitize_css_value( $attributes['sidebartopoffset'] ?? '0px' );
+$top_offset = $top_offset === '' ? '0px' : $top_offset;
 
 ?>
 <div <?php echo do_shortcode( get_block_wrapper_attributes( [ 'class' => 'portal-body-container' ] ) ); ?>>
