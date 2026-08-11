@@ -45,8 +45,8 @@ msgstr "קבוצות תוכן"
 msgid "Topic Forums"
 msgstr "פורומים בנושא"
 
-#: admin/menu.php:190
-#: admin/menu.php:191
+#: admin/menu.php:193
+#: admin/menu.php:194
 #: admin/setup.php:65
 #: core/renderer.php:301
 #: assets/build/portals-app.js:13
@@ -74,7 +74,7 @@ msgstr "קישור"
 msgid "Video"
 msgstr "וידאו"
 
-#: admin/menu.php:711
+#: admin/menu.php:715
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -465,8 +465,8 @@ msgstr "ההגדרות נשמרו בהצלחה."
 
 #: core/routers/social-logins.php:76
 #: core/routers/social-logins.php:89
-#: core/routers/social-logins.php:394
-#: core/routers/social-logins.php:407
+#: core/routers/social-logins.php:410
+#: core/routers/social-logins.php:423
 msgid "Captcha is not matching, please try again."
 msgstr "הקפצ'ה לא תואם, אנא נסה שוב."
 
@@ -478,80 +478,71 @@ msgstr "התחברת בהצלחה. מפנה מחדש..."
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
 msgstr "שדה שם המשתמש/סיסמה ריק. אנא הוסף שם משתמש/דוא\"ל תקף כדי לאפס את הסיסמה שלך."
 
-#: core/routers/social-logins.php:276
-msgid "No user found. Please add a registered username/email to reset your password, else create an account."
-msgstr "לא נמצא משתמש. אנא הוסף שם משתמש/אימייל רשום כדי לאפס את הסיסמה שלך, אחרת צור חשבון."
-
 #. translators: %s: Password reset.
-#: core/routers/social-logins.php:315
+#: core/routers/social-logins.php:334
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] איפוס סיסמה"
 
-#: core/routers/social-logins.php:323
 #: assets/js/unminified/login.js:719
 msgid "Please check your email for the password reset link."
 msgstr "אנא בדוק את הדוא\"ל שלך עבור הקישור לאיפוס הסיסמה."
 
-#: core/routers/social-logins.php:325
-msgid "Email failed to send."
-msgstr "שליחת האימייל נכשלה."
-
-#: core/routers/social-logins.php:346
+#: core/routers/social-logins.php:362
 msgid "Sorry, the site admin has disabled new user registration"
 msgstr "מצטערים, מנהל האתר השבית את רישום המשתמשים החדשים"
 
-#: core/routers/social-logins.php:360
+#: core/routers/social-logins.php:376
 msgid "Not a valid post."
 msgstr "לא פוסט תקף."
 
-#: core/routers/social-logins.php:417
+#: core/routers/social-logins.php:433
 msgid "Password may not contain the character \"\\\""
 msgstr "הסיסמה לא יכולה להכיל את התו \"\\\""
 
-#: core/routers/social-logins.php:422
-#: core/routers/social-logins.php:425
+#: core/routers/social-logins.php:438
+#: core/routers/social-logins.php:441
 #: inc/functions/markup.php:41
 #: inc/functions/markup.php:80
 msgid "This field is required."
 msgstr "שדה זה הוא חובה."
 
-#: core/routers/social-logins.php:510
+#: core/routers/social-logins.php:526
 msgid "Error in creating user."
 msgstr "שגיאה ביצירת משתמש."
 
-#: core/routers/social-logins.php:663
+#: core/routers/social-logins.php:679
 msgid "You are not registered. Please register first then try to login."
 msgstr "אינך רשום. אנא הירשם תחילה ואז נסה להתחבר."
 
-#: core/routers/social-logins.php:683
-#: core/routers/social-logins.php:720
-#: core/routers/social-logins.php:725
-#: core/routers/social-logins.php:831
-#: core/routers/social-logins.php:861
-#: core/routers/social-logins.php:866
+#: core/routers/social-logins.php:699
+#: core/routers/social-logins.php:736
+#: core/routers/social-logins.php:741
+#: core/routers/social-logins.php:847
+#: core/routers/social-logins.php:877
+#: core/routers/social-logins.php:882
 msgid "Invalid credentials."
 msgstr "אישורים לא חוקיים."
 
-#: core/routers/social-logins.php:700
-#: core/routers/social-logins.php:706
-#: core/routers/social-logins.php:839
-#: core/routers/social-logins.php:846
+#: core/routers/social-logins.php:716
+#: core/routers/social-logins.php:722
+#: core/routers/social-logins.php:855
+#: core/routers/social-logins.php:862
 msgid "Token verification failed."
 msgstr "אימות האסימון נכשל."
 
-#: core/routers/social-logins.php:741
-#: core/routers/social-logins.php:883
+#: core/routers/social-logins.php:757
+#: core/routers/social-logins.php:899
 msgid "Login Successful"
 msgstr "התחברות הצליחה"
 
-#: core/routers/social-logins.php:747
-#: core/routers/social-logins.php:888
-#: core/routers/social-logins.php:921
+#: core/routers/social-logins.php:763
+#: core/routers/social-logins.php:904
+#: core/routers/social-logins.php:937
 msgid "Registered & Login Successful"
 msgstr "הרשמה והתחברות הצליחו"
 
-#: core/routers/social-logins.php:750
+#: core/routers/social-logins.php:766
 msgid "Google API Error."
 msgstr "שגיאת API של Google."
 
@@ -596,7 +587,7 @@ msgid "Search"
 msgstr "חיפוש"
 
 #: core/shortcodes/user-profile.php:169
-#: inc/functions/functions.php:3083
+#: inc/functions/functions.php:3112
 msgid "Guest User"
 msgstr "משתמש אורח"
 
@@ -773,8 +764,8 @@ msgstr "פריטי פורטל"
 msgid "User Profile"
 msgstr "פרופיל משתמש"
 
-#: admin/menu.php:166
-#: admin/menu.php:167
+#: admin/menu.php:169
+#: admin/menu.php:170
 #: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:10
@@ -871,7 +862,7 @@ msgstr "תיאור"
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Save"
 msgstr "שמור"
 
@@ -973,6 +964,7 @@ msgstr "ראה עוד"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:31
@@ -1010,8 +1002,8 @@ msgstr "תכונה זו דורשת את PrestoPlayer Pro. אנא שדרג ל-Pre
 msgid "The content will be available in"
 msgstr "התוכן יהיה זמין ב"
 
-#: admin/menu.php:182
-#: admin/menu.php:183
+#: admin/menu.php:185
+#: admin/menu.php:186
 #: core/renderer.php:289
 #: core/shortcodes/home-content.php:906
 #: core/shortcodes/home-content.php:1112
@@ -1137,8 +1129,8 @@ msgstr "פתח בעמוד מלא"
 msgid "Bookmark Post"
 msgstr "סמן פוסט"
 
-#: core/routers/onboarding.php:556
-#: core/routers/onboarding.php:559
+#: core/routers/onboarding.php:565
+#: core/routers/onboarding.php:568
 #: assets/build/editor-app.js:1
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
@@ -1186,7 +1178,7 @@ msgstr "פייסבוק"
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "איפוס"
 
@@ -1201,6 +1193,7 @@ msgstr "ספריית אייקונים"
 #: templates/quick-view/post.php:141
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:55
 msgid "Close"
 msgstr "סגור"
 
@@ -1544,6 +1537,7 @@ msgid "Confirm"
 msgstr "אשר"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:13
 msgid "Processing…"
 msgstr "מעבד…"
 
@@ -2100,7 +2094,7 @@ msgstr "אנא הגדר את הגדרות האפליקציה של פייסבוק
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "here"
 msgstr "כאן"
 
@@ -2317,7 +2311,7 @@ msgstr "נתמך HTML"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note:"
 msgstr "הערה:"
 
@@ -2442,7 +2436,7 @@ msgstr "כבר יש לך חשבון?"
 msgid "What's New?"
 msgstr "מה חדש?"
 
-#: admin/menu.php:214
+#: admin/menu.php:217
 #: core/renderer.php:241
 #: assets/build/portals-app.js:52
 msgid "Dashboard"
@@ -2536,11 +2530,11 @@ msgid "Excerpt"
 msgstr "קטע"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Full Width"
 msgstr "רוחב מלא"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Width"
 msgstr "רוחב צר"
 
@@ -2550,13 +2544,13 @@ msgstr "שם קבוצת החלל"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saving…"
 msgstr "שומר…"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saved"
 msgstr "נשמר"
 
@@ -2567,13 +2561,13 @@ msgstr "ההגדרות נשמרו בהצלחה!"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Failed to Save."
 msgstr "שמירה נכשלה."
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Error updating settings: "
 msgstr "שגיאה בעדכון ההגדרות:"
 
@@ -2581,6 +2575,7 @@ msgstr "שגיאה בעדכון ההגדרות:"
 #: inc/functions/functions.php:959
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:31
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
@@ -2599,6 +2594,7 @@ msgstr "קבוצת חלל חדשה"
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:57
 msgid "Back"
 msgstr "חזור"
 
@@ -2706,31 +2702,31 @@ msgstr "לא נמצאו גופנים!"
 msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
 msgstr "הזן לפחות 3 תווים כדי לחפש משפחת גופנים (ברירת מחדל: Figtree). יצירת הגופן עשויה לקחת כמה רגעים עבור אירוח עצמי."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Type"
 msgstr "סוג מכולה גלובלי"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Container Width"
 msgstr "רוחב מיכל צר"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Course Container Width"
 msgstr "רוחב מיכל הקורס"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Container Spacing"
 msgstr "ריווח מיכלים"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global"
 msgstr "גלובלי"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary color is used as secondary purposes under the portal."
 msgstr "צבע משני משמש למטרות משניות תחת הפורטל."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content background color is for mainly content background color of the portal."
 msgstr "צבע הרקע של התוכן מיועד בעיקר לצבע הרקע של התוכן בפורטל."
 
@@ -2850,11 +2846,11 @@ msgstr "מופעל"
 msgid "Text Labels"
 msgstr "תוויות טקסט"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Layout"
 msgstr "פריסה"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Colors"
 msgstr "צבעים"
 
@@ -2879,8 +2875,8 @@ msgstr "אישור לא חוקי"
 msgid "Invalid post type."
 msgstr "סוג פוסט לא חוקי."
 
-#: admin/menu.php:199
-#: admin/menu.php:200
+#: admin/menu.php:202
+#: admin/menu.php:203
 #: inc/modules/learn/chapters.php:127
 #: assets/build/portals-app.js:35
 msgid "Customize Portal"
@@ -3026,8 +3022,8 @@ msgstr "עיצוב מודרני"
 msgid "Thumbnail Image"
 msgstr "תמונת ממוזערת"
 
-#: admin/menu.php:158
-#: admin/menu.php:159
+#: admin/menu.php:161
+#: admin/menu.php:162
 #: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3036,8 +3032,8 @@ msgid "Spaces"
 msgstr "מרווחים"
 
 #. translators: %s: version number
-#: admin/menu.php:330
-#: admin/menu.php:335
+#: admin/menu.php:333
+#: admin/menu.php:338
 #, php-format
 msgid "Version %1$s or higher required!"
 msgstr "דרושה גרסה %1$s או גבוהה יותר!"
@@ -3244,11 +3240,11 @@ msgstr "ההדרכה הושלמה בהצלחה."
 msgid "Onboarding data updated successfully."
 msgstr "נתוני ההדרכה עודכנו בהצלחה."
 
-#: core/routers/onboarding.php:356
+#: core/routers/onboarding.php:365
 msgid "Invalid plugin."
 msgstr "תוסף לא חוקי."
 
-#: core/routers/onboarding.php:376
+#: core/routers/onboarding.php:385
 msgid "Plugin activated successfully."
 msgstr "התוסף הופעל בהצלחה."
 
@@ -3327,6 +3323,7 @@ msgstr "אפשרות זו תוסיף דף \"פידים\" שבו הקהילה ש�
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:6
+#: assets/build/portals-app.js:57
 msgid "Next"
 msgstr "הבא"
 
@@ -3997,34 +3994,34 @@ msgstr "גרסה ליבה לא תואמת"
 msgid "Core"
 msgstr "ליבה"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Width"
 msgstr "רוחב רגיל"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Style"
 msgstr "סגנון מיכל גלובלי"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Boxed"
 msgstr "ממוסגר"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Unboxed"
 msgstr "לא ממוסגר"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Container Width"
 msgstr "רוחב מיכל רגיל"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Design Settings"
 msgstr "הגדרות עיצוב"
 
-#: admin/menu.php:174
-#: admin/menu.php:175
+#: admin/menu.php:177
+#: admin/menu.php:178
 #: core/renderer.php:277
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
@@ -4463,13 +4460,13 @@ msgstr "מראה"
 
 #: core/blocks/interactivity/build/Switcher/view.php:33
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark"
 msgstr "כהה"
 
 #: core/blocks/interactivity/build/Switcher/view.php:32
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light"
 msgstr "בהיר"
 
@@ -4677,8 +4674,8 @@ msgstr "התגובה נמחקה בהצלחה!"
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "סוג קובץ לא חוקי. רק GIF, PNG, JPEG, JPG ו- WEBP מותרים."
 
-#: core/routers/social-logins.php:303
-#: core/routers/social-logins.php:306
+#: core/routers/social-logins.php:320
+#: core/routers/social-logins.php:323
 msgid "Reset your password here"
 msgstr "אפס את הסיסמה שלך כאן"
 
@@ -5007,6 +5004,7 @@ msgstr "מעבר ל %s"
 #: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Resources"
 msgstr "משאבים"
 
@@ -5029,7 +5027,7 @@ msgid "To reset your password, visit the following URL:"
 msgstr "כדי לאפס את הסיסמה שלך, בקר ב-URL הבא:"
 
 #: inc/functions/functions.php:2494
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Links"
 msgstr "קישורים"
 
@@ -5038,12 +5036,12 @@ msgid "Headings"
 msgstr "כותרות"
 
 #: inc/functions/functions.php:2497
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content Background"
 msgstr "רקע תוכן"
 
 #: inc/functions/functions.php:2498
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Portal Background"
 msgstr "רקע פורטל"
 
@@ -5535,75 +5533,75 @@ msgstr "תאריך אינו זמין"
 msgid "No resources accessed yet."
 msgstr "עדיין לא גישה למשאבים."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dismiss"
 msgstr "מחק"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Accent"
 msgstr "הדגשה"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Link Hover/Active"
 msgstr "קישור ריחף/פעיל"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Headings (H1-H6)"
 msgstr "כותרות (H1-H6)"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Body Text"
 msgstr "טקסט גוף"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Borders"
 msgstr "גבולות"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button"
 msgstr "כפתור ראשי"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button BG"
 msgstr "רקע כפתור ראשי"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button"
 msgstr "כפתור משני"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button BG"
 msgstr "רקע כפתור משני"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Legacy Colors Detected"
 msgstr "צבעים ישנים זוהו"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Using old colors? Sync Global Palette to the Light for improved experience and Dark Mode support."
 msgstr "משתמש בצבעים ישנים? סנכרן את הפלטה הגלובלית לאור לשיפור החוויה ותמיכה במצב כהה."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Please review your portal frontend and adjust template colors accordingly if needed."
 msgstr "הערה: אנא בדוק את ממשק הפורטל שלך והתאם את צבעי התבנית בהתאם אם יש צורך."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Migrate"
 msgstr "מיגרציה"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Select Default Palette"
 msgstr "בחר פלטת ברירת מחדל"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light Colors"
 msgstr "צבעים בהירים"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark Colors"
 msgstr "צבעים כהים"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "לא בטוח איך להגדיר צבעים? עיין בהגדרת 9 הצבעים"
 
@@ -5696,23 +5694,8 @@ msgid "Enter reset password button label"
 msgstr "הזן תווית כפתור איפוס סיסמה"
 
 #: assets/build/portals-app.js:13
-msgid "Uploading…"
-msgstr "מעלה…"
-
-#: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:16
 msgid "Upload failed: "
 msgstr "העלאה נכשלה:"
-
-#. translators: %1$d is the current file number, %2$d is the total number of files
-#: assets/build/portals-app.js:16
-#, js-format
-msgid "Uploaded %1$d/%2$d files"
-msgstr "הועלו %1$d/%2$d קבצים"
-
-#: assets/build/portals-app.js:16
-msgid "Upload Files"
-msgstr "העלאת קבצים"
 
 #: assets/build/portals-app.js:16
 msgid "or drag and drop files to upload"
@@ -5745,7 +5728,6 @@ msgid "Select a file to view details"
 msgstr "בחר קובץ כדי לראות פרטים"
 
 #: assets/build/portals-app.js:16
-#: assets/build/portals-app.js:19
 #: assets/js/unminified/post-actions.js:190
 msgid "Unknown file"
 msgstr "קובץ לא ידוע"
@@ -7028,7 +7010,7 @@ msgstr "הסיסמה שהזנת עבור שם המשתמש %1$s שגויה. %2$s
 msgid "Receive admin notifications"
 msgstr "קבל התראות מנהל"
 
-#: inc/functions/functions.php:3086
+#: inc/functions/functions.php:3115
 msgid "Anonymous"
 msgstr "אנונימי"
 
@@ -7100,7 +7082,7 @@ msgstr "טוען…"
 msgid "No badges assigned."
 msgstr "לא הוקצו תגי זיהוי."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Preview is disabled in the editor to prevent conflicts with color settings."
 msgstr "התצוגה המקדימה מושבתת בעורך כדי למנוע קונפליקטים עם הגדרות הצבע."
 
@@ -7749,6 +7731,7 @@ msgstr "רוחב המיכל אינו חל כאשר משתמשים בפריסת �
 
 #: core/assets.php:293
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:35
 msgid "Select"
 msgstr "בחר"
@@ -7857,15 +7840,15 @@ msgstr "בחר תפקידי משתמשים או חברויות ספציפיים 
 msgid "Select specific user roles to target. Leave empty to send to all users."
 msgstr "בחר תפקידי משתמשים ספציפיים למיקוד. השאר ריק כדי לשלוח לכל המשתמשים."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr "הערה: חל רק על סוג מרחב פוסט/דף יחיד ותבנית פריסת פורטל."
 
-#: core/routers/onboarding.php:361
+#: core/routers/onboarding.php:370
 msgid "Invalid plugin path."
 msgstr "נתיב תוסף לא חוקי."
 
-#: admin/menu.php:207
+#: admin/menu.php:210
 msgid "SureDash Onboarding"
 msgstr "הדרכה של SureDash"
 
@@ -9273,93 +9256,93 @@ msgstr "דף היסטוריית משאבים שניגש אליהם על ידי �
 msgid "URL Endpoints"
 msgstr "נקודות קצה של URL"
 
-#: core/routers/onboarding.php:403
+#: core/routers/onboarding.php:412
 msgid "No spaces selected."
 msgstr "לא נבחרו מרחבים."
 
-#: core/routers/onboarding.php:523
+#: core/routers/onboarding.php:532
 msgid "Could not create any spaces."
 msgstr "לא ניתן היה ליצור מרחבים."
 
 #. translators: %d: number of spaces created
-#: core/routers/onboarding.php:533
+#: core/routers/onboarding.php:542
 #, php-format
 msgid "%d spaces created successfully."
 msgstr "%d מרחבים נוצרו בהצלחה."
 
-#: core/routers/onboarding.php:550
+#: core/routers/onboarding.php:559
 msgid "Academy"
 msgstr "אקדמיה"
 
-#: core/routers/onboarding.php:551
-#: core/routers/onboarding.php:554
+#: core/routers/onboarding.php:560
+#: core/routers/onboarding.php:563
 #: assets/build/portals-app.js:1
 msgid "Community"
 msgstr "קהילה"
 
-#: core/routers/onboarding.php:552
+#: core/routers/onboarding.php:561
 msgid "Support"
 msgstr "תמיכה"
 
-#: core/routers/onboarding.php:553
+#: core/routers/onboarding.php:562
 msgid "Team"
 msgstr "צוות"
 
-#: core/routers/onboarding.php:555
+#: core/routers/onboarding.php:564
 msgid "Organization"
 msgstr "ארגון"
 
-#: core/routers/onboarding.php:602
+#: core/routers/onboarding.php:611
 msgid "Welcome 👋"
 msgstr "ברוך הבא 👋"
 
-#: core/routers/onboarding.php:603
+#: core/routers/onboarding.php:612
 msgid "Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members to the most useful spaces."
 msgstr "שמחים שיש לך כאן. זו עמוד ההתחלה של הקהילה שלך - שתף מה אתה עושה, קבע ציפיות, והפנה חברים חדשים למרחבים הכי שימושיים."
 
-#: core/routers/onboarding.php:606
+#: core/routers/onboarding.php:615
 msgid "Find answers fast"
 msgstr "מצא תשובות במהירות"
 
-#: core/routers/onboarding.php:607
+#: core/routers/onboarding.php:616
 msgid "Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support Forum and our team will help."
 msgstr "עיין בשאלות הנפוצות ובמדריכי כיצד למטה. אם אינך יכול למצוא מה שאתה צריך, פנה לפורום התמיכה וצוותנו יעזור."
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:621
+#: core/routers/onboarding.php:630
 #, php-format
 msgid "About %s"
 msgstr "על %s"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:622
+#: core/routers/onboarding.php:631
 msgid "Use this space to introduce members to what you do and how this section works. Replace this text with anything you like — it lives inside the regular block editor."
 msgstr "השתמש במרחב הזה כדי להציג לחברים מה אתה עושה ואיך החלק הזה עובד. החלף את הטקסט הזה בכל דבר שתרצה - הוא נמצא בתוך עורך הבלוקים הרגיל."
 
-#: core/routers/onboarding.php:648
+#: core/routers/onboarding.php:657
 msgid "👋 First announcement"
 msgstr "👋 הודעה ראשונה"
 
-#: core/routers/onboarding.php:649
+#: core/routers/onboarding.php:658
 msgid "Use this space to share product updates, events, and important notices with your community. Edit or delete this post to start fresh."
 msgstr "השתמש במרחב הזה כדי לשתף עדכוני מוצר, אירועים והודעות חשובות עם הקהילה שלך. ערוך או מחק את הפוסט הזה כדי להתחיל מחדש."
 
-#: core/routers/onboarding.php:652
+#: core/routers/onboarding.php:661
 msgid "Say hello 👋"
 msgstr "אמר שלום 👋"
 
-#: core/routers/onboarding.php:653
+#: core/routers/onboarding.php:662
 msgid "Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation any time."
 msgstr "ברוך הבא לדיון! הצג את עצמך, שתף מה הביא אותך לכאן, ואל תהסס להתחיל שיחה חדשה בכל עת."
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:658
+#: core/routers/onboarding.php:667
 #, php-format
 msgid "Welcome to %s"
 msgstr "ברוך הבא ל-%s"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:659
+#: core/routers/onboarding.php:668
 msgid "This is the first post in this space. Edit or delete it, then invite members to start chatting."
 msgstr "זהו הפוסט הראשון במרחב הזה. ערוך או מחק אותו, ואז הזמן חברים להתחיל לשוחח."
 
@@ -9824,6 +9807,7 @@ msgid "← Use a connected provider instead"
 msgstr "← השתמש בספק מחובר במקום"
 
 #: assets/build/portals-app.js:3
+#: assets/build/portals-app.js:38
 msgid "API key"
 msgstr "מפתח API"
 
@@ -10718,6 +10702,495 @@ msgstr "חברים שומרים פוסטים ומשאבים."
 #: assets/build/portals-app.js:3
 msgid "SureDash Pro is installed but not active. Activate it to unlock the Pro spaces."
 msgstr "SureDash Pro מותקן אך לא פעיל. הפעל אותו כדי לפתוח את המרחבים המקצועיים."
+
+#: core/routers/onboarding.php:358
+msgid "You do not have permission to activate plugins."
+msgstr "אין לך הרשאה להפעיל תוספים."
+
+#: core/routers/social-logins.php:275
+msgid "Too many password reset requests. Please try again in a few minutes."
+msgstr "יותר מדי בקשות לאיפוס סיסמה. אנא נסה שוב בעוד כמה דקות."
+
+#: core/routers/social-logins.php:294
+msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
+msgstr "אם קיים חשבון התואם לשם המשתמש או לדוא\"ל הזה, נשלח קישור לאיפוס סיסמה. אנא בדוק את הדוא\"ל שלך."
+
+#: assets/build/portals-app.js:13
+msgid "Invalid server response"
+msgstr "תגובה לא חוקית מהשרת"
+
+#: assets/build/portals-app.js:13
+msgid "Network error"
+msgstr "שגיאת רשת"
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Cloud"
+msgstr "ענן"
+
+#: assets/build/portals-app.js:13
+msgid "Server"
+msgstr "שרת"
+
+#: assets/build/portals-app.js:13
+msgid "Upload canceled."
+msgstr "העלאה בוטלה."
+
+#: assets/build/portals-app.js:13
+msgid "Saved to this server instead of Bunny.net."
+msgstr "נשמר לשרת הזה במקום Bunny.net."
+
+#: assets/build/portals-app.js:13
+msgid "Check your Bunny Storage settings."
+msgstr "בדוק את הגדרות האחסון של Bunny."
+
+#: assets/build/portals-app.js:13
+msgid "Uploading %1$d of %2$d to %3$s…"
+msgstr "מעלה %1$d מתוך %2$d ל-%3$s…"
+
+#: assets/build/portals-app.js:13
+msgid "Uploading to %s…"
+msgstr "מעלה ל-%s…"
+
+#: assets/build/portals-app.js:13
+msgid "Sending %1$d of %2$d to Bunny.net…"
+msgstr "שולח %1$d מתוך %2$d ל-Bunny.net…"
+
+#: assets/build/portals-app.js:13
+msgid "Sending to Bunny.net…"
+msgstr "שולח ל-Bunny.net…"
+
+#: assets/build/portals-app.js:13
+msgid "Processing %1$d of %2$d…"
+msgstr "מעבד %1$d מתוך %2$d…"
+
+#: assets/build/portals-app.js:13
+msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
+msgstr "הועלה %1$d מתוך %2$d, %3$d נכשל: %4$s"
+
+#. translators: %d is the number of selected files.
+#: assets/build/portals-app.js:16
+msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
+msgstr "למחוק %d קובץ(ים) שנבחרו? זה לא ניתן לביטול. חלק מהקבצים עשויים להיות בשימוש על ידי פריטי משאבים, ומחיקתם תשבור את הפריטים הללו."
+
+#: assets/build/portals-app.js:16
+msgid "Not available: this file's Bunny zone is not connected."
+msgstr "לא זמין: אזור ה-Bunny של קובץ זה אינו מחובר."
+
+#: assets/build/portals-app.js:16
+msgid "Deleting"
+msgstr "מוחק"
+
+#: assets/build/portals-app.js:16
+msgid "Deleting…"
+msgstr "מוחק…"
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net (a local copy is also kept)."
+msgstr "העלאות ענן חדשות נשמרות על Bunny.net (עותק מקומי נשמר גם כן)."
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net."
+msgstr "העלאות ענן חדשות נשמרות על Bunny.net."
+
+#: assets/build/portals-app.js:16
+msgid "Cloud uploads are paused, new uploads are stored on this server."
+msgstr "העלאות ענן מושהות, העלאות חדשות נשמרות על השרת הזה."
+
+#: assets/build/portals-app.js:16
+msgid "New uploads are stored on this server (local)."
+msgstr "העלאות חדשות נשמרות על השרת הזה (מקומי)."
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Cloud"
+msgstr "העלה לענן"
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Server"
+msgstr "העלה לשרת"
+
+#: assets/build/portals-app.js:16
+msgid "Processing upload"
+msgstr "מעבד העלאה"
+
+#: assets/build/portals-app.js:19
+msgid "Cloud · Bunny.net"
+msgstr "ענן · Bunny.net"
+
+#: assets/build/portals-app.js:19
+msgid "On this server · Local"
+msgstr "על השרת הזה · מקומי"
+
+#: assets/build/portals-app.js:19
+msgid "Storage"
+msgstr "אחסון"
+
+#: assets/build/portals-app.js:19
+msgid "Cloud (Bunny.net)"
+msgstr "ענן (Bunny.net)"
+
+#: assets/build/portals-app.js:19
+msgid "Local"
+msgstr "מקומי"
+
+#: assets/build/portals-app.js:35
+msgid "Manage Resources"
+msgstr "נהל משאבים"
+
+#: assets/build/portals-app.js:38
+msgid "Create new storage (recommended)"
+msgstr "צור אחסון חדש (מומלץ)"
+
+#: assets/build/portals-app.js:38
+msgid "Use an existing zone"
+msgstr "השתמש באזור קיים"
+
+#: assets/build/portals-app.js:38
+msgid "Created by SureDash"
+msgstr "נוצר על ידי SureDash"
+
+#: assets/build/portals-app.js:38
+msgid "Existing zone"
+msgstr "אזור קיים"
+
+#: assets/build/portals-app.js:38
+msgid "Request failed."
+msgstr "הבקשה נכשלה."
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone connected."
+msgstr "אזור האחסון מחובר."
+
+#: assets/build/portals-app.js:38
+msgid "Store Resource Library files on Bunny.net instead of your WordPress server."
+msgstr "שמור קבצי ספריית משאבים על Bunny.net במקום על השרת שלך ב-WordPress."
+
+#: assets/build/portals-app.js:38
+msgid "Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure link that expires automatically."
+msgstr "ההורדות נשארות מוגנות. כל בקשה נבדקת מול ההרשאות שלך, ואז מוגשת דרך קישור מאובטח קצר מועד שפג תוקפו אוטומטית."
+
+#: assets/build/portals-app.js:38
+msgid "Setup mode"
+msgstr "מצב הגדרה"
+
+#: assets/build/portals-app.js:38
+msgid "Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny account."
+msgstr "צור חדש: SureDash מספק אזור פרטי חדש ומוגדר לחלוטין. השתמש בקיים: בחר אזור שכבר נמצא בחשבון שלך ב-Bunny."
+
+#: assets/build/portals-app.js:38
+msgid "files"
+msgstr "קבצים"
+
+#: assets/build/portals-app.js:38
+msgid "Cloud uploads are paused after a failure"
+msgstr "העלאות ענן מושהות לאחר כישלון"
+
+#: assets/build/portals-app.js:38
+msgid "New resource uploads are stored on this server until the connection recovers."
+msgstr "העלאות משאבים חדשות נשמרות על השרת הזה עד שהחיבור יתאושש."
+
+#: assets/build/portals-app.js:38
+msgid "Connected"
+msgstr "מחובר"
+
+#: assets/build/portals-app.js:38
+msgid "Storage active in"
+msgstr "אחסון פעיל ב"
+
+#: assets/build/portals-app.js:38
+msgid "replicas"
+msgstr "שכפולים"
+
+#: assets/build/portals-app.js:38
+msgid "Account connected"
+msgstr "חשבון מחובר"
+
+#: assets/build/portals-app.js:38
+msgid "Connect your account"
+msgstr "חבר את החשבון שלך"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect"
+msgstr "נתק"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny account API key"
+msgstr "מפתח API של חשבון Bunny"
+
+#: assets/build/portals-app.js:38
+msgid "Paste your account API key"
+msgstr "הדבק את מפתח ה-API של החשבון שלך"
+
+#: assets/build/portals-app.js:38
+msgid "Find this in your Bunny dashboard under Account › API. Stored on your server; used only to manage storage."
+msgstr "מצא זאת בלוח המחוונים של Bunny שלך תחת חשבון › API. נשמר על השרת שלך; משמש רק לניהול אחסון."
+
+#: assets/build/portals-app.js:38
+msgid "Connected to Bunny.net."
+msgstr "מחובר ל-Bunny.net."
+
+#: assets/build/portals-app.js:38
+msgid "Bunny didn't accept this key. Paste the account API key from dash.bunny.net → Account Settings → API."
+msgstr "Bunny לא קיבל את המפתח הזה. הדבק את מפתח ה-API של החשבון מ-dash.bunny.net → הגדרות חשבון → API."
+
+#: assets/build/portals-app.js:38
+msgid "Enter your Bunny account API key to connect."
+msgstr "הזן את מפתח ה-API של חשבון Bunny שלך כדי להתחבר."
+
+#: assets/build/portals-app.js:38
+msgid "Connect"
+msgstr "התחבר"
+
+#: assets/build/portals-app.js:38
+msgid "Storage connected"
+msgstr "אחסון מחובר"
+
+#: assets/build/portals-app.js:38
+msgid "Set up storage"
+msgstr "הגדר אחסון"
+
+#: assets/build/portals-app.js:38
+msgid "Available after your account is connected."
+msgstr "זמין לאחר שהחשבון שלך מחובר."
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect storage"
+msgstr "ניתוק אחסון"
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone"
+msgstr "אזור אחסון"
+
+#: assets/build/portals-app.js:38
+msgid "Main region"
+msgstr "אזור ראשי"
+
+#: assets/build/portals-app.js:38
+msgid "Replicas"
+msgstr "שכפולים"
+
+#: assets/build/portals-app.js:38
+msgid "Main storage region"
+msgstr "אזור אחסון ראשי"
+
+#: assets/build/portals-app.js:38
+msgid "The main region can't be changed after setup."
+msgstr "האזור הראשי לא יכול להשתנות לאחר ההגדרה."
+
+#: assets/build/portals-app.js:38
+msgid "Replication regions (optional)"
+msgstr "אזורי שכפול (אופציונלי)"
+
+#: assets/build/portals-app.js:38
+msgid "None selected"
+msgstr "לא נבחרו"
+
+#: assets/build/portals-app.js:38
+msgid "Each replica is billed separately and can't be removed once added."
+msgstr "כל שכפול מחויב בנפרד ולא ניתן להסירו לאחר שנוסף."
+
+#: assets/build/portals-app.js:38
+msgid "Bunny storage created."
+msgstr "אחסון Bunny נוצר."
+
+#: assets/build/portals-app.js:38
+msgid "Create storage"
+msgstr "צור אחסון"
+
+#: assets/build/portals-app.js:38
+msgid "A brand-new private storage zone and delivery zone are always created. Existing zones are never reused."
+msgstr "אזור אחסון פרטי חדש לחלוטין ואזור משלוח תמיד נוצר. אזורים קיימים לא משומשים מחדש."
+
+#: assets/build/portals-app.js:38
+msgid "Select a storage zone…"
+msgstr "בחר אזור אחסון…"
+
+#: assets/build/portals-app.js:38
+msgid "No storage zones found on this Bunny account."
+msgstr "לא נמצאו אזורי אחסון בחשבון Bunny הזה."
+
+#: assets/build/portals-app.js:38
+msgid "Delivery (pull) zone"
+msgstr "אזור משלוח (משיכה)"
+
+#: assets/build/portals-app.js:38
+msgid "Select a pull zone…"
+msgstr "בחר אזור משיכה…"
+
+#: assets/build/portals-app.js:38
+msgid "Required settings on your zone"
+msgstr "הגדרות נדרשות על האזור שלך"
+
+#: assets/build/portals-app.js:38
+msgid "SureDash never creates or changes anything on your existing zones. To connect, the storage zone must already have:"
+msgstr "SureDash לא יוצר או משנה דבר על האזורים הקיימים שלך. כדי להתחבר, אזור האחסון חייב כבר להיות עם:"
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to this storage zone (required)"
+msgstr "אזור משלוח (משיכה) מקושר לאזור האחסון הזה (נדרש)"
+
+#: assets/build/portals-app.js:38
+msgid "Pull zone is active, not suspended or disabled (required)"
+msgstr "אזור המשיכה פעיל, לא מושעה או מושבת (נדרש)"
+
+#: assets/build/portals-app.js:38
+msgid "Token Authentication enabled to keep files private (required)"
+msgstr "אימות באמצעות טוקן מופעל כדי לשמור על קבצים פרטיים (נדרש)"
+
+#: assets/build/portals-app.js:38
+msgid "Download edge rule to force file downloads (optional)"
+msgstr "כלל קצה להורדה כדי לכפות הורדת קבצים (אופציונלי)"
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to the storage zone (required)"
+msgstr "אזור משלוח (משיכה) מקושר לאזור האחסון (נדרש)"
+
+#: assets/build/portals-app.js:38
+msgid "A download edge rule to force file downloads (optional)"
+msgstr "כלל קצה להורדה כדי לכפות הורדת קבצים (אופציונלי)"
+
+#: assets/build/portals-app.js:38
+msgid "This zone has no active delivery (pull) zone"
+msgstr "לאזור הזה אין אזור משלוח (משיכה) פעיל"
+
+#: assets/build/portals-app.js:38
+msgid "If the zone already has a pull zone, re-enable it in the Bunny dashboard (it is suspended or disabled)."
+msgstr "אם לאזור כבר יש אזור משיכה, הפעל אותו מחדש בלוח הבקרה של Bunny (הוא מושעה או מושבת)."
+
+#: assets/build/portals-app.js:38
+msgid "Otherwise go to CDN → Add Pull Zone, set the origin to this storage zone, and create it."
+msgstr "אחרת, עבור ל-CDN → הוסף אזור משיכה, קבע את המקור לאזור האחסון הזה, וצור אותו."
+
+#: assets/build/portals-app.js:38
+msgid "Enable Security → Token Authentication on the pull zone."
+msgstr "הפעל אבטחה → אימות באמצעות טוקן על אזור המשיכה."
+
+#: assets/build/portals-app.js:38
+msgid "Come back here, re-select the zone, and connect."
+msgstr "חזור לכאן, בחר שוב את האזור, והתחבר."
+
+#: assets/build/portals-app.js:38
+msgid "Optional: make download links save the file instead of opening it"
+msgstr "אופציונלי: הפוך את קישורי ההורדה לשמור את הקובץ במקום לפתוח אותו"
+
+#: assets/build/portals-app.js:38
+msgid "Open your pull zone → Edge Rules → Add Rule."
+msgstr "פתח את אזור המשיכה שלך → כללי קצה → הוסף כלל."
+
+#: assets/build/portals-app.js:38
+msgid "Action: Set Response Header →"
+msgstr "פעולה: הגדר כותרת תגובה →"
+
+#: assets/build/portals-app.js:38
+msgid "Condition: Request Query String matches"
+msgstr "תנאי: מחרוזת השאילתא תואמת"
+
+#: assets/build/portals-app.js:38
+msgid "You can connect now and add this later."
+msgstr "אתה יכול להתחבר עכשיו ולהוסיף את זה מאוחר יותר."
+
+#: assets/build/portals-app.js:38
+msgid "Connect zone"
+msgstr "התחבר לאזור"
+
+#: assets/build/portals-app.js:38
+msgid "Turn on Token Authentication. This zone's files are currently public"
+msgstr "הפעל אימות באמצעות טוקן. הקבצים של אזור זה כרגע ציבוריים"
+
+#: assets/build/portals-app.js:38
+msgid "Open the pull zone in your Bunny dashboard and go to Security → Token Authentication."
+msgstr "פתח את אזור המשיכה בלוח הבקרה של Bunny שלך ועבור לאבטחה → אימות באמצעות טוקן."
+
+#: assets/build/portals-app.js:38
+msgid "Enable \"Token Authentication\" and save."
+msgstr "הפעל \"אימות באמצעות טוקן\" ושמור."
+
+#: assets/build/portals-app.js:38
+msgid "Come back here and click Connect zone again."
+msgstr "חזור לכאן ולחץ שוב על התחבר לאזור."
+
+#: assets/build/portals-app.js:38
+msgid "Turn on offloading"
+msgstr "הפעל העמסה"
+
+#: assets/build/portals-app.js:38
+msgid "Available after storage is connected."
+msgstr "זמין לאחר שהאחסון מחובר."
+
+#: assets/build/portals-app.js:38
+msgid "Store new resource files on Bunny.net"
+msgstr "אחסן קבצי משאב חדשים על Bunny.net"
+
+#: assets/build/portals-app.js:38
+msgid "New uploads are stored on Bunny. Existing files stay where they are until you migrate them."
+msgstr "העלאות חדשות מאוחסנות על Bunny. קבצים קיימים נשארים במקום שבו הם עד שתעביר אותם."
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect Bunny account?"
+msgstr "לנתק את חשבון Bunny?"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect this storage zone?"
+msgstr "לנתק את אזור האחסון הזה?"
+
+#: assets/build/portals-app.js:38
+msgid "Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until you reconnect."
+msgstr "מסיר את מפתח ה-API השמור ומכבה את ההעברה. שום דבר לא נמחק ב-Bunny, אך הקבצים שלו נשארים לא נגישים עד שתתחבר מחדש."
+
+#: assets/build/portals-app.js:38
+msgid "Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can pick or create another zone right away."
+msgstr "מנתק את האזור הזה ומכבה את ההעברה. שום דבר לא נמחק ב-Bunny, והחשבון שלך נשאר מחובר, כך שתוכל לבחור או ליצור אזור אחר מיד."
+
+#: assets/build/portals-app.js:38
+msgid "Disconnected from Bunny.net."
+msgstr "מנותק מ-Bunny.net."
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone disconnected. Create or pick another zone below."
+msgstr "אזור האחסון מנותק. צור או בחר אזור אחר למטה."
+
+#: assets/build/portals-app.js:38
+msgid "Not connected"
+msgstr "לא מחובר"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny.net"
+msgstr "Bunny.net"
+
+#. translators: 1: feature name, 2: its location.
+#: assets/build/portals-app.js:55
+msgid "%1$s is available under %2$s"
+msgstr "%1$s זמין תחת %2$s"
+
+#: assets/build/portals-app.js:55
+msgid "Got it, reopen the announcement"
+msgstr "הבנתי, פתח מחדש את ההודעה"
+
+#: assets/build/portals-app.js:55
+msgid "Show me"
+msgstr "הראה לי"
+
+#: assets/build/portals-app.js:55
+msgid "Read the docs"
+msgstr "קרא את המסמכים"
+
+#. translators: %d: page number.
+#: assets/build/portals-app.js:56
+msgid "Go to page %d"
+msgstr "עבור לדף %d"
+
+#. translators: 1: current page number, 2: total pages.
+#: assets/build/portals-app.js:57
+msgid "%1$s of %2$s"
+msgstr "%1$s מתוך %2$s"
+
+#: assets/build/portals-app.js:57
+msgid "Skip all"
+msgstr "דלג על הכל"
+
+#: assets/build/portals-app.js:57
+msgid "Done"
+msgstr "בוצע"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

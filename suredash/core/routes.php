@@ -72,6 +72,13 @@ class Routes {
 			return new \WP_Error( 'no_space_found', __( 'Oops! Something wrong here...', 'suredash' ), [ 'status' => 404 ] );
 		}
 
+		// A handler that already built a WP_REST_Response owns its status code
+		// (e.g. 400 for rejected input) — overwriting it here would turn every
+		// handler error into a 200 the client reads as success.
+		if ( $response instanceof \WP_REST_Response ) {
+			return $response;
+		}
+
 		$response = rest_ensure_response( $response );
 
 		// Only call set_status if the response is a WP_REST_Response instance.
@@ -374,6 +381,11 @@ class Routes {
 				'update-user-data'                   => [
 					'method'              => 'POST',
 					'callback'            => [ UserRoute::get_instance(), 'update_user_data' ],
+					'permission_callback' => 'admin',
+				],
+				'dismiss-announcement'               => [
+					'method'              => 'POST',
+					'callback'            => [ \SureDashboard\Inc\Modules\Announcements\Announcements::get_instance(), 'mark_seen' ],
 					'permission_callback' => 'admin',
 				],
 				'skip-onboarding'                    => [

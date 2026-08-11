@@ -71,6 +71,9 @@ class Menu {
 
 			if ( $page === self::PAGE_ID || $page === 'portal-onboarding' || strpos( $page, self::PAGE_ID . '_' ) !== false ) {
 				add_action( 'admin_enqueue_scripts', [ $this, 'app_build_scripts' ] );
+
+				// Keep raw emoji characters in the app's editors. wp-emoji would rewrite them into twemoji <img> tags that end up saved inside email templates.
+				remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 			}
 		}
 
@@ -418,6 +421,7 @@ class Menu {
 					'suremembers_access_groups'     => Helper::get_suremembers_access_groups(),
 					'learn_dismissed'               => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed(),
 					'learn_has_new_steps'           => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed() && \SureDashboard\Inc\Modules\Learn\Learn::get_instance()->has_incomplete_free_steps(),
+					'announcement'                  => \SureDashboard\Inc\Modules\Announcements\Announcements::get_for_dashboard(),
 					'all_spaces_for_dropdown'       => $this->get_all_spaces_for_dropdown(),
 					'portal_page_targets'           => Helper::get_portal_page_targets(),
 					'color_palette_names'           => suredash_get_color_palette_names(),

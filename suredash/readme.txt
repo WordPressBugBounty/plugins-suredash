@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.0.0
 Requires PHP: 7.4
-Stable tag: 1.10.4
+Stable tag: 1.11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,10 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-08-11 - version 1.11.0 =
+* New: Added a "What's New" popup in the admin dashboard that highlights the latest features and improvements after an update.
+* Fix: Emojis added in the admin editors are no longer converted to images, so they are preserved correctly in email content.
+
 = 2026-08-03 - version 1.10.4 =
 * Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
 

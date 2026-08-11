@@ -1,4 +1,8 @@
 *** SureDash Changelog ***
+= 2026-08-11 - version 1.11.0 =
+* New: Added a "What's New" popup in the admin dashboard that highlights the latest features and improvements after an update.
+* Fix: Emojis added in the admin editors are no longer converted to images, so they are preserved correctly in email content.
+
 = 2026-08-03 - version 1.10.4 =
 * Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
 

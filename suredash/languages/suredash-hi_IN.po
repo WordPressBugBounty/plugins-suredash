@@ -45,8 +45,8 @@ msgstr "सामग्री समूह"
 msgid "Topic Forums"
 msgstr "विषय फोरम"
 
-#: admin/menu.php:190
-#: admin/menu.php:191
+#: admin/menu.php:193
+#: admin/menu.php:194
 #: admin/setup.php:65
 #: core/renderer.php:301
 #: assets/build/portals-app.js:13
@@ -74,7 +74,7 @@ msgstr "लिंक"
 msgid "Video"
 msgstr "वीडियो"
 
-#: admin/menu.php:711
+#: admin/menu.php:715
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -162,8 +162,8 @@ msgstr "सेटिंग्स सफलतापूर्वक सहेज�
 
 #: core/routers/social-logins.php:76
 #: core/routers/social-logins.php:89
-#: core/routers/social-logins.php:394
-#: core/routers/social-logins.php:407
+#: core/routers/social-logins.php:410
+#: core/routers/social-logins.php:423
 msgid "Captcha is not matching, please try again."
 msgstr "कैप्चा मेल नहीं खा रहा है, कृपया फिर से प्रयास करें।"
 
@@ -175,80 +175,71 @@ msgstr "आप सफलतापूर्वक लॉगिन कर चु�
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
 msgstr "उपयोगकर्ता नाम/पासवर्ड फ़ील्ड खाली है। कृपया अपना पासवर्ड रीसेट करने के लिए एक मान्य उपयोगकर्ता नाम/ईमेल जोड़ें।"
 
-#: core/routers/social-logins.php:276
-msgid "No user found. Please add a registered username/email to reset your password, else create an account."
-msgstr "कोई उपयोगकर्ता नहीं मिला। कृपया अपना पासवर्ड रीसेट करने के लिए एक पंजीकृत उपयोगकर्ता नाम/ईमेल जोड़ें, अन्यथा एक खाता बनाएं।"
-
 #. translators: %s: Password reset.
-#: core/routers/social-logins.php:315
+#: core/routers/social-logins.php:334
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] पासवर्ड रीसेट"
 
-#: core/routers/social-logins.php:323
 #: assets/js/unminified/login.js:719
 msgid "Please check your email for the password reset link."
 msgstr "कृपया पासवर्ड रीसेट लिंक के लिए अपने ईमेल की जांच करें।"
 
-#: core/routers/social-logins.php:325
-msgid "Email failed to send."
-msgstr "ईमेल भेजने में विफल।"
-
-#: core/routers/social-logins.php:346
+#: core/routers/social-logins.php:362
 msgid "Sorry, the site admin has disabled new user registration"
 msgstr "क्षमा करें, साइट प्रशासक ने नए उपयोगकर्ता पंजीकरण को अक्षम कर दिया है।"
 
-#: core/routers/social-logins.php:360
+#: core/routers/social-logins.php:376
 msgid "Not a valid post."
 msgstr "मान्य पोस्ट नहीं।"
 
-#: core/routers/social-logins.php:417
+#: core/routers/social-logins.php:433
 msgid "Password may not contain the character \"\\\""
 msgstr "पासवर्ड में \"\\\" वर्ण नहीं हो सकता।"
 
-#: core/routers/social-logins.php:422
-#: core/routers/social-logins.php:425
+#: core/routers/social-logins.php:438
+#: core/routers/social-logins.php:441
 #: inc/functions/markup.php:41
 #: inc/functions/markup.php:80
 msgid "This field is required."
 msgstr "यह फ़ील्ड आवश्यक है।"
 
-#: core/routers/social-logins.php:510
+#: core/routers/social-logins.php:526
 msgid "Error in creating user."
 msgstr "उपयोगकर्ता बनाने में त्रुटि।"
 
-#: core/routers/social-logins.php:663
+#: core/routers/social-logins.php:679
 msgid "You are not registered. Please register first then try to login."
 msgstr "आप पंजीकृत नहीं हैं। कृपया पहले पंजीकरण करें फिर लॉगिन करने का प्रयास करें।"
 
-#: core/routers/social-logins.php:683
-#: core/routers/social-logins.php:720
-#: core/routers/social-logins.php:725
-#: core/routers/social-logins.php:831
-#: core/routers/social-logins.php:861
-#: core/routers/social-logins.php:866
+#: core/routers/social-logins.php:699
+#: core/routers/social-logins.php:736
+#: core/routers/social-logins.php:741
+#: core/routers/social-logins.php:847
+#: core/routers/social-logins.php:877
+#: core/routers/social-logins.php:882
 msgid "Invalid credentials."
 msgstr "अमान्य क्रेडेंशियल्स।"
 
-#: core/routers/social-logins.php:700
-#: core/routers/social-logins.php:706
-#: core/routers/social-logins.php:839
-#: core/routers/social-logins.php:846
+#: core/routers/social-logins.php:716
+#: core/routers/social-logins.php:722
+#: core/routers/social-logins.php:855
+#: core/routers/social-logins.php:862
 msgid "Token verification failed."
 msgstr "टोकन सत्यापन विफल।"
 
-#: core/routers/social-logins.php:741
-#: core/routers/social-logins.php:883
+#: core/routers/social-logins.php:757
+#: core/routers/social-logins.php:899
 msgid "Login Successful"
 msgstr "लॉगिन सफल"
 
-#: core/routers/social-logins.php:747
-#: core/routers/social-logins.php:888
-#: core/routers/social-logins.php:921
+#: core/routers/social-logins.php:763
+#: core/routers/social-logins.php:904
+#: core/routers/social-logins.php:937
 msgid "Registered & Login Successful"
 msgstr "पंजीकृत और लॉगिन सफल"
 
-#: core/routers/social-logins.php:750
+#: core/routers/social-logins.php:766
 msgid "Google API Error."
 msgstr "गूगल एपीआई त्रुटि।"
 
@@ -582,7 +573,7 @@ msgid "Search"
 msgstr "खोजें"
 
 #: core/shortcodes/user-profile.php:169
-#: inc/functions/functions.php:3083
+#: inc/functions/functions.php:3112
 msgid "Guest User"
 msgstr "अतिथि उपयोगकर्ता"
 
@@ -726,8 +717,8 @@ msgstr "पोर्टल आइटम्स"
 msgid "User Profile"
 msgstr "उपयोगकर्ता प्रोफ़ाइल"
 
-#: admin/menu.php:166
-#: admin/menu.php:167
+#: admin/menu.php:169
+#: admin/menu.php:170
 #: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:10
@@ -824,7 +815,7 @@ msgstr "विवरण"
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Save"
 msgstr "सहेजें"
 
@@ -926,6 +917,7 @@ msgstr "और देखें"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:31
@@ -963,8 +955,8 @@ msgstr "इस सुविधा के लिए PrestoPlayer Pro की आ�
 msgid "The content will be available in"
 msgstr "सामग्री उपलब्ध होगी"
 
-#: admin/menu.php:182
-#: admin/menu.php:183
+#: admin/menu.php:185
+#: admin/menu.php:186
 #: core/renderer.php:289
 #: core/shortcodes/home-content.php:906
 #: core/shortcodes/home-content.php:1112
@@ -1093,10 +1085,11 @@ msgstr "पोस्ट साझा करें"
 #: templates/quick-view/post.php:141
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:55
 msgid "Close"
 msgstr "बंद करें"
 
-#: admin/menu.php:214
+#: admin/menu.php:217
 #: core/renderer.php:241
 #: assets/build/portals-app.js:52
 msgid "Dashboard"
@@ -1208,11 +1201,11 @@ msgid "Excerpt"
 msgstr "अंश"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Full Width"
 msgstr "पूर्ण चौड़ाई"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Width"
 msgstr "संकीर्ण चौड़ाई"
 
@@ -1231,13 +1224,13 @@ msgstr "आइकन डालें"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saving…"
 msgstr "सहेजा जा रहा है…"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saved"
 msgstr "सहेजा गया"
 
@@ -1248,13 +1241,13 @@ msgstr "सेटिंग्स सफलतापूर्वक सहेज�
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Failed to Save."
 msgstr "सहेजने में विफल।"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Error updating settings: "
 msgstr "सेटिंग्स अपडेट करने में त्रुटि:"
 
@@ -1262,14 +1255,15 @@ msgstr "सेटिंग्स अपडेट करने में त्�
 #: inc/functions/functions.php:959
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:31
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Delete"
 msgstr "हटाएं"
 
-#: core/routers/onboarding.php:556
-#: core/routers/onboarding.php:559
+#: core/routers/onboarding.php:565
+#: core/routers/onboarding.php:568
 #: assets/build/editor-app.js:1
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
@@ -1322,6 +1316,7 @@ msgstr "स्पेस शीर्षक"
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:57
 msgid "Back"
 msgstr "वापस"
 
@@ -1383,19 +1378,19 @@ msgstr "लॉगिन पृष्ठ चुनें"
 msgid "Select Registration Page"
 msgstr "पंजीकरण पृष्ठ चुनें"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Type"
 msgstr "वैश्विक कंटेनर प्रकार"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Container Width"
 msgstr "संकीर्ण कंटेनर चौड़ाई"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Course Container Width"
 msgstr "कोर्स कंटेनर चौड़ाई"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Container Spacing"
 msgstr "कंटेनर रिक्ति"
 
@@ -1407,19 +1402,19 @@ msgstr "रंग चुनें"
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "रीसेट"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global"
 msgstr "वैश्विक"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary color is used as secondary purposes under the portal."
 msgstr "पोर्टल के अंतर्गत द्वितीयक उद्देश्यों के लिए द्वितीयक रंग का उपयोग किया जाता है।"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content background color is for mainly content background color of the portal."
 msgstr "सामग्री की पृष्ठभूमि का रंग मुख्य रूप से पोर्टल की सामग्री की पृष्ठभूमि के रंग के लिए है।"
 
@@ -1542,11 +1537,11 @@ msgstr "सक्रिय"
 msgid "Text Labels"
 msgstr "पाठ लेबल"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Layout"
 msgstr "लेआउट"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Colors"
 msgstr "रंग"
 
@@ -1961,6 +1956,7 @@ msgid "Angle"
 msgstr "कोण"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:13
 msgid "Processing…"
 msgstr "प्रसंस्करण…"
 
@@ -2498,7 +2494,7 @@ msgstr "कृपया Facebook ऐप सेटिंग्स को यह�
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "here"
 msgstr "यहाँ"
 
@@ -2711,7 +2707,7 @@ msgstr "एचटीएमएल समर्थित"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note:"
 msgstr "नोट:"
 
@@ -2879,8 +2875,8 @@ msgstr "अमान्य प्राधिकरण"
 msgid "Invalid post type."
 msgstr "अमान्य पोस्ट प्रकार।"
 
-#: admin/menu.php:199
-#: admin/menu.php:200
+#: admin/menu.php:202
+#: admin/menu.php:203
 #: inc/modules/learn/chapters.php:127
 #: assets/build/portals-app.js:35
 msgid "Customize Portal"
@@ -3026,8 +3022,8 @@ msgstr "आधुनिक लेआउट"
 msgid "Thumbnail Image"
 msgstr "थंबनेल छवि"
 
-#: admin/menu.php:158
-#: admin/menu.php:159
+#: admin/menu.php:161
+#: admin/menu.php:162
 #: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3036,8 +3032,8 @@ msgid "Spaces"
 msgstr "स्पेस"
 
 #. translators: %s: version number
-#: admin/menu.php:330
-#: admin/menu.php:335
+#: admin/menu.php:333
+#: admin/menu.php:338
 #, php-format
 msgid "Version %1$s or higher required!"
 msgstr "संस्करण %1$s या उच्चतर आवश्यक है!"
@@ -3244,11 +3240,11 @@ msgstr "ऑनबोर्डिंग सफलतापूर्वक पू�
 msgid "Onboarding data updated successfully."
 msgstr "ऑनबोर्डिंग डेटा सफलतापूर्वक अपडेट किया गया।"
 
-#: core/routers/onboarding.php:356
+#: core/routers/onboarding.php:365
 msgid "Invalid plugin."
 msgstr "अमान्य प्लगइन।"
 
-#: core/routers/onboarding.php:376
+#: core/routers/onboarding.php:385
 msgid "Plugin activated successfully."
 msgstr "प्लगइन सफलतापूर्वक सक्रिय किया गया।"
 
@@ -3327,6 +3323,7 @@ msgstr "इसे सक्षम करें ताकि \"फीड्स\" 
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:6
+#: assets/build/portals-app.js:57
 msgid "Next"
 msgstr "अगला"
 
@@ -3997,34 +3994,34 @@ msgstr "असंगत कोर संस्करण"
 msgid "Core"
 msgstr "कोर"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Width"
 msgstr "सामान्य चौड़ाई"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Style"
 msgstr "वैश्विक कंटेनर शैली"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Boxed"
 msgstr "बॉक्स में"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Unboxed"
 msgstr "बिना बॉक्स के"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Container Width"
 msgstr "सामान्य कंटेनर चौड़ाई"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Design Settings"
 msgstr "डिज़ाइन सेटिंग्स"
 
-#: admin/menu.php:174
-#: admin/menu.php:175
+#: admin/menu.php:177
+#: admin/menu.php:178
 #: core/renderer.php:277
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
@@ -4463,13 +4460,13 @@ msgstr "दृश्यता"
 
 #: core/blocks/interactivity/build/Switcher/view.php:33
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark"
 msgstr "अंधेरा"
 
 #: core/blocks/interactivity/build/Switcher/view.php:32
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light"
 msgstr "हल्का"
 
@@ -4677,8 +4674,8 @@ msgstr "टिप्पणी सफलतापूर्वक हटा दी
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "अमान्य फ़ाइल प्रकार। केवल GIF, PNG, JPEG, JPG, और WEBP की अनुमति है।"
 
-#: core/routers/social-logins.php:303
-#: core/routers/social-logins.php:306
+#: core/routers/social-logins.php:320
+#: core/routers/social-logins.php:323
 msgid "Reset your password here"
 msgstr "यहाँ अपना पासवर्ड रीसेट करें"
 
@@ -5007,6 +5004,7 @@ msgstr "स्विच करें %s"
 #: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Resources"
 msgstr "संसाधन"
 
@@ -5029,7 +5027,7 @@ msgid "To reset your password, visit the following URL:"
 msgstr "अपने पासवर्ड को रीसेट करने के लिए, निम्नलिखित URL पर जाएं:"
 
 #: inc/functions/functions.php:2494
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Links"
 msgstr "लिंक"
 
@@ -5038,12 +5036,12 @@ msgid "Headings"
 msgstr "शीर्षक"
 
 #: inc/functions/functions.php:2497
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content Background"
 msgstr "सामग्री पृष्ठभूमि"
 
 #: inc/functions/functions.php:2498
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Portal Background"
 msgstr "पोर्टल पृष्ठभूमि"
 
@@ -5535,75 +5533,75 @@ msgstr "तारीख उपलब्ध नहीं है"
 msgid "No resources accessed yet."
 msgstr "अभी तक कोई संसाधन नहीं पहुँचा गया।"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dismiss"
 msgstr "अस्वीकृत करें"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Accent"
 msgstr "एक्सेंट"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Link Hover/Active"
 msgstr "लिंक होवर/सक्रिय"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Headings (H1-H6)"
 msgstr "शीर्षक (H1-H6)"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Body Text"
 msgstr "शरीर पाठ"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Borders"
 msgstr "सीमाएँ"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button"
 msgstr "प्राथमिक बटन"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button BG"
 msgstr "प्राथमिक बटन BG"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button"
 msgstr "द्वितीयक बटन"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button BG"
 msgstr "द्वितीयक बटन BG"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Legacy Colors Detected"
 msgstr "पुराने रंगों का पता चला"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Using old colors? Sync Global Palette to the Light for improved experience and Dark Mode support."
 msgstr "क्या आप पुराने रंगों का उपयोग कर रहे हैं? बेहतर अनुभव और डार्क मोड समर्थन के लिए वैश्विक पैलेट को लाइट के साथ समन्वयित करें।"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Please review your portal frontend and adjust template colors accordingly if needed."
 msgstr "नोट: कृपया अपने पोर्टल फ्रंटेंड की समीक्षा करें और यदि आवश्यक हो तो टेम्पलेट रंगों को समायोजित करें।"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Migrate"
 msgstr "स्थानांतरित करें"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Select Default Palette"
 msgstr "डिफ़ॉल्ट पैलेट चुनें"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light Colors"
 msgstr "हल्के रंग"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark Colors"
 msgstr "गहरे रंग"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "रंग सेटअप करने के लिए सुनिश्चित नहीं हैं? 9 रंगों की परिभाषा देखें"
 
@@ -5696,23 +5694,8 @@ msgid "Enter reset password button label"
 msgstr "पासवर्ड रीसेट बटन लेबल दर्ज करें"
 
 #: assets/build/portals-app.js:13
-msgid "Uploading…"
-msgstr "अपलोड हो रहा है…"
-
-#: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:16
 msgid "Upload failed: "
 msgstr "अपलोड विफल:"
-
-#. translators: %1$d is the current file number, %2$d is the total number of files
-#: assets/build/portals-app.js:16
-#, js-format
-msgid "Uploaded %1$d/%2$d files"
-msgstr "अपलोड किए गए %1$d/%2$d फ़ाइलें"
-
-#: assets/build/portals-app.js:16
-msgid "Upload Files"
-msgstr "फ़ाइलें अपलोड करें"
 
 #: assets/build/portals-app.js:16
 msgid "or drag and drop files to upload"
@@ -5745,7 +5728,6 @@ msgid "Select a file to view details"
 msgstr "विवरण देखने के लिए एक फ़ाइल चुनें"
 
 #: assets/build/portals-app.js:16
-#: assets/build/portals-app.js:19
 #: assets/js/unminified/post-actions.js:190
 msgid "Unknown file"
 msgstr "अज्ञात फ़ाइल"
@@ -7028,7 +7010,7 @@ msgstr "आपने उपयोगकर्ता नाम %1$s के लि
 msgid "Receive admin notifications"
 msgstr "प्रशासनिक सूचनाएं प्राप्त करें"
 
-#: inc/functions/functions.php:3086
+#: inc/functions/functions.php:3115
 msgid "Anonymous"
 msgstr "अनाम"
 
@@ -7100,7 +7082,7 @@ msgstr "लोड हो रहा है…"
 msgid "No badges assigned."
 msgstr "कोई बैज असाइन नहीं किए गए।"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Preview is disabled in the editor to prevent conflicts with color settings."
 msgstr "संपादक में पूर्वावलोकन को रंग सेटिंग्स के साथ संघर्ष से बचने के लिए अक्षम कर दिया गया है।"
 
@@ -7749,6 +7731,7 @@ msgstr "ग्रिड लेआउट का उपयोग करते स�
 
 #: core/assets.php:293
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:35
 msgid "Select"
 msgstr "चुनें"
@@ -7857,15 +7840,15 @@ msgstr "लक्षित करने के लिए विशिष्ट �
 msgid "Select specific user roles to target. Leave empty to send to all users."
 msgstr "लक्षित करने के लिए विशिष्ट उपयोगकर्ता भूमिकाएँ चुनें। सभी उपयोगकर्ताओं को भेजने के लिए खाली छोड़ें।"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr "नोट: यह केवल एकल पोस्ट/पृष्ठ स्थान प्रकार और पोर्टल लेआउट टेम्पलेट पर लागू होता है।"
 
-#: core/routers/onboarding.php:361
+#: core/routers/onboarding.php:370
 msgid "Invalid plugin path."
 msgstr "अमान्य प्लगइन पथ।"
 
-#: admin/menu.php:207
+#: admin/menu.php:210
 msgid "SureDash Onboarding"
 msgstr "SureDash ऑनबोर्डिंग"
 
@@ -9273,93 +9256,93 @@ msgstr "सदस्य के द्वारा एक्सेस की ग�
 msgid "URL Endpoints"
 msgstr "यूआरएल एंडपॉइंट्स"
 
-#: core/routers/onboarding.php:403
+#: core/routers/onboarding.php:412
 msgid "No spaces selected."
 msgstr "कोई स्थान चयनित नहीं है।"
 
-#: core/routers/onboarding.php:523
+#: core/routers/onboarding.php:532
 msgid "Could not create any spaces."
 msgstr "कोई स्थान नहीं बना सके।"
 
 #. translators: %d: number of spaces created
-#: core/routers/onboarding.php:533
+#: core/routers/onboarding.php:542
 #, php-format
 msgid "%d spaces created successfully."
 msgstr "%d स्थान सफलतापूर्वक बनाए गए।"
 
-#: core/routers/onboarding.php:550
+#: core/routers/onboarding.php:559
 msgid "Academy"
 msgstr "अकादमी"
 
-#: core/routers/onboarding.php:551
-#: core/routers/onboarding.php:554
+#: core/routers/onboarding.php:560
+#: core/routers/onboarding.php:563
 #: assets/build/portals-app.js:1
 msgid "Community"
 msgstr "समुदाय"
 
-#: core/routers/onboarding.php:552
+#: core/routers/onboarding.php:561
 msgid "Support"
 msgstr "समर्थन"
 
-#: core/routers/onboarding.php:553
+#: core/routers/onboarding.php:562
 msgid "Team"
 msgstr "टीम"
 
-#: core/routers/onboarding.php:555
+#: core/routers/onboarding.php:564
 msgid "Organization"
 msgstr "संस्थान"
 
-#: core/routers/onboarding.php:602
+#: core/routers/onboarding.php:611
 msgid "Welcome 👋"
 msgstr "स्वागत है 👋"
 
-#: core/routers/onboarding.php:603
+#: core/routers/onboarding.php:612
 msgid "Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members to the most useful spaces."
 msgstr "यहाँ आपका स्वागत है। यह आपका समुदाय प्रारंभिक पृष्ठ है - जो आप करते हैं उसे साझा करें, अपेक्षाएँ निर्धारित करें, और नए सदस्यों को सबसे उपयोगी स्थानों की ओर इंगित करें।"
 
-#: core/routers/onboarding.php:606
+#: core/routers/onboarding.php:615
 msgid "Find answers fast"
 msgstr "जल्दी उत्तर खोजें"
 
-#: core/routers/onboarding.php:607
+#: core/routers/onboarding.php:616
 msgid "Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support Forum and our team will help."
 msgstr "नीचे सबसे सामान्य प्रश्नों और कैसे-करें गाइड को ब्राउज़ करें। यदि आप जो चाहते हैं वह नहीं मिल रहा है, तो समर्थन फोरम पर जाएँ और हमारी टीम मदद करेगी।"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:621
+#: core/routers/onboarding.php:630
 #, php-format
 msgid "About %s"
 msgstr "%s के बारे में"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:622
+#: core/routers/onboarding.php:631
 msgid "Use this space to introduce members to what you do and how this section works. Replace this text with anything you like — it lives inside the regular block editor."
 msgstr "इस स्थान का उपयोग सदस्यों को यह बताने के लिए करें कि आप क्या करते हैं और यह अनुभाग कैसे काम करता है। इस पाठ को किसी भी चीज़ से बदलें - यह नियमित ब्लॉक संपादक के अंदर रहता है।"
 
-#: core/routers/onboarding.php:648
+#: core/routers/onboarding.php:657
 msgid "👋 First announcement"
 msgstr "👋 पहला घोषणा"
 
-#: core/routers/onboarding.php:649
+#: core/routers/onboarding.php:658
 msgid "Use this space to share product updates, events, and important notices with your community. Edit or delete this post to start fresh."
 msgstr "इस स्थान का उपयोग उत्पाद अपडेट, घटनाओं और महत्वपूर्ण सूचनाओं को अपने समुदाय के साथ साझा करने के लिए करें। ताज़ा शुरुआत करने के लिए इस पोस्ट को संपादित या हटाएँ।"
 
-#: core/routers/onboarding.php:652
+#: core/routers/onboarding.php:661
 msgid "Say hello 👋"
 msgstr "नमस्ते कहें 👋"
 
-#: core/routers/onboarding.php:653
+#: core/routers/onboarding.php:662
 msgid "Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation any time."
 msgstr "चर्चा में आपका स्वागत है! अपने आप को पेश करें, साझा करें कि आप यहाँ क्यों आए हैं, और किसी भी समय नई बातचीत शुरू करने के लिए स्वतंत्र महसूस करें।"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:658
+#: core/routers/onboarding.php:667
 #, php-format
 msgid "Welcome to %s"
 msgstr "स्वागत है %s"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:659
+#: core/routers/onboarding.php:668
 msgid "This is the first post in this space. Edit or delete it, then invite members to start chatting."
 msgstr "यह इस स्थान में पहला पोस्ट है। इसे संपादित या हटाएँ, फिर सदस्यों को चैट शुरू करने के लिए आमंत्रित करें।"
 
@@ -9824,6 +9807,7 @@ msgid "← Use a connected provider instead"
 msgstr "← इसके बजाय एक जुड़े प्रदाता का उपयोग करें"
 
 #: assets/build/portals-app.js:3
+#: assets/build/portals-app.js:38
 msgid "API key"
 msgstr "एपीआई कुंजी"
 
@@ -10718,6 +10702,495 @@ msgstr "सदस्य पोस्ट और संसाधनों को �
 #: assets/build/portals-app.js:3
 msgid "SureDash Pro is installed but not active. Activate it to unlock the Pro spaces."
 msgstr "SureDash Pro स्थापित है लेकिन सक्रिय नहीं है। प्रो स्पेस को अनलॉक करने के लिए इसे सक्रिय करें।"
+
+#: core/routers/onboarding.php:358
+msgid "You do not have permission to activate plugins."
+msgstr "आपको प्लगइन्स सक्रिय करने की अनुमति नहीं है।"
+
+#: core/routers/social-logins.php:275
+msgid "Too many password reset requests. Please try again in a few minutes."
+msgstr "बहुत अधिक पासवर्ड रीसेट अनुरोध। कृपया कुछ मिनटों में फिर से प्रयास करें।"
+
+#: core/routers/social-logins.php:294
+msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
+msgstr "यदि उस उपयोगकर्ता नाम या ईमेल से मेल खाता हुआ खाता मौजूद है, तो एक पासवर्ड रीसेट लिंक भेजा गया है। कृपया अपने ईमेल की जांच करें।"
+
+#: assets/build/portals-app.js:13
+msgid "Invalid server response"
+msgstr "अमान्य सर्वर प्रतिक्रिया"
+
+#: assets/build/portals-app.js:13
+msgid "Network error"
+msgstr "नेटवर्क त्रुटि"
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Cloud"
+msgstr "क्लाउड"
+
+#: assets/build/portals-app.js:13
+msgid "Server"
+msgstr "सर्वर"
+
+#: assets/build/portals-app.js:13
+msgid "Upload canceled."
+msgstr "अपलोड रद्द कर दिया गया।"
+
+#: assets/build/portals-app.js:13
+msgid "Saved to this server instead of Bunny.net."
+msgstr "यह सर्वर Bunny.net के बजाय सहेजा गया।"
+
+#: assets/build/portals-app.js:13
+msgid "Check your Bunny Storage settings."
+msgstr "अपने Bunny स्टोरेज सेटिंग्स की जांच करें।"
+
+#: assets/build/portals-app.js:13
+msgid "Uploading %1$d of %2$d to %3$s…"
+msgstr "%1$d में से %2$d को %3$s पर अपलोड कर रहे हैं…"
+
+#: assets/build/portals-app.js:13
+msgid "Uploading to %s…"
+msgstr "%s पर अपलोड कर रहे हैं…"
+
+#: assets/build/portals-app.js:13
+msgid "Sending %1$d of %2$d to Bunny.net…"
+msgstr "Bunny.net पर %1$d में से %2$d भेज रहे हैं…"
+
+#: assets/build/portals-app.js:13
+msgid "Sending to Bunny.net…"
+msgstr "Bunny.net पर भेज रहे हैं…"
+
+#: assets/build/portals-app.js:13
+msgid "Processing %1$d of %2$d…"
+msgstr "%1$d में से %2$d को प्रोसेस कर रहे हैं…"
+
+#: assets/build/portals-app.js:13
+msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
+msgstr "%1$d में से %2$d अपलोड किए गए, %3$d विफल: %4$s"
+
+#. translators: %d is the number of selected files.
+#: assets/build/portals-app.js:16
+msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
+msgstr "क्या %d चयनित फ़ाइल(ओं) को हटाना है? यह पूर्ववत नहीं किया जा सकता। इनमें से कुछ संसाधन आइटम द्वारा उपयोग में हो सकते हैं, और इन्हें हटाने से उन आइटमों में समस्या होगी।"
+
+#: assets/build/portals-app.js:16
+msgid "Not available: this file's Bunny zone is not connected."
+msgstr "उपलब्ध नहीं: इस फ़ाइल का Bunny क्षेत्र कनेक्ट नहीं है।"
+
+#: assets/build/portals-app.js:16
+msgid "Deleting"
+msgstr "हटाना"
+
+#: assets/build/portals-app.js:16
+msgid "Deleting…"
+msgstr "हटा रहे हैं…"
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net (a local copy is also kept)."
+msgstr "नए क्लाउड अपलोड Bunny.net पर सहेजे जाते हैं (एक स्थानीय प्रति भी रखी जाती है)।"
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net."
+msgstr "नए क्लाउड अपलोड Bunny.net पर सहेजे जाते हैं।"
+
+#: assets/build/portals-app.js:16
+msgid "Cloud uploads are paused, new uploads are stored on this server."
+msgstr "क्लाउड अपलोड रुके हुए हैं, नए अपलोड इस सर्वर पर सहेजे जाते हैं।"
+
+#: assets/build/portals-app.js:16
+msgid "New uploads are stored on this server (local)."
+msgstr "नए अपलोड इस सर्वर पर सहेजे जाते हैं (स्थानीय)।"
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Cloud"
+msgstr "क्लाउड पर अपलोड करें"
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Server"
+msgstr "सर्वर पर अपलोड करें"
+
+#: assets/build/portals-app.js:16
+msgid "Processing upload"
+msgstr "अपलोड प्रोसेस कर रहे हैं"
+
+#: assets/build/portals-app.js:19
+msgid "Cloud · Bunny.net"
+msgstr "क्लाउड · Bunny.net"
+
+#: assets/build/portals-app.js:19
+msgid "On this server · Local"
+msgstr "इस सर्वर पर · स्थानीय"
+
+#: assets/build/portals-app.js:19
+msgid "Storage"
+msgstr "स्टोरेज"
+
+#: assets/build/portals-app.js:19
+msgid "Cloud (Bunny.net)"
+msgstr "क्लाउड (Bunny.net)"
+
+#: assets/build/portals-app.js:19
+msgid "Local"
+msgstr "स्थानीय"
+
+#: assets/build/portals-app.js:35
+msgid "Manage Resources"
+msgstr "संसाधनों का प्रबंधन करें"
+
+#: assets/build/portals-app.js:38
+msgid "Create new storage (recommended)"
+msgstr "नया स्टोरेज बनाएं (सिफारिश की गई)"
+
+#: assets/build/portals-app.js:38
+msgid "Use an existing zone"
+msgstr "एक मौजूदा क्षेत्र का उपयोग करें"
+
+#: assets/build/portals-app.js:38
+msgid "Created by SureDash"
+msgstr "SureDash द्वारा बनाया गया"
+
+#: assets/build/portals-app.js:38
+msgid "Existing zone"
+msgstr "मौजूदा क्षेत्र"
+
+#: assets/build/portals-app.js:38
+msgid "Request failed."
+msgstr "अनुरोध विफल हुआ।"
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone connected."
+msgstr "स्टोरेज क्षेत्र कनेक्टेड।"
+
+#: assets/build/portals-app.js:38
+msgid "Store Resource Library files on Bunny.net instead of your WordPress server."
+msgstr "Bunny.net पर संसाधन पुस्तकालय फ़ाइलें अपने वर्डप्रेस सर्वर के बजाय सहेजें।"
+
+#: assets/build/portals-app.js:38
+msgid "Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure link that expires automatically."
+msgstr "डाउनलोड सुरक्षित रहते हैं। हर अनुरोध आपकी अनुमतियों के खिलाफ जांचा जाता है, फिर एक अल्पकालिक सुरक्षित लिंक के माध्यम से प्रदान किया जाता है जो स्वचालित रूप से समाप्त हो जाता है।"
+
+#: assets/build/portals-app.js:38
+msgid "Setup mode"
+msgstr "सेटअप मोड"
+
+#: assets/build/portals-app.js:38
+msgid "Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny account."
+msgstr "नया बनाएं: SureDash एक नया, पूरी तरह से कॉन्फ़िगर किया गया निजी क्षेत्र प्रदान करता है। मौजूदा का उपयोग करें: अपने Bunny खाते में पहले से मौजूद क्षेत्र का चयन करें।"
+
+#: assets/build/portals-app.js:38
+msgid "files"
+msgstr "फ़ाइलें"
+
+#: assets/build/portals-app.js:38
+msgid "Cloud uploads are paused after a failure"
+msgstr "एक विफलता के बाद क्लाउड अपलोड रुके हुए हैं"
+
+#: assets/build/portals-app.js:38
+msgid "New resource uploads are stored on this server until the connection recovers."
+msgstr "नए संसाधन अपलोड इस सर्वर पर तब तक सहेजे जाते हैं जब तक कनेक्शन पुनर्प्राप्त नहीं होता।"
+
+#: assets/build/portals-app.js:38
+msgid "Connected"
+msgstr "कनेक्टेड"
+
+#: assets/build/portals-app.js:38
+msgid "Storage active in"
+msgstr "स्टोरेज सक्रिय है"
+
+#: assets/build/portals-app.js:38
+msgid "replicas"
+msgstr "प्रतियां"
+
+#: assets/build/portals-app.js:38
+msgid "Account connected"
+msgstr "खाता कनेक्टेड"
+
+#: assets/build/portals-app.js:38
+msgid "Connect your account"
+msgstr "अपने खाते को कनेक्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect"
+msgstr "डिस्कनेक्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny account API key"
+msgstr "Bunny खाता API कुंजी"
+
+#: assets/build/portals-app.js:38
+msgid "Paste your account API key"
+msgstr "अपनी खाता API कुंजी पेस्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Find this in your Bunny dashboard under Account › API. Stored on your server; used only to manage storage."
+msgstr "इसे अपने Bunny डैशबोर्ड में खाता › API के तहत खोजें। आपके सर्वर पर संग्रहीत; केवल स्टोरेज प्रबंधन के लिए उपयोग किया जाता है।"
+
+#: assets/build/portals-app.js:38
+msgid "Connected to Bunny.net."
+msgstr "Bunny.net से कनेक्टेड।"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny didn't accept this key. Paste the account API key from dash.bunny.net → Account Settings → API."
+msgstr "Bunny ने इस कुंजी को स्वीकार नहीं किया। dash.bunny.net → खाता सेटिंग्स → API से खाता API कुंजी पेस्ट करें।"
+
+#: assets/build/portals-app.js:38
+msgid "Enter your Bunny account API key to connect."
+msgstr "अपने बनी खाते का एपीआई कुंजी दर्ज करें ताकि आप कनेक्ट कर सकें।"
+
+#: assets/build/portals-app.js:38
+msgid "Connect"
+msgstr "कनेक्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Storage connected"
+msgstr "स्टोरेज कनेक्टेड"
+
+#: assets/build/portals-app.js:38
+msgid "Set up storage"
+msgstr "स्टोरेज सेट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Available after your account is connected."
+msgstr "आपके खाते के कनेक्ट होने के बाद उपलब्ध।"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect storage"
+msgstr "स्टोरेज डिस्कनेक्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone"
+msgstr "स्टोरेज क्षेत्र"
+
+#: assets/build/portals-app.js:38
+msgid "Main region"
+msgstr "मुख्य क्षेत्र"
+
+#: assets/build/portals-app.js:38
+msgid "Replicas"
+msgstr "प्रतिलिपियाँ"
+
+#: assets/build/portals-app.js:38
+msgid "Main storage region"
+msgstr "मुख्य स्टोरेज क्षेत्र"
+
+#: assets/build/portals-app.js:38
+msgid "The main region can't be changed after setup."
+msgstr "सेटअप के बाद मुख्य क्षेत्र को नहीं बदला जा सकता।"
+
+#: assets/build/portals-app.js:38
+msgid "Replication regions (optional)"
+msgstr "प्रतिलिपीकरण क्षेत्र (वैकल्पिक)"
+
+#: assets/build/portals-app.js:38
+msgid "None selected"
+msgstr "कोई चयनित नहीं"
+
+#: assets/build/portals-app.js:38
+msgid "Each replica is billed separately and can't be removed once added."
+msgstr "प्रत्येक प्रतिलिपि को अलग से बिल किया जाता है और एक बार जोड़ी जाने पर इसे हटाया नहीं जा सकता।"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny storage created."
+msgstr "बनी स्टोरेज बनाई गई।"
+
+#: assets/build/portals-app.js:38
+msgid "Create storage"
+msgstr "स्टोरेज बनाएं"
+
+#: assets/build/portals-app.js:38
+msgid "A brand-new private storage zone and delivery zone are always created. Existing zones are never reused."
+msgstr "एक बिल्कुल नया निजी स्टोरेज क्षेत्र और डिलीवरी क्षेत्र हमेशा बनाए जाते हैं। मौजूदा क्षेत्रों का पुन: उपयोग नहीं किया जाता।"
+
+#: assets/build/portals-app.js:38
+msgid "Select a storage zone…"
+msgstr "एक स्टोरेज क्षेत्र चुनें…"
+
+#: assets/build/portals-app.js:38
+msgid "No storage zones found on this Bunny account."
+msgstr "इस बनी खाते पर कोई स्टोरेज क्षेत्र नहीं मिला।"
+
+#: assets/build/portals-app.js:38
+msgid "Delivery (pull) zone"
+msgstr "डिलीवरी (पुल) क्षेत्र"
+
+#: assets/build/portals-app.js:38
+msgid "Select a pull zone…"
+msgstr "एक पुल क्षेत्र चुनें…"
+
+#: assets/build/portals-app.js:38
+msgid "Required settings on your zone"
+msgstr "आपके क्षेत्र पर आवश्यक सेटिंग्स"
+
+#: assets/build/portals-app.js:38
+msgid "SureDash never creates or changes anything on your existing zones. To connect, the storage zone must already have:"
+msgstr "SureDash कभी भी आपके मौजूदा क्षेत्रों पर कुछ नहीं बनाता या बदलता। कनेक्ट करने के लिए, स्टोरेज क्षेत्र में पहले से होना चाहिए:"
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to this storage zone (required)"
+msgstr "इस स्टोरेज क्षेत्र से जुड़े एक डिलीवरी (पुल) क्षेत्र (आवश्यक)"
+
+#: assets/build/portals-app.js:38
+msgid "Pull zone is active, not suspended or disabled (required)"
+msgstr "पुल क्षेत्र सक्रिय है, निलंबित या अक्षम नहीं है (आवश्यक)"
+
+#: assets/build/portals-app.js:38
+msgid "Token Authentication enabled to keep files private (required)"
+msgstr "फाइलों को निजी रखने के लिए टोकन प्रमाणीकरण सक्षम (आवश्यक)"
+
+#: assets/build/portals-app.js:38
+msgid "Download edge rule to force file downloads (optional)"
+msgstr "फाइल डाउनलोड करने के लिए डाउनलोड एज नियम डाउनलोड करें (वैकल्पिक)"
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to the storage zone (required)"
+msgstr "स्टोरेज क्षेत्र से जुड़े एक डिलीवरी (पुल) क्षेत्र (आवश्यक)"
+
+#: assets/build/portals-app.js:38
+msgid "A download edge rule to force file downloads (optional)"
+msgstr "फाइल डाउनलोड करने के लिए एक डाउनलोड एज नियम (वैकल्पिक)"
+
+#: assets/build/portals-app.js:38
+msgid "This zone has no active delivery (pull) zone"
+msgstr "इस क्षेत्र में कोई सक्रिय डिलीवरी (पुल) क्षेत्र नहीं है"
+
+#: assets/build/portals-app.js:38
+msgid "If the zone already has a pull zone, re-enable it in the Bunny dashboard (it is suspended or disabled)."
+msgstr "यदि क्षेत्र में पहले से एक पुल क्षेत्र है, तो इसे बनी डैशबोर्ड में फिर से सक्षम करें (यह निलंबित या अक्षम है)।"
+
+#: assets/build/portals-app.js:38
+msgid "Otherwise go to CDN → Add Pull Zone, set the origin to this storage zone, and create it."
+msgstr "अन्यथा CDN → पुल क्षेत्र जोड़ें पर जाएं, मूल को इस स्टोरेज क्षेत्र पर सेट करें, और इसे बनाएं।"
+
+#: assets/build/portals-app.js:38
+msgid "Enable Security → Token Authentication on the pull zone."
+msgstr "पुल क्षेत्र पर सुरक्षा → टोकन प्रमाणीकरण सक्षम करें।"
+
+#: assets/build/portals-app.js:38
+msgid "Come back here, re-select the zone, and connect."
+msgstr "यहां वापस आएं, क्षेत्र को फिर से चुनें, और कनेक्ट करें।"
+
+#: assets/build/portals-app.js:38
+msgid "Optional: make download links save the file instead of opening it"
+msgstr "वैकल्पिक: डाउनलोड लिंक को फ़ाइल को खोलने के बजाय सहेजने के लिए बनाएं"
+
+#: assets/build/portals-app.js:38
+msgid "Open your pull zone → Edge Rules → Add Rule."
+msgstr "अपने पुल क्षेत्र को खोलें → एज नियम → नियम जोड़ें।"
+
+#: assets/build/portals-app.js:38
+msgid "Action: Set Response Header →"
+msgstr "क्रिया: प्रतिक्रिया हेडर सेट करें →"
+
+#: assets/build/portals-app.js:38
+msgid "Condition: Request Query String matches"
+msgstr "शर्त: अनुरोध क्वेरी स्ट्रिंग मेल खाती है"
+
+#: assets/build/portals-app.js:38
+msgid "You can connect now and add this later."
+msgstr "आप अब कनेक्ट कर सकते हैं और इसे बाद में जोड़ सकते हैं।"
+
+#: assets/build/portals-app.js:38
+msgid "Connect zone"
+msgstr "क्षेत्र कनेक्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Turn on Token Authentication. This zone's files are currently public"
+msgstr "टोकन प्रमाणीकरण चालू करें। इस क्षेत्र की फ़ाइलें वर्तमान में सार्वजनिक हैं"
+
+#: assets/build/portals-app.js:38
+msgid "Open the pull zone in your Bunny dashboard and go to Security → Token Authentication."
+msgstr "अपने बनी डैशबोर्ड में पुल क्षेत्र खोलें और सुरक्षा → टोकन प्रमाणीकरण पर जाएं।"
+
+#: assets/build/portals-app.js:38
+msgid "Enable \"Token Authentication\" and save."
+msgstr "\"टोकन प्रमाणीकरण\" सक्षम करें और सहेजें।"
+
+#: assets/build/portals-app.js:38
+msgid "Come back here and click Connect zone again."
+msgstr "यहां वापस आएं और फिर से कनेक्ट क्षेत्र पर क्लिक करें।"
+
+#: assets/build/portals-app.js:38
+msgid "Turn on offloading"
+msgstr "ऑफलोडिंग चालू करें"
+
+#: assets/build/portals-app.js:38
+msgid "Available after storage is connected."
+msgstr "स्टोरेज कनेक्ट होने के बाद उपलब्ध।"
+
+#: assets/build/portals-app.js:38
+msgid "Store new resource files on Bunny.net"
+msgstr "बनी.net पर नए संसाधन फ़ाइलें स्टोर करें"
+
+#: assets/build/portals-app.js:38
+msgid "New uploads are stored on Bunny. Existing files stay where they are until you migrate them."
+msgstr "नए अपलोड बनी पर स्टोर होते हैं। मौजूदा फ़ाइलें तब तक वहीं रहती हैं जब तक आप उन्हें माइग्रेट नहीं करते।"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect Bunny account?"
+msgstr "बनी खाता डिस्कनेक्ट करें?"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect this storage zone?"
+msgstr "इस स्टोरेज ज़ोन को डिस्कनेक्ट करें?"
+
+#: assets/build/portals-app.js:38
+msgid "Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until you reconnect."
+msgstr "सहेजा गया API कुंजी हटा देता है और ऑफ़लोडिंग बंद कर देता है। बनी पर कुछ भी हटाया नहीं जाता है, लेकिन इसकी फ़ाइलें तब तक अप्राप्य रहती हैं जब तक आप फिर से कनेक्ट नहीं होते।"
+
+#: assets/build/portals-app.js:38
+msgid "Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can pick or create another zone right away."
+msgstr "इस ज़ोन को अनलिंक करता है और ऑफ़लोडिंग बंद कर देता है। बनी पर कुछ भी हटाया नहीं जाता है, और आपका खाता कनेक्टेड रहता है, ताकि आप तुरंत कोई और ज़ोन चुन सकें या बना सकें।"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnected from Bunny.net."
+msgstr "Bunny.net से डिस्कनेक्ट किया गया।"
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone disconnected. Create or pick another zone below."
+msgstr "स्टोरेज ज़ोन डिस्कनेक्ट किया गया। नीचे कोई और ज़ोन बनाएं या चुनें।"
+
+#: assets/build/portals-app.js:38
+msgid "Not connected"
+msgstr "कनेक्ट नहीं है"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny.net"
+msgstr "Bunny.net"
+
+#. translators: 1: feature name, 2: its location.
+#: assets/build/portals-app.js:55
+msgid "%1$s is available under %2$s"
+msgstr "%1$s %2$s के अंतर्गत उपलब्ध है"
+
+#: assets/build/portals-app.js:55
+msgid "Got it, reopen the announcement"
+msgstr "समझ गया, घोषणा को फिर से खोलें"
+
+#: assets/build/portals-app.js:55
+msgid "Show me"
+msgstr "मुझे दिखाओ"
+
+#: assets/build/portals-app.js:55
+msgid "Read the docs"
+msgstr "दस्तावेज़ पढ़ें"
+
+#. translators: %d: page number.
+#: assets/build/portals-app.js:56
+msgid "Go to page %d"
+msgstr "पृष्ठ %d पर जाएं"
+
+#. translators: 1: current page number, 2: total pages.
+#: assets/build/portals-app.js:57
+msgid "%1$s of %2$s"
+msgstr "%1$s में %2$s"
+
+#: assets/build/portals-app.js:57
+msgid "Skip all"
+msgstr "सभी छोड़ें"
+
+#: assets/build/portals-app.js:57
+msgid "Done"
+msgstr "हो गया"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

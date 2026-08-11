@@ -45,8 +45,8 @@ msgstr "Inhoudsgroepen"
 msgid "Topic Forums"
 msgstr "Onderwerpforums"
 
-#: admin/menu.php:190
-#: admin/menu.php:191
+#: admin/menu.php:193
+#: admin/menu.php:194
 #: admin/setup.php:65
 #: core/renderer.php:301
 #: assets/build/portals-app.js:13
@@ -74,7 +74,7 @@ msgstr "Link"
 msgid "Video"
 msgstr "Video"
 
-#: admin/menu.php:711
+#: admin/menu.php:715
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -162,8 +162,8 @@ msgstr "Instellingen succesvol opgeslagen."
 
 #: core/routers/social-logins.php:76
 #: core/routers/social-logins.php:89
-#: core/routers/social-logins.php:394
-#: core/routers/social-logins.php:407
+#: core/routers/social-logins.php:410
+#: core/routers/social-logins.php:423
 msgid "Captcha is not matching, please try again."
 msgstr "Captcha komt niet overeen, probeer het alstublieft opnieuw."
 
@@ -175,80 +175,71 @@ msgstr "Je bent succesvol ingelogd. Bezig met doorverwijzen..."
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
 msgstr "Het gebruikersnaam/wachtwoordveld is leeg. Voeg een geldige gebruikersnaam/e-mailadres toe om uw wachtwoord te resetten."
 
-#: core/routers/social-logins.php:276
-msgid "No user found. Please add a registered username/email to reset your password, else create an account."
-msgstr "Geen gebruiker gevonden. Voeg een geregistreerde gebruikersnaam/e-mail toe om uw wachtwoord te resetten, of maak een account aan."
-
 #. translators: %s: Password reset.
-#: core/routers/social-logins.php:315
+#: core/routers/social-logins.php:334
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] Wachtwoord Resetten"
 
-#: core/routers/social-logins.php:323
 #: assets/js/unminified/login.js:719
 msgid "Please check your email for the password reset link."
 msgstr "Controleer uw e-mail voor de link om uw wachtwoord opnieuw in te stellen."
 
-#: core/routers/social-logins.php:325
-msgid "Email failed to send."
-msgstr "E-mail verzenden mislukt."
-
-#: core/routers/social-logins.php:346
+#: core/routers/social-logins.php:362
 msgid "Sorry, the site admin has disabled new user registration"
 msgstr "Sorry, de sitebeheerder heeft de registratie van nieuwe gebruikers uitgeschakeld"
 
-#: core/routers/social-logins.php:360
+#: core/routers/social-logins.php:376
 msgid "Not a valid post."
 msgstr "Geen geldige post."
 
-#: core/routers/social-logins.php:417
+#: core/routers/social-logins.php:433
 msgid "Password may not contain the character \"\\\""
 msgstr "Wachtwoord mag het teken \"\\\" niet bevatten"
 
-#: core/routers/social-logins.php:422
-#: core/routers/social-logins.php:425
+#: core/routers/social-logins.php:438
+#: core/routers/social-logins.php:441
 #: inc/functions/markup.php:41
 #: inc/functions/markup.php:80
 msgid "This field is required."
 msgstr "Dit veld is verplicht."
 
-#: core/routers/social-logins.php:510
+#: core/routers/social-logins.php:526
 msgid "Error in creating user."
 msgstr "Fout bij het aanmaken van gebruiker."
 
-#: core/routers/social-logins.php:663
+#: core/routers/social-logins.php:679
 msgid "You are not registered. Please register first then try to login."
 msgstr "U bent niet geregistreerd. Registreer u eerst en probeer dan in te loggen."
 
-#: core/routers/social-logins.php:683
-#: core/routers/social-logins.php:720
-#: core/routers/social-logins.php:725
-#: core/routers/social-logins.php:831
-#: core/routers/social-logins.php:861
-#: core/routers/social-logins.php:866
+#: core/routers/social-logins.php:699
+#: core/routers/social-logins.php:736
+#: core/routers/social-logins.php:741
+#: core/routers/social-logins.php:847
+#: core/routers/social-logins.php:877
+#: core/routers/social-logins.php:882
 msgid "Invalid credentials."
 msgstr "Ongeldige inloggegevens."
 
-#: core/routers/social-logins.php:700
-#: core/routers/social-logins.php:706
-#: core/routers/social-logins.php:839
-#: core/routers/social-logins.php:846
+#: core/routers/social-logins.php:716
+#: core/routers/social-logins.php:722
+#: core/routers/social-logins.php:855
+#: core/routers/social-logins.php:862
 msgid "Token verification failed."
 msgstr "Tokenverificatie mislukt."
 
-#: core/routers/social-logins.php:741
-#: core/routers/social-logins.php:883
+#: core/routers/social-logins.php:757
+#: core/routers/social-logins.php:899
 msgid "Login Successful"
 msgstr "Inloggen geslaagd"
 
-#: core/routers/social-logins.php:747
-#: core/routers/social-logins.php:888
-#: core/routers/social-logins.php:921
+#: core/routers/social-logins.php:763
+#: core/routers/social-logins.php:904
+#: core/routers/social-logins.php:937
 msgid "Registered & Login Successful"
 msgstr "Geregistreerd & Inloggen succesvol"
 
-#: core/routers/social-logins.php:750
+#: core/routers/social-logins.php:766
 msgid "Google API Error."
 msgstr "Google API-fout."
 
@@ -582,7 +573,7 @@ msgid "Search"
 msgstr "Zoeken"
 
 #: core/shortcodes/user-profile.php:169
-#: inc/functions/functions.php:3083
+#: inc/functions/functions.php:3112
 msgid "Guest User"
 msgstr "Gastgebruiker"
 
@@ -726,8 +717,8 @@ msgstr "Portalitems"
 msgid "User Profile"
 msgstr "Gebruikersprofiel"
 
-#: admin/menu.php:166
-#: admin/menu.php:167
+#: admin/menu.php:169
+#: admin/menu.php:170
 #: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:10
@@ -824,7 +815,7 @@ msgstr "Beschrijving"
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Save"
 msgstr "Opslaan"
 
@@ -926,6 +917,7 @@ msgstr "Meer bekijken"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:31
@@ -963,8 +955,8 @@ msgstr "Deze functie vereist PrestoPlayer Pro. Upgrade naar PrestoPlayer Pro om 
 msgid "The content will be available in"
 msgstr "De inhoud zal beschikbaar zijn in"
 
-#: admin/menu.php:182
-#: admin/menu.php:183
+#: admin/menu.php:185
+#: admin/menu.php:186
 #: core/renderer.php:289
 #: core/shortcodes/home-content.php:906
 #: core/shortcodes/home-content.php:1112
@@ -1093,10 +1085,11 @@ msgstr "Bericht delen"
 #: templates/quick-view/post.php:141
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:55
 msgid "Close"
 msgstr "Sluiten"
 
-#: admin/menu.php:214
+#: admin/menu.php:217
 #: core/renderer.php:241
 #: assets/build/portals-app.js:52
 msgid "Dashboard"
@@ -1208,11 +1201,11 @@ msgid "Excerpt"
 msgstr "Uittreksel"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Full Width"
 msgstr "Volledige breedte"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Width"
 msgstr "Smalle Breedte"
 
@@ -1231,13 +1224,13 @@ msgstr "Pictogram invoegen"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saving…"
 msgstr "Opslaan…"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saved"
 msgstr "Opgeslagen"
 
@@ -1248,13 +1241,13 @@ msgstr "Instellingen succesvol opgeslagen!"
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Failed to Save."
 msgstr "Opslaan mislukt."
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Error updating settings: "
 msgstr "Fout bij het bijwerken van instellingen:"
 
@@ -1262,14 +1255,15 @@ msgstr "Fout bij het bijwerken van instellingen:"
 #: inc/functions/functions.php:959
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:31
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: core/routers/onboarding.php:556
-#: core/routers/onboarding.php:559
+#: core/routers/onboarding.php:565
+#: core/routers/onboarding.php:568
 #: assets/build/editor-app.js:1
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
@@ -1322,6 +1316,7 @@ msgstr "Ruimte Titel"
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:57
 msgid "Back"
 msgstr "Terug"
 
@@ -1383,19 +1378,19 @@ msgstr "Selecteer inlogpagina"
 msgid "Select Registration Page"
 msgstr "Selecteer Registratiepagina"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Type"
 msgstr "Globaal containertype"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Container Width"
 msgstr "Smalle Containerbreedte"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Course Container Width"
 msgstr "Cursuscontainerbreedte"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Container Spacing"
 msgstr "Containerafstand"
 
@@ -1407,19 +1402,19 @@ msgstr "Selecteer kleur"
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "Opnieuw instellen"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global"
 msgstr "Wereldwijd"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary color is used as secondary purposes under the portal."
 msgstr "Secundaire kleur wordt gebruikt voor secundaire doeleinden onder het portaal."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content background color is for mainly content background color of the portal."
 msgstr "De achtergrondkleur van de inhoud is voornamelijk voor de achtergrondkleur van de inhoud van het portaal."
 
@@ -1542,11 +1537,11 @@ msgstr "Geactiveerd"
 msgid "Text Labels"
 msgstr "Tekstlabels"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Layout"
 msgstr "Indeling"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Colors"
 msgstr "Kleuren"
 
@@ -1961,6 +1956,7 @@ msgid "Angle"
 msgstr "Hoek"
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:13
 msgid "Processing…"
 msgstr "Bezig met verwerken…"
 
@@ -2498,7 +2494,7 @@ msgstr "Configureer de Facebook-app-instellingen vanaf"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "here"
 msgstr "hier"
 
@@ -2711,7 +2707,7 @@ msgstr "HTML Ondersteund"
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note:"
 msgstr "Opmerking:"
 
@@ -2879,8 +2875,8 @@ msgstr "Ongeldige autorisatie"
 msgid "Invalid post type."
 msgstr "Ongeldig berichttype."
 
-#: admin/menu.php:199
-#: admin/menu.php:200
+#: admin/menu.php:202
+#: admin/menu.php:203
 #: inc/modules/learn/chapters.php:127
 #: assets/build/portals-app.js:35
 msgid "Customize Portal"
@@ -3026,8 +3022,8 @@ msgstr "Moderne indeling"
 msgid "Thumbnail Image"
 msgstr "Miniatuurafbeelding"
 
-#: admin/menu.php:158
-#: admin/menu.php:159
+#: admin/menu.php:161
+#: admin/menu.php:162
 #: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3036,8 +3032,8 @@ msgid "Spaces"
 msgstr "Ruimtes"
 
 #. translators: %s: version number
-#: admin/menu.php:330
-#: admin/menu.php:335
+#: admin/menu.php:333
+#: admin/menu.php:338
 #, php-format
 msgid "Version %1$s or higher required!"
 msgstr "Versie %1$s of hoger vereist!"
@@ -3244,11 +3240,11 @@ msgstr "Onboarding succesvol voltooid."
 msgid "Onboarding data updated successfully."
 msgstr "Onboardinggegevens succesvol bijgewerkt."
 
-#: core/routers/onboarding.php:356
+#: core/routers/onboarding.php:365
 msgid "Invalid plugin."
 msgstr "Ongeldige plugin."
 
-#: core/routers/onboarding.php:376
+#: core/routers/onboarding.php:385
 msgid "Plugin activated successfully."
 msgstr "Plugin met succes geactiveerd."
 
@@ -3327,6 +3323,7 @@ msgstr "Schakel dit in om een \"Feeds\" pagina toe te voegen waar jouw community
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:6
+#: assets/build/portals-app.js:57
 msgid "Next"
 msgstr "Volgende"
 
@@ -3997,34 +3994,34 @@ msgstr "Incompatibele kernversie"
 msgid "Core"
 msgstr "Kern"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Width"
 msgstr "Normale breedte"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Style"
 msgstr "Globale containerstijl"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Boxed"
 msgstr "Ingebakerd"
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Unboxed"
 msgstr "Niet ingebakerd"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Container Width"
 msgstr "Normale containerbreedte"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Design Settings"
 msgstr "Ontwerpinstellingen"
 
-#: admin/menu.php:174
-#: admin/menu.php:175
+#: admin/menu.php:177
+#: admin/menu.php:178
 #: core/renderer.php:277
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
@@ -4463,13 +4460,13 @@ msgstr "Uiterlijk"
 
 #: core/blocks/interactivity/build/Switcher/view.php:33
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark"
 msgstr "Donker"
 
 #: core/blocks/interactivity/build/Switcher/view.php:32
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light"
 msgstr "Licht"
 
@@ -4677,8 +4674,8 @@ msgstr "Opmerking succesvol verwijderd!"
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ongeldig bestandstype. Alleen GIF, PNG, JPEG, JPG en WEBP zijn toegestaan."
 
-#: core/routers/social-logins.php:303
-#: core/routers/social-logins.php:306
+#: core/routers/social-logins.php:320
+#: core/routers/social-logins.php:323
 msgid "Reset your password here"
 msgstr "Reset hier uw wachtwoord"
 
@@ -5007,6 +5004,7 @@ msgstr "Overschakelen naar %s"
 #: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Resources"
 msgstr "Hulpmiddelen"
 
@@ -5029,7 +5027,7 @@ msgid "To reset your password, visit the following URL:"
 msgstr "Om uw wachtwoord opnieuw in te stellen, bezoekt u de volgende URL:"
 
 #: inc/functions/functions.php:2494
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Links"
 msgstr "Links"
 
@@ -5038,12 +5036,12 @@ msgid "Headings"
 msgstr "Koppen"
 
 #: inc/functions/functions.php:2497
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content Background"
 msgstr "Achtergrondinhoud"
 
 #: inc/functions/functions.php:2498
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Portal Background"
 msgstr "Achtergrondportaal"
 
@@ -5535,75 +5533,75 @@ msgstr "Datum niet beschikbaar"
 msgid "No resources accessed yet."
 msgstr "Nog geen bronnen geopend."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dismiss"
 msgstr "Afwijzen"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Accent"
 msgstr "Accent"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Link Hover/Active"
 msgstr "Link Hover/Actief"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Headings (H1-H6)"
 msgstr "Koppen (H1-H6)"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Body Text"
 msgstr "Lichaamstekst"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Borders"
 msgstr "Randen"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button"
 msgstr "Primaire knop"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button BG"
 msgstr "Achtergrond primaire knop"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button"
 msgstr "Secundaire knop"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button BG"
 msgstr "Achtergrond secundaire knop"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Legacy Colors Detected"
 msgstr "Oude kleuren gedetecteerd"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Using old colors? Sync Global Palette to the Light for improved experience and Dark Mode support."
 msgstr "Gebruik je oude kleuren? Synchroniseer het globale palet met de lichte modus voor een verbeterde ervaring en ondersteuning voor de donkere modus."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Please review your portal frontend and adjust template colors accordingly if needed."
 msgstr "Opmerking: Controleer je portal frontend en pas de sjabloonkleuren indien nodig aan."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Migrate"
 msgstr "Migreren"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Select Default Palette"
 msgstr "Selecteer standaard palet"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light Colors"
 msgstr "Lichte kleuren"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark Colors"
 msgstr "Donkere kleuren"
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr "Weet je niet hoe je kleuren moet instellen? Raadpleeg de definitie van 9 kleuren"
 
@@ -5696,23 +5694,8 @@ msgid "Enter reset password button label"
 msgstr "Voer reset wachtwoord knop label in"
 
 #: assets/build/portals-app.js:13
-msgid "Uploading…"
-msgstr "Uploaden…"
-
-#: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:16
 msgid "Upload failed: "
 msgstr "Uploaden mislukt:"
-
-#. translators: %1$d is the current file number, %2$d is the total number of files
-#: assets/build/portals-app.js:16
-#, js-format
-msgid "Uploaded %1$d/%2$d files"
-msgstr "Geüpload %1$d/%2$d bestanden"
-
-#: assets/build/portals-app.js:16
-msgid "Upload Files"
-msgstr "Bestanden Uploaden"
 
 #: assets/build/portals-app.js:16
 msgid "or drag and drop files to upload"
@@ -5745,7 +5728,6 @@ msgid "Select a file to view details"
 msgstr "Selecteer een bestand om details te bekijken"
 
 #: assets/build/portals-app.js:16
-#: assets/build/portals-app.js:19
 #: assets/js/unminified/post-actions.js:190
 msgid "Unknown file"
 msgstr "Onbekend bestand"
@@ -7024,7 +7006,7 @@ msgstr "Het wachtwoord dat je hebt ingevoerd voor de gebruikersnaam %1$s is onju
 msgid "Receive admin notifications"
 msgstr "Ontvang beheerdersmeldingen"
 
-#: inc/functions/functions.php:3086
+#: inc/functions/functions.php:3115
 msgid "Anonymous"
 msgstr "Anoniem"
 
@@ -7096,7 +7078,7 @@ msgstr "Laden…"
 msgid "No badges assigned."
 msgstr "Geen badges toegewezen."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Preview is disabled in the editor to prevent conflicts with color settings."
 msgstr "Voorvertoning is uitgeschakeld in de editor om conflicten met kleurinstellingen te voorkomen."
 
@@ -7745,6 +7727,7 @@ msgstr "Containerbreedte is niet van toepassing bij gebruik van de rasterindelin
 
 #: core/assets.php:293
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:35
 msgid "Select"
 msgstr "Selecteren"
@@ -7853,15 +7836,15 @@ msgstr "Selecteer specifieke gebruikersrollen of lidmaatschappen om te targeten.
 msgid "Select specific user roles to target. Leave empty to send to all users."
 msgstr "Selecteer specifieke gebruikersrollen om te targeten. Laat leeg om naar alle gebruikers te verzenden."
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr "Opmerking: Van toepassing op het type Enkele Post/Pagina ruimte en het Portaalindeling sjabloon."
 
-#: core/routers/onboarding.php:361
+#: core/routers/onboarding.php:370
 msgid "Invalid plugin path."
 msgstr "Ongeldig plugin-pad."
 
-#: admin/menu.php:207
+#: admin/menu.php:210
 msgid "SureDash Onboarding"
 msgstr "SureDash Onboarding"
 
@@ -9269,93 +9252,93 @@ msgstr "Geschiedenispagina van geraadpleegde bronnen van het lid."
 msgid "URL Endpoints"
 msgstr "URL-eindpunten"
 
-#: core/routers/onboarding.php:403
+#: core/routers/onboarding.php:412
 msgid "No spaces selected."
 msgstr "Geen ruimtes geselecteerd."
 
-#: core/routers/onboarding.php:523
+#: core/routers/onboarding.php:532
 msgid "Could not create any spaces."
 msgstr "Kon geen ruimtes aanmaken."
 
 #. translators: %d: number of spaces created
-#: core/routers/onboarding.php:533
+#: core/routers/onboarding.php:542
 #, php-format
 msgid "%d spaces created successfully."
 msgstr "%d ruimtes succesvol aangemaakt."
 
-#: core/routers/onboarding.php:550
+#: core/routers/onboarding.php:559
 msgid "Academy"
 msgstr "Academie"
 
-#: core/routers/onboarding.php:551
-#: core/routers/onboarding.php:554
+#: core/routers/onboarding.php:560
+#: core/routers/onboarding.php:563
 #: assets/build/portals-app.js:1
 msgid "Community"
 msgstr "Gemeenschap"
 
-#: core/routers/onboarding.php:552
+#: core/routers/onboarding.php:561
 msgid "Support"
 msgstr "Ondersteuning"
 
-#: core/routers/onboarding.php:553
+#: core/routers/onboarding.php:562
 msgid "Team"
 msgstr "Team"
 
-#: core/routers/onboarding.php:555
+#: core/routers/onboarding.php:564
 msgid "Organization"
 msgstr "Organisatie"
 
-#: core/routers/onboarding.php:602
+#: core/routers/onboarding.php:611
 msgid "Welcome 👋"
 msgstr "Welkom 👋"
 
-#: core/routers/onboarding.php:603
+#: core/routers/onboarding.php:612
 msgid "Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members to the most useful spaces."
 msgstr "Fijn dat je hier bent. Dit is je startpagina voor de gemeenschap — deel wat je doet, stel verwachtingen in en wijs nieuwe leden op de meest nuttige ruimtes."
 
-#: core/routers/onboarding.php:606
+#: core/routers/onboarding.php:615
 msgid "Find answers fast"
 msgstr "Vind snel antwoorden"
 
-#: core/routers/onboarding.php:607
+#: core/routers/onboarding.php:616
 msgid "Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support Forum and our team will help."
 msgstr "Blader door de meest voorkomende vragen en handleidingen hieronder. Als je niet kunt vinden wat je nodig hebt, ga dan naar het Ondersteuningsforum en ons team helpt je."
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:621
+#: core/routers/onboarding.php:630
 #, php-format
 msgid "About %s"
 msgstr "Over %s"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:622
+#: core/routers/onboarding.php:631
 msgid "Use this space to introduce members to what you do and how this section works. Replace this text with anything you like — it lives inside the regular block editor."
 msgstr "Gebruik deze ruimte om leden voor te stellen aan wat je doet en hoe deze sectie werkt. Vervang deze tekst door wat je maar wilt — het bevindt zich binnen de reguliere blokeditor."
 
-#: core/routers/onboarding.php:648
+#: core/routers/onboarding.php:657
 msgid "👋 First announcement"
 msgstr "👋 Eerste aankondiging"
 
-#: core/routers/onboarding.php:649
+#: core/routers/onboarding.php:658
 msgid "Use this space to share product updates, events, and important notices with your community. Edit or delete this post to start fresh."
 msgstr "Gebruik deze ruimte om productupdates, evenementen en belangrijke mededelingen met je gemeenschap te delen. Bewerk of verwijder deze post om opnieuw te beginnen."
 
-#: core/routers/onboarding.php:652
+#: core/routers/onboarding.php:661
 msgid "Say hello 👋"
 msgstr "Zeg hallo 👋"
 
-#: core/routers/onboarding.php:653
+#: core/routers/onboarding.php:662
 msgid "Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation any time."
 msgstr "Welkom bij de discussie! Stel jezelf voor, deel wat je hierheen heeft gebracht en voel je vrij om op elk moment een nieuw gesprek te beginnen."
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:658
+#: core/routers/onboarding.php:667
 #, php-format
 msgid "Welcome to %s"
 msgstr "Welkom bij %s"
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:659
+#: core/routers/onboarding.php:668
 msgid "This is the first post in this space. Edit or delete it, then invite members to start chatting."
 msgstr "Dit is de eerste post in deze ruimte. Bewerk of verwijder het, en nodig leden uit om te beginnen met chatten."
 
@@ -9820,6 +9803,7 @@ msgid "← Use a connected provider instead"
 msgstr "← Gebruik in plaats daarvan een verbonden provider"
 
 #: assets/build/portals-app.js:3
+#: assets/build/portals-app.js:38
 msgid "API key"
 msgstr "API-sleutel"
 
@@ -10714,6 +10698,495 @@ msgstr "Leden slaan berichten en bronnen op."
 #: assets/build/portals-app.js:3
 msgid "SureDash Pro is installed but not active. Activate it to unlock the Pro spaces."
 msgstr "SureDash Pro is geïnstalleerd maar niet actief. Activeer het om de Pro-ruimtes te ontgrendelen."
+
+#: core/routers/onboarding.php:358
+msgid "You do not have permission to activate plugins."
+msgstr "Je hebt geen toestemming om plugins te activeren."
+
+#: core/routers/social-logins.php:275
+msgid "Too many password reset requests. Please try again in a few minutes."
+msgstr "Te veel verzoeken voor het opnieuw instellen van het wachtwoord. Probeer het over een paar minuten opnieuw."
+
+#: core/routers/social-logins.php:294
+msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
+msgstr "Als er een account bestaat dat overeenkomt met die gebruikersnaam of e-mailadres, is er een link voor het opnieuw instellen van het wachtwoord verzonden. Controleer je e-mail."
+
+#: assets/build/portals-app.js:13
+msgid "Invalid server response"
+msgstr "Ongeldige serverreactie"
+
+#: assets/build/portals-app.js:13
+msgid "Network error"
+msgstr "Netwerkfout"
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Cloud"
+msgstr "Cloud"
+
+#: assets/build/portals-app.js:13
+msgid "Server"
+msgstr "Server"
+
+#: assets/build/portals-app.js:13
+msgid "Upload canceled."
+msgstr "Uploaden geannuleerd."
+
+#: assets/build/portals-app.js:13
+msgid "Saved to this server instead of Bunny.net."
+msgstr "Opgeslagen op deze server in plaats van Bunny.net."
+
+#: assets/build/portals-app.js:13
+msgid "Check your Bunny Storage settings."
+msgstr "Controleer je Bunny Storage-instellingen."
+
+#: assets/build/portals-app.js:13
+msgid "Uploading %1$d of %2$d to %3$s…"
+msgstr "Uploaden %1$d van %2$d naar %3$s…"
+
+#: assets/build/portals-app.js:13
+msgid "Uploading to %s…"
+msgstr "Uploaden naar %s…"
+
+#: assets/build/portals-app.js:13
+msgid "Sending %1$d of %2$d to Bunny.net…"
+msgstr "Verzenden %1$d van %2$d naar Bunny.net…"
+
+#: assets/build/portals-app.js:13
+msgid "Sending to Bunny.net…"
+msgstr "Verzenden naar Bunny.net…"
+
+#: assets/build/portals-app.js:13
+msgid "Processing %1$d of %2$d…"
+msgstr "Verwerken %1$d van %2$d…"
+
+#: assets/build/portals-app.js:13
+msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
+msgstr "%1$d van %2$d geüpload, %3$d mislukt: %4$s"
+
+#. translators: %d is the number of selected files.
+#: assets/build/portals-app.js:16
+msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
+msgstr "Verwijderen %d geselecteerde bestand(en)? Dit kan niet ongedaan worden gemaakt. Sommige hiervan kunnen in gebruik zijn door resource-items, en het verwijderen ervan zal die items breken."
+
+#: assets/build/portals-app.js:16
+msgid "Not available: this file's Bunny zone is not connected."
+msgstr "Niet beschikbaar: de Bunny-zone van dit bestand is niet verbonden."
+
+#: assets/build/portals-app.js:16
+msgid "Deleting"
+msgstr "Verwijderen"
+
+#: assets/build/portals-app.js:16
+msgid "Deleting…"
+msgstr "Verwijderen…"
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net (a local copy is also kept)."
+msgstr "Nieuwe clouduploads worden opgeslagen op Bunny.net (een lokale kopie wordt ook bewaard)."
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net."
+msgstr "Nieuwe clouduploads worden opgeslagen op Bunny.net."
+
+#: assets/build/portals-app.js:16
+msgid "Cloud uploads are paused, new uploads are stored on this server."
+msgstr "Clouduploads zijn gepauzeerd, nieuwe uploads worden op deze server opgeslagen."
+
+#: assets/build/portals-app.js:16
+msgid "New uploads are stored on this server (local)."
+msgstr "Nieuwe uploads worden op deze server opgeslagen (lokaal)."
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Cloud"
+msgstr "Uploaden naar Cloud"
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Server"
+msgstr "Uploaden naar Server"
+
+#: assets/build/portals-app.js:16
+msgid "Processing upload"
+msgstr "Upload verwerken"
+
+#: assets/build/portals-app.js:19
+msgid "Cloud · Bunny.net"
+msgstr "Cloud · Bunny.net"
+
+#: assets/build/portals-app.js:19
+msgid "On this server · Local"
+msgstr "Op deze server · Lokaal"
+
+#: assets/build/portals-app.js:19
+msgid "Storage"
+msgstr "Opslag"
+
+#: assets/build/portals-app.js:19
+msgid "Cloud (Bunny.net)"
+msgstr "Cloud (Bunny.net)"
+
+#: assets/build/portals-app.js:19
+msgid "Local"
+msgstr "Lokaal"
+
+#: assets/build/portals-app.js:35
+msgid "Manage Resources"
+msgstr "Beheer Bronnen"
+
+#: assets/build/portals-app.js:38
+msgid "Create new storage (recommended)"
+msgstr "Nieuwe opslag aanmaken (aanbevolen)"
+
+#: assets/build/portals-app.js:38
+msgid "Use an existing zone"
+msgstr "Gebruik een bestaande zone"
+
+#: assets/build/portals-app.js:38
+msgid "Created by SureDash"
+msgstr "Gemaakt door SureDash"
+
+#: assets/build/portals-app.js:38
+msgid "Existing zone"
+msgstr "Bestaande zone"
+
+#: assets/build/portals-app.js:38
+msgid "Request failed."
+msgstr "Verzoek mislukt."
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone connected."
+msgstr "Opslagzone verbonden."
+
+#: assets/build/portals-app.js:38
+msgid "Store Resource Library files on Bunny.net instead of your WordPress server."
+msgstr "Bewaar Resourcebibliotheekbestanden op Bunny.net in plaats van op je WordPress-server."
+
+#: assets/build/portals-app.js:38
+msgid "Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure link that expires automatically."
+msgstr "Downloads blijven beschermd. Elk verzoek wordt gecontroleerd op je machtigingen en vervolgens geleverd via een kortdurende veilige link die automatisch verloopt."
+
+#: assets/build/portals-app.js:38
+msgid "Setup mode"
+msgstr "Instellingsmodus"
+
+#: assets/build/portals-app.js:38
+msgid "Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny account."
+msgstr "Nieuwe aanmaken: SureDash voorziet in een nieuwe, volledig geconfigureerde privézone. Bestaande gebruiken: kies een zone die al op je Bunny-account staat."
+
+#: assets/build/portals-app.js:38
+msgid "files"
+msgstr "bestanden"
+
+#: assets/build/portals-app.js:38
+msgid "Cloud uploads are paused after a failure"
+msgstr "Clouduploads zijn gepauzeerd na een fout"
+
+#: assets/build/portals-app.js:38
+msgid "New resource uploads are stored on this server until the connection recovers."
+msgstr "Nieuwe resourceuploads worden op deze server opgeslagen totdat de verbinding hersteld is."
+
+#: assets/build/portals-app.js:38
+msgid "Connected"
+msgstr "Verbonden"
+
+#: assets/build/portals-app.js:38
+msgid "Storage active in"
+msgstr "Opslag actief in"
+
+#: assets/build/portals-app.js:38
+msgid "replicas"
+msgstr "replica's"
+
+#: assets/build/portals-app.js:38
+msgid "Account connected"
+msgstr "Account verbonden"
+
+#: assets/build/portals-app.js:38
+msgid "Connect your account"
+msgstr "Verbind je account"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect"
+msgstr "Ontkoppelen"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny account API key"
+msgstr "Bunny-account API-sleutel"
+
+#: assets/build/portals-app.js:38
+msgid "Paste your account API key"
+msgstr "Plak je account API-sleutel"
+
+#: assets/build/portals-app.js:38
+msgid "Find this in your Bunny dashboard under Account › API. Stored on your server; used only to manage storage."
+msgstr "Vind dit in je Bunny-dashboard onder Account › API. Opgeslagen op je server; alleen gebruikt om opslag te beheren."
+
+#: assets/build/portals-app.js:38
+msgid "Connected to Bunny.net."
+msgstr "Verbonden met Bunny.net."
+
+#: assets/build/portals-app.js:38
+msgid "Bunny didn't accept this key. Paste the account API key from dash.bunny.net → Account Settings → API."
+msgstr "Bunny heeft deze sleutel niet geaccepteerd. Plak de account API-sleutel van dash.bunny.net → Accountinstellingen → API."
+
+#: assets/build/portals-app.js:38
+msgid "Enter your Bunny account API key to connect."
+msgstr "Voer uw Bunny-account API-sleutel in om verbinding te maken."
+
+#: assets/build/portals-app.js:38
+msgid "Connect"
+msgstr "Verbinden"
+
+#: assets/build/portals-app.js:38
+msgid "Storage connected"
+msgstr "Opslag verbonden"
+
+#: assets/build/portals-app.js:38
+msgid "Set up storage"
+msgstr "Opslag instellen"
+
+#: assets/build/portals-app.js:38
+msgid "Available after your account is connected."
+msgstr "Beschikbaar nadat uw account is verbonden."
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect storage"
+msgstr "Verbreek opslag"
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone"
+msgstr "Opslagzone"
+
+#: assets/build/portals-app.js:38
+msgid "Main region"
+msgstr "Hoofregio"
+
+#: assets/build/portals-app.js:38
+msgid "Replicas"
+msgstr "Replica's"
+
+#: assets/build/portals-app.js:38
+msgid "Main storage region"
+msgstr "Hoofdstorage regio"
+
+#: assets/build/portals-app.js:38
+msgid "The main region can't be changed after setup."
+msgstr "De hoofregio kan niet worden gewijzigd na de installatie."
+
+#: assets/build/portals-app.js:38
+msgid "Replication regions (optional)"
+msgstr "Replicatieregio's (optioneel)"
+
+#: assets/build/portals-app.js:38
+msgid "None selected"
+msgstr "Geen geselecteerd"
+
+#: assets/build/portals-app.js:38
+msgid "Each replica is billed separately and can't be removed once added."
+msgstr "Elke replica wordt afzonderlijk gefactureerd en kan niet worden verwijderd zodra deze is toegevoegd."
+
+#: assets/build/portals-app.js:38
+msgid "Bunny storage created."
+msgstr "Bunny-opslag aangemaakt."
+
+#: assets/build/portals-app.js:38
+msgid "Create storage"
+msgstr "Opslag aanmaken"
+
+#: assets/build/portals-app.js:38
+msgid "A brand-new private storage zone and delivery zone are always created. Existing zones are never reused."
+msgstr "Er wordt altijd een gloednieuwe privé-opslagzone en leveringszone aangemaakt. Bestaande zones worden nooit hergebruikt."
+
+#: assets/build/portals-app.js:38
+msgid "Select a storage zone…"
+msgstr "Selecteer een opslagzone…"
+
+#: assets/build/portals-app.js:38
+msgid "No storage zones found on this Bunny account."
+msgstr "Geen opslagzones gevonden op dit Bunny-account."
+
+#: assets/build/portals-app.js:38
+msgid "Delivery (pull) zone"
+msgstr "Levering (pull) zone"
+
+#: assets/build/portals-app.js:38
+msgid "Select a pull zone…"
+msgstr "Selecteer een pull zone…"
+
+#: assets/build/portals-app.js:38
+msgid "Required settings on your zone"
+msgstr "Vereiste instellingen op uw zone"
+
+#: assets/build/portals-app.js:38
+msgid "SureDash never creates or changes anything on your existing zones. To connect, the storage zone must already have:"
+msgstr "SureDash maakt nooit iets aan of wijzigt iets op uw bestaande zones. Om verbinding te maken, moet de opslagzone al hebben:"
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to this storage zone (required)"
+msgstr "Een leverings (pull) zone gekoppeld aan deze opslagzone (vereist)"
+
+#: assets/build/portals-app.js:38
+msgid "Pull zone is active, not suspended or disabled (required)"
+msgstr "Pull zone is actief, niet geschorst of uitgeschakeld (vereist)"
+
+#: assets/build/portals-app.js:38
+msgid "Token Authentication enabled to keep files private (required)"
+msgstr "Token-authenticatie ingeschakeld om bestanden privé te houden (vereist)"
+
+#: assets/build/portals-app.js:38
+msgid "Download edge rule to force file downloads (optional)"
+msgstr "Download edge-regel om bestanddownloads af te dwingen (optioneel)"
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to the storage zone (required)"
+msgstr "Een leverings (pull) zone gekoppeld aan de opslagzone (vereist)"
+
+#: assets/build/portals-app.js:38
+msgid "A download edge rule to force file downloads (optional)"
+msgstr "Een download edge-regel om bestanddownloads af te dwingen (optioneel)"
+
+#: assets/build/portals-app.js:38
+msgid "This zone has no active delivery (pull) zone"
+msgstr "Deze zone heeft geen actieve leverings (pull) zone"
+
+#: assets/build/portals-app.js:38
+msgid "If the zone already has a pull zone, re-enable it in the Bunny dashboard (it is suspended or disabled)."
+msgstr "Als de zone al een pull zone heeft, schakel deze dan opnieuw in op het Bunny-dashboard (deze is geschorst of uitgeschakeld)."
+
+#: assets/build/portals-app.js:38
+msgid "Otherwise go to CDN → Add Pull Zone, set the origin to this storage zone, and create it."
+msgstr "Ga anders naar CDN → Voeg Pull Zone toe, stel de oorsprong in op deze opslagzone en maak deze aan."
+
+#: assets/build/portals-app.js:38
+msgid "Enable Security → Token Authentication on the pull zone."
+msgstr "Schakel Beveiliging → Token-authenticatie in op de pull zone."
+
+#: assets/build/portals-app.js:38
+msgid "Come back here, re-select the zone, and connect."
+msgstr "Kom hier terug, selecteer de zone opnieuw en verbind."
+
+#: assets/build/portals-app.js:38
+msgid "Optional: make download links save the file instead of opening it"
+msgstr "Optioneel: maak downloadlinks zodat het bestand wordt opgeslagen in plaats van geopend."
+
+#: assets/build/portals-app.js:38
+msgid "Open your pull zone → Edge Rules → Add Rule."
+msgstr "Open uw pull zone → Edge-regels → Regel toevoegen."
+
+#: assets/build/portals-app.js:38
+msgid "Action: Set Response Header →"
+msgstr "Actie: Stel Response Header in →"
+
+#: assets/build/portals-app.js:38
+msgid "Condition: Request Query String matches"
+msgstr "Voorwaarde: Verzoekquerystring komt overeen"
+
+#: assets/build/portals-app.js:38
+msgid "You can connect now and add this later."
+msgstr "U kunt nu verbinden en dit later toevoegen."
+
+#: assets/build/portals-app.js:38
+msgid "Connect zone"
+msgstr "Verbind zone"
+
+#: assets/build/portals-app.js:38
+msgid "Turn on Token Authentication. This zone's files are currently public"
+msgstr "Schakel token-authenticatie in. De bestanden van deze zone zijn momenteel openbaar."
+
+#: assets/build/portals-app.js:38
+msgid "Open the pull zone in your Bunny dashboard and go to Security → Token Authentication."
+msgstr "Open de pull zone in uw Bunny-dashboard en ga naar Beveiliging → Token-authenticatie."
+
+#: assets/build/portals-app.js:38
+msgid "Enable \"Token Authentication\" and save."
+msgstr "Schakel \"Token-authenticatie\" in en sla op."
+
+#: assets/build/portals-app.js:38
+msgid "Come back here and click Connect zone again."
+msgstr "Kom hier terug en klik opnieuw op Verbind zone."
+
+#: assets/build/portals-app.js:38
+msgid "Turn on offloading"
+msgstr "Schakel offloading in"
+
+#: assets/build/portals-app.js:38
+msgid "Available after storage is connected."
+msgstr "Beschikbaar nadat de opslag is verbonden."
+
+#: assets/build/portals-app.js:38
+msgid "Store new resource files on Bunny.net"
+msgstr "Sla nieuwe resourcebestanden op Bunny.net op"
+
+#: assets/build/portals-app.js:38
+msgid "New uploads are stored on Bunny. Existing files stay where they are until you migrate them."
+msgstr "Nieuwe uploads worden opgeslagen op Bunny. Bestaande bestanden blijven waar ze zijn totdat u ze migreert."
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect Bunny account?"
+msgstr "Bunny-account ontkoppelen?"
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect this storage zone?"
+msgstr "Deze opslagzone ontkoppelen?"
+
+#: assets/build/portals-app.js:38
+msgid "Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until you reconnect."
+msgstr "Verwijdert de opgeslagen API-sleutel en schakelt het offloaden uit. Niets wordt verwijderd op Bunny, maar de bestanden blijven onbereikbaar totdat je opnieuw verbinding maakt."
+
+#: assets/build/portals-app.js:38
+msgid "Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can pick or create another zone right away."
+msgstr "Koppelt deze zone los en schakelt het offloaden uit. Niets wordt verwijderd op Bunny, en je account blijft verbonden, zodat je direct een andere zone kunt kiezen of maken."
+
+#: assets/build/portals-app.js:38
+msgid "Disconnected from Bunny.net."
+msgstr "Verbonden met Bunny.net."
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone disconnected. Create or pick another zone below."
+msgstr "Opslagzone ontkoppeld. Maak of kies een andere zone hieronder."
+
+#: assets/build/portals-app.js:38
+msgid "Not connected"
+msgstr "Niet verbonden"
+
+#: assets/build/portals-app.js:38
+msgid "Bunny.net"
+msgstr "Bunny.net"
+
+#. translators: 1: feature name, 2: its location.
+#: assets/build/portals-app.js:55
+msgid "%1$s is available under %2$s"
+msgstr "%1$s is beschikbaar onder %2$s"
+
+#: assets/build/portals-app.js:55
+msgid "Got it, reopen the announcement"
+msgstr "Snap het, heropen de aankondiging"
+
+#: assets/build/portals-app.js:55
+msgid "Show me"
+msgstr "Toon mij"
+
+#: assets/build/portals-app.js:55
+msgid "Read the docs"
+msgstr "Lees de documentatie"
+
+#. translators: %d: page number.
+#: assets/build/portals-app.js:56
+msgid "Go to page %d"
+msgstr "Ga naar pagina %d"
+
+#. translators: 1: current page number, 2: total pages.
+#: assets/build/portals-app.js:57
+msgid "%1$s of %2$s"
+msgstr "%1$s van %2$s"
+
+#: assets/build/portals-app.js:57
+msgid "Skip all"
+msgstr "Sla alles over"
+
+#: assets/build/portals-app.js:57
+msgid "Done"
+msgstr "Klaar"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

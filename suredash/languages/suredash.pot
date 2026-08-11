@@ -2,16 +2,16 @@
 # This file is distributed under the GPL v2.
 msgid ""
 msgstr ""
-"Project-Id-Version: SureDash 1.10.3\n"
+"Project-Id-Version: SureDash 1.11.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/suredash\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-29T09:41:51+00:00\n"
+"POT-Creation-Date: 2026-08-11T06:19:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: suredash\n"
 
 #. Plugin Name of the plugin
@@ -36,8 +36,8 @@ msgstr ""
 msgid "Lesson Duration (in minutes)"
 msgstr ""
 
-#: admin/menu.php:158
-#: admin/menu.php:159
+#: admin/menu.php:161
+#: admin/menu.php:162
 #: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Spaces"
 msgstr ""
 
-#: admin/menu.php:166
-#: admin/menu.php:167
+#: admin/menu.php:169
+#: admin/menu.php:170
 #: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:10
@@ -56,8 +56,8 @@ msgstr ""
 msgid "Posts"
 msgstr ""
 
-#: admin/menu.php:174
-#: admin/menu.php:175
+#: admin/menu.php:177
+#: admin/menu.php:178
 #: core/renderer.php:277
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
@@ -65,8 +65,8 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: admin/menu.php:182
-#: admin/menu.php:183
+#: admin/menu.php:185
+#: admin/menu.php:186
 #: core/renderer.php:289
 #: core/shortcodes/home-content.php:906
 #: core/shortcodes/home-content.php:1112
@@ -78,8 +78,8 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: admin/menu.php:190
-#: admin/menu.php:191
+#: admin/menu.php:193
+#: admin/menu.php:194
 #: admin/setup.php:65
 #: core/renderer.php:301
 #: assets/build/portals-app.js:13
@@ -87,31 +87,30 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: admin/menu.php:199
-#: admin/menu.php:200
+#: admin/menu.php:202
+#: admin/menu.php:203
 #: inc/modules/learn/chapters.php:127
 #: assets/build/portals-app.js:35
 msgid "Customize Portal"
 msgstr ""
 
-#: admin/menu.php:207
+#: admin/menu.php:210
 msgid "SureDash Onboarding"
 msgstr ""
 
-#: admin/menu.php:214
+#: admin/menu.php:217
 #: core/renderer.php:241
 #: assets/build/portals-app.js:52
 msgid "Dashboard"
 msgstr ""
 
 #. translators: %s: version number
-#: admin/menu.php:330
-#: admin/menu.php:335
-#, php-format
+#: admin/menu.php:333
+#: admin/menu.php:338
 msgid "Version %1$s or higher required!"
 msgstr ""
 
-#: admin/menu.php:711
+#: admin/menu.php:715
 #: inc/utils/helper.php:2242
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
@@ -119,7 +118,6 @@ msgstr ""
 
 #. translators: %s: html tags
 #: admin/notices.php:62
-#, php-format
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr ""
 
@@ -129,7 +127,6 @@ msgstr ""
 
 #. translators: %1$s: html tags, %2$s: plugin name, %3$s: html tags, %4$s: link to document, %5$s: html tags
 #: admin/notices.php:110
-#, php-format
 msgid "The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your settings. Ignore if already migrated."
 msgstr ""
 
@@ -284,13 +281,11 @@ msgstr ""
 
 #. translators: %1$s: file name, %2$s: allowed file types
 #: core/assets.php:131
-#, php-format
 msgid "File \"%1$s\" has an invalid type. Please upload %2$s"
 msgstr ""
 
 #. translators: %1$s: file name, %2$s: maximum file size in MB
 #: core/assets.php:133
-#, php-format
 msgid "File \"%1$s\" exceeds the maximum size of %2$s MB."
 msgstr ""
 
@@ -308,13 +303,11 @@ msgstr ""
 
 #. translators: %s: list of allowed file formats
 #: core/assets.php:138
-#, php-format
 msgid "Allowed formats: %s"
 msgstr ""
 
 #. translators: %s: maximum file size in MB
 #: core/assets.php:140
-#, php-format
 msgid "Maximum file size: %s MB"
 msgstr ""
 
@@ -400,19 +393,16 @@ msgstr ""
 
 #. translators: %s: search query
 #: core/assets.php:285
-#, php-format
 msgid "Search results for \"%s\""
 msgstr ""
 
 #. translators: %d: number of results
 #: core/assets.php:287
-#, php-format
 msgid "%d result"
 msgstr ""
 
 #. translators: %d: number of results
 #: core/assets.php:289
-#, php-format
 msgid "%d results"
 msgstr ""
 
@@ -431,6 +421,7 @@ msgstr ""
 
 #: core/assets.php:293
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:35
 msgid "Select"
 msgstr ""
@@ -442,6 +433,7 @@ msgstr ""
 #: templates/quick-view/post.php:141
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:41
+#: assets/build/portals-app.js:55
 msgid "Close"
 msgstr ""
 
@@ -459,7 +451,6 @@ msgstr ""
 
 #. translators: %d: result count
 #: core/assets.php:299
-#, php-format
 msgid "View all %d"
 msgstr ""
 
@@ -532,13 +523,13 @@ msgstr ""
 
 #: core/blocks/interactivity/build/Switcher/view.php:32
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light"
 msgstr ""
 
 #: core/blocks/interactivity/build/Switcher/view.php:33
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark"
 msgstr ""
 
@@ -550,7 +541,6 @@ msgstr ""
 #. translators: %s: dark mode text
 #: core/blocks/interactivity/build/Switcher/view.php:70
 #: core/blocks/interactivity/build/Switcher/view.php:71
-#, php-format
 msgid "Switch to %s"
 msgstr ""
 
@@ -613,7 +603,6 @@ msgstr ""
 #. translators: %1$s: Password Field.
 #: core/blocks/login.php:1045
 #: core/blocks/login.php:1050
-#, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr ""
 
@@ -1048,7 +1037,7 @@ msgstr ""
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "here"
 msgstr ""
 
@@ -1092,7 +1081,6 @@ msgstr ""
 #: core/routers/misc.php:385
 #: core/routers/misc.php:433
 #: core/shortcodes/home-content.php:765
-#, php-format
 msgid "%1$s • %2$s"
 msgstr ""
 
@@ -1121,26 +1109,22 @@ msgstr ""
 
 #. translators: 1: Post title, 2: Restriction type
 #: core/integrations/sure-members.php:850
-#, php-format
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: 1: user name, 2: portal name
 #: core/notifier/admin-notifier.php:52
 #: core/notifier/admin-notifier.php:189
-#, php-format
 msgid "%1$s has registered on %2$s."
 msgstr ""
 
 #. translators: %1$s: user, %2$s: topic
 #: core/notifier/admin-notifier.php:59
-#, php-format
 msgid "New post from %1$s \"%2$s\""
 msgstr ""
 
 #. translators: 1: user name, 2: number of other users, 3: portal name
 #: core/notifier/admin-notifier.php:192
-#, php-format
 msgid "%1$s and %2$s other registered on %3$s."
 msgid_plural "%1$s and %2$s others registered on %3$s."
 msgstr[0] ""
@@ -1151,13 +1135,11 @@ msgstr[1] ""
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
 #: inc/functions/functions.php:2738
-#, php-format
 msgid "%s ago"
 msgstr ""
 
 #. translators: %s: space name
 #: core/notifier/common-notifier.php:51
-#, php-format
 msgid "The space \"%s\" has been created."
 msgstr ""
 
@@ -1167,7 +1149,6 @@ msgstr ""
 
 #. translators: 1: commenter name, 2: number of other commenters, 3: post title
 #: core/notifier/common-notifier.php:515
-#, php-format
 msgid "%1$s and %2$s other commented on your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others commented on your post \"%3$s\"."
 msgstr[0] ""
@@ -1175,7 +1156,6 @@ msgstr[1] ""
 
 #. translators: 1: liker name, 2: number of other likers, 3: comment excerpt
 #: core/notifier/common-notifier.php:620
-#, php-format
 msgid "%1$s and %2$s other liked your comment \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your comment \"%3$s\"."
 msgstr[0] ""
@@ -1183,7 +1163,6 @@ msgstr[1] ""
 
 #. translators: 1: liker name, 2: number of other likers, 3: post title
 #: core/notifier/common-notifier.php:628
-#, php-format
 msgid "%1$s and %2$s other liked your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your post \"%3$s\"."
 msgstr[0] ""
@@ -1191,13 +1170,11 @@ msgstr[1] ""
 
 #. translators: %s: topic title
 #: core/notifier/user-notifier.php:60
-#, php-format
 msgid "Your topic \"%s\" has been approved."
 msgstr ""
 
 #. translators: 1: mentioner name, 2: topic or comment link
 #: core/notifier/user-notifier.php:68
-#, php-format
 msgid "%1$s mentioned you in a %2$s."
 msgstr ""
 
@@ -1296,7 +1273,6 @@ msgstr ""
 
 #. translators: %s: space name
 #: core/routers/backend.php:423
-#, php-format
 msgid "This forum group is created for the space: %s"
 msgstr ""
 
@@ -1415,7 +1391,6 @@ msgstr ""
 
 #. translators: %s: original post title
 #: core/routers/backend.php:1446
-#, php-format
 msgid "%s - Copy"
 msgstr ""
 
@@ -1573,7 +1548,6 @@ msgstr ""
 
 #. translators: %d: number of deleted triggers
 #: core/routers/emails.php:249
-#, php-format
 msgid "%d email trigger deleted successfully."
 msgid_plural "%d email triggers deleted successfully."
 msgstr[0] ""
@@ -1581,7 +1555,6 @@ msgstr[1] ""
 
 #. translators: %d: number of failed deletions
 #: core/routers/emails.php:261
-#, php-format
 msgid "%d trigger failed to delete."
 msgid_plural "%d triggers failed to delete."
 msgstr[0] ""
@@ -1607,13 +1580,11 @@ msgstr ""
 
 #. translators: %s: Site name
 #: core/routers/misc.php:788
-#, php-format
 msgid "Test Email from %s"
 msgstr ""
 
 #. translators: %1$s: User name, %2$s: Site name
 #: core/routers/misc.php:804
-#, php-format
 msgid ""
 "Hi %1$s,\n"
 "\t\t\t\t\tThis is a test email from %2$s to verify your email notification settings are working correctly.\n"
@@ -1755,113 +1726,114 @@ msgstr ""
 msgid "Failed to encode subscription payload."
 msgstr ""
 
-#: core/routers/onboarding.php:356
+#: core/routers/onboarding.php:358
+msgid "You do not have permission to activate plugins."
+msgstr ""
+
+#: core/routers/onboarding.php:365
 msgid "Invalid plugin."
 msgstr ""
 
-#: core/routers/onboarding.php:361
+#: core/routers/onboarding.php:370
 msgid "Invalid plugin path."
 msgstr ""
 
-#: core/routers/onboarding.php:376
+#: core/routers/onboarding.php:385
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: core/routers/onboarding.php:403
+#: core/routers/onboarding.php:412
 msgid "No spaces selected."
 msgstr ""
 
-#: core/routers/onboarding.php:523
+#: core/routers/onboarding.php:532
 msgid "Could not create any spaces."
 msgstr ""
 
 #. translators: %d: number of spaces created
-#: core/routers/onboarding.php:533
-#, php-format
+#: core/routers/onboarding.php:542
 msgid "%d spaces created successfully."
 msgstr ""
 
-#: core/routers/onboarding.php:550
+#: core/routers/onboarding.php:559
 msgid "Academy"
 msgstr ""
 
-#: core/routers/onboarding.php:551
-#: core/routers/onboarding.php:554
+#: core/routers/onboarding.php:560
+#: core/routers/onboarding.php:563
 #: assets/build/portals-app.js:1
 msgid "Community"
 msgstr ""
 
-#: core/routers/onboarding.php:552
+#: core/routers/onboarding.php:561
 msgid "Support"
 msgstr ""
 
-#: core/routers/onboarding.php:553
+#: core/routers/onboarding.php:562
 msgid "Team"
 msgstr ""
 
-#: core/routers/onboarding.php:555
+#: core/routers/onboarding.php:564
 msgid "Organization"
 msgstr ""
 
-#: core/routers/onboarding.php:556
-#: core/routers/onboarding.php:559
+#: core/routers/onboarding.php:565
+#: core/routers/onboarding.php:568
 #: assets/build/editor-app.js:1
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "General"
 msgstr ""
 
-#: core/routers/onboarding.php:602
+#: core/routers/onboarding.php:611
 msgid "Welcome 👋"
 msgstr ""
 
-#: core/routers/onboarding.php:603
+#: core/routers/onboarding.php:612
 msgid "Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members to the most useful spaces."
 msgstr ""
 
-#: core/routers/onboarding.php:606
+#: core/routers/onboarding.php:615
 msgid "Find answers fast"
 msgstr ""
 
-#: core/routers/onboarding.php:607
+#: core/routers/onboarding.php:616
 msgid "Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support Forum and our team will help."
 msgstr ""
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:621
-#, php-format
+#: core/routers/onboarding.php:630
 msgid "About %s"
 msgstr ""
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:622
+#: core/routers/onboarding.php:631
 msgid "Use this space to introduce members to what you do and how this section works. Replace this text with anything you like — it lives inside the regular block editor."
 msgstr ""
 
-#: core/routers/onboarding.php:648
+#: core/routers/onboarding.php:657
 msgid "👋 First announcement"
 msgstr ""
 
-#: core/routers/onboarding.php:649
+#: core/routers/onboarding.php:658
 msgid "Use this space to share product updates, events, and important notices with your community. Edit or delete this post to start fresh."
 msgstr ""
 
-#: core/routers/onboarding.php:652
+#: core/routers/onboarding.php:661
 msgid "Say hello 👋"
 msgstr ""
 
-#: core/routers/onboarding.php:653
+#: core/routers/onboarding.php:662
 msgid "Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation any time."
 msgstr ""
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:658
-#, php-format
+#: core/routers/onboarding.php:667
 msgid "Welcome to %s"
 msgstr ""
 
 #. translators: %s: space name
-#: core/routers/onboarding.php:659
+#: core/routers/onboarding.php:668
 msgid "This is the first post in this space. Edit or delete it, then invite members to start chatting."
 msgstr ""
 
@@ -1871,14 +1843,13 @@ msgstr ""
 
 #. translators: %d: minimum number of characters.
 #: core/routers/search.php:88
-#, php-format
 msgid "Search query must be at least %d characters."
 msgstr ""
 
 #: core/routers/social-logins.php:76
 #: core/routers/social-logins.php:89
-#: core/routers/social-logins.php:394
-#: core/routers/social-logins.php:407
+#: core/routers/social-logins.php:410
+#: core/routers/social-logins.php:423
 msgid "Captcha is not matching, please try again."
 msgstr ""
 
@@ -1888,7 +1859,6 @@ msgstr ""
 
 #. translators: %1$s: Username, %2$s: Forgot password link.
 #: core/routers/social-logins.php:119
-#, php-format
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr ""
 
@@ -1900,85 +1870,79 @@ msgstr ""
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
 msgstr ""
 
-#: core/routers/social-logins.php:276
-msgid "No user found. Please add a registered username/email to reset your password, else create an account."
+#: core/routers/social-logins.php:275
+msgid "Too many password reset requests. Please try again in a few minutes."
 msgstr ""
 
-#: core/routers/social-logins.php:303
-#: core/routers/social-logins.php:306
+#: core/routers/social-logins.php:294
+msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
+msgstr ""
+
+#: core/routers/social-logins.php:320
+#: core/routers/social-logins.php:323
 msgid "Reset your password here"
 msgstr ""
 
 #. translators: %s: Password reset.
-#: core/routers/social-logins.php:315
-#, php-format
+#: core/routers/social-logins.php:334
 msgid "[%s] Password Reset"
 msgstr ""
 
-#: core/routers/social-logins.php:323
-#: assets/js/unminified/login.js:719
-msgid "Please check your email for the password reset link."
-msgstr ""
-
-#: core/routers/social-logins.php:325
-msgid "Email failed to send."
-msgstr ""
-
-#: core/routers/social-logins.php:346
+#: core/routers/social-logins.php:362
 msgid "Sorry, the site admin has disabled new user registration"
 msgstr ""
 
-#: core/routers/social-logins.php:360
+#: core/routers/social-logins.php:376
 msgid "Not a valid post."
 msgstr ""
 
-#: core/routers/social-logins.php:417
+#: core/routers/social-logins.php:433
 msgid "Password may not contain the character \"\\\""
 msgstr ""
 
-#: core/routers/social-logins.php:422
-#: core/routers/social-logins.php:425
+#: core/routers/social-logins.php:438
+#: core/routers/social-logins.php:441
 #: inc/functions/markup.php:41
 #: inc/functions/markup.php:80
 msgid "This field is required."
 msgstr ""
 
-#: core/routers/social-logins.php:510
+#: core/routers/social-logins.php:526
 msgid "Error in creating user."
 msgstr ""
 
-#: core/routers/social-logins.php:663
+#: core/routers/social-logins.php:679
 msgid "You are not registered. Please register first then try to login."
 msgstr ""
 
-#: core/routers/social-logins.php:683
-#: core/routers/social-logins.php:720
-#: core/routers/social-logins.php:725
-#: core/routers/social-logins.php:831
-#: core/routers/social-logins.php:861
-#: core/routers/social-logins.php:866
+#: core/routers/social-logins.php:699
+#: core/routers/social-logins.php:736
+#: core/routers/social-logins.php:741
+#: core/routers/social-logins.php:847
+#: core/routers/social-logins.php:877
+#: core/routers/social-logins.php:882
 msgid "Invalid credentials."
 msgstr ""
 
-#: core/routers/social-logins.php:700
-#: core/routers/social-logins.php:706
-#: core/routers/social-logins.php:839
-#: core/routers/social-logins.php:846
+#: core/routers/social-logins.php:716
+#: core/routers/social-logins.php:722
+#: core/routers/social-logins.php:855
+#: core/routers/social-logins.php:862
 msgid "Token verification failed."
 msgstr ""
 
-#: core/routers/social-logins.php:741
-#: core/routers/social-logins.php:883
+#: core/routers/social-logins.php:757
+#: core/routers/social-logins.php:899
 msgid "Login Successful"
 msgstr ""
 
-#: core/routers/social-logins.php:747
-#: core/routers/social-logins.php:888
-#: core/routers/social-logins.php:921
+#: core/routers/social-logins.php:763
+#: core/routers/social-logins.php:904
+#: core/routers/social-logins.php:937
 msgid "Registered & Login Successful"
 msgstr ""
 
-#: core/routers/social-logins.php:750
+#: core/routers/social-logins.php:766
 msgid "Google API Error."
 msgstr ""
 
@@ -1994,6 +1958,7 @@ msgstr ""
 #: inc/services/search/search-response-builder.php:131
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:35
+#: assets/build/portals-app.js:38
 msgid "Resources"
 msgstr ""
 
@@ -2078,7 +2043,7 @@ msgstr ""
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr ""
 
@@ -2120,7 +2085,6 @@ msgstr ""
 
 #. translators: %s: Space group name
 #: core/shortcodes/navigation.php:179
-#, php-format
 msgid "Toggle %s group"
 msgstr ""
 
@@ -2183,7 +2147,6 @@ msgstr ""
 #: core/shortcodes/single-content.php:341
 #: templates/quick-view/post.php:67
 #: templates/single/post.php:83
-#, php-format
 msgid "Post author %s"
 msgstr ""
 
@@ -2219,6 +2182,7 @@ msgstr ""
 #: inc/functions/functions.php:959
 #: templates/single/post.php:171
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:31
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
@@ -2239,7 +2203,7 @@ msgid "Login"
 msgstr ""
 
 #: core/shortcodes/user-profile.php:169
-#: inc/functions/functions.php:3083
+#: inc/functions/functions.php:3112
 msgid "Guest User"
 msgstr ""
 
@@ -2301,7 +2265,6 @@ msgstr ""
 
 #. translators: %s is the page title
 #: inc/compatibility/page-builder.php:345
-#, php-format
 msgid "Edit %1$s with %2$s"
 msgstr ""
 
@@ -2325,7 +2288,6 @@ msgstr ""
 
 #. translators: 1: date, 2: time
 #: inc/functions/functions.php:901
-#, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
@@ -2365,7 +2327,7 @@ msgid "Branding"
 msgstr ""
 
 #: inc/functions/functions.php:2494
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Links"
 msgstr ""
 
@@ -2379,12 +2341,12 @@ msgid "Text"
 msgstr ""
 
 #: inc/functions/functions.php:2497
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content Background"
 msgstr ""
 
 #: inc/functions/functions.php:2498
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Portal Background"
 msgstr ""
 
@@ -2402,7 +2364,6 @@ msgstr ""
 
 #. translators: %1$d: hours, %2$d: minutes
 #: inc/functions/functions.php:2669
-#, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
 msgstr[0] ""
@@ -2410,7 +2371,6 @@ msgstr[1] ""
 
 #. translators: %d: hours
 #: inc/functions/functions.php:2673
-#, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
 msgstr[0] ""
@@ -2418,7 +2378,6 @@ msgstr[1] ""
 
 #. translators: %d: minutes
 #: inc/functions/functions.php:2677
-#, php-format
 msgid "%d min"
 msgid_plural "%d mins"
 msgstr[0] ""
@@ -2426,11 +2385,10 @@ msgstr[1] ""
 
 #. translators: %s: Discussion space name
 #: inc/functions/functions.php:2760
-#, php-format
 msgid "in %s"
 msgstr ""
 
-#: inc/functions/functions.php:3086
+#: inc/functions/functions.php:3115
 msgid "Anonymous"
 msgstr ""
 
@@ -2494,7 +2452,6 @@ msgstr ""
 #. translators: %s: number of lessons.
 #: inc/functions/markup.php:588
 #: inc/functions/markup.php:695
-#, php-format
 msgid "%s lesson"
 msgid_plural "%s lessons"
 msgstr[0] ""
@@ -2503,7 +2460,6 @@ msgstr[1] ""
 #. translators: %s: number of quizzes.
 #: inc/functions/markup.php:594
 #: inc/functions/markup.php:700
-#, php-format
 msgid "%s quiz"
 msgid_plural "%s quizzes"
 msgstr[0] ""
@@ -2512,7 +2468,6 @@ msgstr[1] ""
 #. translators: %s: number of threads.
 #: inc/functions/markup.php:600
 #: inc/functions/markup.php:659
-#, php-format
 msgid "%s thread"
 msgid_plural "%s threads"
 msgstr[0] ""
@@ -2520,7 +2475,6 @@ msgstr[1] ""
 
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #: inc/functions/markup.php:688
-#, php-format
 msgid "%s module"
 msgid_plural "%s modules"
 msgstr[0] ""
@@ -2680,7 +2634,6 @@ msgstr ""
 
 #. translators: %1$s: portal name, %2$s: post title.
 #: inc/modules/email-notifications/email-triggers.php:278
-#, php-format
 msgid "[%1$s] New community post: %2$s"
 msgstr ""
 
@@ -2711,7 +2664,6 @@ msgstr ""
 
 #. translators: %1$s: author name, %2$s: portal name.
 #: inc/modules/email-notifications/emails.php:128
-#, php-format
 msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
 msgstr ""
 
@@ -2721,7 +2673,6 @@ msgstr ""
 
 #. translators: %s: URL to the email notification settings.
 #: inc/modules/email-notifications/emails.php:149
-#, php-format
 msgid "You are receiving this because you are an admin or portal manager. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash email settings."
 msgstr ""
 
@@ -3042,7 +2993,6 @@ msgstr ""
 
 #. translators: %d: number of image attachments.
 #: inc/services/search/search-comments-service.php:467
-#, php-format
 msgid "%d attachment"
 msgid_plural "%d attachments"
 msgstr[0] ""
@@ -3085,7 +3035,6 @@ msgstr ""
 
 #. translators: %s: month and year the user registered (e.g., "Feb 2025").
 #: inc/services/search/search-people-service.php:180
-#, php-format
 msgid "joined %s"
 msgstr ""
 
@@ -3121,7 +3070,6 @@ msgstr ""
 
 #. translators: %d: number of lessons in the course.
 #: inc/services/search/search-posts-service.php:568
-#, php-format
 msgid "%d lesson"
 msgid_plural "%d lessons"
 msgstr[0] ""
@@ -3129,7 +3077,6 @@ msgstr[1] ""
 
 #. translators: %d: number of files in the resource library.
 #: inc/services/search/search-posts-service.php:577
-#, php-format
 msgid "%d file"
 msgid_plural "%d files"
 msgstr[0] ""
@@ -3137,7 +3084,6 @@ msgstr[1] ""
 
 #. translators: %d: number of events in the event space.
 #: inc/services/search/search-posts-service.php:586
-#, php-format
 msgid "%d event"
 msgid_plural "%d events"
 msgstr[0] ""
@@ -3145,7 +3091,6 @@ msgstr[1] ""
 
 #. translators: %d: number of spaces curated in a collection.
 #: inc/services/search/search-posts-service.php:599
-#, php-format
 msgid "%d space"
 msgid_plural "%d spaces"
 msgstr[0] ""
@@ -3189,7 +3134,6 @@ msgstr ""
 
 #. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
 #: inc/templator/service.php:680
-#, php-format
 msgid "SureDash: %s"
 msgstr ""
 
@@ -3509,7 +3453,7 @@ msgstr ""
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Save"
 msgstr ""
 
@@ -3609,6 +3553,7 @@ msgstr ""
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:31
@@ -3669,25 +3614,21 @@ msgstr ""
 
 #. translators: 1: commenter name, 2: replied-to comment link
 #: inc/utils/labels.php:148
-#, php-format
 msgid "%1$s has replied to your %2$s."
 msgstr ""
 
 #. translators: 1: commenter name, 2: post title
 #: inc/utils/labels.php:150
-#, php-format
 msgid "%1$s commented on your post \"%2$s\"."
 msgstr ""
 
 #. translators: 1: liker name, 2: post title
 #: inc/utils/labels.php:152
-#, php-format
 msgid "%1$s liked your post \"%2$s\"."
 msgstr ""
 
 #. translators: 1: liker name, 2: comment excerpt
 #: inc/utils/labels.php:154
-#, php-format
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr ""
 
@@ -3955,13 +3896,11 @@ msgstr ""
 
 #. translators: 1: user display name, 2: portal name (e.g. site/community name)
 #: templates/parts/logged-in-screen.php:55
-#, php-format
 msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
 msgstr ""
 
 #. translators: %s: portal name (e.g. site/community name)
 #: templates/parts/logged-in-screen.php:65
-#, php-format
 msgid "Go to %s"
 msgstr ""
 
@@ -4127,7 +4066,6 @@ msgstr ""
 #: assets/build/editor-app.js:4
 #: assets/build/editor-app.js:5
 #: assets/build/editor-app.js:6
-#, js-format
 msgid "%s units"
 msgstr ""
 
@@ -4377,6 +4315,7 @@ msgid "Confirm"
 msgstr ""
 
 #: assets/build/editor-app.js:6
+#: assets/build/portals-app.js:13
 msgid "Processing…"
 msgstr ""
 
@@ -5239,7 +5178,7 @@ msgstr ""
 #: assets/build/editor-app.js:6
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note:"
 msgstr ""
 
@@ -5701,7 +5640,6 @@ msgstr ""
 
 #. translators: 1: number of connected providers; 2: comma-separated list of connected provider names.
 #: assets/build/portals-app.js:2
-#, js-format
 msgid "%1$d AI provider connected via Settings → Connectors: %2$s."
 msgid_plural "%1$d AI providers connected via Settings → Connectors: %2$s."
 msgstr[0] ""
@@ -5717,7 +5655,6 @@ msgstr ""
 
 #. translators: %s: provider display name (e.g. "OpenAI").
 #: assets/build/portals-app.js:3
-#, js-format
 msgid "Using the %s key from Settings → Connectors for this generation."
 msgstr ""
 
@@ -5738,6 +5675,7 @@ msgid "← Use a connected provider instead"
 msgstr ""
 
 #: assets/build/portals-app.js:3
+#: assets/build/portals-app.js:38
 msgid "API key"
 msgstr ""
 
@@ -5765,6 +5703,7 @@ msgstr ""
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:57
 msgid "Back"
 msgstr ""
 
@@ -5896,6 +5835,7 @@ msgstr ""
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:6
+#: assets/build/portals-app.js:57
 msgid "Next"
 msgstr ""
 
@@ -5996,21 +5936,18 @@ msgstr ""
 #. translators: %s: Plugin name
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:7
-#, js-format
 msgid "%s Plugin Activated Successfully..!"
 msgstr ""
 
 #. translators: %s: Plugin name
 #: assets/build/portals-app.js:5
 #: assets/build/portals-app.js:8
-#, js-format
 msgid "Installing %s plugin. Please wait.."
 msgstr ""
 
 #. translators: %s: Plugin name
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:9
-#, js-format
 msgid "%s plugin Installed Successfully.."
 msgstr ""
 
@@ -6084,7 +6021,6 @@ msgstr ""
 
 #. translators: %s: maximum number of spaces
 #: assets/build/portals-app.js:10
-#, js-format
 msgid "Select spaces to display on the home screen. (Maximum %s)"
 msgstr ""
 
@@ -6712,7 +6648,6 @@ msgstr ""
 
 #. translators: %s: user name
 #: assets/build/portals-app.js:11
-#, js-format
 msgid "Howdy, %s"
 msgstr ""
 
@@ -6738,13 +6673,11 @@ msgstr ""
 
 #. translators: %s: post title
 #: assets/build/portals-app.js:12
-#, js-format
 msgid "Created a new post: \"%s\""
 msgstr ""
 
 #. translators: %s: comment title
 #: assets/build/portals-app.js:13
-#, js-format
 msgid "Commented on: \"%s\""
 msgstr ""
 
@@ -6759,13 +6692,13 @@ msgstr ""
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Failed to Save."
 msgstr ""
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Error updating settings: "
 msgstr ""
 
@@ -6921,13 +6854,13 @@ msgstr ""
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saving…"
 msgstr ""
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:38
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Saved"
 msgstr ""
 
@@ -7001,7 +6934,7 @@ msgid "Narrow"
 msgstr ""
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Full Width"
 msgstr ""
 
@@ -7010,12 +6943,12 @@ msgid "Container Style"
 msgstr ""
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Boxed"
 msgstr ""
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Unboxed"
 msgstr ""
 
@@ -7338,28 +7271,110 @@ msgid "Let learners discuss this lesson in the comments."
 msgstr ""
 
 #: assets/build/portals-app.js:13
-msgid "Uploading…"
+msgid "Invalid server response"
 msgstr ""
 
 #: assets/build/portals-app.js:13
-#: assets/build/portals-app.js:16
+msgid "Network error"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Cloud"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Server"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Upload canceled."
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Saved to this server instead of Bunny.net."
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Check your Bunny Storage settings."
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Uploading %1$d of %2$d to %3$s…"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Uploading to %s…"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Sending %1$d of %2$d to Bunny.net…"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Sending to Bunny.net…"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Processing %1$d of %2$d…"
+msgstr ""
+
+#: assets/build/portals-app.js:13
+msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
+msgstr ""
+
+#: assets/build/portals-app.js:13
 msgid "Upload failed: "
 msgstr ""
 
-#. translators: %1$d is the current file number, %2$d is the total number of files
+#. translators: %d is the number of selected files.
 #: assets/build/portals-app.js:16
-#, js-format
-msgid "Uploaded %1$d/%2$d files"
+msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
 msgstr ""
 
 #: assets/build/portals-app.js:16
-#: assets/build/portals-app.js:19
 #: assets/js/unminified/post-actions.js:190
 msgid "Unknown file"
 msgstr ""
 
 #: assets/build/portals-app.js:16
-msgid "Upload Files"
+msgid "Not available: this file's Bunny zone is not connected."
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Deleting"
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Deleting…"
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net (a local copy is also kept)."
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "New cloud uploads are stored on Bunny.net."
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Cloud uploads are paused, new uploads are stored on this server."
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "New uploads are stored on this server (local)."
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Cloud"
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Upload to Server"
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Processing upload"
 msgstr ""
 
 #: assets/build/portals-app.js:16
@@ -7368,7 +7383,6 @@ msgstr ""
 
 #. translators: %d is the file count
 #: assets/build/portals-app.js:19
-#, js-format
 msgid "Showing %d files"
 msgstr ""
 
@@ -7389,6 +7403,14 @@ msgid "Upload files to get started"
 msgstr ""
 
 #: assets/build/portals-app.js:19
+msgid "Cloud · Bunny.net"
+msgstr ""
+
+#: assets/build/portals-app.js:19
+msgid "On this server · Local"
+msgstr ""
+
+#: assets/build/portals-app.js:19
 msgid "Select a file to view details"
 msgstr ""
 
@@ -7402,6 +7424,18 @@ msgstr ""
 
 #: assets/build/portals-app.js:19
 msgid "File Type"
+msgstr ""
+
+#: assets/build/portals-app.js:19
+msgid "Storage"
+msgstr ""
+
+#: assets/build/portals-app.js:19
+msgid "Cloud (Bunny.net)"
+msgstr ""
+
+#: assets/build/portals-app.js:19
+msgid "Local"
 msgstr ""
 
 #: assets/build/portals-app.js:19
@@ -7474,7 +7508,6 @@ msgstr ""
 
 #. translators: %1$s: hour, %2$s: minute, %3$s: AM/PM period
 #: assets/build/portals-app.js:21
-#, js-format
 msgid "%1$s:%2$s %3$s (Current)"
 msgstr ""
 
@@ -8002,31 +8035,26 @@ msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:23
-#, js-format
 msgid "Question %d is missing text."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:25
-#, js-format
 msgid "Question %d needs at least two options."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:27
-#, js-format
 msgid "All options in question %d need text."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:29
-#, js-format
 msgid "Mark at least one correct option for question %d."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:31
-#, js-format
 msgid "Single-choice question %d can only have one correct option."
 msgstr ""
 
@@ -8067,7 +8095,6 @@ msgstr ""
 
 #. translators: %d is the number of posts per page.
 #: assets/build/portals-app.js:34
-#, js-format
 msgid "%d Posts per page"
 msgstr ""
 
@@ -8101,7 +8128,6 @@ msgstr ""
 
 #. translators: %s: comment count
 #: assets/build/portals-app.js:35
-#, js-format
 msgid "%s comments. Click to view."
 msgstr ""
 
@@ -8540,6 +8566,10 @@ msgstr ""
 
 #: assets/build/portals-app.js:35
 msgid "To customize the Collection Space, please upgrade to the Premium version."
+msgstr ""
+
+#: assets/build/portals-app.js:35
+msgid "Manage Resources"
 msgstr ""
 
 #: assets/build/portals-app.js:35
@@ -9392,7 +9422,6 @@ msgstr ""
 
 #. translators: %1$s: first anchor tag start, %2$s: first anchor tag end, %3$s second anchor tag start, %4$s second anchor tag end, %5$s: break tag, %6$s: plugin name.
 #: assets/build/portals-app.js:38
-#, js-format
 msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
 msgstr ""
 
@@ -9457,6 +9486,318 @@ msgid "Effortlessly connect your portal with OttoKit to get a full suite of tool
 msgstr ""
 
 #: assets/build/portals-app.js:38
+msgid "Create new storage (recommended)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Use an existing zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Created by SureDash"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Existing zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Request failed."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone connected."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Store Resource Library files on Bunny.net instead of your WordPress server."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure link that expires automatically."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Setup mode"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny account."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "files"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Cloud uploads are paused after a failure"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "New resource uploads are stored on this server until the connection recovers."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Connected"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Storage active in"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "replicas"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Account connected"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Connect your account"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Bunny account API key"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Paste your account API key"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Find this in your Bunny dashboard under Account › API. Stored on your server; used only to manage storage."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Connected to Bunny.net."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Bunny didn't accept this key. Paste the account API key from dash.bunny.net → Account Settings → API."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Enter your Bunny account API key to connect."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Connect"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Storage connected"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Set up storage"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Available after your account is connected."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect storage"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Main region"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Replicas"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Main storage region"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "The main region can't be changed after setup."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Replication regions (optional)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "None selected"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Each replica is billed separately and can't be removed once added."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Bunny storage created."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Create storage"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "A brand-new private storage zone and delivery zone are always created. Existing zones are never reused."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Select a storage zone…"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "No storage zones found on this Bunny account."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Delivery (pull) zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Select a pull zone…"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Required settings on your zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "SureDash never creates or changes anything on your existing zones. To connect, the storage zone must already have:"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to this storage zone (required)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Pull zone is active, not suspended or disabled (required)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Token Authentication enabled to keep files private (required)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Download edge rule to force file downloads (optional)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "A delivery (pull) zone linked to the storage zone (required)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "A download edge rule to force file downloads (optional)"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "This zone has no active delivery (pull) zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "If the zone already has a pull zone, re-enable it in the Bunny dashboard (it is suspended or disabled)."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Otherwise go to CDN → Add Pull Zone, set the origin to this storage zone, and create it."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Enable Security → Token Authentication on the pull zone."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Come back here, re-select the zone, and connect."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Optional: make download links save the file instead of opening it"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Open your pull zone → Edge Rules → Add Rule."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Action: Set Response Header →"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Condition: Request Query String matches"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "You can connect now and add this later."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Connect zone"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Turn on Token Authentication. This zone's files are currently public"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Open the pull zone in your Bunny dashboard and go to Security → Token Authentication."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Enable \"Token Authentication\" and save."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Come back here and click Connect zone again."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Turn on offloading"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Available after storage is connected."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Store new resource files on Bunny.net"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "New uploads are stored on Bunny. Existing files stay where they are until you migrate them."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect Bunny account?"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Disconnect this storage zone?"
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until you reconnect."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can pick or create another zone right away."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Disconnected from Bunny.net."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Storage zone disconnected. Create or pick another zone below."
+msgstr ""
+
+#: assets/build/portals-app.js:38
 msgid "Google Login"
 msgstr ""
 
@@ -9517,6 +9858,10 @@ msgid "Google reCAPTCHA v3 Settings"
 msgstr ""
 
 #: assets/build/portals-app.js:38
+msgid "Not connected"
+msgstr ""
+
+#: assets/build/portals-app.js:38
 msgid "Social Login & Security"
 msgstr ""
 
@@ -9530,6 +9875,10 @@ msgstr ""
 
 #: assets/build/portals-app.js:38
 msgid "Add your Giphy API key to enable GIF support in comments. <a>Get key</a>."
+msgstr ""
+
+#: assets/build/portals-app.js:38
+msgid "Bunny.net"
 msgstr ""
 
 #: assets/build/portals-app.js:38
@@ -10125,7 +10474,6 @@ msgstr ""
 
 #. translators: %d is the number of users per page.
 #: assets/build/portals-app.js:41
-#, js-format
 msgid "%d Users per page"
 msgstr ""
 
@@ -10272,7 +10620,6 @@ msgstr ""
 
 #. translators: 1: first row index, 2: last row index, 3: total row count
 #: assets/build/portals-app.js:42
-#, js-format
 msgid "%1$s–%2$s of %3$s courses"
 msgstr ""
 
@@ -10282,7 +10629,6 @@ msgstr ""
 
 #. translators: %d: number of published courses
 #: assets/build/portals-app.js:43
-#, js-format
 msgid "%d Published"
 msgid_plural "%d Published"
 msgstr[0] ""
@@ -10290,7 +10636,6 @@ msgstr[1] ""
 
 #. translators: %d: number of draft courses
 #: assets/build/portals-app.js:44
-#, js-format
 msgid "%d Draft"
 msgid_plural "%d Drafts"
 msgstr[0] ""
@@ -10318,7 +10663,6 @@ msgstr ""
 
 #. translators: %d: number of lessons
 #: assets/build/portals-app.js:45
-#, js-format
 msgid "%d Lesson"
 msgid_plural "%d Lessons"
 msgstr[0] ""
@@ -10378,7 +10722,6 @@ msgstr ""
 
 #. translators: 1: first row index, 2: last row index, 3: total row count
 #: assets/build/portals-app.js:46
-#, js-format
 msgid "%1$s–%2$s of %3$s learners"
 msgstr ""
 
@@ -10465,7 +10808,6 @@ msgstr ""
 #. translators: %s is the pro_version number.
 #: assets/build/portals-app.js:49
 #: assets/build/portals-app.js:52
-#, js-format
 msgid "V %s"
 msgstr ""
 
@@ -10499,143 +10841,177 @@ msgstr ""
 
 #. translators: %s is the pro plugin name.
 #: assets/build/portals-app.js:55
-#, js-format
 msgid "Incompatible %s Version"
 msgstr ""
 
+#. translators: 1: feature name, 2: its location.
 #: assets/build/portals-app.js:55
+msgid "%1$s is available under %2$s"
+msgstr ""
+
+#: assets/build/portals-app.js:55
+msgid "Got it, reopen the announcement"
+msgstr ""
+
+#: assets/build/portals-app.js:55
+msgid "Show me"
+msgstr ""
+
+#: assets/build/portals-app.js:55
+msgid "Read the docs"
+msgstr ""
+
+#. translators: %d: page number.
+#: assets/build/portals-app.js:56
+msgid "Go to page %d"
+msgstr ""
+
+#. translators: 1: current page number, 2: total pages.
+#: assets/build/portals-app.js:57
+msgid "%1$s of %2$s"
+msgstr ""
+
+#: assets/build/portals-app.js:57
+msgid "Skip all"
+msgstr ""
+
+#: assets/build/portals-app.js:57
+msgid "Done"
+msgstr ""
+
+#: assets/build/portals-app.js:57
 msgid "Global Container Type"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Width"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Width"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global Container Style"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Applies only to Single Post/Page space type and Portal Layout template."
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Normal Container Width"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Narrow Container Width"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Course Container Width"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Container Spacing"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dismiss"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Global"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Accent"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Link Hover/Active"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Headings (H1-H6)"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Body Text"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Borders"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary color is used as secondary purposes under the portal."
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Content background color is for mainly content background color of the portal."
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Primary Button BG"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Secondary Button BG"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Dark Colors"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Preview is disabled in the editor to prevent conflicts with color settings."
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Legacy Colors Detected"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Using old colors? Sync Global Palette to the Light for improved experience and Dark Mode support."
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Note: Please review your portal frontend and adjust template colors accordingly if needed."
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Migrate"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Select Default Palette"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Light Colors"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Not sure how to setup colors? Refer the 9 colors definition"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Layout"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Colors"
 msgstr ""
 
-#: assets/build/portals-app.js:55
+#: assets/build/portals-app.js:57
 msgid "Design Settings"
 msgstr ""
 
@@ -10675,6 +11051,10 @@ msgstr ""
 
 #: assets/js/unminified/login.js:694
 msgid "Please enter your email."
+msgstr ""
+
+#: assets/js/unminified/login.js:719
+msgid "Please check your email for the password reset link."
 msgstr ""
 
 #: assets/js/unminified/login.js:728
@@ -10717,7 +11097,6 @@ msgstr ""
 #. translators: %s: file size in megabytes
 #: assets/js/unminified/post-actions.js:230
 #: assets/js/unminified/upload.js:389
-#, js-format
 msgid "%s MB"
 msgstr ""
 
@@ -10733,7 +11112,6 @@ msgstr ""
 #. translators: %s: field name
 #: assets/js/unminified/register.js:60
 #: assets/js/unminified/register.js:76
-#, js-format
 msgid "%s cannot be blank"
 msgstr ""
 
@@ -10744,7 +11122,6 @@ msgstr ""
 #. Translators: %s is the maximum file size in MB.
 #: assets/js/unminified/upload.js:143
 #: assets/js/unminified/upload.js:198
-#, js-format
 msgid "File size should not exceed %s MB."
 msgstr ""
 
@@ -10754,18 +11131,15 @@ msgstr ""
 
 #. Translators: %s is the maximum number of files that can be uploaded.
 #: assets/js/unminified/upload.js:247
-#, js-format
 msgid "You can only upload up to %s files."
 msgstr ""
 
 #. Translators: %s is the file name.
 #: assets/js/unminified/upload.js:400
-#, js-format
 msgid "Delete %s"
 msgstr ""
 
 #. Translators: %s is the file name.
 #: assets/js/unminified/upload.js:418
-#, js-format
 msgid "Deleted %s file"
 msgstr ""

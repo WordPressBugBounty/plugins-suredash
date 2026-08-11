@@ -607,13 +607,16 @@ class Settings {
 	/**
 	 * Encrypt the keys of the settings array.
 	 *
-	 * @param array<string, mixed> $settings The settings to encrypt.
+	 * @param array<string, mixed>    $settings The settings to encrypt.
+	 * @param array<int, string>|null $keys Optional custom key list (e.g. pro's
+	 *                                       Bunny secrets); defaults to the
+	 *                                       integration keys below.
 	 * @return array<string, mixed>
 	 * @since 0.0.1
 	 */
-	public static function encrypt_keys( $settings ) {
+	public static function encrypt_keys( $settings, $keys = null ) {
 
-		$keys_to_encrypt = [
+		$keys_to_encrypt = $keys ?? [
 			'google_token_id',
 			'google_token_secret',
 			'facebook_token_id',
@@ -643,12 +646,15 @@ class Settings {
 	/**
 	 * Decrypt the keys of the settings array.
 	 *
-	 * @param array<string, mixed> $settings The settings to decrypt.
+	 * @param array<string, mixed>    $settings The settings to decrypt.
+	 * @param array<int, string>|null $keys Optional custom key list (e.g. pro's
+	 *                                       Bunny secrets); defaults to the
+	 *                                       integration keys below.
 	 * @return array<string, mixed>
 	 * @since 0.0.1
 	 */
-	public static function decrypt_keys( $settings ) {
-		$keys_to_decrypt = [
+	public static function decrypt_keys( $settings, $keys = null ) {
+		$keys_to_decrypt = $keys ?? [
 			'google_token_id',
 			'google_token_secret',
 			'facebook_token_id',
