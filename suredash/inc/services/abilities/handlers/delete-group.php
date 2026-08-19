@@ -127,9 +127,23 @@ class Delete_Group extends Ability {
 	 * @param array<string, mixed> $params Validated parameters.
 	 */
 	public function execute( array $params ): array {
+		$term_id = absint( $params['term_id'] );
+
+		// Target guard — the router hands any ID to wp_delete_term(), so a term
+		// from another taxonomy would fail with a generic message (or, in the
+		// worst case, delete the wrong object). Verify it is a portal space
+		// group and capture its name before it is gone.
+		$target_error = $this->get_term_target_error( $term_id, SUREDASHBOARD_TAXONOMY, __( 'Group', 'suredash' ) );
+		if ( $target_error !== null ) {
+			return $target_error;
+		}
+
+		$term       = get_term( $term_id, SUREDASHBOARD_TAXONOMY );
+		$group_name = $term instanceof \WP_Term ? $term->name : '';
+
 		$this->setup_post_data(
 			[
-				'term_id' => absint( $params['term_id'] ),
+				'term_id' => $term_id,
 			]
 		);
 
@@ -140,6 +154,11 @@ class Delete_Group extends Ability {
 		);
 
 		$this->cleanup_post_data( [ 'term_id' ] );
+
+		if ( ! empty( $result['success'] ) && is_array( $result['data'] ?? null ) ) {
+			$result['data']['deleted_id']   = $term_id;
+			$result['data']['deleted_name'] = $group_name;
+		}
 
 		return $result;
 	}

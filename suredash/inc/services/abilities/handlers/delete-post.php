@@ -127,13 +127,32 @@ class Delete_Post extends Ability {
 	 * @param array<string, mixed> $params Validated parameters.
 	 */
 	public function execute( array $params ): array {
-		$request = $this->build_request();
-		$request->set_param( 'id', absint( $params['post_id'] ) );
-		$request->set_url_params( [ 'id' => absint( $params['post_id'] ) ] );
+		$post_id = absint( $params['post_id'] );
 
-		return $this->call_json_handler(
+		// Target guard — the router rejects non-community post types too, but
+		// with a generic "Invalid Post."; fail here naming the actual type, and
+		// capture the title before it is gone so the success response can echo it.
+		$target_error = $this->get_post_target_error( $post_id, SUREDASHBOARD_FEED_POST_TYPE, __( 'Post', 'suredash' ) );
+		if ( $target_error !== null ) {
+			return $target_error;
+		}
+
+		$post_title = get_the_title( $post_id );
+
+		$request = $this->build_request();
+		$request->set_param( 'id', $post_id );
+		$request->set_url_params( [ 'id' => $post_id ] );
+
+		$result = $this->call_json_handler(
 			[ MiscRoute::get_instance(), 'delete_post' ],
 			$request
 		);
+
+		if ( ! empty( $result['success'] ) && is_array( $result['data'] ?? null ) ) {
+			$result['data']['deleted_id']    = $post_id;
+			$result['data']['deleted_title'] = $post_title;
+		}
+
+		return $result;
 	}
 }

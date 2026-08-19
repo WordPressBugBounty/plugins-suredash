@@ -162,7 +162,14 @@ class Update_Space_Settings extends Ability {
 			'single_post_id'        => [
 				'type'        => 'integer',
 				'required'    => false,
-				'description' => __( 'WordPress post/page ID to display in a single_post space.', 'suredash' ),
+				'minimum'     => 1,
+				'description' => __( 'WordPress post/page ID to display in a single_post space. Setting this also switches the space to render that post, so post_render_type does not need to be sent separately. Call list-wp-posts to find the ID.', 'suredash' ),
+			],
+			'link_url'              => [
+				'type'        => 'string',
+				'required'    => false,
+				'format'      => 'uri',
+				'description' => __( 'Destination URL for a link space. Use this to set or fix where a link space points.', 'suredash' ),
 			],
 			'post_render_type'      => [
 				'type'        => 'string',
@@ -252,6 +259,24 @@ class Update_Space_Settings extends Ability {
 			return $this->get_pro_required_error( (string) sd_get_post_meta( $post_id, 'integration', true ) );
 		}
 
+		// Validate the single_post target before any field is written so a bad
+		// ID cannot leave a partial save behind. The link_url format is already
+		// enforced by the schema's "uri" format.
+		if ( isset( $params['single_post_id'] ) ) {
+			$target_id = absint( $params['single_post_id'] );
+			$target    = get_post( $target_id );
+
+			if ( ! $target || $target->post_status === 'trash' ) {
+				return $this->fail(
+					sprintf(
+						/* translators: %d: the provided post ID. */
+						__( 'single_post_id %d does not exist. Nothing was saved. Call list-wp-posts to find the correct ID.', 'suredash' ),
+						$target_id
+					)
+				);
+			}
+		}
+
 		$updated_fields = [];
 
 		// Update post title.
@@ -324,22 +349,30 @@ class Update_Space_Settings extends Ability {
 			$updated_fields[] = 'comments';
 		}
 
-		// Single post space fields.
+		// Single post space target. Writes all three metas the render path needs,
+		// so the space actually displays the post instead of rendering blank.
 		if ( isset( $params['single_post_id'] ) ) {
-			sd_update_post_meta( $post_id, 'single_post_id', absint( $params['single_post_id'] ) );
+			$this->set_single_post_target( $post_id, absint( $params['single_post_id'] ) );
 			$updated_fields[] = 'single_post_id';
+			$updated_fields[] = 'post_render_type';
 		}
 
+		// An explicit post_render_type wins over the one implied above.
 		if ( isset( $params['post_render_type'] ) ) {
 			sd_update_post_meta( $post_id, 'post_render_type', sanitize_text_field( $params['post_render_type'] ) );
 			$updated_fields[] = 'post_render_type';
+		}
+
+		if ( isset( $params['link_url'] ) ) {
+			sd_update_post_meta( $post_id, 'link_url', esc_url_raw( trim( (string) $params['link_url'] ) ) );
+			$updated_fields[] = 'link_url';
 		}
 
 		return [
 			'success' => true,
 			'data'    => [
 				'message'        => __( 'Settings updated successfully.', 'suredash' ),
-				'updated_fields' => $updated_fields,
+				'updated_fields' => array_values( array_unique( $updated_fields ) ),
 			],
 		];
 	}

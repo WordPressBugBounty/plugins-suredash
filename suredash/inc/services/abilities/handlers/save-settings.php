@@ -10,6 +10,7 @@ namespace SureDashboard\Inc\Services\Abilities\Handlers;
 
 use SureDashboard\Core\Routers\Backend as BackendRoute;
 use SureDashboard\Inc\Services\Abilities\Ability;
+use SureDashboard\Inc\Utils\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -374,15 +375,83 @@ class Save_Settings extends Ability {
 		$settings = $params['settings'];
 
 		if ( ! is_array( $settings ) ) {
-			return [
-				'success' => false,
-				'data'    => [ 'message' => __( 'Settings must be an object.', 'suredash' ) ],
-			];
+			return $this->fail( __( 'Settings must be an object.', 'suredash' ) );
+		}
+
+		// Unknown keys (typos like "accent_colour") would be stored but never
+		// read, so the change silently vanishes. Reject them up front.
+		$dataset      = Settings::get_settings_dataset();
+		$unknown_keys = array_values( array_diff( array_keys( $settings ), array_keys( $dataset ) ) );
+
+		if ( ! empty( $unknown_keys ) ) {
+			return $this->fail(
+				sprintf(
+					/* translators: %s: comma-separated setting keys. */
+					__( 'Nothing saved: unknown settings keys: %s. Check for typos, and call get-settings to see the valid keys.', 'suredash' ),
+					implode( ', ', $unknown_keys )
+				)
+			);
+		}
+
+		// Validate every value against the dataset's own declared type and enum,
+		// so the rules live with the settings definition instead of being
+		// duplicated here and drifting. The router's sanitizer would otherwise
+		// coerce bad values silently (an invalid layout string, an array cast to 0).
+		$validation_errors = [];
+
+		foreach ( $settings as $key => $value ) {
+			$declared_type = (string) ( $dataset[ $key ]['type'] ?? 'string' );
+
+			switch ( $declared_type ) {
+				case 'boolean':
+					$valid = $this->check_type( $value, 'boolean' );
+					break;
+				case 'integer':
+				case 'number':
+					$valid = is_int( $value ) || is_float( $value ) || ( is_string( $value ) && is_numeric( $value ) );
+					break;
+				case 'array':
+					$valid = is_array( $value );
+					break;
+				default: // string, email, html, css.
+					$valid = is_string( $value ) || is_numeric( $value );
+					break;
+			}
+
+			if ( ! $valid ) {
+				$validation_errors[] = sprintf(
+					/* translators: 1: setting key, 2: expected type, 3: actual type. */
+					__( 'Setting "%1$s" must be of type %2$s, got %3$s.', 'suredash' ),
+					$key,
+					$declared_type,
+					gettype( $value )
+				);
+				continue;
+			}
+
+			$allowed = $dataset[ $key ]['enum'] ?? null;
+
+			if ( is_array( $allowed ) && ! in_array( $value, $allowed, true ) ) {
+				$validation_errors[] = sprintf(
+					/* translators: 1: setting key, 2: allowed values, 3: provided value. */
+					__( 'Setting "%1$s" must be one of: %2$s. Got "%3$s".', 'suredash' ),
+					$key,
+					implode( ', ', $allowed ),
+					is_scalar( $value ) ? (string) $value : gettype( $value )
+				);
+			}
+		}
+
+		if ( ! empty( $validation_errors ) ) {
+			return $this->fail(
+				__( 'Nothing saved: some settings values are invalid. Fix the values below and resend.', 'suredash' ),
+				$validation_errors
+			);
 		}
 
 		$this->setup_post_data(
 			[
-				'settings' => wp_json_encode( $settings ),
+				'settings' => $this->encode_json_for_router( $settings ),
 			]
 		);
 
@@ -393,6 +462,21 @@ class Save_Settings extends Ability {
 		);
 
 		$this->cleanup_post_data( [ 'settings' ] );
+
+		// Echo the stored values for exactly the keys that were provided so
+		// agents can self-verify what the sanitizer actually persisted.
+		if ( ! empty( $result['success'] ) ) {
+			$stored_settings = Settings::get_suredash_settings( false );
+			$saved_settings  = [];
+
+			foreach ( array_keys( $settings ) as $key ) {
+				if ( is_array( $stored_settings ) && array_key_exists( $key, $stored_settings ) ) {
+					$saved_settings[ $key ] = $stored_settings[ $key ];
+				}
+			}
+
+			$result['saved_settings'] = $saved_settings;
+		}
 
 		return $result;
 	}

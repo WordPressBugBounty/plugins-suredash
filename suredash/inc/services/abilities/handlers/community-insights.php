@@ -177,7 +177,7 @@ class Community_Insights extends Ability {
 				'user_activity — filters: {user_id: 123}. Full summary for one member.',
 				'new_member_engagement — filters: {start_date, end_date}. New signups + their activity.',
 				'unanswered_posts — filters: {space_id, days: 7}. Posts needing attention (0 comments).',
-				'space_analytics — filters: {space_id} or omit for all spaces compared.',
+				'space_analytics — filters: {space_id} or omit for all spaces compared. Counts PUBLISHED spaces only; the response carries scope: "published" and "total" is the published count, not the portal total.',
 				'trending_content — filters: {period: "7d", metric: "all"}. Most engaged posts.',
 				'content_summary — filters: {start_date, end_date}. Aggregate totals for a period.',
 				'bookmarked_content — filters: {limit: 10}. Most saved items.',
@@ -748,7 +748,13 @@ class Community_Insights extends Ability {
 
 		wp_reset_postdata();
 
-		return $this->paginated_response( 'space_analytics', $spaces, $total, $page, $per_page );
+		$response = $this->paginated_response( 'space_analytics', $spaces, $total, $page, $per_page );
+
+		// This query is published-only by design. Without saying so, "total"
+		// reads as the whole portal on a site that also has drafts.
+		$response['data']['scope'] = 'published';
+
+		return $response;
 	}
 
 	/**

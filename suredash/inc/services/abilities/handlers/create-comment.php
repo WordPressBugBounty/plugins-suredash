@@ -139,11 +139,20 @@ class Create_Comment extends Ability {
 			]
 		);
 
-		$request = $this->build_request();
-		$result  = $this->call_json_handler(
-			[ MiscRoute::get_instance(), 'submit_comment' ],
-			$request
+		// The router's success payload is only rendered HTML, so the new comment
+		// ID comes from its action hook and lets agents chain follow-up calls.
+		$request  = $this->build_request();
+		$captured = $this->capture_id_from_action(
+			'suredash_after_comment_submit',
+			function () use ( $request ) {
+				return $this->call_json_handler(
+					[ MiscRoute::get_instance(), 'submit_comment' ],
+					$request
+				);
+			}
 		);
+
+		$result = $captured['result'];
 
 		$this->cleanup_post_data( [ 'comment', 'comment_post_ID', 'comment_parent', 'depth' ] );
 
@@ -151,11 +160,17 @@ class Create_Comment extends Ability {
 			return $result;
 		}
 
-		return [
+		$response = [
 			'success' => true,
 			'data'    => [
 				'message' => __( 'Comment added successfully.', 'suredash' ),
 			],
 		];
+
+		if ( $captured['id'] ) {
+			$response['comment_id'] = $captured['id'];
+		}
+
+		return $response;
 	}
 }

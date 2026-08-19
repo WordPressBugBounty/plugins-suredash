@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-11T06:19:14+00:00\n"
+"POT-Creation-Date: 2026-08-17T11:07:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: suredash\n"
 
 #. Plugin Name of the plugin
@@ -107,6 +107,7 @@ msgstr ""
 #. translators: %s: version number
 #: admin/menu.php:333
 #: admin/menu.php:338
+#, php-format
 msgid "Version %1$s or higher required!"
 msgstr ""
 
@@ -118,6 +119,7 @@ msgstr ""
 
 #. translators: %s: html tags
 #: admin/notices.php:62
+#, php-format
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr ""
 
@@ -127,6 +129,7 @@ msgstr ""
 
 #. translators: %1$s: html tags, %2$s: plugin name, %3$s: html tags, %4$s: link to document, %5$s: html tags
 #: admin/notices.php:110
+#, php-format
 msgid "The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your settings. Ignore if already migrated."
 msgstr ""
 
@@ -281,11 +284,13 @@ msgstr ""
 
 #. translators: %1$s: file name, %2$s: allowed file types
 #: core/assets.php:131
+#, php-format
 msgid "File \"%1$s\" has an invalid type. Please upload %2$s"
 msgstr ""
 
 #. translators: %1$s: file name, %2$s: maximum file size in MB
 #: core/assets.php:133
+#, php-format
 msgid "File \"%1$s\" exceeds the maximum size of %2$s MB."
 msgstr ""
 
@@ -303,11 +308,13 @@ msgstr ""
 
 #. translators: %s: list of allowed file formats
 #: core/assets.php:138
+#, php-format
 msgid "Allowed formats: %s"
 msgstr ""
 
 #. translators: %s: maximum file size in MB
 #: core/assets.php:140
+#, php-format
 msgid "Maximum file size: %s MB"
 msgstr ""
 
@@ -393,16 +400,19 @@ msgstr ""
 
 #. translators: %s: search query
 #: core/assets.php:285
+#, php-format
 msgid "Search results for \"%s\""
 msgstr ""
 
 #. translators: %d: number of results
 #: core/assets.php:287
+#, php-format
 msgid "%d result"
 msgstr ""
 
 #. translators: %d: number of results
 #: core/assets.php:289
+#, php-format
 msgid "%d results"
 msgstr ""
 
@@ -451,6 +461,7 @@ msgstr ""
 
 #. translators: %d: result count
 #: core/assets.php:299
+#, php-format
 msgid "View all %d"
 msgstr ""
 
@@ -541,6 +552,7 @@ msgstr ""
 #. translators: %s: dark mode text
 #: core/blocks/interactivity/build/Switcher/view.php:70
 #: core/blocks/interactivity/build/Switcher/view.php:71
+#, php-format
 msgid "Switch to %s"
 msgstr ""
 
@@ -603,6 +615,7 @@ msgstr ""
 #. translators: %1$s: Password Field.
 #: core/blocks/login.php:1045
 #: core/blocks/login.php:1050
+#, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr ""
 
@@ -1081,6 +1094,7 @@ msgstr ""
 #: core/routers/misc.php:385
 #: core/routers/misc.php:433
 #: core/shortcodes/home-content.php:765
+#, php-format
 msgid "%1$s • %2$s"
 msgstr ""
 
@@ -1109,22 +1123,26 @@ msgstr ""
 
 #. translators: 1: Post title, 2: Restriction type
 #: core/integrations/sure-members.php:850
+#, php-format
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: 1: user name, 2: portal name
 #: core/notifier/admin-notifier.php:52
 #: core/notifier/admin-notifier.php:189
+#, php-format
 msgid "%1$s has registered on %2$s."
 msgstr ""
 
 #. translators: %1$s: user, %2$s: topic
 #: core/notifier/admin-notifier.php:59
+#, php-format
 msgid "New post from %1$s \"%2$s\""
 msgstr ""
 
 #. translators: 1: user name, 2: number of other users, 3: portal name
 #: core/notifier/admin-notifier.php:192
+#, php-format
 msgid "%1$s and %2$s other registered on %3$s."
 msgid_plural "%1$s and %2$s others registered on %3$s."
 msgstr[0] ""
@@ -1135,11 +1153,13 @@ msgstr[1] ""
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
 #: inc/functions/functions.php:2738
+#, php-format
 msgid "%s ago"
 msgstr ""
 
 #. translators: %s: space name
 #: core/notifier/common-notifier.php:51
+#, php-format
 msgid "The space \"%s\" has been created."
 msgstr ""
 
@@ -1149,6 +1169,7 @@ msgstr ""
 
 #. translators: 1: commenter name, 2: number of other commenters, 3: post title
 #: core/notifier/common-notifier.php:515
+#, php-format
 msgid "%1$s and %2$s other commented on your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others commented on your post \"%3$s\"."
 msgstr[0] ""
@@ -1156,6 +1177,7 @@ msgstr[1] ""
 
 #. translators: 1: liker name, 2: number of other likers, 3: comment excerpt
 #: core/notifier/common-notifier.php:620
+#, php-format
 msgid "%1$s and %2$s other liked your comment \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your comment \"%3$s\"."
 msgstr[0] ""
@@ -1163,6 +1185,7 @@ msgstr[1] ""
 
 #. translators: 1: liker name, 2: number of other likers, 3: post title
 #: core/notifier/common-notifier.php:628
+#, php-format
 msgid "%1$s and %2$s other liked your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your post \"%3$s\"."
 msgstr[0] ""
@@ -1170,11 +1193,13 @@ msgstr[1] ""
 
 #. translators: %s: topic title
 #: core/notifier/user-notifier.php:60
+#, php-format
 msgid "Your topic \"%s\" has been approved."
 msgstr ""
 
 #. translators: 1: mentioner name, 2: topic or comment link
 #: core/notifier/user-notifier.php:68
+#, php-format
 msgid "%1$s mentioned you in a %2$s."
 msgstr ""
 
@@ -1273,6 +1298,7 @@ msgstr ""
 
 #. translators: %s: space name
 #: core/routers/backend.php:423
+#, php-format
 msgid "This forum group is created for the space: %s"
 msgstr ""
 
@@ -1391,6 +1417,7 @@ msgstr ""
 
 #. translators: %s: original post title
 #: core/routers/backend.php:1446
+#, php-format
 msgid "%s - Copy"
 msgstr ""
 
@@ -1548,6 +1575,7 @@ msgstr ""
 
 #. translators: %d: number of deleted triggers
 #: core/routers/emails.php:249
+#, php-format
 msgid "%d email trigger deleted successfully."
 msgid_plural "%d email triggers deleted successfully."
 msgstr[0] ""
@@ -1555,6 +1583,7 @@ msgstr[1] ""
 
 #. translators: %d: number of failed deletions
 #: core/routers/emails.php:261
+#, php-format
 msgid "%d trigger failed to delete."
 msgid_plural "%d triggers failed to delete."
 msgstr[0] ""
@@ -1580,11 +1609,13 @@ msgstr ""
 
 #. translators: %s: Site name
 #: core/routers/misc.php:788
+#, php-format
 msgid "Test Email from %s"
 msgstr ""
 
 #. translators: %1$s: User name, %2$s: Site name
 #: core/routers/misc.php:804
+#, php-format
 msgid ""
 "Hi %1$s,\n"
 "\t\t\t\t\tThis is a test email from %2$s to verify your email notification settings are working correctly.\n"
@@ -1752,6 +1783,7 @@ msgstr ""
 
 #. translators: %d: number of spaces created
 #: core/routers/onboarding.php:542
+#, php-format
 msgid "%d spaces created successfully."
 msgstr ""
 
@@ -1803,6 +1835,7 @@ msgstr ""
 
 #. translators: %s: space name
 #: core/routers/onboarding.php:630
+#, php-format
 msgid "About %s"
 msgstr ""
 
@@ -1829,6 +1862,7 @@ msgstr ""
 
 #. translators: %s: space name
 #: core/routers/onboarding.php:667
+#, php-format
 msgid "Welcome to %s"
 msgstr ""
 
@@ -1843,6 +1877,7 @@ msgstr ""
 
 #. translators: %d: minimum number of characters.
 #: core/routers/search.php:88
+#, php-format
 msgid "Search query must be at least %d characters."
 msgstr ""
 
@@ -1859,6 +1894,7 @@ msgstr ""
 
 #. translators: %1$s: Username, %2$s: Forgot password link.
 #: core/routers/social-logins.php:119
+#, php-format
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr ""
 
@@ -1885,6 +1921,7 @@ msgstr ""
 
 #. translators: %s: Password reset.
 #: core/routers/social-logins.php:334
+#, php-format
 msgid "[%s] Password Reset"
 msgstr ""
 
@@ -2085,6 +2122,7 @@ msgstr ""
 
 #. translators: %s: Space group name
 #: core/shortcodes/navigation.php:179
+#, php-format
 msgid "Toggle %s group"
 msgstr ""
 
@@ -2147,6 +2185,7 @@ msgstr ""
 #: core/shortcodes/single-content.php:341
 #: templates/quick-view/post.php:67
 #: templates/single/post.php:83
+#, php-format
 msgid "Post author %s"
 msgstr ""
 
@@ -2265,6 +2304,7 @@ msgstr ""
 
 #. translators: %s is the page title
 #: inc/compatibility/page-builder.php:345
+#, php-format
 msgid "Edit %1$s with %2$s"
 msgstr ""
 
@@ -2288,6 +2328,7 @@ msgstr ""
 
 #. translators: 1: date, 2: time
 #: inc/functions/functions.php:901
+#, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
@@ -2364,6 +2405,7 @@ msgstr ""
 
 #. translators: %1$d: hours, %2$d: minutes
 #: inc/functions/functions.php:2669
+#, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
 msgstr[0] ""
@@ -2371,6 +2413,7 @@ msgstr[1] ""
 
 #. translators: %d: hours
 #: inc/functions/functions.php:2673
+#, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
 msgstr[0] ""
@@ -2378,6 +2421,7 @@ msgstr[1] ""
 
 #. translators: %d: minutes
 #: inc/functions/functions.php:2677
+#, php-format
 msgid "%d min"
 msgid_plural "%d mins"
 msgstr[0] ""
@@ -2385,6 +2429,7 @@ msgstr[1] ""
 
 #. translators: %s: Discussion space name
 #: inc/functions/functions.php:2760
+#, php-format
 msgid "in %s"
 msgstr ""
 
@@ -2452,6 +2497,7 @@ msgstr ""
 #. translators: %s: number of lessons.
 #: inc/functions/markup.php:588
 #: inc/functions/markup.php:695
+#, php-format
 msgid "%s lesson"
 msgid_plural "%s lessons"
 msgstr[0] ""
@@ -2460,6 +2506,7 @@ msgstr[1] ""
 #. translators: %s: number of quizzes.
 #: inc/functions/markup.php:594
 #: inc/functions/markup.php:700
+#, php-format
 msgid "%s quiz"
 msgid_plural "%s quizzes"
 msgstr[0] ""
@@ -2468,6 +2515,7 @@ msgstr[1] ""
 #. translators: %s: number of threads.
 #: inc/functions/markup.php:600
 #: inc/functions/markup.php:659
+#, php-format
 msgid "%s thread"
 msgid_plural "%s threads"
 msgstr[0] ""
@@ -2475,6 +2523,7 @@ msgstr[1] ""
 
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #: inc/functions/markup.php:688
+#, php-format
 msgid "%s module"
 msgid_plural "%s modules"
 msgstr[0] ""
@@ -2634,6 +2683,7 @@ msgstr ""
 
 #. translators: %1$s: portal name, %2$s: post title.
 #: inc/modules/email-notifications/email-triggers.php:278
+#, php-format
 msgid "[%1$s] New community post: %2$s"
 msgstr ""
 
@@ -2664,6 +2714,7 @@ msgstr ""
 
 #. translators: %1$s: author name, %2$s: portal name.
 #: inc/modules/email-notifications/emails.php:128
+#, php-format
 msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
 msgstr ""
 
@@ -2673,6 +2724,7 @@ msgstr ""
 
 #. translators: %s: URL to the email notification settings.
 #: inc/modules/email-notifications/emails.php:149
+#, php-format
 msgid "You are receiving this because you are an admin or portal manager. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash email settings."
 msgstr ""
 
@@ -2993,6 +3045,7 @@ msgstr ""
 
 #. translators: %d: number of image attachments.
 #: inc/services/search/search-comments-service.php:467
+#, php-format
 msgid "%d attachment"
 msgid_plural "%d attachments"
 msgstr[0] ""
@@ -3035,6 +3088,7 @@ msgstr ""
 
 #. translators: %s: month and year the user registered (e.g., "Feb 2025").
 #: inc/services/search/search-people-service.php:180
+#, php-format
 msgid "joined %s"
 msgstr ""
 
@@ -3070,6 +3124,7 @@ msgstr ""
 
 #. translators: %d: number of lessons in the course.
 #: inc/services/search/search-posts-service.php:568
+#, php-format
 msgid "%d lesson"
 msgid_plural "%d lessons"
 msgstr[0] ""
@@ -3077,6 +3132,7 @@ msgstr[1] ""
 
 #. translators: %d: number of files in the resource library.
 #: inc/services/search/search-posts-service.php:577
+#, php-format
 msgid "%d file"
 msgid_plural "%d files"
 msgstr[0] ""
@@ -3084,6 +3140,7 @@ msgstr[1] ""
 
 #. translators: %d: number of events in the event space.
 #: inc/services/search/search-posts-service.php:586
+#, php-format
 msgid "%d event"
 msgid_plural "%d events"
 msgstr[0] ""
@@ -3091,6 +3148,7 @@ msgstr[1] ""
 
 #. translators: %d: number of spaces curated in a collection.
 #: inc/services/search/search-posts-service.php:599
+#, php-format
 msgid "%d space"
 msgid_plural "%d spaces"
 msgstr[0] ""
@@ -3134,6 +3192,7 @@ msgstr ""
 
 #. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
 #: inc/templator/service.php:680
+#, php-format
 msgid "SureDash: %s"
 msgstr ""
 
@@ -3301,7 +3360,7 @@ msgid "Resources the user has accessed."
 msgstr ""
 
 #: inc/utils/helper.php:2949
-#: inc/utils/settings.php:332
+#: inc/utils/settings.php:335
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
 msgid "Bookmarks"
@@ -3316,7 +3375,7 @@ msgid "User's notification preferences."
 msgstr ""
 
 #: inc/utils/helper.php:2967
-#: inc/utils/settings.php:326
+#: inc/utils/settings.php:329
 msgid "Edit Profile"
 msgstr ""
 
@@ -3325,7 +3384,7 @@ msgid "Form to update profile details."
 msgstr ""
 
 #: inc/utils/helper.php:2979
-#: inc/utils/settings.php:320
+#: inc/utils/settings.php:323
 #: assets/build/portals-app.js:38
 msgid "View Profile"
 msgstr ""
@@ -3614,21 +3673,25 @@ msgstr ""
 
 #. translators: 1: commenter name, 2: replied-to comment link
 #: inc/utils/labels.php:148
+#, php-format
 msgid "%1$s has replied to your %2$s."
 msgstr ""
 
 #. translators: 1: commenter name, 2: post title
 #: inc/utils/labels.php:150
+#, php-format
 msgid "%1$s commented on your post \"%2$s\"."
 msgstr ""
 
 #. translators: 1: liker name, 2: post title
 #: inc/utils/labels.php:152
+#, php-format
 msgid "%1$s liked your post \"%2$s\"."
 msgstr ""
 
 #. translators: 1: liker name, 2: comment excerpt
 #: inc/utils/labels.php:154
+#, php-format
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr ""
 
@@ -3702,7 +3765,7 @@ msgid "Post disliked successfully."
 msgstr ""
 
 #: inc/utils/labels.php:179
-#: inc/utils/settings.php:308
+#: inc/utils/settings.php:311
 #: assets/build/portals-app.js:35
 msgid "Restricted Content"
 msgstr ""
@@ -3797,76 +3860,76 @@ msgstr ""
 msgid "Untitled Section"
 msgstr ""
 
-#: inc/utils/settings.php:264
+#: inc/utils/settings.php:267
 #: assets/build/portals-app.js:35
 msgid "Home"
 msgstr ""
 
-#: inc/utils/settings.php:268
+#: inc/utils/settings.php:271
 msgid "Howdy,"
 msgstr ""
 
-#: inc/utils/settings.php:272
+#: inc/utils/settings.php:275
 msgid "Latest Posts"
 msgstr ""
 
-#: inc/utils/settings.php:276
+#: inc/utils/settings.php:279
 #: assets/build/portals-app.js:35
 msgid "Your Bookmarks"
 msgstr ""
 
-#: inc/utils/settings.php:280
+#: inc/utils/settings.php:283
 #: assets/build/portals-app.js:35
 msgid "Profile Information"
 msgstr ""
 
-#: inc/utils/settings.php:284
+#: inc/utils/settings.php:287
 #: assets/build/portals-app.js:35
 msgid "Pinned Post"
 msgstr ""
 
-#: inc/utils/settings.php:288
+#: inc/utils/settings.php:291
 msgid "No posts found yet. Stay tuned — new content will be shared here soon!"
 msgstr ""
 
-#: inc/utils/settings.php:292
+#: inc/utils/settings.php:295
 msgid "To add to the discussion, join the mastermind."
 msgstr ""
 
-#: inc/utils/settings.php:296
+#: inc/utils/settings.php:299
 msgid "What would you like to share today?"
 msgstr ""
 
-#: inc/utils/settings.php:300
+#: inc/utils/settings.php:303
 #: assets/build/portals-app.js:21
 msgid "Create New Post"
 msgstr ""
 
-#: inc/utils/settings.php:304
+#: inc/utils/settings.php:307
 msgid "No post found, create a new one!"
 msgstr ""
 
-#: inc/utils/settings.php:312
+#: inc/utils/settings.php:315
 msgid "This content is not available with your current membership."
 msgstr ""
 
-#: inc/utils/settings.php:342
+#: inc/utils/settings.php:345
 msgid "Log out"
 msgstr ""
 
-#: inc/utils/settings.php:354
+#: inc/utils/settings.php:357
 msgid "SureDash User"
 msgstr ""
 
-#: inc/utils/settings.php:436
+#: inc/utils/settings.php:439
 msgid "Newbie"
 msgstr ""
 
-#: inc/utils/settings.php:445
+#: inc/utils/settings.php:448
 msgid "Manager"
 msgstr ""
 
-#: inc/utils/settings.php:454
+#: inc/utils/settings.php:457
 msgid "Active Member"
 msgstr ""
 
@@ -3896,11 +3959,13 @@ msgstr ""
 
 #. translators: 1: user display name, 2: portal name (e.g. site/community name)
 #: templates/parts/logged-in-screen.php:55
+#, php-format
 msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
 msgstr ""
 
 #. translators: %s: portal name (e.g. site/community name)
 #: templates/parts/logged-in-screen.php:65
+#, php-format
 msgid "Go to %s"
 msgstr ""
 
@@ -4066,6 +4131,7 @@ msgstr ""
 #: assets/build/editor-app.js:4
 #: assets/build/editor-app.js:5
 #: assets/build/editor-app.js:6
+#, js-format
 msgid "%s units"
 msgstr ""
 
@@ -5640,6 +5706,7 @@ msgstr ""
 
 #. translators: 1: number of connected providers; 2: comma-separated list of connected provider names.
 #: assets/build/portals-app.js:2
+#, js-format
 msgid "%1$d AI provider connected via Settings → Connectors: %2$s."
 msgid_plural "%1$d AI providers connected via Settings → Connectors: %2$s."
 msgstr[0] ""
@@ -5655,6 +5722,7 @@ msgstr ""
 
 #. translators: %s: provider display name (e.g. "OpenAI").
 #: assets/build/portals-app.js:3
+#, js-format
 msgid "Using the %s key from Settings → Connectors for this generation."
 msgstr ""
 
@@ -5936,18 +6004,21 @@ msgstr ""
 #. translators: %s: Plugin name
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:7
+#, js-format
 msgid "%s Plugin Activated Successfully..!"
 msgstr ""
 
 #. translators: %s: Plugin name
 #: assets/build/portals-app.js:5
 #: assets/build/portals-app.js:8
+#, js-format
 msgid "Installing %s plugin. Please wait.."
 msgstr ""
 
 #. translators: %s: Plugin name
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:9
+#, js-format
 msgid "%s plugin Installed Successfully.."
 msgstr ""
 
@@ -6021,6 +6092,7 @@ msgstr ""
 
 #. translators: %s: maximum number of spaces
 #: assets/build/portals-app.js:10
+#, js-format
 msgid "Select spaces to display on the home screen. (Maximum %s)"
 msgstr ""
 
@@ -6648,6 +6720,7 @@ msgstr ""
 
 #. translators: %s: user name
 #: assets/build/portals-app.js:11
+#, js-format
 msgid "Howdy, %s"
 msgstr ""
 
@@ -6673,11 +6746,13 @@ msgstr ""
 
 #. translators: %s: post title
 #: assets/build/portals-app.js:12
+#, js-format
 msgid "Created a new post: \"%s\""
 msgstr ""
 
 #. translators: %s: comment title
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Commented on: \"%s\""
 msgstr ""
 
@@ -7300,14 +7375,17 @@ msgid "Check your Bunny Storage settings."
 msgstr ""
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Uploading %1$d of %2$d to %3$s…"
 msgstr ""
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Uploading to %s…"
 msgstr ""
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Sending %1$d of %2$d to Bunny.net…"
 msgstr ""
 
@@ -7316,10 +7394,12 @@ msgid "Sending to Bunny.net…"
 msgstr ""
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Processing %1$d of %2$d…"
 msgstr ""
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
 msgstr ""
 
@@ -7329,6 +7409,7 @@ msgstr ""
 
 #. translators: %d is the number of selected files.
 #: assets/build/portals-app.js:16
+#, js-format
 msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
 msgstr ""
 
@@ -7362,15 +7443,15 @@ msgid "Cloud uploads are paused, new uploads are stored on this server."
 msgstr ""
 
 #: assets/build/portals-app.js:16
-msgid "New uploads are stored on this server (local)."
-msgstr ""
-
-#: assets/build/portals-app.js:16
 msgid "Upload to Cloud"
 msgstr ""
 
 #: assets/build/portals-app.js:16
 msgid "Upload to Server"
+msgstr ""
+
+#: assets/build/portals-app.js:16
+msgid "Upload Files"
 msgstr ""
 
 #: assets/build/portals-app.js:16
@@ -7383,6 +7464,7 @@ msgstr ""
 
 #. translators: %d is the file count
 #: assets/build/portals-app.js:19
+#, js-format
 msgid "Showing %d files"
 msgstr ""
 
@@ -7508,6 +7590,7 @@ msgstr ""
 
 #. translators: %1$s: hour, %2$s: minute, %3$s: AM/PM period
 #: assets/build/portals-app.js:21
+#, js-format
 msgid "%1$s:%2$s %3$s (Current)"
 msgstr ""
 
@@ -8035,26 +8118,31 @@ msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:23
+#, js-format
 msgid "Question %d is missing text."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:25
+#, js-format
 msgid "Question %d needs at least two options."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:27
+#, js-format
 msgid "All options in question %d need text."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:29
+#, js-format
 msgid "Mark at least one correct option for question %d."
 msgstr ""
 
 #. translators: %d: question number.
 #: assets/build/portals-app.js:31
+#, js-format
 msgid "Single-choice question %d can only have one correct option."
 msgstr ""
 
@@ -8095,6 +8183,7 @@ msgstr ""
 
 #. translators: %d is the number of posts per page.
 #: assets/build/portals-app.js:34
+#, js-format
 msgid "%d Posts per page"
 msgstr ""
 
@@ -8128,6 +8217,7 @@ msgstr ""
 
 #. translators: %s: comment count
 #: assets/build/portals-app.js:35
+#, js-format
 msgid "%s comments. Click to view."
 msgstr ""
 
@@ -9422,6 +9512,7 @@ msgstr ""
 
 #. translators: %1$s: first anchor tag start, %2$s: first anchor tag end, %3$s second anchor tag start, %4$s second anchor tag end, %5$s: break tag, %6$s: plugin name.
 #: assets/build/portals-app.js:38
+#, js-format
 msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
 msgstr ""
 
@@ -10474,6 +10565,7 @@ msgstr ""
 
 #. translators: %d is the number of users per page.
 #: assets/build/portals-app.js:41
+#, js-format
 msgid "%d Users per page"
 msgstr ""
 
@@ -10620,6 +10712,7 @@ msgstr ""
 
 #. translators: 1: first row index, 2: last row index, 3: total row count
 #: assets/build/portals-app.js:42
+#, js-format
 msgid "%1$s–%2$s of %3$s courses"
 msgstr ""
 
@@ -10629,6 +10722,7 @@ msgstr ""
 
 #. translators: %d: number of published courses
 #: assets/build/portals-app.js:43
+#, js-format
 msgid "%d Published"
 msgid_plural "%d Published"
 msgstr[0] ""
@@ -10636,6 +10730,7 @@ msgstr[1] ""
 
 #. translators: %d: number of draft courses
 #: assets/build/portals-app.js:44
+#, js-format
 msgid "%d Draft"
 msgid_plural "%d Drafts"
 msgstr[0] ""
@@ -10663,6 +10758,7 @@ msgstr ""
 
 #. translators: %d: number of lessons
 #: assets/build/portals-app.js:45
+#, js-format
 msgid "%d Lesson"
 msgid_plural "%d Lessons"
 msgstr[0] ""
@@ -10722,6 +10818,7 @@ msgstr ""
 
 #. translators: 1: first row index, 2: last row index, 3: total row count
 #: assets/build/portals-app.js:46
+#, js-format
 msgid "%1$s–%2$s of %3$s learners"
 msgstr ""
 
@@ -10808,6 +10905,7 @@ msgstr ""
 #. translators: %s is the pro_version number.
 #: assets/build/portals-app.js:49
 #: assets/build/portals-app.js:52
+#, js-format
 msgid "V %s"
 msgstr ""
 
@@ -10841,11 +10939,13 @@ msgstr ""
 
 #. translators: %s is the pro plugin name.
 #: assets/build/portals-app.js:55
+#, js-format
 msgid "Incompatible %s Version"
 msgstr ""
 
 #. translators: 1: feature name, 2: its location.
 #: assets/build/portals-app.js:55
+#, js-format
 msgid "%1$s is available under %2$s"
 msgstr ""
 
@@ -10863,11 +10963,13 @@ msgstr ""
 
 #. translators: %d: page number.
 #: assets/build/portals-app.js:56
+#, js-format
 msgid "Go to page %d"
 msgstr ""
 
 #. translators: 1: current page number, 2: total pages.
 #: assets/build/portals-app.js:57
+#, js-format
 msgid "%1$s of %2$s"
 msgstr ""
 
@@ -11097,6 +11199,7 @@ msgstr ""
 #. translators: %s: file size in megabytes
 #: assets/js/unminified/post-actions.js:230
 #: assets/js/unminified/upload.js:389
+#, js-format
 msgid "%s MB"
 msgstr ""
 
@@ -11112,6 +11215,7 @@ msgstr ""
 #. translators: %s: field name
 #: assets/js/unminified/register.js:60
 #: assets/js/unminified/register.js:76
+#, js-format
 msgid "%s cannot be blank"
 msgstr ""
 
@@ -11119,9 +11223,14 @@ msgstr ""
 msgid "Invalid Google reCAPTCHA Site Key."
 msgstr ""
 
+#: assets/js/unminified/register.js:756
+msgid "An error occurred during registration. Please try again."
+msgstr ""
+
 #. Translators: %s is the maximum file size in MB.
 #: assets/js/unminified/upload.js:143
 #: assets/js/unminified/upload.js:198
+#, js-format
 msgid "File size should not exceed %s MB."
 msgstr ""
 
@@ -11131,15 +11240,18 @@ msgstr ""
 
 #. Translators: %s is the maximum number of files that can be uploaded.
 #: assets/js/unminified/upload.js:247
+#, js-format
 msgid "You can only upload up to %s files."
 msgstr ""
 
 #. Translators: %s is the file name.
 #: assets/js/unminified/upload.js:400
+#, js-format
 msgid "Delete %s"
 msgstr ""
 
 #. Translators: %s is the file name.
 #: assets/js/unminified/upload.js:418
+#, js-format
 msgid "Deleted %s file"
 msgstr ""

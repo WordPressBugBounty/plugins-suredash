@@ -260,6 +260,15 @@ abstract class Ability {
 				$property['default'] = $definition['default'];
 			}
 
+			// Pass the constraints validate() enforces through to the advertised
+			// schema, so an agent can see the rule instead of only discovering it
+			// from the rejection message.
+			foreach ( [ 'minimum', 'maximum', 'format', 'items' ] as $keyword ) {
+				if ( isset( $definition[ $keyword ] ) ) {
+					$property[ $keyword ] = $definition[ $keyword ];
+				}
+			}
+
 			$properties[ $key ] = $property;
 
 			if ( ! empty( $definition['required'] ) ) {
@@ -407,6 +416,15 @@ abstract class Ability {
 					implode( ', ', $definition['enum'] )
 				);
 			}
+
+			/* translators: %s: parameter name. */
+			$label  = sprintf( __( 'Parameter "%s"', 'suredash' ), $key );
+			$errors = array_merge( $errors, $this->get_constraint_errors( $label, $value, $definition ) );
+
+			// Array item checking — the shape of each entry in an array param.
+			if ( is_array( $value ) && ! empty( $definition['items'] ) ) {
+				$errors = array_merge( $errors, $this->get_item_errors( $key, $value, $definition['items'] ) );
+			}
 		}
 
 		if ( ! empty( $errors ) ) {
@@ -477,6 +495,414 @@ abstract class Ability {
 	}
 
 	/**
+	 * Validate the declarative constraints on a single value.
+	 *
+	 * Schemas across the abilities already advertise minimum, maximum and
+	 * value shapes in their descriptions, but validate() only ever enforced
+	 * required/type/enum — so handlers re-checked ranges and date/time/URL
+	 * formats by hand. Declaring the keyword is now enough.
+	 *
+	 * Supported keywords: minimum, maximum, and format ("date", "time", "uri").
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string               $label      Human-readable name for the value, used in messages.
+	 * @param mixed                $value      Provided value.
+	 * @param array<string, mixed> $definition Schema definition for the value.
+	 * @return array<int, string> Problems found, empty when valid.
+	 */
+	protected function get_constraint_errors( string $label, $value, array $definition ): array {
+		$errors = [];
+
+		if ( is_numeric( $value ) ) {
+			if ( isset( $definition['minimum'] ) && (float) $value < (float) $definition['minimum'] ) {
+				$errors[] = sprintf(
+					/* translators: 1: value label, 2: minimum allowed, 3: provided value. */
+					__( '%1$s must be %2$s or higher, got %3$s.', 'suredash' ),
+					$label,
+					(string) $definition['minimum'],
+					(string) $value
+				);
+			}
+
+			if ( isset( $definition['maximum'] ) && (float) $value > (float) $definition['maximum'] ) {
+				$errors[] = sprintf(
+					/* translators: 1: value label, 2: maximum allowed, 3: provided value. */
+					__( '%1$s must be %2$s or lower, got %3$s.', 'suredash' ),
+					$label,
+					(string) $definition['maximum'],
+					(string) $value
+				);
+			}
+		}
+
+		$format = (string) ( $definition['format'] ?? '' );
+
+		// Empty strings clear a field rather than set a malformed one, so they
+		// are left to the handler's own required/emptiness rules.
+		if ( $format === '' || ! is_string( $value ) || $value === '' ) {
+			return $errors;
+		}
+
+		if ( ! $this->matches_format( $value, $format ) ) {
+			$errors[] = sprintf(
+				/* translators: 1: value label, 2: expected shape, 3: provided value. */
+				__( '%1$s must be %2$s, got "%3$s".', 'suredash' ),
+				$label,
+				$this->get_format_hint( $format ),
+				$value
+			);
+		}
+
+		return $errors;
+	}
+
+	/**
+	 * Validate the shape of every entry in an array parameter.
+	 *
+	 * Recurses through nested "items" definitions, so a schema can require a
+	 * key several levels down (quiz_questions → options → is_correct) and have
+	 * it actually enforced instead of only described.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string               $label  Human-readable name for the array, used in messages.
+	 * @param array<int, mixed>    $values Provided array.
+	 * @param array<string, mixed> $items  The schema's "items" definition.
+	 * @return array<int, string> Problems found, empty when valid.
+	 */
+	protected function get_item_errors( string $label, array $values, array $items ): array {
+		$errors        = [];
+		$item_type     = (string) ( $items['type'] ?? 'string' );
+		$required_keys = is_array( $items['required'] ?? null ) ? $items['required'] : [];
+		$properties    = is_array( $items['properties'] ?? null ) ? $items['properties'] : [];
+
+		foreach ( array_values( $values ) as $index => $item ) {
+			/* translators: 1: array label, 2: item position. */
+			$item_label = sprintf( __( '%1$s item %2$d', 'suredash' ), $label, $index + 1 );
+
+			if ( $item_type !== 'object' ) {
+				if ( ! $this->check_type( $item, $item_type ) ) {
+					$errors[] = sprintf(
+						/* translators: 1: item label, 2: expected type, 3: provided value. */
+						__( '%1$s must be of type %2$s, got "%3$s".', 'suredash' ),
+						$item_label,
+						$item_type,
+						is_scalar( $item ) ? (string) $item : gettype( $item )
+					);
+					continue;
+				}
+
+				$errors = array_merge( $errors, $this->get_constraint_errors( $item_label, $item, $items ) );
+				continue;
+			}
+
+			if ( ! is_array( $item ) ) {
+				$errors[] = sprintf(
+					/* translators: %s: item label. */
+					__( '%s must be an object.', 'suredash' ),
+					$item_label
+				);
+				continue;
+			}
+
+			foreach ( $required_keys as $required_key ) {
+				if ( ! array_key_exists( $required_key, $item ) ) {
+					$errors[] = sprintf(
+						/* translators: 1: item label, 2: missing key name. */
+						__( '%1$s is missing the required "%2$s" key.', 'suredash' ),
+						$item_label,
+						$required_key
+					);
+				}
+			}
+
+			foreach ( $properties as $property => $definition ) {
+				if ( ! isset( $item[ $property ] ) || ! is_array( $definition ) ) {
+					continue;
+				}
+
+				/* translators: 1: item label, 2: property name. */
+				$property_label = sprintf( __( '%1$s "%2$s"', 'suredash' ), $item_label, $property );
+				$property_type  = (string) ( $definition['type'] ?? 'string' );
+
+				if ( ! $this->check_type( $item[ $property ], $property_type ) ) {
+					$errors[] = sprintf(
+						/* translators: 1: property label, 2: expected type. */
+						__( '%1$s must be of type %2$s.', 'suredash' ),
+						$property_label,
+						$property_type
+					);
+					continue;
+				}
+
+				$errors = array_merge( $errors, $this->get_constraint_errors( $property_label, $item[ $property ], $definition ) );
+
+				if ( is_array( $item[ $property ] ) && ! empty( $definition['items'] ) ) {
+					$errors = array_merge( $errors, $this->get_item_errors( $property_label, $item[ $property ], $definition['items'] ) );
+				}
+			}
+		}
+
+		return $errors;
+	}
+
+	/**
+	 * Check a value against a supported schema "format".
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string $value  Value to check.
+	 * @param string $format One of: date, time, uri.
+	 * @return bool True when the format is unknown (nothing to enforce) or the value matches.
+	 */
+	protected function matches_format( string $value, string $format ): bool {
+		switch ( $format ) {
+			case 'date':
+				return $this->is_valid_date( $value );
+			case 'time':
+				return $this->is_valid_time( $value );
+			case 'uri':
+				return $this->is_valid_link_url( $value );
+			default:
+				return true;
+		}
+	}
+
+	/**
+	 * Describe a format so the error message tells the agent what to send.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string $format One of: date, time, uri.
+	 * @return string
+	 */
+	protected function get_format_hint( string $format ): string {
+		switch ( $format ) {
+			case 'date':
+				return __( 'a real calendar date in YYYY-MM-DD format (e.g. "2026-07-23")', 'suredash' );
+			case 'time':
+				return __( 'a time in HH:MM 24-hour format (e.g. "14:30")', 'suredash' );
+			case 'uri':
+				return __( 'a full http(s) URL (e.g. "https://example.com")', 'suredash' );
+			default:
+				return $format;
+		}
+	}
+
+	/**
+	 * Check a value is a real calendar date in YYYY-MM-DD format.
+	 *
+	 * Rejects the natural language dates agents send verbatim ("next Tuesday",
+	 * "23 July 2026") and impossible dates like 2026-02-30.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string $date Value to check.
+	 * @return bool
+	 */
+	protected function is_valid_date( string $date ): bool {
+		if ( ! preg_match( '/^(\d{4})-(\d{2})-(\d{2})$/', trim( $date ), $parts ) ) {
+			return false;
+		}
+
+		return checkdate( (int) $parts[2], (int) $parts[3], (int) $parts[1] );
+	}
+
+	/**
+	 * Check a value is a HH:MM 24-hour time.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string $time Value to check.
+	 * @return bool
+	 */
+	protected function is_valid_time( string $time ): bool {
+		return (bool) preg_match( '/^([01]\d|2[0-3]):[0-5]\d$/', trim( $time ) );
+	}
+
+	/**
+	 * Check that an event's end is not before its start.
+	 *
+	 * The only schedule rule a schema cannot express, so both the create and
+	 * update paths share it. A missing start time counts as the start of the
+	 * day and a missing end time as the end of it, so a same-day event with
+	 * only a start time is never rejected.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string $start_date Start date (YYYY-MM-DD), empty when unknown.
+	 * @param string $start_time Start time (HH:MM), empty when unknown.
+	 * @param string $end_date   End date (YYYY-MM-DD), empty to fall back to the start date.
+	 * @param string $end_time   End time (HH:MM), empty when unknown.
+	 * @return string|null Problem description, or null when the order is valid or unknowable.
+	 */
+	protected function get_schedule_order_error( string $start_date, string $start_time, string $end_date, string $end_time ): ?string {
+		$start_date = trim( $start_date );
+		$end_date   = trim( $end_date ) !== '' ? trim( $end_date ) : $start_date;
+
+		if ( $start_date === '' || $end_date === '' ) {
+			return null;
+		}
+
+		$start_label = trim( $start_date . ' ' . trim( $start_time ) );
+		$end_label   = trim( $end_date . ' ' . trim( $end_time ) );
+		$start       = strtotime( $start_date . ' ' . ( trim( $start_time ) !== '' ? trim( $start_time ) : '00:00' ) );
+		$end         = strtotime( $end_date . ' ' . ( trim( $end_time ) !== '' ? trim( $end_time ) : '23:59' ) );
+
+		if ( $start === false || $end === false || $end >= $start ) {
+			return null;
+		}
+
+		return sprintf(
+			/* translators: 1: event end date and time, 2: event start date and time. */
+			__( 'The event would end (%1$s) before it starts (%2$s). Adjust event_end_date/event_end_time or event_date/event_start_time.', 'suredash' ),
+			$end_label,
+			$start_label
+		);
+	}
+
+	/**
+	 * JSON-encode a payload for a router that expects slashed input.
+	 *
+	 * Over HTTP, WordPress slashes everything in $_POST, so routers correctly
+	 * call wp_unslash() before json_decode(). Abilities bypass HTTP and set
+	 * $_POST directly, so the JSON arrived unslashed and wp_unslash() stripped
+	 * the escapes out of it: {"t":"say \"hi\""} became {"t":"say "hi""},
+	 * which is not valid JSON, so the payload decoded to null and the call
+	 * failed with a generic error. Any title or content holding a double quote,
+	 * a backslash, or an HTML attribute hit this.
+	 *
+	 * Slashing here makes the payload identical to what a real request delivers.
+	 *
+	 * @since 1.11.1
+	 *
+	 * @param mixed $data Payload to encode.
+	 * @return string Slashed JSON, safe to hand to a router that unslashes.
+	 */
+	protected function encode_json_for_router( $data ): string {
+		return wp_slash( (string) wp_json_encode( $data ) );
+	}
+
+	/**
+	 * Build the standard hard-fail response.
+	 *
+	 * Every guard returns the same envelope, so agents parse one shape and the
+	 * guards themselves stay one line each.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string             $message Why the call was rejected and what to do next.
+	 * @param array<int, string> $errors Optional per-item detail.
+	 * @return array<string, mixed>
+	 */
+	protected function fail( string $message, array $errors = [] ): array {
+		$data = [ 'message' => $message ];
+
+		if ( ! empty( $errors ) ) {
+			$data['errors'] = $errors;
+		}
+
+		return [
+			'success' => false,
+			'data'    => $data,
+		];
+	}
+
+	/**
+	 * Validate that quiz questions have properly marked correct answers.
+	 *
+	 * A scored quiz is unusable when a question has no correct option, and a
+	 * "single" type question with several correct options contradicts its own
+	 * type — both are silent authoring mistakes (typically from AI agents
+	 * omitting is_correct), so callers surface these as hard errors when the
+	 * quiz is scored and as warnings otherwise.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param array<int, mixed> $questions Quiz questions payload (pre-sanitize shape).
+	 * @return array<int, string> Human-readable problems, empty when valid.
+	 */
+	protected function get_quiz_answer_errors( array $questions ): array {
+		$problems = [];
+
+		foreach ( array_values( $questions ) as $index => $question ) {
+			if ( ! is_array( $question ) ) {
+				continue;
+			}
+
+			$options       = is_array( $question['options'] ?? null ) ? $question['options'] : [];
+			$correct_count = 0;
+
+			foreach ( $options as $option ) {
+				if ( is_array( $option ) && filter_var( $option['is_correct'] ?? false, FILTER_VALIDATE_BOOLEAN ) ) {
+					$correct_count++;
+				}
+			}
+
+			$type  = ( $question['type'] ?? 'single' ) === 'multiple' ? 'multiple' : 'single';
+			$label = sanitize_text_field( (string) ( $question['text'] ?? '' ) );
+			$label = $label !== '' ? '"' . $label . '"' : __( '(untitled)', 'suredash' );
+
+			if ( $correct_count === 0 ) {
+				$problems[] = sprintf(
+					/* translators: 1: question number, 2: question text. */
+					__( 'Question %1$d %2$s has no option marked is_correct: true. Mark the correct answer(s) and resend.', 'suredash' ),
+					$index + 1,
+					$label
+				);
+			} elseif ( $type === 'single' && $correct_count > 1 ) {
+				$problems[] = sprintf(
+					/* translators: 1: question number, 2: question text, 3: count of options marked correct. */
+					__( 'Question %1$d %2$s is type "single" but has %3$d options marked is_correct: true. Mark exactly one, or change the type to "multiple".', 'suredash' ),
+					$index + 1,
+					$label,
+					$correct_count
+				);
+			}
+		}
+
+		return $problems;
+	}
+
+	/**
+	 * Summarize quiz questions so agents can self-verify the saved answer key.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param array<int, mixed> $questions Sanitized quiz questions.
+	 * @return array<int, array<string, mixed>> Per-question text, option and correct counts.
+	 */
+	protected function summarize_quiz_questions( array $questions ): array {
+		$summary = [];
+
+		foreach ( $questions as $question ) {
+			if ( ! is_array( $question ) ) {
+				continue;
+			}
+
+			$options = is_array( $question['options'] ?? null ) ? $question['options'] : [];
+			// Same truthiness test as get_quiz_answer_errors(), so the echoed
+			// count can never disagree with what validation just accepted.
+			$correct = array_filter(
+				$options,
+				static function ( $option ) {
+					return is_array( $option ) && filter_var( $option['is_correct'] ?? false, FILTER_VALIDATE_BOOLEAN );
+				}
+			);
+
+			$summary[] = [
+				'text'          => (string) ( $question['text'] ?? '' ),
+				'type'          => (string) ( $question['type'] ?? 'single' ),
+				'option_count'  => count( $options ),
+				'correct_count' => count( $correct ),
+			];
+		}
+
+		return $summary;
+	}
+
+	/**
 	 * Check if an integration type requires SureDash Pro.
 	 *
 	 * @since 1.7.3
@@ -540,6 +966,215 @@ abstract class Ability {
 				),
 			],
 		];
+	}
+
+	/**
+	 * Verify that a post exists and matches the expected post type.
+	 *
+	 * AI agents routinely pass IDs of the wrong object (a space ID to a post
+	 * ability, a lesson ID to delete-space, …). The underlying routers often
+	 * reject these with a generic message or, worse, act on the wrong object —
+	 * so abilities guard the target up front and name the actual type.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param int    $post_id       Post ID to verify.
+	 * @param string $expected_type Expected post type slug.
+	 * @param string $label         Human-readable label for the target, e.g. 'Space'.
+	 * @return array<string, mixed>|null Hard-fail response array, or null when the target is valid.
+	 */
+	protected function get_post_target_error( int $post_id, string $expected_type, string $label ): ?array {
+		$post = get_post( $post_id );
+
+		if ( ! $post ) {
+			return $this->fail(
+				sprintf(
+					/* translators: 1: target label (e.g. Space), 2: post ID. */
+					__( '%1$s ID %2$d does not exist.', 'suredash' ),
+					$label,
+					$post_id
+				)
+			);
+		}
+
+		if ( $post->post_type !== $expected_type ) {
+			return $this->fail(
+				sprintf(
+					/* translators: 1: target label (e.g. Space), 2: post ID, 3: actual post type, 4: expected post type. */
+					__( '%1$s ID %2$d is a "%3$s" post, not "%4$s". Check the ID and use the ability that matches this object type.', 'suredash' ),
+					$label,
+					$post_id,
+					$post->post_type,
+					$expected_type
+				)
+			);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Verify that a term exists and belongs to the expected taxonomy.
+	 *
+	 * The term counterpart of get_post_target_error(). Routers hand any ID
+	 * straight to wp_delete_term()/term meta, so a term from another taxonomy
+	 * either fails with a generic message or touches the wrong object.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param int    $term_id           Term ID to verify.
+	 * @param string $expected_taxonomy Expected taxonomy slug.
+	 * @param string $label             Human-readable label for the target, e.g. 'Group'.
+	 * @return array<string, mixed>|null Hard-fail response array, or null when the target is valid.
+	 */
+	protected function get_term_target_error( int $term_id, string $expected_taxonomy, string $label ): ?array {
+		if ( get_term( $term_id, $expected_taxonomy ) instanceof \WP_Term ) {
+			return null;
+		}
+
+		$other_term = get_term( $term_id );
+
+		if ( $other_term instanceof \WP_Term ) {
+			return $this->fail(
+				sprintf(
+					/* translators: 1: target label (e.g. Group), 2: term ID, 3: actual taxonomy, 4: expected taxonomy. */
+					__( '%1$s ID %2$d is a "%3$s" term, not a "%4$s" term. Check the ID with list-groups.', 'suredash' ),
+					$label,
+					$term_id,
+					$other_term->taxonomy,
+					$expected_taxonomy
+				)
+			);
+		}
+
+		return $this->fail(
+			sprintf(
+				/* translators: 1: target label (e.g. Group), 2: term ID. */
+				__( '%1$s ID %2$d does not exist. Call list-groups to get valid IDs.', 'suredash' ),
+				$label,
+				$term_id
+			)
+		);
+	}
+
+	/**
+	 * Verify a reorder payload holds exactly the expected set of IDs.
+	 *
+	 * Reorder operations replace the stored sequence in full, so a partial
+	 * payload silently drops the omitted items and an unknown ID silently
+	 * corrupts the order. Both reorder abilities share this check.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param array<int, int> $payload_ids  IDs the agent sent.
+	 * @param array<int, int> $expected_ids IDs that must all be present.
+	 * @param string          $label        Plural noun for the items, e.g. 'groups'.
+	 * @param string          $source       Ability to call for the full set, e.g. 'list-groups'.
+	 * @return array<int, string> Problems found, empty when the sets match.
+	 */
+	protected function get_id_set_errors( array $payload_ids, array $expected_ids, string $label, string $source ): array {
+		$errors  = [];
+		$missing = array_values( array_diff( $expected_ids, $payload_ids ) );
+		$unknown = array_values( array_diff( $payload_ids, $expected_ids ) );
+
+		if ( ! empty( $missing ) ) {
+			$errors[] = sprintf(
+				/* translators: 1: plural item noun, 2: comma-separated IDs, 3: ability name to call. */
+				__( 'Payload omits %1$s: %2$s. Include ALL of them. Call %3$s to get the full set.', 'suredash' ),
+				$label,
+				implode( ', ', $missing ),
+				$source
+			);
+		}
+
+		if ( ! empty( $unknown ) ) {
+			$errors[] = sprintf(
+				/* translators: 1: comma-separated IDs, 2: plural item noun. */
+				__( 'Unknown IDs %1$s are not %2$s.', 'suredash' ),
+				implode( ', ', $unknown ),
+				$label
+			);
+		}
+
+		return $errors;
+	}
+
+	/**
+	 * Run a callback while capturing the ID passed to an action hook.
+	 *
+	 * Several routers only return rendered HTML or a message, so the ID of the
+	 * thing they just created is only available through their action hook.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string   $hook Action hook whose first argument is the new ID.
+	 * @param callable $run  Callback that triggers the hook.
+	 * @return array{result: mixed, id: int} The callback's return value and the captured ID (0 when the hook never fired).
+	 */
+	protected function capture_id_from_action( string $hook, callable $run ): array {
+		$captured = 0;
+
+		$capture = static function ( $id ) use ( &$captured ): void {
+			$captured = absint( $id );
+		};
+
+		add_action( $hook, $capture );
+		$result = $run();
+		remove_action( $hook, $capture );
+
+		return [
+			'result' => $result,
+			'id'     => $captured,
+		];
+	}
+
+	/**
+	 * Point a single_post space at a WordPress post or page.
+	 *
+	 * Three metas decide what a single_post space renders, and the render path
+	 * (Single_Post::get_integration_content) reads post_render_type and wp_post,
+	 * NOT single_post_id. Writing single_post_id alone leaves post_render_type
+	 * at its "blank" default, so the space renders empty while the ability
+	 * reports success. Always set the target through this method.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param int $space_id  Space post ID.
+	 * @param int $target_id Post/page ID the space should display.
+	 * @return void
+	 */
+	protected function set_single_post_target( int $space_id, int $target_id ): void {
+		sd_update_post_meta( $space_id, 'post_render_type', 'wordpress' );
+		sd_update_post_meta( $space_id, 'single_post_id', $target_id );
+		sd_update_post_meta(
+			$space_id,
+			'wp_post',
+			[
+				'value' => $target_id,
+				'label' => (string) get_the_title( $target_id ),
+			]
+		);
+	}
+
+	/**
+	 * Check that a value is a usable external link destination.
+	 *
+	 * Sanitizing with esc_url_raw() alone is too permissive here: it turns junk
+	 * like "not a url" into "http://not%20a%20url" (non-empty), so an emptiness
+	 * check lets invalid input through and a broken link space still saves.
+	 * A real destination needs an http/https scheme and a host.
+	 *
+	 * @since 1.10.2
+	 *
+	 * @param string $value Raw link URL as provided.
+	 * @return bool True when the value is a valid http/https URL.
+	 */
+	protected function is_valid_link_url( string $value ): bool {
+		$parts  = wp_parse_url( trim( $value ) );
+		$scheme = strtolower( (string) ( $parts['scheme'] ?? '' ) );
+		$host   = (string) ( $parts['host'] ?? '' );
+
+		return in_array( $scheme, [ 'http', 'https' ], true ) && $host !== '';
 	}
 
 	/**

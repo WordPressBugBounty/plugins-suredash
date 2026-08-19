@@ -97,7 +97,7 @@ class Create_Post_For_Space extends Ability {
 				'type'        => 'string',
 				'required'    => false,
 				'default'     => '',
-				'description' => __( 'Type of the parent space for context.', 'suredash' ),
+				'description' => __( 'Optional. Type of the parent space. Only used as a fallback: the space\'s own integration is read from the space and wins, so you do not need to send this.', 'suredash' ),
 			],
 			'forum_category' => [
 				'type'        => 'integer',
@@ -155,12 +155,44 @@ class Create_Post_For_Space extends Ability {
 	 * @param array<string, mixed> $params Validated parameters.
 	 */
 	public function execute( array $params ): array {
+		$space_id = absint( $params['space_id'] );
+
+		// Target guard — the router only skips the space_id meta when the
+		// space is invalid, so a bad ID would still create an orphaned item.
+		$target_error = $this->get_post_target_error( $space_id, SUREDASHBOARD_POST_TYPE, __( 'Space', 'suredash' ) );
+		if ( $target_error !== null ) {
+			return $target_error;
+		}
+
+		// Discussion spaces take community posts, not sub-content items.
+		$integration = (string) sd_get_post_meta( $space_id, 'integration', true );
+		if ( $integration === 'posts_discussion' ) {
+			return $this->fail(
+				sprintf(
+					/* translators: %d: space post ID. */
+					__( 'Space ID %d is a discussion space ("posts_discussion"). Use the create-post ability to create discussion posts. create-post-for-space is only for course, resource library, and collection spaces.', 'suredash' ),
+					$space_id
+				)
+			);
+		}
+
+		// The space's real integration decides the payload, not the agent's
+		// space_type hint. Without this the router never writes content_type,
+		// which later makes update-content-settings reject every field that
+		// only applies to a lesson, resource or event.
 		$post_data = [
 			'post_title'  => sanitize_text_field( $params['post_title'] ),
 			'post_status' => $params['post_status'] ?? 'publish',
-			'space_id'    => absint( $params['space_id'] ),
-			'space_type'  => $params['space_type'] ?? '',
+			'space_id'    => $space_id,
+			'space_type'  => $integration !== '' ? $integration : (string) ( $params['space_type'] ?? '' ),
 		];
+
+		// Course lessons bind to the course the same way the dashboard binds
+		// them, which is also what makes the router set content_type "lesson".
+		if ( $integration === 'course' ) {
+			$post_data['belong_to_course'] = $space_id;
+			$post_data['context']          = 'course_lesson';
+		}
 
 		if ( ! empty( $params['forum_category'] ) ) {
 			$post_data['forum_category'] = absint( $params['forum_category'] );

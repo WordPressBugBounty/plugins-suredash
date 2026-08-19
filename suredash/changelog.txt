@@ -1,4 +1,10 @@
 *** SureDash Changelog ***
+= 2026-08-19 - version 1.11.1 =
+* Improvement: Strengthened validation across the WordPress Abilities (MCP) integration, so incomplete or mismatched requests are rejected with a clear explanation instead of being saved in a broken state.
+* Improvement: Improved the accuracy of the space and group information reported to the AI assistant, including spaces that are not assigned to any group.
+* Fix: Content created through the AI assistant now saves completely and can be edited afterwards.
+* Fix: Submitting a post, saving your profile, or registering now shows an error and lets you retry when the request is blocked by a firewall or the network drops, instead of failing silently.
+
 = 2026-08-11 - version 1.11.0 =
 * New: Added a "What's New" popup in the admin dashboard that highlights the latest features and improvements after an update.
 * Fix: Emojis added in the admin editors are no longer converted to images, so they are preserved correctly in email content.

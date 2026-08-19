@@ -115,6 +115,18 @@ class Create_Space extends Ability {
 				'description' => __( 'Post status for the space.', 'suredash' ),
 				'enum'        => [ 'publish', 'draft' ],
 			],
+			'link_url'              => [
+				'type'        => 'string',
+				'required'    => false,
+				'format'      => 'uri',
+				'description' => __( 'Destination URL for a link space. REQUIRED when integration is "link" — a link space without a URL is a dead sidebar entry. If the user did not provide the URL, ask them; do not guess.', 'suredash' ),
+			],
+			'single_post_id'        => [
+				'type'        => 'integer',
+				'required'    => false,
+				'minimum'     => 1,
+				'description' => __( 'WordPress post/page ID a single_post space displays. REQUIRED when integration is "single_post". Without a target the space renders blank. Call list-wp-posts to find the ID by title; if the user did not say which post, ask them.', 'suredash' ),
+			],
 		];
 	}
 
@@ -156,7 +168,7 @@ class Create_Space extends Ability {
 	 * @return string
 	 */
 	public function get_instructions(): string {
-		return 'Creates a new space in draft status by default. Always call list-groups first and ask the user which group to place the space in before creating. Returns the new space_id. Follow up with update-space-settings to configure further, then use content-action or set space_status to "publish" to make it live.';
+		return 'Creates a new space in draft status by default. Always call list-groups first and ask the user which group to place the space in before creating. COMPLETENESS: integration "link" requires link_url, and integration "single_post" requires single_post_id (call list-wp-posts to look the ID up by title). If the user did not provide the target, ask them instead of guessing; incomplete calls are rejected and NO space is created. Returns the new space_id plus the stored link_url or single_post target, which you should verify. Follow up with update-space-settings to configure further, then use content-action or set space_status to "publish" to make it live.';
 	}
 
 	/**
@@ -174,6 +186,33 @@ class Create_Space extends Ability {
 			}
 		}
 
+		// Link and single_post spaces are broken without their target, so require
+		// it before anything is created. The URL format itself is enforced by
+		// the schema's "uri" format; only presence is integration-specific.
+		$link_url       = $integration === 'link' ? esc_url_raw( trim( (string) ( $params['link_url'] ?? '' ) ) ) : '';
+		$single_post_id = $integration === 'single_post' ? absint( $params['single_post_id'] ?? 0 ) : 0;
+
+		if ( $integration === 'link' && $link_url === '' ) {
+			return $this->fail( __( 'Link spaces need link_url. Without it the space is a dead sidebar entry. Ask the user for the destination URL if they did not provide one. The space was NOT created.', 'suredash' ) );
+		}
+
+		if ( $integration === 'single_post' ) {
+			if ( $single_post_id === 0 ) {
+				return $this->fail( __( 'single_post spaces need single_post_id. Without a target the space renders blank. Call list-wp-posts to find the post/page ID, or ask the user which post the space should display. The space was NOT created.', 'suredash' ) );
+			}
+
+			$target = get_post( $single_post_id );
+			if ( ! $target || $target->post_status === 'trash' ) {
+				return $this->fail(
+					sprintf(
+						/* translators: %d: the provided post ID. */
+						__( 'single_post_id %d does not exist. Call list-wp-posts to find the correct ID. The space was NOT created.', 'suredash' ),
+						$single_post_id
+					)
+				);
+			}
+		}
+
 		$form_data = [
 			'item_title'            => $params['title'],
 			'integration'           => $integration,
@@ -183,6 +222,12 @@ class Create_Space extends Ability {
 			'hidden_space'          => $params['hidden_space'] ?? false,
 			'space_status'          => $params['space_status'] ?? 'draft',
 		];
+
+		// The router persists every unrecognised formData key as post meta, so
+		// the link destination rides along instead of needing a second write.
+		if ( $link_url !== '' ) {
+			$form_data['link_url'] = $link_url;
+		}
 
 		$group_id = intval( $params['group_id'] ?? 0 );
 
@@ -195,7 +240,7 @@ class Create_Space extends Ability {
 
 		$this->setup_post_data(
 			[
-				'formData' => wp_json_encode( $form_data ),
+				'formData' => $this->encode_json_for_router( $form_data ),
 			]
 		);
 
@@ -211,17 +256,33 @@ class Create_Space extends Ability {
 			return $result;
 		}
 
-		$data = $result['data'];
+		$data     = $result['data'];
+		$space_id = absint( $data['space_id'] ?? 0 );
 
-		return [
+		$response = [
 			'success' => true,
 			'data'    => [
-				'space_id'  => $data['space_id'] ?? 0,
+				'space_id'  => $space_id,
 				'message'   => $data['message'] ?? '',
 				'status'    => $data['meta']['post_status'] ?? 'draft',
 				'permalink' => $data['meta']['permalink'] ?? '',
 			],
 		];
+
+		// Echo the target back so agents can self-verify it was set.
+		if ( $space_id > 0 && $link_url !== '' ) {
+			$response['data']['link_url'] = (string) sd_get_post_meta( $space_id, 'link_url', true );
+		}
+
+		if ( $space_id > 0 && $single_post_id > 0 ) {
+			$this->set_single_post_target( $space_id, $single_post_id );
+			$response['data']['single_post'] = [
+				'id'    => $single_post_id,
+				'title' => get_the_title( $single_post_id ),
+			];
+		}
+
+		return $response;
 	}
 
 	/**

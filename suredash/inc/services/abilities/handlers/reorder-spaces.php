@@ -10,6 +10,7 @@ namespace SureDashboard\Inc\Services\Abilities\Handlers;
 
 use SureDashboard\Core\Routers\Backend as BackendRoute;
 use SureDashboard\Inc\Services\Abilities\Ability;
+use SureDashboard\Inc\Utils\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -79,12 +80,17 @@ class Reorder_Spaces extends Ability {
 			'term_id'   => [
 				'type'        => 'integer',
 				'required'    => true,
+				'minimum'     => 1,
 				'description' => __( 'ID of the group containing the spaces to reorder.', 'suredash' ),
 			],
 			'space_ids' => [
 				'type'        => 'array',
 				'required'    => true,
-				'description' => __( 'Ordered array of space IDs representing the new display order.', 'suredash' ),
+				'description' => __( 'Ordered array of space IDs representing the new display order. Must include ALL spaces in the group.', 'suredash' ),
+				'items'       => [
+					'type'    => 'integer',
+					'minimum' => 1,
+				],
 			],
 		];
 	}
@@ -161,12 +167,49 @@ class Reorder_Spaces extends Ability {
 	 * @param array<string, mixed> $params Validated parameters.
 	 */
 	public function execute( array $params ): array {
-		$space_ids = array_map( 'absint', $params['space_ids'] );
+		$term_id      = absint( $params['term_id'] );
+		$target_error = $this->get_term_target_error( $term_id, SUREDASHBOARD_TAXONOMY, __( 'Group', 'suredash' ) );
+		if ( $target_error !== null ) {
+			return $target_error;
+		}
+
+		// Stale IDs left behind by deleted spaces still show up in list-groups,
+		// so drop anything that is not a real space from both sides rather than
+		// blocking a reorder over an ID the agent could not have known was gone.
+		$is_space  = static function ( $space_id ) {
+			return get_post_type( $space_id ) === SUREDASHBOARD_POST_TYPE;
+		};
+		$space_ids = array_values( array_unique( array_filter( array_map( 'absint', $params['space_ids'] ), $is_space ) ) );
+
+		// Completeness guard — the stored order is replaced in full, so a
+		// partial payload silently drops the omitted spaces from the group's
+		// ordering. Item shape is enforced by the schema.
+		$current_ids = array_values(
+			array_unique( array_filter( array_map( 'absint', Helper::get_items_order_sequence( $term_id ) ), $is_space ) )
+		);
+
+		$id_list_errors = $this->get_id_set_errors(
+			$space_ids,
+			$current_ids,
+			__( 'spaces in this group', 'suredash' ),
+			'list-groups'
+		);
+
+		if ( ! empty( $id_list_errors ) ) {
+			return $this->fail(
+				sprintf(
+					/* translators: %d: group term ID. */
+					__( 'Nothing reordered: space_ids must contain exactly the full set of spaces in group %d.', 'suredash' ),
+					$term_id
+				),
+				$id_list_errors
+			);
+		}
 
 		$this->setup_post_data(
 			[
-				'list_term_id'        => absint( $params['term_id'] ),
-				'items_ordering_data' => wp_json_encode( $space_ids ),
+				'list_term_id'        => $term_id,
+				'items_ordering_data' => $this->encode_json_for_router( $space_ids ),
 			]
 		);
 
@@ -177,6 +220,12 @@ class Reorder_Spaces extends Ability {
 		);
 
 		$this->cleanup_post_data( [ 'list_term_id', 'items_ordering_data' ] );
+
+		// Echo the resulting order so agents can self-verify without a
+		// follow-up list-groups call.
+		if ( ! empty( $result['success'] ) ) {
+			$result['final_order'] = $space_ids;
+		}
 
 		return $result;
 	}

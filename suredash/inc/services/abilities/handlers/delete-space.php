@@ -140,9 +140,21 @@ class Delete_Space extends Ability {
 	 * @param array<string, mixed> $params Validated parameters.
 	 */
 	public function execute( array $params ): array {
+		$space_id = absint( $params['space_id'] );
+
+		// Target guard — the router rejects non-space post types too, but with
+		// a generic message; fail here naming the actual type, and capture the
+		// title before it is gone so the success response can echo it.
+		$target_error = $this->get_post_target_error( $space_id, SUREDASHBOARD_POST_TYPE, __( 'Space', 'suredash' ) );
+		if ( $target_error !== null ) {
+			return $target_error;
+		}
+
+		$space_title = get_the_title( $space_id );
+
 		$this->setup_post_data(
 			[
-				'post_id' => absint( $params['space_id'] ),
+				'post_id' => $space_id,
 			]
 		);
 
@@ -153,6 +165,11 @@ class Delete_Space extends Ability {
 		);
 
 		$this->cleanup_post_data( [ 'post_id' ] );
+
+		if ( ! empty( $result['success'] ) && is_array( $result['data'] ?? null ) ) {
+			$result['data']['deleted_id']    = $space_id;
+			$result['data']['deleted_title'] = $space_title;
+		}
 
 		return $result;
 	}

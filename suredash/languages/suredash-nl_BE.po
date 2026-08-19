@@ -11,16 +11,16 @@ msgstr ""
 "PO-Revision-Date: 2025-02-05T05:39:03+00:00\n"
 "Language: \n"
 
-#. Plugin Name of the plugin
-#. Author of the plugin
 #: suredash.php
 #: admin/notices.php:153
+#. Plugin Name of the plugin
+#. Author of the plugin
 msgid "SureDash"
 msgstr "SureDash"
 
+#: suredash.php
 #. Plugin URI of the plugin
 #. Author URI of the plugin
-#: suredash.php
 msgid "https://suredash.com/"
 msgstr "https://suredash.com/"
 
@@ -54,7 +54,7 @@ msgstr "Onderwerpforums"
 msgid "Settings"
 msgstr "Instellingen"
 
-#: inc/utils/settings.php:264
+#: inc/utils/settings.php:267
 #: assets/build/portals-app.js:35
 msgid "Home"
 msgstr "Startpagina"
@@ -80,8 +80,8 @@ msgstr "Video"
 msgid "Uncategorized"
 msgstr "Niet gecategoriseerd"
 
-#. translators: %s: html tags
 #: admin/notices.php:62
+#. translators: %s: html tags
 #, php-format
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr "De %1$s %2$s %3$s plugin vereist dat de %1$s %4$s %3$s plugin wordt bijgewerkt naar versie %5$s of hoger!"
@@ -151,7 +151,9 @@ msgstr "Toon wachtwoord"
 
 #: core/blocks/register.php:93
 msgid "The provided email is already registered with another account. Please login or reset password or use another email."
-msgstr "Het opgegeven e-mailadres is al geregistreerd bij een ander account. Log in of reset je wachtwoord of gebruik een ander e-mailadres."
+msgstr ""
+"Het opgegeven e-mailadres is al geregistreerd bij een ander account. Log in of reset je wachtwoord of gebruik een ander "
+"e-mailadres."
 
 #: core/blocks/register.php:102
 msgid "Invalid username provided or the username is already registered."
@@ -175,7 +177,9 @@ msgstr "Er is iets misgegaan!"
 
 #: core/blocks/register.php:159
 msgid "Registration completed successfully. Check your inbox for password if you did not provide it while registering."
-msgstr "Registratie succesvol afgerond. Controleer je inbox voor het wachtwoord als je het niet hebt opgegeven tijdens de registratie."
+msgstr ""
+"Registratie succesvol afgerond. Controleer je inbox voor het wachtwoord als je het niet hebt opgegeven tijdens de "
+"registratie."
 
 #: core/blocks/register.php:375
 msgid "cannot be blank."
@@ -206,10 +210,10 @@ msgstr "Dit veld"
 msgid "You have used an invalid email."
 msgstr "Je hebt een ongeldig e-mailadres gebruikt."
 
-#. translators: abbreviation for units
 #: core/blocks/login.php:169
 #: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
+#. translators: abbreviation for units
 msgid "Please enter a valid email address."
 msgstr "Voer een geldig e-mailadres in."
 
@@ -476,10 +480,12 @@ msgstr "Je bent succesvol ingelogd. Wordt omgeleid..."
 
 #: core/routers/social-logins.php:262
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
-msgstr "Het gebruikersnaam/wachtwoordveld is leeg. Voeg een geldige gebruikersnaam/e-mail toe om je wachtwoord opnieuw in te stellen."
+msgstr ""
+"Het gebruikersnaam/wachtwoordveld is leeg. Voeg een geldige gebruikersnaam/e-mail toe om je wachtwoord opnieuw in te "
+"stellen."
 
-#. translators: %s: Password reset.
 #: core/routers/social-logins.php:334
+#. translators: %s: Password reset.
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] Wachtwoord reset"
@@ -591,8 +597,8 @@ msgstr "Zoeken"
 msgid "Guest User"
 msgstr "Gastgebruiker"
 
-#. translators: %s is the page title
 #: inc/compatibility/page-builder.php:345
+#. translators: %s is the page title
 #, php-format
 msgid "Edit %1$s with %2$s"
 msgstr "Bewerk %1$s met %2$s"
@@ -601,8 +607,8 @@ msgstr "Bewerk %1$s met %2$s"
 msgid "Someone has requested a password reset for the following account:"
 msgstr "Iemand heeft een verzoek gedaan voor een wachtwoordreset voor het volgende account:"
 
-#. translators: %s: Username.
 #: inc/modules/email-notifications/emails.php:73
+#. translators: %s: Username.
 msgid "Username:"
 msgstr "Gebruikersnaam:"
 
@@ -624,8 +630,8 @@ msgstr "Pingback:"
 msgid "(Edit)"
 msgstr "(Bewerken)"
 
-#. translators: 1: date, 2: time
 #: inc/functions/functions.php:901
+#. translators: 1: date, 2: time
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s om %2$s"
@@ -917,8 +923,12 @@ msgid "Course Playlist"
 msgstr "Cursus afspeellijst"
 
 #: inc/utils/labels.php:106
-msgid "If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website visitor towards being a paying customer. A sales funnel builds wealth into your business."
-msgstr "Als je online producten wilt verkopen, heb je een verkoopfunnel nodig. Een verkoopfunnel is de gemakkelijkste manier om een websitebezoeker naar een betalende klant te leiden. Een verkoopfunnel bouwt rijkdom op in je bedrijf."
+msgid ""
+"If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website "
+"visitor towards being a paying customer. A sales funnel builds wealth into your business."
+msgstr ""
+"Als je online producten wilt verkopen, heb je een verkoopfunnel nodig. Een verkoopfunnel is de gemakkelijkste manier om "
+"een websitebezoeker naar een betalende klant te leiden. Een verkoopfunnel bouwt rijkdom op in je bedrijf."
 
 #: core/cpt/content.php:111
 #: inc/functions/markup.php:566
@@ -1061,7 +1071,7 @@ msgid "Post disliked successfully."
 msgstr "Bericht succesvol niet leuk gevonden."
 
 #: inc/utils/labels.php:179
-#: inc/utils/settings.php:308
+#: inc/utils/settings.php:311
 #: assets/build/portals-app.js:35
 msgid "Restricted Content"
 msgstr "Beperkte inhoud"
@@ -1075,17 +1085,17 @@ msgstr "Deze inhoud is beperkt en kan alleen worden geopend door geautoriseerde 
 msgid "Untitled Section"
 msgstr "Ongetitelde sectie"
 
-#: inc/utils/settings.php:276
+#: inc/utils/settings.php:279
 #: assets/build/portals-app.js:35
 msgid "Your Bookmarks"
 msgstr "Je bladwijzers"
 
-#: inc/utils/settings.php:280
+#: inc/utils/settings.php:283
 #: assets/build/portals-app.js:35
 msgid "Profile Information"
 msgstr "Profielinformatie"
 
-#: inc/utils/settings.php:284
+#: inc/utils/settings.php:287
 #: assets/build/portals-app.js:35
 msgid "Pinned Post"
 msgstr "Vastgezet bericht"
@@ -1094,11 +1104,11 @@ msgstr "Vastgezet bericht"
 msgid "Back to Course"
 msgstr "Terug naar cursus"
 
-#: inc/utils/settings.php:296
+#: inc/utils/settings.php:299
 msgid "What would you like to share today?"
 msgstr "Wat wil je vandaag delen?"
 
-#: inc/utils/settings.php:312
+#: inc/utils/settings.php:315
 msgid "This content is not available with your current membership."
 msgstr "Deze inhoud is niet beschikbaar met je huidige lidmaatschap."
 
@@ -1276,11 +1286,11 @@ msgstr "Em"
 msgid "Select Units"
 msgstr "Eenheden selecteren"
 
-#. translators: abbreviation for units
 #: assets/build/editor-app.js:3
 #: assets/build/editor-app.js:4
 #: assets/build/editor-app.js:5
 #: assets/build/editor-app.js:6
+#. translators: abbreviation for units
 #, js-format
 msgid "%s units"
 msgstr "%s eenheden"
@@ -1874,8 +1884,12 @@ msgid "Logged in Message"
 msgstr "Ingelogd Bericht"
 
 #: assets/build/editor-app.js:6
-msgid "The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is already Logged In."
-msgstr "Het \"Ingelogd Bericht\" wordt in plaats van dit blok op de frontend weergegeven wanneer de gebruiker die deze pagina bezoekt al ingelogd is."
+msgid ""
+"The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is "
+"already Logged In."
+msgstr ""
+"Het \"Ingelogd Bericht\" wordt in plaats van dit blok op de frontend weergegeven wanneer de gebruiker die deze pagina "
+"bezoekt al ingelogd is."
 
 #: assets/build/editor-app.js:6
 msgid "Redirect After Login"
@@ -2442,10 +2456,10 @@ msgstr "Wat is nieuw?"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#. translators: %s is the version number.
-#. translators: %s is the pro_version number.
 #: assets/build/portals-app.js:49
 #: assets/build/portals-app.js:52
+#. translators: %s is the version number.
+#. translators: %s is the pro_version number.
 #, js-format
 msgid "V %s"
 msgstr "V %s"
@@ -2699,8 +2713,12 @@ msgid "No fonts found!"
 msgstr "Geen lettertypen gevonden!"
 
 #: assets/build/portals-app.js:35
-msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
-msgstr "Voer minimaal 3 tekens in om lettertypefamilie te zoeken (standaard: Figtree). Het genereren van lettertypen kan een paar momenten duren voor zelfhosting."
+msgid ""
+"Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self "
+"hosting."
+msgstr ""
+"Voer minimaal 3 tekens in om lettertypefamilie te zoeken (standaard: Figtree). Het genereren van lettertypen kan een "
+"paar momenten duren voor zelfhosting."
 
 #: assets/build/portals-app.js:57
 msgid "Global Container Type"
@@ -2814,11 +2832,16 @@ msgstr "Plak hier uw licentiesleutel"
 msgid "You are using"
 msgstr "U gebruikt"
 
-#. translators: %1$s: first anchor tag start, %2$s: first anchor tag end, %3$s second anchor tag start, %4$s second anchor tag end, %5$s: break tag, %6$s: plugin name.
 #: assets/build/portals-app.js:38
+#. translators: %1$s: first anchor tag start, %2$s: first anchor tag end, %3$s second anchor tag start, %4$s second anchor tag end, %5$s: break tag, %6$s: plugin name.
 #, js-format
-msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
-msgstr "Activeer %1$s%6$s%2$s om professionele ondersteuning en automatische updates vanuit uw WordPress-dashboard te krijgen. Als u geen licentie heeft, kunt u %3$shet hier krijgen »%4$s %5$sVoer uw licentiesleutel hieronder in om %6$s te activeren!"
+msgid ""
+"Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't "
+"have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
+msgstr ""
+"Activeer %1$s%6$s%2$s om professionele ondersteuning en automatische updates vanuit uw WordPress-dashboard te krijgen. "
+"Als u geen licentie heeft, kunt u %3$shet hier krijgen »%4$s %5$sVoer uw licentiesleutel hieronder in om %6$s te "
+"activeren!"
 
 #: assets/build/portals-app.js:38
 msgid "Deactivating"
@@ -2955,8 +2978,8 @@ msgstr "Bestandsgrootte groter dan toegestaan."
 msgid "No matching template found."
 msgstr "Geen overeenkomende sjabloon gevonden."
 
-#. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
 #: inc/templator/service.php:680
+#. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
 #, php-format
 msgid "SureDash: %s"
 msgstr "SureDash: %s"
@@ -3031,9 +3054,9 @@ msgstr "Miniatuurafbeelding"
 msgid "Spaces"
 msgstr "Ruimtes"
 
-#. translators: %s: version number
 #: admin/menu.php:333
 #: admin/menu.php:338
+#. translators: %s: version number
 #, php-format
 msgid "Version %1$s or higher required!"
 msgstr "Versie %1$s of hoger vereist!"
@@ -3277,27 +3300,27 @@ msgstr "Vul alle verplichte velden in."
 msgid "– Select –"
 msgstr "– Selecteer –"
 
-#: inc/utils/settings.php:288
+#: inc/utils/settings.php:291
 msgid "No posts found yet. Stay tuned — new content will be shared here soon!"
 msgstr "Nog geen berichten gevonden. Blijf op de hoogte — nieuwe inhoud wordt hier binnenkort gedeeld!"
 
-#: inc/utils/settings.php:300
+#: inc/utils/settings.php:303
 #: assets/build/portals-app.js:21
 msgid "Create New Post"
 msgstr "Nieuwe Post Aanmaken"
 
-#: inc/utils/settings.php:304
+#: inc/utils/settings.php:307
 msgid "No post found, create a new one!"
 msgstr "Geen bericht gevonden, maak een nieuwe aan!"
 
 #: inc/utils/helper.php:2949
-#: inc/utils/settings.php:332
+#: inc/utils/settings.php:335
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
 msgid "Bookmarks"
 msgstr "Bladwijzers"
 
-#: inc/utils/settings.php:342
+#: inc/utils/settings.php:345
 msgid "Log out"
 msgstr "Uitloggen"
 
@@ -3333,7 +3356,9 @@ msgstr "Monetiseer met SureCart"
 
 #: assets/build/portals-app.js:3
 msgid "Enable seamless monetization by selling memberships, courses, or exclusive content directly within your community."
-msgstr "Schakel naadloze monetisatie in door lidmaatschappen, cursussen of exclusieve inhoud rechtstreeks binnen jouw community te verkopen."
+msgstr ""
+"Schakel naadloze monetisatie in door lidmaatschappen, cursussen of exclusieve inhoud rechtstreeks binnen jouw community "
+"te verkopen."
 
 #: assets/build/portals-app.js:3
 msgid "Flawless workflows with OttoKit"
@@ -3341,29 +3366,31 @@ msgstr "Perfecte workflows met OttoKit"
 
 #: assets/build/portals-app.js:3
 msgid "Automate your workflows by connecting SureDash with other tools. Save time and focus on growing your community."
-msgstr "Automatiseer jouw workflows door SureDash met andere tools te verbinden. Bespaar tijd en concentreer je op het laten groeien van jouw community."
+msgstr ""
+"Automatiseer jouw workflows door SureDash met andere tools te verbinden. Bespaar tijd en concentreer je op het laten "
+"groeien van jouw community."
 
 #: assets/build/portals-app.js:3
 msgid "Complete access control with SureMembers"
 msgstr "Volledige toegangscontrole met SureMembers"
 
-#. translators: %s: Plugin name
 #: assets/build/portals-app.js:5
 #: assets/build/portals-app.js:8
+#. translators: %s: Plugin name
 #, js-format
 msgid "Installing %s plugin. Please wait.."
 msgstr "Bezig met het installeren van %s plugin. Even geduld.."
 
-#. translators: %s: Plugin name
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:9
+#. translators: %s: Plugin name
 #, js-format
 msgid "%s plugin Installed Successfully.."
 msgstr "%s plugin succesvol geïnstalleerd.."
 
-#. translators: %s: Plugin name
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:7
+#. translators: %s: Plugin name
 #, js-format
 msgid "%s Plugin Activated Successfully..!"
 msgstr "%s Plugin succesvol geactiveerd..!"
@@ -3560,8 +3587,8 @@ msgstr "Een andere pluginbewerking is bezig. Even geduld alstublieft."
 msgid "Install & Activate"
 msgstr "Installeren & Activeren"
 
-#. translators: %s: user name
 #: assets/build/portals-app.js:11
+#. translators: %s: user name
 #, js-format
 msgid "Howdy, %s"
 msgstr "Hallo, %s"
@@ -3571,8 +3598,12 @@ msgid "Manage Spaces"
 msgstr "Beheer Ruimtes"
 
 #: assets/build/portals-app.js:10
-msgid "We're excited to help you build, connect, and grow your community. SureDash makes it simple to create a powerful community platform directly within WordPress."
-msgstr "We zijn enthousiast om je te helpen bij het bouwen, verbinden en laten groeien van je gemeenschap. SureDash maakt het eenvoudig om een krachtig gemeenschapsplatform direct binnen WordPress te creëren."
+msgid ""
+"We're excited to help you build, connect, and grow your community. SureDash makes it simple to create a powerful "
+"community platform directly within WordPress."
+msgstr ""
+"We zijn enthousiast om je te helpen bij het bouwen, verbinden en laten groeien van je gemeenschap. SureDash maakt het "
+"eenvoudig om een krachtig gemeenschapsplatform direct binnen WordPress te creëren."
 
 #: core/shortcodes/widgets/recent-activities.php:39
 #: core/shortcodes/widgets/recent-activities.php:176
@@ -3591,16 +3622,18 @@ msgstr "Nog geen details beschikbaar."
 
 #: assets/build/portals-app.js:11
 msgid "Once users start contributing, you’ll see their details here to help you manage and engage with your portal community."
-msgstr "Zodra gebruikers beginnen bij te dragen, zie je hun details hier om je te helpen bij het beheren en betrekken van je portalgemeenschap."
+msgstr ""
+"Zodra gebruikers beginnen bij te dragen, zie je hun details hier om je te helpen bij het beheren en betrekken van je "
+"portalgemeenschap."
 
-#. translators: %s: post title
 #: assets/build/portals-app.js:12
+#. translators: %s: post title
 #, js-format
 msgid "Created a new post: \"%s\""
 msgstr "Een nieuwe post aangemaakt: \"%s\""
 
-#. translators: %s: comment title
 #: assets/build/portals-app.js:13
+#. translators: %s: comment title
 #, js-format
 msgid "Commented on: \"%s\""
 msgstr "Gecommentarieerd op: \"%s\""
@@ -3893,8 +3926,12 @@ msgid "Performance Tip:"
 msgstr "Prestatie-tip:"
 
 #: assets/build/portals-app.js:35
-msgid "Want your posts/discussion space to load quicker on the frontend? Use WordPress default blocks and go easy on the heavy custom ones."
-msgstr "Wil je dat je posts/discussieruimte sneller laden op de frontend? Gebruik de standaard blokken van WordPress en ga voorzichtig om met zware aangepaste blokken."
+msgid ""
+"Want your posts/discussion space to load quicker on the frontend? Use WordPress default blocks and go easy on the heavy "
+"custom ones."
+msgstr ""
+"Wil je dat je posts/discussieruimte sneller laden op de frontend? Gebruik de standaard blokken van WordPress en ga "
+"voorzichtig om met zware aangepaste blokken."
 
 #: assets/build/portals-app.js:35
 msgid "New Post"
@@ -4029,11 +4066,15 @@ msgstr "Ontwerpinstellingen"
 msgid "Users"
 msgstr "Gebruikers"
 
-#. translators: %1$s: html tags, %2$s: plugin name, %3$s: html tags, %4$s: link to document, %5$s: html tags
 #: admin/notices.php:110
+#. translators: %1$s: html tags, %2$s: plugin name, %3$s: html tags, %4$s: link to document, %5$s: html tags
 #, php-format
-msgid "The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your settings. Ignore if already migrated."
-msgstr "De %1$s %2$s %3$s plugin is bijgewerkt naar een stabiele versie. Volg %4$s dit document %5$s om uw instellingen te migreren. Negeer dit als u al gemigreerd bent."
+msgid ""
+"The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your "
+"settings. Ignore if already migrated."
+msgstr ""
+"De %1$s %2$s %3$s plugin is bijgewerkt naar een stabiele versie. Volg %4$s dit document %5$s om uw instellingen te "
+"migreren. Negeer dit als u al gemigreerd bent."
 
 #: core/blocks/register.php:89
 msgid "Email is missing or invalid."
@@ -4060,14 +4101,14 @@ msgstr "Deze discussieruimte is privé. Log in om de inhoud te bekijken."
 msgid "content requires membership access"
 msgstr "inhoud vereist lidmaatschapstoegang"
 
-#. translators: 1: Post title, 2: Restriction type
 #: core/integrations/sure-members.php:850
+#. translators: 1: Post title, 2: Restriction type
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
 
-#. translators: %1$s: user, %2$s: topic
 #: core/notifier/admin-notifier.php:59
+#. translators: %1$s: user, %2$s: topic
 #, php-format
 msgid "New post from %1$s \"%2$s\""
 msgstr "Nieuw bericht van %1$s \"%2$s\""
@@ -4151,8 +4192,8 @@ msgstr "Cursus hervatten"
 msgid "View Discussion"
 msgstr "Discussie bekijken"
 
-#. translators: %s: Space group name
 #: core/shortcodes/navigation.php:179
+#. translators: %s: Space group name
 #, php-format
 msgid "Toggle %s group"
 msgstr "Schakel %s groep"
@@ -4193,19 +4234,19 @@ msgstr "Verwijderd uit bladwijzers."
 msgid "Notification marked as read."
 msgstr "Melding gemarkeerd als gelezen."
 
-#: inc/utils/settings.php:268
+#: inc/utils/settings.php:271
 msgid "Howdy,"
 msgstr "Hallo,"
 
-#: inc/utils/settings.php:272
+#: inc/utils/settings.php:275
 msgid "Latest Posts"
 msgstr "Laatste berichten"
 
-#: inc/utils/settings.php:292
+#: inc/utils/settings.php:295
 msgid "To add to the discussion, join the mastermind."
 msgstr "Om deel te nemen aan de discussie, sluit je aan bij de mastermind."
 
-#: inc/utils/settings.php:354
+#: inc/utils/settings.php:357
 msgid "SureDash User"
 msgstr "SureDash-gebruiker"
 
@@ -4235,8 +4276,12 @@ msgid "Space Description"
 msgstr "Ruimtebeschrijving"
 
 #: assets/build/portals-app.js:13
-msgid "This description appears in the home page grid view. For the best display across devices, we recommend keeping it within 72 characters."
-msgstr "Deze beschrijving verschijnt in de rasterweergave van de startpagina. Voor de beste weergave op verschillende apparaten raden we aan deze binnen 72 tekens te houden."
+msgid ""
+"This description appears in the home page grid view. For the best display across devices, we recommend keeping it "
+"within 72 characters."
+msgstr ""
+"Deze beschrijving verschijnt in de rasterweergave van de startpagina. Voor de beste weergave op verschillende apparaten "
+"raden we aan deze binnen 72 tekens te houden."
 
 #: assets/build/portals-app.js:21
 msgid "WordPress Post/Page"
@@ -4246,8 +4291,8 @@ msgstr "WordPress-bericht/pagina"
 msgid "Search posts…"
 msgstr "Zoek berichten…"
 
-#. translators: %d is the number of posts per page.
 #: assets/build/portals-app.js:34
+#. translators: %d is the number of posts per page.
 #, js-format
 msgid "%d Posts per page"
 msgstr "%d berichten per pagina"
@@ -4374,8 +4419,8 @@ msgstr "Probeer je zoek- of filtercriteria aan te passen"
 msgid "Users will appear here once they register on your site."
 msgstr "Gebruikers zullen hier verschijnen zodra ze zich op uw site registreren."
 
-#. translators: %d is the number of users per page.
 #: assets/build/portals-app.js:41
+#. translators: %d is the number of users per page.
 #, js-format
 msgid "%d Users per page"
 msgstr "%d Gebruikers per pagina"
@@ -4420,8 +4465,8 @@ msgstr "aan"
 msgid "No comments posted yet."
 msgstr "Nog geen reacties geplaatst."
 
-#. translators: %s is the pro plugin name.
 #: assets/build/portals-app.js:55
+#. translators: %s is the pro plugin name.
 #, js-format
 msgid "Incompatible %s Version"
 msgstr "Onverenigbare %s-versie"
@@ -4515,14 +4560,20 @@ msgstr "Begin met Organiseren: Sleep Ruimtes Hierheen of Voeg een Nieuwe Toe"
 msgid "WordPress General Settings."
 msgstr "WordPress Algemene Instellingen."
 
-#. Description of the plugin
 #: suredash.php
-msgid "SureDash turns your WordPress site into a community hub with unified login, custom dashboard, and improved user engagement."
-msgstr "SureDash verandert uw WordPress-site in een community-hub met een uniforme login, een aangepast dashboard en verbeterde gebruikersbetrokkenheid."
+#. Description of the plugin
+msgid ""
+"SureDash turns your WordPress site into a community hub with unified login, custom dashboard, and improved user "
+"engagement."
+msgstr ""
+"SureDash verandert uw WordPress-site in een community-hub met een uniforme login, een aangepast dashboard en verbeterde "
+"gebruikersbetrokkenheid."
 
 #: core/assets.php:121
 msgid "Direct URL to image file (JPG, PNG, GIF, WebP, SVG). Must start with http:// or https:// and end with image extension."
-msgstr "Directe URL naar afbeeldingsbestand (JPG, PNG, GIF, WebP, SVG). Moet beginnen met http:// of https:// en eindigen met een afbeeldingsextensie."
+msgstr ""
+"Directe URL naar afbeeldingsbestand (JPG, PNG, GIF, WebP, SVG). Moet beginnen met http:// of https:// en eindigen met "
+"een afbeeldingsextensie."
 
 #: core/assets.php:123
 msgid "Please enter a valid URL."
@@ -4548,14 +4599,14 @@ msgstr "Ongeldige afbeeldingsafmetingen."
 msgid "Please enter a valid video URL."
 msgstr "Voer een geldige video-URL in."
 
-#. translators: %1$s: file name, %2$s: allowed file types
 #: core/assets.php:131
+#. translators: %1$s: file name, %2$s: allowed file types
 #, php-format
 msgid "File \"%1$s\" has an invalid type. Please upload %2$s"
 msgstr "Bestand \"%1$s\" heeft een ongeldig type. Upload alstublieft %2$s"
 
-#. translators: %1$s: file name, %2$s: maximum file size in MB
 #: core/assets.php:133
+#. translators: %1$s: file name, %2$s: maximum file size in MB
 #, php-format
 msgid "File \"%1$s\" exceeds the maximum size of %2$s MB."
 msgstr "Bestand \"%1$s\" overschrijdt de maximale grootte van %2$s MB."
@@ -4572,14 +4623,14 @@ msgstr "Ongeldige bestandstypen"
 msgid "Exceeds size limit"
 msgstr "Overschrijdt de limiet voor bestandsgrootte"
 
-#. translators: %s: list of allowed file formats
 #: core/assets.php:138
+#. translators: %s: list of allowed file formats
 #, php-format
 msgid "Allowed formats: %s"
 msgstr "Toegestane indelingen: %s"
 
-#. translators: %s: maximum file size in MB
 #: core/assets.php:140
+#. translators: %s: maximum file size in MB
 #, php-format
 msgid "Maximum file size: %s MB"
 msgstr "Maximale bestandsgrootte: %s MB"
@@ -4742,8 +4793,8 @@ msgstr "Log in op account"
 msgid "Register to portal"
 msgstr "Registreer voor portal"
 
-#. translators: %s: maximum number of spaces
 #: assets/build/portals-app.js:10
+#. translators: %s: maximum number of spaces
 #, js-format
 msgid "Select spaces to display on the home screen. (Maximum %s)"
 msgstr "Selecteer ruimtes om weer te geven op het startscherm. (Maximaal %s)"
@@ -4968,10 +5019,10 @@ msgstr "Zoek rollen…"
 msgid "Role"
 msgstr "Rol"
 
-#. translators: %1$s: User Name Field.
-#. translators: %1$s: Password Field.
 #: core/blocks/login.php:1045
 #: core/blocks/login.php:1050
+#. translators: %1$s: User Name Field.
+#. translators: %1$s: Password Field.
 #, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr "Veld \"%1$s\" mag niet leeg zijn."
@@ -4992,10 +5043,10 @@ msgstr "Lesduur (in minuten)"
 msgid "Global palette missing — Select Light/Dark Mode."
 msgstr "Globale palet ontbreekt — Selecteer Licht/Donker Modus."
 
-#. translators: %s: light mode text
-#. translators: %s: dark mode text
 #: core/blocks/interactivity/build/Switcher/view.php:70
 #: core/blocks/interactivity/build/Switcher/view.php:71
+#. translators: %s: light mode text
+#. translators: %s: dark mode text
 #, php-format
 msgid "Switch to %s"
 msgstr "Overschakelen naar %s"
@@ -5057,24 +5108,24 @@ msgstr "Subtiele achtergrond"
 msgid "Other Supporting"
 msgstr "Andere ondersteuning"
 
-#. translators: %1$d: hours, %2$d: minutes
 #: inc/functions/functions.php:2669
+#. translators: %1$d: hours, %2$d: minutes
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
 msgstr[0] "%1$d uur %2$d min"
 msgstr[1] ""
 
-#. translators: %d: hours
 #: inc/functions/functions.php:2673
+#. translators: %d: hours
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
 msgstr[0] "%d uur"
 msgstr[1] ""
 
-#. translators: %d: minutes
 #: inc/functions/functions.php:2677
+#. translators: %d: minutes
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
@@ -5154,7 +5205,9 @@ msgstr "Kies Ruimte Inhoudstype"
 
 #: assets/build/portals-app.js:21
 msgid "Choose between using an existing WordPress Post/Page or creating custom content with the space editor."
-msgstr "Kies tussen het gebruik van een bestaande WordPress Bericht/Pagina of het maken van aangepaste inhoud met de ruimte-editor."
+msgstr ""
+"Kies tussen het gebruik van een bestaande WordPress Bericht/Pagina of het maken van aangepaste inhoud met de "
+"ruimte-editor."
 
 #: assets/build/portals-app.js:21
 msgid "Utilize this space's built-in editor to create and edit custom content."
@@ -5579,7 +5632,9 @@ msgstr "Oude kleuren gedetecteerd"
 
 #: assets/build/portals-app.js:57
 msgid "Using old colors? Sync Global Palette to the Light for improved experience and Dark Mode support."
-msgstr "Gebruik je oude kleuren? Synchroniseer het globale palet met het licht voor een verbeterde ervaring en ondersteuning voor de donkere modus."
+msgstr ""
+"Gebruik je oude kleuren? Synchroniseer het globale palet met het licht voor een verbeterde ervaring en ondersteuning "
+"voor de donkere modus."
 
 #: assets/build/portals-app.js:57
 msgid "Note: Please review your portal frontend and adjust template colors accordingly if needed."
@@ -5701,8 +5756,8 @@ msgstr "Uploaden mislukt:"
 msgid "or drag and drop files to upload"
 msgstr "of sleep bestanden om te uploaden"
 
-#. translators: %d is the file count
 #: assets/build/portals-app.js:19
+#. translators: %d is the file count
 #, js-format
 msgid "Showing %d files"
 msgstr "Toon %d bestanden"
@@ -5887,7 +5942,9 @@ msgstr "Snelle vraag!"
 
 #: admin/notices.php:155
 msgid "How would you rate your SureDash experience? Love it or not, your feedback helps us make community building better."
-msgstr "Hoe zou je jouw SureDash-ervaring beoordelen? Of je het nu leuk vindt of niet, jouw feedback helpt ons om de community-opbouw te verbeteren."
+msgstr ""
+"Hoe zou je jouw SureDash-ervaring beoordelen? Of je het nu leuk vindt of niet, jouw feedback helpt ons om de "
+"community-opbouw te verbeteren."
 
 #: admin/notices.php:156
 msgid "Very unlikely!"
@@ -5910,8 +5967,12 @@ msgid "Thank you for sharing your feedback 🙏"
 msgstr "Dank je voor het delen van je feedback 🙏"
 
 #: admin/notices.php:165
-msgid "We truly value your input. Tell us what’s missing or what could be better — we’re here to improve your SureDash experience."
-msgstr "We waarderen je input echt. Vertel ons wat er ontbreekt of wat beter kan — we zijn hier om jouw SureDash-ervaring te verbeteren."
+msgid ""
+"We truly value your input. Tell us what’s missing or what could be better — we’re here to improve your SureDash "
+"experience."
+msgstr ""
+"We waarderen je input echt. Vertel ons wat er ontbreekt of wat beter kan — we zijn hier om jouw SureDash-ervaring te "
+"verbeteren."
 
 #: core/integrations/feeds.php:292
 msgid "Edit Post"
@@ -6044,7 +6105,9 @@ msgstr "Laat ons een beoordeling achter"
 
 #: assets/build/portals-app.js:13
 msgid "Enabling this makes all discussions private between users with portal management capabilities and the topic creator."
-msgstr "Door dit in te schakelen worden alle discussies privé tussen gebruikers met portaalbeheermogelijkheden en de onderwerpcreator."
+msgstr ""
+"Door dit in te schakelen worden alle discussies privé tussen gebruikers met portaalbeheermogelijkheden en de "
+"onderwerpcreator."
 
 #: assets/build/portals-app.js:13
 msgid "Select Pinned Events"
@@ -6199,8 +6262,12 @@ msgid "Select a space…"
 msgstr "Selecteer een ruimte…"
 
 #: assets/build/portals-app.js:38
-msgid "Select the space where users will be redirected after purchasing from SureCart. If \"None\" is selected, users will be redirected to the default SureCart customer dashboard page."
-msgstr "Selecteer de ruimte waar gebruikers naartoe worden omgeleid na aankoop bij SureCart. Als \"Geen\" is geselecteerd, worden gebruikers omgeleid naar de standaard klantdashboardpagina van SureCart."
+msgid ""
+"Select the space where users will be redirected after purchasing from SureCart. If \"None\" is selected, users will be "
+"redirected to the default SureCart customer dashboard page."
+msgstr ""
+"Selecteer de ruimte waar gebruikers naartoe worden omgeleid na aankoop bij SureCart. Als \"Geen\" is geselecteerd, "
+"worden gebruikers omgeleid naar de standaard klantdashboardpagina van SureCart."
 
 #: assets/build/portals-app.js:38
 msgid "Integrations"
@@ -6323,16 +6390,16 @@ msgstr "Verwijderen van e-mailtrigger mislukt."
 msgid "Invalid or missing config IDs."
 msgstr "Ongeldige of ontbrekende configuratie-ID's."
 
-#. translators: %d: number of deleted triggers
 #: core/routers/emails.php:249
+#. translators: %d: number of deleted triggers
 #, php-format
 msgid "%d email trigger deleted successfully."
 msgid_plural "%d email triggers deleted successfully."
 msgstr[0] "%d e-mailtrigger(s) succesvol verwijderd."
 msgstr[1] ""
 
-#. translators: %d: number of failed deletions
 #: core/routers/emails.php:261
+#. translators: %d: number of failed deletions
 #, php-format
 msgid "%d trigger failed to delete."
 msgid_plural "%d triggers failed to delete."
@@ -6353,14 +6420,14 @@ msgstr "Gebruiker niet ingelogd."
 msgid "User not found."
 msgstr "Gebruiker niet gevonden."
 
-#. translators: %s: Site name
 #: core/routers/misc.php:788
+#. translators: %s: Site name
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-e-mail van %s"
 
-#. translators: %1$s: User name, %2$s: Site name
 #: core/routers/misc.php:804
+#. translators: %1$s: User name, %2$s: Site name
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6429,8 +6496,25 @@ msgid "Welcome to {{portal_name}}, {{user_name}}! 🎉"
 msgstr "Welkom bij {{portal_name}}, {{user_name}}! 🎉"
 
 #: inc/modules/email-notifications/email-notifications.php:48
-msgid "<p>Hi {{user_first_name}},</p><p>Welcome to <strong>{{portal_name}}</strong>! 🎉 We're thrilled to have you join our community.</p><p>Your account has been successfully created and you're all set to explore everything we have to offer. Whether you're here to learn, connect, or collaborate, you've come to the right place.</p><p>👉 <strong>Access Your Dashboard:</strong> <a href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>What's next?</strong></p><ul><li>Complete your profile to help others get to know you</li><li>Explore the different spaces and join conversations</li><li>Connect with other community members</li><li>Check out our resources and latest updates</li></ul><p>If you have any questions or need assistance getting started, don't hesitate to reach out. We're here to help!</p><p>Welcome aboard!<br>The {{portal_name}} Team</p>"
-msgstr "<p>Hallo {{user_first_name}},</p><p>Welkom bij <strong>{{portal_name}}</strong>! 🎉 We zijn blij dat je onze gemeenschap komt versterken.</p><p>Je account is succesvol aangemaakt en je bent helemaal klaar om alles te verkennen wat we te bieden hebben. Of je nu hier bent om te leren, te verbinden of samen te werken, je bent op de juiste plek.</p><p>👉 <strong>Toegang tot je Dashboard:</strong> <a href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>Wat nu?</strong></p><ul><li>Voltooi je profiel om anderen te helpen je te leren kennen</li><li>Verken de verschillende ruimtes en neem deel aan gesprekken</li><li>Verbind met andere leden van de gemeenschap</li><li>Bekijk onze bronnen en laatste updates</li></ul><p>Als je vragen hebt of hulp nodig hebt om aan de slag te gaan, aarzel dan niet om contact op te nemen. We zijn hier om te helpen!</p><p>Welkom aan boord!<br>Het {{portal_name}} Team</p>"
+msgid ""
+"<p>Hi {{user_first_name}},</p><p>Welcome to <strong>{{portal_name}}</strong>! 🎉 We're thrilled to have you join our "
+"community.</p><p>Your account has been successfully created and you're all set to explore everything we have to offer. "
+"Whether you're here to learn, connect, or collaborate, you've come to the right place.</p><p>👉 <strong>Access Your "
+"Dashboard:</strong> <a href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>What's "
+"next?</strong></p><ul><li>Complete your profile to help others get to know you</li><li>Explore the different spaces and "
+"join conversations</li><li>Connect with other community members</li><li>Check out our resources and latest "
+"updates</li></ul><p>If you have any questions or need assistance getting started, don't hesitate to reach out. We're "
+"here to help!</p><p>Welcome aboard!<br>The {{portal_name}} Team</p>"
+msgstr ""
+"<p>Hallo {{user_first_name}},</p><p>Welkom bij <strong>{{portal_name}}</strong>! 🎉 We zijn blij dat je onze "
+"gemeenschap komt versterken.</p><p>Je account is succesvol aangemaakt en je bent helemaal klaar om alles te verkennen "
+"wat we te bieden hebben. Of je nu hier bent om te leren, te verbinden of samen te werken, je bent op de juiste "
+"plek.</p><p>👉 <strong>Toegang tot je Dashboard:</strong> <a "
+"href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>Wat nu?</strong></p><ul><li>Voltooi je profiel om anderen te "
+"helpen je te leren kennen</li><li>Verken de verschillende ruimtes en neem deel aan gesprekken</li><li>Verbind met "
+"andere leden van de gemeenschap</li><li>Bekijk onze bronnen en laatste updates</li></ul><p>Als je vragen hebt of hulp "
+"nodig hebt om aan de slag te gaan, aarzel dan niet om contact op te nemen. We zijn hier om te helpen!</p><p>Welkom aan "
+"boord!<br>Het {{portal_name}} Team</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:52
 msgid "New Space Announcement"
@@ -6441,8 +6525,24 @@ msgid "🚀 New space available: {{space_name}}"
 msgstr "🚀 Nieuwe ruimte beschikbaar: {{space_name}}"
 
 #: inc/modules/email-notifications/email-notifications.php:55
-msgid "<p>Hi {{user_first_name}},</p><p>Exciting news! We've just launched a new space on <strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> is now open and ready for exploration. This space has been carefully designed to provide you with valuable content, discussions, and resources.</p><p>👉 <strong>Explore {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>What you'll find:</strong></p><ul><li>Fresh content and discussions</li><li>Valuable resources and materials</li><li>Opportunities to connect with like-minded members</li><li>Expert insights and community knowledge</li></ul><p>Don't miss out on being among the first to engage with this new space. Your participation helps build a vibrant community for everyone.</p><p>See you inside!<br>The {{portal_name}} Team</p>"
-msgstr "<p>Hallo {{user_first_name}},</p><p>Spannend nieuws! We hebben zojuist een nieuwe ruimte gelanceerd op <strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> is nu geopend en klaar voor verkenning. Deze ruimte is zorgvuldig ontworpen om je waardevolle inhoud, discussies en middelen te bieden.</p><p>👉 <strong>Verken {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>Wat je zult vinden:</strong></p><ul><li>Verse inhoud en discussies</li><li>Waardevolle middelen en materialen</li><li>Kansen om in contact te komen met gelijkgestemde leden</li><li>Expertinzichten en gemeenschapskennis</li></ul><p>Mis het niet om een van de eersten te zijn die met deze nieuwe ruimte aan de slag gaat. Jouw deelname helpt een levendige gemeenschap voor iedereen op te bouwen.</p><p>Tot ziens binnenin!<br>Het {{portal_name}} Team</p>"
+msgid ""
+"<p>Hi {{user_first_name}},</p><p>Exciting news! We've just launched a new space on "
+"<strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> is now open and ready for exploration. This "
+"space has been carefully designed to provide you with valuable content, discussions, and resources.</p><p>👉 "
+"<strong>Explore {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>What you'll "
+"find:</strong></p><ul><li>Fresh content and discussions</li><li>Valuable resources and materials</li><li>Opportunities "
+"to connect with like-minded members</li><li>Expert insights and community knowledge</li></ul><p>Don't miss out on being "
+"among the first to engage with this new space. Your participation helps build a vibrant community for "
+"everyone.</p><p>See you inside!<br>The {{portal_name}} Team</p>"
+msgstr ""
+"<p>Hallo {{user_first_name}},</p><p>Spannend nieuws! We hebben zojuist een nieuwe ruimte gelanceerd op "
+"<strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> is nu geopend en klaar voor verkenning. Deze "
+"ruimte is zorgvuldig ontworpen om je waardevolle inhoud, discussies en middelen te bieden.</p><p>👉 <strong>Verken "
+"{{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>Wat je zult "
+"vinden:</strong></p><ul><li>Verse inhoud en discussies</li><li>Waardevolle middelen en materialen</li><li>Kansen om in "
+"contact te komen met gelijkgestemde leden</li><li>Expertinzichten en gemeenschapskennis</li></ul><p>Mis het niet om een "
+"van de eersten te zijn die met deze nieuwe ruimte aan de slag gaat. Jouw deelname helpt een levendige gemeenschap voor "
+"iedereen op te bouwen.</p><p>Tot ziens binnenin!<br>Het {{portal_name}} Team</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:59
 msgid "Admin Post Notification"
@@ -6453,8 +6553,25 @@ msgid "📰 New Post: {{post_title}}"
 msgstr "📰 Nieuwe Post: {{post_title}}"
 
 #: inc/modules/email-notifications/email-notifications.php:62
-msgid "<p>Hi {{user_first_name}},</p><p>We've just published something new that we think you'll find valuable on <strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>This content is fresh off the press and contains insights that could be exactly what you need right now.</p><p>👉 <strong>Read the full post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Why this matters:</strong></p><ul><li>Stay updated with the latest developments</li><li>Gain valuable insights from our community</li><li>Join the conversation with your thoughts and questions</li><li>Connect with others who share your interests</li></ul><p>We love hearing your thoughts and feedback, so don't hesitate to engage with the post and share your perspective.</p><p>Stay connected,<br>The {{portal_name}} Team</p>"
-msgstr "<p>Hallo {{user_first_name}},</p><p>We hebben zojuist iets nieuws gepubliceerd waarvan we denken dat je het waardevol zult vinden op <strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>Deze inhoud is vers van de pers en bevat inzichten die precies zijn wat je nu nodig hebt.</p><p>👉 <strong>Lees de volledige post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Waarom dit belangrijk is:</strong></p><ul><li>Blijf op de hoogte van de laatste ontwikkelingen</li><li>Krijg waardevolle inzichten van onze gemeenschap</li><li>Doe mee aan het gesprek met je gedachten en vragen</li><li>Verbind met anderen die jouw interesses delen</li></ul><p>We horen graag je gedachten en feedback, dus aarzel niet om met de post in gesprek te gaan en je perspectief te delen.</p><p>Blijf verbonden,<br>Het {{portal_name}} Team</p>"
+msgid ""
+"<p>Hi {{user_first_name}},</p><p>We've just published something new that we think you'll find valuable on "
+"<strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>This content is "
+"fresh off the press and contains insights that could be exactly what you need right now.</p><p>👉 <strong>Read the full "
+"post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Why this matters:</strong></p><ul><li>Stay "
+"updated with the latest developments</li><li>Gain valuable insights from our community</li><li>Join the conversation "
+"with your thoughts and questions</li><li>Connect with others who share your interests</li></ul><p>We love hearing your "
+"thoughts and feedback, so don't hesitate to engage with the post and share your perspective.</p><p>Stay "
+"connected,<br>The {{portal_name}} Team</p>"
+msgstr ""
+"<p>Hallo {{user_first_name}},</p><p>We hebben zojuist iets nieuws gepubliceerd waarvan we denken dat je het waardevol "
+"zult vinden op "
+"<strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>Deze inhoud is "
+"vers van de pers en bevat inzichten die precies zijn wat je nu nodig hebt.</p><p>👉 <strong>Lees de volledige "
+"post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Waarom dit belangrijk "
+"is:</strong></p><ul><li>Blijf op de hoogte van de laatste ontwikkelingen</li><li>Krijg waardevolle inzichten van onze "
+"gemeenschap</li><li>Doe mee aan het gesprek met je gedachten en vragen</li><li>Verbind met anderen die jouw interesses "
+"delen</li></ul><p>We horen graag je gedachten en feedback, dus aarzel niet om met de post in gesprek te gaan en je "
+"perspectief te delen.</p><p>Blijf verbonden,<br>Het {{portal_name}} Team</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:86
 msgid "Course Completion Celebration"
@@ -6465,8 +6582,28 @@ msgid "🎓 Congratulations! You completed {{course_title}}"
 msgstr "🎓 Gefeliciteerd! Je hebt {{course_title}} afgerond"
 
 #: inc/modules/email-notifications/email-notifications.php:90
-msgid "<p>Hi {{user_first_name}},</p><p>👏 <strong>Congratulations!</strong> You've successfully completed <strong>{{course_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>This is a significant achievement that represents your dedication, persistence, and commitment to learning. You should be proud of reaching this milestone!</p><p><strong>Your achievement:</strong></p><ul><li>Course: {{course_title}}</li><li>Completion date: {{user_registered}}</li><li>Learning platform: {{portal_name}}</li></ul><p><strong>What's next?</strong></p><ul><li>Apply what you've learned in real-world scenarios</li><li>Share your knowledge with other community members</li><li>Explore related courses to expand your expertise</li><li>Consider mentoring others who are just starting their journey</li></ul><p>Your success inspires others in our community. Thank you for being an active learner and contributing to the growth of our learning environment.</p><p>We're excited to see what you'll achieve next!</p><p>Celebrating your success,<br>The {{portal_name}} Team</p>"
-msgstr "<p>Hallo {{user_first_name}},</p><p>👏 <strong>Gefeliciteerd!</strong> Je hebt met succes <strong>{{course_title}}</strong> afgerond op <strong>{{portal_name}}</strong>.</p><p>Dit is een belangrijke prestatie die jouw toewijding, doorzettingsvermogen en inzet voor leren vertegenwoordigt. Je mag trots zijn op het bereiken van deze mijlpaal!</p><p><strong>Jouw prestatie:</strong></p><ul><li>Cursus: {{course_title}}</li><li>Afsluitdatum: {{user_registered}}</li><li>Leren platform: {{portal_name}}</li></ul><p><strong>Wat nu?</strong></p><ul><li>Pas wat je hebt geleerd toe in de praktijk</li><li>Deel je kennis met andere leden van de gemeenschap</li><li>Verken gerelateerde cursussen om je expertise uit te breiden</li><li>Overweeg om anderen te begeleiden die net beginnen aan hun reis</li></ul><p>Jouw succes inspireert anderen in onze gemeenschap. Bedankt dat je een actieve leerling bent en bijdraagt aan de groei van onze leeromgeving.</p><p>We zijn enthousiast om te zien wat je als volgende zult bereiken!</p><p>Je succes vieren,<br>Het {{portal_name}} Team</p>"
+msgid ""
+"<p>Hi {{user_first_name}},</p><p>👏 <strong>Congratulations!</strong> You've successfully completed "
+"<strong>{{course_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>This is a significant achievement that "
+"represents your dedication, persistence, and commitment to learning. You should be proud of reaching this "
+"milestone!</p><p><strong>Your achievement:</strong></p><ul><li>Course: {{course_title}}</li><li>Completion date: "
+"{{user_registered}}</li><li>Learning platform: {{portal_name}}</li></ul><p><strong>What's "
+"next?</strong></p><ul><li>Apply what you've learned in real-world scenarios</li><li>Share your knowledge with other "
+"community members</li><li>Explore related courses to expand your expertise</li><li>Consider mentoring others who are "
+"just starting their journey</li></ul><p>Your success inspires others in our community. Thank you for being an active "
+"learner and contributing to the growth of our learning environment.</p><p>We're excited to see what you'll achieve "
+"next!</p><p>Celebrating your success,<br>The {{portal_name}} Team</p>"
+msgstr ""
+"<p>Hallo {{user_first_name}},</p><p>👏 <strong>Gefeliciteerd!</strong> Je hebt met succes "
+"<strong>{{course_title}}</strong> afgerond op <strong>{{portal_name}}</strong>.</p><p>Dit is een belangrijke prestatie "
+"die jouw toewijding, doorzettingsvermogen en inzet voor leren vertegenwoordigt. Je mag trots zijn op het bereiken van "
+"deze mijlpaal!</p><p><strong>Jouw prestatie:</strong></p><ul><li>Cursus: {{course_title}}</li><li>Afsluitdatum: "
+"{{user_registered}}</li><li>Leren platform: {{portal_name}}</li></ul><p><strong>Wat nu?</strong></p><ul><li>Pas wat je "
+"hebt geleerd toe in de praktijk</li><li>Deel je kennis met andere leden van de gemeenschap</li><li>Verken gerelateerde "
+"cursussen om je expertise uit te breiden</li><li>Overweeg om anderen te begeleiden die net beginnen aan hun "
+"reis</li></ul><p>Jouw succes inspireert anderen in onze gemeenschap. Bedankt dat je een actieve leerling bent en "
+"bijdraagt aan de groei van onze leeromgeving.</p><p>We zijn enthousiast om te zien wat je als volgende zult "
+"bereiken!</p><p>Je succes vieren,<br>Het {{portal_name}} Team</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:95
 msgid "Upcoming Event Announcement"
@@ -6477,8 +6614,30 @@ msgid "📅 Don't miss: {{event_title}} is coming up!"
 msgstr "📅 Mis het niet: {{event_title}} komt eraan!"
 
 #: inc/modules/email-notifications/email-notifications.php:99
-msgid "<p>Hi {{user_first_name}},</p><p>Mark your calendar! We have an exciting event coming up on <strong>{{portal_name}}</strong> that you won't want to miss.</p><p><strong>{{event_title}}</strong></p><p>This event promises to be both informative and engaging, bringing together our community for valuable discussions, learning opportunities, and networking.</p><p>📅 <strong>Event Details:</strong></p><ul><li>Date: {{event_date}}</li><li>Time: {{event_start_time}}</li><li>Platform: {{portal_name}}</li></ul><p>👉 <strong>View full details and register:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Why attend?</strong></p><ul><li>Connect with like-minded community members</li><li>Learn from experts and industry leaders</li><li>Participate in interactive discussions</li><li>Get your questions answered in real-time</li><li>Access exclusive content and resources</li></ul><p>Spaces are limited, so we encourage you to secure your spot early. This is a great opportunity to enhance your knowledge and network with peers who share your interests.</p><p>See you there!<br>The {{portal_name}} Team</p>"
-msgstr "<p>Hallo {{user_first_name}},</p><p>Markeer je kalender! We hebben een spannend evenement dat eraan komt op <strong>{{portal_name}}</strong> dat je niet wilt missen.</p><p><strong>{{event_title}}</strong></p><p>Dit evenement belooft zowel informatief als boeiend te zijn, en brengt onze gemeenschap samen voor waardevolle discussies, leermogelijkheden en netwerken.</p><p>📅 <strong>Evenementdetails:</strong></p><ul><li>Datum: {{event_date}}</li><li>Tijd: {{event_start_time}}</li><li>Platform: {{portal_name}}</li></ul><p>👉 <strong>Bekijk volledige details en registreer:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Waarom deelnemen?</strong></p><ul><li>Verbind met gelijkgestemde leden van de gemeenschap</li><li>Leer van experts en leiders uit de industrie</li><li>Neem deel aan interactieve discussies</li><li>Krijg je vragen in real-time beantwoord</li><li>Toegang tot exclusieve inhoud en middelen</li></ul><p>De plaatsen zijn beperkt, dus we moedigen je aan om je plek vroeg te reserveren. Dit is een geweldige kans om je kennis te vergroten en te netwerken met collega's die jouw interesses delen.</p><p>Tot ziens daar!<br>Het {{portal_name}} Team</p>"
+msgid ""
+"<p>Hi {{user_first_name}},</p><p>Mark your calendar! We have an exciting event coming up on "
+"<strong>{{portal_name}}</strong> that you won't want to miss.</p><p><strong>{{event_title}}</strong></p><p>This event "
+"promises to be both informative and engaging, bringing together our community for valuable discussions, learning "
+"opportunities, and networking.</p><p>📅 <strong>Event Details:</strong></p><ul><li>Date: {{event_date}}</li><li>Time: "
+"{{event_start_time}}</li><li>Platform: {{portal_name}}</li></ul><p>👉 <strong>View full details and register:</strong> "
+"<a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Why attend?</strong></p><ul><li>Connect with like-minded "
+"community members</li><li>Learn from experts and industry leaders</li><li>Participate in interactive "
+"discussions</li><li>Get your questions answered in real-time</li><li>Access exclusive content and "
+"resources</li></ul><p>Spaces are limited, so we encourage you to secure your spot early. This is a great opportunity to "
+"enhance your knowledge and network with peers who share your interests.</p><p>See you there!<br>The {{portal_name}} "
+"Team</p>"
+msgstr ""
+"<p>Hallo {{user_first_name}},</p><p>Markeer je kalender! We hebben een spannend evenement dat eraan komt op "
+"<strong>{{portal_name}}</strong> dat je niet wilt missen.</p><p><strong>{{event_title}}</strong></p><p>Dit evenement "
+"belooft zowel informatief als boeiend te zijn, en brengt onze gemeenschap samen voor waardevolle discussies, "
+"leermogelijkheden en netwerken.</p><p>📅 <strong>Evenementdetails:</strong></p><ul><li>Datum: "
+"{{event_date}}</li><li>Tijd: {{event_start_time}}</li><li>Platform: {{portal_name}}</li></ul><p>👉 <strong>Bekijk "
+"volledige details en registreer:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Waarom "
+"deelnemen?</strong></p><ul><li>Verbind met gelijkgestemde leden van de gemeenschap</li><li>Leer van experts en leiders "
+"uit de industrie</li><li>Neem deel aan interactieve discussies</li><li>Krijg je vragen in real-time "
+"beantwoord</li><li>Toegang tot exclusieve inhoud en middelen</li></ul><p>De plaatsen zijn beperkt, dus we moedigen je "
+"aan om je plek vroeg te reserveren. Dit is een geweldige kans om je kennis te vergroten en te netwerken met collega's "
+"die jouw interesses delen.</p><p>Tot ziens daar!<br>Het {{portal_name}} Team</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:103
 msgid "Event Update Notification"
@@ -6489,8 +6648,28 @@ msgid "🔄 Important update for {{event_title}}"
 msgstr "🔄 Belangrijke update voor {{event_title}}"
 
 #: inc/modules/email-notifications/email-notifications.php:107
-msgid "<p>Hi {{user_first_name}},</p><p>We have an important update regarding the upcoming event <strong>{{event_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>We want to make sure you have the latest information to ensure you don't miss out on this valuable opportunity. Please take a moment to review the updated details.</p><p><strong>Event: {{event_title}}</strong></p><p>👉 <strong>View the complete updated details:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Important reminders:</strong></p><ul><li>Check the updated date and time</li><li>Review any changes to the agenda or format</li><li>Note any new requirements or materials needed</li><li>Verify your registration status</li></ul><p>If you have any questions about these updates or need assistance, please don't hesitate to reach out. We're here to help ensure you have the best possible experience.</p><p>Thank you for your understanding, and we look forward to seeing you at the event!</p><p>Stay informed,<br>The {{portal_name}} Team</p>"
-msgstr "<p>Hallo {{user_first_name}},</p><p>We hebben een belangrijke update met betrekking tot het aanstaande evenement <strong>{{event_title}}</strong> op <strong>{{portal_name}}</strong>.</p><p>We willen ervoor zorgen dat je de laatste informatie hebt, zodat je deze waardevolle kans niet mist. Neem even de tijd om de bijgewerkte details te bekijken.</p><p><strong>Evenement: {{event_title}}</strong></p><p>👉 <strong>Bekijk de complete bijgewerkte details:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Belangrijke herinneringen:</strong></p><ul><li>Controleer de bijgewerkte datum en tijd</li><li>Bekijk eventuele wijzigingen in de agenda of het formaat</li><li>Let op nieuwe vereisten of benodigde materialen</li><li>Controleer je registratiestatus</li></ul><p>Als je vragen hebt over deze updates of hulp nodig hebt, aarzel dan niet om contact op te nemen. We zijn hier om ervoor te zorgen dat je de best mogelijke ervaring hebt.</p><p>Bedankt voor je begrip, en we kijken ernaar uit je te zien op het evenement!</p><p>Blijf geïnformeerd,<br>Het {{portal_name}} Team</p>"
+msgid ""
+"<p>Hi {{user_first_name}},</p><p>We have an important update regarding the upcoming event "
+"<strong>{{event_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>We want to make sure you have the latest "
+"information to ensure you don't miss out on this valuable opportunity. Please take a moment to review the updated "
+"details.</p><p><strong>Event: {{event_title}}</strong></p><p>👉 <strong>View the complete updated details:</strong> <a "
+"href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Important reminders:</strong></p><ul><li>Check the updated date "
+"and time</li><li>Review any changes to the agenda or format</li><li>Note any new requirements or materials "
+"needed</li><li>Verify your registration status</li></ul><p>If you have any questions about these updates or need "
+"assistance, please don't hesitate to reach out. We're here to help ensure you have the best possible "
+"experience.</p><p>Thank you for your understanding, and we look forward to seeing you at the event!</p><p>Stay "
+"informed,<br>The {{portal_name}} Team</p>"
+msgstr ""
+"<p>Hallo {{user_first_name}},</p><p>We hebben een belangrijke update met betrekking tot het aanstaande evenement "
+"<strong>{{event_title}}</strong> op <strong>{{portal_name}}</strong>.</p><p>We willen ervoor zorgen dat je de laatste "
+"informatie hebt, zodat je deze waardevolle kans niet mist. Neem even de tijd om de bijgewerkte details te "
+"bekijken.</p><p><strong>Evenement: {{event_title}}</strong></p><p>👉 <strong>Bekijk de complete bijgewerkte "
+"details:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Belangrijke "
+"herinneringen:</strong></p><ul><li>Controleer de bijgewerkte datum en tijd</li><li>Bekijk eventuele wijzigingen in de "
+"agenda of het formaat</li><li>Let op nieuwe vereisten of benodigde materialen</li><li>Controleer je "
+"registratiestatus</li></ul><p>Als je vragen hebt over deze updates of hulp nodig hebt, aarzel dan niet om contact op te "
+"nemen. We zijn hier om ervoor te zorgen dat je de best mogelijke ervaring hebt.</p><p>Bedankt voor je begrip, en we "
+"kijken ernaar uit je te zien op het evenement!</p><p>Blijf geïnformeerd,<br>Het {{portal_name}} Team</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:267
 msgid "User display name"
@@ -6576,15 +6755,15 @@ msgstr "Tags"
 msgid "Please select a space."
 msgstr "Selecteer een ruimte alstublieft."
 
-#: inc/utils/settings.php:436
+#: inc/utils/settings.php:439
 msgid "Newbie"
 msgstr "Nieuweling"
 
-#: inc/utils/settings.php:445
+#: inc/utils/settings.php:448
 msgid "Manager"
 msgstr "Manager"
 
-#: inc/utils/settings.php:454
+#: inc/utils/settings.php:457
 msgid "Active Member"
 msgstr "Actief lid"
 
@@ -6979,11 +7158,11 @@ msgstr "Geregistreerd"
 msgid "No likes yet, be the first to like!"
 msgstr "Nog geen likes, wees de eerste om te liken!"
 
-#. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
-#. translators: %s: time ago
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
 #: inc/functions/functions.php:2738
+#. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
+#. translators: %s: time ago
 #, php-format
 msgid "%s ago"
 msgstr "%s geleden"
@@ -7000,8 +7179,8 @@ msgstr "Ga naar de pagina Meldingen"
 msgid "Lost your password?"
 msgstr "Wachtwoord vergeten?"
 
-#. translators: %1$s: Username, %2$s: Forgot password link.
 #: core/routers/social-logins.php:119
+#. translators: %1$s: Username, %2$s: Forgot password link.
 #, php-format
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr "Het wachtwoord dat je hebt ingevoerd voor de gebruikersnaam %1$s is onjuist. %2$s"
@@ -7023,23 +7202,27 @@ msgid "Share"
 msgstr "Delen"
 
 #: inc/utils/helper.php:2979
-#: inc/utils/settings.php:320
+#: inc/utils/settings.php:323
 #: assets/build/portals-app.js:38
 msgid "View Profile"
 msgstr "Profiel bekijken"
 
 #: inc/utils/helper.php:2967
-#: inc/utils/settings.php:326
+#: inc/utils/settings.php:329
 msgid "Edit Profile"
 msgstr "Profiel bewerken"
 
 #: assets/build/portals-app.js:13
 msgid "Used as the preview image for the space in the Home grid view. Recommended size is 1200*675px (Ratio 16:9)."
-msgstr "Gebruikt als de voorbeeldafbeelding voor de ruimte in de Home rasterweergave. Aanbevolen grootte is 1200*675px (Verhouding 16:9)."
+msgstr ""
+"Gebruikt als de voorbeeldafbeelding voor de ruimte in de Home rasterweergave. Aanbevolen grootte is 1200*675px "
+"(Verhouding 16:9)."
 
 #: assets/build/portals-app.js:13
 msgid "Displayed at the top of the space page when the user opens the space. Recommended size is 1920*600px (Ratio 16:5)."
-msgstr "Weergegeven bovenaan de ruimtepagina wanneer de gebruiker de ruimte opent. Aanbevolen grootte is 1920*600px (verhouding 16:5)."
+msgstr ""
+"Weergegeven bovenaan de ruimtepagina wanneer de gebruiker de ruimte opent. Aanbevolen grootte is 1920*600px (verhouding "
+"16:5)."
 
 #: assets/build/portals-app.js:35
 msgid "Scheduled"
@@ -7181,8 +7364,12 @@ msgid "This post is visible to all members."
 msgstr "Dit bericht is zichtbaar voor alle leden."
 
 #: assets/build/portals-app.js:9
-msgid "A space group is a collection of related spaces that helps organize and categorize your content. You can group spaces by topic, project, or any other organizational structure."
-msgstr "Een ruimtegroep is een verzameling van gerelateerde ruimtes die helpt om je inhoud te organiseren en te categoriseren. Je kunt ruimtes groeperen op onderwerp, project of een andere organisatorische structuur."
+msgid ""
+"A space group is a collection of related spaces that helps organize and categorize your content. You can group spaces "
+"by topic, project, or any other organizational structure."
+msgstr ""
+"Een ruimtegroep is een verzameling van gerelateerde ruimtes die helpt om je inhoud te organiseren en te categoriseren. "
+"Je kunt ruimtes groeperen op onderwerp, project of een andere organisatorische structuur."
 
 #: assets/build/portals-app.js:10
 msgid "No Custom Icons"
@@ -7237,8 +7424,12 @@ msgid "Open Media Library"
 msgstr "Open Mediatheek"
 
 #: assets/build/portals-app.js:10
-msgid "Upgrade to SureDash Premium to unlock the ability to upload and use your own custom SVG icons. Personalize your spaces with unlimited custom icons!"
-msgstr "Upgrade naar SureDash Premium om de mogelijkheid te ontgrendelen om je eigen aangepaste SVG-pictogrammen te uploaden en te gebruiken. Personaliseer je ruimtes met onbeperkte aangepaste pictogrammen!"
+msgid ""
+"Upgrade to SureDash Premium to unlock the ability to upload and use your own custom SVG icons. Personalize your spaces "
+"with unlimited custom icons!"
+msgstr ""
+"Upgrade naar SureDash Premium om de mogelijkheid te ontgrendelen om je eigen aangepaste SVG-pictogrammen te uploaden en "
+"te gebruiken. Personaliseer je ruimtes met onbeperkte aangepaste pictogrammen!"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:38
@@ -7269,7 +7460,9 @@ msgstr "Geen statistieken beschikbaar"
 
 #: assets/build/portals-app.js:10
 msgid "You’ll find detailed insights here to help you monitor and manage your workspace activity."
-msgstr "Je vindt hier gedetailleerde inzichten om je te helpen bij het monitoren en beheren van de activiteiten in je werkruimte."
+msgstr ""
+"Je vindt hier gedetailleerde inzichten om je te helpen bij het monitoren en beheren van de activiteiten in je "
+"werkruimte."
 
 #: assets/build/portals-app.js:10
 msgid "Registered Users"
@@ -7312,8 +7505,12 @@ msgid "Once posts receive comments, they will appear here."
 msgstr "Zodra berichten reacties ontvangen, zullen ze hier verschijnen."
 
 #: assets/build/portals-app.js:13
-msgid "Spaces are dedicated areas where members can collaborate, share content, and engage in discussions around a specific topic, project, or interest."
-msgstr "Ruimtes zijn toegewijde gebieden waar leden kunnen samenwerken, inhoud kunnen delen en deelnemen aan discussies over een specifiek onderwerp, project of interesse."
+msgid ""
+"Spaces are dedicated areas where members can collaborate, share content, and engage in discussions around a specific "
+"topic, project, or interest."
+msgstr ""
+"Ruimtes zijn toegewijde gebieden waar leden kunnen samenwerken, inhoud kunnen delen en deelnemen aan discussies over "
+"een specifiek onderwerp, project of interesse."
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -7522,16 +7719,24 @@ msgid "Assets Upload Limit"
 msgstr "Limiet voor uploaden van activa"
 
 #: assets/build/portals-app.js:35
-msgid "Set the maximum file size limit for users to upload assets like images, documents, and other media files in posts, comments, and other content areas."
-msgstr "Stel de maximale bestandsgrootte in voor gebruikers om middelen zoals afbeeldingen, documenten en andere mediabestanden te uploaden in berichten, opmerkingen en andere inhoudsgebieden."
+msgid ""
+"Set the maximum file size limit for users to upload assets like images, documents, and other media files in posts, "
+"comments, and other content areas."
+msgstr ""
+"Stel de maximale bestandsgrootte in voor gebruikers om middelen zoals afbeeldingen, documenten en andere mediabestanden "
+"te uploaden in berichten, opmerkingen en andere inhoudsgebieden."
 
 #: assets/build/portals-app.js:35
 msgid "Profile and Cover Image Upload Limit"
 msgstr "Limiet voor het uploaden van profielfoto's en omslagfoto's"
 
 #: assets/build/portals-app.js:35
-msgid "Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies only to user profile images."
-msgstr "Stel de maximale bestandsgrootte in specifiek voor het uploaden van profielfoto's en omslag-/bannerafbeeldingen. Deze limiet geldt alleen voor gebruikersprofielafbeeldingen."
+msgid ""
+"Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies "
+"only to user profile images."
+msgstr ""
+"Stel de maximale bestandsgrootte in specifiek voor het uploaden van profielfoto's en omslag-/bannerafbeeldingen. Deze "
+"limiet geldt alleen voor gebruikersprofielafbeeldingen."
 
 #: assets/build/portals-app.js:38
 msgid "groups selected"
@@ -7547,7 +7752,9 @@ msgstr "Ken niveaus toe aan gebruikers op basis van hun punten"
 
 #: assets/build/portals-app.js:38
 msgid "User scores are based on likes received on their posts and comments. Each like equals 1 point."
-msgstr "Gebruikersscores zijn gebaseerd op de likes die ze ontvangen op hun berichten en opmerkingen. Elke like is gelijk aan 1 punt."
+msgstr ""
+"Gebruikersscores zijn gebaseerd op de likes die ze ontvangen op hun berichten en opmerkingen. Elke like is gelijk aan 1 "
+"punt."
 
 #: assets/build/portals-app.js:38
 msgid "Post like = +1"
@@ -7587,15 +7794,21 @@ msgstr "Geselecteerde gebruikers uitsluiten van het klassement"
 
 #: assets/build/portals-app.js:38
 msgid "Users excluded from the leaderboard will not be assigned levels and will not appear in leaderboard rankings."
-msgstr "Gebruikers die van het klassement zijn uitgesloten, krijgen geen niveaus toegewezen en zullen niet in de klassementrangschikkingen verschijnen."
+msgstr ""
+"Gebruikers die van het klassement zijn uitgesloten, krijgen geen niveaus toegewezen en zullen niet in de "
+"klassementrangschikkingen verschijnen."
 
 #: assets/build/portals-app.js:38
 msgid "Leaderboard is a Premium Feature"
 msgstr "Leaderboard is een Premiumfunctie"
 
 #: assets/build/portals-app.js:38
-msgid "Unlock the Leaderboard feature to engage your community with gamification. Rank users based on their activity points and assign custom levels to encourage participation."
-msgstr "Ontgrendel de Leaderboard-functie om je gemeenschap te betrekken met gamificatie. Rangschik gebruikers op basis van hun activiteitspunten en ken aangepaste niveaus toe om deelname aan te moedigen."
+msgid ""
+"Unlock the Leaderboard feature to engage your community with gamification. Rank users based on their activity points "
+"and assign custom levels to encourage participation."
+msgstr ""
+"Ontgrendel de Leaderboard-functie om je gemeenschap te betrekken met gamificatie. Rangschik gebruikers op basis van hun "
+"activiteitspunten en ken aangepaste niveaus toe om deelname aan te moedigen."
 
 #: assets/build/portals-app.js:38
 msgid "What you get with Leaderboard:"
@@ -7648,12 +7861,12 @@ msgstr "Nog geen cursusvoortgang."
 msgid "No events joined yet."
 msgstr "Nog geen evenementen bijgewoond."
 
-#. translators: %1$s: author name, %2$s: post date
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
 #: core/routers/misc.php:385
 #: core/routers/misc.php:433
 #: core/shortcodes/home-content.php:765
+#. translators: %1$s: author name, %2$s: post date
 #, php-format
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
@@ -7690,8 +7903,8 @@ msgstr "Sorteeropties"
 msgid "This community's portal spaces will be listed here."
 msgstr "De portaalruimtes van deze gemeenschap worden hier vermeld."
 
-#. translators: %s: Discussion space name
 #: inc/functions/functions.php:2760
+#. translators: %s: Discussion space name
 #, php-format
 msgid "in %s"
 msgstr "in %s"
@@ -7711,7 +7924,9 @@ msgstr "Welkom bij"
 
 #: inc/utils/labels.php:185
 msgid "We're setting things up behind the scenes. Thanks for stopping by — please come back soon to see what's ready."
-msgstr "We zijn bezig met het opzetten van dingen achter de schermen. Bedankt voor je bezoek — kom snel terug om te zien wat er klaar is."
+msgstr ""
+"We zijn bezig met het opzetten van dingen achter de schermen. Bedankt voor je bezoek — kom snel terug om te zien wat er "
+"klaar is."
 
 #: assets/build/editor-app.js:6
 msgid "Title Field"
@@ -7759,8 +7974,12 @@ msgid "Select Post"
 msgstr "Selecteer Bericht"
 
 #: assets/build/portals-app.js:13
-msgid "\"About Space\" and \"Recent Activities\" widgets will appear only once on the frontend, whether added from global sidebar or space sidebar."
-msgstr "\"Over Ruimte\" en \"Recente Activiteiten\" widgets verschijnen slechts één keer op de frontend, ongeacht of ze zijn toegevoegd vanuit de globale zijbalk of de zijbalk van de ruimte."
+msgid ""
+"\"About Space\" and \"Recent Activities\" widgets will appear only once on the frontend, whether added from global "
+"sidebar or space sidebar."
+msgstr ""
+"\"Over Ruimte\" en \"Recente Activiteiten\" widgets verschijnen slechts één keer op de frontend, ongeacht of ze zijn "
+"toegevoegd vanuit de globale zijbalk of de zijbalk van de ruimte."
 
 #: assets/build/portals-app.js:35
 msgid "Preserve HTML in Excerpts"
@@ -7768,7 +7987,9 @@ msgstr "HTML in Uittreksels Behouden"
 
 #: assets/build/portals-app.js:35
 msgid "Keep line breaks and formatting tags (like bold, italic) in post excerpts. Disable to show plain text only."
-msgstr "Houd regelafbrekingen en opmaak-tags (zoals vet, cursief) in postuittreksels. Schakel uit om alleen platte tekst weer te geven."
+msgstr ""
+"Houd regelafbrekingen en opmaak-tags (zoals vet, cursief) in postuittreksels. Schakel uit om alleen platte tekst weer "
+"te geven."
 
 #: assets/build/portals-app.js:35
 msgid "Show Full Content in Feeds"
@@ -7776,7 +7997,9 @@ msgstr "Toon Volledige Inhoud in Feeds"
 
 #: assets/build/portals-app.js:35
 msgid "Enable this to show full post content in feeds. When disabled, only post excerpts will be shown."
-msgstr "Schakel dit in om de volledige postinhoud in feeds te tonen. Wanneer uitgeschakeld, worden alleen postuittreksels weergegeven."
+msgstr ""
+"Schakel dit in om de volledige postinhoud in feeds te tonen. Wanneer uitgeschakeld, worden alleen postuittreksels "
+"weergegeven."
 
 #: assets/build/portals-app.js:35
 msgid "Enable this to show feeds in list view by default. When disabled, post view will be the default."
@@ -7791,8 +8014,12 @@ msgid "Auto-Assign New Users to memberships"
 msgstr "Automatisch Nieuwe Gebruikers Toewijzen aan lidmaatschappen"
 
 #: assets/build/portals-app.js:38
-msgid "Select one or more SureMembers membership that new users will be automatically assigned to when they register on your portal. Leave empty for no automatic assignment."
-msgstr "Selecteer een of meer SureMembers-lidmaatschappen waaraan nieuwe gebruikers automatisch worden toegewezen wanneer ze zich registreren op je portaal. Laat leeg voor geen automatische toewijzing."
+msgid ""
+"Select one or more SureMembers membership that new users will be automatically assigned to when they register on your "
+"portal. Leave empty for no automatic assignment."
+msgstr ""
+"Selecteer een of meer SureMembers-lidmaatschappen waaraan nieuwe gebruikers automatisch worden toegewezen wanneer ze "
+"zich registreren op je portaal. Laat leeg voor geen automatische toewijzing."
 
 #: assets/build/portals-app.js:38
 msgid "to automatically assign new users to memberships."
@@ -7856,14 +8083,14 @@ msgstr "SureDash Onboarding"
 msgid "Space name and integration type are required."
 msgstr "Ruimte naam en integratietype zijn vereist."
 
-#. translators: %s: space name
 #: core/routers/backend.php:423
+#. translators: %s: space name
 #, php-format
 msgid "This forum group is created for the space: %s"
 msgstr "Deze forumgroep is aangemaakt voor de ruimte: %s"
 
-#. translators: %s: original post title
 #: core/routers/backend.php:1446
+#. translators: %s: original post title
 #, php-format
 msgid "%s - Copy"
 msgstr "%s - Kopie"
@@ -7872,10 +8099,10 @@ msgstr "%s - Kopie"
 msgid "User ID is required."
 msgstr "Gebruikers-ID is vereist."
 
-#. translators: %s: author name
 #: core/shortcodes/single-content.php:341
 #: templates/quick-view/post.php:67
 #: templates/single/post.php:83
+#. translators: %s: author name
 #, php-format
 msgid "Post author %s"
 msgstr "Bericht auteur %s"
@@ -7894,7 +8121,9 @@ msgstr "E-mailadres"
 
 #: assets/build/portals-app.js:6
 msgid "Stay in the loop and help shape SureDash! Help us build a better SureDash by sharing how you use the plugin."
-msgstr "Blijf op de hoogte en help SureDash vorm te geven! Help ons een betere SureDash te bouwen door te delen hoe je de plugin gebruikt."
+msgstr ""
+"Blijf op de hoogte en help SureDash vorm te geven! Help ons een betere SureDash te bouwen door te delen hoe je de "
+"plugin gebruikt."
 
 #: assets/build/portals-app.js:10
 msgid "Powerful email marketing for WordPress."
@@ -7936,8 +8165,8 @@ msgstr "Raster"
 msgid "Toggle comments"
 msgstr "Reacties in-/uitklappen"
 
-#. translators: %s: comment count
 #: assets/build/portals-app.js:35
+#. translators: %s: comment count
 #, js-format
 msgid "%s comments. Click to view."
 msgstr "%s reacties. Klik om te bekijken."
@@ -7960,7 +8189,9 @@ msgstr "Help de toekomst van SureDash vorm te geven"
 
 #: assets/build/portals-app.js:35
 msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions. "
-msgstr "Deel hoe je de plugin gebruikt, zodat we functies kunnen bouwen die ertoe doen, problemen sneller kunnen oplossen en slimmer kunnen beslissen."
+msgstr ""
+"Deel hoe je de plugin gebruikt, zodat we functies kunnen bouwen die ertoe doen, problemen sneller kunnen oplossen en "
+"slimmer kunnen beslissen."
 
 #: assets/js/unminified/login.js:59
 msgid "This field cannot be blank."
@@ -8033,9 +8264,9 @@ msgstr "URL gekopieerd!"
 msgid "Copy failed"
 msgstr "Kopiëren mislukt"
 
-#. translators: %s: file size in megabytes
 #: assets/js/unminified/post-actions.js:230
 #: assets/js/unminified/upload.js:389
+#. translators: %s: file size in megabytes
 #, js-format
 msgid "%s MB"
 msgstr "%s MB"
@@ -8049,9 +8280,9 @@ msgstr "Onbekende grootte"
 msgid "Edit your post content…"
 msgstr "Bewerk de inhoud van uw bericht…"
 
-#. translators: %s: field name
 #: assets/js/unminified/register.js:60
 #: assets/js/unminified/register.js:76
+#. translators: %s: field name
 #, js-format
 msgid "%s cannot be blank"
 msgstr "%s mag niet leeg zijn"
@@ -8060,9 +8291,9 @@ msgstr "%s mag niet leeg zijn"
 msgid "Invalid Google reCAPTCHA Site Key."
 msgstr "Ongeldige Google reCAPTCHA-site sleutel."
 
-#. Translators: %s is the maximum file size in MB.
 #: assets/js/unminified/upload.js:143
 #: assets/js/unminified/upload.js:198
+#. Translators: %s is the maximum file size in MB.
 #, js-format
 msgid "File size should not exceed %s MB."
 msgstr "Bestandsgrootte mag niet meer dan %s MB zijn."
@@ -8071,20 +8302,20 @@ msgstr "Bestandsgrootte mag niet meer dan %s MB zijn."
 msgid "File type not allowed."
 msgstr "Bestandstype niet toegestaan."
 
-#. Translators: %s is the maximum number of files that can be uploaded.
 #: assets/js/unminified/upload.js:247
+#. Translators: %s is the maximum number of files that can be uploaded.
 #, js-format
 msgid "You can only upload up to %s files."
 msgstr "U kunt maximaal %s bestanden uploaden."
 
-#. Translators: %s is the file name.
 #: assets/js/unminified/upload.js:400
+#. Translators: %s is the file name.
 #, js-format
 msgid "Delete %s"
 msgstr "Verwijder %s"
 
-#. Translators: %s is the file name.
 #: assets/js/unminified/upload.js:418
+#. Translators: %s is the file name.
 #, js-format
 msgid "Deleted %s file"
 msgstr "Verwijderd %s bestand"
@@ -8115,7 +8346,9 @@ msgstr "SureDash MCP Server"
 
 #: inc/modules/mcp/module.php:247
 msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
-msgstr "SureDash MCP Server voor het beheer van de communityportal — ruimtes, groepen, berichten, gebruikers, instellingen en analyses."
+msgstr ""
+"SureDash MCP Server voor het beheer van de communityportal — ruimtes, groepen, berichten, gebruikers, instellingen en "
+"analyses."
 
 #: inc/utils/labels.php:122
 #: inc/utils/labels.php:123
@@ -8139,8 +8372,12 @@ msgid "Claude Desktop"
 msgstr "Claude Desktop"
 
 #: assets/build/portals-app.js:38
-msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
-msgstr "~/Bibliotheek/Application Support/Claude/claude_desktop_config.json (macOS) of %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgid ""
+"~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or "
+"%APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgstr ""
+"~/Bibliotheek/Application Support/Claude/claude_desktop_config.json (macOS) of "
+"%APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
 
 #: assets/build/portals-app.js:38
 msgid "Claude Code"
@@ -8207,8 +8444,12 @@ msgid "Replace \"your-application-password\" with the password from Step 1."
 msgstr "Vervang \"your-application-password\" door het wachtwoord van Stap 1."
 
 #: assets/build/portals-app.js:38
-msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
-msgstr "WP_API_URL — uw site's MCP-eindpunt. WP_API_USERNAME — uw WordPress-gebruikersnaam. WP_API_PASSWORD — het applicatiewachtwoord dat u hebt gegenereerd."
+msgid ""
+"WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application "
+"password you generated."
+msgstr ""
+"WP_API_URL — uw site's MCP-eindpunt. WP_API_USERNAME — uw WordPress-gebruikersnaam. WP_API_PASSWORD — het "
+"applicatiewachtwoord dat u hebt gegenereerd."
 
 #: assets/build/portals-app.js:38
 msgid "View setup docs"
@@ -8235,37 +8476,51 @@ msgid "Enable Edit Abilities"
 msgstr "Schakel bewerkingsmogelijkheden in"
 
 #: assets/build/portals-app.js:38
-msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
-msgstr "Wanneer ingeschakeld, kunnen AI-clients ruimtes, instellingen, berichten, groepen en andere inhoud bijwerken. Wanneer uitgeschakeld, zijn deze mogelijkheden niet geregistreerd en kunnen AI-clients alleen uw gegevens lezen."
+msgid ""
+"When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities "
+"are unregistered and AI clients can only read your data."
+msgstr ""
+"Wanneer ingeschakeld, kunnen AI-clients ruimtes, instellingen, berichten, groepen en andere inhoud bijwerken. Wanneer "
+"uitgeschakeld, zijn deze mogelijkheden niet geregistreerd en kunnen AI-clients alleen uw gegevens lezen."
 
 #: assets/build/portals-app.js:38
 msgid "Enable Delete Abilities"
 msgstr "Schakel verwijdermogelijkheden in"
 
 #: assets/build/portals-app.js:38
-msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
-msgstr "Wanneer ingeschakeld, kunnen AI-clients ruimtes, berichten en groepen permanent verwijderen. Verwijderde gegevens kunnen niet worden hersteld. Wanneer uitgeschakeld, zijn verwijdermogelijkheden niet geregistreerd en kunnen AI-clients geen gegevens verwijderen."
+msgid ""
+"When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When "
+"disabled, delete abilities are unregistered and AI clients cannot remove any data."
+msgstr ""
+"Wanneer ingeschakeld, kunnen AI-clients ruimtes, berichten en groepen permanent verwijderen. Verwijderde gegevens "
+"kunnen niet worden hersteld. Wanneer uitgeschakeld, zijn verwijdermogelijkheden niet geregistreerd en kunnen AI-clients "
+"geen gegevens verwijderen."
 
 #: assets/build/portals-app.js:38
 msgid "Enable MCP Server"
 msgstr "Schakel MCP-server in"
 
 #: assets/build/portals-app.js:38
-msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
-msgstr "Creëert een speciaal SureDash MCP-eindpunt waarmee AI-clients zoals Claude verbinding kunnen maken. Wanneer uitgeschakeld, wordt het eindpunt verwijderd en kunnen externe AI-clients geen SureDash-mogelijkheden ontdekken of aanroepen."
+msgid ""
+"Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is "
+"removed and external AI clients cannot discover or call any SureDash abilities."
+msgstr ""
+"Creëert een speciaal SureDash MCP-eindpunt waarmee AI-clients zoals Claude verbinding kunnen maken. Wanneer "
+"uitgeschakeld, wordt het eindpunt verwijderd en kunnen externe AI-clients geen SureDash-mogelijkheden ontdekken of "
+"aanroepen."
 
 #: templates/parts/logged-in-screen.php:49
 msgid "You're already signed in"
 msgstr "Je bent al ingelogd"
 
-#. translators: 1: user display name, 2: portal name (e.g. site/community name)
 #: templates/parts/logged-in-screen.php:55
+#. translators: 1: user display name, 2: portal name (e.g. site/community name)
 #, php-format
 msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
 msgstr "Welkom terug, %1$s. Ga terug naar %2$s om verder te gaan waar je was gebleven."
 
-#. translators: %s: portal name (e.g. site/community name)
 #: templates/parts/logged-in-screen.php:65
+#. translators: %s: portal name (e.g. site/community name)
 #, php-format
 msgid "Go to %s"
 msgstr "Ga naar %s"
@@ -8323,8 +8578,12 @@ msgstr "- Selecteer -"
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:35
-msgid "User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" option in your"
-msgstr "Gebruikersregistratie is momenteel uitgeschakeld. Om nieuwe gebruikers zich te laten aanmelden, schakel de optie \"Iedereen kan zich registreren\" in je"
+msgid ""
+"User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" "
+"option in your"
+msgstr ""
+"Gebruikersregistratie is momenteel uitgeschakeld. Om nieuwe gebruikers zich te laten aanmelden, schakel de optie "
+"\"Iedereen kan zich registreren\" in je"
 
 #: assets/build/portals-app.js:35
 msgid "Login & Registration Pages"
@@ -8472,7 +8731,9 @@ msgstr "Schakel site-registratie in"
 
 #: inc/modules/learn/chapters.php:89
 msgid "WordPress registration is currently disabled. Enable it or let SureDash override the setting so new members can sign up."
-msgstr "WordPress-registratie is momenteel uitgeschakeld. Schakel het in of laat SureDash de instelling overschrijven, zodat nieuwe leden zich kunnen aanmelden."
+msgstr ""
+"WordPress-registratie is momenteel uitgeschakeld. Schakel het in of laat SureDash de instelling overschrijven, zodat "
+"nieuwe leden zich kunnen aanmelden."
 
 #: inc/modules/learn/chapters.php:92
 msgid "Enable site registration"
@@ -9005,8 +9266,13 @@ msgid "Learn"
 msgstr "Leren"
 
 #: assets/build/portals-app.js:46
-msgid "To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of instructional videos. These will help you learn how to set up, customize, and grow your portal."
-msgstr "Om je te helpen volledige controle te krijgen en het succes van je gemeenschap te waarborgen, hebben we een paar taken uiteengezet en een set instructievideo's voorbereid. Deze zullen je helpen leren hoe je je portal kunt instellen, aanpassen en laten groeien."
+msgid ""
+"To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of "
+"instructional videos. These will help you learn how to set up, customize, and grow your portal."
+msgstr ""
+"Om je te helpen volledige controle te krijgen en het succes van je gemeenschap te waarborgen, hebben we een paar taken "
+"uiteengezet en een set instructievideo's voorbereid. Deze zullen je helpen leren hoe je je portal kunt instellen, "
+"aanpassen en laten groeien."
 
 #: assets/build/portals-app.js:46
 msgid "No learn chapters available yet."
@@ -9036,20 +9302,20 @@ msgstr "We konden niets vinden dat overeenkomt met uw zoekopdracht."
 msgid "Try again with a different term."
 msgstr "Probeer het opnieuw met een andere term."
 
-#. translators: %s: search query
 #: core/assets.php:285
+#. translators: %s: search query
 #, php-format
 msgid "Search results for \"%s\""
 msgstr "Zoekresultaten voor \"%s\""
 
-#. translators: %d: number of results
 #: core/assets.php:287
+#. translators: %d: number of results
 #, php-format
 msgid "%d result"
 msgstr "%d resultaat"
 
-#. translators: %d: number of results
 #: core/assets.php:289
+#. translators: %d: number of results
 #, php-format
 msgid "%d results"
 msgstr "%d resultaten"
@@ -9074,8 +9340,8 @@ msgstr "Vorige pagina"
 msgid "Next page"
 msgstr "Volgende pagina"
 
-#. translators: %d: result count
 #: core/assets.php:299
+#. translators: %d: result count
 #, php-format
 msgid "View all %d"
 msgstr "Bekijk alles %d"
@@ -9108,8 +9374,8 @@ msgstr "in"
 msgid "A search term is required."
 msgstr "Een zoekterm is vereist."
 
-#. translators: %d: minimum number of characters.
 #: core/routers/search.php:88
+#. translators: %d: minimum number of characters.
 #, php-format
 msgid "Search query must be at least %d characters."
 msgstr "De zoekopdracht moet minimaal %d tekens bevatten."
@@ -9118,8 +9384,8 @@ msgstr "De zoekopdracht moet minimaal %d tekens bevatten."
 msgid "Some time ago"
 msgstr "Een tijd geleden"
 
-#. translators: %1$s: portal name, %2$s: post title.
 #: inc/modules/email-notifications/email-triggers.php:278
+#. translators: %1$s: portal name, %2$s: post title.
 #, php-format
 msgid "[%1$s] New community post: %2$s"
 msgstr "[%1$s] Nieuwe communitypost: %2$s"
@@ -9132,8 +9398,8 @@ msgstr "Een lid van de community"
 msgid "Hi Admin,"
 msgstr "Hallo Admin,"
 
-#. translators: %1$s: author name, %2$s: portal name.
 #: inc/modules/email-notifications/emails.php:128
+#. translators: %1$s: author name, %2$s: portal name.
 #, php-format
 msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
 msgstr "%1$s heeft zojuist een nieuwe communitypost ingediend op <strong>%2$s</strong>."
@@ -9142,8 +9408,8 @@ msgstr "%1$s heeft zojuist een nieuwe communitypost ingediend op <strong>%2$s</s
 msgid "View the post"
 msgstr "Bekijk de post"
 
-#. translators: %d: number of image attachments.
 #: inc/services/search/search-comments-service.php:467
+#. translators: %d: number of image attachments.
 #, php-format
 msgid "%d attachment"
 msgid_plural "%d attachments"
@@ -9170,8 +9436,8 @@ msgstr "Deelde een link"
 msgid "View comment"
 msgstr "Bekijk opmerking"
 
-#. translators: %s: month and year the user registered (e.g., "Feb 2025").
 #: inc/services/search/search-people-service.php:180
+#. translators: %s: month and year the user registered (e.g., "Feb 2025").
 #, php-format
 msgid "joined %s"
 msgstr "is lid geworden van %s"
@@ -9198,7 +9464,9 @@ msgstr "Alle admins en portalbeheerders"
 
 #: assets/build/portals-app.js:35
 msgid "Pick admins and portal managers who should receive these emails. Leave empty to send to all admins and portal managers."
-msgstr "Kies admins en portalbeheerders die deze e-mails moeten ontvangen. Laat leeg om naar alle admins en portalbeheerders te sturen."
+msgstr ""
+"Kies admins en portalbeheerders die deze e-mails moeten ontvangen. Laat leeg om naar alle admins en portalbeheerders te "
+"sturen."
 
 #: assets/build/portals-app.js:35
 msgid "sender@example.com"
@@ -9209,8 +9477,13 @@ msgid "Email Templates"
 msgstr "E-mailtemplates"
 
 #: assets/build/portals-app.js:38
-msgid "Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
-msgstr "Endpoint-URL's bijgewerkt. Ingebouwde profielmenu-links worden automatisch bijgewerkt — maar eventuele links die u handmatig in WordPress-menu's, paginainhoud of aangepaste blokken hebt toegevoegd en die naar de oude URL's verwijzen, moeten worden bijgewerkt."
+msgid ""
+"Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in "
+"WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
+msgstr ""
+"Endpoint-URL's bijgewerkt. Ingebouwde profielmenu-links worden automatisch bijgewerkt — maar eventuele links die u "
+"handmatig in WordPress-menu's, paginainhoud of aangepaste blokken hebt toegevoegd en die naar de oude URL's verwijzen, "
+"moeten worden bijgewerkt."
 
 #: assets/build/portals-app.js:38
 msgid "Use only lowercase letters, numbers, and hyphens."
@@ -9264,8 +9537,8 @@ msgstr "Geen ruimtes geselecteerd."
 msgid "Could not create any spaces."
 msgstr "Kon geen ruimtes aanmaken."
 
-#. translators: %d: number of spaces created
 #: core/routers/onboarding.php:542
+#. translators: %d: number of spaces created
 #, php-format
 msgid "%d spaces created successfully."
 msgstr "%d ruimtes succesvol aangemaakt."
@@ -9297,60 +9570,86 @@ msgid "Welcome 👋"
 msgstr "Welkom 👋"
 
 #: core/routers/onboarding.php:612
-msgid "Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members to the most useful spaces."
-msgstr "Fijn dat je hier bent. Dit is je startpagina voor de gemeenschap — deel wat je doet, stel verwachtingen in en wijs nieuwe leden op de meest nuttige ruimtes."
+msgid ""
+"Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members "
+"to the most useful spaces."
+msgstr ""
+"Fijn dat je hier bent. Dit is je startpagina voor de gemeenschap — deel wat je doet, stel verwachtingen in en wijs "
+"nieuwe leden op de meest nuttige ruimtes."
 
 #: core/routers/onboarding.php:615
 msgid "Find answers fast"
 msgstr "Vind snel antwoorden"
 
 #: core/routers/onboarding.php:616
-msgid "Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support Forum and our team will help."
-msgstr "Blader door de meest voorkomende vragen en handleidingen hieronder. Als je niet vindt wat je nodig hebt, ga dan naar het Ondersteuningsforum en ons team helpt je."
+msgid ""
+"Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support "
+"Forum and our team will help."
+msgstr ""
+"Blader door de meest voorkomende vragen en handleidingen hieronder. Als je niet vindt wat je nodig hebt, ga dan naar "
+"het Ondersteuningsforum en ons team helpt je."
 
-#. translators: %s: space name
 #: core/routers/onboarding.php:630
+#. translators: %s: space name
 #, php-format
 msgid "About %s"
 msgstr "Over %s"
 
-#. translators: %s: space name
 #: core/routers/onboarding.php:631
-msgid "Use this space to introduce members to what you do and how this section works. Replace this text with anything you like — it lives inside the regular block editor."
-msgstr "Gebruik deze ruimte om leden voor te stellen aan wat je doet en hoe deze sectie werkt. Vervang deze tekst door wat je maar wilt — het bevindt zich binnen de reguliere blokeditor."
+#. translators: %s: space name
+msgid ""
+"Use this space to introduce members to what you do and how this section works. Replace this text with anything you like "
+"— it lives inside the regular block editor."
+msgstr ""
+"Gebruik deze ruimte om leden voor te stellen aan wat je doet en hoe deze sectie werkt. Vervang deze tekst door wat je "
+"maar wilt — het bevindt zich binnen de reguliere blokeditor."
 
 #: core/routers/onboarding.php:657
 msgid "👋 First announcement"
 msgstr "👋 Eerste aankondiging"
 
 #: core/routers/onboarding.php:658
-msgid "Use this space to share product updates, events, and important notices with your community. Edit or delete this post to start fresh."
-msgstr "Gebruik deze ruimte om productupdates, evenementen en belangrijke mededelingen met je gemeenschap te delen. Bewerk of verwijder deze post om opnieuw te beginnen."
+msgid ""
+"Use this space to share product updates, events, and important notices with your community. Edit or delete this post to "
+"start fresh."
+msgstr ""
+"Gebruik deze ruimte om productupdates, evenementen en belangrijke mededelingen met je gemeenschap te delen. Bewerk of "
+"verwijder deze post om opnieuw te beginnen."
 
 #: core/routers/onboarding.php:661
 msgid "Say hello 👋"
 msgstr "Zeg hallo 👋"
 
 #: core/routers/onboarding.php:662
-msgid "Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation any time."
-msgstr "Welkom bij de discussie! Stel jezelf voor, deel wat je hierheen heeft gebracht, en voel je vrij om op elk moment een nieuw gesprek te beginnen."
+msgid ""
+"Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation "
+"any time."
+msgstr ""
+"Welkom bij de discussie! Stel jezelf voor, deel wat je hierheen heeft gebracht, en voel je vrij om op elk moment een "
+"nieuw gesprek te beginnen."
 
-#. translators: %s: space name
 #: core/routers/onboarding.php:667
+#. translators: %s: space name
 #, php-format
 msgid "Welcome to %s"
 msgstr "Welkom bij %s"
 
-#. translators: %s: space name
 #: core/routers/onboarding.php:668
+#. translators: %s: space name
 msgid "This is the first post in this space. Edit or delete it, then invite members to start chatting."
 msgstr "Dit is de eerste post in deze ruimte. Bewerk of verwijder het, en nodig leden uit om te beginnen met chatten."
 
-#. translators: %s: URL to the email notification settings.
 #: inc/modules/email-notifications/emails.php:149
+#. translators: %s: URL to the email notification settings.
 #, php-format
-msgid "You are receiving this because you are an admin or portal manager. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash email settings."
-msgstr "Je ontvangt dit omdat je een admin of portaalbeheerder bent. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Wijzig ontvangers of schakel deze e-mails uit</a> in de e-mailinstellingen van SureDash."
+msgid ""
+"You are receiving this because you are an admin or portal manager. <a href=\"%s\" "
+"style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash "
+"email settings."
+msgstr ""
+"Je ontvangt dit omdat je een admin of portaalbeheerder bent. <a href=\"%s\" "
+"style=\"color:#2563eb;text-decoration:underline;\">Wijzig ontvangers of schakel deze e-mails uit</a> in de "
+"e-mailinstellingen van SureDash."
 
 #: inc/services/ai-portal-generator.php:163
 #: inc/services/ai-portal-generator.php:231
@@ -9391,8 +9690,12 @@ msgid "API key is required."
 msgstr "API-sleutel is vereist."
 
 #: inc/services/ai-portal-generator.php:255
-msgid "Pasting a key is only supported for OpenAI, Anthropic, and Google Gemini. Configure this provider in Settings → Connectors instead."
-msgstr "Het plakken van een sleutel wordt alleen ondersteund voor OpenAI, Anthropic en Google Gemini. Configureer deze provider in Instellingen → Verbindingen in plaats daarvan."
+msgid ""
+"Pasting a key is only supported for OpenAI, Anthropic, and Google Gemini. Configure this provider in Settings → "
+"Connectors instead."
+msgstr ""
+"Het plakken van een sleutel wordt alleen ondersteund voor OpenAI, Anthropic en Google Gemini. Configureer deze provider "
+"in Instellingen → Verbindingen in plaats daarvan."
 
 #: inc/services/ai-portal-generator.php:561
 msgid "AI returned an unexpected response. Try again."
@@ -9427,32 +9730,32 @@ msgstr "Pagina"
 msgid "Space"
 msgstr "Ruimte"
 
-#. translators: %d: number of lessons in the course.
 #: inc/services/search/search-posts-service.php:568
+#. translators: %d: number of lessons in the course.
 #, php-format
 msgid "%d lesson"
 msgid_plural "%d lessons"
 msgstr[0] "%d les"
 msgstr[1] ""
 
-#. translators: %d: number of files in the resource library.
 #: inc/services/search/search-posts-service.php:577
+#. translators: %d: number of files in the resource library.
 #, php-format
 msgid "%d file"
 msgid_plural "%d files"
 msgstr[0] "%d bestand"
 msgstr[1] ""
 
-#. translators: %d: number of events in the event space.
 #: inc/services/search/search-posts-service.php:586
+#. translators: %d: number of events in the event space.
 #, php-format
 msgid "%d event"
 msgid_plural "%d events"
 msgstr[0] "%d evenement"
 msgstr[1] ""
 
-#. translators: %d: number of spaces curated in a collection.
 #: inc/services/search/search-posts-service.php:599
+#. translators: %d: number of spaces curated in a collection.
 #, php-format
 msgid "%d space"
 msgid_plural "%d spaces"
@@ -9765,11 +10068,15 @@ msgid "Build with AI"
 msgstr "Bouwen met AI"
 
 #: assets/build/portals-app.js:1
-msgid "Describe your portal in a sentence and let AI pick the spaces. Your AI provider key is used once for this generation and not stored."
-msgstr "Beschrijf je portal in één zin en laat AI de ruimtes kiezen. Je AI-provider sleutel wordt één keer gebruikt voor deze generatie en niet opgeslagen."
+msgid ""
+"Describe your portal in a sentence and let AI pick the spaces. Your AI provider key is used once for this generation "
+"and not stored."
+msgstr ""
+"Beschrijf je portal in één zin en laat AI de ruimtes kiezen. Je AI-provider sleutel wordt één keer gebruikt voor deze "
+"generatie en niet opgeslagen."
 
-#. translators: 1: number of connected providers; 2: comma-separated list of connected provider names.
 #: assets/build/portals-app.js:2
+#. translators: 1: number of connected providers; 2: comma-separated list of connected provider names.
 #, js-format
 msgid "%1$d AI provider connected via Settings → Connectors: %2$s."
 msgid_plural "%1$d AI providers connected via Settings → Connectors: %2$s."
@@ -9784,8 +10091,8 @@ msgstr "AI-provider"
 msgid "Select a provider"
 msgstr "Selecteer een provider"
 
-#. translators: %s: provider display name (e.g. "OpenAI").
 #: assets/build/portals-app.js:3
+#. translators: %s: provider display name (e.g. "OpenAI").
 #, js-format
 msgid "Using the %s key from Settings → Connectors for this generation."
 msgstr "De %s sleutel uit Instellingen → Verbindingen wordt voor deze generatie gebruikt."
@@ -9820,8 +10127,12 @@ msgid "Describe your portal"
 msgstr "Beschrijf je portal"
 
 #: assets/build/portals-app.js:3
-msgid "No AI provider is available on this site. Connect one in Settings → Connectors (WordPress 7+) to generate a portal with AI."
-msgstr "Er is geen AI-provider beschikbaar op deze site. Verbind er een in Instellingen → Verbindingen (WordPress 7+) om een portal met AI te genereren."
+msgid ""
+"No AI provider is available on this site. Connect one in Settings → Connectors (WordPress 7+) to generate a portal with "
+"AI."
+msgstr ""
+"Er is geen AI-provider beschikbaar op deze site. Verbind er een in Instellingen → Verbindingen (WordPress 7+) om een "
+"portal met AI te genereren."
 
 #: assets/build/portals-app.js:3
 msgid "Open Settings → Connectors"
@@ -9856,8 +10167,12 @@ msgid "Recommended"
 msgstr "Aanbevolen"
 
 #: assets/build/portals-app.js:3
-msgid "Describe your portal in one sentence and let AI design the spaces. Connect any AI provider in Settings → Connectors, or paste a key."
-msgstr "Beschrijf je portal in één zin en laat AI de ruimtes ontwerpen. Verbind een AI-provider in Instellingen → Verbindingen, of plak een sleutel."
+msgid ""
+"Describe your portal in one sentence and let AI design the spaces. Connect any AI provider in Settings → Connectors, or "
+"paste a key."
+msgstr ""
+"Beschrijf je portal in één zin en laat AI de ruimtes ontwerpen. Verbind een AI-provider in Instellingen → Verbindingen, "
+"of plak een sleutel."
 
 #: assets/build/portals-app.js:3
 msgid "Use a preset"
@@ -9983,8 +10298,8 @@ msgstr "Persoonlijk"
 msgid "Online Meeting"
 msgstr "Online vergadering"
 
-#. translators: %1$s: hour, %2$s: minute, %3$s: AM/PM period
 #: assets/build/portals-app.js:21
+#. translators: %1$s: hour, %2$s: minute, %3$s: AM/PM period
 #, js-format
 msgid "%1$s:%2$s %3$s (Current)"
 msgstr "%1$s:%2$s %3$s (Huidig)"
@@ -10093,83 +10408,83 @@ msgstr "Badge-ID"
 msgid "Copy badge ID for use with suredash_assign_badge() in PHP"
 msgstr "Kopieer badge-ID voor gebruik met suredash_assign_badge() in PHP"
 
-#. translators: 1: user name, 2: portal name
 #: core/notifier/admin-notifier.php:52
 #: core/notifier/admin-notifier.php:189
+#. translators: 1: user name, 2: portal name
 #, php-format
 msgid "%1$s has registered on %2$s."
 msgstr "%1$s is geregistreerd op %2$s."
 
-#. translators: 1: user name, 2: number of other users, 3: portal name
 #: core/notifier/admin-notifier.php:192
+#. translators: 1: user name, 2: number of other users, 3: portal name
 #, php-format
 msgid "%1$s and %2$s other registered on %3$s."
 msgid_plural "%1$s and %2$s others registered on %3$s."
 msgstr[0] "%1$s en %2$s andere zijn geregistreerd op %3$s."
 msgstr[1] ""
 
-#. translators: %s: space name
 #: core/notifier/common-notifier.php:51
+#. translators: %s: space name
 #, php-format
 msgid "The space \"%s\" has been created."
 msgstr "De ruimte \"%s\" is aangemaakt."
 
-#. translators: 1: commenter name, 2: number of other commenters, 3: post title
 #: core/notifier/common-notifier.php:515
+#. translators: 1: commenter name, 2: number of other commenters, 3: post title
 #, php-format
 msgid "%1$s and %2$s other commented on your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others commented on your post \"%3$s\"."
 msgstr[0] "%1$s en %2$s andere hebben gereageerd op je bericht \"%3$s\"."
 msgstr[1] ""
 
-#. translators: 1: liker name, 2: number of other likers, 3: comment excerpt
 #: core/notifier/common-notifier.php:620
+#. translators: 1: liker name, 2: number of other likers, 3: comment excerpt
 #, php-format
 msgid "%1$s and %2$s other liked your comment \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your comment \"%3$s\"."
 msgstr[0] "%1$s en %2$s andere hebben je reactie \"%3$s\" leuk gevonden."
 msgstr[1] ""
 
-#. translators: 1: liker name, 2: number of other likers, 3: post title
 #: core/notifier/common-notifier.php:628
+#. translators: 1: liker name, 2: number of other likers, 3: post title
 #, php-format
 msgid "%1$s and %2$s other liked your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your post \"%3$s\"."
 msgstr[0] "%1$s en %2$s andere hebben je bericht \"%3$s\" leuk gevonden."
 msgstr[1] ""
 
-#. translators: %s: topic title
 #: core/notifier/user-notifier.php:60
+#. translators: %s: topic title
 #, php-format
 msgid "Your topic \"%s\" has been approved."
 msgstr "Je onderwerp \"%s\" is goedgekeurd."
 
-#. translators: 1: mentioner name, 2: topic or comment link
 #: core/notifier/user-notifier.php:68
+#. translators: 1: mentioner name, 2: topic or comment link
 #, php-format
 msgid "%1$s mentioned you in a %2$s."
 msgstr "%1$s heeft je genoemd in een %2$s."
 
-#. translators: 1: commenter name, 2: replied-to comment link
 #: inc/utils/labels.php:148
+#. translators: 1: commenter name, 2: replied-to comment link
 #, php-format
 msgid "%1$s has replied to your %2$s."
 msgstr "%1$s heeft gereageerd op je %2$s."
 
-#. translators: 1: commenter name, 2: post title
 #: inc/utils/labels.php:150
+#. translators: 1: commenter name, 2: post title
 #, php-format
 msgid "%1$s commented on your post \"%2$s\"."
 msgstr "%1$s heeft gereageerd op je bericht \"%2$s\"."
 
-#. translators: 1: liker name, 2: post title
 #: inc/utils/labels.php:152
+#. translators: 1: liker name, 2: post title
 #, php-format
 msgid "%1$s liked your post \"%2$s\"."
 msgstr "%1$s heeft je bericht \"%2$s\" leuk gevonden."
 
-#. translators: 1: liker name, 2: comment excerpt
 #: inc/utils/labels.php:154
+#. translators: 1: liker name, 2: comment excerpt
 #, php-format
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr "%1$s heeft je reactie \"%2$s\" leuk gevonden."
@@ -10191,8 +10506,12 @@ msgid "Pin to header"
 msgstr "Vastpinnen aan de koptekst"
 
 #: assets/build/portals-app.js:10
-msgid "Toggle the Course Analytics tab in the top navigation. Off hides it from the header but the report stays accessible from this card."
-msgstr "Schakel het tabblad Cursusanalyses in de bovenste navigatie in. Uit verbergt het in de koptekst, maar het rapport blijft toegankelijk vanaf deze kaart."
+msgid ""
+"Toggle the Course Analytics tab in the top navigation. Off hides it from the header but the report stays accessible "
+"from this card."
+msgstr ""
+"Schakel het tabblad Cursusanalyses in de bovenste navigatie in. Uit verbergt het in de koptekst, maar het rapport "
+"blijft toegankelijk vanaf deze kaart."
 
 #: assets/build/portals-app.js:10
 msgid "See all"
@@ -10298,8 +10617,12 @@ msgid "Require passing this quiz to complete the course"
 msgstr "Vereist dat deze quiz wordt gehaald om de cursus te voltooien"
 
 #: assets/build/portals-app.js:21
-msgid "When on, learners must pass this quiz for it to count toward course completion. When off, any attempt, even a failed one, counts."
-msgstr "Wanneer ingeschakeld, moeten leerlingen deze quiz halen voor het meetelt voor de cursusvoltooiing. Wanneer uitgeschakeld, telt elke poging, zelfs een mislukte, mee."
+msgid ""
+"When on, learners must pass this quiz for it to count toward course completion. When off, any attempt, even a failed "
+"one, counts."
+msgstr ""
+"Wanneer ingeschakeld, moeten leerlingen deze quiz halen voor het meetelt voor de cursusvoltooiing. Wanneer "
+"uitgeschakeld, telt elke poging, zelfs een mislukte, mee."
 
 #: assets/build/portals-app.js:21
 msgid "Questions"
@@ -10406,32 +10729,32 @@ msgstr "Quiz kon niet worden geladen. Sluit deze dialoog en open deze opnieuw vo
 msgid "Please add at least one question."
 msgstr "Voeg ten minste één vraag toe."
 
-#. translators: %d: question number.
 #: assets/build/portals-app.js:23
+#. translators: %d: question number.
 #, js-format
 msgid "Question %d is missing text."
 msgstr "Vraag %d mist tekst."
 
-#. translators: %d: question number.
 #: assets/build/portals-app.js:25
+#. translators: %d: question number.
 #, js-format
 msgid "Question %d needs at least two options."
 msgstr "Vraag %d heeft ten minste twee opties nodig."
 
-#. translators: %d: question number.
 #: assets/build/portals-app.js:27
+#. translators: %d: question number.
 #, js-format
 msgid "All options in question %d need text."
 msgstr "Alle opties in vraag %d hebben tekst nodig."
 
-#. translators: %d: question number.
 #: assets/build/portals-app.js:29
+#. translators: %d: question number.
 #, js-format
 msgid "Mark at least one correct option for question %d."
 msgstr "Markeer ten minste één correct optie voor vraag %d."
 
-#. translators: %d: question number.
 #: assets/build/portals-app.js:31
+#. translators: %d: question number.
 #, js-format
 msgid "Single-choice question %d can only have one correct option."
 msgstr "Enkele keuzevraag %d kan slechts één correct optie hebben."
@@ -10485,22 +10808,28 @@ msgstr "Deze quiz is al in de geselecteerde sectie."
 
 #: assets/build/portals-app.js:35
 msgid "Are you sure you want to delete this quiz? It will be removed from the course page after you save your changes."
-msgstr "Weet je zeker dat je deze quiz wilt verwijderen? Het zal van de cursuspagina worden verwijderd nadat je je wijzigingen hebt opgeslagen."
+msgstr ""
+"Weet je zeker dat je deze quiz wilt verwijderen? Het zal van de cursuspagina worden verwijderd nadat je je wijzigingen "
+"hebt opgeslagen."
 
 #: assets/build/portals-app.js:35
 msgid "Are you sure you want to delete this lesson? It will be removed from the course page after you save your changes."
-msgstr "Weet je zeker dat je deze les wilt verwijderen? Het zal van de cursuspagina worden verwijderd nadat je je wijzigingen hebt opgeslagen."
+msgstr ""
+"Weet je zeker dat je deze les wilt verwijderen? Het zal van de cursuspagina worden verwijderd nadat je je wijzigingen "
+"hebt opgeslagen."
 
 #: assets/build/portals-app.js:35
 msgid "Settings saved, but the change could not be persisted. Use the header Save button to retry."
-msgstr "Instellingen opgeslagen, maar de wijziging kon niet worden doorgevoerd. Gebruik de knop Opslaan in de header om het opnieuw te proberen."
+msgstr ""
+"Instellingen opgeslagen, maar de wijziging kon niet worden doorgevoerd. Gebruik de knop Opslaan in de header om het "
+"opnieuw te proberen."
 
 #: assets/build/portals-app.js:41
 msgid "Course Completions"
 msgstr "Cursusvoltooiingen"
 
-#. translators: 1: first row index, 2: last row index, 3: total row count
 #: assets/build/portals-app.js:42
+#. translators: 1: first row index, 2: last row index, 3: total row count
 #, js-format
 msgid "%1$s–%2$s of %3$s courses"
 msgstr "%1$s–%2$s van %3$s cursussen"
@@ -10509,16 +10838,16 @@ msgstr "%1$s–%2$s van %3$s cursussen"
 msgid "Course Analytics"
 msgstr "Cursusanalyses"
 
-#. translators: %d: number of published courses
 #: assets/build/portals-app.js:43
+#. translators: %d: number of published courses
 #, js-format
 msgid "%d Published"
 msgid_plural "%d Published"
 msgstr[0] "%d Gepubliceerd"
 msgstr[1] ""
 
-#. translators: %d: number of draft courses
 #: assets/build/portals-app.js:44
+#. translators: %d: number of draft courses
 #, js-format
 msgid "%d Draft"
 msgid_plural "%d Drafts"
@@ -10545,8 +10874,8 @@ msgstr "Terug naar Cursusanalyses"
 msgid "Course not found."
 msgstr "Cursus niet gevonden."
 
-#. translators: %d: number of lessons
 #: assets/build/portals-app.js:45
+#. translators: %d: number of lessons
 #, js-format
 msgid "%d Lesson"
 msgid_plural "%d Lessons"
@@ -10579,7 +10908,9 @@ msgstr "Aantal lessen dat de leerling heeft afgerond van het totaal in deze curs
 
 #: assets/build/portals-app.js:45
 msgid "Quizzes the learner has cleared out of the total in this course. Practice quizzes count as cleared once attempted."
-msgstr "Quizzes die de leerling heeft gehaald van het totaal in deze cursus. Oefenquizzes tellen als gehaald zodra ze zijn geprobeerd."
+msgstr ""
+"Quizzes die de leerling heeft gehaald van het totaal in deze cursus. Oefenquizzes tellen als gehaald zodra ze zijn "
+"geprobeerd."
 
 #: assets/build/portals-app.js:45
 msgid "Attempts"
@@ -10605,8 +10936,8 @@ msgstr "Percentage van deze cursus dat de leerling heeft voltooid."
 msgid "In Progress"
 msgstr "In Behandeling"
 
-#. translators: 1: first row index, 2: last row index, 3: total row count
 #: assets/build/portals-app.js:46
+#. translators: 1: first row index, 2: last row index, 3: total row count
 #, js-format
 msgid "%1$s–%2$s of %3$s learners"
 msgstr "%1$s–%2$s van %3$s leerlingen"
@@ -10620,8 +10951,14 @@ msgid "Revisit Course"
 msgstr "Herbekijk Cursus"
 
 #: assets/build/portals-app.js:38
-msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions. For the full list of available abilities, see the "
-msgstr "Registreer SureDash-vaardigheden met de WordPress Vaardigheden API. Wanneer ingeschakeld, kunnen AI-klanten uw portal opsommen, lezen, creëren, bewerken en beheren. Wanneer uitgeschakeld, zijn er geen vaardigheden geregistreerd en kunnen AI-klanten geen acties uitvoeren. Voor de volledige lijst van beschikbare vaardigheden, zie de"
+msgid ""
+"Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, "
+"and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions. For the "
+"full list of available abilities, see the "
+msgstr ""
+"Registreer SureDash-vaardigheden met de WordPress Vaardigheden API. Wanneer ingeschakeld, kunnen AI-klanten uw portal "
+"opsommen, lezen, creëren, bewerken en beheren. Wanneer uitgeschakeld, zijn er geen vaardigheden geregistreerd en kunnen "
+"AI-klanten geen acties uitvoeren. Voor de volledige lijst van beschikbare vaardigheden, zie de"
 
 #: assets/build/portals-app.js:38
 msgid "SureDash abilities documentation"
@@ -10652,35 +10989,35 @@ msgstr "Voorbeeld niet gevonden."
 msgid "This content is restricted to members. Unlock access to view the full post."
 msgstr "Deze inhoud is beperkt tot leden. Ontgrendel toegang om de volledige post te bekijken."
 
-#. translators: %s: number of lessons.
 #: inc/functions/markup.php:588
 #: inc/functions/markup.php:695
+#. translators: %s: number of lessons.
 #, php-format
 msgid "%s lesson"
 msgid_plural "%s lessons"
 msgstr[0] "%s les"
 msgstr[1] ""
 
-#. translators: %s: number of quizzes.
 #: inc/functions/markup.php:594
 #: inc/functions/markup.php:700
+#. translators: %s: number of quizzes.
 #, php-format
 msgid "%s quiz"
 msgid_plural "%s quizzes"
 msgstr[0] "%s quiz"
 msgstr[1] ""
 
-#. translators: %s: number of threads.
 #: inc/functions/markup.php:600
 #: inc/functions/markup.php:659
+#. translators: %s: number of threads.
 #, php-format
 msgid "%s thread"
 msgid_plural "%s threads"
 msgstr[0] "%s thread"
 msgstr[1] ""
 
-#. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #: inc/functions/markup.php:688
+#. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #, php-format
 msgid "%s module"
 msgid_plural "%s modules"
@@ -10713,7 +11050,9 @@ msgstr "Te veel verzoeken voor het opnieuw instellen van het wachtwoord. Probeer
 
 #: core/routers/social-logins.php:294
 msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
-msgstr "Als er een account bestaat dat overeenkomt met die gebruikersnaam of e-mailadres, is er een link voor het opnieuw instellen van het wachtwoord verzonden. Controleer je e-mail."
+msgstr ""
+"Als er een account bestaat dat overeenkomt met die gebruikersnaam of e-mailadres, is er een link voor het opnieuw "
+"instellen van het wachtwoord verzonden. Controleer je e-mail."
 
 #: assets/build/portals-app.js:13
 msgid "Invalid server response"
@@ -10745,14 +11084,17 @@ msgid "Check your Bunny Storage settings."
 msgstr "Controleer je Bunny Storage-instellingen."
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Uploading %1$d of %2$d to %3$s…"
 msgstr "Uploaden %1$d van %2$d naar %3$s…"
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Uploading to %s…"
 msgstr "Uploaden naar %s…"
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Sending %1$d of %2$d to Bunny.net…"
 msgstr "Verzenden %1$d van %2$d naar Bunny.net…"
 
@@ -10761,17 +11103,24 @@ msgid "Sending to Bunny.net…"
 msgstr "Verzenden naar Bunny.net…"
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Processing %1$d of %2$d…"
 msgstr "Verwerken %1$d van %2$d…"
 
 #: assets/build/portals-app.js:13
+#, js-format
 msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
 msgstr "%1$d van %2$d geüpload, %3$d mislukt: %4$s"
 
-#. translators: %d is the number of selected files.
 #: assets/build/portals-app.js:16
-msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
-msgstr "Verwijder %d geselecteerde bestand(en)? Dit kan niet ongedaan gemaakt worden. Sommige hiervan kunnen in gebruik zijn door resource-items, en het verwijderen ervan zal die items breken."
+#. translators: %d is the number of selected files.
+#, js-format
+msgid ""
+"Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them "
+"will break those items."
+msgstr ""
+"Verwijder %d geselecteerde bestand(en)? Dit kan niet ongedaan gemaakt worden. Sommige hiervan kunnen in gebruik zijn "
+"door resource-items, en het verwijderen ervan zal die items breken."
 
 #: assets/build/portals-app.js:16
 msgid "Not available: this file's Bunny zone is not connected."
@@ -10796,10 +11145,6 @@ msgstr "Nieuwe clouduploads worden opgeslagen op Bunny.net."
 #: assets/build/portals-app.js:16
 msgid "Cloud uploads are paused, new uploads are stored on this server."
 msgstr "Clouduploads zijn gepauzeerd, nieuwe uploads worden opgeslagen op deze server."
-
-#: assets/build/portals-app.js:16
-msgid "New uploads are stored on this server (local)."
-msgstr "Nieuwe uploads worden opgeslagen op deze server (lokaal)."
 
 #: assets/build/portals-app.js:16
 msgid "Upload to Cloud"
@@ -10866,16 +11211,24 @@ msgid "Store Resource Library files on Bunny.net instead of your WordPress serve
 msgstr "Bewaar bestanden van de Resourcebibliotheek op Bunny.net in plaats van op je WordPress-server."
 
 #: assets/build/portals-app.js:38
-msgid "Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure link that expires automatically."
-msgstr "Downloads blijven beschermd. Elk verzoek wordt gecontroleerd op basis van je rechten en vervolgens geleverd via een kortdurende veilige link die automatisch verloopt."
+msgid ""
+"Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure "
+"link that expires automatically."
+msgstr ""
+"Downloads blijven beschermd. Elk verzoek wordt gecontroleerd op basis van je rechten en vervolgens geleverd via een "
+"kortdurende veilige link die automatisch verloopt."
 
 #: assets/build/portals-app.js:38
 msgid "Setup mode"
 msgstr "Instellingsmodus"
 
 #: assets/build/portals-app.js:38
-msgid "Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny account."
-msgstr "Nieuwe aanmaken: SureDash voorziet in een nieuwe, volledig geconfigureerde privézone. Bestaande gebruiken: kies een zone die al op je Bunny-account staat."
+msgid ""
+"Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny "
+"account."
+msgstr ""
+"Nieuwe aanmaken: SureDash voorziet in een nieuwe, volledig geconfigureerde privézone. Bestaande gebruiken: kies een "
+"zone die al op je Bunny-account staat."
 
 #: assets/build/portals-app.js:38
 msgid "files"
@@ -11023,7 +11376,9 @@ msgstr "Vereiste instellingen op uw zone"
 
 #: assets/build/portals-app.js:38
 msgid "SureDash never creates or changes anything on your existing zones. To connect, the storage zone must already have:"
-msgstr "SureDash maakt nooit iets aan of wijzigt iets op uw bestaande zones. Om verbinding te maken, moet de opslagzone al hebben:"
+msgstr ""
+"SureDash maakt nooit iets aan of wijzigt iets op uw bestaande zones. Om verbinding te maken, moet de opslagzone al "
+"hebben:"
 
 #: assets/build/portals-app.js:38
 msgid "A delivery (pull) zone linked to this storage zone (required)"
@@ -11055,7 +11410,9 @@ msgstr "Deze zone heeft geen actieve leverings (pull) zone"
 
 #: assets/build/portals-app.js:38
 msgid "If the zone already has a pull zone, re-enable it in the Bunny dashboard (it is suspended or disabled)."
-msgstr "Als de zone al een pull zone heeft, schakel deze dan opnieuw in op het Bunny-dashboard (deze is opgeschort of uitgeschakeld)."
+msgstr ""
+"Als de zone al een pull zone heeft, schakel deze dan opnieuw in op het Bunny-dashboard (deze is opgeschort of "
+"uitgeschakeld)."
 
 #: assets/build/portals-app.js:38
 msgid "Otherwise go to CDN → Add Pull Zone, set the origin to this storage zone, and create it."
@@ -11134,12 +11491,20 @@ msgid "Disconnect this storage zone?"
 msgstr "Ontkoppel deze opslagzone?"
 
 #: assets/build/portals-app.js:38
-msgid "Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until you reconnect."
-msgstr "Verwijdert de opgeslagen API-sleutel en schakelt het offloading uit. Niets wordt verwijderd op Bunny, maar de bestanden blijven onbereikbaar totdat je opnieuw verbindt."
+msgid ""
+"Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until "
+"you reconnect."
+msgstr ""
+"Verwijdert de opgeslagen API-sleutel en schakelt het offloading uit. Niets wordt verwijderd op Bunny, maar de bestanden "
+"blijven onbereikbaar totdat je opnieuw verbindt."
 
 #: assets/build/portals-app.js:38
-msgid "Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can pick or create another zone right away."
-msgstr "Koppelt deze zone los en schakelt het offloading uit. Niets wordt verwijderd op Bunny, en je account blijft verbonden, zodat je meteen een andere zone kunt kiezen of aanmaken."
+msgid ""
+"Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can "
+"pick or create another zone right away."
+msgstr ""
+"Koppelt deze zone los en schakelt het offloading uit. Niets wordt verwijderd op Bunny, en je account blijft verbonden, "
+"zodat je meteen een andere zone kunt kiezen of aanmaken."
 
 #: assets/build/portals-app.js:38
 msgid "Disconnected from Bunny.net."
@@ -11157,8 +11522,9 @@ msgstr "Niet verbonden"
 msgid "Bunny.net"
 msgstr "Bunny.net"
 
-#. translators: 1: feature name, 2: its location.
 #: assets/build/portals-app.js:55
+#. translators: 1: feature name, 2: its location.
+#, js-format
 msgid "%1$s is available under %2$s"
 msgstr "%1$s is beschikbaar onder %2$s"
 
@@ -11174,13 +11540,15 @@ msgstr "Toon mij"
 msgid "Read the docs"
 msgstr "Lees de documentatie"
 
-#. translators: %d: page number.
 #: assets/build/portals-app.js:56
+#. translators: %d: page number.
+#, js-format
 msgid "Go to page %d"
 msgstr "Ga naar pagina %d"
 
-#. translators: 1: current page number, 2: total pages.
 #: assets/build/portals-app.js:57
+#. translators: 1: current page number, 2: total pages.
+#, js-format
 msgid "%1$s of %2$s"
 msgstr "%1$s van %2$s"
 
@@ -11191,6 +11559,14 @@ msgstr "Sla alles over"
 #: assets/build/portals-app.js:57
 msgid "Done"
 msgstr "Klaar"
+
+#: assets/build/portals-app.js:16
+msgid "Upload Files"
+msgstr "Bestand(en) uploaden"
+
+#: assets/js/unminified/register.js:756
+msgid "An error occurred during registration. Please try again."
+msgstr "Er is een fout opgetreden tijdens de registratie. Probeer het opnieuw."
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

@@ -8,6 +8,7 @@
 
 namespace SureDashboard\Inc\Services\Abilities\Handlers;
 
+use SureDashboard\Core\Models\Controller;
 use SureDashboard\Inc\Services\Abilities\Ability;
 
 defined( 'ABSPATH' ) || exit;
@@ -48,7 +49,7 @@ class List_Groups extends Ability {
 	 * @return string
 	 */
 	public function get_description(): string {
-		return __( 'Lists all space groups (sidebar categories) in the portal. Returns each group\'s term_id, name, description, display order, space count, and the ordered list of space IDs within it. Groups are returned sorted by their display order.', 'suredash' );
+		return __( 'Lists all space groups (sidebar categories) in the portal. Returns each group\'s term_id, name, description, display order, space count, and the ordered list of space IDs within it. Groups are returned sorted by their display order. Spaces that belong to no group are reported as an extra "Uncategorized" entry with term_id 0, matching the portal dashboard.', 'suredash' );
 	}
 
 	/**
@@ -75,7 +76,7 @@ class List_Groups extends Ability {
 	public function get_returns(): array {
 		return [
 			'type'        => 'object',
-			'description' => __( 'Object with success flag and data containing an array of group objects.', 'suredash' ),
+			'description' => __( 'Object with success flag and data containing groups (array of group objects, plus an "Uncategorized" entry with term_id 0 when ungrouped spaces exist), total (count of real groups, excluding that entry), and uncategorized_spaces (count of spaces in no group).', 'suredash' ),
 			'properties'  => [
 				'groups' => [
 					'type'        => 'array',
@@ -137,7 +138,7 @@ class List_Groups extends Ability {
 	 * @return string
 	 */
 	public function get_instructions(): string {
-		return 'Call this first to discover group IDs and their space_ids arrays. Use term_id values with create-space (group_id), list-spaces (category_id), reorder-groups, and reorder-spaces-in-group.';
+		return 'Call this first to discover group IDs and their space_ids arrays. Use term_id values with create-space (group_id), list-spaces (category_id), reorder-groups, and reorder-spaces-in-group. term_id 0 is the synthetic "Uncategorized" bucket for spaces with no group — read it, but never pass 0 to a write ability. "total" is the number of real groups and excludes that bucket; "uncategorized_spaces" is how many spaces sit outside every group. For a portal-wide space count call list-spaces and read its "total" instead of adding up space_count across groups.';
 	}
 
 	/**
@@ -187,12 +188,70 @@ class List_Groups extends Ability {
 			];
 		}
 
+		// total counts real taxonomy terms only. The Uncategorized bucket is a
+		// placeholder for ungrouped spaces, not a group an admin created, so
+		// folding it into total would overstate how many groups the portal has.
+		$total = count( $groups );
+
+		$uncategorized = $this->get_uncategorized_group();
+
+		if ( ! empty( $uncategorized ) ) {
+			$groups[] = $uncategorized;
+		}
+
 		return [
 			'success' => true,
 			'data'    => [
-				'groups' => $groups,
-				'total'  => count( $groups ),
+				'groups'               => $groups,
+				'total'                => $total,
+				'uncategorized_spaces' => $uncategorized['space_count'] ?? 0,
 			],
+		];
+	}
+
+	/**
+	 * Build the synthetic "Uncategorized" group for spaces with no group.
+	 *
+	 * The portal dashboard shows ungrouped spaces under a placeholder group
+	 * with term_id 0 (see admin/menu.php). Abilities used to skip them
+	 * entirely, so any caller that walked groups or summed space_count missed
+	 * every ungrouped space. This mirrors the dashboard so the totals agree.
+	 *
+	 * @since 1.9.4
+	 * @return array<string, mixed> Empty array when every space belongs to a group.
+	 */
+	private function get_uncategorized_group(): array {
+		$items = Controller::get_query_uncategorized_items( 'Backend_Feeds' );
+
+		if ( empty( $items ) ) {
+			return [];
+		}
+
+		$space_ids = [];
+
+		foreach ( $items as $item ) {
+			// Skip auto-drafts — WordPress creates these placeholders whenever
+			// the new space screen is opened and they are not real spaces.
+			if ( ( $item['post_status'] ?? '' ) === 'auto-draft' ) {
+				continue;
+			}
+
+			$space_ids[] = absint( $item['ID'] );
+		}
+
+		if ( empty( $space_ids ) ) {
+			return [];
+		}
+
+		return [
+			'term_id'     => 0,
+			'name'        => __( 'Uncategorized', 'suredash' ),
+			'description' => __( 'Spaces that are not assigned to any group.', 'suredash' ),
+			'slug'        => 'uncategorized',
+			'order'       => 999,
+			'space_count' => count( $space_ids ),
+			'space_ids'   => $space_ids,
+			'hide_label'  => false,
 		];
 	}
 }

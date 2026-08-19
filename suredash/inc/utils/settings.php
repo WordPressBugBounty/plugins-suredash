@@ -139,10 +139,12 @@ class Settings {
 				'global_layout'                        => [
 					'default' => 'normal',
 					'type'    => 'string',
+					'enum'    => [ 'full_width', 'normal', 'narrow' ],
 				],
 				'global_layout_style'                  => [
 					'default' => 'boxed',
 					'type'    => 'string',
+					'enum'    => [ 'boxed', 'unboxed' ],
 				],
 				'narrow_container_width'               => [
 					'default' => 600,
@@ -191,6 +193,7 @@ class Settings {
 				'default_palette'                      => [
 					'default' => 'light',
 					'type'    => 'string',
+					'enum'    => [ 'light', 'dark' ],
 				],
 				'color_palette'                        => [
 					'default' => suredash_get_color_palette_defaults(),

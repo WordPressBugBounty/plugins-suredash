@@ -79,7 +79,23 @@ class Reorder_Groups extends Ability {
 			'ordering_data' => [
 				'type'        => 'array',
 				'required'    => true,
-				'description' => __( 'Array of objects with "term_id" (integer) and "order" (integer) specifying the new display order for each group.', 'suredash' ),
+				'description' => __( 'Array of objects with "term_id" (integer) and "order" (integer) specifying the new display order for each group. Must include ALL groups.', 'suredash' ),
+				'items'       => [
+					'type'       => 'object',
+					'required'   => [ 'term_id', 'order' ],
+					'properties' => [
+						'term_id' => [
+							'type'        => 'integer',
+							'minimum'     => 1,
+							'description' => __( 'Group taxonomy term ID.', 'suredash' ),
+						],
+						'order'   => [
+							'type'        => 'integer',
+							'minimum'     => 0,
+							'description' => __( 'Display position (0-based, lower = higher in sidebar).', 'suredash' ),
+						],
+					],
+				],
 			],
 		];
 	}
@@ -178,15 +194,48 @@ class Reorder_Groups extends Ability {
 		$ordering_data = $params['ordering_data'];
 
 		if ( ! is_array( $ordering_data ) ) {
-			return [
-				'success' => false,
-				'data'    => [ 'message' => __( 'ordering_data must be an array.', 'suredash' ) ],
-			];
+			return $this->fail( __( 'ordering_data must be an array.', 'suredash' ) );
+		}
+
+		// Completeness guard — the stored order is replaced in full, so a partial
+		// payload leaves the omitted groups with stale positions and silently
+		// scrambles the sidebar. Item shape is enforced by the schema.
+		$all_group_ids = get_terms(
+			[
+				'taxonomy'   => SUREDASHBOARD_TAXONOMY,
+				'hide_empty' => false,
+				'fields'     => 'ids',
+			]
+		);
+
+		if ( is_wp_error( $all_group_ids ) ) {
+			return $this->fail( $all_group_ids->get_error_message() );
+		}
+
+		$payload_ids = array_map(
+			static function ( $item ) {
+				return absint( $item['term_id'] );
+			},
+			$ordering_data
+		);
+
+		$id_list_errors = $this->get_id_set_errors(
+			$payload_ids,
+			array_map( 'absint', $all_group_ids ),
+			__( 'groups', 'suredash' ),
+			'list-groups'
+		);
+
+		if ( ! empty( $id_list_errors ) ) {
+			return $this->fail(
+				__( 'Nothing reordered: ordering_data must contain exactly the full set of groups.', 'suredash' ),
+				$id_list_errors
+			);
 		}
 
 		$this->setup_post_data(
 			[
-				'taxonomy_ordering_data' => wp_json_encode( $ordering_data ),
+				'taxonomy_ordering_data' => $this->encode_json_for_router( $ordering_data ),
 			]
 		);
 
@@ -197,6 +246,23 @@ class Reorder_Groups extends Ability {
 		);
 
 		$this->cleanup_post_data( [ 'taxonomy_ordering_data' ] );
+
+		// Echo the resulting order (term IDs sorted by their new position) so
+		// agents can self-verify without a follow-up list-groups call.
+		if ( ! empty( $result['success'] ) ) {
+			usort(
+				$ordering_data,
+				static function ( $a, $b ) {
+					return (int) $a['order'] <=> (int) $b['order'];
+				}
+			);
+			$result['final_order'] = array_map(
+				static function ( $item ) {
+					return absint( $item['term_id'] );
+				},
+				$ordering_data
+			);
+		}
 
 		return $result;
 	}
