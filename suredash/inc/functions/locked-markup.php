@@ -283,6 +283,7 @@ if ( ! function_exists( 'suredash_render_locked_card' ) ) {
 							);
 							?>
 						</div>
+						<?php suredash_render_pricing_badge( $args, false ); // Solid pill at the row's end — locked rows have no action button to slot before. ?>
 						<?php echo suredash_locked_overlay( $overlay_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- internal markup ?>
 					</div>
 				</a>

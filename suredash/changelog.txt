@@ -1,4 +1,9 @@
 *** SureDash Changelog ***
+= 2026-08-31 - version 1.11.2 =
+* New: Collections can now show Free and price tags on the spaces they list, with a Buy Now button for visitors who do not have access yet. Needs the SureDash Pro addon and SureMembers.
+* Improvement: Added a filter to control whether replies are open on discussions submitted from the front end, so replies can be kept working in SureDash without enabling comments across the whole site.
+* Fix: Lesson, event, and resource pages now show the full list of comments instead of only the first two.
+
 = 2026-08-19 - version 1.11.1 =
 * Improvement: Strengthened validation across the WordPress Abilities (MCP) integration, so incomplete or mismatched requests are rejected with a clear explanation instead of being saved in a broken state.
 * Improvement: Improved the accuracy of the space and group information reported to the AI assistant, including spaces that are not assigned to any group.

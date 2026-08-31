@@ -123,9 +123,14 @@ class Misc {
 		$filtered_data['post_author'] = $current_user_id;
 
 		$other_defaults = [
-			'post_name'   => $post_name,
-			'post_type'   => SUREDASHBOARD_FEED_POST_TYPE,
-			'post_status' => apply_filters( 'suredash_inserting_default_post_status', 'publish' ),
+			'post_name'      => $post_name,
+			'post_type'      => SUREDASHBOARD_FEED_POST_TYPE,
+			'post_status'    => apply_filters( 'suredash_inserting_default_post_status', 'publish' ),
+			// Default to the site's global Settings → Discussion preference so behavior is
+			// unchanged on update. Sites that want replies enabled inside SureDash discussions
+			// without flipping WordPress's site-wide comment setting (which also affects regular
+			// blog posts) can force 'open' via the filter below — scoping the change to SureDash.
+			'comment_status' => apply_filters( 'suredash_inserting_default_comment_status', (string) get_option( 'default_comment_status', 'open' ) ),
 		];
 
 		// Now its time to create a post with defaults & filtered data.

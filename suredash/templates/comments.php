@@ -55,12 +55,21 @@ if ( $in_qv ) {
 		}
 		?>
 	<?php
-} elseif ( get_post_type( $current_post_id ) === SUREDASHBOARD_FEED_POST_TYPE ) {
-	// Single post page — show reaction bar + full comments (no inline 2-comment limit).
+} else {
+	// Every non quick view caller of this template is a single item page: feed post,
+	// lesson, event or resource. All of them show the full comment list, so the inline
+	// 2-comment preview is turned off here. Feed cards keep that preview and render
+	// through templates/single/post.php instead.
 	ob_start();
 	Helper::render_post_reaction( $current_post_id, '', true, false, false );
 	$reaction_html = (string) ob_get_clean();
 	$has_reactions = ! empty( trim( $reaction_html ) );
+
+	// With no reactions and comments closed there is nothing to show, and the wrapper's
+	// top border would render as a stray line under the content.
+	if ( ! $has_reactions && ! comments_open( $current_post_id ) ) {
+		return;
+	}
 	?>
 	<div id="portal-comment" class="portal-comments-wrapper portal-container portal-content <?php echo esc_attr( $comments_wrap ); ?>">
 		<?php
@@ -69,20 +78,6 @@ if ( $in_qv ) {
 		}
 		?>
 	<?php
-} else {
-	// Feeds / archive — show reaction bar with inline comments only.
-	ob_start();
-	Helper::render_post_reaction( $current_post_id, 'portal-comments-trigger' );
-	$reaction_html = (string) ob_get_clean();
-
-	if ( ! empty( trim( $reaction_html ) ) ) {
-		?>
-		<div id="portal-comment" class="portal-comments-wrapper portal-container portal-content <?php echo esc_attr( $comments_wrap ); ?>">
-			<?php echo $reaction_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output from Helper::render_post_reaction is already escaped. ?>
-		</div>
-		<?php
-	}
-	return;
 }
 
 do_action( 'suredashboard_single_comments_before' );

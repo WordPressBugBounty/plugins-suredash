@@ -643,7 +643,7 @@ msgstr "Din kommentar väntar på granskning."
 msgid "Reply"
 msgstr "Svara"
 
-#: inc/functions/markup.php:789
+#: inc/functions/markup.php:899
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
@@ -665,7 +665,7 @@ msgstr "Klicka för att ladda upp eller dra och släpp"
 msgid "Allowed file formats:"
 msgstr "Tillåtna filformat:"
 
-#: inc/functions/markup.php:807
+#: inc/functions/markup.php:917
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgid_plural "Comments"
@@ -1185,7 +1185,7 @@ msgstr "Facebook"
 
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "Återställ"
@@ -1412,7 +1412,7 @@ msgid "Clear"
 msgstr "Klar"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 msgid "Select Color"
 msgstr "Välj färg"
 
@@ -2965,11 +2965,11 @@ msgstr "Grupptext för rymd"
 msgid "Space Group Background"
 msgstr "Bakgrund för rymdgruppen"
 
-#: core/routers/misc.php:2222
+#: core/routers/misc.php:2227
 msgid "Uploaded file is not a valid image."
 msgstr "Den uppladdade filen är inte en giltig bild."
 
-#: core/routers/misc.php:2226
+#: core/routers/misc.php:2231
 msgid "File size larger than permissible."
 msgstr "Filstorleken är större än tillåten."
 
@@ -3524,6 +3524,7 @@ msgstr "Tillämpa"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Free"
 msgstr "Gratis"
@@ -3713,8 +3714,8 @@ msgstr "Åtkomstgrupp"
 #: core/assets.php:302
 #: core/integrations/feeds.php:652
 #: core/integrations/feeds.php:704
-#: core/routers/misc.php:405
-#: core/routers/misc.php:456
+#: core/routers/misc.php:410
+#: core/routers/misc.php:461
 #: core/shortcodes/home-content.php:786
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3846,7 +3847,7 @@ msgid "Pending Review"
 msgstr "Väntar på granskning"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:648
+#: inc/functions/markup.php:758
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "Privat"
@@ -4689,36 +4690,36 @@ msgstr "Kommentarstatus uppdaterad."
 msgid "No icons found."
 msgstr "Inga ikoner hittades."
 
-#: core/routers/misc.php:1334
-#: core/routers/misc.php:1411
+#: core/routers/misc.php:1339
+#: core/routers/misc.php:1416
 msgid "Comment not found."
 msgstr "Kommentar hittades inte."
 
-#: core/routers/misc.php:1339
+#: core/routers/misc.php:1344
 msgid "You are not authorized to edit this comment."
 msgstr "Du är inte auktoriserad att redigera denna kommentar."
 
-#: core/routers/misc.php:1370
+#: core/routers/misc.php:1375
 msgid "Failed to update comment."
 msgstr "Misslyckades med att uppdatera kommentaren."
 
-#: core/routers/misc.php:1380
+#: core/routers/misc.php:1385
 msgid "Comment Updated Successfully!"
 msgstr "Kommentar uppdaterad framgångsrikt!"
 
-#: core/routers/misc.php:1420
+#: core/routers/misc.php:1425
 msgid "You are not authorized to delete this comment."
 msgstr "Du är inte auktoriserad att ta bort denna kommentar."
 
-#: core/routers/misc.php:1427
+#: core/routers/misc.php:1432
 msgid "Failed to delete comment."
 msgstr "Misslyckades med att ta bort kommentaren."
 
-#: core/routers/misc.php:1431
+#: core/routers/misc.php:1436
 msgid "Comment deleted successfully!"
 msgstr "Kommentar borttagen framgångsrikt!"
 
-#: core/routers/misc.php:2217
+#: core/routers/misc.php:2222
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ogiltig filtyp. Endast GIF, PNG, JPEG, JPG och WEBP är tillåtna."
 
@@ -4762,7 +4763,7 @@ msgstr "Skriv en kort biografi om dig själv..."
 msgid "Discussion"
 msgstr "Diskussion"
 
-#: inc/functions/markup.php:909
+#: inc/functions/markup.php:1024
 msgid "Options"
 msgstr "Alternativ"
 
@@ -4835,6 +4836,7 @@ msgid "No spaces available to add"
 msgstr "Inga utrymmen tillgängliga att lägga till"
 
 #: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
 msgid "Untitled Space"
 msgstr "Utan titel Utrymme"
@@ -5057,12 +5059,12 @@ msgid "Resources"
 msgstr "Resurser"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Remove bookmark"
 msgstr "Ta bort bokmärke"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Add bookmark"
 msgstr "Lägg till bokmärke"
 
@@ -5139,12 +5141,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "Resursbibliotek"
 
-#: inc/functions/markup.php:835
+#: inc/functions/markup.php:950
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "Besök"
 
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Bookmark"
 msgstr "Bokmärke"
 
@@ -5976,36 +5978,36 @@ msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Integrerar SureCart kundområde med SureDash utrymmen."
 
 #: core/routers/backend.php:3337
-#: core/routers/misc.php:1478
-#: core/routers/misc.php:1578
+#: core/routers/misc.php:1483
+#: core/routers/misc.php:1583
 msgid "Post not found."
 msgstr "Inlägget hittades inte."
 
-#: core/routers/misc.php:1485
+#: core/routers/misc.php:1490
 msgid "You are not authorized to edit this post."
 msgstr "Du är inte auktoriserad att redigera detta inlägg."
 
-#: core/routers/misc.php:1527
+#: core/routers/misc.php:1532
 msgid "Failed to update post."
 msgstr "Misslyckades med att uppdatera inlägg."
 
-#: core/routers/misc.php:1546
+#: core/routers/misc.php:1551
 msgid "Post Updated Successfully!"
 msgstr "Inlägget uppdaterades framgångsrikt!"
 
-#: core/routers/misc.php:1582
+#: core/routers/misc.php:1587
 msgid "Invalid Post."
 msgstr "Ogiltigt inlägg."
 
-#: core/routers/misc.php:1591
+#: core/routers/misc.php:1596
 msgid "You are not authorized to delete this post."
 msgstr "Du är inte auktoriserad att ta bort detta inlägg."
 
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:1603
 msgid "Failed to delete post."
 msgstr "Misslyckades med att ta bort inlägg."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1607
 msgid "Post deleted successfully!"
 msgstr "Inlägget togs bort framgångsrikt!"
 
@@ -6403,23 +6405,23 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "Misslyckades med att radera e-postutlösare."
 
-#: core/routers/misc.php:763
-#: core/routers/misc.php:1775
-#: core/routers/misc.php:1805
+#: core/routers/misc.php:768
+#: core/routers/misc.php:1780
+#: core/routers/misc.php:1810
 msgid "User not logged in."
 msgstr "Användare är inte inloggad."
 
-#: core/routers/misc.php:768
+#: core/routers/misc.php:773
 msgid "User not found."
 msgstr "Användare hittades inte."
 
-#: core/routers/misc.php:788
+#: core/routers/misc.php:793
 #. translators: %s: Site name
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-e-post från %s"
 
-#: core/routers/misc.php:804
+#: core/routers/misc.php:809
 #. translators: %1$s: User name, %2$s: Site name
 #, php-format
 msgid ""
@@ -6434,19 +6436,19 @@ msgstr ""
 "\t\t\t\t\tOm du har fått detta e-postmeddelande är dina notifikationsinställningar korrekt konfigurerade!\n"
 "\t\t\t\t\t--- Detta e-postmeddelande skickades från %2$s"
 
-#: core/routers/misc.php:823
+#: core/routers/misc.php:828
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Test-e-post skickad framgångsrikt! Vänligen kontrollera din inkorg."
 
-#: core/routers/misc.php:830
+#: core/routers/misc.php:835
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Misslyckades med att skicka test-e-post. Vänligen kontrollera din e-postkonfiguration."
 
-#: core/routers/misc.php:872
+#: core/routers/misc.php:877
 msgid "Failed to update notification settings."
 msgstr "Misslyckades med att uppdatera notifikationsinställningar."
 
-#: core/routers/misc.php:877
+#: core/routers/misc.php:882
 msgid "Notification settings updated successfully!"
 msgstr "Notifikationsinställningar uppdaterade framgångsrikt!"
 
@@ -6475,7 +6477,7 @@ msgid "Open notification settings in new tab"
 msgstr "Öppna notifikationsinställningar i ny flik"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1480
+#: inc/functions/markup.php:1600
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -7287,15 +7289,15 @@ msgstr "Inläggssynlighet"
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers-plugin är inte aktivt."
 
-#: core/routers/misc.php:1809
+#: core/routers/misc.php:1814
 msgid "Space ID is required."
 msgstr "Rums-ID krävs."
 
-#: core/routers/misc.php:1818
+#: core/routers/misc.php:1823
 msgid "Space marked as read."
 msgstr "Utrymme markerat som läst."
 
-#: core/routers/misc.php:1822
+#: core/routers/misc.php:1827
 msgid "Failed to mark space as read."
 msgstr "Det gick inte att markera utrymmet som läst."
 
@@ -7848,8 +7850,8 @@ msgstr "Inga evenemang har gått med ännu."
 
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
-#: core/routers/misc.php:385
-#: core/routers/misc.php:433
+#: core/routers/misc.php:390
+#: core/routers/misc.php:438
 #: core/shortcodes/home-content.php:765
 #. translators: %1$s: author name, %2$s: post date
 #, php-format
@@ -8080,7 +8082,7 @@ msgstr "Denna forumgrupp skapades för utrymmet: %s"
 msgid "%s - Copy"
 msgstr "%s - Kopia"
 
-#: core/routers/misc.php:549
+#: core/routers/misc.php:554
 msgid "User ID is required."
 msgstr "Användar-ID krävs."
 
@@ -8309,15 +8311,15 @@ msgstr "Borttagen %s fil"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "Stöder YouTube, Vimeo, Dailymotion, VideoPress och mer"
 
-#: core/routers/misc.php:1842
+#: core/routers/misc.php:1847
 msgid "A valid URL is required."
 msgstr "En giltig URL krävs."
 
-#: core/routers/misc.php:1853
+#: core/routers/misc.php:1858
 msgid "This URL is not from a supported video provider."
 msgstr "Denna URL kommer inte från en stödd videoleverantör."
 
-#: core/routers/misc.php:1865
+#: core/routers/misc.php:1870
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Kunde inte lösa videon. Kontrollera URL:en och försök igen."
 
@@ -10956,12 +10958,12 @@ msgstr "AI-funktioner & MCP"
 msgid "Unable to load content."
 msgstr "Kunde inte ladda innehållet."
 
-#: core/routers/misc.php:1675
-#: core/routers/misc.php:1731
+#: core/routers/misc.php:1680
+#: core/routers/misc.php:1736
 msgid "No preview available."
 msgstr "Ingen förhandsvisning tillgänglig."
 
-#: core/routers/misc.php:1736
+#: core/routers/misc.php:1741
 msgid "Preview not found."
 msgstr "Förhandsvisning hittades inte."
 
@@ -10970,7 +10972,7 @@ msgid "This content is restricted to members. Unlock access to view the full pos
 msgstr "Detta innehåll är begränsat till medlemmar. Lås upp åtkomst för att se hela inlägget."
 
 #: inc/functions/markup.php:588
-#: inc/functions/markup.php:695
+#: inc/functions/markup.php:805
 #. translators: %s: number of lessons.
 #, php-format
 msgid "%s lesson"
@@ -10979,7 +10981,7 @@ msgstr[0] "%s lektion"
 msgstr[1] ""
 
 #: inc/functions/markup.php:594
-#: inc/functions/markup.php:700
+#: inc/functions/markup.php:810
 #. translators: %s: number of quizzes.
 #, php-format
 msgid "%s quiz"
@@ -10988,7 +10990,7 @@ msgstr[0] "%s quiz"
 msgstr[1] ""
 
 #: inc/functions/markup.php:600
-#: inc/functions/markup.php:659
+#: inc/functions/markup.php:769
 #. translators: %s: number of threads.
 #, php-format
 msgid "%s thread"
@@ -10996,7 +10998,7 @@ msgid_plural "%s threads"
 msgstr[0] "%s tråd"
 msgstr[1] ""
 
-#: inc/functions/markup.php:688
+#: inc/functions/markup.php:798
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #, php-format
 msgid "%s module"
@@ -11543,6 +11545,112 @@ msgstr "Ladda upp filer"
 #: assets/js/unminified/register.js:756
 msgid "An error occurred during registration. Please try again."
 msgstr "Ett fel inträffade under registreringen. Vänligen försök igen."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "No tag"
+msgstr "Ingen tag"
+
+#: assets/build/portals-app.js:13
+msgid "Nothing appears on the card. Access rules are unaffected."
+msgstr "Ingenting visas på kortet. Åtkomstregler påverkas inte."
+
+#: assets/build/portals-app.js:13
+msgid "Display only. Does not override a SureMembers restriction."
+msgstr "Visas endast. Överrider inte en SureMembers-restriktion."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Paid"
+msgstr "Betald"
+
+#: assets/build/portals-app.js:13
+msgid "Shows a price tag, plus a Buy Now button for locked-out visitors."
+msgstr "Visar en prisskylt, plus en Köp nu-knapp för besökare som är låsta ute."
+
+#: assets/build/portals-app.js:13
+msgid "Pricing Settings"
+msgstr "Prissättningsinställningar"
+
+#: assets/build/portals-app.js:13
+msgid "Pricing type"
+msgstr "Prissättningstyp"
+
+#: assets/build/portals-app.js:13
+msgid "Currency"
+msgstr "Valuta"
+
+#: assets/build/portals-app.js:13
+msgid "Price"
+msgstr "Pris"
+
+#: assets/build/portals-app.js:13
+msgid "Sales / checkout link"
+msgstr "Försäljnings-/kassalänk"
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid link starting with http:// or https://."
+msgstr "Ange en giltig länk som börjar med http:// eller https://."
+
+#: assets/build/portals-app.js:13
+msgid "Button text"
+msgstr "Knapptext"
+
+#: assets/build/portals-app.js:13
+msgid ""
+"Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on "
+"purchase."
+msgstr ""
+"Köp nu visas endast för besökare som är låsta ute av en åtkomstgruppsregel. Rikta kassan mot den gruppen för att ge "
+"åtkomst vid köp."
+
+#: assets/build/portals-app.js:13
+msgid "A sales or checkout link is required for paid spaces."
+msgstr "En försäljnings- eller kassalänk krävs för betalda utrymmen."
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid price, like 49 or 49.99."
+msgstr "Ange ett giltigt pris, som 49 eller 49,99."
+
+#: assets/build/portals-app.js:13
+msgid "A price is required for paid spaces."
+msgstr "Ett pris krävs för betalda utrymmen."
+
+#: assets/build/portals-app.js:13
+msgid "Could not save the pricing settings. Please try again."
+msgstr "Kunde inte spara prissättningsinställningarna. Försök igen."
+
+#: assets/build/portals-app.js:13
+msgid "Display Pricing"
+msgstr "Visa prissättning"
+
+#: assets/build/portals-app.js:13
+msgid "Show Free and price tags on cards."
+msgstr "Visa gratis och prisskyltar på kort."
+
+#: assets/build/portals-app.js:13
+msgid "Read more"
+msgstr "Läs mer"
+
+#: assets/build/portals-app.js:13
+msgid "Requires SureMembers Core"
+msgstr "Kräver SureMembers Core"
+
+#: assets/build/portals-app.js:13
+msgid "Paid Tag"
+msgstr "Betald tagg"
+
+#: assets/build/portals-app.js:13
+msgid "Free Tag"
+msgstr "Gratis tagg"
+
+#: assets/build/portals-app.js:35
+msgid "Pricing"
+msgstr "Prissättning"
+
+#: assets/build/portals-app.js:35
+msgid "Edit Pricing"
+msgstr "Redigera prissättning"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

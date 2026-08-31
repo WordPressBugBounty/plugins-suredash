@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.11.1
+Stable tag: 1.11.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,7 +60,16 @@ SureDash gives you a third option — a ready-to-go community platform built rig
 * Built-in analytics — track registered users over time, recent activities, and top-performing content
 * Mobile-friendly responsive design
 * Works with any WordPress theme
-* One-click AI portal creation *(coming soon)* — spin up your community portal instantly with AI
+* One-click AI portal creation: describe your community and let AI build the portal, or start from a ready-made preset
+* AI assistant support through the WordPress Abilities API and MCP, so assistants can create spaces, publish content, and read your analytics
+* WP-CLI command to switch the AI abilities on (`wp suredash abilities enable`)
+* Portal Pages space type: show profile, bookmarks, leaderboard, and membership pages as spaces
+* Space Sidebar for quick access to the sections inside a space
+* Portal Layout template, so your regular pages and posts match the portal
+* Community search with results grouped by type
+* Custom URL slugs for portal endpoints
+* Unread post counts on discussion spaces
+* Email alerts for admins and portal managers when a member creates a post
 
 == SureDash Pro ==
 
@@ -75,8 +84,14 @@ Take your community further:
 * **Collection Space** — Group and display multiple spaces together for easier navigation
 * **Email Notifications** — Keep members engaged with automatic email updates
 * **Leaderboard** — Gamify your community with points, levels, and member rankings
-* **Priority Support** — Get help directly from our team
-* **Course Quiz** *(coming soon)* — Add quizzes to your courses to test and reinforce learning
+* **Course Quizzes**: Add quizzes to your course content and let members take them as part of the lesson flow
+* **Course Analytics**: See how each course performs and how far your members have progressed
+* **LearnDash Migration**: Bring existing LearnDash courses, lessons, and quizzes into SureDash
+* **Cloud Storage for Resources**: Serve resource library files through Bunny.net's global CDN with secure, signed download links
+* **Richer Events**: End date and time, an event host, in-person or online locations, and Add to Calendar for Google, Outlook, and Apple
+* **Targeted Posts**: Show a post only to chosen members or SureMembers access groups
+* **Collection Pricing**: Tag the spaces in a collection as Free or Paid, with a Buy Now button for visitors who do not have access yet
+* **Priority Support**: Get help directly from our team
 
 [Learn more about SureDash Pro](https://suredash.com)
 
@@ -87,6 +102,7 @@ SureDash is part of a powerful WordPress ecosystem:
 * **[SureMembers](https://surememberships.com/)** — Protect content, create membership tiers, and control who sees what. Assign new registrations to access groups automatically.
 * **[SureCart](https://surecart.com/)** — Sell memberships, courses, and digital products. SureDash integrates directly with your SureCart store.
 * **[Astra Theme](https://wpastra.com/)** — The most popular WordPress theme, fully compatible with SureDash layouts.
+* **OttoKit**: Automate your portal by triggering actions when members join, post, or complete a course.
 
 Each works independently, but together they give you a complete membership and community business — all on WordPress.
 
@@ -145,6 +161,11 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-08-31 - version 1.11.2 =
+* New: Collections can now show Free and price tags on the spaces they list, with a Buy Now button for visitors who do not have access yet. Needs the SureDash Pro addon and SureMembers.
+* Improvement: Added a filter to control whether replies are open on discussions submitted from the front end, so replies can be kept working in SureDash without enabling comments across the whole site.
+* Fix: Lesson, event, and resource pages now show the full list of comments instead of only the first two.
+
 = 2026-08-19 - version 1.11.1 =
 * Improvement: Strengthened validation across the WordPress Abilities (MCP) integration, so incomplete or mismatched requests are rejected with a clear explanation instead of being saved in a broken state.
 * Improvement: Improved the accuracy of the space and group information reported to the AI assistant, including spaces that are not assigned to any group.

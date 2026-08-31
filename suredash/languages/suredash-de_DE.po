@@ -568,8 +568,8 @@ msgstr "Alle Inhalte durchsuchen"
 #: core/assets.php:302
 #: core/integrations/feeds.php:652
 #: core/integrations/feeds.php:704
-#: core/routers/misc.php:405
-#: core/routers/misc.php:456
+#: core/routers/misc.php:410
+#: core/routers/misc.php:461
 #: core/shortcodes/home-content.php:786
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -1144,8 +1144,8 @@ msgstr "Dieser Diskussionsbereich ist privat. Bitte melden Sie sich an, um den I
 
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
-#: core/routers/misc.php:385
-#: core/routers/misc.php:433
+#: core/routers/misc.php:390
+#: core/routers/misc.php:438
 #: core/shortcodes/home-content.php:765
 #. translators: %1$s: author name, %2$s: post date
 #, php-format
@@ -1525,8 +1525,8 @@ msgid "Permission denied."
 msgstr "Zugriff verweigert."
 
 #: core/routers/backend.php:3337
-#: core/routers/misc.php:1478
-#: core/routers/misc.php:1578
+#: core/routers/misc.php:1483
+#: core/routers/misc.php:1583
 msgid "Post not found."
 msgstr "Beitrag nicht gefunden."
 
@@ -1590,27 +1590,27 @@ msgstr[1] "%d Trigger konnten nicht gelöscht werden."
 msgid "Failed to delete email triggers."
 msgstr "Fehler beim Löschen der E-Mail-Trigger."
 
-#: core/routers/misc.php:549
+#: core/routers/misc.php:554
 msgid "User ID is required."
 msgstr "Benutzer-ID ist erforderlich."
 
-#: core/routers/misc.php:763
-#: core/routers/misc.php:1775
-#: core/routers/misc.php:1805
+#: core/routers/misc.php:768
+#: core/routers/misc.php:1780
+#: core/routers/misc.php:1810
 msgid "User not logged in."
 msgstr "Benutzer nicht angemeldet."
 
-#: core/routers/misc.php:768
+#: core/routers/misc.php:773
 msgid "User not found."
 msgstr "Benutzer nicht gefunden."
 
-#: core/routers/misc.php:788
+#: core/routers/misc.php:793
 #. translators: %s: Site name
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-E-Mail von %s"
 
-#: core/routers/misc.php:804
+#: core/routers/misc.php:809
 #. translators: %1$s: User name, %2$s: Site name
 #, php-format
 msgid ""
@@ -1625,112 +1625,112 @@ msgstr ""
 "\t\t\t\t\tWenn Sie diese E-Mail erhalten haben, sind Ihre Benachrichtigungseinstellungen richtig konfiguriert!\n"
 "\t\t\t\t\t--- Diese E-Mail wurde von %2$s gesendet"
 
-#: core/routers/misc.php:823
+#: core/routers/misc.php:828
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Test-E-Mail erfolgreich gesendet! Bitte überprüfen Sie Ihren Posteingang."
 
-#: core/routers/misc.php:830
+#: core/routers/misc.php:835
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Fehler beim Senden der Test-E-Mail. Bitte überprüfen Sie Ihre E-Mail-Konfiguration."
 
-#: core/routers/misc.php:872
+#: core/routers/misc.php:877
 msgid "Failed to update notification settings."
 msgstr "Fehler beim Aktualisieren der Benachrichtigungseinstellungen."
 
-#: core/routers/misc.php:877
+#: core/routers/misc.php:882
 msgid "Notification settings updated successfully!"
 msgstr "Benachrichtigungseinstellungen erfolgreich aktualisiert!"
 
-#: core/routers/misc.php:1334
-#: core/routers/misc.php:1411
+#: core/routers/misc.php:1339
+#: core/routers/misc.php:1416
 msgid "Comment not found."
 msgstr "Kommentar nicht gefunden."
 
-#: core/routers/misc.php:1339
+#: core/routers/misc.php:1344
 msgid "You are not authorized to edit this comment."
 msgstr "Sie sind nicht berechtigt, diesen Kommentar zu bearbeiten."
 
-#: core/routers/misc.php:1370
+#: core/routers/misc.php:1375
 msgid "Failed to update comment."
 msgstr "Kommentar konnte nicht aktualisiert werden."
 
-#: core/routers/misc.php:1380
+#: core/routers/misc.php:1385
 msgid "Comment Updated Successfully!"
 msgstr "Kommentar erfolgreich aktualisiert!"
 
-#: core/routers/misc.php:1420
+#: core/routers/misc.php:1425
 msgid "You are not authorized to delete this comment."
 msgstr "Sie sind nicht berechtigt, diesen Kommentar zu löschen."
 
-#: core/routers/misc.php:1427
+#: core/routers/misc.php:1432
 msgid "Failed to delete comment."
 msgstr "Kommentar konnte nicht gelöscht werden."
 
-#: core/routers/misc.php:1431
+#: core/routers/misc.php:1436
 msgid "Comment deleted successfully!"
 msgstr "Kommentar erfolgreich gelöscht!"
 
-#: core/routers/misc.php:1485
+#: core/routers/misc.php:1490
 msgid "You are not authorized to edit this post."
 msgstr "Sie sind nicht berechtigt, diesen Beitrag zu bearbeiten."
 
-#: core/routers/misc.php:1527
+#: core/routers/misc.php:1532
 msgid "Failed to update post."
 msgstr "Beitrag konnte nicht aktualisiert werden."
 
-#: core/routers/misc.php:1546
+#: core/routers/misc.php:1551
 msgid "Post Updated Successfully!"
 msgstr "Beitrag erfolgreich aktualisiert!"
 
-#: core/routers/misc.php:1582
+#: core/routers/misc.php:1587
 msgid "Invalid Post."
 msgstr "Ungültiger Beitrag."
 
-#: core/routers/misc.php:1591
+#: core/routers/misc.php:1596
 msgid "You are not authorized to delete this post."
 msgstr "Sie sind nicht berechtigt, diesen Beitrag zu löschen."
 
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:1603
 msgid "Failed to delete post."
 msgstr "Beitrag konnte nicht gelöscht werden."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1607
 msgid "Post deleted successfully!"
 msgstr "Beitrag erfolgreich gelöscht!"
 
-#: core/routers/misc.php:1809
+#: core/routers/misc.php:1814
 msgid "Space ID is required."
 msgstr "Space-ID ist erforderlich."
 
-#: core/routers/misc.php:1818
+#: core/routers/misc.php:1823
 msgid "Space marked as read."
 msgstr "Bereich als gelesen markiert."
 
-#: core/routers/misc.php:1822
+#: core/routers/misc.php:1827
 msgid "Failed to mark space as read."
 msgstr "Fehler beim Markieren des Bereichs als gelesen."
 
-#: core/routers/misc.php:1842
+#: core/routers/misc.php:1847
 msgid "A valid URL is required."
 msgstr "Eine gültige URL ist erforderlich."
 
-#: core/routers/misc.php:1853
+#: core/routers/misc.php:1858
 msgid "This URL is not from a supported video provider."
 msgstr "Diese URL stammt nicht von einem unterstützten Videoanbieter."
 
-#: core/routers/misc.php:1865
+#: core/routers/misc.php:1870
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Video konnte nicht aufgelöst werden. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
 
-#: core/routers/misc.php:2217
+#: core/routers/misc.php:2222
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ungültiger Dateityp. Nur GIF, PNG, JPEG, JPG und WEBP sind erlaubt."
 
-#: core/routers/misc.php:2222
+#: core/routers/misc.php:2227
 msgid "Uploaded file is not a valid image."
 msgstr "Die hochgeladene Datei ist kein gültiges Bild."
 
-#: core/routers/misc.php:2226
+#: core/routers/misc.php:2231
 msgid "File size larger than permissible."
 msgstr "Dateigröße größer als zulässig."
 
@@ -2018,12 +2018,12 @@ msgid "Events"
 msgstr "Veranstaltungen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Remove bookmark"
 msgstr "Lesezeichen entfernen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Add bookmark"
 msgstr "Lesezeichen hinzufügen"
 
@@ -2088,7 +2088,7 @@ msgstr "Entfernen"
 
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "Zurücksetzen"
@@ -2451,7 +2451,7 @@ msgid "Allowed file formats:"
 msgstr "Erlaubte Dateiformate:"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1480
+#: inc/functions/markup.php:1600
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -2494,32 +2494,32 @@ msgid "Resource Library"
 msgstr "Ressourcenbibliothek"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:648
+#: inc/functions/markup.php:758
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "Privat"
 
-#: inc/functions/markup.php:789
+#: inc/functions/markup.php:899
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
 msgstr "Gefällt mir"
 
-#: inc/functions/markup.php:807
+#: inc/functions/markup.php:917
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgstr "Kommentar"
 
-#: inc/functions/markup.php:835
+#: inc/functions/markup.php:950
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "Besuchen"
 
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Bookmark"
 msgstr "Lesezeichen"
 
-#: inc/functions/markup.php:909
+#: inc/functions/markup.php:1024
 msgid "Options"
 msgstr "Optionen"
 
@@ -4210,7 +4210,7 @@ msgid "Dismiss"
 msgstr "Schließen"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 msgid "Select Color"
 msgstr "Farbe auswählen"
 
@@ -4979,6 +4979,7 @@ msgstr "Zurück zum Speichern"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Free"
 msgstr "Kostenlos"
@@ -7900,6 +7901,7 @@ msgid "Select Space"
 msgstr "Raum auswählen"
 
 #: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
 msgid "Untitled Space"
 msgstr "Unbenannter Raum"
@@ -11013,12 +11015,12 @@ msgstr "KI-Funktionen & MCP"
 msgid "Unable to load content."
 msgstr "Inhalt kann nicht geladen werden."
 
-#: core/routers/misc.php:1675
-#: core/routers/misc.php:1731
+#: core/routers/misc.php:1680
+#: core/routers/misc.php:1736
 msgid "No preview available."
 msgstr "Keine Vorschau verfügbar."
 
-#: core/routers/misc.php:1736
+#: core/routers/misc.php:1741
 msgid "Preview not found."
 msgstr "Vorschau nicht gefunden."
 
@@ -11027,7 +11029,7 @@ msgid "This content is restricted to members. Unlock access to view the full pos
 msgstr "Dieser Inhalt ist nur für Mitglieder zugänglich. Entsperren Sie den Zugriff, um den vollständigen Beitrag zu sehen."
 
 #: inc/functions/markup.php:588
-#: inc/functions/markup.php:695
+#: inc/functions/markup.php:805
 #. translators: %s: number of lessons.
 #, php-format
 msgid "%s lesson"
@@ -11036,7 +11038,7 @@ msgstr[0] "%s Lektion"
 msgstr[1] ""
 
 #: inc/functions/markup.php:594
-#: inc/functions/markup.php:700
+#: inc/functions/markup.php:810
 #. translators: %s: number of quizzes.
 #, php-format
 msgid "%s quiz"
@@ -11045,7 +11047,7 @@ msgstr[0] "%s Quiz"
 msgstr[1] ""
 
 #: inc/functions/markup.php:600
-#: inc/functions/markup.php:659
+#: inc/functions/markup.php:769
 #. translators: %s: number of threads.
 #, php-format
 msgid "%s thread"
@@ -11053,7 +11055,7 @@ msgid_plural "%s threads"
 msgstr[0] "%s Thread"
 msgstr[1] ""
 
-#: inc/functions/markup.php:688
+#: inc/functions/markup.php:798
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #, php-format
 msgid "%s module"
@@ -11612,6 +11614,112 @@ msgstr "Dateien hochladen"
 #: assets/js/unminified/register.js:756
 msgid "An error occurred during registration. Please try again."
 msgstr "Bei der Registrierung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "No tag"
+msgstr "Kein Tag"
+
+#: assets/build/portals-app.js:13
+msgid "Nothing appears on the card. Access rules are unaffected."
+msgstr "Nichts erscheint auf der Karte. Die Zugriffsregeln sind nicht betroffen."
+
+#: assets/build/portals-app.js:13
+msgid "Display only. Does not override a SureMembers restriction."
+msgstr "Nur anzeigen. Überschreibt keine SureMembers-Einschränkung."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Paid"
+msgstr "Bezahlt"
+
+#: assets/build/portals-app.js:13
+msgid "Shows a price tag, plus a Buy Now button for locked-out visitors."
+msgstr "Zeigt ein Preisschild sowie einen Jetzt kaufen-Button für ausgesperrte Besucher an."
+
+#: assets/build/portals-app.js:13
+msgid "Pricing Settings"
+msgstr "Preiseinstellungen"
+
+#: assets/build/portals-app.js:13
+msgid "Pricing type"
+msgstr "Preistyp"
+
+#: assets/build/portals-app.js:13
+msgid "Currency"
+msgstr "Währung"
+
+#: assets/build/portals-app.js:13
+msgid "Price"
+msgstr "Preis"
+
+#: assets/build/portals-app.js:13
+msgid "Sales / checkout link"
+msgstr "Verkaufs-/Checkout-Link"
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid link starting with http:// or https://."
+msgstr "Geben Sie einen gültigen Link ein, der mit http:// oder https:// beginnt."
+
+#: assets/build/portals-app.js:13
+msgid "Button text"
+msgstr "Button-Text"
+
+#: assets/build/portals-app.js:13
+msgid ""
+"Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on "
+"purchase."
+msgstr ""
+"Jetzt kaufen wird nur Besuchern angezeigt, die durch eine Zugriffsgruppenregel ausgesperrt sind. Richten Sie den "
+"Checkout auf diese Gruppe aus, um beim Kauf Zugang zu gewähren."
+
+#: assets/build/portals-app.js:13
+msgid "A sales or checkout link is required for paid spaces."
+msgstr "Ein Verkaufs- oder Checkout-Link ist für kostenpflichtige Bereiche erforderlich."
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid price, like 49 or 49.99."
+msgstr "Geben Sie einen gültigen Preis ein, z. B. 49 oder 49,99."
+
+#: assets/build/portals-app.js:13
+msgid "A price is required for paid spaces."
+msgstr "Ein Preis ist für kostenpflichtige Bereiche erforderlich."
+
+#: assets/build/portals-app.js:13
+msgid "Could not save the pricing settings. Please try again."
+msgstr "Die Preiseinstellungen konnten nicht gespeichert werden. Bitte versuchen Sie es erneut."
+
+#: assets/build/portals-app.js:13
+msgid "Display Pricing"
+msgstr "Preise anzeigen"
+
+#: assets/build/portals-app.js:13
+msgid "Show Free and price tags on cards."
+msgstr "Kostenlose und Preisschilder auf Karten anzeigen."
+
+#: assets/build/portals-app.js:13
+msgid "Read more"
+msgstr "Mehr erfahren"
+
+#: assets/build/portals-app.js:13
+msgid "Requires SureMembers Core"
+msgstr "Erfordert SureMembers Core"
+
+#: assets/build/portals-app.js:13
+msgid "Paid Tag"
+msgstr "Bezahl-Tag"
+
+#: assets/build/portals-app.js:13
+msgid "Free Tag"
+msgstr "Kostenloser Tag"
+
+#: assets/build/portals-app.js:35
+msgid "Pricing"
+msgstr "Preise"
+
+#: assets/build/portals-app.js:35
+msgid "Edit Pricing"
+msgstr "Preise bearbeiten"
 
 #: core/cpt/content.php:39
 msgctxt "content general name"

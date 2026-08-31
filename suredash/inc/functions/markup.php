@@ -614,12 +614,28 @@ function suredash_render_item_title_description( $item_data = [], $args = [] ): 
 		return;
 	}
 
-	$is_event_description = isset( $item_data['integration'] ) && $item_data['integration'] === 'events';
+	// Grid and stacked cards show the space's own description where the type label used
+	// to sit; list rows keep the type, since they already carry it with the counts.
+	$description          = is_scalar( $args['description'] ) ? (string) $args['description'] : '';
+	$is_space_description = false;
+	if ( $description === '' && $args['layout_type'] !== 'list' && is_string( $item_data['space_description'] ?? null ) ) {
+		$description          = trim( $item_data['space_description'] );
+		$is_space_description = $description !== '';
+	}
+
+	// The event class carries the flex layout an event's own date and time line needs, and
+	// deliberately has no line clamp. A substituted space description is prose, so it takes
+	// the clamped class instead, otherwise an events space in a collection stretches its card.
+	$is_event_description = ! $is_space_description && isset( $item_data['integration'] ) && $item_data['integration'] === 'events';
+	$description_class    = (string) ( $is_event_description ? $args['event_desc_class'] : $args['desc_class'] );
+	// The description is a single clamped line, so the full text is worth a tooltip only
+	// when it is actually cut off. data-tooltip-when-clipped makes the tooltip script
+	// decide that at hover time, and an empty title is skipped by its own content guard.
 	?>
-		<p class="<?php echo esc_attr( $is_event_description ? $args['event_desc_class'] : $args['desc_class'] ); ?>">
+		<p class="<?php echo esc_attr( $description_class ); ?> tooltip-trigger" data-tooltip-title="<?php echo esc_attr( $description ); ?>" data-tooltip-position="right" data-tooltip-when-clipped="1">
 			<?php
-			if ( ! empty( $args['description'] ) ) {
-				echo esc_html( $args['description'] );
+			if ( $description !== '' ) {
+				echo esc_html( $description );
 			} else {
 				echo '<span class="sd-flex sd-items-center sd-gap-4">';
 				if ( ! empty( $labels ) ) {
@@ -630,6 +646,100 @@ function suredash_render_item_title_description( $item_data = [], $args = [] ): 
 			?>
 		</p>
 	<?php
+}
+
+/**
+ * Pick a readable text color (white or ink) for the given background.
+ *
+ * YIQ perceived-brightness formula — bright fills get ink text, dark fills
+ * get white. Mirrored in the admin Collection.js table tags.
+ *
+ * @param string $hex_color Background color as #rgb or #rrggbb.
+ * @return string
+ * @since 1.11.2
+ */
+function suredash_readable_text_color( string $hex_color ): string {
+	$hex = ltrim( $hex_color, '#' );
+	if ( strlen( $hex ) === 3 ) {
+		$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+	}
+	if ( strlen( $hex ) !== 6 || ! ctype_xdigit( $hex ) ) {
+		return '#ffffff';
+	}
+
+	$red   = (int) hexdec( substr( $hex, 0, 2 ) );
+	$green = (int) hexdec( substr( $hex, 2, 2 ) );
+	$blue  = (int) hexdec( substr( $hex, 4, 2 ) );
+	$yiq   = ( ( $red * 299 ) + ( $green * 587 ) + ( $blue * 114 ) ) / 1000;
+
+	return $yiq >= 128 ? '#101828' : '#ffffff';
+}
+
+/**
+ * Render the Free/Paid pricing tag for a card.
+ *
+ * Display data is prepared by the pro Integration_Helper under the
+ * `pricing_badge` key: ['variant' => 'paid'|'free', 'text' => string, 'icon' => string].
+ * Renders nothing when the key is absent, so base stays unaffected without pro.
+ *
+ * Two placements: the absolute tab hanging off the container's top-right
+ * edge (grid/stacked — the container just needs position:relative), or a
+ * solid pill for list rows, slotted with the other row pills just before
+ * the action button.
+ *
+ * @param array<string,mixed> $args         Item arguments.
+ * @param bool                $overlay      Whether to render as the absolute tab (grid/stacked) or the in-flow pill (list).
+ * @param bool                $on_thumbnail Whether the tab sits on the thumbnail (grid) or on the card surface (stacked) — only thumbnail tabs get the heavier on-photo shadow.
+ * @return void
+ * @since 1.11.2
+ */
+function suredash_render_pricing_badge( $args, bool $overlay = true, bool $on_thumbnail = true ): void {
+	$badge = $args['pricing_badge'] ?? null;
+	if ( ! is_array( $badge ) || empty( $badge['text'] ) ) {
+		return;
+	}
+
+	$variant = ( $badge['variant'] ?? '' ) === 'paid' ? 'paid' : 'free';
+	$icon    = is_string( $badge['icon'] ?? null ) ? $badge['icon'] : '';
+
+	/**
+	 * Overlay style: 'tab' (hangs off the top edge, fills for light thumbnails,
+	 * default) or 'tab-dark' (tab with inverted fills for dark thumbnails).
+	 */
+	$style         = $overlay ? apply_filters( 'suredashboard_pricing_badge_style', 'tab', $args ) : '';
+	$overlay_class = $overlay
+		? ' portal-pricing-badge--tab' . ( $style === 'tab-dark' ? ' portal-pricing-badge--tab-dark' : '' )
+		: ' portal-pricing-badge--inline';
+
+	// Real photo thumbnails swallow the soft default shadow (busy imagery hides
+	// the gradient), so mark them for a stronger drop shadow. Same image sources
+	// get_space_featured_image() renders from.
+	$post_id = absint( $args['id'] ?? 0 );
+	if ( $overlay && $on_thumbnail && $post_id && ( ! empty( sd_get_post_meta( $post_id, 'image_url', true ) ) || get_post_thumbnail_id( $post_id ) ) ) {
+		$overlay_class .= ' portal-pricing-badge--on-photo';
+	}
+
+	$data_attributes = [ 'pricing' => $variant ];
+
+	// Admin-picked tag color (collection-level): the inline CSS vars
+	// show_badge() emits win over the stylesheet's default fills. Text color
+	// is derived from the fill's brightness so it always keeps contrast.
+	$color = sanitize_hex_color( is_string( $badge['color'] ?? null ) ? $badge['color'] : '' );
+	if ( $color ) {
+		$data_attributes['background-color'] = $color;
+		$data_attributes['border-color']     = $color;
+		$data_attributes['color']            = suredash_readable_text_color( $color );
+	}
+
+	Helper::show_badge(
+		'custom',
+		$icon,
+		(string) $badge['text'],
+		$overlay ? 'md' : 'sm', // The list pill matches the other sm row pills; the tab keeps its own box spec.
+		'portal-pricing-badge' . $overlay_class,
+		$data_attributes,
+		$icon === ''
+	);
 }
 
 /**
@@ -815,6 +925,7 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 
 	<?php if ( $is_list_layout ) { ?>
 		</div>
+		<?php suredash_render_pricing_badge( $args, false ); // List rows: solid pill with the other row pills, just before the action button. ?>
 	<?php } ?>
 
 	<?php
@@ -832,7 +943,11 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 
 				// Display as clickable button.
 			?>
-				<button class="portal-button link-button <?php echo ( $args['space_type'] ?? '' ) === 'events' ? 'button-secondary' : 'button-ghost'; ?> sd-force-px-12" data-href="<?php echo esc_url( $args['visit_link_url'] ); ?>" data-target="<?php echo esc_attr( $args['visit_link_target'] ?? '_blank' ); ?>" title="<?php echo esc_attr( $label ); ?>" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>" aria-label="<?php echo esc_attr__( 'Visit', 'suredash' ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ); ?>"
+				<?php
+				// Events use the secondary style; everything else (pricing button included) is ghost.
+				$visit_button_style = ( $args['space_type'] ?? '' ) === 'events' ? 'button-secondary' : 'button-ghost';
+				?>
+				<button class="portal-button link-button <?php echo esc_attr( $visit_button_style ); ?> sd-force-px-12" data-href="<?php echo esc_url( $args['visit_link_url'] ); ?>" data-target="<?php echo esc_attr( $args['visit_link_target'] ?? '_blank' ); ?>" title="<?php echo esc_attr( $label ); ?>" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>" aria-label="<?php echo esc_attr__( 'Visit', 'suredash' ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ); ?>"
 				<?php
 				// Add all dataset attributes.
 				if ( ! empty( $args['visit_link_dataset'] ) && is_array( $args['visit_link_dataset'] ) ) {
@@ -928,7 +1043,7 @@ function suredash_render_list_item( $args = [] ): void {
 	ob_start();
 	?>
 		<!-- Single wrapper link for entire list item -->
-		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-list-wrapper" data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>" data-post_id="<?php echo esc_attr( $args['id'] ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>">
+		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-list-wrapper" <?php echo ! empty( $args['pricing_buy_now'] ) ? 'target="_blank" rel="noopener" ' : ''; ?>data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>" data-post_id="<?php echo esc_attr( $args['id'] ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>">
 			<div class="portal-list-item portal-store-list-post portal-content sd-flex sd-items-center sd-gap-16 sd-m-0 sd-p-16 sd-radius-8 sd-hover-shadow-md"
 			id="portal-post-<?php echo esc_attr( $args['id'] ); ?>"
 			>
@@ -1132,14 +1247,18 @@ function suredash_render_card_grid_item( $args = [] ): void {
 	?>
 		<!-- Single wrapper link for entire card -->
 		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-card-wrapper sd-color-inherit"
+			<?php echo ! empty( $args['pricing_buy_now'] ) ? 'target="_blank" rel="noopener" ' : ''; ?>
 			data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>"
 			data-post_id="<?php echo esc_attr( $args['id'] ); ?>"
 			data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>"
 		>
 			<div class="portal-grid-item-content portal-home-grid-item-content-minimal sd-border sd-hover-shadow-2xl" id="portal-post-<?php echo esc_attr( $args['id'] ); ?>">
 				<!-- Thumbnail (no longer wrapped in separate link) -->
-				<div class="portal-card-thumbnail">
-					<?php echo do_shortcode( $thumbnail_html ); ?>
+				<div class="portal-card-thumbnail sd-relative">
+					<?php
+					echo do_shortcode( $thumbnail_html );
+					suredash_render_pricing_badge( $args );
+					?>
 				</div>
 
 				<div class="sd-flex-col sd-card-main-container">
@@ -1302,8 +1421,9 @@ function suredash_render_stacked_list_item( $args = [] ): void {
 	ob_start();
 	?>
 		<!-- Single wrapper link for entire stacked list item -->
-		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-stacked-wrapper" data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>" data-post_id="<?php echo esc_attr( $args['id'] ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>">
-			<div class="portal-stacked-list-item sd-flex sd-border sd-radius-12 sd-hover-shadow-xl sd-transition" id="portal-post-<?php echo esc_attr( $args['id'] ); ?>">
+		<a href="<?php echo esc_url( $wrapper_link ); ?>" class="portal-stacked-wrapper" <?php echo ! empty( $args['pricing_buy_now'] ) ? 'target="_blank" rel="noopener" ' : ''; ?>data-js-hook="<?php echo esc_attr( $args['link_js_hook'] ?? '' ); ?>" data-post_id="<?php echo esc_attr( $args['id'] ); ?>" data-integration="<?php echo esc_attr( $args['integration'] ?? '' ); ?>">
+			<div class="portal-stacked-list-item sd-flex sd-relative sd-border sd-radius-12 sd-hover-shadow-xl sd-transition" id="portal-post-<?php echo esc_attr( $args['id'] ); ?>">
+				<?php suredash_render_pricing_badge( $args, true, false ); // Tab hangs off the ITEM's top-right corner, not the thumbnail. ?>
 
 				<!-- Thumbnail (no longer wrapped in separate link) -->
 				<div class="portal-stacked-thumbnail">

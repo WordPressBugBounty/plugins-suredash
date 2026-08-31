@@ -639,7 +639,7 @@ msgstr "התגובה שלך ממתינה לאישור."
 msgid "Reply"
 msgstr "השב"
 
-#: inc/functions/markup.php:789
+#: inc/functions/markup.php:899
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
@@ -661,7 +661,7 @@ msgstr "לחץ להעלאה או גרור ושחרר"
 msgid "Allowed file formats:"
 msgstr "פורמטים מותרים של קבצים:"
 
-#: inc/functions/markup.php:807
+#: inc/functions/markup.php:917
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgid_plural "Comments"
@@ -1181,7 +1181,7 @@ msgstr "פייסבוק"
 
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "איפוס"
@@ -1408,7 +1408,7 @@ msgid "Clear"
 msgstr "נקה"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 msgid "Select Color"
 msgstr "בחר צבע"
 
@@ -2955,11 +2955,11 @@ msgstr "טקסט קבוצת חלל"
 msgid "Space Group Background"
 msgstr "רקע קבוצת חלל"
 
-#: core/routers/misc.php:2222
+#: core/routers/misc.php:2227
 msgid "Uploaded file is not a valid image."
 msgstr "הקובץ שהועלה אינו תמונה חוקית."
 
-#: core/routers/misc.php:2226
+#: core/routers/misc.php:2231
 msgid "File size larger than permissible."
 msgstr "גודל הקובץ גדול מהמותר."
 
@@ -3510,6 +3510,7 @@ msgstr "החל"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Free"
 msgstr "חינם"
@@ -3697,8 +3698,8 @@ msgstr "קבוצת גישה"
 #: core/assets.php:302
 #: core/integrations/feeds.php:652
 #: core/integrations/feeds.php:704
-#: core/routers/misc.php:405
-#: core/routers/misc.php:456
+#: core/routers/misc.php:410
+#: core/routers/misc.php:461
 #: core/shortcodes/home-content.php:786
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3830,7 +3831,7 @@ msgid "Pending Review"
 msgstr "ממתין לסקירה"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:648
+#: inc/functions/markup.php:758
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "פרטי"
@@ -4667,36 +4668,36 @@ msgstr "סטטוס התגובות עודכן."
 msgid "No icons found."
 msgstr "לא נמצאו אייקונים."
 
-#: core/routers/misc.php:1334
-#: core/routers/misc.php:1411
+#: core/routers/misc.php:1339
+#: core/routers/misc.php:1416
 msgid "Comment not found."
 msgstr "תגובה לא נמצאה."
 
-#: core/routers/misc.php:1339
+#: core/routers/misc.php:1344
 msgid "You are not authorized to edit this comment."
 msgstr "אינך מורשה לערוך תגובה זו."
 
-#: core/routers/misc.php:1370
+#: core/routers/misc.php:1375
 msgid "Failed to update comment."
 msgstr "נכשל בעדכון התגובה."
 
-#: core/routers/misc.php:1380
+#: core/routers/misc.php:1385
 msgid "Comment Updated Successfully!"
 msgstr "התגובה עודכנה בהצלחה!"
 
-#: core/routers/misc.php:1420
+#: core/routers/misc.php:1425
 msgid "You are not authorized to delete this comment."
 msgstr "אינך מורשה למחוק תגובה זו."
 
-#: core/routers/misc.php:1427
+#: core/routers/misc.php:1432
 msgid "Failed to delete comment."
 msgstr "נכשל במחיקת התגובה."
 
-#: core/routers/misc.php:1431
+#: core/routers/misc.php:1436
 msgid "Comment deleted successfully!"
 msgstr "התגובה נמחקה בהצלחה!"
 
-#: core/routers/misc.php:2217
+#: core/routers/misc.php:2222
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "סוג קובץ לא חוקי. רק GIF, PNG, JPEG, JPG ו- WEBP מותרים."
 
@@ -4740,7 +4741,7 @@ msgstr "כתוב ביוגרפיה קצרה על עצמך..."
 msgid "Discussion"
 msgstr "דיון"
 
-#: inc/functions/markup.php:909
+#: inc/functions/markup.php:1024
 msgid "Options"
 msgstr "אפשרויות"
 
@@ -4813,6 +4814,7 @@ msgid "No spaces available to add"
 msgstr "אין חללים זמינים להוספה"
 
 #: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
 msgid "Untitled Space"
 msgstr "חלל ללא שם"
@@ -5035,12 +5037,12 @@ msgid "Resources"
 msgstr "משאבים"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Remove bookmark"
 msgstr "הסר סימניה"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Add bookmark"
 msgstr "הוסף סימניה"
 
@@ -5117,12 +5119,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "ספריית משאבים"
 
-#: inc/functions/markup.php:835
+#: inc/functions/markup.php:950
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "בקר"
 
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Bookmark"
 msgstr "סימניה"
 
@@ -5950,36 +5952,36 @@ msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "משלב את אזור הלקוחות של SureCart עם חללי SureDash."
 
 #: core/routers/backend.php:3337
-#: core/routers/misc.php:1478
-#: core/routers/misc.php:1578
+#: core/routers/misc.php:1483
+#: core/routers/misc.php:1583
 msgid "Post not found."
 msgstr "הפוסט לא נמצא."
 
-#: core/routers/misc.php:1485
+#: core/routers/misc.php:1490
 msgid "You are not authorized to edit this post."
 msgstr "אינך מורשה לערוך פוסט זה."
 
-#: core/routers/misc.php:1527
+#: core/routers/misc.php:1532
 msgid "Failed to update post."
 msgstr "נכשל בעדכון הפוסט."
 
-#: core/routers/misc.php:1546
+#: core/routers/misc.php:1551
 msgid "Post Updated Successfully!"
 msgstr "הפוסט עודכן בהצלחה!"
 
-#: core/routers/misc.php:1582
+#: core/routers/misc.php:1587
 msgid "Invalid Post."
 msgstr "פוסט לא תקין."
 
-#: core/routers/misc.php:1591
+#: core/routers/misc.php:1596
 msgid "You are not authorized to delete this post."
 msgstr "אינך מורשה למחוק פוסט זה."
 
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:1603
 msgid "Failed to delete post."
 msgstr "נכשל במחיקת הפוסט."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1607
 msgid "Post deleted successfully!"
 msgstr "הפוסט נמחק בהצלחה!"
 
@@ -6375,23 +6377,23 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "נכשל במחיקת טריגרי האימייל."
 
-#: core/routers/misc.php:763
-#: core/routers/misc.php:1775
-#: core/routers/misc.php:1805
+#: core/routers/misc.php:768
+#: core/routers/misc.php:1780
+#: core/routers/misc.php:1810
 msgid "User not logged in."
 msgstr "המשתמש לא מחובר."
 
-#: core/routers/misc.php:768
+#: core/routers/misc.php:773
 msgid "User not found."
 msgstr "המשתמש לא נמצא."
 
-#: core/routers/misc.php:788
+#: core/routers/misc.php:793
 #. translators: %s: Site name
 #, php-format
 msgid "Test Email from %s"
 msgstr "אימייל בדיקה מ-%s"
 
-#: core/routers/misc.php:804
+#: core/routers/misc.php:809
 #. translators: %1$s: User name, %2$s: Site name
 #, php-format
 msgid ""
@@ -6405,19 +6407,19 @@ msgstr ""
 "\t\t\t\t\tאם קיבלת את האימייל הזה, הגדרות ההודעה שלך מוגדרות כראוי!\n"
 "\t\t\t\t\t--- אימייל זה נשלח מ-%2$s"
 
-#: core/routers/misc.php:823
+#: core/routers/misc.php:828
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "אימייל הבדיקה נשלח בהצלחה! אנא בדוק את תיבת הדואר שלך."
 
-#: core/routers/misc.php:830
+#: core/routers/misc.php:835
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "נכשל בשליחת אימייל הבדיקה. אנא בדוק את קונפיגורציית האימייל שלך."
 
-#: core/routers/misc.php:872
+#: core/routers/misc.php:877
 msgid "Failed to update notification settings."
 msgstr "נכשל בעדכון הגדרות ההודעה."
 
-#: core/routers/misc.php:877
+#: core/routers/misc.php:882
 msgid "Notification settings updated successfully!"
 msgstr "הגדרות ההודעה עודכנו בהצלחה!"
 
@@ -6446,7 +6448,7 @@ msgid "Open notification settings in new tab"
 msgstr "פתח את הגדרות ההודעה בכרטיסייה חדשה"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1480
+#: inc/functions/markup.php:1600
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -7248,15 +7250,15 @@ msgstr "נראות הפוסט"
 msgid "SureMembers plugin is not active."
 msgstr "התוסף SureMembers אינו פעיל."
 
-#: core/routers/misc.php:1809
+#: core/routers/misc.php:1814
 msgid "Space ID is required."
 msgstr "נדרש מזהה חלל."
 
-#: core/routers/misc.php:1818
+#: core/routers/misc.php:1823
 msgid "Space marked as read."
 msgstr "המרחב סומן כנקרא."
 
-#: core/routers/misc.php:1822
+#: core/routers/misc.php:1827
 msgid "Failed to mark space as read."
 msgstr "נכשל בסימון המרחב כנקרא."
 
@@ -7803,8 +7805,8 @@ msgstr "עדיין לא הצטרפת לאירועים."
 
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
-#: core/routers/misc.php:385
-#: core/routers/misc.php:433
+#: core/routers/misc.php:390
+#: core/routers/misc.php:438
 #: core/shortcodes/home-content.php:765
 #. translators: %1$s: author name, %2$s: post date
 #, php-format
@@ -8029,7 +8031,7 @@ msgstr "קבוצת הפורום הזו נוצרה עבור המרחב: %s"
 msgid "%s - Copy"
 msgstr "%s - העתק"
 
-#: core/routers/misc.php:549
+#: core/routers/misc.php:554
 msgid "User ID is required."
 msgstr "דרוש מזהה משתמש."
 
@@ -8254,15 +8256,15 @@ msgstr "נמחק %s קובץ"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "תומך ב-YouTube, Vimeo, Dailymotion, VideoPress ועוד"
 
-#: core/routers/misc.php:1842
+#: core/routers/misc.php:1847
 msgid "A valid URL is required."
 msgstr "נדרש URL תקף."
 
-#: core/routers/misc.php:1853
+#: core/routers/misc.php:1858
 msgid "This URL is not from a supported video provider."
 msgstr "ה-URL הזה אינו מספק סרטונים נתמך."
 
-#: core/routers/misc.php:1865
+#: core/routers/misc.php:1870
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "לא ניתן לפתור את הסרטון. אנא בדוק את ה-URL ונסה שוב."
 
@@ -10867,12 +10869,12 @@ msgstr "יכולות AI ו-MCP"
 msgid "Unable to load content."
 msgstr "לא ניתן לטעון תוכן."
 
-#: core/routers/misc.php:1675
-#: core/routers/misc.php:1731
+#: core/routers/misc.php:1680
+#: core/routers/misc.php:1736
 msgid "No preview available."
 msgstr "אין תצוגה מקדימה זמינה."
 
-#: core/routers/misc.php:1736
+#: core/routers/misc.php:1741
 msgid "Preview not found."
 msgstr "תצוגה מקדימה לא נמצאה."
 
@@ -10881,7 +10883,7 @@ msgid "This content is restricted to members. Unlock access to view the full pos
 msgstr "תוכן זה מוגבל לחברים. פתח גישה כדי לראות את הפוסט המלא."
 
 #: inc/functions/markup.php:588
-#: inc/functions/markup.php:695
+#: inc/functions/markup.php:805
 #. translators: %s: number of lessons.
 #, php-format
 msgid "%s lesson"
@@ -10890,7 +10892,7 @@ msgstr[0] "%s שיעור"
 msgstr[1] ""
 
 #: inc/functions/markup.php:594
-#: inc/functions/markup.php:700
+#: inc/functions/markup.php:810
 #. translators: %s: number of quizzes.
 #, php-format
 msgid "%s quiz"
@@ -10899,7 +10901,7 @@ msgstr[0] "%s חידון"
 msgstr[1] ""
 
 #: inc/functions/markup.php:600
-#: inc/functions/markup.php:659
+#: inc/functions/markup.php:769
 #. translators: %s: number of threads.
 #, php-format
 msgid "%s thread"
@@ -10907,7 +10909,7 @@ msgid_plural "%s threads"
 msgstr[0] "%s נושא"
 msgstr[1] ""
 
-#: inc/functions/markup.php:688
+#: inc/functions/markup.php:798
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #, php-format
 msgid "%s module"
@@ -11446,6 +11448,110 @@ msgstr "העלאת קבצים"
 #: assets/js/unminified/register.js:756
 msgid "An error occurred during registration. Please try again."
 msgstr "אירעה שגיאה במהלך ההרשמה. אנא נסה שוב."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "No tag"
+msgstr "אין תג"
+
+#: assets/build/portals-app.js:13
+msgid "Nothing appears on the card. Access rules are unaffected."
+msgstr "אין דבר שמופיע על הכרטיס. כללי הגישה אינם מושפעים."
+
+#: assets/build/portals-app.js:13
+msgid "Display only. Does not override a SureMembers restriction."
+msgstr "תצוגה בלבד. אינו עוקף הגבלת SureMembers."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Paid"
+msgstr "שולם"
+
+#: assets/build/portals-app.js:13
+msgid "Shows a price tag, plus a Buy Now button for locked-out visitors."
+msgstr "מראה תג מחיר, בנוסף לכפתור קנייה עכשיו עבור מבקרים חסומים."
+
+#: assets/build/portals-app.js:13
+msgid "Pricing Settings"
+msgstr "הגדרות תמחור"
+
+#: assets/build/portals-app.js:13
+msgid "Pricing type"
+msgstr "סוג תמחור"
+
+#: assets/build/portals-app.js:13
+msgid "Currency"
+msgstr "מטבע"
+
+#: assets/build/portals-app.js:13
+msgid "Price"
+msgstr "מחיר"
+
+#: assets/build/portals-app.js:13
+msgid "Sales / checkout link"
+msgstr "קישור מכירה / תשלום"
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid link starting with http:// or https://."
+msgstr "הזן קישור תקף המתחיל ב-http:// או https://."
+
+#: assets/build/portals-app.js:13
+msgid "Button text"
+msgstr "טקסט כפתור"
+
+#: assets/build/portals-app.js:13
+msgid ""
+"Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on "
+"purchase."
+msgstr "קנייה עכשיו מוצגת רק למבקרים חסומים על ידי כלל קבוצת גישה. הפנה את התשלום לאותה קבוצה כדי להעניק גישה ברכישה."
+
+#: assets/build/portals-app.js:13
+msgid "A sales or checkout link is required for paid spaces."
+msgstr "קישור מכירה או תשלום נדרש עבור חללים בתשלום."
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid price, like 49 or 49.99."
+msgstr "הזן מחיר תקף, כמו 49 או 49.99."
+
+#: assets/build/portals-app.js:13
+msgid "A price is required for paid spaces."
+msgstr "מחיר נדרש עבור חללים בתשלום."
+
+#: assets/build/portals-app.js:13
+msgid "Could not save the pricing settings. Please try again."
+msgstr "לא ניתן לשמור את הגדרות התמחור. אנא נסה שוב."
+
+#: assets/build/portals-app.js:13
+msgid "Display Pricing"
+msgstr "הצגת תמחור"
+
+#: assets/build/portals-app.js:13
+msgid "Show Free and price tags on cards."
+msgstr "הצג תגי חינם ומחיר על כרטיסים."
+
+#: assets/build/portals-app.js:13
+msgid "Read more"
+msgstr "קרא עוד"
+
+#: assets/build/portals-app.js:13
+msgid "Requires SureMembers Core"
+msgstr "דרוש SureMembers Core"
+
+#: assets/build/portals-app.js:13
+msgid "Paid Tag"
+msgstr "תג בתשלום"
+
+#: assets/build/portals-app.js:13
+msgid "Free Tag"
+msgstr "תג חינם"
+
+#: assets/build/portals-app.js:35
+msgid "Pricing"
+msgstr "תמחור"
+
+#: assets/build/portals-app.js:35
+msgid "Edit Pricing"
+msgstr "ערוך תמחור"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

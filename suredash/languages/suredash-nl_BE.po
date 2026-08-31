@@ -645,7 +645,7 @@ msgstr "Uw opmerking wacht op moderatie."
 msgid "Reply"
 msgstr "Antwoord"
 
-#: inc/functions/markup.php:789
+#: inc/functions/markup.php:899
 #: inc/utils/helper.php:1800
 #: inc/utils/labels.php:57
 msgid "Like"
@@ -667,7 +667,7 @@ msgstr "Klik om te uploaden of sleep en zet neer"
 msgid "Allowed file formats:"
 msgstr "Toegestane bestandsformaten:"
 
-#: inc/functions/markup.php:807
+#: inc/functions/markup.php:917
 #: inc/utils/helper.php:1828
 msgid "Comment"
 msgid_plural "Comments"
@@ -1187,7 +1187,7 @@ msgstr "Facebook"
 
 #: core/shortcodes/home-content.php:1018
 #: assets/build/editor-app.js:2
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:57
 msgid "Reset"
 msgstr "Reset"
@@ -1414,7 +1414,7 @@ msgid "Clear"
 msgstr "Wissen"
 
 #: assets/build/editor-app.js:6
-#: assets/build/portals-app.js:38
+#: assets/build/portals-app.js:13
 msgid "Select Color"
 msgstr "Kleur selecteren"
 
@@ -2966,11 +2966,11 @@ msgstr "Groepstekst spatiëren"
 msgid "Space Group Background"
 msgstr "Achtergrond van de Ruimtegroep"
 
-#: core/routers/misc.php:2222
+#: core/routers/misc.php:2227
 msgid "Uploaded file is not a valid image."
 msgstr "Het geüploade bestand is geen geldige afbeelding."
 
-#: core/routers/misc.php:2226
+#: core/routers/misc.php:2231
 msgid "File size larger than permissible."
 msgstr "Bestandsgrootte groter dan toegestaan."
 
@@ -3525,6 +3525,7 @@ msgstr "Toepassen"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Free"
 msgstr "Gratis"
@@ -3714,8 +3715,8 @@ msgstr "Toegangs Groep"
 #: core/assets.php:302
 #: core/integrations/feeds.php:652
 #: core/integrations/feeds.php:704
-#: core/routers/misc.php:405
-#: core/routers/misc.php:456
+#: core/routers/misc.php:410
+#: core/routers/misc.php:461
 #: core/shortcodes/home-content.php:786
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3847,7 +3848,7 @@ msgid "Pending Review"
 msgstr "In afwachting van beoordeling"
 
 #: inc/functions/markup.php:580
-#: inc/functions/markup.php:648
+#: inc/functions/markup.php:758
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "Privé"
@@ -4692,36 +4693,36 @@ msgstr "Status van opmerkingen bijgewerkt."
 msgid "No icons found."
 msgstr "Geen pictogrammen gevonden."
 
-#: core/routers/misc.php:1334
-#: core/routers/misc.php:1411
+#: core/routers/misc.php:1339
+#: core/routers/misc.php:1416
 msgid "Comment not found."
 msgstr "Opmerking niet gevonden."
 
-#: core/routers/misc.php:1339
+#: core/routers/misc.php:1344
 msgid "You are not authorized to edit this comment."
 msgstr "U bent niet gemachtigd om deze opmerking te bewerken."
 
-#: core/routers/misc.php:1370
+#: core/routers/misc.php:1375
 msgid "Failed to update comment."
 msgstr "Bijwerken van opmerking is mislukt."
 
-#: core/routers/misc.php:1380
+#: core/routers/misc.php:1385
 msgid "Comment Updated Successfully!"
 msgstr "Opmerking succesvol bijgewerkt!"
 
-#: core/routers/misc.php:1420
+#: core/routers/misc.php:1425
 msgid "You are not authorized to delete this comment."
 msgstr "U bent niet gemachtigd om deze opmerking te verwijderen."
 
-#: core/routers/misc.php:1427
+#: core/routers/misc.php:1432
 msgid "Failed to delete comment."
 msgstr "Verwijderen van opmerking is mislukt."
 
-#: core/routers/misc.php:1431
+#: core/routers/misc.php:1436
 msgid "Comment deleted successfully!"
 msgstr "Opmerking succesvol verwijderd!"
 
-#: core/routers/misc.php:2217
+#: core/routers/misc.php:2222
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "Ongeldig bestandstype. Alleen GIF, PNG, JPEG, JPG en WEBP zijn toegestaan."
 
@@ -4765,7 +4766,7 @@ msgstr "Schrijf een korte bio over uzelf..."
 msgid "Discussion"
 msgstr "Discussie"
 
-#: inc/functions/markup.php:909
+#: inc/functions/markup.php:1024
 msgid "Options"
 msgstr "Opties"
 
@@ -4838,6 +4839,7 @@ msgid "No spaces available to add"
 msgstr "Geen ruimtes beschikbaar om toe te voegen"
 
 #: assets/build/portals-app.js:10
+#: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
 msgid "Untitled Space"
 msgstr "Ongetitelde Ruimte"
@@ -5060,12 +5062,12 @@ msgid "Resources"
 msgstr "Hulpmiddelen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Remove bookmark"
 msgstr "Bladwijzer verwijderen"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Add bookmark"
 msgstr "Bladwijzer toevoegen"
 
@@ -5142,12 +5144,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "Resourcebibliotheek"
 
-#: inc/functions/markup.php:835
+#: inc/functions/markup.php:950
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "Bezoek"
 
-#: inc/functions/markup.php:865
+#: inc/functions/markup.php:980
 msgid "Bookmark"
 msgstr "Bladwijzer"
 
@@ -5983,36 +5985,36 @@ msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "Integreert het SureCart-klantengebied met SureDash-ruimtes."
 
 #: core/routers/backend.php:3337
-#: core/routers/misc.php:1478
-#: core/routers/misc.php:1578
+#: core/routers/misc.php:1483
+#: core/routers/misc.php:1583
 msgid "Post not found."
 msgstr "Bericht niet gevonden."
 
-#: core/routers/misc.php:1485
+#: core/routers/misc.php:1490
 msgid "You are not authorized to edit this post."
 msgstr "Je bent niet bevoegd om dit bericht te bewerken."
 
-#: core/routers/misc.php:1527
+#: core/routers/misc.php:1532
 msgid "Failed to update post."
 msgstr "Bijwerken van bericht mislukt."
 
-#: core/routers/misc.php:1546
+#: core/routers/misc.php:1551
 msgid "Post Updated Successfully!"
 msgstr "Bericht succesvol bijgewerkt!"
 
-#: core/routers/misc.php:1582
+#: core/routers/misc.php:1587
 msgid "Invalid Post."
 msgstr "Ongeldig bericht."
 
-#: core/routers/misc.php:1591
+#: core/routers/misc.php:1596
 msgid "You are not authorized to delete this post."
 msgstr "Je bent niet bevoegd om dit bericht te verwijderen."
 
-#: core/routers/misc.php:1598
+#: core/routers/misc.php:1603
 msgid "Failed to delete post."
 msgstr "Verwijderen van bericht mislukt."
 
-#: core/routers/misc.php:1602
+#: core/routers/misc.php:1607
 msgid "Post deleted successfully!"
 msgstr "Bericht succesvol verwijderd!"
 
@@ -6410,23 +6412,23 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "Verwijderen van e-mailtriggers mislukt."
 
-#: core/routers/misc.php:763
-#: core/routers/misc.php:1775
-#: core/routers/misc.php:1805
+#: core/routers/misc.php:768
+#: core/routers/misc.php:1780
+#: core/routers/misc.php:1810
 msgid "User not logged in."
 msgstr "Gebruiker niet ingelogd."
 
-#: core/routers/misc.php:768
+#: core/routers/misc.php:773
 msgid "User not found."
 msgstr "Gebruiker niet gevonden."
 
-#: core/routers/misc.php:788
+#: core/routers/misc.php:793
 #. translators: %s: Site name
 #, php-format
 msgid "Test Email from %s"
 msgstr "Test-e-mail van %s"
 
-#: core/routers/misc.php:804
+#: core/routers/misc.php:809
 #. translators: %1$s: User name, %2$s: Site name
 #, php-format
 msgid ""
@@ -6440,19 +6442,19 @@ msgstr ""
 "\t\t\t\t\tAls je deze e-mail hebt ontvangen, zijn je meldingsinstellingen goed geconfigureerd!\n"
 "\t\t\t\t\t--- Deze e-mail is verzonden vanuit %2$s"
 
-#: core/routers/misc.php:823
+#: core/routers/misc.php:828
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "Test-e-mail succesvol verzonden! Controleer je inbox."
 
-#: core/routers/misc.php:830
+#: core/routers/misc.php:835
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "Verzenden van test-e-mail mislukt. Controleer je e-mailconfiguratie."
 
-#: core/routers/misc.php:872
+#: core/routers/misc.php:877
 msgid "Failed to update notification settings."
 msgstr "Bijwerken van meldingsinstellingen mislukt."
 
-#: core/routers/misc.php:877
+#: core/routers/misc.php:882
 msgid "Notification settings updated successfully!"
 msgstr "Meldingsinstellingen succesvol bijgewerkt!"
 
@@ -6481,7 +6483,7 @@ msgid "Open notification settings in new tab"
 msgstr "Open meldingsinstellingen in een nieuw tabblad"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1480
+#: inc/functions/markup.php:1600
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -7298,15 +7300,15 @@ msgstr "Berichtzichtbaarheid"
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers plugin is niet actief."
 
-#: core/routers/misc.php:1809
+#: core/routers/misc.php:1814
 msgid "Space ID is required."
 msgstr "Ruimte-ID is vereist."
 
-#: core/routers/misc.php:1818
+#: core/routers/misc.php:1823
 msgid "Space marked as read."
 msgstr "Ruimte gemarkeerd als gelezen."
 
-#: core/routers/misc.php:1822
+#: core/routers/misc.php:1827
 msgid "Failed to mark space as read."
 msgstr "Kon ruimte niet als gelezen markeren."
 
@@ -7863,8 +7865,8 @@ msgstr "Nog geen evenementen bijgewoond."
 
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
-#: core/routers/misc.php:385
-#: core/routers/misc.php:433
+#: core/routers/misc.php:390
+#: core/routers/misc.php:438
 #: core/shortcodes/home-content.php:765
 #. translators: %1$s: author name, %2$s: post date
 #, php-format
@@ -8095,7 +8097,7 @@ msgstr "Deze forumgroep is aangemaakt voor de ruimte: %s"
 msgid "%s - Copy"
 msgstr "%s - Kopie"
 
-#: core/routers/misc.php:549
+#: core/routers/misc.php:554
 msgid "User ID is required."
 msgstr "Gebruikers-ID is vereist."
 
@@ -8324,15 +8326,15 @@ msgstr "Verwijderd %s bestand"
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "Ondersteunt YouTube, Vimeo, Dailymotion, VideoPress en meer"
 
-#: core/routers/misc.php:1842
+#: core/routers/misc.php:1847
 msgid "A valid URL is required."
 msgstr "Een geldige URL is vereist."
 
-#: core/routers/misc.php:1853
+#: core/routers/misc.php:1858
 msgid "This URL is not from a supported video provider."
 msgstr "Deze URL is niet van een ondersteunde videoleverancier."
 
-#: core/routers/misc.php:1865
+#: core/routers/misc.php:1870
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "Kon video niet oplossen. Controleer de URL en probeer het opnieuw."
 
@@ -10976,12 +10978,12 @@ msgstr "AI-vaardigheden & MCP"
 msgid "Unable to load content."
 msgstr "Inhoud kan niet worden geladen."
 
-#: core/routers/misc.php:1675
-#: core/routers/misc.php:1731
+#: core/routers/misc.php:1680
+#: core/routers/misc.php:1736
 msgid "No preview available."
 msgstr "Geen voorbeeld beschikbaar."
 
-#: core/routers/misc.php:1736
+#: core/routers/misc.php:1741
 msgid "Preview not found."
 msgstr "Voorbeeld niet gevonden."
 
@@ -10990,7 +10992,7 @@ msgid "This content is restricted to members. Unlock access to view the full pos
 msgstr "Deze inhoud is beperkt tot leden. Ontgrendel toegang om de volledige post te bekijken."
 
 #: inc/functions/markup.php:588
-#: inc/functions/markup.php:695
+#: inc/functions/markup.php:805
 #. translators: %s: number of lessons.
 #, php-format
 msgid "%s lesson"
@@ -10999,7 +11001,7 @@ msgstr[0] "%s les"
 msgstr[1] ""
 
 #: inc/functions/markup.php:594
-#: inc/functions/markup.php:700
+#: inc/functions/markup.php:810
 #. translators: %s: number of quizzes.
 #, php-format
 msgid "%s quiz"
@@ -11008,7 +11010,7 @@ msgstr[0] "%s quiz"
 msgstr[1] ""
 
 #: inc/functions/markup.php:600
-#: inc/functions/markup.php:659
+#: inc/functions/markup.php:769
 #. translators: %s: number of threads.
 #, php-format
 msgid "%s thread"
@@ -11016,7 +11018,7 @@ msgid_plural "%s threads"
 msgstr[0] "%s thread"
 msgstr[1] ""
 
-#: inc/functions/markup.php:688
+#: inc/functions/markup.php:798
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
 #, php-format
 msgid "%s module"
@@ -11567,6 +11569,112 @@ msgstr "Bestand(en) uploaden"
 #: assets/js/unminified/register.js:756
 msgid "An error occurred during registration. Please try again."
 msgstr "Er is een fout opgetreden tijdens de registratie. Probeer het opnieuw."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "No tag"
+msgstr "Geen tag"
+
+#: assets/build/portals-app.js:13
+msgid "Nothing appears on the card. Access rules are unaffected."
+msgstr "Er verschijnt niets op de kaart. Toegangsregels worden niet beïnvloed."
+
+#: assets/build/portals-app.js:13
+msgid "Display only. Does not override a SureMembers restriction."
+msgstr "Alleen weergeven. Overtreedt geen SureMembers-beperking."
+
+#: assets/build/portals-app.js:13
+#: assets/build/portals-app.js:35
+msgid "Paid"
+msgstr "Betaald"
+
+#: assets/build/portals-app.js:13
+msgid "Shows a price tag, plus a Buy Now button for locked-out visitors."
+msgstr "Toont een prijslabel, plus een Nu Kopen-knop voor bezoekers die zijn buitengesloten."
+
+#: assets/build/portals-app.js:13
+msgid "Pricing Settings"
+msgstr "Prijsinstellingen"
+
+#: assets/build/portals-app.js:13
+msgid "Pricing type"
+msgstr "Prijs type"
+
+#: assets/build/portals-app.js:13
+msgid "Currency"
+msgstr "Valuta"
+
+#: assets/build/portals-app.js:13
+msgid "Price"
+msgstr "Prijs"
+
+#: assets/build/portals-app.js:13
+msgid "Sales / checkout link"
+msgstr "Verkoop / afrekenlink"
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid link starting with http:// or https://."
+msgstr "Voer een geldige link in die begint met http:// of https://."
+
+#: assets/build/portals-app.js:13
+msgid "Button text"
+msgstr "Knoptekst"
+
+#: assets/build/portals-app.js:13
+msgid ""
+"Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on "
+"purchase."
+msgstr ""
+"Nu Kopen wordt alleen weergegeven aan bezoekers die zijn buitengesloten door een toegangsregel. Richt de afrekening op "
+"die groep om toegang te verlenen bij aankoop."
+
+#: assets/build/portals-app.js:13
+msgid "A sales or checkout link is required for paid spaces."
+msgstr "Een verkoop- of afrekenlink is vereist voor betaalde ruimtes."
+
+#: assets/build/portals-app.js:13
+msgid "Enter a valid price, like 49 or 49.99."
+msgstr "Voer een geldige prijs in, zoals 49 of 49,99."
+
+#: assets/build/portals-app.js:13
+msgid "A price is required for paid spaces."
+msgstr "Een prijs is vereist voor betaalde ruimtes."
+
+#: assets/build/portals-app.js:13
+msgid "Could not save the pricing settings. Please try again."
+msgstr "Kon de prijsinstellingen niet opslaan. Probeer het opnieuw."
+
+#: assets/build/portals-app.js:13
+msgid "Display Pricing"
+msgstr "Prijsweergave"
+
+#: assets/build/portals-app.js:13
+msgid "Show Free and price tags on cards."
+msgstr "Toon gratis en prijslabels op kaarten."
+
+#: assets/build/portals-app.js:13
+msgid "Read more"
+msgstr "Lees meer"
+
+#: assets/build/portals-app.js:13
+msgid "Requires SureMembers Core"
+msgstr "Vereist SureMembers Core"
+
+#: assets/build/portals-app.js:13
+msgid "Paid Tag"
+msgstr "Betaald label"
+
+#: assets/build/portals-app.js:13
+msgid "Free Tag"
+msgstr "Gratis label"
+
+#: assets/build/portals-app.js:35
+msgid "Pricing"
+msgstr "Prijzen"
+
+#: assets/build/portals-app.js:35
+msgid "Edit Pricing"
+msgstr "Prijs bewerken"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"
