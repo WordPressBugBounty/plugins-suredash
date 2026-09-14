@@ -326,6 +326,14 @@ class RewriteRules {
 	public function render_notification_toaster(): void {
 		?>
 			<div id="portal-notification-toaster" class="portal-notification-toaster portal-content" aria-live="assertive"></div>
+			<div id="portal-a11y-announcer" class="screen-reader-text" aria-live="polite" aria-atomic="true"></div>
+			<?php
+			// Shared description for every like-count control in the feed. Referenced
+			// by aria-describedby rather than aria-label, so each control keeps its
+			// live count text as its accessible name and cannot go stale when JS
+			// updates the number.
+			?>
+			<span id="portal-likes-count-hint" class="screen-reader-text"><?php esc_html_e( 'View who liked this', 'suredash' ); ?></span>
 		<?php
 	}
 

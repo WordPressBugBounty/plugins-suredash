@@ -103,6 +103,7 @@ foreach ( $data_attributes as $key => $value ) {
 	<div class="suredash-color-switcher switcher-type-<?php echo esc_attr( $switcher_type ); ?>">
 		<button
 			aria-label="<?php echo esc_attr( $aria_label_text ); ?>"
+			aria-pressed="<?php echo $is_dark_mode ? 'true' : 'false'; ?>"
 			type="button"
 			<?php echo do_shortcode( get_block_wrapper_attributes( [ 'class' => 'switcher-button portal-button button-primary' ] ) ); ?>
 		>

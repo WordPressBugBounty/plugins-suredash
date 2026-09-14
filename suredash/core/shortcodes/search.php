@@ -54,7 +54,7 @@ class Search {
 		?>
 			<!-- search input box -->
 			<div id="portal-placeholder-search-wrap" class="portal-search-container portal-header-search-trigger portal-content">
-				<input itemprop="query-input" type="search" id="placeholder-search-input" class="portal-search-input" placeholder="<?php echo esc_attr__( 'Search', 'suredash' ); ?>"/>
+				<input itemprop="query-input" type="search" id="placeholder-search-input" class="portal-search-input" placeholder="<?php echo esc_attr__( 'Search', 'suredash' ); ?>" aria-label="<?php echo esc_attr__( 'Search the community', 'suredash' ); ?>"/>
 				<label id="pf_docs-button-holder" class="pf-svg-search pfd-svg-icon pf-docs-search-button" for="placeholder-search-input">
 					<?php Helper::get_library_icon( 'Search', true ); ?>
 				</label>

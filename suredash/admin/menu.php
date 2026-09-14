@@ -13,6 +13,7 @@
 namespace SureDashboard\Admin;
 
 use SureDashboard\Core\Models\Controller;
+use SureDashboard\Inc\Services\AI_Post_Summarizer;
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Utils\Helper;
 use SureDashboard\Inc\Utils\PostMeta;
@@ -404,6 +405,10 @@ class Menu {
 					'suremails_status'              => $this->get_plugin_status( 'suremails/suremails.php' ),
 					'mcp_adapter_status'            => $this->get_plugin_status( 'mcp-adapter/mcp-adapter.php' ),
 					'mcp_settings'                  => \SureDashboard\Inc\Modules\MCP\Module::get_settings(),
+					// AI providers the admin has connected under Settings →
+					// Connectors. Ids and names only — never the key value.
+					'ai_connectors'                 => AI_Post_Summarizer::get_instance()->get_connected_providers(),
+					'connectors_url'                => admin_url( 'options-connectors.php' ),
 					'site_url'                      => get_site_url(),
 					'all_community_posts'           => Helper::get_community_posts(),
 					'community_posts_count'         => sd_count_posts( SUREDASHBOARD_FEED_POST_TYPE ),

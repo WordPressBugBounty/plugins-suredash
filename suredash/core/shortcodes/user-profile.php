@@ -94,7 +94,14 @@ class User_Profile {
 		ob_start();
 		?>
 			<div class="portal-user-profiles-wrap sd-relative portal-content">
-				<div class="portal-header-avatar-wrap" data-view="logged-in">
+				<div
+					class="portal-header-avatar-wrap"
+					data-view="logged-in"
+					role="button"
+					tabindex="0"
+					aria-haspopup="true"
+					aria-expanded="false"
+					aria-label="<?php echo esc_attr__( 'Account menu', 'suredash' ); ?>">
 					<?php
 						// Get the current user.
 						$current_user = wp_get_current_user();
@@ -108,9 +115,17 @@ class User_Profile {
 								<span class="portal-user-email"><?php echo esc_html( $current_user->user_email ); ?></span>
 							</div>
 						</div>
-						<button class="portal-button button-ghost sd-pointer sd-force-p-0">
+						<?php
+						// Decorative affordance only: the whole avatar wrap is already the
+						// account menu button, and this has no handler of its own. Left in
+						// the tab order it was an unnamed second stop that did the same
+						// thing, and a real button nested inside a role="button" element.
+						// Hidden from assistive tech and taken out of the tab order, the
+						// same way the duplicate responsive footer nav already is.
+						?>
+						<span class="portal-button button-ghost sd-pointer sd-force-p-0" aria-hidden="true">
 							<?php Helper::get_library_icon( 'EllipsisVertical', true, 'sm' ); ?>
-						</button>
+						</span>
 					<?php } ?>
 				</div>
 				<div class="portal-avatar-menu" style="<?php echo esc_attr( $menu_direction_css ); ?>">

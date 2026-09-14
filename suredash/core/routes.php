@@ -138,6 +138,11 @@ class Routes {
 					'callback'            => [ MiscRoute::get_instance(), 'entity_reaction' ],
 					'permission_callback' => 'user',
 				],
+				'summarize-post'                     => [
+					'method'              => 'POST',
+					'callback'            => [ MiscRoute::get_instance(), 'summarize_post' ],
+					'permission_callback' => 'user',
+				],
 				'search-user'                        => [
 					'method'              => 'POST',
 					'callback'            => [ MiscRoute::get_instance(), 'search_user' ],

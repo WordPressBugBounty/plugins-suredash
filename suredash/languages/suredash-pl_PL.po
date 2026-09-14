@@ -11,16 +11,16 @@ msgstr ""
 "PO-Revision-Date: 2025-01-28T13:12:03+00:00\n"
 "Language: \n"
 
-#: suredash.php
-#: admin/notices.php:153
 #. Plugin Name of the plugin
 #. Author of the plugin
+#: suredash.php
+#: admin/notices.php:153
 msgid "SureDash"
 msgstr "SureDash"
 
-#: suredash.php
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: suredash.php
 msgid "https://suredash.com/"
 msgstr "https://suredash.com/"
 
@@ -80,8 +80,8 @@ msgstr "Wideo"
 msgid "Uncategorized"
 msgstr "Nieskategoryzowane"
 
-#: admin/notices.php:62
 #. translators: %s: html tags
+#: admin/notices.php:62
 #, php-format
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr "Wtyczka %1$s %2$s %3$s wymaga, aby wtyczka %1$s %4$s %3$s została zaktualizowana do wersji %5$s lub wyższej!"
@@ -151,9 +151,7 @@ msgstr "Pokaż hasło"
 
 #: core/blocks/register.php:93
 msgid "The provided email is already registered with another account. Please login or reset password or use another email."
-msgstr ""
-"Podany adres e-mail jest już zarejestrowany na innym koncie. Proszę się zalogować, zresetować hasło lub użyć innego "
-"adresu e-mail."
+msgstr "Podany adres e-mail jest już zarejestrowany na innym koncie. Proszę się zalogować, zresetować hasło lub użyć innego adresu e-mail."
 
 #: core/blocks/register.php:102
 msgid "Invalid username provided or the username is already registered."
@@ -208,10 +206,10 @@ msgstr "To pole"
 msgid "You have used an invalid email."
 msgstr "Użyłeś nieprawidłowego adresu e-mail."
 
+#. translators: abbreviation for units
 #: core/blocks/login.php:169
 #: core/blocks/register.php:990
 #: assets/build/editor-app.js:2
-#. translators: abbreviation for units
 msgid "Please enter a valid email address."
 msgstr "Proszę wprowadzić prawidłowy adres e-mail."
 
@@ -480,8 +478,8 @@ msgstr "Zalogowano pomyślnie. Przekierowywanie..."
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
 msgstr "Pole nazwy użytkownika/hasła jest puste. Proszę dodać prawidłową nazwę użytkownika/adres e-mail, aby zresetować hasło."
 
-#: core/routers/social-logins.php:334
 #. translators: %s: Password reset.
+#: core/routers/social-logins.php:334
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] Resetowanie hasła"
@@ -593,8 +591,8 @@ msgstr "Szukaj"
 msgid "Guest User"
 msgstr "Użytkownik gość"
 
-#: inc/compatibility/page-builder.php:345
 #. translators: %s is the page title
+#: inc/compatibility/page-builder.php:345
 #, php-format
 msgid "Edit %1$s with %2$s"
 msgstr "Edytuj %1$s za pomocą %2$s"
@@ -603,8 +601,8 @@ msgstr "Edytuj %1$s za pomocą %2$s"
 msgid "Someone has requested a password reset for the following account:"
 msgstr "Ktoś zażądał zresetowania hasła dla następującego konta:"
 
-#: inc/modules/email-notifications/emails.php:73
 #. translators: %s: Username.
+#: inc/modules/email-notifications/emails.php:73
 msgid "Username:"
 msgstr "Nazwa użytkownika:"
 
@@ -626,8 +624,8 @@ msgstr "Pingback:"
 msgid "(Edit)"
 msgstr "(Edytuj)"
 
-#: inc/functions/functions.php:901
 #. translators: 1: date, 2: time
+#: inc/functions/functions.php:901
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s o %2$s"
@@ -895,9 +893,7 @@ msgstr "Ups, tutaj jest pusto!"
 
 #: inc/utils/labels.php:96
 msgid "Seems like you haven't bookmarked anything yet. Start bookmarking and make this space your go-to!"
-msgstr ""
-"Wygląda na to, że jeszcze nic nie dodałeś do zakładek. Zacznij dodawać zakładki i spraw, aby to miejsce było Twoim "
-"ulubionym!"
+msgstr "Wygląda na to, że jeszcze nic nie dodałeś do zakładek. Zacznij dodawać zakładki i spraw, aby to miejsce było Twoim ulubionym!"
 
 #: inc/utils/labels.php:97
 msgid "Back to Home"
@@ -921,12 +917,8 @@ msgid "Course Playlist"
 msgstr "Lista odtwarzania kursu"
 
 #: inc/utils/labels.php:106
-msgid ""
-"If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website "
-"visitor towards being a paying customer. A sales funnel builds wealth into your business."
-msgstr ""
-"Jeśli chcesz sprzedawać produkty online, potrzebujesz lejka sprzedażowego. Lejek sprzedażowy to najprostszy sposób na "
-"przekształcenie odwiedzającego stronę w płacącego klienta. Lejek sprzedażowy buduje bogactwo w Twoim biznesie."
+msgid "If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website visitor towards being a paying customer. A sales funnel builds wealth into your business."
+msgstr "Jeśli chcesz sprzedawać produkty online, potrzebujesz lejka sprzedażowego. Lejek sprzedażowy to najprostszy sposób na przekształcenie odwiedzającego stronę w płacącego klienta. Lejek sprzedażowy buduje bogactwo w Twoim biznesie."
 
 #: core/cpt/content.php:111
 #: inc/functions/markup.php:566
@@ -1284,11 +1276,11 @@ msgstr "Em"
 msgid "Select Units"
 msgstr "Wybierz jednostki"
 
+#. translators: abbreviation for units
 #: assets/build/editor-app.js:3
 #: assets/build/editor-app.js:4
 #: assets/build/editor-app.js:5
 #: assets/build/editor-app.js:6
-#. translators: abbreviation for units
 #, js-format
 msgid "%s units"
 msgstr "%s jednostki"
@@ -1882,12 +1874,8 @@ msgid "Logged in Message"
 msgstr "Komunikat o zalogowaniu"
 
 #: assets/build/editor-app.js:6
-msgid ""
-"The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is "
-"already Logged In."
-msgstr ""
-"„Komunikat o zalogowaniu” zostanie wyświetlony zamiast tego bloku na stronie frontowej, gdy użytkownik odwiedzający tę "
-"stronę jest już zalogowany."
+msgid "The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is already Logged In."
+msgstr "„Komunikat o zalogowaniu” zostanie wyświetlony zamiast tego bloku na stronie frontowej, gdy użytkownik odwiedzający tę stronę jest już zalogowany."
 
 #: assets/build/editor-app.js:6
 msgid "Redirect After Login"
@@ -2454,10 +2442,10 @@ msgstr "Co nowego?"
 msgid "Dashboard"
 msgstr "Pulpit"
 
-#: assets/build/portals-app.js:49
-#: assets/build/portals-app.js:52
 #. translators: %s is the version number.
 #. translators: %s is the pro_version number.
+#: assets/build/portals-app.js:49
+#: assets/build/portals-app.js:52
 #, js-format
 msgid "V %s"
 msgstr "V %s"
@@ -2711,12 +2699,8 @@ msgid "No fonts found!"
 msgstr "Nie znaleziono czcionek!"
 
 #: assets/build/portals-app.js:35
-msgid ""
-"Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self "
-"hosting."
-msgstr ""
-"Wprowadź co najmniej 3 znaki, aby wyszukać rodzinę czcionek (domyślnie: Figtree). Generowanie czcionki może zająć kilka "
-"chwil w przypadku samodzielnego hostingu."
+msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
+msgstr "Wprowadź co najmniej 3 znaki, aby wyszukać rodzinę czcionek (domyślnie: Figtree). Generowanie czcionki może zająć kilka chwil w przypadku samodzielnego hostingu."
 
 #: assets/build/portals-app.js:57
 msgid "Global Container Type"
@@ -2830,15 +2814,11 @@ msgstr "Wklej tutaj swój klucz licencyjny"
 msgid "You are using"
 msgstr "Używasz"
 
-#: assets/build/portals-app.js:38
 #. translators: %1$s: first anchor tag start, %2$s: first anchor tag end, %3$s second anchor tag start, %4$s second anchor tag end, %5$s: break tag, %6$s: plugin name.
+#: assets/build/portals-app.js:38
 #, js-format
-msgid ""
-"Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't "
-"have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
-msgstr ""
-"Aktywuj %1$s%6$s%2$s, aby uzyskać profesjonalne wsparcie i automatyczne aktualizacje z poziomu pulpitu WordPress. Jeśli "
-"nie masz licencji, możesz %3$szdobyć ją tutaj »%4$s %5$sProszę wprowadzić poniżej klucz licencyjny, aby aktywować %6$s!"
+msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
+msgstr "Aktywuj %1$s%6$s%2$s, aby uzyskać profesjonalne wsparcie i automatyczne aktualizacje z poziomu pulpitu WordPress. Jeśli nie masz licencji, możesz %3$szdobyć ją tutaj »%4$s %5$sProszę wprowadzić poniżej klucz licencyjny, aby aktywować %6$s!"
 
 #: assets/build/portals-app.js:38
 msgid "Deactivating"
@@ -2975,8 +2955,8 @@ msgstr "Rozmiar pliku większy niż dozwolony."
 msgid "No matching template found."
 msgstr "Nie znaleziono pasującego szablonu."
 
-#: inc/templator/service.php:680
 #. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
+#: inc/templator/service.php:680
 #, php-format
 msgid "SureDash: %s"
 msgstr "SureDash: %s"
@@ -3051,9 +3031,9 @@ msgstr "Miniatura obrazu"
 msgid "Spaces"
 msgstr "Przestrzenie"
 
+#. translators: %s: version number
 #: admin/menu.php:333
 #: admin/menu.php:338
-#. translators: %s: version number
 #, php-format
 msgid "Version %1$s or higher required!"
 msgstr "Wymagana wersja %1$s lub wyższa!"
@@ -3353,9 +3333,7 @@ msgstr "Monetyzuj z SureCart"
 
 #: assets/build/portals-app.js:3
 msgid "Enable seamless monetization by selling memberships, courses, or exclusive content directly within your community."
-msgstr ""
-"Włącz bezproblemową monetyzację, sprzedając członkostwa, kursy lub ekskluzywne treści bezpośrednio w swojej "
-"społeczności."
+msgstr "Włącz bezproblemową monetyzację, sprzedając członkostwa, kursy lub ekskluzywne treści bezpośrednio w swojej społeczności."
 
 #: assets/build/portals-app.js:3
 msgid "Flawless workflows with OttoKit"
@@ -3363,31 +3341,29 @@ msgstr "Bezproblemowe przepływy pracy z OttoKit"
 
 #: assets/build/portals-app.js:3
 msgid "Automate your workflows by connecting SureDash with other tools. Save time and focus on growing your community."
-msgstr ""
-"Zautomatyzuj swoje przepływy pracy, łącząc SureDash z innymi narzędziami. Oszczędzaj czas i skup się na rozwijaniu "
-"swojej społeczności."
+msgstr "Zautomatyzuj swoje przepływy pracy, łącząc SureDash z innymi narzędziami. Oszczędzaj czas i skup się na rozwijaniu swojej społeczności."
 
 #: assets/build/portals-app.js:3
 msgid "Complete access control with SureMembers"
 msgstr "Pełna kontrola dostępu z SureMembers"
 
+#. translators: %s: Plugin name
 #: assets/build/portals-app.js:5
 #: assets/build/portals-app.js:8
-#. translators: %s: Plugin name
 #, js-format
 msgid "Installing %s plugin. Please wait.."
 msgstr "Instalowanie wtyczki %s. Proszę czekać.."
 
+#. translators: %s: Plugin name
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:9
-#. translators: %s: Plugin name
 #, js-format
 msgid "%s plugin Installed Successfully.."
 msgstr "Wtyczka %s zainstalowana pomyślnie.."
 
+#. translators: %s: Plugin name
 #: assets/build/portals-app.js:4
 #: assets/build/portals-app.js:7
-#. translators: %s: Plugin name
 #, js-format
 msgid "%s Plugin Activated Successfully..!"
 msgstr "Wtyczka %s aktywowana pomyślnie..!"
@@ -3585,8 +3561,8 @@ msgstr "Inna operacja wtyczki jest w toku. Proszę czekać."
 msgid "Install & Activate"
 msgstr "Zainstaluj i aktywuj"
 
-#: assets/build/portals-app.js:11
 #. translators: %s: user name
+#: assets/build/portals-app.js:11
 #, js-format
 msgid "Howdy, %s"
 msgstr "Cześć, %s"
@@ -3596,12 +3572,8 @@ msgid "Manage Spaces"
 msgstr "Zarządzaj przestrzeniami"
 
 #: assets/build/portals-app.js:10
-msgid ""
-"We're excited to help you build, connect, and grow your community. SureDash makes it simple to create a powerful "
-"community platform directly within WordPress."
-msgstr ""
-"Cieszymy się, że możemy pomóc Ci budować, łączyć i rozwijać Twoją społeczność. SureDash ułatwia tworzenie potężnej "
-"platformy społecznościowej bezpośrednio w WordPressie."
+msgid "We're excited to help you build, connect, and grow your community. SureDash makes it simple to create a powerful community platform directly within WordPress."
+msgstr "Cieszymy się, że możemy pomóc Ci budować, łączyć i rozwijać Twoją społeczność. SureDash ułatwia tworzenie potężnej platformy społecznościowej bezpośrednio w WordPressie."
 
 #: core/shortcodes/widgets/recent-activities.php:39
 #: core/shortcodes/widgets/recent-activities.php:176
@@ -3620,18 +3592,16 @@ msgstr "Brak dostępnych szczegółów."
 
 #: assets/build/portals-app.js:11
 msgid "Once users start contributing, you’ll see their details here to help you manage and engage with your portal community."
-msgstr ""
-"Gdy użytkownicy zaczną wnosić wkład, zobaczysz ich szczegóły tutaj, aby pomóc Ci zarządzać i angażować się w swoją "
-"społeczność portalu."
+msgstr "Gdy użytkownicy zaczną wnosić wkład, zobaczysz ich szczegóły tutaj, aby pomóc Ci zarządzać i angażować się w swoją społeczność portalu."
 
-#: assets/build/portals-app.js:12
 #. translators: %s: post title
+#: assets/build/portals-app.js:12
 #, js-format
 msgid "Created a new post: \"%s\""
 msgstr "Utworzono nowy post: \"%s\""
 
-#: assets/build/portals-app.js:13
 #. translators: %s: comment title
+#: assets/build/portals-app.js:13
 #, js-format
 msgid "Commented on: \"%s\""
 msgstr "Skomentowano: \"%s\""
@@ -3924,12 +3894,8 @@ msgid "Performance Tip:"
 msgstr "Wskazówka dotycząca wydajności:"
 
 #: assets/build/portals-app.js:35
-msgid ""
-"Want your posts/discussion space to load quicker on the frontend? Use WordPress default blocks and go easy on the heavy "
-"custom ones."
-msgstr ""
-"Chcesz, aby Twoje posty/obszar dyskusji ładowały się szybciej na froncie? Użyj domyślnych bloków WordPress i nie "
-"przesadzaj z ciężkimi niestandardowymi."
+msgid "Want your posts/discussion space to load quicker on the frontend? Use WordPress default blocks and go easy on the heavy custom ones."
+msgstr "Chcesz, aby Twoje posty/obszar dyskusji ładowały się szybciej na froncie? Użyj domyślnych bloków WordPress i nie przesadzaj z ciężkimi niestandardowymi."
 
 #: assets/build/portals-app.js:35
 msgid "New Post"
@@ -4064,15 +4030,11 @@ msgstr "Ustawienia projektu"
 msgid "Users"
 msgstr "Użytkownicy"
 
-#: admin/notices.php:110
 #. translators: %1$s: html tags, %2$s: plugin name, %3$s: html tags, %4$s: link to document, %5$s: html tags
+#: admin/notices.php:110
 #, php-format
-msgid ""
-"The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your "
-"settings. Ignore if already migrated."
-msgstr ""
-"Wtyczka %1$s %2$s %3$s została zaktualizowana do stabilnej wersji. Proszę postępować zgodnie z %4$s tym dokumentem "
-"%5$s, aby przenieść swoje ustawienia. Zignoruj, jeśli już zostały przeniesione."
+msgid "The %1$s %2$s %3$s plugin has been updated to a stable version. Please follow %4$s this document %5$s to migrate your settings. Ignore if already migrated."
+msgstr "Wtyczka %1$s %2$s %3$s została zaktualizowana do stabilnej wersji. Proszę postępować zgodnie z %4$s tym dokumentem %5$s, aby przenieść swoje ustawienia. Zignoruj, jeśli już zostały przeniesione."
 
 #: core/blocks/register.php:89
 msgid "Email is missing or invalid."
@@ -4099,14 +4061,14 @@ msgstr "To miejsce dyskusji jest prywatne. Zaloguj się, aby zobaczyć zawartoś
 msgid "content requires membership access"
 msgstr "treść wymaga dostępu członkowskiego"
 
-#: core/integrations/sure-members.php:850
 #. translators: 1: Post title, 2: Restriction type
+#: core/integrations/sure-members.php:850
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
 
-#: core/notifier/admin-notifier.php:59
 #. translators: %1$s: user, %2$s: topic
+#: core/notifier/admin-notifier.php:59
 #, php-format
 msgid "New post from %1$s \"%2$s\""
 msgstr "Nowy post od %1$s „%2$s”"
@@ -4190,8 +4152,8 @@ msgstr "Wznów kurs"
 msgid "View Discussion"
 msgstr "Wyświetl dyskusję"
 
-#: core/shortcodes/navigation.php:179
 #. translators: %s: Space group name
+#: core/shortcodes/navigation.php:179
 #, php-format
 msgid "Toggle %s group"
 msgstr "Przełącz grupę %s"
@@ -4274,12 +4236,8 @@ msgid "Space Description"
 msgstr "Opis przestrzeni"
 
 #: assets/build/portals-app.js:13
-msgid ""
-"This description appears in the home page grid view. For the best display across devices, we recommend keeping it "
-"within 72 characters."
-msgstr ""
-"Ten opis pojawia się w widoku siatki na stronie głównej. Dla najlepszego wyświetlania na różnych urządzeniach zalecamy "
-"utrzymanie go w granicach 72 znaków."
+msgid "This description appears in the home page grid view. For the best display across devices, we recommend keeping it within 72 characters."
+msgstr "Ten opis pojawia się w widoku siatki na stronie głównej. Dla najlepszego wyświetlania na różnych urządzeniach zalecamy utrzymanie go w granicach 72 znaków."
 
 #: assets/build/portals-app.js:21
 msgid "WordPress Post/Page"
@@ -4289,8 +4247,8 @@ msgstr "Post/Strona WordPress"
 msgid "Search posts…"
 msgstr "Szukaj postów…"
 
-#: assets/build/portals-app.js:34
 #. translators: %d is the number of posts per page.
+#: assets/build/portals-app.js:34
 #, js-format
 msgid "%d Posts per page"
 msgstr "%d postów na stronę"
@@ -4417,8 +4375,8 @@ msgstr "Spróbuj dostosować kryteria wyszukiwania lub filtrowania"
 msgid "Users will appear here once they register on your site."
 msgstr "Użytkownicy pojawią się tutaj, gdy zarejestrują się na Twojej stronie."
 
-#: assets/build/portals-app.js:41
 #. translators: %d is the number of users per page.
+#: assets/build/portals-app.js:41
 #, js-format
 msgid "%d Users per page"
 msgstr "%d użytkowników na stronę"
@@ -4463,8 +4421,8 @@ msgstr "włączony"
 msgid "No comments posted yet."
 msgstr "Nie dodano jeszcze komentarzy."
 
-#: assets/build/portals-app.js:55
 #. translators: %s is the pro plugin name.
+#: assets/build/portals-app.js:55
 #, js-format
 msgid "Incompatible %s Version"
 msgstr "Niekompatybilna wersja %s"
@@ -4519,9 +4477,7 @@ msgstr "Filmy Power Up z Presto Player"
 
 #: assets/build/portals-app.js:3
 msgid "Elevate your video and impress your audience with a modern viewing experience they’ll truly appreciate."
-msgstr ""
-"Podnieś jakość swojego wideo i zaimponuj swojej publiczności nowoczesnym doświadczeniem oglądania, które naprawdę "
-"docenią."
+msgstr "Podnieś jakość swojego wideo i zaimponuj swojej publiczności nowoczesnym doświadczeniem oglądania, które naprawdę docenią."
 
 #: assets/build/portals-app.js:6
 #: assets/build/portals-app.js:10
@@ -4560,20 +4516,14 @@ msgstr "Rozpocznij organizację: Przeciągnij przestrzenie tutaj lub dodaj nową
 msgid "WordPress General Settings."
 msgstr "Ogólnych ustawień WordPressa."
 
-#: suredash.php
 #. Description of the plugin
-msgid ""
-"SureDash turns your WordPress site into a community hub with unified login, custom dashboard, and improved user "
-"engagement."
-msgstr ""
-"SureDash przekształca Twoją stronę WordPress w centrum społeczności z jednolitym logowaniem, niestandardowym panelem i "
-"poprawioną interakcją użytkowników."
+#: suredash.php
+msgid "SureDash turns your WordPress site into a community hub with unified login, custom dashboard, and improved user engagement."
+msgstr "SureDash przekształca Twoją stronę WordPress w centrum społeczności z jednolitym logowaniem, niestandardowym panelem i poprawioną interakcją użytkowników."
 
 #: core/assets.php:121
 msgid "Direct URL to image file (JPG, PNG, GIF, WebP, SVG). Must start with http:// or https:// and end with image extension."
-msgstr ""
-"Bezpośredni adres URL do pliku graficznego (JPG, PNG, GIF, WebP, SVG). Musi zaczynać się od http:// lub https:// i "
-"kończyć na rozszerzeniu obrazu."
+msgstr "Bezpośredni adres URL do pliku graficznego (JPG, PNG, GIF, WebP, SVG). Musi zaczynać się od http:// lub https:// i kończyć na rozszerzeniu obrazu."
 
 #: core/assets.php:123
 msgid "Please enter a valid URL."
@@ -4599,14 +4549,14 @@ msgstr "Nieprawidłowe wymiary obrazu."
 msgid "Please enter a valid video URL."
 msgstr "Proszę wprowadzić prawidłowy adres URL wideo."
 
-#: core/assets.php:131
 #. translators: %1$s: file name, %2$s: allowed file types
+#: core/assets.php:131
 #, php-format
 msgid "File \"%1$s\" has an invalid type. Please upload %2$s"
 msgstr "Plik \"%1$s\" ma nieprawidłowy typ. Proszę przesłać %2$s"
 
-#: core/assets.php:133
 #. translators: %1$s: file name, %2$s: maximum file size in MB
+#: core/assets.php:133
 #, php-format
 msgid "File \"%1$s\" exceeds the maximum size of %2$s MB."
 msgstr "Plik \"%1$s\" przekracza maksymalny rozmiar %2$s MB."
@@ -4623,14 +4573,14 @@ msgstr "Nieprawidłowe typy plików"
 msgid "Exceeds size limit"
 msgstr "Przekroczono limit rozmiaru"
 
-#: core/assets.php:138
 #. translators: %s: list of allowed file formats
+#: core/assets.php:138
 #, php-format
 msgid "Allowed formats: %s"
 msgstr "Dozwolone formaty: %s"
 
-#: core/assets.php:140
 #. translators: %s: maximum file size in MB
+#: core/assets.php:140
 #, php-format
 msgid "Maximum file size: %s MB"
 msgstr "Maksymalny rozmiar pliku: %s MB"
@@ -4793,8 +4743,8 @@ msgstr "Zaloguj się do konta"
 msgid "Register to portal"
 msgstr "Zarejestruj się w portalu"
 
-#: assets/build/portals-app.js:10
 #. translators: %s: maximum number of spaces
+#: assets/build/portals-app.js:10
 #, js-format
 msgid "Select spaces to display on the home screen. (Maximum %s)"
 msgstr "Wybierz przestrzenie do wyświetlenia na ekranie głównym. (Maksymalnie %s)"
@@ -5020,10 +4970,10 @@ msgstr "Szukaj ról…"
 msgid "Role"
 msgstr "Rola"
 
-#: core/blocks/login.php:1045
-#: core/blocks/login.php:1050
 #. translators: %1$s: User Name Field.
 #. translators: %1$s: Password Field.
+#: core/blocks/login.php:1045
+#: core/blocks/login.php:1050
 #, php-format
 msgid "Field \"%1$s\" cannot be blank."
 msgstr "Pole \"%1$s\" nie może być puste."
@@ -5044,10 +4994,10 @@ msgstr "Czas trwania lekcji (w minutach)"
 msgid "Global palette missing — Select Light/Dark Mode."
 msgstr "Brak globalnej palety — Wybierz tryb jasny/ciemny."
 
-#: core/blocks/interactivity/build/Switcher/view.php:70
-#: core/blocks/interactivity/build/Switcher/view.php:71
 #. translators: %s: light mode text
 #. translators: %s: dark mode text
+#: core/blocks/interactivity/build/Switcher/view.php:70
+#: core/blocks/interactivity/build/Switcher/view.php:71
 #, php-format
 msgid "Switch to %s"
 msgstr "Przełącz na %s"
@@ -5109,24 +5059,24 @@ msgstr "Subtelne tło"
 msgid "Other Supporting"
 msgstr "Inne wsparcie"
 
-#: inc/functions/functions.php:2669
 #. translators: %1$d: hours, %2$d: minutes
+#: inc/functions/functions.php:2669
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
 msgstr[0] "%1$d godz %2$d min"
 msgstr[1] ""
 
-#: inc/functions/functions.php:2673
 #. translators: %d: hours
+#: inc/functions/functions.php:2673
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
 msgstr[0] "%d godz"
 msgstr[1] ""
 
-#: inc/functions/functions.php:2677
 #. translators: %d: minutes
+#: inc/functions/functions.php:2677
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
@@ -5206,9 +5156,7 @@ msgstr "Wybierz typ treści przestrzeni"
 
 #: assets/build/portals-app.js:21
 msgid "Choose between using an existing WordPress Post/Page or creating custom content with the space editor."
-msgstr ""
-"Wybierz między używaniem istniejącego wpisu/strony WordPress lub tworzeniem niestandardowej treści za pomocą edytora "
-"przestrzeni."
+msgstr "Wybierz między używaniem istniejącego wpisu/strony WordPress lub tworzeniem niestandardowej treści za pomocą edytora przestrzeni."
 
 #: assets/build/portals-app.js:21
 msgid "Utilize this space's built-in editor to create and edit custom content."
@@ -5755,8 +5703,8 @@ msgstr "Nie udało się przesłać:"
 msgid "or drag and drop files to upload"
 msgstr "lub przeciągnij i upuść pliki, aby przesłać"
 
-#: assets/build/portals-app.js:19
 #. translators: %d is the file count
+#: assets/build/portals-app.js:19
 #, js-format
 msgid "Showing %d files"
 msgstr "Wyświetlanie %d plików"
@@ -5941,9 +5889,7 @@ msgstr "Szybkie pytanie!"
 
 #: admin/notices.php:155
 msgid "How would you rate your SureDash experience? Love it or not, your feedback helps us make community building better."
-msgstr ""
-"Jak oceniasz swoje doświadczenia z SureDash? Niezależnie od tego, czy je kochasz, czy nie, Twoja opinia pomaga nam "
-"lepiej budować społeczność."
+msgstr "Jak oceniasz swoje doświadczenia z SureDash? Niezależnie od tego, czy je kochasz, czy nie, Twoja opinia pomaga nam lepiej budować społeczność."
 
 #: admin/notices.php:156
 msgid "Very unlikely!"
@@ -5966,12 +5912,8 @@ msgid "Thank you for sharing your feedback 🙏"
 msgstr "Dziękujemy za podzielenie się swoją opinią 🙏"
 
 #: admin/notices.php:165
-msgid ""
-"We truly value your input. Tell us what’s missing or what could be better — we’re here to improve your SureDash "
-"experience."
-msgstr ""
-"Naprawdę cenimy Twoje zdanie. Powiedz nam, co jest brakujące lub co można poprawić — jesteśmy tutaj, aby poprawić Twoje "
-"doświadczenia z SureDash."
+msgid "We truly value your input. Tell us what’s missing or what could be better — we’re here to improve your SureDash experience."
+msgstr "Naprawdę cenimy Twoje zdanie. Powiedz nam, co jest brakujące lub co można poprawić — jesteśmy tutaj, aby poprawić Twoje doświadczenia z SureDash."
 
 #: core/integrations/feeds.php:292
 msgid "Edit Post"
@@ -6092,9 +6034,7 @@ msgstr "Zbuduj centralne centrum dla swojej społeczności"
 
 #: assets/build/portals-app.js:10
 msgid "Everything You Need to Connect, Engage, Grow, and Scale Your Community - All in One Place."
-msgstr ""
-"Wszystko, czego potrzebujesz, aby połączyć, zaangażować, rozwijać i skalować swoją społeczność - wszystko w jednym "
-"miejscu."
+msgstr "Wszystko, czego potrzebujesz, aby połączyć, zaangażować, rozwijać i skalować swoją społeczność - wszystko w jednym miejscu."
 
 #: assets/build/portals-app.js:10
 msgid "Open Support Ticket"
@@ -6106,9 +6046,7 @@ msgstr "Zostaw nam recenzję"
 
 #: assets/build/portals-app.js:13
 msgid "Enabling this makes all discussions private between users with portal management capabilities and the topic creator."
-msgstr ""
-"Włączenie tego sprawia, że wszystkie dyskusje są prywatne między użytkownikami z uprawnieniami do zarządzania portalem "
-"a twórcą tematu."
+msgstr "Włączenie tego sprawia, że wszystkie dyskusje są prywatne między użytkownikami z uprawnieniami do zarządzania portalem a twórcą tematu."
 
 #: assets/build/portals-app.js:13
 msgid "Select Pinned Events"
@@ -6263,12 +6201,8 @@ msgid "Select a space…"
 msgstr "Wybierz przestrzeń…"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Select the space where users will be redirected after purchasing from SureCart. If \"None\" is selected, users will be "
-"redirected to the default SureCart customer dashboard page."
-msgstr ""
-"Wybierz przestrzeń, do której użytkownicy będą przekierowywani po zakupie z SureCart. Jeśli wybrano \"Brak\", "
-"użytkownicy zostaną przekierowani na domyślną stronę pulpitu klienta SureCart."
+msgid "Select the space where users will be redirected after purchasing from SureCart. If \"None\" is selected, users will be redirected to the default SureCart customer dashboard page."
+msgstr "Wybierz przestrzeń, do której użytkownicy będą przekierowywani po zakupie z SureCart. Jeśli wybrano \"Brak\", użytkownicy zostaną przekierowani na domyślną stronę pulpitu klienta SureCart."
 
 #: assets/build/portals-app.js:38
 msgid "Integrations"
@@ -6391,16 +6325,16 @@ msgstr "Nie udało się usunąć wyzwalacza e-mail."
 msgid "Invalid or missing config IDs."
 msgstr "Nieprawidłowe lub brakujące identyfikatory konfiguracyjne."
 
-#: core/routers/emails.php:249
 #. translators: %d: number of deleted triggers
+#: core/routers/emails.php:249
 #, php-format
 msgid "%d email trigger deleted successfully."
 msgid_plural "%d email triggers deleted successfully."
 msgstr[0] "%d wyzwalacz e-mail usunięty pomyślnie."
 msgstr[1] ""
 
-#: core/routers/emails.php:261
 #. translators: %d: number of failed deletions
+#: core/routers/emails.php:261
 #, php-format
 msgid "%d trigger failed to delete."
 msgid_plural "%d triggers failed to delete."
@@ -6421,14 +6355,14 @@ msgstr "Użytkownik nie jest zalogowany."
 msgid "User not found."
 msgstr "Użytkownik nie został znaleziony."
 
-#: core/routers/misc.php:793
 #. translators: %s: Site name
+#: core/routers/misc.php:793
 #, php-format
 msgid "Test Email from %s"
 msgstr "Testowy e-mail z %s"
 
-#: core/routers/misc.php:809
 #. translators: %1$s: User name, %2$s: Site name
+#: core/routers/misc.php:809
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6497,25 +6431,8 @@ msgid "Welcome to {{portal_name}}, {{user_name}}! 🎉"
 msgstr "Witamy w {{portal_name}}, {{user_name}}! 🎉"
 
 #: inc/modules/email-notifications/email-notifications.php:48
-msgid ""
-"<p>Hi {{user_first_name}},</p><p>Welcome to <strong>{{portal_name}}</strong>! 🎉 We're thrilled to have you join our "
-"community.</p><p>Your account has been successfully created and you're all set to explore everything we have to offer. "
-"Whether you're here to learn, connect, or collaborate, you've come to the right place.</p><p>👉 <strong>Access Your "
-"Dashboard:</strong> <a href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>What's "
-"next?</strong></p><ul><li>Complete your profile to help others get to know you</li><li>Explore the different spaces and "
-"join conversations</li><li>Connect with other community members</li><li>Check out our resources and latest "
-"updates</li></ul><p>If you have any questions or need assistance getting started, don't hesitate to reach out. We're "
-"here to help!</p><p>Welcome aboard!<br>The {{portal_name}} Team</p>"
-msgstr ""
-"<p>Cześć {{user_first_name}},</p><p>Witamy w <strong>{{portal_name}}</strong>! 🎉 Cieszymy się, że dołączasz do naszej "
-"społeczności.</p><p>Twoje konto zostało pomyślnie utworzone i jesteś gotowy, aby odkrywać wszystko, co mamy do "
-"zaoferowania. Niezależnie od tego, czy jesteś tu, aby się uczyć, nawiązywać kontakty czy współpracować, trafiłeś we "
-"właściwe miejsce.</p><p>👉 <strong>Uzyskaj dostęp do swojego panelu:</strong> <a "
-"href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>Co dalej?</strong></p><ul><li>Uzupełnij swój profil, aby inni "
-"mogli Cię lepiej poznać</li><li>Odkrywaj różne przestrzenie i dołączaj do rozmów</li><li>Nawiązuj kontakty z innymi "
-"członkami społeczności</li><li>Sprawdź nasze zasoby i najnowsze aktualizacje</li></ul><p>Jeśli masz jakiekolwiek "
-"pytania lub potrzebujesz pomocy na początek, nie wahaj się skontaktować. Jesteśmy tu, aby pomóc!</p><p>Witamy na "
-"pokładzie!<br>Zespół {{portal_name}}</p>"
+msgid "<p>Hi {{user_first_name}},</p><p>Welcome to <strong>{{portal_name}}</strong>! 🎉 We're thrilled to have you join our community.</p><p>Your account has been successfully created and you're all set to explore everything we have to offer. Whether you're here to learn, connect, or collaborate, you've come to the right place.</p><p>👉 <strong>Access Your Dashboard:</strong> <a href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>What's next?</strong></p><ul><li>Complete your profile to help others get to know you</li><li>Explore the different spaces and join conversations</li><li>Connect with other community members</li><li>Check out our resources and latest updates</li></ul><p>If you have any questions or need assistance getting started, don't hesitate to reach out. We're here to help!</p><p>Welcome aboard!<br>The {{portal_name}} Team</p>"
+msgstr "<p>Cześć {{user_first_name}},</p><p>Witamy w <strong>{{portal_name}}</strong>! 🎉 Cieszymy się, że dołączasz do naszej społeczności.</p><p>Twoje konto zostało pomyślnie utworzone i jesteś gotowy, aby odkrywać wszystko, co mamy do zaoferowania. Niezależnie od tego, czy jesteś tu, aby się uczyć, nawiązywać kontakty czy współpracować, trafiłeś we właściwe miejsce.</p><p>👉 <strong>Uzyskaj dostęp do swojego panelu:</strong> <a href=\"{{portal_url}}\">{{portal_url}}</a></p><p><strong>Co dalej?</strong></p><ul><li>Uzupełnij swój profil, aby inni mogli Cię lepiej poznać</li><li>Odkrywaj różne przestrzenie i dołączaj do rozmów</li><li>Nawiązuj kontakty z innymi członkami społeczności</li><li>Sprawdź nasze zasoby i najnowsze aktualizacje</li></ul><p>Jeśli masz jakiekolwiek pytania lub potrzebujesz pomocy na początek, nie wahaj się skontaktować. Jesteśmy tu, aby pomóc!</p><p>Witamy na pokładzie!<br>Zespół {{portal_name}}</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:52
 msgid "New Space Announcement"
@@ -6526,25 +6443,8 @@ msgid "🚀 New space available: {{space_name}}"
 msgstr "🚀 Nowa przestrzeń dostępna: {{space_name}}"
 
 #: inc/modules/email-notifications/email-notifications.php:55
-msgid ""
-"<p>Hi {{user_first_name}},</p><p>Exciting news! We've just launched a new space on "
-"<strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> is now open and ready for exploration. This "
-"space has been carefully designed to provide you with valuable content, discussions, and resources.</p><p>👉 "
-"<strong>Explore {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>What you'll "
-"find:</strong></p><ul><li>Fresh content and discussions</li><li>Valuable resources and materials</li><li>Opportunities "
-"to connect with like-minded members</li><li>Expert insights and community knowledge</li></ul><p>Don't miss out on being "
-"among the first to engage with this new space. Your participation helps build a vibrant community for "
-"everyone.</p><p>See you inside!<br>The {{portal_name}} Team</p>"
-msgstr ""
-"<p>Cześć {{user_first_name}},</p><p>Ekscytujące wieści! Właśnie uruchomiliśmy nową przestrzeń na "
-"<strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> jest teraz otwarta i gotowa do eksploracji. Ta "
-"przestrzeń została starannie zaprojektowana, aby dostarczyć Ci wartościowe treści, dyskusje i zasoby.</p><p>👉 "
-"<strong>Odkryj {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>Co "
-"znajdziesz:</strong></p><ul><li>Świeże treści i dyskusje</li><li>Wartościowe zasoby i materiały</li><li>Możliwości "
-"nawiązania kontaktu z podobnie myślącymi członkami</li><li>Eksperckie spostrzeżenia i wiedza "
-"społeczności</li></ul><p>Nie przegap okazji, aby być jednym z pierwszych, którzy zaangażują się w tę nową przestrzeń. "
-"Twoje uczestnictwo pomaga budować dynamiczną społeczność dla wszystkich.</p><p>Do zobaczenia w środku!<br>Zespół "
-"{{portal_name}}</p>"
+msgid "<p>Hi {{user_first_name}},</p><p>Exciting news! We've just launched a new space on <strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> is now open and ready for exploration. This space has been carefully designed to provide you with valuable content, discussions, and resources.</p><p>👉 <strong>Explore {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>What you'll find:</strong></p><ul><li>Fresh content and discussions</li><li>Valuable resources and materials</li><li>Opportunities to connect with like-minded members</li><li>Expert insights and community knowledge</li></ul><p>Don't miss out on being among the first to engage with this new space. Your participation helps build a vibrant community for everyone.</p><p>See you inside!<br>The {{portal_name}} Team</p>"
+msgstr "<p>Cześć {{user_first_name}},</p><p>Ekscytujące wieści! Właśnie uruchomiliśmy nową przestrzeń na <strong>{{portal_name}}</strong>.</p><p><strong>{{space_name}}</strong> jest teraz otwarta i gotowa do eksploracji. Ta przestrzeń została starannie zaprojektowana, aby dostarczyć Ci wartościowe treści, dyskusje i zasoby.</p><p>👉 <strong>Odkryj {{space_name}}:</strong> <a href=\"{{space_url}}\">{{space_url}}</a></p><p><strong>Co znajdziesz:</strong></p><ul><li>Świeże treści i dyskusje</li><li>Wartościowe zasoby i materiały</li><li>Możliwości nawiązania kontaktu z podobnie myślącymi członkami</li><li>Eksperckie spostrzeżenia i wiedza społeczności</li></ul><p>Nie przegap okazji, aby być jednym z pierwszych, którzy zaangażują się w tę nową przestrzeń. Twoje uczestnictwo pomaga budować dynamiczną społeczność dla wszystkich.</p><p>Do zobaczenia w środku!<br>Zespół {{portal_name}}</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:59
 msgid "Admin Post Notification"
@@ -6555,24 +6455,8 @@ msgid "📰 New Post: {{post_title}}"
 msgstr "📰 Nowy post: {{post_title}}"
 
 #: inc/modules/email-notifications/email-notifications.php:62
-msgid ""
-"<p>Hi {{user_first_name}},</p><p>We've just published something new that we think you'll find valuable on "
-"<strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>This content is "
-"fresh off the press and contains insights that could be exactly what you need right now.</p><p>👉 <strong>Read the full "
-"post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Why this matters:</strong></p><ul><li>Stay "
-"updated with the latest developments</li><li>Gain valuable insights from our community</li><li>Join the conversation "
-"with your thoughts and questions</li><li>Connect with others who share your interests</li></ul><p>We love hearing your "
-"thoughts and feedback, so don't hesitate to engage with the post and share your perspective.</p><p>Stay "
-"connected,<br>The {{portal_name}} Team</p>"
-msgstr ""
-"<p>Cześć {{user_first_name}},</p><p>Właśnie opublikowaliśmy coś nowego, co uważamy, że będzie dla Ciebie wartościowe na "
-"<strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>Ta treść jest "
-"świeżo wydana i zawiera spostrzeżenia, które mogą być dokładnie tym, czego potrzebujesz w tej chwili.</p><p>👉 "
-"<strong>Przeczytaj cały post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Dlaczego to "
-"ważne:</strong></p><ul><li>Śledź najnowsze wydarzenia</li><li>Zyskaj cenne spostrzeżenia od naszej "
-"społeczności</li><li>Dołącz do rozmowy ze swoimi myślami i pytaniami</li><li>Połącz się z innymi, którzy podzielają "
-"Twoje zainteresowania</li></ul><p>Uwielbiamy słyszeć Twoje myśli i opinie, więc nie wahaj się zaangażować w post i "
-"podzielić się swoją perspektywą.</p><p>Pozostań w kontakcie,<br>Zespół {{portal_name}}</p>"
+msgid "<p>Hi {{user_first_name}},</p><p>We've just published something new that we think you'll find valuable on <strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>This content is fresh off the press and contains insights that could be exactly what you need right now.</p><p>👉 <strong>Read the full post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Why this matters:</strong></p><ul><li>Stay updated with the latest developments</li><li>Gain valuable insights from our community</li><li>Join the conversation with your thoughts and questions</li><li>Connect with others who share your interests</li></ul><p>We love hearing your thoughts and feedback, so don't hesitate to engage with the post and share your perspective.</p><p>Stay connected,<br>The {{portal_name}} Team</p>"
+msgstr "<p>Cześć {{user_first_name}},</p><p>Właśnie opublikowaliśmy coś nowego, co uważamy, że będzie dla Ciebie wartościowe na <strong>{{portal_name}}</strong>.</p><p><strong>{{post_title}}</strong></p><p>{{post_excerpt}}</p><p>Ta treść jest świeżo wydana i zawiera spostrzeżenia, które mogą być dokładnie tym, czego potrzebujesz w tej chwili.</p><p>👉 <strong>Przeczytaj cały post:</strong> <a href=\"{{post_url}}\">{{post_url}}</a></p><p><strong>Dlaczego to ważne:</strong></p><ul><li>Śledź najnowsze wydarzenia</li><li>Zyskaj cenne spostrzeżenia od naszej społeczności</li><li>Dołącz do rozmowy ze swoimi myślami i pytaniami</li><li>Połącz się z innymi, którzy podzielają Twoje zainteresowania</li></ul><p>Uwielbiamy słyszeć Twoje myśli i opinie, więc nie wahaj się zaangażować w post i podzielić się swoją perspektywą.</p><p>Pozostań w kontakcie,<br>Zespół {{portal_name}}</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:86
 msgid "Course Completion Celebration"
@@ -6583,28 +6467,8 @@ msgid "🎓 Congratulations! You completed {{course_title}}"
 msgstr "🎓 Gratulacje! Ukończyłeś {{course_title}}"
 
 #: inc/modules/email-notifications/email-notifications.php:90
-msgid ""
-"<p>Hi {{user_first_name}},</p><p>👏 <strong>Congratulations!</strong> You've successfully completed "
-"<strong>{{course_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>This is a significant achievement that "
-"represents your dedication, persistence, and commitment to learning. You should be proud of reaching this "
-"milestone!</p><p><strong>Your achievement:</strong></p><ul><li>Course: {{course_title}}</li><li>Completion date: "
-"{{user_registered}}</li><li>Learning platform: {{portal_name}}</li></ul><p><strong>What's "
-"next?</strong></p><ul><li>Apply what you've learned in real-world scenarios</li><li>Share your knowledge with other "
-"community members</li><li>Explore related courses to expand your expertise</li><li>Consider mentoring others who are "
-"just starting their journey</li></ul><p>Your success inspires others in our community. Thank you for being an active "
-"learner and contributing to the growth of our learning environment.</p><p>We're excited to see what you'll achieve "
-"next!</p><p>Celebrating your success,<br>The {{portal_name}} Team</p>"
-msgstr ""
-"<p>Cześć {{user_first_name}},</p><p>👏 <strong>Gratulacje!</strong> Udało Ci się ukończyć "
-"<strong>{{course_title}}</strong> na <strong>{{portal_name}}</strong>.</p><p>To znaczące osiągnięcie, które "
-"odzwierciedla Twoje zaangażowanie, wytrwałość i chęć do nauki. Powinieneś być dumny z osiągnięcia tego kamienia "
-"milowego!</p><p><strong>Twoje osiągnięcie:</strong></p><ul><li>Kurs: {{course_title}}</li><li>Data ukończenia: "
-"{{user_registered}}</li><li>Platforma edukacyjna: {{portal_name}}</li></ul><p><strong>Co "
-"dalej?</strong></p><ul><li>Zastosuj to, czego się nauczyłeś w rzeczywistych scenariuszach</li><li>Podziel się swoją "
-"wiedzą z innymi członkami społeczności</li><li>Odkryj pokrewne kursy, aby poszerzyć swoją wiedzę</li><li>Rozważ "
-"mentoring innych, którzy dopiero zaczynają swoją podróż</li></ul><p>Twój sukces inspiruje innych w naszej społeczności. "
-"Dziękujemy, że jesteś aktywnym uczniem i przyczyniasz się do rozwoju naszego środowiska edukacyjnego.</p><p>Jesteśmy "
-"podekscytowani, aby zobaczyć, co osiągniesz następnie!</p><p>Świętując Twój sukces,<br>Zespół {{portal_name}}</p>"
+msgid "<p>Hi {{user_first_name}},</p><p>👏 <strong>Congratulations!</strong> You've successfully completed <strong>{{course_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>This is a significant achievement that represents your dedication, persistence, and commitment to learning. You should be proud of reaching this milestone!</p><p><strong>Your achievement:</strong></p><ul><li>Course: {{course_title}}</li><li>Completion date: {{user_registered}}</li><li>Learning platform: {{portal_name}}</li></ul><p><strong>What's next?</strong></p><ul><li>Apply what you've learned in real-world scenarios</li><li>Share your knowledge with other community members</li><li>Explore related courses to expand your expertise</li><li>Consider mentoring others who are just starting their journey</li></ul><p>Your success inspires others in our community. Thank you for being an active learner and contributing to the growth of our learning environment.</p><p>We're excited to see what you'll achieve next!</p><p>Celebrating your success,<br>The {{portal_name}} Team</p>"
+msgstr "<p>Cześć {{user_first_name}},</p><p>👏 <strong>Gratulacje!</strong> Udało Ci się ukończyć <strong>{{course_title}}</strong> na <strong>{{portal_name}}</strong>.</p><p>To znaczące osiągnięcie, które odzwierciedla Twoje zaangażowanie, wytrwałość i chęć do nauki. Powinieneś być dumny z osiągnięcia tego kamienia milowego!</p><p><strong>Twoje osiągnięcie:</strong></p><ul><li>Kurs: {{course_title}}</li><li>Data ukończenia: {{user_registered}}</li><li>Platforma edukacyjna: {{portal_name}}</li></ul><p><strong>Co dalej?</strong></p><ul><li>Zastosuj to, czego się nauczyłeś w rzeczywistych scenariuszach</li><li>Podziel się swoją wiedzą z innymi członkami społeczności</li><li>Odkryj pokrewne kursy, aby poszerzyć swoją wiedzę</li><li>Rozważ mentoring innych, którzy dopiero zaczynają swoją podróż</li></ul><p>Twój sukces inspiruje innych w naszej społeczności. Dziękujemy, że jesteś aktywnym uczniem i przyczyniasz się do rozwoju naszego środowiska edukacyjnego.</p><p>Jesteśmy podekscytowani, aby zobaczyć, co osiągniesz następnie!</p><p>Świętując Twój sukces,<br>Zespół {{portal_name}}</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:95
 msgid "Upcoming Event Announcement"
@@ -6615,31 +6479,8 @@ msgid "📅 Don't miss: {{event_title}} is coming up!"
 msgstr "📅 Nie przegap: {{event_title}} nadchodzi!"
 
 #: inc/modules/email-notifications/email-notifications.php:99
-msgid ""
-"<p>Hi {{user_first_name}},</p><p>Mark your calendar! We have an exciting event coming up on "
-"<strong>{{portal_name}}</strong> that you won't want to miss.</p><p><strong>{{event_title}}</strong></p><p>This event "
-"promises to be both informative and engaging, bringing together our community for valuable discussions, learning "
-"opportunities, and networking.</p><p>📅 <strong>Event Details:</strong></p><ul><li>Date: {{event_date}}</li><li>Time: "
-"{{event_start_time}}</li><li>Platform: {{portal_name}}</li></ul><p>👉 <strong>View full details and register:</strong> "
-"<a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Why attend?</strong></p><ul><li>Connect with like-minded "
-"community members</li><li>Learn from experts and industry leaders</li><li>Participate in interactive "
-"discussions</li><li>Get your questions answered in real-time</li><li>Access exclusive content and "
-"resources</li></ul><p>Spaces are limited, so we encourage you to secure your spot early. This is a great opportunity to "
-"enhance your knowledge and network with peers who share your interests.</p><p>See you there!<br>The {{portal_name}} "
-"Team</p>"
-msgstr ""
-"<p>Cześć {{user_first_name}},</p><p>Zapamiętaj datę! Mamy ekscytujące wydarzenie, które odbędzie się na "
-"<strong>{{portal_name}}</strong>, którego nie chcesz przegapić.</p><p><strong>{{event_title}}</strong></p><p>To "
-"wydarzenie obiecuje być zarówno informacyjne, jak i angażujące, łącząc naszą społeczność w celu wartościowych dyskusji, "
-"możliwości nauki i nawiązywania kontaktów.</p><p>📅 <strong>Szczegóły wydarzenia:</strong></p><ul><li>Data: "
-"{{event_date}}</li><li>Godzina: {{event_start_time}}</li><li>Platforma: {{portal_name}}</li></ul><p>👉 <strong>Zobacz "
-"pełne szczegóły i zarejestruj się:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Dlaczego warto "
-"wziąć udział?</strong></p><ul><li>Nawiąż kontakt z podobnie myślącymi członkami społeczności</li><li>Ucz się od "
-"ekspertów i liderów branży</li><li>Weź udział w interaktywnych dyskusjach</li><li>Uzyskaj odpowiedzi na swoje pytania w "
-"czasie rzeczywistym</li><li>Uzyskaj dostęp do ekskluzywnych treści i zasobów</li></ul><p>Miejsca są ograniczone, "
-"dlatego zachęcamy do wcześniejszego zabezpieczenia swojego miejsca. To doskonała okazja, aby poszerzyć swoją wiedzę i "
-"nawiązać kontakty z rówieśnikami, którzy podzielają Twoje zainteresowania.</p><p>Do zobaczenia!<br>Zespół "
-"{{portal_name}}</p>"
+msgid "<p>Hi {{user_first_name}},</p><p>Mark your calendar! We have an exciting event coming up on <strong>{{portal_name}}</strong> that you won't want to miss.</p><p><strong>{{event_title}}</strong></p><p>This event promises to be both informative and engaging, bringing together our community for valuable discussions, learning opportunities, and networking.</p><p>📅 <strong>Event Details:</strong></p><ul><li>Date: {{event_date}}</li><li>Time: {{event_start_time}}</li><li>Platform: {{portal_name}}</li></ul><p>👉 <strong>View full details and register:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Why attend?</strong></p><ul><li>Connect with like-minded community members</li><li>Learn from experts and industry leaders</li><li>Participate in interactive discussions</li><li>Get your questions answered in real-time</li><li>Access exclusive content and resources</li></ul><p>Spaces are limited, so we encourage you to secure your spot early. This is a great opportunity to enhance your knowledge and network with peers who share your interests.</p><p>See you there!<br>The {{portal_name}} Team</p>"
+msgstr "<p>Cześć {{user_first_name}},</p><p>Zapamiętaj datę! Mamy ekscytujące wydarzenie, które odbędzie się na <strong>{{portal_name}}</strong>, którego nie chcesz przegapić.</p><p><strong>{{event_title}}</strong></p><p>To wydarzenie obiecuje być zarówno informacyjne, jak i angażujące, łącząc naszą społeczność w celu wartościowych dyskusji, możliwości nauki i nawiązywania kontaktów.</p><p>📅 <strong>Szczegóły wydarzenia:</strong></p><ul><li>Data: {{event_date}}</li><li>Godzina: {{event_start_time}}</li><li>Platforma: {{portal_name}}</li></ul><p>👉 <strong>Zobacz pełne szczegóły i zarejestruj się:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Dlaczego warto wziąć udział?</strong></p><ul><li>Nawiąż kontakt z podobnie myślącymi członkami społeczności</li><li>Ucz się od ekspertów i liderów branży</li><li>Weź udział w interaktywnych dyskusjach</li><li>Uzyskaj odpowiedzi na swoje pytania w czasie rzeczywistym</li><li>Uzyskaj dostęp do ekskluzywnych treści i zasobów</li></ul><p>Miejsca są ograniczone, dlatego zachęcamy do wcześniejszego zabezpieczenia swojego miejsca. To doskonała okazja, aby poszerzyć swoją wiedzę i nawiązać kontakty z rówieśnikami, którzy podzielają Twoje zainteresowania.</p><p>Do zobaczenia!<br>Zespół {{portal_name}}</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:103
 msgid "Event Update Notification"
@@ -6650,28 +6491,8 @@ msgid "🔄 Important update for {{event_title}}"
 msgstr "🔄 Ważna aktualizacja dotycząca {{event_title}}"
 
 #: inc/modules/email-notifications/email-notifications.php:107
-msgid ""
-"<p>Hi {{user_first_name}},</p><p>We have an important update regarding the upcoming event "
-"<strong>{{event_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>We want to make sure you have the latest "
-"information to ensure you don't miss out on this valuable opportunity. Please take a moment to review the updated "
-"details.</p><p><strong>Event: {{event_title}}</strong></p><p>👉 <strong>View the complete updated details:</strong> <a "
-"href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Important reminders:</strong></p><ul><li>Check the updated date "
-"and time</li><li>Review any changes to the agenda or format</li><li>Note any new requirements or materials "
-"needed</li><li>Verify your registration status</li></ul><p>If you have any questions about these updates or need "
-"assistance, please don't hesitate to reach out. We're here to help ensure you have the best possible "
-"experience.</p><p>Thank you for your understanding, and we look forward to seeing you at the event!</p><p>Stay "
-"informed,<br>The {{portal_name}} Team</p>"
-msgstr ""
-"<p>Cześć {{user_first_name}},</p><p>Mamy ważną aktualizację dotyczącą nadchodzącego wydarzenia "
-"<strong>{{event_title}}</strong> na <strong>{{portal_name}}</strong>.</p><p>Chcemy upewnić się, że masz najnowsze "
-"informacje, aby nie przegapić tej cennej okazji. Proszę, poświęć chwilę na zapoznanie się z zaktualizowanymi "
-"szczegółami.</p><p><strong>Wydarzenie: {{event_title}}</strong></p><p>👉 <strong>Zobacz pełne zaktualizowane "
-"szczegóły:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Ważne "
-"przypomnienia:</strong></p><ul><li>Sprawdź zaktualizowaną datę i godzinę</li><li>Przejrzyj wszelkie zmiany w agendzie "
-"lub formacie</li><li>Zwróć uwagę na nowe wymagania lub materiały potrzebne</li><li>Zweryfikuj swój status "
-"rejestracji</li></ul><p>Jeśli masz jakiekolwiek pytania dotyczące tych aktualizacji lub potrzebujesz pomocy, nie wahaj "
-"się skontaktować. Jesteśmy tutaj, aby pomóc zapewnić Ci jak najlepsze doświadczenie.</p><p>Dziękujemy za zrozumienie i "
-"czekamy na spotkanie z Tobą na wydarzeniu!</p><p>Bądź na bieżąco,<br>Zespół {{portal_name}}</p>"
+msgid "<p>Hi {{user_first_name}},</p><p>We have an important update regarding the upcoming event <strong>{{event_title}}</strong> on <strong>{{portal_name}}</strong>.</p><p>We want to make sure you have the latest information to ensure you don't miss out on this valuable opportunity. Please take a moment to review the updated details.</p><p><strong>Event: {{event_title}}</strong></p><p>👉 <strong>View the complete updated details:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Important reminders:</strong></p><ul><li>Check the updated date and time</li><li>Review any changes to the agenda or format</li><li>Note any new requirements or materials needed</li><li>Verify your registration status</li></ul><p>If you have any questions about these updates or need assistance, please don't hesitate to reach out. We're here to help ensure you have the best possible experience.</p><p>Thank you for your understanding, and we look forward to seeing you at the event!</p><p>Stay informed,<br>The {{portal_name}} Team</p>"
+msgstr "<p>Cześć {{user_first_name}},</p><p>Mamy ważną aktualizację dotyczącą nadchodzącego wydarzenia <strong>{{event_title}}</strong> na <strong>{{portal_name}}</strong>.</p><p>Chcemy upewnić się, że masz najnowsze informacje, aby nie przegapić tej cennej okazji. Proszę, poświęć chwilę na zapoznanie się z zaktualizowanymi szczegółami.</p><p><strong>Wydarzenie: {{event_title}}</strong></p><p>👉 <strong>Zobacz pełne zaktualizowane szczegóły:</strong> <a href=\"{{event_url}}\">{{event_url}}</a></p><p><strong>Ważne przypomnienia:</strong></p><ul><li>Sprawdź zaktualizowaną datę i godzinę</li><li>Przejrzyj wszelkie zmiany w agendzie lub formacie</li><li>Zwróć uwagę na nowe wymagania lub materiały potrzebne</li><li>Zweryfikuj swój status rejestracji</li></ul><p>Jeśli masz jakiekolwiek pytania dotyczące tych aktualizacji lub potrzebujesz pomocy, nie wahaj się skontaktować. Jesteśmy tutaj, aby pomóc zapewnić Ci jak najlepsze doświadczenie.</p><p>Dziękujemy za zrozumienie i czekamy na spotkanie z Tobą na wydarzeniu!</p><p>Bądź na bieżąco,<br>Zespół {{portal_name}}</p>"
 
 #: inc/modules/email-notifications/email-notifications.php:267
 msgid "User display name"
@@ -7160,11 +6981,11 @@ msgstr "Zarejestrowany"
 msgid "No likes yet, be the first to like!"
 msgstr "Brak polubień, bądź pierwszy, który polubi!"
 
+#. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
+#. translators: %s: time ago
 #: core/notifier/base.php:204
 #: core/shortcodes/widgets/recent-activities.php:96
 #: inc/functions/functions.php:2738
-#. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
-#. translators: %s: time ago
 #, php-format
 msgid "%s ago"
 msgstr "%s temu"
@@ -7181,8 +7002,8 @@ msgstr "Przejdź do strony powiadomień"
 msgid "Lost your password?"
 msgstr "Zapomniałeś hasła?"
 
-#: core/routers/social-logins.php:119
 #. translators: %1$s: Username, %2$s: Forgot password link.
+#: core/routers/social-logins.php:119
 #, php-format
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr "Hasło, które wprowadziłeś dla nazwy użytkownika %1$s, jest nieprawidłowe. %2$s"
@@ -7216,15 +7037,11 @@ msgstr "Edytuj profil"
 
 #: assets/build/portals-app.js:13
 msgid "Used as the preview image for the space in the Home grid view. Recommended size is 1200*675px (Ratio 16:9)."
-msgstr ""
-"Używany jako obraz podglądu dla przestrzeni w widoku siatki na stronie głównej. Zalecany rozmiar to 1200*675px "
-"(proporcje 16:9)."
+msgstr "Używany jako obraz podglądu dla przestrzeni w widoku siatki na stronie głównej. Zalecany rozmiar to 1200*675px (proporcje 16:9)."
 
 #: assets/build/portals-app.js:13
 msgid "Displayed at the top of the space page when the user opens the space. Recommended size is 1920*600px (Ratio 16:5)."
-msgstr ""
-"Wyświetlane na górze strony przestrzeni, gdy użytkownik otwiera przestrzeń. Zalecany rozmiar to 1920*600px (proporcje "
-"16:5)."
+msgstr "Wyświetlane na górze strony przestrzeni, gdy użytkownik otwiera przestrzeń. Zalecany rozmiar to 1920*600px (proporcje 16:5)."
 
 #: assets/build/portals-app.js:35
 msgid "Scheduled"
@@ -7366,12 +7183,8 @@ msgid "This post is visible to all members."
 msgstr "Ten post jest widoczny dla wszystkich członków."
 
 #: assets/build/portals-app.js:9
-msgid ""
-"A space group is a collection of related spaces that helps organize and categorize your content. You can group spaces "
-"by topic, project, or any other organizational structure."
-msgstr ""
-"Grupa przestrzeni to zbiór powiązanych przestrzeni, który pomaga organizować i kategoryzować Twoje treści. Możesz "
-"grupować przestrzenie według tematu, projektu lub dowolnej innej struktury organizacyjnej."
+msgid "A space group is a collection of related spaces that helps organize and categorize your content. You can group spaces by topic, project, or any other organizational structure."
+msgstr "Grupa przestrzeni to zbiór powiązanych przestrzeni, który pomaga organizować i kategoryzować Twoje treści. Możesz grupować przestrzenie według tematu, projektu lub dowolnej innej struktury organizacyjnej."
 
 #: assets/build/portals-app.js:10
 msgid "No Custom Icons"
@@ -7426,12 +7239,8 @@ msgid "Open Media Library"
 msgstr "Otwórz bibliotekę multimediów"
 
 #: assets/build/portals-app.js:10
-msgid ""
-"Upgrade to SureDash Premium to unlock the ability to upload and use your own custom SVG icons. Personalize your spaces "
-"with unlimited custom icons!"
-msgstr ""
-"Ulepsz do SureDash Premium, aby odblokować możliwość przesyłania i używania własnych niestandardowych ikon SVG. "
-"Personalizuj swoje przestrzenie za pomocą nieograniczonej liczby niestandardowych ikon!"
+msgid "Upgrade to SureDash Premium to unlock the ability to upload and use your own custom SVG icons. Personalize your spaces with unlimited custom icons!"
+msgstr "Ulepsz do SureDash Premium, aby odblokować możliwość przesyłania i używania własnych niestandardowych ikon SVG. Personalizuj swoje przestrzenie za pomocą nieograniczonej liczby niestandardowych ikon!"
 
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:38
@@ -7505,12 +7314,8 @@ msgid "Once posts receive comments, they will appear here."
 msgstr "Gdy posty otrzymają komentarze, pojawią się tutaj."
 
 #: assets/build/portals-app.js:13
-msgid ""
-"Spaces are dedicated areas where members can collaborate, share content, and engage in discussions around a specific "
-"topic, project, or interest."
-msgstr ""
-"Przestrzenie to dedykowane obszary, w których członkowie mogą współpracować, dzielić się treściami i angażować się w "
-"dyskusje na określony temat, projekt lub zainteresowanie."
+msgid "Spaces are dedicated areas where members can collaborate, share content, and engage in discussions around a specific topic, project, or interest."
+msgstr "Przestrzenie to dedykowane obszary, w których członkowie mogą współpracować, dzielić się treściami i angażować się w dyskusje na określony temat, projekt lub zainteresowanie."
 
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -7719,24 +7524,16 @@ msgid "Assets Upload Limit"
 msgstr "Limit przesyłania zasobów"
 
 #: assets/build/portals-app.js:35
-msgid ""
-"Set the maximum file size limit for users to upload assets like images, documents, and other media files in posts, "
-"comments, and other content areas."
-msgstr ""
-"Ustaw maksymalny limit rozmiaru pliku dla użytkowników do przesyłania zasobów, takich jak obrazy, dokumenty i inne "
-"pliki multimedialne w postach, komentarzach i innych obszarach treści."
+msgid "Set the maximum file size limit for users to upload assets like images, documents, and other media files in posts, comments, and other content areas."
+msgstr "Ustaw maksymalny limit rozmiaru pliku dla użytkowników do przesyłania zasobów, takich jak obrazy, dokumenty i inne pliki multimedialne w postach, komentarzach i innych obszarach treści."
 
 #: assets/build/portals-app.js:35
 msgid "Profile and Cover Image Upload Limit"
 msgstr "Limit przesyłania zdjęcia profilowego i okładki"
 
 #: assets/build/portals-app.js:35
-msgid ""
-"Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies "
-"only to user profile images."
-msgstr ""
-"Ustaw maksymalny limit rozmiaru pliku specjalnie dla przesyłania zdjęć profilowych i okładek/banerów. Ten limit dotyczy "
-"tylko obrazów profilowych użytkowników."
+msgid "Set the maximum file size limit specifically for profile picture and cover/banner image uploads. This limit applies only to user profile images."
+msgstr "Ustaw maksymalny limit rozmiaru pliku specjalnie dla przesyłania zdjęć profilowych i okładek/banerów. Ten limit dotyczy tylko obrazów profilowych użytkowników."
 
 #: assets/build/portals-app.js:38
 msgid "groups selected"
@@ -7792,21 +7589,15 @@ msgstr "Wyklucz wybranych użytkowników z rankingu"
 
 #: assets/build/portals-app.js:38
 msgid "Users excluded from the leaderboard will not be assigned levels and will not appear in leaderboard rankings."
-msgstr ""
-"Użytkownicy wykluczeni z tabeli wyników nie będą przypisywani do poziomów i nie będą pojawiać się w rankingach tabeli "
-"wyników."
+msgstr "Użytkownicy wykluczeni z tabeli wyników nie będą przypisywani do poziomów i nie będą pojawiać się w rankingach tabeli wyników."
 
 #: assets/build/portals-app.js:38
 msgid "Leaderboard is a Premium Feature"
 msgstr "Ranking jest funkcją premium"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Unlock the Leaderboard feature to engage your community with gamification. Rank users based on their activity points "
-"and assign custom levels to encourage participation."
-msgstr ""
-"Odblokuj funkcję Tablicy Liderów, aby zaangażować swoją społeczność poprzez grywalizację. Klasyfikuj użytkowników na "
-"podstawie ich punktów aktywności i przypisuj niestandardowe poziomy, aby zachęcić do udziału."
+msgid "Unlock the Leaderboard feature to engage your community with gamification. Rank users based on their activity points and assign custom levels to encourage participation."
+msgstr "Odblokuj funkcję Tablicy Liderów, aby zaangażować swoją społeczność poprzez grywalizację. Klasyfikuj użytkowników na podstawie ich punktów aktywności i przypisuj niestandardowe poziomy, aby zachęcić do udziału."
 
 #: assets/build/portals-app.js:38
 msgid "What you get with Leaderboard:"
@@ -7859,12 +7650,12 @@ msgstr "Brak postępów w kursie."
 msgid "No events joined yet."
 msgstr "Nie dołączono jeszcze do żadnych wydarzeń."
 
+#. translators: %1$s: author name, %2$s: post date
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
 #: core/routers/misc.php:390
 #: core/routers/misc.php:438
 #: core/shortcodes/home-content.php:765
-#. translators: %1$s: author name, %2$s: post date
 #, php-format
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
@@ -7901,8 +7692,8 @@ msgstr "Opcje sortowania"
 msgid "This community's portal spaces will be listed here."
 msgstr "Portale tej społeczności będą wymienione tutaj."
 
-#: inc/functions/functions.php:2760
 #. translators: %s: Discussion space name
+#: inc/functions/functions.php:2760
 #, php-format
 msgid "in %s"
 msgstr "w %s"
@@ -7970,12 +7761,8 @@ msgid "Select Post"
 msgstr "Wybierz post"
 
 #: assets/build/portals-app.js:13
-msgid ""
-"\"About Space\" and \"Recent Activities\" widgets will appear only once on the frontend, whether added from global "
-"sidebar or space sidebar."
-msgstr ""
-"Widżety \"O przestrzeni\" i \"Najnowsze aktywności\" będą się pojawiać tylko raz na froncie, niezależnie od tego, czy "
-"zostały dodane z globalnego paska bocznego, czy paska bocznego przestrzeni."
+msgid "\"About Space\" and \"Recent Activities\" widgets will appear only once on the frontend, whether added from global sidebar or space sidebar."
+msgstr "Widżety \"O przestrzeni\" i \"Najnowsze aktywności\" będą się pojawiać tylko raz na froncie, niezależnie od tego, czy zostały dodane z globalnego paska bocznego, czy paska bocznego przestrzeni."
 
 #: assets/build/portals-app.js:35
 msgid "Preserve HTML in Excerpts"
@@ -7983,9 +7770,7 @@ msgstr "Zachowaj HTML w fragmentach"
 
 #: assets/build/portals-app.js:35
 msgid "Keep line breaks and formatting tags (like bold, italic) in post excerpts. Disable to show plain text only."
-msgstr ""
-"Zachowaj łamania linii i tagi formatowania (takie jak pogrubienie, kursywa) w fragmentach postów. Wyłącz, aby pokazać "
-"tylko tekst zwykły."
+msgstr "Zachowaj łamania linii i tagi formatowania (takie jak pogrubienie, kursywa) w fragmentach postów. Wyłącz, aby pokazać tylko tekst zwykły."
 
 #: assets/build/portals-app.js:35
 msgid "Show Full Content in Feeds"
@@ -8008,12 +7793,8 @@ msgid "Auto-Assign New Users to memberships"
 msgstr "Automatyczne przypisywanie nowych użytkowników do członkostw"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Select one or more SureMembers membership that new users will be automatically assigned to when they register on your "
-"portal. Leave empty for no automatic assignment."
-msgstr ""
-"Wybierz jedno lub więcej członkostw SureMembers, do których nowi użytkownicy będą automatycznie przypisywani po "
-"rejestracji w Twoim portalu. Pozostaw puste, aby nie było automatycznego przypisania."
+msgid "Select one or more SureMembers membership that new users will be automatically assigned to when they register on your portal. Leave empty for no automatic assignment."
+msgstr "Wybierz jedno lub więcej członkostw SureMembers, do których nowi użytkownicy będą automatycznie przypisywani po rejestracji w Twoim portalu. Pozostaw puste, aby nie było automatycznego przypisania."
 
 #: assets/build/portals-app.js:38
 msgid "to automatically assign new users to memberships."
@@ -8077,14 +7858,14 @@ msgstr "Wprowadzenie do SureDash"
 msgid "Space name and integration type are required."
 msgstr "Nazwa przestrzeni i typ integracji są wymagane."
 
-#: core/routers/backend.php:423
 #. translators: %s: space name
+#: core/routers/backend.php:423
 #, php-format
 msgid "This forum group is created for the space: %s"
 msgstr "Ta grupa forum została utworzona dla przestrzeni: %s"
 
-#: core/routers/backend.php:1446
 #. translators: %s: original post title
+#: core/routers/backend.php:1446
 #, php-format
 msgid "%s - Copy"
 msgstr "%s - Kopia"
@@ -8093,10 +7874,10 @@ msgstr "%s - Kopia"
 msgid "User ID is required."
 msgstr "ID użytkownika jest wymagany."
 
+#. translators: %s: author name
 #: core/shortcodes/single-content.php:341
 #: templates/quick-view/post.php:67
 #: templates/single/post.php:83
-#. translators: %s: author name
 #, php-format
 msgid "Post author %s"
 msgstr "Autor posta %s"
@@ -8115,9 +7896,7 @@ msgstr "Adres e-mail"
 
 #: assets/build/portals-app.js:6
 msgid "Stay in the loop and help shape SureDash! Help us build a better SureDash by sharing how you use the plugin."
-msgstr ""
-"Bądź na bieżąco i pomóż kształtować SureDash! Pomóż nam zbudować lepszy SureDash, dzieląc się tym, jak korzystasz z "
-"wtyczki."
+msgstr "Bądź na bieżąco i pomóż kształtować SureDash! Pomóż nam zbudować lepszy SureDash, dzieląc się tym, jak korzystasz z wtyczki."
 
 #: assets/build/portals-app.js:10
 msgid "Powerful email marketing for WordPress."
@@ -8159,8 +7938,8 @@ msgstr "Siatka"
 msgid "Toggle comments"
 msgstr "Przełącz komentarze"
 
-#: assets/build/portals-app.js:35
 #. translators: %s: comment count
+#: assets/build/portals-app.js:35
 #, js-format
 msgid "%s comments. Click to view."
 msgstr "%s komentarzy. Kliknij, aby zobaczyć."
@@ -8183,9 +7962,7 @@ msgstr "Pomóż kształtować przyszłość SureDash"
 
 #: assets/build/portals-app.js:35
 msgid "Share how you use the plugin so we can build features that matter, fix issues faster, and make smarter decisions. "
-msgstr ""
-"Podziel się tym, jak korzystasz z wtyczki, abyśmy mogli budować istotne funkcje, szybciej rozwiązywać problemy i "
-"podejmować mądrzejsze decyzje."
+msgstr "Podziel się tym, jak korzystasz z wtyczki, abyśmy mogli budować istotne funkcje, szybciej rozwiązywać problemy i podejmować mądrzejsze decyzje."
 
 #: assets/js/unminified/login.js:59
 msgid "This field cannot be blank."
@@ -8258,9 +8035,9 @@ msgstr "URL skopiowany!"
 msgid "Copy failed"
 msgstr "Kopiowanie nie powiodło się"
 
+#. translators: %s: file size in megabytes
 #: assets/js/unminified/post-actions.js:230
 #: assets/js/unminified/upload.js:389
-#. translators: %s: file size in megabytes
 #, js-format
 msgid "%s MB"
 msgstr "%s MB"
@@ -8274,9 +8051,9 @@ msgstr "Nieznany rozmiar"
 msgid "Edit your post content…"
 msgstr "Edytuj treść swojego posta…"
 
+#. translators: %s: field name
 #: assets/js/unminified/register.js:60
 #: assets/js/unminified/register.js:76
-#. translators: %s: field name
 #, js-format
 msgid "%s cannot be blank"
 msgstr "%s nie może być puste"
@@ -8285,9 +8062,9 @@ msgstr "%s nie może być puste"
 msgid "Invalid Google reCAPTCHA Site Key."
 msgstr "Nieprawidłowy klucz witryny Google reCAPTCHA."
 
+#. Translators: %s is the maximum file size in MB.
 #: assets/js/unminified/upload.js:143
 #: assets/js/unminified/upload.js:198
-#. Translators: %s is the maximum file size in MB.
 #, js-format
 msgid "File size should not exceed %s MB."
 msgstr "Rozmiar pliku nie może przekraczać %s MB."
@@ -8296,20 +8073,20 @@ msgstr "Rozmiar pliku nie może przekraczać %s MB."
 msgid "File type not allowed."
 msgstr "Typ pliku nie jest dozwolony."
 
-#: assets/js/unminified/upload.js:247
 #. Translators: %s is the maximum number of files that can be uploaded.
+#: assets/js/unminified/upload.js:247
 #, js-format
 msgid "You can only upload up to %s files."
 msgstr "Możesz przesłać maksymalnie %s plików."
 
-#: assets/js/unminified/upload.js:400
 #. Translators: %s is the file name.
+#: assets/js/unminified/upload.js:400
 #, js-format
 msgid "Delete %s"
 msgstr "Usuń %s"
 
-#: assets/js/unminified/upload.js:418
 #. Translators: %s is the file name.
+#: assets/js/unminified/upload.js:418
 #, js-format
 msgid "Deleted %s file"
 msgstr "Usunięto plik %s"
@@ -8340,9 +8117,7 @@ msgstr "Serwer SureDash MCP"
 
 #: inc/modules/mcp/module.php:247
 msgid "SureDash MCP Server for community portal management — spaces, groups, posts, users, settings, and analytics."
-msgstr ""
-"Serwer SureDash MCP do zarządzania portalem społecznościowym — przestrzenie, grupy, posty, użytkownicy, ustawienia i "
-"analizy."
+msgstr "Serwer SureDash MCP do zarządzania portalem społecznościowym — przestrzenie, grupy, posty, użytkownicy, ustawienia i analizy."
 
 #: inc/utils/labels.php:122
 #: inc/utils/labels.php:123
@@ -8366,12 +8141,8 @@ msgid "Claude Desktop"
 msgstr "Claude Desktop"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or "
-"%APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
-msgstr ""
-"~/Library/Application Support/Claude/claude_desktop_config.json (macOS) lub "
-"%APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgid "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
+msgstr "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) lub %APPDATA%\\Claude\\claude_desktop_config.json (Windows)"
 
 #: assets/build/portals-app.js:38
 msgid "Claude Code"
@@ -8438,12 +8209,8 @@ msgid "Replace \"your-application-password\" with the password from Step 1."
 msgstr "Zamień \"twoje-hasło-aplikacji\" na hasło z kroku 1."
 
 #: assets/build/portals-app.js:38
-msgid ""
-"WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application "
-"password you generated."
-msgstr ""
-"WP_API_URL — punkt końcowy MCP Twojej witryny. WP_API_USERNAME — Twoja nazwa użytkownika WordPress. WP_API_PASSWORD — "
-"hasło aplikacji, które wygenerowałeś."
+msgid "WP_API_URL — your site's MCP endpoint. WP_API_USERNAME — your WordPress username. WP_API_PASSWORD — the application password you generated."
+msgstr "WP_API_URL — punkt końcowy MCP Twojej witryny. WP_API_USERNAME — Twoja nazwa użytkownika WordPress. WP_API_PASSWORD — hasło aplikacji, które wygenerowałeś."
 
 #: assets/build/portals-app.js:38
 msgid "View setup docs"
@@ -8470,49 +8237,37 @@ msgid "Enable Edit Abilities"
 msgstr "Włącz umiejętności edycji"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities "
-"are unregistered and AI clients can only read your data."
-msgstr ""
-"Po włączeniu klienci AI mogą aktualizować przestrzenie, ustawienia, posty, grupy i inne treści. Po wyłączeniu te "
-"umiejętności są wyrejestrowane, a klienci AI mogą tylko czytać Twoje dane."
+msgid "When enabled, AI clients can update spaces, settings, posts, groups, and other content. When disabled, these abilities are unregistered and AI clients can only read your data."
+msgstr "Po włączeniu klienci AI mogą aktualizować przestrzenie, ustawienia, posty, grupy i inne treści. Po wyłączeniu te umiejętności są wyrejestrowane, a klienci AI mogą tylko czytać Twoje dane."
 
 #: assets/build/portals-app.js:38
 msgid "Enable Delete Abilities"
 msgstr "Włącz umiejętności usuwania"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When "
-"disabled, delete abilities are unregistered and AI clients cannot remove any data."
-msgstr ""
-"Po włączeniu klienci AI mogą trwale usuwać przestrzenie, posty i grupy. Usunięte dane nie mogą być odzyskane. Po "
-"wyłączeniu umiejętności usuwania są wyrejestrowane, a klienci AI nie mogą usuwać żadnych danych."
+msgid "When enabled, AI clients can permanently delete spaces, posts, and groups. Deleted data cannot be recovered. When disabled, delete abilities are unregistered and AI clients cannot remove any data."
+msgstr "Po włączeniu klienci AI mogą trwale usuwać przestrzenie, posty i grupy. Usunięte dane nie mogą być odzyskane. Po wyłączeniu umiejętności usuwania są wyrejestrowane, a klienci AI nie mogą usuwać żadnych danych."
 
 #: assets/build/portals-app.js:38
 msgid "Enable MCP Server"
 msgstr "Włącz serwer MCP"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is "
-"removed and external AI clients cannot discover or call any SureDash abilities."
-msgstr ""
-"Tworzy dedykowany punkt końcowy SureDash MCP, do którego klienci AI, tacy jak Claude, mogą się łączyć. Po wyłączeniu "
-"punkt końcowy jest usuwany, a zewnętrzni klienci AI nie mogą odkrywać ani wywoływać żadnych umiejętności SureDash."
+msgid "Creates a dedicated SureDash MCP endpoint that AI clients like Claude can connect to. When disabled, the endpoint is removed and external AI clients cannot discover or call any SureDash abilities."
+msgstr "Tworzy dedykowany punkt końcowy SureDash MCP, do którego klienci AI, tacy jak Claude, mogą się łączyć. Po wyłączeniu punkt końcowy jest usuwany, a zewnętrzni klienci AI nie mogą odkrywać ani wywoływać żadnych umiejętności SureDash."
 
 #: templates/parts/logged-in-screen.php:49
 msgid "You're already signed in"
 msgstr "Już jesteś zalogowany"
 
-#: templates/parts/logged-in-screen.php:55
 #. translators: 1: user display name, 2: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:55
 #, php-format
 msgid "Welcome back, %1$s. Head back to %2$s to pick up where you left off."
 msgstr "Witaj z powrotem, %1$s. Wróć do %2$s, aby kontynuować tam, gdzie przerwałeś."
 
-#: templates/parts/logged-in-screen.php:65
 #. translators: %s: portal name (e.g. site/community name)
+#: templates/parts/logged-in-screen.php:65
 #, php-format
 msgid "Go to %s"
 msgstr "Przejdź do %s"
@@ -8570,12 +8325,8 @@ msgstr "- Wybierz -"
 
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:35
-msgid ""
-"User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" "
-"option in your"
-msgstr ""
-"Rejestracja użytkowników jest obecnie wyłączona. Aby umożliwić nowym użytkownikom rejestrację, włącz opcję \"Każdy może "
-"się zarejestrować\" w swoim"
+msgid "User registration is currently disabled. To allow new users to sign up, please enable the \"Anyone can Register\" option in your"
+msgstr "Rejestracja użytkowników jest obecnie wyłączona. Aby umożliwić nowym użytkownikom rejestrację, włącz opcję \"Każdy może się zarejestrować\" w swoim"
 
 #: assets/build/portals-app.js:35
 msgid "Login & Registration Pages"
@@ -8723,9 +8474,7 @@ msgstr "Włącz rejestrację na stronie"
 
 #: inc/modules/learn/chapters.php:89
 msgid "WordPress registration is currently disabled. Enable it or let SureDash override the setting so new members can sign up."
-msgstr ""
-"Rejestracja WordPress jest obecnie wyłączona. Włącz ją lub pozwól SureDash nadpisać ustawienie, aby nowi członkowie "
-"mogli się zarejestrować."
+msgstr "Rejestracja WordPress jest obecnie wyłączona. Włącz ją lub pozwól SureDash nadpisać ustawienie, aby nowi członkowie mogli się zarejestrować."
 
 #: inc/modules/learn/chapters.php:92
 msgid "Enable site registration"
@@ -8809,9 +8558,7 @@ msgstr "Włącz strumienie społeczności"
 
 #: inc/modules/learn/chapters.php:178
 msgid "Aggregate posts from all your Discussion spaces into a single feed so members see activity at a glance."
-msgstr ""
-"Agreguj posty ze wszystkich swoich przestrzeni dyskusyjnych w jeden strumień, aby członkowie mogli szybko zobaczyć "
-"aktywność."
+msgstr "Agreguj posty ze wszystkich swoich przestrzeni dyskusyjnych w jeden strumień, aby członkowie mogli szybko zobaczyć aktywność."
 
 #: inc/modules/learn/chapters.php:181
 msgid "Enable community feeds"
@@ -9260,12 +9007,8 @@ msgid "Learn"
 msgstr "Nauka"
 
 #: assets/build/portals-app.js:46
-msgid ""
-"To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of "
-"instructional videos. These will help you learn how to set up, customize, and grow your portal."
-msgstr ""
-"Aby pomóc Ci w pełni kontrolować i zapewnić sukces Twojej społeczności, przedstawiliśmy kilka zadań i przygotowaliśmy "
-"zestaw filmów instruktażowych. Pomoże Ci to nauczyć się, jak skonfigurować, dostosować i rozwijać swój portal."
+msgid "To help you take full control and ensure success of your community, we have outlined a few tasks and prepared a set of instructional videos. These will help you learn how to set up, customize, and grow your portal."
+msgstr "Aby pomóc Ci w pełni kontrolować i zapewnić sukces Twojej społeczności, przedstawiliśmy kilka zadań i przygotowaliśmy zestaw filmów instruktażowych. Pomoże Ci to nauczyć się, jak skonfigurować, dostosować i rozwijać swój portal."
 
 #: assets/build/portals-app.js:46
 msgid "No learn chapters available yet."
@@ -9295,20 +9038,20 @@ msgstr "Nie znaleziono niczego pasującego do twojego wyszukiwania."
 msgid "Try again with a different term."
 msgstr "Spróbuj ponownie z innym terminem."
 
-#: core/assets.php:285
 #. translators: %s: search query
+#: core/assets.php:285
 #, php-format
 msgid "Search results for \"%s\""
 msgstr "Wyniki wyszukiwania dla \"%s\""
 
-#: core/assets.php:287
 #. translators: %d: number of results
+#: core/assets.php:287
 #, php-format
 msgid "%d result"
 msgstr "%d wynik"
 
-#: core/assets.php:289
 #. translators: %d: number of results
+#: core/assets.php:289
 #, php-format
 msgid "%d results"
 msgstr "%d wyniki"
@@ -9333,8 +9076,8 @@ msgstr "Poprzednia strona"
 msgid "Next page"
 msgstr "Następna strona"
 
-#: core/assets.php:299
 #. translators: %d: result count
+#: core/assets.php:299
 #, php-format
 msgid "View all %d"
 msgstr "Zobacz wszystkie %d"
@@ -9367,8 +9110,8 @@ msgstr "w"
 msgid "A search term is required."
 msgstr "Wymagany jest termin wyszukiwania."
 
-#: core/routers/search.php:88
 #. translators: %d: minimum number of characters.
+#: core/routers/search.php:88
 #, php-format
 msgid "Search query must be at least %d characters."
 msgstr "Zapytanie wyszukiwania musi mieć co najmniej %d znaków."
@@ -9377,8 +9120,8 @@ msgstr "Zapytanie wyszukiwania musi mieć co najmniej %d znaków."
 msgid "Some time ago"
 msgstr "Jakiś czas temu"
 
-#: inc/modules/email-notifications/email-triggers.php:278
 #. translators: %1$s: portal name, %2$s: post title.
+#: inc/modules/email-notifications/email-triggers.php:278
 #, php-format
 msgid "[%1$s] New community post: %2$s"
 msgstr "[%1$s] Nowy post w społeczności: %2$s"
@@ -9391,8 +9134,8 @@ msgstr "Członek społeczności"
 msgid "Hi Admin,"
 msgstr "Cześć Adminie,"
 
-#: inc/modules/email-notifications/emails.php:128
 #. translators: %1$s: author name, %2$s: portal name.
+#: inc/modules/email-notifications/emails.php:128
 #, php-format
 msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
 msgstr "%1$s właśnie przesłał nowy post w społeczności na <strong>%2$s</strong>."
@@ -9401,8 +9144,8 @@ msgstr "%1$s właśnie przesłał nowy post w społeczności na <strong>%2$s</st
 msgid "View the post"
 msgstr "Zobacz post"
 
-#: inc/services/search/search-comments-service.php:467
 #. translators: %d: number of image attachments.
+#: inc/services/search/search-comments-service.php:467
 #, php-format
 msgid "%d attachment"
 msgid_plural "%d attachments"
@@ -9429,8 +9172,8 @@ msgstr "Udostępniono link"
 msgid "View comment"
 msgstr "Zobacz komentarz"
 
-#: inc/services/search/search-people-service.php:180
 #. translators: %s: month and year the user registered (e.g., "Feb 2025").
+#: inc/services/search/search-people-service.php:180
 #, php-format
 msgid "joined %s"
 msgstr "dołączył do %s"
@@ -9457,9 +9200,7 @@ msgstr "Wszyscy administratorzy i menedżerowie portalu"
 
 #: assets/build/portals-app.js:35
 msgid "Pick admins and portal managers who should receive these emails. Leave empty to send to all admins and portal managers."
-msgstr ""
-"Wybierz administratorów i menedżerów portalu, którzy powinni otrzymywać te e-maile. Pozostaw puste, aby wysłać do "
-"wszystkich administratorów i menedżerów portalu."
+msgstr "Wybierz administratorów i menedżerów portalu, którzy powinni otrzymywać te e-maile. Pozostaw puste, aby wysłać do wszystkich administratorów i menedżerów portalu."
 
 #: assets/build/portals-app.js:35
 msgid "sender@example.com"
@@ -9470,13 +9211,8 @@ msgid "Email Templates"
 msgstr "Szablony e-maili"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in "
-"WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
-msgstr ""
-"Zaktualizowane adresy URL punktów końcowych. Wbudowane linki menu profilu aktualizują się automatycznie — ale wszelkie "
-"linki, które ręcznie dodałeś w menu WordPress, treści stron lub niestandardowych blokach wskazujące na stare adresy "
-"URL, będą wymagały aktualizacji."
+msgid "Endpoint URLs updated. Built-in profile menu links update automatically — but any links you’ve manually added in WordPress menus, page content, or custom blocks pointing to the old URLs will need updating."
+msgstr "Zaktualizowane adresy URL punktów końcowych. Wbudowane linki menu profilu aktualizują się automatycznie — ale wszelkie linki, które ręcznie dodałeś w menu WordPress, treści stron lub niestandardowych blokach wskazujące na stare adresy URL, będą wymagały aktualizacji."
 
 #: assets/build/portals-app.js:38
 msgid "Use only lowercase letters, numbers, and hyphens."
@@ -9530,8 +9266,8 @@ msgstr "Nie wybrano żadnych przestrzeni."
 msgid "Could not create any spaces."
 msgstr "Nie można utworzyć żadnych przestrzeni."
 
-#: core/routers/onboarding.php:542
 #. translators: %d: number of spaces created
+#: core/routers/onboarding.php:542
 #, php-format
 msgid "%d spaces created successfully."
 msgstr "%d przestrzeni utworzono pomyślnie."
@@ -9563,86 +9299,60 @@ msgid "Welcome 👋"
 msgstr "Witaj 👋"
 
 #: core/routers/onboarding.php:612
-msgid ""
-"Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members "
-"to the most useful spaces."
-msgstr ""
-"Cieszymy się, że tu jesteś. To jest twoja strona startowa społeczności — podziel się tym, co robisz, ustal oczekiwania "
-"i wskaż nowym członkom najbardziej przydatne przestrzenie."
+msgid "Glad to have you here. This is your community starter page — share what you do, set expectations, and point new members to the most useful spaces."
+msgstr "Cieszymy się, że tu jesteś. To jest twoja strona startowa społeczności — podziel się tym, co robisz, ustal oczekiwania i wskaż nowym członkom najbardziej przydatne przestrzenie."
 
 #: core/routers/onboarding.php:615
 msgid "Find answers fast"
 msgstr "Znajdź odpowiedzi szybko"
 
 #: core/routers/onboarding.php:616
-msgid ""
-"Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support "
-"Forum and our team will help."
-msgstr ""
-"Przeglądaj najczęściej zadawane pytania i przewodniki poniżej. Jeśli nie możesz znaleźć tego, czego potrzebujesz, "
-"przejdź do Forum Wsparcia, a nasz zespół pomoże."
+msgid "Browse the most common questions and how-to guides below. If you cannot find what you need, head over to the Support Forum and our team will help."
+msgstr "Przeglądaj najczęściej zadawane pytania i przewodniki poniżej. Jeśli nie możesz znaleźć tego, czego potrzebujesz, przejdź do Forum Wsparcia, a nasz zespół pomoże."
 
-#: core/routers/onboarding.php:630
 #. translators: %s: space name
+#: core/routers/onboarding.php:630
 #, php-format
 msgid "About %s"
 msgstr "O %s"
 
-#: core/routers/onboarding.php:631
 #. translators: %s: space name
-msgid ""
-"Use this space to introduce members to what you do and how this section works. Replace this text with anything you like "
-"— it lives inside the regular block editor."
-msgstr ""
-"Użyj tej przestrzeni, aby przedstawić członkom, co robisz i jak działa ta sekcja. Zastąp ten tekst dowolnym, który "
-"chcesz — znajduje się w zwykłym edytorze bloków."
+#: core/routers/onboarding.php:631
+msgid "Use this space to introduce members to what you do and how this section works. Replace this text with anything you like — it lives inside the regular block editor."
+msgstr "Użyj tej przestrzeni, aby przedstawić członkom, co robisz i jak działa ta sekcja. Zastąp ten tekst dowolnym, który chcesz — znajduje się w zwykłym edytorze bloków."
 
 #: core/routers/onboarding.php:657
 msgid "👋 First announcement"
 msgstr "👋 Pierwsze ogłoszenie"
 
 #: core/routers/onboarding.php:658
-msgid ""
-"Use this space to share product updates, events, and important notices with your community. Edit or delete this post to "
-"start fresh."
-msgstr ""
-"Użyj tej przestrzeni, aby dzielić się aktualizacjami produktów, wydarzeniami i ważnymi ogłoszeniami ze swoją "
-"społecznością. Edytuj lub usuń ten post, aby zacząć od nowa."
+msgid "Use this space to share product updates, events, and important notices with your community. Edit or delete this post to start fresh."
+msgstr "Użyj tej przestrzeni, aby dzielić się aktualizacjami produktów, wydarzeniami i ważnymi ogłoszeniami ze swoją społecznością. Edytuj lub usuń ten post, aby zacząć od nowa."
 
 #: core/routers/onboarding.php:661
 msgid "Say hello 👋"
 msgstr "Przywitaj się 👋"
 
 #: core/routers/onboarding.php:662
-msgid ""
-"Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation "
-"any time."
-msgstr ""
-"Witaj w dyskusji! Przedstaw się, podziel się tym, co cię tu sprowadziło, i nie krępuj się rozpocząć nowej rozmowy w "
-"dowolnym momencie."
+msgid "Welcome to the discussion! Introduce yourself, share what brought you here, and feel free to start a new conversation any time."
+msgstr "Witaj w dyskusji! Przedstaw się, podziel się tym, co cię tu sprowadziło, i nie krępuj się rozpocząć nowej rozmowy w dowolnym momencie."
 
-#: core/routers/onboarding.php:667
 #. translators: %s: space name
+#: core/routers/onboarding.php:667
 #, php-format
 msgid "Welcome to %s"
 msgstr "Witaj w %s"
 
-#: core/routers/onboarding.php:668
 #. translators: %s: space name
+#: core/routers/onboarding.php:668
 msgid "This is the first post in this space. Edit or delete it, then invite members to start chatting."
 msgstr "To jest pierwszy post w tej przestrzeni. Edytuj lub usuń go, a następnie zaproś członków do rozpoczęcia rozmowy."
 
-#: inc/modules/email-notifications/emails.php:149
 #. translators: %s: URL to the email notification settings.
+#: inc/modules/email-notifications/emails.php:149
 #, php-format
-msgid ""
-"You are receiving this because you are an admin or portal manager. <a href=\"%s\" "
-"style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash "
-"email settings."
-msgstr ""
-"Otrzymujesz to, ponieważ jesteś administratorem lub menedżerem portalu. <a href=\"%s\" "
-"style=\"color:#2563eb;text-decoration:underline;\">Zmień odbiorców lub wyłącz te e-maile</a> w ustawieniach e-mailowych "
-"SureDash."
+msgid "You are receiving this because you are an admin or portal manager. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash email settings."
+msgstr "Otrzymujesz to, ponieważ jesteś administratorem lub menedżerem portalu. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Zmień odbiorców lub wyłącz te e-maile</a> w ustawieniach e-mailowych SureDash."
 
 #: inc/services/ai-portal-generator.php:163
 #: inc/services/ai-portal-generator.php:231
@@ -9683,12 +9393,8 @@ msgid "API key is required."
 msgstr "Wymagany jest klucz API."
 
 #: inc/services/ai-portal-generator.php:255
-msgid ""
-"Pasting a key is only supported for OpenAI, Anthropic, and Google Gemini. Configure this provider in Settings → "
-"Connectors instead."
-msgstr ""
-"Wklejanie klucza jest obsługiwane tylko dla OpenAI, Anthropic i Google Gemini. Skonfiguruj tego dostawcę w Ustawienia → "
-"Łączniki."
+msgid "Pasting a key is only supported for OpenAI, Anthropic, and Google Gemini. Configure this provider in Settings → Connectors instead."
+msgstr "Wklejanie klucza jest obsługiwane tylko dla OpenAI, Anthropic i Google Gemini. Skonfiguruj tego dostawcę w Ustawienia → Łączniki."
 
 #: inc/services/ai-portal-generator.php:561
 msgid "AI returned an unexpected response. Try again."
@@ -9723,32 +9429,32 @@ msgstr "Strona"
 msgid "Space"
 msgstr "Przestrzeń"
 
-#: inc/services/search/search-posts-service.php:568
 #. translators: %d: number of lessons in the course.
+#: inc/services/search/search-posts-service.php:568
 #, php-format
 msgid "%d lesson"
 msgid_plural "%d lessons"
 msgstr[0] "%d lekcja"
 msgstr[1] ""
 
-#: inc/services/search/search-posts-service.php:577
 #. translators: %d: number of files in the resource library.
+#: inc/services/search/search-posts-service.php:577
 #, php-format
 msgid "%d file"
 msgid_plural "%d files"
 msgstr[0] "%d plik"
 msgstr[1] ""
 
-#: inc/services/search/search-posts-service.php:586
 #. translators: %d: number of events in the event space.
+#: inc/services/search/search-posts-service.php:586
 #, php-format
 msgid "%d event"
 msgid_plural "%d events"
 msgstr[0] "%d wydarzenie"
 msgstr[1] ""
 
-#: inc/services/search/search-posts-service.php:599
 #. translators: %d: number of spaces curated in a collection.
+#: inc/services/search/search-posts-service.php:599
 #, php-format
 msgid "%d space"
 msgid_plural "%d spaces"
@@ -10061,15 +9767,11 @@ msgid "Build with AI"
 msgstr "Buduj z AI"
 
 #: assets/build/portals-app.js:1
-msgid ""
-"Describe your portal in a sentence and let AI pick the spaces. Your AI provider key is used once for this generation "
-"and not stored."
-msgstr ""
-"Opisz swój portal w jednym zdaniu i pozwól AI wybrać przestrzenie. Twój klucz dostawcy AI jest używany raz do tego "
-"generowania i nie jest przechowywany."
+msgid "Describe your portal in a sentence and let AI pick the spaces. Your AI provider key is used once for this generation and not stored."
+msgstr "Opisz swój portal w jednym zdaniu i pozwól AI wybrać przestrzenie. Twój klucz dostawcy AI jest używany raz do tego generowania i nie jest przechowywany."
 
-#: assets/build/portals-app.js:2
 #. translators: 1: number of connected providers; 2: comma-separated list of connected provider names.
+#: assets/build/portals-app.js:2
 #, js-format
 msgid "%1$d AI provider connected via Settings → Connectors: %2$s."
 msgid_plural "%1$d AI providers connected via Settings → Connectors: %2$s."
@@ -10084,8 +9786,8 @@ msgstr "Dostawca AI"
 msgid "Select a provider"
 msgstr "Wybierz dostawcę"
 
-#: assets/build/portals-app.js:3
 #. translators: %s: provider display name (e.g. "OpenAI").
+#: assets/build/portals-app.js:3
 #, js-format
 msgid "Using the %s key from Settings → Connectors for this generation."
 msgstr "Używając klucza %s z Ustawienia → Łączniki do tego generowania."
@@ -10120,12 +9822,8 @@ msgid "Describe your portal"
 msgstr "Opisz swój portal"
 
 #: assets/build/portals-app.js:3
-msgid ""
-"No AI provider is available on this site. Connect one in Settings → Connectors (WordPress 7+) to generate a portal with "
-"AI."
-msgstr ""
-"Na tej stronie nie jest dostępny żaden dostawca AI. Połącz jeden w Ustawienia → Łączniki (WordPress 7+), aby "
-"wygenerować portal z AI."
+msgid "No AI provider is available on this site. Connect one in Settings → Connectors (WordPress 7+) to generate a portal with AI."
+msgstr "Na tej stronie nie jest dostępny żaden dostawca AI. Połącz jeden w Ustawienia → Łączniki (WordPress 7+), aby wygenerować portal z AI."
 
 #: assets/build/portals-app.js:3
 msgid "Open Settings → Connectors"
@@ -10160,12 +9858,8 @@ msgid "Recommended"
 msgstr "Zalecane"
 
 #: assets/build/portals-app.js:3
-msgid ""
-"Describe your portal in one sentence and let AI design the spaces. Connect any AI provider in Settings → Connectors, or "
-"paste a key."
-msgstr ""
-"Opisz swój portal w jednym zdaniu i pozwól AI zaprojektować przestrzenie. Połącz dowolnego dostawcę AI w Ustawienia → "
-"Łączniki lub wklej klucz."
+msgid "Describe your portal in one sentence and let AI design the spaces. Connect any AI provider in Settings → Connectors, or paste a key."
+msgstr "Opisz swój portal w jednym zdaniu i pozwól AI zaprojektować przestrzenie. Połącz dowolnego dostawcę AI w Ustawienia → Łączniki lub wklej klucz."
 
 #: assets/build/portals-app.js:3
 msgid "Use a preset"
@@ -10189,9 +9883,7 @@ msgstr "portal społecznościowy."
 
 #: assets/build/portals-app.js:3
 msgid "A few quick steps and your space will be ready for members, posts, events and more — all under your own brand."
-msgstr ""
-"Kilka szybkich kroków i Twoja przestrzeń będzie gotowa dla członków, postów, wydarzeń i nie tylko — wszystko pod Twoją "
-"własną marką."
+msgstr "Kilka szybkich kroków i Twoja przestrzeń będzie gotowa dla członków, postów, wydarzeń i nie tylko — wszystko pod Twoją własną marką."
 
 #: assets/build/portals-app.js:3
 msgid "Get started"
@@ -10293,8 +9985,8 @@ msgstr "Osobiście"
 msgid "Online Meeting"
 msgstr "Spotkanie online"
 
-#: assets/build/portals-app.js:21
 #. translators: %1$s: hour, %2$s: minute, %3$s: AM/PM period
+#: assets/build/portals-app.js:21
 #, js-format
 msgid "%1$s:%2$s %3$s (Current)"
 msgstr "%1$s:%2$s %3$s (Aktualny)"
@@ -10403,83 +10095,83 @@ msgstr "ID identyfikatora"
 msgid "Copy badge ID for use with suredash_assign_badge() in PHP"
 msgstr "Skopiuj ID identyfikatora do użycia z suredash_assign_badge() w PHP"
 
+#. translators: 1: user name, 2: portal name
 #: core/notifier/admin-notifier.php:52
 #: core/notifier/admin-notifier.php:189
-#. translators: 1: user name, 2: portal name
 #, php-format
 msgid "%1$s has registered on %2$s."
 msgstr "%1$s zarejestrował się na %2$s."
 
-#: core/notifier/admin-notifier.php:192
 #. translators: 1: user name, 2: number of other users, 3: portal name
+#: core/notifier/admin-notifier.php:192
 #, php-format
 msgid "%1$s and %2$s other registered on %3$s."
 msgid_plural "%1$s and %2$s others registered on %3$s."
 msgstr[0] "%1$s i %2$s innych zarejestrowali się na %3$s."
 msgstr[1] ""
 
-#: core/notifier/common-notifier.php:51
 #. translators: %s: space name
+#: core/notifier/common-notifier.php:51
 #, php-format
 msgid "The space \"%s\" has been created."
 msgstr "Przestrzeń \"%s\" została utworzona."
 
-#: core/notifier/common-notifier.php:515
 #. translators: 1: commenter name, 2: number of other commenters, 3: post title
+#: core/notifier/common-notifier.php:515
 #, php-format
 msgid "%1$s and %2$s other commented on your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others commented on your post \"%3$s\"."
 msgstr[0] "%1$s i %2$s innych skomentowało twój post \"%3$s\"."
 msgstr[1] ""
 
-#: core/notifier/common-notifier.php:620
 #. translators: 1: liker name, 2: number of other likers, 3: comment excerpt
+#: core/notifier/common-notifier.php:620
 #, php-format
 msgid "%1$s and %2$s other liked your comment \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your comment \"%3$s\"."
 msgstr[0] "%1$s i %2$s innych polubiło twój komentarz \"%3$s\"."
 msgstr[1] ""
 
-#: core/notifier/common-notifier.php:628
 #. translators: 1: liker name, 2: number of other likers, 3: post title
+#: core/notifier/common-notifier.php:628
 #, php-format
 msgid "%1$s and %2$s other liked your post \"%3$s\"."
 msgid_plural "%1$s and %2$s others liked your post \"%3$s\"."
 msgstr[0] "%1$s i %2$s innych polubiło twój post \"%3$s\"."
 msgstr[1] ""
 
-#: core/notifier/user-notifier.php:60
 #. translators: %s: topic title
+#: core/notifier/user-notifier.php:60
 #, php-format
 msgid "Your topic \"%s\" has been approved."
 msgstr "Twój temat \"%s\" został zatwierdzony."
 
-#: core/notifier/user-notifier.php:68
 #. translators: 1: mentioner name, 2: topic or comment link
+#: core/notifier/user-notifier.php:68
 #, php-format
 msgid "%1$s mentioned you in a %2$s."
 msgstr "%1$s wspomniał cię w %2$s."
 
-#: inc/utils/labels.php:148
 #. translators: 1: commenter name, 2: replied-to comment link
+#: inc/utils/labels.php:148
 #, php-format
 msgid "%1$s has replied to your %2$s."
 msgstr "%1$s odpowiedział na twój %2$s."
 
-#: inc/utils/labels.php:150
 #. translators: 1: commenter name, 2: post title
+#: inc/utils/labels.php:150
 #, php-format
 msgid "%1$s commented on your post \"%2$s\"."
 msgstr "%1$s skomentował twój post \"%2$s\"."
 
-#: inc/utils/labels.php:152
 #. translators: 1: liker name, 2: post title
+#: inc/utils/labels.php:152
 #, php-format
 msgid "%1$s liked your post \"%2$s\"."
 msgstr "%1$s polubił twój post \"%2$s\"."
 
-#: inc/utils/labels.php:154
 #. translators: 1: liker name, 2: comment excerpt
+#: inc/utils/labels.php:154
 #, php-format
 msgid "%1$s liked your comment \"%2$s\"."
 msgstr "%1$s polubił twój komentarz \"%2$s\"."
@@ -10501,12 +10193,8 @@ msgid "Pin to header"
 msgstr "Przypnij do nagłówka"
 
 #: assets/build/portals-app.js:10
-msgid ""
-"Toggle the Course Analytics tab in the top navigation. Off hides it from the header but the report stays accessible "
-"from this card."
-msgstr ""
-"Przełącz kartę analityki kursu w górnym menu. Wyłączenie ukrywa ją w nagłówku, ale raport pozostaje dostępny z tej "
-"karty."
+msgid "Toggle the Course Analytics tab in the top navigation. Off hides it from the header but the report stays accessible from this card."
+msgstr "Przełącz kartę analityki kursu w górnym menu. Wyłączenie ukrywa ją w nagłówku, ale raport pozostaje dostępny z tej karty."
 
 #: assets/build/portals-app.js:10
 msgid "See all"
@@ -10612,12 +10300,8 @@ msgid "Require passing this quiz to complete the course"
 msgstr "Wymagaj zaliczenia tego quizu, aby ukończyć kurs"
 
 #: assets/build/portals-app.js:21
-msgid ""
-"When on, learners must pass this quiz for it to count toward course completion. When off, any attempt, even a failed "
-"one, counts."
-msgstr ""
-"Gdy jest włączony, uczniowie muszą zaliczyć ten quiz, aby był liczony do ukończenia kursu. Gdy jest wyłączony, każda "
-"próba, nawet nieudana, się liczy."
+msgid "When on, learners must pass this quiz for it to count toward course completion. When off, any attempt, even a failed one, counts."
+msgstr "Gdy jest włączony, uczniowie muszą zaliczyć ten quiz, aby był liczony do ukończenia kursu. Gdy jest wyłączony, każda próba, nawet nieudana, się liczy."
 
 #: assets/build/portals-app.js:21
 msgid "Questions"
@@ -10724,32 +10408,32 @@ msgstr "Quiz nie mógł zostać załadowany. Zamknij i otwórz ponownie ten dial
 msgid "Please add at least one question."
 msgstr "Proszę dodać przynajmniej jedno pytanie."
 
-#: assets/build/portals-app.js:23
 #. translators: %d: question number.
+#: assets/build/portals-app.js:23
 #, js-format
 msgid "Question %d is missing text."
 msgstr "Pytanie %d nie ma tekstu."
 
-#: assets/build/portals-app.js:25
 #. translators: %d: question number.
+#: assets/build/portals-app.js:25
 #, js-format
 msgid "Question %d needs at least two options."
 msgstr "Pytanie %d potrzebuje przynajmniej dwóch opcji."
 
-#: assets/build/portals-app.js:27
 #. translators: %d: question number.
+#: assets/build/portals-app.js:27
 #, js-format
 msgid "All options in question %d need text."
 msgstr "Wszystkie opcje w pytaniu %d muszą mieć tekst."
 
-#: assets/build/portals-app.js:29
 #. translators: %d: question number.
+#: assets/build/portals-app.js:29
 #, js-format
 msgid "Mark at least one correct option for question %d."
 msgstr "Oznacz przynajmniej jedną poprawną opcję dla pytania %d."
 
-#: assets/build/portals-app.js:31
 #. translators: %d: question number.
+#: assets/build/portals-app.js:31
 #, js-format
 msgid "Single-choice question %d can only have one correct option."
 msgstr "Pytanie jednokrotnego wyboru %d może mieć tylko jedną poprawną opcję."
@@ -10817,8 +10501,8 @@ msgstr "Ustawienia zapisane, ale zmiana nie mogła zostać zachowana. Użyj przy
 msgid "Course Completions"
 msgstr "Zakończenia kursów"
 
-#: assets/build/portals-app.js:42
 #. translators: 1: first row index, 2: last row index, 3: total row count
+#: assets/build/portals-app.js:42
 #, js-format
 msgid "%1$s–%2$s of %3$s courses"
 msgstr "%1$s–%2$s z %3$s kursów"
@@ -10827,16 +10511,16 @@ msgstr "%1$s–%2$s z %3$s kursów"
 msgid "Course Analytics"
 msgstr "Analiza kursu"
 
-#: assets/build/portals-app.js:43
 #. translators: %d: number of published courses
+#: assets/build/portals-app.js:43
 #, js-format
 msgid "%d Published"
 msgid_plural "%d Published"
 msgstr[0] "%d Opublikowane"
 msgstr[1] ""
 
-#: assets/build/portals-app.js:44
 #. translators: %d: number of draft courses
+#: assets/build/portals-app.js:44
 #, js-format
 msgid "%d Draft"
 msgid_plural "%d Drafts"
@@ -10863,8 +10547,8 @@ msgstr "Powrót do analizy kursu"
 msgid "Course not found."
 msgstr "Kurs nie został znaleziony."
 
-#: assets/build/portals-app.js:45
 #. translators: %d: number of lessons
+#: assets/build/portals-app.js:45
 #, js-format
 msgid "%d Lesson"
 msgid_plural "%d Lessons"
@@ -10923,8 +10607,8 @@ msgstr "Procent tego kursu, który uczeń ukończył."
 msgid "In Progress"
 msgstr "W trakcie"
 
-#: assets/build/portals-app.js:46
 #. translators: 1: first row index, 2: last row index, 3: total row count
+#: assets/build/portals-app.js:46
 #, js-format
 msgid "%1$s–%2$s of %3$s learners"
 msgstr "%1$s–%2$s z %3$s uczniów"
@@ -10938,14 +10622,8 @@ msgid "Revisit Course"
 msgstr "Powtórz kurs"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, "
-"and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions. For the "
-"full list of available abilities, see the "
-msgstr ""
-"Zarejestruj umiejętności SureDash w API umiejętności WordPress. Po włączeniu klienci AI mogą wyświetlać, czytać, "
-"tworzyć, edytować i zarządzać Twoim portalem. Po wyłączeniu żadne umiejętności nie są rejestrowane, a klienci AI nie "
-"mogą wykonywać żadnych działań. Aby zobaczyć pełną listę dostępnych umiejętności, zobacz"
+msgid "Register SureDash abilities with the WordPress Abilities API. When enabled, AI clients can list, read, create, edit, and manage your portal. When disabled, no abilities are registered and AI clients cannot perform any actions. For the full list of available abilities, see the "
+msgstr "Zarejestruj umiejętności SureDash w API umiejętności WordPress. Po włączeniu klienci AI mogą wyświetlać, czytać, tworzyć, edytować i zarządzać Twoim portalem. Po wyłączeniu żadne umiejętności nie są rejestrowane, a klienci AI nie mogą wykonywać żadnych działań. Aby zobaczyć pełną listę dostępnych umiejętności, zobacz"
 
 #: assets/build/portals-app.js:38
 msgid "SureDash abilities documentation"
@@ -10976,35 +10654,35 @@ msgstr "Podgląd nie został znaleziony."
 msgid "This content is restricted to members. Unlock access to view the full post."
 msgstr "Ta zawartość jest zastrzeżona dla członków. Odblokuj dostęp, aby zobaczyć pełny post."
 
+#. translators: %s: number of lessons.
 #: inc/functions/markup.php:588
 #: inc/functions/markup.php:805
-#. translators: %s: number of lessons.
 #, php-format
 msgid "%s lesson"
 msgid_plural "%s lessons"
 msgstr[0] "%s lekcja"
 msgstr[1] ""
 
+#. translators: %s: number of quizzes.
 #: inc/functions/markup.php:594
 #: inc/functions/markup.php:810
-#. translators: %s: number of quizzes.
 #, php-format
 msgid "%s quiz"
 msgid_plural "%s quizzes"
 msgstr[0] "%s quiz"
 msgstr[1] ""
 
+#. translators: %s: number of threads.
 #: inc/functions/markup.php:600
 #: inc/functions/markup.php:769
-#. translators: %s: number of threads.
 #, php-format
 msgid "%s thread"
 msgid_plural "%s threads"
 msgstr[0] "%s wątek"
 msgstr[1] ""
 
-#: inc/functions/markup.php:798
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
+#: inc/functions/markup.php:798
 #, php-format
 msgid "%s module"
 msgid_plural "%s modules"
@@ -11037,9 +10715,7 @@ msgstr "Zbyt wiele próśb o reset hasła. Spróbuj ponownie za kilka minut."
 
 #: core/routers/social-logins.php:294
 msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
-msgstr ""
-"Jeśli istnieje konto odpowiadające tej nazwie użytkownika lub adresowi e-mail, link do resetu hasła został wysłany. "
-"Sprawdź swoją pocztę."
+msgstr "Jeśli istnieje konto odpowiadające tej nazwie użytkownika lub adresowi e-mail, link do resetu hasła został wysłany. Sprawdź swoją pocztę."
 
 #: assets/build/portals-app.js:13
 msgid "Invalid server response"
@@ -11099,15 +10775,11 @@ msgstr "Przetwarzanie %1$d z %2$d…"
 msgid "Uploaded %1$d of %2$d, %3$d failed: %4$s"
 msgstr "Przesłano %1$d z %2$d, %3$d nie powiodło się: %4$s"
 
-#: assets/build/portals-app.js:16
 #. translators: %d is the number of selected files.
+#: assets/build/portals-app.js:16
 #, js-format
-msgid ""
-"Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them "
-"will break those items."
-msgstr ""
-"Usunąć %d wybranych plików? Tego nie można cofnąć. Niektóre z nich mogą być używane przez elementy zasobów, a ich "
-"usunięcie spowoduje uszkodzenie tych elementów."
+msgid "Delete %d selected file(s)? This cannot be undone. Some of these may be in use by resource items, and deleting them will break those items."
+msgstr "Usunąć %d wybranych plików? Tego nie można cofnąć. Niektóre z nich mogą być używane przez elementy zasobów, a ich usunięcie spowoduje uszkodzenie tych elementów."
 
 #: assets/build/portals-app.js:16
 msgid "Not available: this file's Bunny zone is not connected."
@@ -11198,24 +10870,16 @@ msgid "Store Resource Library files on Bunny.net instead of your WordPress serve
 msgstr "Przechowuj pliki biblioteki zasobów na Bunny.net zamiast na swoim serwerze WordPress."
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure "
-"link that expires automatically."
-msgstr ""
-"Pobrania pozostają chronione. Każde żądanie jest sprawdzane pod kątem Twoich uprawnień, a następnie realizowane za "
-"pośrednictwem krótkotrwałego bezpiecznego linku, który wygasa automatycznie."
+msgid "Downloads stay protected. Every request is checked against your permissions, then served through a short-lived secure link that expires automatically."
+msgstr "Pobrania pozostają chronione. Każde żądanie jest sprawdzane pod kątem Twoich uprawnień, a następnie realizowane za pośrednictwem krótkotrwałego bezpiecznego linku, który wygasa automatycznie."
 
 #: assets/build/portals-app.js:38
 msgid "Setup mode"
 msgstr "Tryb konfiguracji"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny "
-"account."
-msgstr ""
-"Utwórz nowe: SureDash tworzy nową, w pełni skonfigurowaną prywatną strefę. Użyj istniejącej: wybierz strefę już na "
-"swoim koncie Bunny."
+msgid "Create new: SureDash provisions a fresh, fully configured private zone. Use existing: pick a zone already on your Bunny account."
+msgstr "Utwórz nowe: SureDash tworzy nową, w pełni skonfigurowaną prywatną strefę. Użyj istniejącej: wybierz strefę już na swoim koncie Bunny."
 
 #: assets/build/portals-app.js:38
 msgid "files"
@@ -11263,9 +10927,7 @@ msgstr "Wklej swój klucz API konta"
 
 #: assets/build/portals-app.js:38
 msgid "Find this in your Bunny dashboard under Account › API. Stored on your server; used only to manage storage."
-msgstr ""
-"Znajdziesz to w swoim panelu Bunny w sekcji Konto › API. Przechowywane na Twoim serwerze; używane tylko do zarządzania "
-"przechowywaniem."
+msgstr "Znajdziesz to w swoim panelu Bunny w sekcji Konto › API. Przechowywane na Twoim serwerze; używane tylko do zarządzania przechowywaniem."
 
 #: assets/build/portals-app.js:38
 msgid "Connected to Bunny.net."
@@ -11341,9 +11003,7 @@ msgstr "Utwórz przechowywanie"
 
 #: assets/build/portals-app.js:38
 msgid "A brand-new private storage zone and delivery zone are always created. Existing zones are never reused."
-msgstr ""
-"Zawsze tworzona jest zupełnie nowa prywatna strefa przechowywania i strefa dostawy. Istniejące strefy nigdy nie są "
-"ponownie używane."
+msgstr "Zawsze tworzona jest zupełnie nowa prywatna strefa przechowywania i strefa dostawy. Istniejące strefy nigdy nie są ponownie używane."
 
 #: assets/build/portals-app.js:38
 msgid "Select a storage zone…"
@@ -11367,9 +11027,7 @@ msgstr "Wymagane ustawienia w twojej strefie"
 
 #: assets/build/portals-app.js:38
 msgid "SureDash never creates or changes anything on your existing zones. To connect, the storage zone must already have:"
-msgstr ""
-"SureDash nigdy nie tworzy ani nie zmienia niczego w twoich istniejących strefach. Aby się połączyć, strefa "
-"przechowywania musi już mieć:"
+msgstr "SureDash nigdy nie tworzy ani nie zmienia niczego w twoich istniejących strefach. Aby się połączyć, strefa przechowywania musi już mieć:"
 
 #: assets/build/portals-app.js:38
 msgid "A delivery (pull) zone linked to this storage zone (required)"
@@ -11480,20 +11138,12 @@ msgid "Disconnect this storage zone?"
 msgstr "Odłączyć tę strefę pamięci?"
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until "
-"you reconnect."
-msgstr ""
-"Usuwa zapisany klucz API i wyłącza przesyłanie. Nic nie jest usuwane na Bunny, ale jego pliki pozostają niedostępne, "
-"dopóki się nie połączysz ponownie."
+msgid "Removes the saved API key and turns offloading off. Nothing is deleted on Bunny, but its files stay unreachable until you reconnect."
+msgstr "Usuwa zapisany klucz API i wyłącza przesyłanie. Nic nie jest usuwane na Bunny, ale jego pliki pozostają niedostępne, dopóki się nie połączysz ponownie."
 
 #: assets/build/portals-app.js:38
-msgid ""
-"Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can "
-"pick or create another zone right away."
-msgstr ""
-"Odłącza tę strefę i wyłącza przesyłanie. Nic nie jest usuwane na Bunny, a Twoje konto pozostaje połączone, więc możesz "
-"od razu wybrać lub utworzyć inną strefę."
+msgid "Unlinks this zone and turns offloading off. Nothing is deleted on Bunny, and your account stays connected, so you can pick or create another zone right away."
+msgstr "Odłącza tę strefę i wyłącza przesyłanie. Nic nie jest usuwane na Bunny, a Twoje konto pozostaje połączone, więc możesz od razu wybrać lub utworzyć inną strefę."
 
 #: assets/build/portals-app.js:38
 msgid "Disconnected from Bunny.net."
@@ -11511,8 +11161,8 @@ msgstr "Nie połączono"
 msgid "Bunny.net"
 msgstr "Bunny.net"
 
-#: assets/build/portals-app.js:55
 #. translators: 1: feature name, 2: its location.
+#: assets/build/portals-app.js:55
 #, js-format
 msgid "%1$s is available under %2$s"
 msgstr "%1$s jest dostępny pod %2$s"
@@ -11529,14 +11179,14 @@ msgstr "Pokaż mi"
 msgid "Read the docs"
 msgstr "Przeczytaj dokumentację"
 
-#: assets/build/portals-app.js:56
 #. translators: %d: page number.
+#: assets/build/portals-app.js:56
 #, js-format
 msgid "Go to page %d"
 msgstr "Przejdź do strony %d"
 
-#: assets/build/portals-app.js:57
 #. translators: 1: current page number, 2: total pages.
+#: assets/build/portals-app.js:57
 #, js-format
 msgid "%1$s of %2$s"
 msgstr "%1$s z %2$s"
@@ -11608,12 +11258,8 @@ msgid "Button text"
 msgstr "Tekst przycisku"
 
 #: assets/build/portals-app.js:13
-msgid ""
-"Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on "
-"purchase."
-msgstr ""
-"Kup teraz wyświetla się tylko dla odwiedzających zablokowanych przez regułę grupy dostępu. Skieruj zakupy na tę grupę, "
-"aby przyznać dostęp po zakupie."
+msgid "Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on purchase."
+msgstr "Kup teraz wyświetla się tylko dla odwiedzających zablokowanych przez regułę grupy dostępu. Skieruj zakupy na tę grupę, aby przyznać dostęp po zakupie."
 
 #: assets/build/portals-app.js:13
 msgid "A sales or checkout link is required for paid spaces."

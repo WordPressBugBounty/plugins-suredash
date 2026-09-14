@@ -160,10 +160,10 @@ class Feeds extends Base {
 		$discussion_spaces = Menu::get_instance()->get_all_spaces_for_dropdown( 'posts_discussion' );
 
 		?>
-			<div id="portal-post-creation-modal" class="portal-modal portal-content">
+			<div id="portal-post-creation-modal" class="portal-modal portal-content" role="dialog" aria-modal="true" aria-labelledby="portal-post-creation-title">
 				<div class="portal-modal-content sd-shadow-lg">
 					<div class="portal-modal-header">
-						<h2 class="sd-no-space"><?php Labels::get_label( 'write_a_post', true ); ?></h2>
+						<h2 class="sd-no-space" id="portal-post-creation-title"><?php Labels::get_label( 'write_a_post', true ); ?></h2>
 						<div class="portal-post-creation-supports sd-gap-8">
 							<?php if ( $can_create_post ) { ?>
 								<?php
@@ -197,7 +197,7 @@ class Feeds extends Base {
 									'<p class="portal-help-description">%s%s&nbsp;%s%s</p>',
 									'(',
 									esc_html__( 'See supported embeds', 'suredash' ),
-									'<a href="' . esc_url( 'https://wordpress.org/documentation/article/embeds/#list-of-sites-you-can-embed-from' ) . '" target="_blank">' . esc_html__( 'here', 'suredash' ) . '</a>',
+									'<a href="' . esc_url( 'https://wordpress.org/documentation/article/embeds/#list-of-sites-you-can-embed-from' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suredash' ) . '<span class="screen-reader-text"> ' . esc_html__( '(opens in new tab)', 'suredash' ) . '</span></a>',
 									')'
 								);
 								?>
@@ -286,10 +286,10 @@ class Feeds extends Base {
 		$modal_added = true;
 
 		?>
-		<div id="portal-thread-edit-modal" class="portal-modal portal-content" style="display: none;">
+		<div id="portal-thread-edit-modal" class="portal-modal portal-content" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="portal-thread-edit-title">
 			<div class="portal-modal-content sd-shadow-lg">
 				<div class="portal-modal-header">
-					<h2 class="sd-no-space"><?php esc_html_e( 'Edit Post', 'suredash' ); ?></h2>
+					<h2 class="sd-no-space" id="portal-thread-edit-title"><?php esc_html_e( 'Edit Post', 'suredash' ); ?></h2>
 
 					<div class="portal-post-creation-supports sd-flex sd-items-center sd-gap-12">
 						<?php
@@ -318,7 +318,7 @@ class Feeds extends Base {
 								'<p class="portal-help-description">%s%s&nbsp;%s%s</p>',
 								'(',
 								esc_html__( 'See supported embeds', 'suredash' ),
-								'<a href="' . esc_url( 'https://wordpress.org/documentation/article/embeds/#list-of-sites-you-can-embed-from' ) . '" target="_blank">' . esc_html__( 'here', 'suredash' ) . '</a>',
+								'<a href="' . esc_url( 'https://wordpress.org/documentation/article/embeds/#list-of-sites-you-can-embed-from' ) . '" target="_blank" rel="noopener">' . esc_html__( 'here', 'suredash' ) . '<span class="screen-reader-text"> ' . esc_html__( '(opens in new tab)', 'suredash' ) . '</span></a>',
 								')'
 							);
 							?>

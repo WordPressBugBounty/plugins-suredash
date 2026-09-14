@@ -11,6 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
+use SureDashboard\Inc\Services\AI_Post_Summarizer;
 use SureDashboard\Inc\Utils\Helper;
 use SureDashboard\Inc\Utils\Labels;
 use SureDashboard\Inc\Utils\PostMeta;
@@ -143,6 +144,14 @@ do_action( 'suredashboard_single_post_template', $p_id );
 						$portal_post_type = sd_get_post_field( absint( $p_id ), 'post_type' );
 				?>
 						<div class="sd-flex sd-items-center sd-justify-center sd-gap-6">
+							<?php
+							// The listing only carries the whole post when the space renders full
+							// content — on an excerpt there is nothing here worth summarizing, and a
+							// locked post is deliberately unreadable, so the button stays off in both.
+							if ( $content_type !== 'excerpt' && empty( $args['is_locked'] ) ) {
+								AI_Post_Summarizer::get_instance()->render_button( absint( $p_id ) );
+							}
+							?>
 							<button class="portal-post-bookmark-trigger portal-button button-ghost sd-p-6 sd-flex sd-items-center <?php echo esc_attr( $bookmarked ); ?>" data-item_id="<?php echo esc_attr( (string) $p_id ); ?>" title="<?php esc_attr_e( 'Bookmark Post', 'suredash' ); ?>">
 								<?php Helper::get_library_icon( 'Bookmark', true ); ?>
 							</button>
@@ -190,7 +199,7 @@ do_action( 'suredashboard_single_post_template', $p_id );
 
 	<div class="sd-p-container sd-force-pt-0">
 		<div class="portal-space-post-content" dir="auto">
-			<h3 class="portal-store-post-title"><?php echo esc_html( $post_title ); ?></h3>
+			<h3 class="portal-store-post-title" aria-level="2"><?php echo esc_html( $post_title ); ?></h3>
 			<?php
 			if ( ! empty( $args['is_locked'] ) ) {
 				// The whole container is blurred via CSS and the centered .portal-locked-overlay

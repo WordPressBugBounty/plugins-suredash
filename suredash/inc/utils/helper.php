@@ -1500,6 +1500,7 @@ class Helper {
 					class="sort-pill-trigger"
 					aria-haspopup="listbox"
 					aria-expanded="false"
+					aria-controls="sort-pill-listbox"
 					aria-label="<?php echo esc_attr__( 'Sort options', 'suredash' ); ?>"
 				>
 					<span class="sort-pill-label">
@@ -1528,10 +1529,12 @@ class Helper {
 				>
 					<?php self::get_library_icon( 'LayoutGrid', true, 'sm', '', [], true ); ?>
 				</button>
-				<div class="sort-pill-menu" role="listbox">
+				<?php // The id is what the trigger's aria-controls points at. ?>
+				<div class="sort-pill-menu" id="sort-pill-listbox" role="listbox" aria-label="<?php echo esc_attr__( 'Sort options', 'suredash' ); ?>">
 					<?php foreach ( $sort_options as $sort_key => $sort_data ) { ?>
 						<?php $is_active = $sort_key === $current_sort; ?>
-						<button type="button" class="sort-pill-option <?php echo $is_active ? 'active' : ''; ?>" role="option" aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>" data-sort="<?php echo esc_attr( $sort_key ); ?>" data-short-label="<?php echo esc_attr( $sort_data['short'] ); ?>">
+						<?php // Roving tabindex: a listbox is one Tab stop, arrows move within it. Every option being tabbable made Tab walk through all of them. ?>
+						<button type="button" class="sort-pill-option <?php echo $is_active ? 'active' : ''; ?>" role="option" aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>" tabindex="<?php echo $is_active ? '0' : '-1'; ?>" data-sort="<?php echo esc_attr( $sort_key ); ?>" data-short-label="<?php echo esc_attr( $sort_data['short'] ); ?>">
 							<span class="sort-pill-option-label"><?php echo esc_html( $sort_data['label'] ); ?></span>
 							<span class="sort-pill-option-check" aria-hidden="true"><?php self::get_library_icon( 'Check', true, 'sm', '', [], true ); ?></span>
 						</button>
@@ -1797,7 +1800,7 @@ class Helper {
 						$likes_count = (string) count( $likes_count );
 						?>
 						<div class="sd-flex sd-items-center sd-p-4">
-							<button class="sd-post-reaction portal-button button-ghost sd-active-shadow-none sd-p-2 sd-radius-9999" data-state="<?php echo esc_attr( $is_user_liked ? 'liked' : 'unliked' ); ?>" data-post_id="<?php echo esc_attr( $post_id ); ?>" title="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" role="button" aria-label="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" data-reaction_type="like"><?php self::get_library_icon( 'Heart', true ); ?></button>
+							<button class="sd-post-reaction portal-button button-ghost sd-active-shadow-none sd-p-2 sd-radius-9999" data-state="<?php echo esc_attr( $is_user_liked ? 'liked' : 'unliked' ); ?>" aria-pressed="<?php echo $is_user_liked ? 'true' : 'false'; ?>" data-post_id="<?php echo esc_attr( $post_id ); ?>" title="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" role="button" aria-label="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" data-reaction_type="like"><?php self::get_library_icon( 'Heart', true ); ?></button>
 
 							<?php
 							if ( suredash_simply_content() ) {
@@ -1805,13 +1808,28 @@ class Helper {
 								$post_likes      = (string) $user_list['thread_likes'];
 								$tooltip_content = ! empty( $user_list['tooltip_content'] ) ? $user_list['tooltip_content'] : __( 'No likes yet.', 'suredash' );
 								?>
-									<span class="tooltip-trigger portal-likes-count sd-pointer" data-tooltip-description="<?php echo esc_attr( (string) $tooltip_content ); ?>" data-count="<?php echo esc_attr( $post_likes ); ?>">
+									<?php
+									// Only expose this as a control when there is something to view.
+									// With zero likes the element collapses to 0x0, so role and
+									// tabindex would add an invisible tab stop to every post.
+									$likes_a11y_attrs = (int) $likes_count > 0
+										? ' role="button" tabindex="0" aria-describedby="portal-likes-count-hint"'
+										: '';
+									?>
+									<span class="tooltip-trigger portal-likes-count sd-pointer" data-tooltip-description="<?php echo esc_attr( (string) $tooltip_content ); ?>" data-count="<?php echo esc_attr( $post_likes ); ?>"<?php echo $likes_a11y_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static attribute string ?>>
 										<span class="counter"><?php echo esc_html( $likes_count ); ?></span>
 									</span>
 									<?php
 							} else {
 								?>
-									<span class="portal-likes-count" data-count="<?php echo esc_attr( $likes_count ); ?>" data-type="like" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>">
+									<?php
+									// See note above: no likes means no control, or every post
+									// gains an invisible tab stop.
+									$likes_a11y_attrs = (int) $likes_count > 0
+										? ' role="button" tabindex="0" aria-describedby="portal-likes-count-hint"'
+										: '';
+									?>
+									<span class="portal-likes-count" data-count="<?php echo esc_attr( $likes_count ); ?>" data-type="like" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>"<?php echo $likes_a11y_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static attribute string ?>>
 									<?php echo '<span class="counter">' . esc_html( $likes_count ) . '</span>'; ?>
 									</span>
 									<?php

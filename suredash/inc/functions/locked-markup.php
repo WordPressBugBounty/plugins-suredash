@@ -177,6 +177,21 @@ if ( ! function_exists( 'suredash_render_locked_card' ) ) {
 		$wrapper_href     = $opens_quick_view && ! empty( $args['link'] ) ? (string) $args['link'] : '#';
 		$overlay_icon     = ! empty( $lock['drip'] ) ? 'Clock' : 'Lock';
 
+		// The lock overlay is aria-hidden, so a screen reader hears only the title
+		// and cannot tell the card is locked. Name it explicitly, matching the
+		// wording the home space cards and sidebar already use (see home-content.php
+		// and Sure_Members::set_navigation_restriction_label). Appended to
+		// $wrapper_attrs so every layout below inherits it.
+		$locked_label = sprintf(
+			/* translators: 1: Item title, 2: Restriction type */
+			esc_attr__( '%1$s, %2$s', 'suredash' ),
+			esc_attr( (string) ( $args['title'] ?? '' ) ),
+			! empty( $lock['drip'] )
+				? esc_attr__( 'scheduled content', 'suredash' )
+				: esc_attr__( 'content requires membership access', 'suredash' )
+		);
+		$wrapper_attrs .= ' aria-label="' . $locked_label . '"';
+
 		// Thumbnail markup, identical to the normal renderers.
 		$thumbnail_html = isset( $args['thumbnail_label'] )
 			? Helper::get_space_featured_image( $id, true, (string) ( $args['color'] ?? 'blue' ), (string) ( $args['avatar'] ?? '' ), (string) ( $args['thumbnail_label'] ?? '' ) )

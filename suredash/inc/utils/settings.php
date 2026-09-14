@@ -431,6 +431,21 @@ class Settings {
 					'type'    => 'boolean',
 				],
 
+				// AI post summary. Off for every install, new and existing.
+				// The feature sends member-written post content to a third-party
+				// AI provider, so it stays opt-in: an admin turns it on
+				// deliberately after connecting a provider under Settings →
+				// Connectors.
+				// An empty provider means "use the first connected provider".
+				'suredash_post_summary'                => [
+					'default' => false,
+					'type'    => 'boolean',
+				],
+				'suredash_post_summary_provider'       => [
+					'default' => '',
+					'type'    => 'string',
+				],
+
 				// Gamification settings.
 				'user_badges'                          => [
 					'default' => [

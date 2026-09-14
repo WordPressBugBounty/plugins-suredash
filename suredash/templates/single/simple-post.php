@@ -56,7 +56,7 @@ do_action( 'suredashboard_single_post_template', $p_id );
 	<section class="portal-store-post-header sd-p-container">
 		<div class="portal-store-post-author-data sd-flex sd-justify-between sd-items-start">
 			<div class="portal-store-post-author-wrap sd-w-full sd-flex sd-items-center sd-justify-between">
-				<h3 class="portal-store-post-title sd-m-0"><?php echo esc_html( $post_title ); ?></h3>
+				<h3 class="portal-store-post-title sd-m-0" aria-level="2"><?php echo esc_html( $post_title ); ?></h3>
 			</div>
 			<div class="portal-store-post-actions sd-flex sd-relative sd-gap-4 sd-items-center">
 				<?php

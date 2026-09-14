@@ -43,7 +43,7 @@ echo do_shortcode(
 				'
 					<div class="portal-content sd-flex sd-flex-col sd-gap-16 sd-max-w-custom sd-mx-auto sd-mt-30 sd-mb-32 sd-text-center sd-items-center sd-p-custom" style="--sd-max-w-custom: 600px; --sd-p-custom: 40px; margin: 32px auto;">
 						<img src="%1$s" alt="%2$s" class="%7$s" />
-						<h4 class="portal-item-title sd-no-space"> %3$s </h4>
+						<h4 class="portal-item-title sd-no-space" aria-level="3"> %3$s </h4>
 						%4$s
 						<div class="sd-flex sd-gap-8 sd-justify-center">
 							%5$s

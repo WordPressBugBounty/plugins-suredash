@@ -698,8 +698,15 @@ class Renderer {
 	public function check_if_override_template() {
 		$status = true;
 
-		/* Breakdance, Bricks & Divi Builders compatibility */
-		if ( ! empty( $_GET['breakdance'] ) || ( ! empty( $_GET['bricks'] ) && $_GET['bricks'] === 'run' ) || ( ! empty( $_GET['et_fb'] ) && $_GET['et_fb'] === '1' ) ) { // phpcs:ignore
+		/*
+		Breakdance, Bricks, Divi & Beaver Builder compatibility.
+
+		Beaver Builder launches at the post's own permalink with `?fl_builder`
+		appended as an EMPTY value (FLBuilderModel::get_edit_url), so this must
+		stay isset() — ! empty() would never match and the builder would get the
+		portal shell as its canvas instead of the post.
+		*/
+		if ( ! empty( $_GET['breakdance'] ) || ( ! empty( $_GET['bricks'] ) && $_GET['bricks'] === 'run' ) || ( ! empty( $_GET['et_fb'] ) && $_GET['et_fb'] === '1' ) || isset( $_GET['fl_builder'] ) || isset( $_GET['fl_builder_preview'] ) ) { // phpcs:ignore
 			$status = false;
 		}
 

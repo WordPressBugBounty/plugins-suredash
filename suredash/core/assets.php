@@ -50,6 +50,11 @@ class Assets {
 			[
 				'ajax_url'                      => admin_url( 'admin-ajax.php' ),
 				'password_mismatch_message'     => Labels::get_label( 'password_mismatch_message' ),
+				'a11y_labels'                   => [
+					'skip_to_content' => __( 'Skip to main content', 'suredash' ),
+					'comment_editor'  => __( 'Comment on post', 'suredash' ),
+					'post_content'    => __( 'Post content', 'suredash' ),
+				],
 				'notification_dataset'          => [
 					'success' => [
 						'icon'    => Helper::get_library_icon( 'CircleCheck', false, 'md' ),
@@ -205,15 +210,31 @@ class Assets {
 			'suredash-sm-locked',
 			'suredashSMLocked',
 			[
-				'rest'    => esc_url_raw( rest_url( 'suredash/v1/' ) ),
-				'nonce'   => wp_create_nonce( 'wp_rest' ),
-				'loading' => __( 'Loading…', 'suredash' ),
-				'error'   => __( 'Unable to load content.', 'suredash' ),
+				'rest'            => esc_url_raw( rest_url( 'suredash/v1/' ) ),
+				'nonce'           => wp_create_nonce( 'wp_rest' ),
+				'loading'         => __( 'Loading…', 'suredash' ),
+				'restrictedTitle' => __( 'Restricted content', 'suredash' ),
+				'error'           => __( 'Unable to load content.', 'suredash' ),
 			]
 		);
 		wp_enqueue_script( 'portal-comments', SUREDASHBOARD_JS_ASSETS_FOLDER . 'comments' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'jodit-custom', 'portal-global' ], SUREDASHBOARD_VER, true );
 		wp_enqueue_script( 'portal-highlight-comments', SUREDASHBOARD_JS_ASSETS_FOLDER . 'highlight-comments' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'portal-global' ], SUREDASHBOARD_VER, true );
 		wp_enqueue_script( 'portal-post-actions', SUREDASHBOARD_JS_ASSETS_FOLDER . 'post-actions' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'portal-global', 'jodit-custom' ], SUREDASHBOARD_VER, true );
+
+		// AI post summary. The script is inert unless a Summarize button is
+		// present, and the button only renders when the feature is available —
+		// so this stays a no-op for portals without a connected AI provider.
+		wp_enqueue_script( 'portal-summarize-post', SUREDASHBOARD_JS_ASSETS_FOLDER . 'summarize-post' . SUREDASHBOARD_JS_SUFFIX, [ 'portal-common', 'portal-global' ], SUREDASHBOARD_VER, true );
+		wp_localize_script(
+			'portal-summarize-post',
+			'portal_summarize',
+			[
+				'summary_of' => __( 'Summary of', 'suredash' ),
+				'loading'    => __( 'Loading summary…', 'suredash' ),
+				'close'      => __( 'Close summary', 'suredash' ),
+				'error'      => __( 'Could not summarize this post. Please try again.', 'suredash' ),
+			]
+		);
 
 		wp_enqueue_style( 'portal-font', esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'font-rtl' : 'font' ) . SUREDASHBOARD_CSS_SUFFIX ), [], SUREDASHBOARD_VER );
 		wp_enqueue_style( 'portal-global', esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'global-rtl' : 'global' ) . SUREDASHBOARD_CSS_SUFFIX ), [ 'portal-font' ], SUREDASHBOARD_VER );
@@ -289,6 +310,7 @@ class Assets {
 				'resultCountPlural' => __( '%d results', 'suredash' ),
 				'newest'            => __( 'Newest first', 'suredash' ),
 				'oldest'            => __( 'Oldest first', 'suredash' ),
+				'sortLabel'         => __( 'Sort results', 'suredash' ),
 				'move'              => __( 'Move', 'suredash' ),
 				'select'            => __( 'Select', 'suredash' ),
 				'close'             => __( 'Close', 'suredash' ),
@@ -330,7 +352,7 @@ class Assets {
 		wp_enqueue_script(
 			'suredash-frontend-search',
 			SUREDASHBOARD_JS_ASSETS_FOLDER . 'frontend-search' . SUREDASHBOARD_JS_SUFFIX,
-			[],
+			[ 'portal-common' ],
 			SUREDASHBOARD_VER,
 			true
 		);
@@ -444,6 +466,8 @@ class Assets {
 				'category'                => get_queried_object_id(),
 				'page'                    => 1,
 				'posts_loaded_message'    => '<div class="portal-no-more-posts">' . Labels::get_label( 'no_more_posts_to_load' ) . '</div>',
+				/* translators: %s: Number of posts */
+				'a11y_posts_loaded'       => __( '%s more posts loaded', 'suredash' ),
 				'comments_loaded_message' => '<div class="portal-no-more-posts">' . Labels::get_label( 'no_more_comments_to_load' ) . '</div>',
 				'insufficient_data_error' => Labels::get_label( 'insufficient_data_error' ),
 				'infinite_scroll_loading' => false,

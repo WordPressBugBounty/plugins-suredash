@@ -75,7 +75,46 @@ class Releases {
 		 *
 		 * @var array<int, array<string, mixed>> $releases
 		 */
-		$releases = [];
+		$releases = [
+			[
+				'id'            => 'suredash-1.12.0',
+				'source'        => 'suredash',
+				'version'       => '1.12.0',
+				'changelog_url' => 'https://suredash.com/whats-new/',
+				'pages'         => [
+					[
+						'eyebrow'  => __( 'New in SureDash', 'suredash' ),
+						'title'    => __( 'Introducing AI Post Summaries', 'suredash' ),
+						'body'     => __( 'Turn long discussion posts into a quick, AI-written recap. Members tap Summarize and read the key points right above the post. The summary is generated once and reused for everyone until the post is edited.', 'suredash' ),
+						'points'   => [
+							[
+								'icon'  => 'sparkles',
+								'label' => __( 'Summarize button on long posts', 'suredash' ),
+							],
+							[
+								'icon'  => 'layout',
+								'label' => __( 'AI recap sits above the post content', 'suredash' ),
+							],
+							[
+								'icon'  => 'zap',
+								'label' => __( 'Generated once, reused until edited', 'suredash' ),
+							],
+						],
+						'media'    => [
+							'src'  => SUREDASHBOARD_URL . 'assets/images/ai-summary-banner.webp',
+							'type' => 'image',
+						],
+						'docs_url' => '',
+						'target'   => [
+							'route'     => '/settings/mcp',
+							'anchor_id' => 'post-summary',
+							'label'     => __( 'Summarize Posts', 'suredash' ),
+							'hint'      => __( 'Switch this on to add a Summarize button to long discussion posts.', 'suredash' ),
+						],
+					],
+				],
+			],
+		];
 
 		// Gate free entries to versions that have actually shipped, so a
 		// prematurely added (future-version) entry is never shown.

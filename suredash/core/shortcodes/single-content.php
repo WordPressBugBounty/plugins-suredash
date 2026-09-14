@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use SureDashboard\Core\Integrations\Feeds;
 use SureDashboard\Core\Integrations\SinglePost;
+use SureDashboard\Inc\Services\AI_Post_Summarizer;
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Traits\Shortcode;
 use SureDashboard\Inc\Utils\Helper;
@@ -379,6 +380,7 @@ class SingleContent {
 						$portal_post_type = sd_get_post_field( absint( $post_id ), 'post_type' );
 						?>
 						<div class="sd-flex sd-items-center sd-justify-center sd-gap-6">
+							<?php AI_Post_Summarizer::get_instance()->render_button( absint( $post_id ) ); ?>
 							<button class="portal-post-bookmark-trigger portal-button button-ghost sd-p-6 sd-flex sd-items-center <?php echo esc_attr( $bookmarked ); ?>" data-item_id="<?php echo esc_attr( (string) $post_id ); ?>" title="<?php esc_attr_e( 'Bookmark Post', 'suredash' ); ?>">
 								<?php Helper::get_library_icon( 'Bookmark', true ); ?>
 							</button>

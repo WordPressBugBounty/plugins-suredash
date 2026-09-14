@@ -14,12 +14,13 @@ echo do_shortcode(
 		'suredash_footer_brand_output',
 		sprintf(
 			'
-				<a target="_blank" href="%2$s" class="portal-branding portal-content">
-					%1$s
+				<a target="_blank" rel="noopener" href="%2$s" class="portal-branding portal-content">
+					%1$s<span class="screen-reader-text">%3$s</span>
 				</a>
 			',
 			__( 'Powered by', 'suredash' ) . ' SureDash',
-			'https://suredash.com/'
+			'https://suredash.com/',
+			__( '(opens in new tab)', 'suredash' )
 		)
 	)
 );

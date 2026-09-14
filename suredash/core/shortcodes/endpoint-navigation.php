@@ -156,7 +156,7 @@ class EndpointNavigation {
 						<div class="sd-flex sd-justify-between sd-items-center sd-pt-4 sd-pb-20 sd-px-10">
 							<h2 class="portal-lesson-aside-title sd-text-color sd-no-space"><?php echo esc_html( $config['header'] ); ?></h2>
 							<?php if ( is_user_logged_in() ) { ?>
-								<button id="portal-lesson-bookmark" class="portal-post-bookmark-trigger portal-sidebar-bookmark-trigger sd-flex sd-cursor-pointer portal-button button-ghost <?php echo esc_attr( $bookmarked ); ?>"
+								<button class="portal-lesson-bookmark portal-post-bookmark-trigger portal-sidebar-bookmark-trigger sd-flex sd-cursor-pointer portal-button button-ghost <?php echo esc_attr( $bookmarked ); ?>"
 									data-course_id="<?php echo esc_attr( (string) $base_id ); ?>"
 									data-item_id="<?php echo esc_attr( (string) $content_id ); ?>"
 									data-item_type="<?php echo esc_attr( $config['bookmark_item_type'] ); ?>"

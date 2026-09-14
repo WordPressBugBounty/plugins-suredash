@@ -36,7 +36,7 @@ function suredash_image_uploader_field( $title, $option, $only_input_field = fal
 		?>
 		<span class="suredash-upload-block profile-pic-uploader">
 			<input class="suredash-upload-size" value="<?php echo esc_attr( $max_upload_size ); ?>" type="hidden" />
-			<input class="suredash-input-upload portal_feed_input sd-pointer" name="<?php echo esc_attr( $option ); ?>" type="file" aria-required="false" accept="<?php echo esc_attr( $image_supports ); ?>">
+			<input class="suredash-input-upload portal_feed_input sd-pointer" name="<?php echo esc_attr( $option ); ?>" type="file" aria-required="false" aria-label="<?php echo esc_attr__( 'Upload an image', 'suredash' ); ?>" accept="<?php echo esc_attr( $image_supports ); ?>">
 			<div class="suredash-error-wrap sd-font-12">
 				<div class="suredash-error-message" data-error-msg="<?php echo esc_attr__( 'This field is required.', 'suredash' ); ?>"></div>
 			</div>
@@ -48,7 +48,7 @@ function suredash_image_uploader_field( $title, $option, $only_input_field = fal
 	?>
 	<div class="portal-custom-topic-field portal-extended-linked-field portal-featured-image-field <?php echo esc_attr( $extra_class ); ?>">
 		<?php if ( ! empty( $title ) ) { ?>
-			<label for="<?php echo esc_attr( $option ); ?>"><?php echo esc_html( $title ); ?></label>
+			<label><?php echo esc_html( $title ); ?></label>
 		<?php } ?>
 
 		<div class="suredash-upload-block">
@@ -69,7 +69,7 @@ function suredash_image_uploader_field( $title, $option, $only_input_field = fal
 							esc_attr( $image_supports )
 						);
 						?>
-						<input class="suredash-input-upload portal_feed_input sd-pointer" name="<?php echo esc_attr( $option ); ?>" type="file" aria-required="false" accept="<?php echo esc_attr( $image_supports ); ?>">
+						<input class="suredash-input-upload portal_feed_input sd-pointer" name="<?php echo esc_attr( $option ); ?>" id="<?php echo esc_attr( $option ); ?>" type="file" aria-required="false" aria-label="<?php echo esc_attr__( 'Upload an image', 'suredash' ); ?>" accept="<?php echo esc_attr( $image_supports ); ?>">
 					</label>
 				</div>
 			</div>
@@ -312,7 +312,9 @@ function suredash_comments_markup( $post_id, $comment_box = false, $params = nul
 				if ( $comment_box ) {
 					suredash_comment_box_markup( $post_id, false, $comment_form_class, $comment_box_id_suffix );
 				}
-				suredash_comment_box_markup( $post_id, true, $comment_form_class );
+				// Own suffix, or this hidden box renders a second textarea carrying
+				// the id the visible box above already uses.
+				suredash_comment_box_markup( $post_id, true, $comment_form_class, 'hidden' );
 
 				do_action( 'suredashboard_single_comments_after_form' );
 
@@ -459,11 +461,13 @@ function suredash_comment_box_markup( $post_id, $hidden = false, $comment_form_c
 	$comment_box_final_id = $comment_box_id_suffix ? 'jodit-comment-' . $comment_box_id_suffix . '-' . $post_id : 'jodit-comment-' . $post_id;
 	ob_start();
 	?>
-		<div class="sd-flex sd-justify-between sd-items-start sd-gap-8 comment-markup sd-display-none <?php echo esc_attr( $hidden ? ' hidden-comment-markup ' : ' ' ); ?> <?php echo esc_attr( $comment_form_class ); ?>
-	" id="inline-comment-box">
+		<?php // Same story as the form id below: one per post, so it was duplicated once per post. The class carries the styling that the id used to. ?>
+		<div class="inline-comment-box sd-flex sd-justify-between sd-items-start sd-gap-8 comment-markup sd-display-none <?php echo esc_attr( $hidden ? ' hidden-comment-markup ' : ' ' ); ?> <?php echo esc_attr( $comment_form_class ); ?>
+	" id="inline-comment-box-<?php echo esc_attr( $comment_box_final_id ); ?>">
 			<?php suredash_get_user_avatar( get_current_user_id(), true, 32 ); ?>
 
-			<form action="" method="post" class="jodit-comment-box-wrapper sd-flex sd-flex-col sd-flex-1 sd-justify-center sd-w-full" id="postcommentform">
+			<?php // One comment box renders per post, so a fixed id here appeared once per post on a feed. ?>
+			<form action="" method="post" class="jodit-comment-box-wrapper sd-flex sd-flex-col sd-flex-1 sd-justify-center sd-w-full" id="postcommentform-<?php echo esc_attr( $comment_box_final_id ); ?>">
 				<!-- Required fields -->
 				<input type="hidden" name="comment_post_ID" value="<?php echo esc_attr( strval( $post_id ) ); ?>" />
 				<input type="hidden" name="comment_parent" value="0" />
@@ -896,7 +900,7 @@ function suredash_render_item_badges_and_options( $args, $config = [] ): void {
 
 		?>
 		<div class="sd-flex sd-gap-4">
-			<button class="sd-post-reaction portal-button button-ghost sd-active-shadow-none sd-p-8 sd-radius-9999 " data-state="<?php echo esc_attr( $is_user_liked ? 'liked' : 'unliked' ); ?>" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>" title="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" role="button" aria-label="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" data-reaction_type="like">
+			<button class="sd-post-reaction portal-button button-ghost sd-active-shadow-none sd-p-8 sd-radius-9999 " data-state="<?php echo esc_attr( $is_user_liked ? 'liked' : 'unliked' ); ?>" aria-pressed="<?php echo $is_user_liked ? 'true' : 'false'; ?>" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>" title="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" role="button" aria-label="<?php echo esc_attr__( 'Like', 'suredash' ); ?>" data-reaction_type="like">
 				<?php Helper::get_library_icon( 'Heart', true ); ?>
 			</button>
 			<span class="portal-button-likes-count sd-pr-2 sd-font-14 sd-line-16 sd-font-semibold" data-count="<?php echo esc_attr( (string) $likes_count ); ?>" data-type="like" data-post_id="<?php echo esc_attr( (string) $post_id ); ?>" style="pointer-events: none; cursor: default;">
@@ -1129,7 +1133,7 @@ function suredash_render_list( $items = [], $list_args = [] ): void {
 	?>
 		<div class="portal-list-container sd-flex-col sd-gap-24 <?php echo esc_attr( $list_args['container_class'] ); ?>">
 			<?php if ( $list_args['show_title'] && ! empty( $list_args['title'] ) ) { ?>
-				<h3 class="portal-list-title sd-m-0 sd-mb-16 sd-font-18 sd-font-semibold">
+				<h3 class="portal-list-title sd-m-0 sd-mb-16 sd-font-18 sd-font-semibold" aria-level="2">
 					<?php echo esc_html( $list_args['title'] ); ?>
 				</h3>
 			<?php } ?>
@@ -1338,7 +1342,7 @@ function suredash_render_card_grid( $items = [], $grid_args = [] ): void {
 	?>
 		<div class="portal-card-grid-container sd-w-full sd-flex-col sd-gap-24 sd-mx-auto sd-items-start <?php echo esc_attr( $grid_args['container_class'] ); ?>" <?php echo ! empty( $grid_args['style'] ) ? 'style="' . esc_attr( $grid_args['style'] ) . '"' : ''; ?>>
 			<?php if ( $grid_args['show_title'] && ! empty( $grid_args['title'] ) ) { ?>
-				<h3 class="portal-card-grid-title sd-m-0 sd-mb-20 sd-font-18 sd-font-semibold sd-text-center">
+				<h3 class="portal-card-grid-title sd-m-0 sd-mb-20 sd-font-18 sd-font-semibold sd-text-center" aria-level="2">
 					<?php echo esc_html( $grid_args['title'] ); ?>
 				</h3>
 			<?php } ?>
@@ -1495,7 +1499,7 @@ function suredash_render_stacked_list( $items = [], $list_args = [] ): void {
 	?>
 		<div class="portal-stacked-list-container sd-flex-col sd-gap-24 <?php echo esc_attr( $list_args['container_class'] ); ?>">
 			<?php if ( $list_args['show_title'] && ! empty( $list_args['title'] ) ) { ?>
-				<h3 class="portal-stacked-list-title sd-m-0 sd-mb-20 sd-font-18 sd-font-semibold">
+				<h3 class="portal-stacked-list-title sd-m-0 sd-mb-20 sd-font-18 sd-font-semibold" aria-level="2">
 					<?php echo esc_html( $list_args['title'] ); ?>
 				</h3>
 			<?php } ?>

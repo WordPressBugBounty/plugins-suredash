@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="portal-quick-view-bg"><div class="portal-quick-view-loader sd-no-space blockUI blockOverlay"></div></div>
 
-<div id="portal-quick-view-modal">
+<div id="portal-quick-view-modal" role="dialog" aria-modal="true" aria-label="<?php echo esc_attr__( 'Post preview', 'suredash' ); ?>">
 	<div class="portal-qv-content-main-wrapper sd-shadow-lg"><?php /*Don't remove this html comment*/ ?>
 		<div class="portal-qv-content-main">
 			<div class="sd-post-lightbox-content">

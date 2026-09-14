@@ -9,6 +9,7 @@ namespace SureDashboard\Core\Routers;
 
 use SureDashboard\Core\Models\Controller;
 use SureDashboard\Core\Notifier\Base as Notifier_Base;
+use SureDashboard\Inc\Services\AI_Post_Summarizer;
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Traits\Rest_Errors;
 use SureDashboard\Inc\Utils\Activity_Tracker;
@@ -28,6 +29,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Misc {
 	use Get_Instance;
 	use Rest_Errors;
+	/**
+	 * Summaries one member may request within {@see self::SUMMARY_RATE_WINDOW}.
+	 *
+	 * Generous for a person reading a busy feed, low enough that a script cannot
+	 * run up the admin's AI bill.
+	 *
+	 * @since 1.12.0
+	 */
+	private const SUMMARY_RATE_LIMIT = 20;
+
+	/**
+	 * The window, in seconds, that {@see self::SUMMARY_RATE_LIMIT} applies over.
+	 *
+	 * @since 1.12.0
+	 */
+	private const SUMMARY_RATE_WINDOW = 15 * MINUTE_IN_SECONDS;
 
 	// Default dimensions for uploaded images (width, height) in pixels.
 	private const DEFAULT_IMAGE_DIMENSIONS = [ 1000, 1000 ];
@@ -1871,6 +1888,123 @@ class Misc {
 		}
 
 		wp_send_json_success( [ 'html' => $embed_html ] );
+	}
+
+	/**
+	 * Summarize a discussion post with the connected AI provider.
+	 *
+	 * The heavy lifting — connector discovery, prompt, schema, caching — lives
+	 * in {@see AI_Post_Summarizer}. This handler is the guard rail: verify the
+	 * nonce, verify the member may actually read the post (IDOR), then hand off.
+	 *
+	 * @param \WP_REST_Request $request Request object.
+	 *
+	 * @since 1.12.0
+	 * @return void
+	 */
+	public function summarize_post( $request ): void {
+		$nonce = (string) $request->get_header( 'X-WP-Nonce' );
+		if ( ! wp_verify_nonce( sanitize_text_field( $nonce ), 'wp_rest' ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified above.
+		$post_id = ! empty( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+
+		if ( ! $post_id ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
+		}
+
+		// Same guard the reaction routes use: the post must be one of ours and
+		// must not be hidden from this member by restriction or visibility
+		// scope. Without it, a member could summarize a post they cannot read.
+		if ( ! $this->can_access_feed_object( $post_id ) ) {
+			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'permission' ) ] );
+		}
+
+		// Every cache miss below is a billable call to the admin's own AI account,
+		// and a member controls both halves of the miss: `/submit-topic/` creates
+		// posts with no length cap, and `/edit-post` changes the content hash that
+		// invalidates the cache. Left unthrottled, a loop of create-then-summarize
+		// (or edit-then-summarize) bills without limit and pins a PHP worker per
+		// request while the provider round-trip completes.
+		$rate_key   = 'sd_summary_rate_' . get_current_user_id();
+		$rate_count = (int) get_transient( $rate_key );
+		if ( $rate_count >= self::SUMMARY_RATE_LIMIT ) {
+			wp_send_json_error(
+				[ 'message' => __( 'You have requested a lot of summaries just now. Please try again in a few minutes.', 'suredash' ) ],
+				429
+			);
+		}
+
+		$result = AI_Post_Summarizer::get_instance()->summarize( $post_id );
+
+		// Only a real generation moves the counter. Reading an already-cached
+		// summary costs nothing, so someone working through a busy feed of
+		// summarized posts must not be throttled for it.
+		if ( is_wp_error( $result ) || empty( $result['cached'] ) ) {
+			set_transient( $rate_key, $rate_count + 1, self::SUMMARY_RATE_WINDOW );
+		}
+
+		if ( is_wp_error( $result ) ) {
+			wp_send_json_error(
+				[
+					'code'    => $result->get_error_code(),
+					'message' => $this->get_summary_error_message( $result ),
+				]
+			);
+		}
+
+		wp_send_json_success( $result );
+	}
+
+	/**
+	 * Turn a summarizer error into something safe to show a member.
+	 *
+	 * The summarizer's own errors are written for members and pass through.
+	 * Anything bubbling up from the AI provider — a network failure, a missing
+	 * connector approval, a rate limit — is admin-facing detail that a member
+	 * can neither act on nor should see, so it is replaced with a neutral
+	 * message. Portal managers still get the raw text, because they are the
+	 * ones who have to fix it.
+	 *
+	 * @since 1.12.0
+	 * @param \WP_Error $error The error returned by the summarizer.
+	 * @return string
+	 */
+	private function get_summary_error_message( $error ): string {
+		// Codes a member can actually act on, or that describe their own post.
+		// Everything else -- including why the feature is switched off and which
+		// WordPress version the site runs -- is admin remediation detail that a
+		// member cannot use and should not be handed.
+		$member_facing = [
+			'invalid_post_type',
+			'content_too_short',
+			'empty_response',
+			'invalid_json',
+			'summary_in_progress',
+		];
+
+		$code = (string) $error->get_error_code();
+
+		if ( in_array( $code, $member_facing, true ) ) {
+			return (string) $error->get_error_message();
+		}
+
+		// The raw provider message can carry endpoint URLs, organisation ids and
+		// quota detail, so it is limited to the people who can actually fix the
+		// connection -- `manage_options`, not the portal-manager capability, which
+		// grants no access to the Connectors screen. Everyone else gets the
+		// neutral line.
+		if ( current_user_can( 'manage_options' ) ) {
+			return sprintf(
+				/* translators: %s: underlying error message from the AI provider. */
+				__( 'The AI provider could not be reached: %s', 'suredash' ),
+				(string) $error->get_error_message()
+			);
+		}
+
+		return __( 'Could not summarize this post right now. Please try again later.', 'suredash' );
 	}
 
 	/**

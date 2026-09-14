@@ -79,7 +79,8 @@ if ( empty( $widgets ) ) {
 }
 ?>
 
-<aside class="portal-aside-right portal-sidebar-widgets">
+<?php // Named, or a screen reader can only announce it as "complementary" with no idea what it holds. ?>
+<aside class="portal-aside-right portal-sidebar-widgets" aria-label="<?php echo esc_attr__( 'Space details', 'suredash' ); ?>">
 	<div class="portal-sidebar-widgets-inner">
 		<?php
 		foreach ( $widgets as $widget ) {
@@ -91,9 +92,18 @@ if ( empty( $widgets ) ) {
 			// Render widget container.
 			?>
 			<div class="portal-widget sd-border sd-radius-12 sd-bg-content portal-widget-<?php echo esc_attr( $widget_slug ); ?>" data-widget-id="<?php echo esc_attr( $widget_id ); ?>" data-widget-order="<?php echo esc_attr( $widget_order ); ?>">
-				<div class="portal-widget-header">
-					<h4 class="portal-widget-title"><?php echo esc_html( $widget_label ); ?></h4>
-				</div>
+				<?php
+				// Widgets that render their own title leave $widget_label empty,
+				// which produced an empty h4: a blank entry in the heading rotor
+				// and nothing on screen. Only render the header when there is one.
+				if ( $widget_label !== '' ) {
+					?>
+					<div class="portal-widget-header">
+						<h4 class="portal-widget-title"><?php echo esc_html( $widget_label ); ?></h4>
+					</div>
+					<?php
+				}
+				?>
 				<div class="portal-widget-content">
 					<?php
 					// Load the widget renderer.

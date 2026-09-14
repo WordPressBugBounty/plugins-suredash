@@ -170,15 +170,11 @@ class Navigation {
 						<div class="portal-aside-group <?php echo esc_attr( $is_hide_label ? 'pinned-group' : '' ); ?>" data-id="<?php echo esc_attr( (string) $space_term_id ); ?>">
 							<?php if ( ! $is_hide_label ) { ?>
 								<div class="portal-aside-group-header">
-									<span class="portal-aside-group-title-link sd-no-space"> <h5 class="portal-aside-group-title"><?php echo esc_html( $space_group_name ); ?></h5> </span>
+									<span class="portal-aside-group-title-link sd-no-space"> <h5 class="portal-aside-group-title" aria-level="3"><?php echo esc_html( $space_group_name ); ?></h5> </span>
 									<button
 										class="sd-aside-group-toggle portal-button button-ghost"
-										aria-label="
-										<?php
-										/* translators: %s: Space group name */
-										printf( esc_attr__( 'Toggle %s group', 'suredash' ), esc_html( $space_group_name ) );
-										?>
-										"
+										<?php // Kept on one line: split across lines the newlines and tabs land inside the accessible name. ?>
+										aria-label="<?php /* translators: %s: Space group name */ printf( esc_attr__( 'Toggle %s group', 'suredash' ), esc_attr( $space_group_name ) ); ?>"
 										aria-expanded="true"
 										aria-controls="group-content-<?php echo esc_attr( (string) $space_term_id ); ?>">
 										<?php Helper::get_library_icon( 'ChevronDown', true, 'md' ); ?>
@@ -254,6 +250,12 @@ class Navigation {
 											'data-forum_id' => $forum_id,
 											'href'         => esc_url( $link ),
 										];
+
+										// Tell assistive tech which space is the current page. The
+										// `active` class on its own is a visual signal only.
+										if ( $active_class !== '' ) {
+											$link_attributes['aria-current'] = 'page';
+										}
 
 										// Apply custom attributes filter for accessibility.
 										$link_attributes = apply_filters( 'suredash_navigation_item_attributes_' . $post_id, $link_attributes );

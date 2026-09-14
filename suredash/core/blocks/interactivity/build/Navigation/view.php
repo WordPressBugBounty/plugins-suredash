@@ -57,7 +57,7 @@ $space_group_typo_css = suredash_get_typography_css( $space_group_typography );
 $space_typo_css       = suredash_get_typography_css( $space_typography );
 
 ?>
-<div <?php echo do_shortcode( get_block_wrapper_attributes( [ 'class' => 'portal-content' ] ) ); ?>>
+<div role="navigation" aria-label="<?php echo esc_attr__( 'Spaces', 'suredash' ); ?>" <?php echo do_shortcode( get_block_wrapper_attributes( [ 'class' => 'portal-content' ] ) ); ?>>
 	<?php
 		printf(
 			'<style class="suredash-navigation-block-css">

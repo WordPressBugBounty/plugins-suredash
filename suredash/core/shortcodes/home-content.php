@@ -136,7 +136,8 @@ class HomeContent {
 		?>
 		<div class="<?php echo esc_attr( $layout_type ) . '-grid-row'; ?> sd-flex-col sd-gap-16">
 			<?php if ( $show_title && ! empty( $title ) ) { ?>
-				<h3 class="portal-home-post-title sd-responsive-text-center sd-no-space"><?php echo esc_html( $title ); ?></h3>
+				<?php // aria-level keeps the announced heading order valid without changing the tag, so the styling is untouched. ?>
+				<h3 class="portal-home-post-title sd-responsive-text-center sd-no-space" aria-level="2"><?php echo esc_html( $title ); ?></h3>
 			<?php } ?>
 
 			<section class="portal-grid-row sd-responsive-justify-center sd-flex sd-gap-24 sd-flex-wrap">
@@ -271,12 +272,36 @@ class HomeContent {
 		}
 		$lock_attrs = $is_locked && function_exists( 'suredash_locked_data_attrs' ) ? suredash_locked_data_attrs( $space_lock, $post_id ) : '';
 
+		// The padlock on a locked card is an aria-hidden icon, so a screen reader
+		// hears only the space title and cannot tell it is locked. Name the link
+		// explicitly, matching the wording the sidebar already uses for
+		// restricted spaces (see Sure_Members::set_navigation_restriction_label).
+		// Built from raw strings and escaped once at output below. Escaping the
+		// parts here as well turned a title like "Bob's Space" into the literal
+		// "Bob&#039;s Space" in the announced name.
+		$card_aria_label = '';
+		if ( $is_locked ) {
+			$restriction_type = ! empty( $space_lock['drip'] )
+				? __( 'scheduled content', 'suredash' )
+				: __( 'content requires membership access', 'suredash' );
+
+			$card_aria_label = sprintf(
+				/* translators: 1: Space title, 2: Restriction type */
+				__( '%1$s, %2$s', 'suredash' ),
+				$post_title,
+				$restriction_type
+			);
+		}
+
 		ob_start();
 		?>
 		<div class="portal-grid-row-container">
 			<a class="portal-home-grid-item-content portal-home-grid-item-content-minimal sd-border sd-hover-shadow-2xl <?php echo esc_attr( $has_description ); ?><?php echo $is_locked ? ' portal-locked-card is-locked portal-locked-frost' : ''; ?>"
 				href="<?php echo $is_locked ? '#' : esc_url( $space_link ); ?>"
 				target="<?php echo esc_attr( $space_target ); ?>"
+				<?php if ( $is_locked ) { ?>
+					aria-label="<?php echo esc_attr( $card_aria_label ); ?>"
+				<?php } ?>
 				data-id="<?php echo esc_attr( (string) $post_id ); ?>"<?php echo $lock_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- pre-escaped attrs ?>>
 				<?php echo do_shortcode( $thumbnail_html ); ?>
 				<div class="sd-flex-col sd-p-20 sd-gap-16 sd-card-main-container">
@@ -897,8 +922,14 @@ class HomeContent {
 		$portal_notification_on_comment_replies = $portal_notification_on_comment_replies !== '' ? $portal_notification_on_comment_replies : '1';
 		$portal_notification_on_mention         = $portal_notification_on_mention !== '' ? $portal_notification_on_mention : '1';
 
-		$bg_prop    = ! empty( $cover_image ) ? '--portal-user-profile-banner: url(' . esc_url( $cover_image ) . ');' : '';
-		$active_tab = ! empty( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( 'tab' ) ) : 'profile'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Frontend user profile view with proper sanitization.
+		$bg_prop = ! empty( $cover_image ) ? '--portal-user-profile-banner: url(' . esc_url( $cover_image ) . ');' : '';
+		// `wp_unslash( 'tab' )` passed the literal string 'tab' rather than the
+		// query value, so $active_tab was always "tab" and matched none of the
+		// cases below. No tab or panel was ever marked active server-side, and
+		// only the client-side URL handler in global.js made deep links work.
+		// Restricted to the known tabs so the value can never be arbitrary.
+		$requested_tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Frontend user profile view, read-only tab selection.
+		$active_tab    = in_array( $requested_tab, [ 'profile', 'socials', 'password', 'notifications' ], true ) ? $requested_tab : 'profile';
 
 		$profile_label      = Labels::get_label( 'profile' );
 		$socials_label      = Labels::get_label( 'socials' );
@@ -909,6 +940,14 @@ class HomeContent {
 
 		ob_start();
 		?>
+		<?php
+		// Channel suffixes for the notification toggles. Each checkbox points at
+		// its row label plus one of these, so the announced name reads
+		// "Receive all notifications by email" without duplicating the row text
+		// as a second translatable string.
+		?>
+		<span id="sd-notif-channel-email" class="screen-reader-text"><?php esc_html_e( 'by email', 'suredash' ); ?></span>
+		<span id="sd-notif-channel-portal" class="screen-reader-text"><?php esc_html_e( 'in the portal', 'suredash' ); ?></span>
 		<div class="portal-user-profile-main portal-content">
 			<div class="portal-user-profile-editor-header">
 				<div class="portal-user-profile-tabs-wrapper">
@@ -982,7 +1021,7 @@ class HomeContent {
 					</span>
 				</div>
 
-				<button class="portal-button button-primary portal-user-profile-editor-save">
+				<button type="submit" class="portal-button button-primary portal-user-profile-editor-save">
 					<?php
 						Labels::get_label( 'save', true );
 						Helper::get_library_icon( 'LoaderCircle', true, 'sm', 'sd-display-none' );
@@ -993,16 +1032,16 @@ class HomeContent {
 			<div class="portal-user-profile-editor-wrap portal-content-area sd-box-shadow">
 				<div class="portal-user-view-inner-content <?php echo esc_attr( $active_tab === 'profile' ? 'active' : '' ); ?>" data-tab="profile">
 					<div class="portal-user-profile-editor-avatar">
-						<label for="profile-photo"> <?php Labels::get_label( 'profile_photo', true ); ?> </label>
+						<span class="portal-user-profile-field-label"> <?php Labels::get_label( 'profile_photo', true ); ?> </span>
 						<div class="portal-user-profile-gravatar-setup">
 							<?php suredash_get_user_avatar( $user_id, true, 40, true ); ?>
 							<div class="portal-user-profile-photo-upload">
-								<button class="portal-button button-secondary sd-pointer"> <?php echo esc_html__( 'Upload', 'suredash' ); ?> </button>
+								<button type="button" class="portal-button button-secondary sd-pointer"> <?php echo esc_html__( 'Upload', 'suredash' ); ?> </button>
 								<?php
 								$user_profile_photo  = sd_get_user_meta( $user_id, 'user_profile_photo', true );
 								$remove_button_class = ! empty( $user_profile_photo ) ? '' : ' hidden';
 								?>
-								<button class="portal-button button-ghost sd-pointer portal-user-profile-photo-remove<?php echo esc_attr( $remove_button_class ); ?>"> <?php echo esc_html__( 'Remove', 'suredash' ); ?> </button>
+								<button type="button" class="portal-button button-ghost sd-pointer portal-user-profile-photo-remove<?php echo esc_attr( $remove_button_class ); ?>"> <?php echo esc_html__( 'Remove', 'suredash' ); ?> </button>
 								<?php suredash_image_uploader_field( '', 'user_profile_photo', true ); ?>
 							</div>
 						</div>
@@ -1011,11 +1050,11 @@ class HomeContent {
 					<div class="portal-user-profile-editor-fields">
 						<div class="portal-user-profile-cover-banner">
 							<div class="sd-flex sd-justify-between sd-items-center">
-								<label for="profile-photo"> <?php esc_html_e( 'Cover Image', 'suredash' ); ?> </label>
+								<span class="portal-user-profile-field-label"> <?php esc_html_e( 'Cover Image', 'suredash' ); ?> </span>
 		<?php
 								$remove_cover_button_class = ! empty( $cover_image ) ? '' : ' sd-hidden';
 		?>
-								<button type="button" class="portal-button button-ghost sd-pointer sd-p-0 sd-opacity-75 portal-user-cover-image-remove tooltip-trigger<?php echo esc_attr( $remove_cover_button_class ); ?>" data-tooltip-description="<?php echo esc_attr__( 'Reset', 'suredash' ); ?>" data-tooltip-position="top">
+								<button type="button" class="portal-button button-ghost sd-pointer sd-p-0 sd-opacity-75 portal-user-cover-image-remove tooltip-trigger<?php echo esc_attr( $remove_cover_button_class ); ?>" aria-label="<?php echo esc_attr__( 'Remove cover image', 'suredash' ); ?>" data-tooltip-description="<?php echo esc_attr__( 'Reset', 'suredash' ); ?>" data-tooltip-position="top">
 									<?php Helper::get_library_icon( 'RotateCcw' ); ?>
 								</button>
 							</div>
@@ -1120,16 +1159,16 @@ class HomeContent {
 					<div class="portal-user-profile-editor-fields">
 						<!-- Receive All Notifications -->
 						<div class="portal-notification-item sd-flex sd-justify-between sd-items-center">
-							<label class="portal-notification-label"><?php echo esc_html__( 'Receive all notifications', 'suredash' ); ?></label>
+							<label class="portal-notification-label" id="sd-notif-row-1"><?php echo esc_html__( 'Receive all notifications', 'suredash' ); ?></label>
 							<div class="portal-notification-toggles sd-flex sd-gap-24">
 								<?php if ( $is_pro_active ) { ?>
 									<label class="portal-notification-toggle sd-relative">
-										<input type="checkbox" name="enable_all_email_notifications" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $enable_all_email_notifications, '1' ); ?>>
+										<input type="checkbox" name="enable_all_email_notifications" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-1 sd-notif-channel-email"<?php checked( $enable_all_email_notifications, '1' ); ?>>
 										<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 									</label>
 								<?php } ?>
 								<label class="portal-notification-toggle sd-relative">
-									<input type="checkbox" name="enable_all_portal_notifications" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $enable_all_portal_notifications, '1' ); ?>>
+									<input type="checkbox" name="enable_all_portal_notifications" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-1 sd-notif-channel-portal"<?php checked( $enable_all_portal_notifications, '1' ); ?>>
 									<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 								</label>
 							</div>
@@ -1137,16 +1176,16 @@ class HomeContent {
 
 						<!-- Receive Admin Updates -->
 						<div class="portal-notification-item sd-flex sd-justify-between sd-items-center">
-							<label class="portal-notification-label"><?php echo esc_html__( 'Receive admin notifications', 'suredash' ); ?></label>
+							<label class="portal-notification-label" id="sd-notif-row-2"><?php echo esc_html__( 'Receive admin notifications', 'suredash' ); ?></label>
 							<div class="portal-notification-toggles sd-flex sd-gap-24">
 								<?php if ( $is_pro_active ) { ?>
 									<label class="portal-notification-toggle sd-relative">
-										<input type="checkbox" name="enable_admin_email" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $enable_admin_email, '1' ); ?>>
+										<input type="checkbox" name="enable_admin_email" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-2 sd-notif-channel-email"<?php checked( $enable_admin_email, '1' ); ?>>
 										<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 									</label>
 								<?php } ?>
 								<label class="portal-notification-toggle sd-relative">
-									<input type="checkbox" name="enable_admin_portal_notification" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $enable_admin_portal_notification, '1' ); ?>>
+									<input type="checkbox" name="enable_admin_portal_notification" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-2 sd-notif-channel-portal"<?php checked( $enable_admin_portal_notification, '1' ); ?>>
 									<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 								</label>
 							</div>
@@ -1154,16 +1193,16 @@ class HomeContent {
 
 						<!-- Reply to My Post -->
 						<div class="portal-notification-item sd-flex sd-justify-between sd-items-center">
-							<label class="portal-notification-label"><?php echo esc_html__( 'When someone replies to my post', 'suredash' ); ?></label>
+							<label class="portal-notification-label" id="sd-notif-row-3"><?php echo esc_html__( 'When someone replies to my post', 'suredash' ); ?></label>
 							<div class="portal-notification-toggles sd-flex sd-gap-24">
 								<?php if ( $is_pro_active ) { ?>
 									<label class="portal-notification-toggle sd-relative">
-										<input type="checkbox" name="email_on_post_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $email_on_post_replies, '1' ); ?>>
+										<input type="checkbox" name="email_on_post_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-3 sd-notif-channel-email"<?php checked( $email_on_post_replies, '1' ); ?>>
 										<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 									</label>
 								<?php } ?>
 								<label class="portal-notification-toggle sd-relative">
-									<input type="checkbox" name="portal_notification_on_post_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $portal_notification_on_post_replies, '1' ); ?>>
+									<input type="checkbox" name="portal_notification_on_post_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-3 sd-notif-channel-portal"<?php checked( $portal_notification_on_post_replies, '1' ); ?>>
 									<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 								</label>
 							</div>
@@ -1171,16 +1210,16 @@ class HomeContent {
 
 						<!-- Reply to My Comment -->
 						<div class="portal-notification-item sd-flex sd-justify-between sd-items-center">
-							<label class="portal-notification-label"><?php echo esc_html__( 'When someone replies to my comment', 'suredash' ); ?></label>
+							<label class="portal-notification-label" id="sd-notif-row-4"><?php echo esc_html__( 'When someone replies to my comment', 'suredash' ); ?></label>
 							<div class="portal-notification-toggles sd-flex sd-gap-24">
 								<?php if ( $is_pro_active ) { ?>
 									<label class="portal-notification-toggle sd-relative">
-										<input type="checkbox" name="email_on_comment_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $email_on_comment_replies, '1' ); ?>>
+										<input type="checkbox" name="email_on_comment_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-4 sd-notif-channel-email"<?php checked( $email_on_comment_replies, '1' ); ?>>
 										<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 									</label>
 								<?php } ?>
 								<label class="portal-notification-toggle sd-relative">
-									<input type="checkbox" name="portal_notification_on_comment_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $portal_notification_on_comment_replies, '1' ); ?>>
+									<input type="checkbox" name="portal_notification_on_comment_replies" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-4 sd-notif-channel-portal"<?php checked( $portal_notification_on_comment_replies, '1' ); ?>>
 									<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 								</label>
 							</div>
@@ -1188,16 +1227,16 @@ class HomeContent {
 
 						<!-- Mention Notifications -->
 						<div class="portal-notification-item sd-flex sd-justify-between sd-items-center">
-							<label class="portal-notification-label"><?php echo esc_html__( 'When I\'m mentioned', 'suredash' ); ?></label>
+							<label class="portal-notification-label" id="sd-notif-row-5"><?php echo esc_html__( 'When I\'m mentioned', 'suredash' ); ?></label>
 							<div class="portal-notification-toggles sd-flex sd-gap-24">
 								<?php if ( $is_pro_active ) { ?>
 									<label class="portal-notification-toggle sd-relative">
-										<input type="checkbox" name="email_on_mention" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $email_on_mention, '1' ); ?>>
+										<input type="checkbox" name="email_on_mention" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-5 sd-notif-channel-email"<?php checked( $email_on_mention, '1' ); ?>>
 										<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 									</label>
 								<?php } ?>
 								<label class="portal-notification-toggle sd-relative">
-									<input type="checkbox" name="portal_notification_on_mention" class="portal-notification-checkbox sd-absolute sd-opacity-0"<?php checked( $portal_notification_on_mention, '1' ); ?>>
+									<input type="checkbox" name="portal_notification_on_mention" class="portal-notification-checkbox sd-absolute sd-opacity-0" aria-labelledby="sd-notif-row-5 sd-notif-channel-portal"<?php checked( $portal_notification_on_mention, '1' ); ?>>
 									<span class="portal-notification-slider sd-block sd-bg-gray-300 sd-rounded-full sd-transition-all"></span>
 								</label>
 							</div>
@@ -1255,7 +1294,8 @@ class HomeContent {
 							<div class="portal-user-intro-details">
 								<div class="portal-user-name-wrapper">
 									<div class="sd-flex sd-items-center sd-gap-8 portal-user-details-inner-wrap">
-										<span class="sd-no-space sd-font-18 sd-font-semibold">
+										<?php // role=heading rather than a real tag, so the announced structure gains the name without changing any styling. ?>
+										<span class="sd-no-space sd-font-18 sd-font-semibold" role="heading" aria-level="2">
 											<span class="portal-user-view-fname"> <?php echo esc_html( $first_name ); ?> </span>
 											<span class="portal-user-view-lname"> <?php echo esc_html( $last_name ); ?> </span>
 											<?php

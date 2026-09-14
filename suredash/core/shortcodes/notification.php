@@ -64,7 +64,7 @@ class Notification {
 
 		$highlighter = '<span class="notification-unread-count sd-absolute sd-flex sd-items-center sd-justify-center sd-font-12 sd-px-8 sd-max-h-20 sd-font-medium sd-bg-danger sd-color-white sd-min-w-20 sd-nowrap sd-radius-9999"></span>';
 		?>
-		<a href="<?php echo esc_url( home_url() ); ?>" class="portal-notification-trigger" title="<?php Labels::get_label( 'notifications', true ); ?>" style="<?php echo esc_attr( $icon_color_css ); ?>" aria-label="<?php echo esc_attr( Labels::get_label( 'notifications', true ) ); ?>">
+		<a href="<?php echo esc_url( home_url() ); ?>" class="portal-notification-trigger" title="<?php Labels::get_label( 'notifications', true ); ?>" style="<?php echo esc_attr( $icon_color_css ); ?>" aria-label="<?php echo esc_attr( Labels::get_label( 'notifications', true ) ); ?>" aria-expanded="false" aria-controls="portal-notification-drawer">
 			<?php Helper::get_library_icon( 'Bell', true, 'md' ); ?>
 			<?php echo wp_kses_post( $highlighter ); ?>
 		</a>
@@ -85,7 +85,7 @@ class Notification {
 
 		?>
 			<div class="portal-notification-drawer-header sd-p-16 sd-flex sd-items-center sd-justify-between sd-font-18 sd-font-semibold sd-top-0">
-				<h4 class="portal-notification-header-title sd-font-semibold sd-m-0"><?php Labels::get_label( 'notifications', true ); ?></h4>
+				<h4 class="portal-notification-header-title sd-font-semibold sd-m-0" aria-level="2"><?php Labels::get_label( 'notifications', true ); ?></h4>
 
 				<?php if ( $close_button_needed ) { ?>
 					<button class="portal-notification-drawer-close sd-flex sd-force-p-0 sd-pointer portal-button button-ghost" aria-label="<?php echo esc_attr( __( 'Close Notification', 'suredash' ) ); ?>"> <?php Helper::get_library_icon( 'X', true, 'md' ); ?> </button>
@@ -99,16 +99,16 @@ class Notification {
 						class="notification-subtitle notification-all active sd-px-8 sd-py-4 sd-pointer sd-relative sd-transition sd-text-color"
 						tabindex="0"
 						role="button"
-						aria-label="<?php echo esc_attr( __( 'All Notification', 'suredash' ) ); ?>"
-						onclick="this.click()" onkeypress="if(event.key === 'Enter') { this.click(); }">
+						<?php // Named by its visible text. An aria-label that does not contain it breaks voice control (WCAG 2.5.3 Label in Name). ?>
+						>
 							<?php Labels::get_label( 'all_notifications', true ); ?>
 						</span>
 						<span
 						class="notification-subtitle notification-unread sd-px-8 sd-py-4 sd-pointer sd-relative sd-transition"
 						tabindex="0"
 						role="button"
-						aria-label="<?php echo esc_attr( __( 'Unread Notification', 'suredash' ) ); ?>"
-						onclick="this.click()" onkeypress="if(event.key === 'Enter') { this.click(); }">
+						<?php // See note above: the visible text is the accessible name. ?>
+						>
 							<span class="notification-unread-text">
 								<?php Labels::get_label( 'unread', true ); ?>
 							</span>
@@ -122,8 +122,8 @@ class Notification {
 						class="notification-mark-all-read sd-flex sd-items-center sd-p-4 sd-gap-4 sd-font-semibold sd-cursor-pointer"
 						tabindex="0"
 						role="button"
-						aria-label="<?php echo esc_attr( __( 'Mark all notifications as read', 'suredash' ) ); ?>"
-						onkeypress="if(event.key === 'Enter') { this.click(); }">
+						<?php // See note above: the visible text is the accessible name. The icon beside it is aria-hidden. ?>
+						>
 							<span class="notification-mark-all-read-icon sd-flex sd-items-center sd-p-4 sd-gap-8 sd-font-semibold">
 								<?php Helper::get_library_icon( 'CheckCheck', true, 'md' ); ?>
 							</span>
@@ -149,7 +149,7 @@ class Notification {
 					<div class="no-notification sd-flex sd-flex-col sd-gap-8 sd-w-full sd-justify-center sd-items-center sd-p-20">
 						<?php
 						Helper::get_library_icon( 'Bell', true, 'md' );
-						echo '<div class="no-notification-text" aria-label="' . esc_attr( Labels::get_label( 'no_notifications_title' ) ) . '">' . esc_html( Labels::get_label( 'no_notifications_title' ) ) . '</div>';
+						echo '<div class="no-notification-text">' . esc_html( Labels::get_label( 'no_notifications_title' ) ) . '</div>';
 						Labels::get_label( 'no_notifications', true );
 						?>
 					</div>
@@ -190,7 +190,7 @@ class Notification {
 		}
 
 		?>
-		<div class="portal-notification-drawer portal-content sd-bg-content sd-absolute sd-flex sd-flex-col sd-bg-content sd-radius-12 sd-shadow-lg sd-border sd-overflow-hidden sd-hidden sd-notification-list" style="<?php echo esc_attr( $notification_block_css ); ?>">
+		<div id="portal-notification-drawer" class="portal-notification-drawer portal-content sd-bg-content sd-absolute sd-flex sd-flex-col sd-bg-content sd-radius-12 sd-shadow-lg sd-border sd-overflow-hidden sd-hidden sd-notification-list" style="<?php echo esc_attr( $notification_block_css ); ?>">
 			<?php $this->get_user_notification_list(); ?>
 		</div>
 		<?php

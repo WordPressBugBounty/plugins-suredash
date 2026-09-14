@@ -22,6 +22,17 @@ class Base {
 	use Get_Instance;
 
 	/**
+	 * Timestamps already used as a notification element id on this request.
+	 *
+	 * The list renders into both the desktop drawer and the mobile drawer, so
+	 * without this every notification id existed twice in the document.
+	 *
+	 * @var array<string, int>
+	 * @since 1.12.0
+	 */
+	private static $rendered_notification_ids = [];
+
+	/**
 	 * Notifier.
 	 *
 	 * @var object
@@ -209,11 +220,18 @@ class Base {
 		$read_notifications  = is_array( $notification_status ) && isset( $notification_status['read'] ) ? $notification_status['read'] : [];
 		$is_read             = in_array( $timestamp, $read_notifications );
 
+		// Suffix repeats so the mobile drawer does not reuse the desktop drawer's ids.
+		$timestamp_key                                     = (string) $timestamp;
+		self::$rendered_notification_ids[ $timestamp_key ] = ( self::$rendered_notification_ids[ $timestamp_key ] ?? 0 ) + 1;
+		$notification_seen                                 = self::$rendered_notification_ids[ $timestamp_key ];
+		$notification_element_id                           = 'notification-' . $timestamp_key
+			. ( $notification_seen > 1 ? '-' . $notification_seen : '' );
+
 		ob_start();
 
 		?>
 		<li class="portal-notification-item sd-flex sd-justify-between sd-items-start sd-p-8 sd-cursor-default"
-		id="notification-<?php echo esc_attr( (string) $timestamp ); ?>"
+		id="<?php echo esc_attr( $notification_element_id ); ?>"
 		>
 			<div class="portal-notification-item-wrap sd-flex sd-gap-12 sd-w-full sd-font-14 sd-line-20 sd-items-center">
 				<span class="notification-avatar-wrap <?php echo $icon === 'Bell' || $icon === 'Heart' ? 'svg-fill' : ''; ?>">

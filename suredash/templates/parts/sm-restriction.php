@@ -35,7 +35,7 @@ $enable_login    = $args['enable_login'] ?? false;
 			?>
 					<div class="sd-flex sd-justify-center sd-mt-16">
 					<?php if ( $preview_button && $redirect_url ) { ?>
-						<a href="<?php echo esc_url( $redirect_url ); ?>" class="portal-button button-primary" aria-heading="<?php echo esc_attr( $preview_button ); ?>"><?php echo esc_html( $preview_button ); ?></a>
+						<a href="<?php echo esc_url( $redirect_url ); ?>" class="portal-button button-primary"><?php echo esc_html( $preview_button ); ?></a>
 					<?php } ?>
 					<?php
 					if ( $enable_login && is_callable( [ '\SureMembers\Inc\Restricted', 'get_login_cta' ] ) ) {

@@ -1,4 +1,9 @@
 *** SureDash Changelog ***
+= 2026-09-14 - version 1.12.0 =
+* New: Introducing Summarize Posts. A sparkle button on long discussions gives members a short AI written recap with key points, so they can decide in seconds whether to read the whole thread. The summary is generated once and reused for everyone, and refreshes automatically when the post is edited. It is off by default: connect an AI provider under Settings > Connectors, then switch it on under SureDash > Settings > AI Features & MCP. Requires WordPress 7.0 or higher.
+* Improvement: Improved accessibility across the portal. Search and the sort menu are now fully keyboard operable, focus outlines are visible again on tabs, lists and controls, tabs and dialogs have proper accessible names, and decorative avatars and icons are hidden from screen readers.
+* Fix: Launching Beaver Builder on a space, community post or community content now opens the builder with the content area instead of an empty portal layout.
+
 = 2026-08-31 - version 1.11.2 =
 * New: Collections can now show Free and price tags on the spaces they list, with a Buy Now button for visitors who do not have access yet. Needs the SureDash Pro addon and SureMembers.
 * Improvement: Added a filter to control whether replies are open on discussions submitted from the front end, so replies can be kept working in SureDash without enabling comments across the whole site.

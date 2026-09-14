@@ -110,6 +110,10 @@ $is_restricted_quick_view = function_exists( 'suredash_is_post_protected' ) && s
 					<?php
 					do_action( 'suredash_post_visibility_button', $p_id );
 
+					if ( ! $is_restricted_quick_view ) {
+						\SureDashboard\Inc\Services\AI_Post_Summarizer::get_instance()->render_button( absint( $p_id ) );
+					}
+
 					if ( is_user_logged_in() && ! suredash_content_post() && ! $is_restricted_quick_view ) {
 						$bookmarked = suredash_is_item_bookmarked( absint( $p_id ) );
 						$bookmarked = $bookmarked ? 'bookmarked' : '';
@@ -132,17 +136,21 @@ $is_restricted_quick_view = function_exists( 'suredash_is_post_protected' ) && s
 						</a>
 						<?php
 					}
-					Helper::get_library_icon(
-						'X',
-						true,
-						'sm',
-						'portal-button button-ghost ast-quick-view-close-btn tooltip-trigger',
-						[
-							'tooltip-description' => esc_attr__( 'Close', 'suredash' ),
-							'tooltip-position'    => 'bottom',
-						]
-					);
 					?>
+					<?php
+					// A real button, not the bare icon span this used to render.
+					// The span carried the click handler but no tabindex, so the
+					// only way to dismiss the quick view was the mouse, and its
+					// accessible name was "X", the icon's own name.
+					?>
+					<button
+						type="button"
+						class="portal-button button-ghost ast-quick-view-close-btn tooltip-trigger"
+						aria-label="<?php echo esc_attr__( 'Close', 'suredash' ); ?>"
+						data-tooltip-description="<?php echo esc_attr__( 'Close', 'suredash' ); ?>"
+						data-tooltip-position="bottom">
+						<?php Helper::get_library_icon( 'X', true, 'sm' ); ?>
+					</button>
 				</div>
 			</div>
 
@@ -185,6 +193,15 @@ $is_restricted_quick_view = function_exists( 'suredash_is_post_protected' ) && s
 						window.parent.postMessage('closeQuickView', '*');
 					});
 				}
+
+				// Escape has to be handled in here as well. Once focus is inside
+				// this iframe the parent page never receives the key, so without
+				// this the only way out was the mouse.
+				document.addEventListener('keydown', function(e) {
+					if (e.key === 'Escape') {
+						window.parent.postMessage('closeQuickView', '*');
+					}
+				});
 
 				// Scroll to comments and focus the editor.
 				function scrollToComments() {
