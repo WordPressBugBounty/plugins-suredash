@@ -14,6 +14,7 @@ use SureDashboard\Core\Notifier\Base as Notifier_Base;
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Traits\Rest_Errors;
 use SureDashboard\Inc\Utils\Helper;
+use SureDashboard\Inc\Utils\Sanitizer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -365,8 +366,8 @@ class Social_Logins {
 		$error      = [];
 		$post_id    = ( isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : '' );
 		$block_id   = ( isset( $_POST['block_id'] ) ? sanitize_text_field( wp_unslash( $_POST['block_id'] ) ) : '' );
-		$first_name = isset( $_POST['first_name'] ) ? sanitize_text_field( wp_unslash( $_POST['first_name'] ) ) : '';
-		$last_name  = isset( $_POST['last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) : '';
+		$first_name = isset( $_POST['first_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['first_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
+		$last_name  = isset( $_POST['last_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['last_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
 		$username   = isset( $_POST['username'] ) ? sanitize_user( wp_unslash( $_POST['username'] ), true ) : '';
 		$email      = isset( $_POST['email'] ) ? sanitize_text_field( wp_unslash( $_POST['email'] ) ) : '';
 		$password   = isset( $_POST['password'] ) ? wp_unslash( $_POST['password'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Passwords should not be sanitized as it can strip valid characters.

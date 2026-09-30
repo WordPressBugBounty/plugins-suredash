@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.12.0
+Stable tag: 1.12.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -161,6 +161,9 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-09-30 - version 1.12.1 =
+* Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-09-14 - version 1.12.0 =
 * New: Introducing Summarize Posts. A sparkle button on long discussions gives members a short AI written recap with key points, so they can decide in seconds whether to read the whole thread. The summary is generated once and reused for everyone, and refreshes automatically when the post is edited. It is off by default: connect an AI provider under Settings > Connectors, then switch it on under SureDash > Settings > AI Features & MCP. Requires WordPress 7.0 or higher.
 * Improvement: Improved accessibility across the portal. Search and the sort menu are now fully keyboard operable, focus outlines are visible again on tabs, lists and controls, tabs and dialogs have proper accessible names, and decorative avatars and icons are hidden from screen readers.

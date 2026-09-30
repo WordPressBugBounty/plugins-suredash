@@ -149,6 +149,42 @@ class Sanitizer {
 	}
 
 	/**
+	 * Sanitize a user-supplied name (first, last or display name).
+	 *
+	 * Encoded markup such as `&lt;img onerror=...&gt;` is decoded first, so it
+	 * is stripped as a real tag instead of being stored and later decoded into
+	 * HTML by the browser. `&` is left alone: it is valid in names such as
+	 * `Tom & Jerry`, and WordPress stores the field escaped anyway.
+	 *
+	 * @param mixed $name Raw name.
+	 *
+	 * @since 1.12.1
+	 * @return string
+	 */
+	public static function sanitize_name( $name ) {
+		$name = is_scalar( $name ) ? (string) $name : '';
+
+		// Cap the length first. The column is varchar(250), and an uncapped
+		// decode loop on a huge nested payload would be expensive.
+		$name = mb_substr( $name, 0, 250 );
+
+		// Decode until nothing changes, so no depth of encoding hides a tag.
+		// This always terminates: every decode makes the string shorter.
+		while ( true ) {
+			$decoded = html_entity_decode( $name, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+			if ( $decoded === $name ) {
+				break;
+			}
+			$name = $decoded;
+		}
+
+		$name = sanitize_text_field( $name );
+
+		// Drop any stray bracket left behind. A name never needs one.
+		return trim( str_replace( [ '<', '>' ], '', $name ) );
+	}
+
+	/**
 	 * Data sanitizer for AJAX.
 	 *
 	 * @since 0.0.1

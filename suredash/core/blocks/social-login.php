@@ -10,6 +10,7 @@ namespace SureDashboard\Core\Blocks;
 
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Utils\Helper;
+use SureDashboard\Inc\Utils\Sanitizer;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -207,16 +208,16 @@ class SocialLogin {
 		$last_name  = '';
 
 		if ( ! empty( $payload['given_name'] ) ) {
-			$first_name = sanitize_text_field( $payload['given_name'] );
+			$first_name = Sanitizer::sanitize_name( $payload['given_name'] );
 		}
 
 		if ( ! empty( $payload['family_name'] ) ) {
-			$last_name = sanitize_text_field( $payload['family_name'] );
+			$last_name = Sanitizer::sanitize_name( $payload['family_name'] );
 		}
 
 		// If name fields are still empty but we have a full name, try to split it.
 		if ( empty( $first_name ) && empty( $last_name ) && ! empty( $payload['name'] ) ) {
-			$name_parts = explode( ' ', sanitize_text_field( $payload['name'] ), 2 );
+			$name_parts = explode( ' ', Sanitizer::sanitize_name( $payload['name'] ), 2 );
 			$first_name = $name_parts[0];
 			$last_name  = $name_parts[1] ?? '';
 		}
@@ -268,9 +269,9 @@ class SocialLogin {
 		}
 
 		// Extract name fields from payload with fallbacks.
-		$given_name  = ! empty( $payload['given_name'] ) ? $payload['given_name'] : '';
-		$family_name = ! empty( $payload['family_name'] ) ? $payload['family_name'] : '';
-		$full_name   = ! empty( $payload['name'] ) ? $payload['name'] : '';
+		$given_name  = ! empty( $payload['given_name'] ) ? Sanitizer::sanitize_name( $payload['given_name'] ) : '';
+		$family_name = ! empty( $payload['family_name'] ) ? Sanitizer::sanitize_name( $payload['family_name'] ) : '';
+		$full_name   = ! empty( $payload['name'] ) ? Sanitizer::sanitize_name( $payload['name'] ) : '';
 
 		// If given_name or family_name are missing but we have a full name, try to split it.
 		if ( ( empty( $given_name ) || empty( $family_name ) ) && ! empty( $full_name ) ) {

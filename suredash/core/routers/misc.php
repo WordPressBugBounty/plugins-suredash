@@ -642,9 +642,9 @@ class Misc {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
 		}
 
-		$first_name         = ! empty( $_POST['first_name'] ) ? sanitize_text_field( wp_unslash( $_POST['first_name'] ) ) : '';
-		$last_name          = ! empty( $_POST['last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['last_name'] ) ) : '';
-		$display_name       = ! empty( $_POST['display_name'] ) ? sanitize_text_field( wp_unslash( $_POST['display_name'] ) ) : '';
+		$first_name         = ! empty( $_POST['first_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['first_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
+		$last_name          = ! empty( $_POST['last_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['last_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
+		$display_name       = ! empty( $_POST['display_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['display_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
 		$user_url           = ! empty( $_POST['user_url'] ) ? esc_url_raw( wp_unslash( $_POST['user_url'] ) ) : '';
 		$description        = ! empty( $_POST['description'] ) ? sanitize_textarea_field( wp_unslash( $_POST['description'] ) ) : '';
 		$user_banner_image  = ! empty( $_POST['user_banner_image'] ) ? sanitize_text_field( wp_unslash( $_POST['user_banner_image'] ) ) : '';
@@ -1102,7 +1102,10 @@ class Misc {
 		foreach ( $users as $user ) {
 			$response[] = [
 				'id'           => ! empty( $user->ID ) ? $user->ID : '',
-				'display_name' => suredash_get_user_display_name( $user->ID ),
+				// Decode for JSON: WordPress stores the name HTML-escaped, but the
+				// picker renders it with textContent, which does no decoding.
+				// Sending plain text keeps `Tom & Jerry` from showing as `Tom &amp; Jerry`.
+				'display_name' => html_entity_decode( suredash_get_user_display_name( $user->ID ), ENT_QUOTES | ENT_HTML5, 'UTF-8' ),
 				'avatar'       => ! empty( $user->ID ) ? suredash_get_user_avatar( intval( $user->ID ), false, 24 ) : '',
 			];
 		}
