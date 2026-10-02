@@ -1,4 +1,8 @@
 *** SureDash Changelog ***
+= 2026-10-02 - version 1.12.2 =
+* Fix: Input fields inside popups opened from the post editor could not be focused or typed into.
+* Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-09-30 - version 1.12.1 =
 * Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
 
