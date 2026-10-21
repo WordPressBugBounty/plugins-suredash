@@ -726,6 +726,15 @@ class Renderer {
 		}
 
 		if ( suredash_simply_content() ) {
+			// Quick view renders the post from ?post_id=, so honour that post's status, password and read access.
+			$quick_view_id = absint( $_GET['post_id'] ?? 0 ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only, handled by absint().
+			if ( ! suredash_can_read_post( $quick_view_id ) ) {
+				global $wp_query;
+				$wp_query->set_404();
+				status_header( 404 );
+				return get_404_template();
+			}
+
 			return suredash_get_template_part(
 				'quick-view',
 				suredash_show_content_only() ? 'content' : 'post'

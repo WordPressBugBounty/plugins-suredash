@@ -193,7 +193,13 @@ class PageBuilder {
 			default:
 			case 'block-editor':
 				$post_content = $current_post->post_content ?? '';
-				$output       = suredash_render_post_content( $post_content );
+
+				// Member posts saved before 1.12.3 may hold raw shortcodes, so escape them by author (single page and quick view).
+				if ( ( $current_post->post_type ?? '' ) === SUREDASHBOARD_FEED_POST_TYPE ) {
+					$post_content = suredash_escape_shortcodes( $post_content, absint( $current_post->post_author ?? 0 ) );
+				}
+
+				$output = suredash_render_post_content( $post_content );
 
 				ob_start();
 				echo do_shortcode( suredash_dynamic_content_support( $output ) );

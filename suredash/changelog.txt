@@ -1,4 +1,8 @@
 *** SureDash Changelog ***
+= 2026-10-21 - version 1.12.3 =
+* Fix: This update addressed security bugs. Props to Patchstack for reporting them responsibly to our team. Please make sure you are using the latest version on your website.
+* Fix: This update addressed a security bug. Props to Peter Levashov for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-10-02 - version 1.12.2 =
 * Fix: Input fields inside popups opened from the post editor could not be focused or typed into.
 * Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.

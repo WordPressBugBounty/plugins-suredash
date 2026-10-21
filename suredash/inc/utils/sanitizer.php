@@ -180,8 +180,8 @@ class Sanitizer {
 
 		$name = sanitize_text_field( $name );
 
-		// Drop any stray bracket left behind. A name never needs one.
-		return trim( str_replace( [ '<', '>' ], '', $name ) );
+		// Drop any stray bracket left behind. A name never needs one, and [ ] would let it run as a shortcode.
+		return trim( str_replace( [ '<', '>', '[', ']' ], '', $name ) );
 	}
 
 	/**

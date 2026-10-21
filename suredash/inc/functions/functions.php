@@ -55,6 +55,47 @@ function suredash_clean_data( $var ) {
 }
 
 /**
+ * Make shortcode syntax in user-submitted content inert, so later do_shortcode() passes never run it.
+ * Brackets become HTML entities, which still display as [ and ]. Portal managers keep shortcodes.
+ *
+ * @param string   $content User-submitted content.
+ * @param int|null $user_id Author of the content. Null uses the current user, 0 is a guest.
+ * @return string
+ *
+ * @since 1.12.3
+ */
+function suredash_escape_shortcodes( $content, $user_id = null ) {
+	$user_id = $user_id === null ? get_current_user_id() : absint( $user_id );
+	if ( $user_id && user_can( $user_id, SUREDASHBOARD_CAPABILITY ) ) {
+		return $content;
+	}
+
+	// Zero-padded entities: do_shortcode() ends with unescape_invalid_shortcodes(), which turns exactly &#91; / &#93;
+	// back into [ ] so a later do_shortcode() pass would run them. &#091; / &#093; display the same and stay escaped.
+	return str_replace( [ '[', ']' ], [ '&#091;', '&#093;' ], $content );
+}
+
+/**
+ * Whether the current user may read a post under WordPress rules: published or readable by them, and not password protected.
+ * SureDash access rules (suredash_is_post_protected()) are checked separately.
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ *
+ * @since 1.12.3
+ */
+function suredash_can_read_post( $post_id ) {
+	$post_id = absint( $post_id );
+	if ( ! $post_id ) {
+		return false;
+	}
+
+	$can_read = is_post_publicly_viewable( $post_id ) || current_user_can( 'read_post', $post_id );
+
+	return $can_read && ! post_password_required( $post_id );
+}
+
+/**
  * Get template part implementation for Portals.
  *
  * @param string       $slug Template slug.
@@ -770,7 +811,10 @@ function suredash_endpoint_data( $endpoint = '', $dataset = '', $base_id = 0 ) {
  * @since 0.0.1
  */
 function suredash_update_mention_links( $comment_text, $comment, $args ) {
-	return suredash_dynamic_content_support( $comment_text );
+	$comment_text = suredash_dynamic_content_support( $comment_text );
+
+	// The comment list is printed through do_shortcode(), so members' comments must not run shortcodes.
+	return $comment instanceof WP_Comment ? suredash_escape_shortcodes( $comment_text, absint( $comment->user_id ) ) : $comment_text;
 }
 
 /**
@@ -902,10 +946,13 @@ function suredash_comments_list_callback( $comment, $args, $depth ) {
 
 			// Get child comments.
 			$child_comments  = get_comments(
-				[
-					'parent' => $comment_id,
-					'order'  => 'ASC',
-				]
+				array_merge(
+					[
+						'parent' => $comment_id,
+						'order'  => 'ASC',
+					],
+					suredash_comment_status_args()
+				)
 			);
 			$comment_author  = $comment->comment_author;
 			$comment_user_id = $comment->user_id;

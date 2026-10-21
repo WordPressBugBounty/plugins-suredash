@@ -1515,7 +1515,7 @@ class HomeContent {
 					} else {
 						?>
 							<div class="portal-user-view-bio-wrapper portal-content sd-box-shadow sd-radius-12 sd-border sd-p-container">
-							<?php echo do_shortcode( wpautop( $description ) ); ?>
+							<?php echo wp_kses_post( wpautop( suredash_escape_shortcodes( esc_html( $description ), $user_id ) ) ); // The portal template runs do_shortcode() on the whole page, so the bio's brackets must be inert. ?>
 							</div>
 						<?php
 					}

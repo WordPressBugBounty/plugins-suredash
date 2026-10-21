@@ -48,6 +48,14 @@ class Routes {
 
 		// Filter restricted content from frontend REST search results.
 		add_filter( 'rest_post_dispatch', [ $this, 'filter_search_results' ], 10, 3 );
+
+		// Apply private community and post protection to the core community-post REST routes.
+		// Priority 9 runs before core's `_fields` trimming, so every item still carries its ID.
+		add_filter( 'rest_post_dispatch', [ $this, 'filter_community_post_results' ], 9, 3 );
+		add_filter( 'rest_post_dispatch', [ $this, 'filter_community_comment_results' ], 9, 3 );
+
+		// Blank comments on SureDash posts the viewer cannot read. This sees the comment itself, so `_fields`, embeds and batch requests cannot skip it.
+		add_filter( 'rest_prepare_comment', [ $this, 'hide_unreadable_comment' ], 10, 3 );
 	}
 
 	/**
@@ -668,5 +676,126 @@ class Routes {
 		$result->header( 'X-WP-Total', (string) count( $filtered ) );
 
 		return $result;
+	}
+
+	/**
+	 * Apply the private community and post protection rules to the core /wp/v2/community-post routes.
+	 *
+	 * @param \WP_REST_Response $result  Response object.
+	 * @param \WP_REST_Server   $server  Server instance.
+	 * @param \WP_REST_Request  $request Request object.
+	 * @return \WP_REST_Response Filtered response.
+	 * @since 1.12.3
+	 */
+	public function filter_community_post_results( $result, $server, $request ) {
+		// Case-insensitive, as core matches REST routes case-insensitively.
+		if ( stripos( $request->get_route(), '/wp/v2/' . SUREDASHBOARD_FEED_POST_TYPE ) !== 0 || $request->get_method() !== 'GET' || $result->is_error() || suredash_is_user_manager() ) {
+			return $result;
+		}
+
+		$forbidden = rest_convert_error_to_response( new \WP_Error( 'rest_forbidden', __( 'Sorry, you are not allowed to do that.', 'suredash' ), [ 'status' => rest_authorization_required_code() ] ) );
+
+		if ( ! suredash_community_accessible() ) {
+			return $forbidden;
+		}
+
+		$data = $result->get_data();
+
+		// Single item.
+		if ( isset( $data['id'] ) ) {
+			if ( suredash_is_post_protected( absint( $data['id'] ) ) ) {
+				return $forbidden;
+			}
+
+			return $result;
+		}
+
+		// Collection.
+		if ( is_array( $data ) ) {
+			$filtered = array_values(
+				array_filter(
+					$data,
+					static function ( $item ) {
+						return ! suredash_is_post_protected( absint( $item['id'] ?? 0 ) );
+					}
+				)
+			);
+
+			$result->set_data( $filtered );
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Replace a core REST comment with a hidden marker when its SureDash post is not readable by the viewer.
+	 * Comments on other post types are left to core.
+	 *
+	 * @param \WP_REST_Response $response Prepared comment response.
+	 * @param \WP_Comment       $comment  Comment object.
+	 * @param \WP_REST_Request  $request  Request object.
+	 * @return \WP_REST_Response Original response, or the hidden marker.
+	 * @since 1.12.3
+	 */
+	public function hide_unreadable_comment( $response, $comment, $request ) {
+		// Reads only. A write response must reflect the write, not turn into an error after it happened.
+		if ( $request->get_method() !== 'GET' || suredash_is_user_manager() || ! $this->is_comment_post_hidden( absint( $comment->comment_post_ID ) ) ) {
+			return $response;
+		}
+
+		return new \WP_REST_Response( [ 'suredash_hidden' => true ] );
+	}
+
+	/**
+	 * Remove hidden comments from /wp/v2/comments lists, and refuse a hidden single comment.
+	 *
+	 * @param \WP_REST_Response $result  Response object.
+	 * @param \WP_REST_Server   $server  Server instance.
+	 * @param \WP_REST_Request  $request Request object.
+	 * @return \WP_REST_Response Filtered response.
+	 * @since 1.12.3
+	 */
+	public function filter_community_comment_results( $result, $server, $request ) {
+		if ( stripos( $request->get_route(), '/wp/v2/comments' ) !== 0 || $request->get_method() !== 'GET' || $result->is_error() ) {
+			return $result;
+		}
+
+		$data = $result->get_data();
+
+		// Single comment.
+		if ( ! empty( $data['suredash_hidden'] ) ) {
+			return rest_convert_error_to_response( new \WP_Error( 'rest_forbidden', __( 'Sorry, you are not allowed to do that.', 'suredash' ), [ 'status' => rest_authorization_required_code() ] ) );
+		}
+
+		// Collection.
+		if ( is_array( $data ) && wp_is_numeric_array( $data ) ) {
+			$visible = static function ( $item ) {
+				return empty( $item['suredash_hidden'] );
+			};
+
+			$result->set_data( array_values( array_filter( $data, $visible ) ) );
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Whether comments on this post must be hidden from the current viewer. Cached per post for the request.
+	 *
+	 * @param int $post_id Post ID.
+	 * @return bool
+	 * @since 1.12.3
+	 */
+	private function is_comment_post_hidden( $post_id ) {
+		static $hidden = [];
+
+		$key = get_current_user_id() . ':' . $post_id;
+		if ( ! isset( $hidden[ $key ] ) ) {
+			$suredash_types = [ SUREDASHBOARD_POST_TYPE, SUREDASHBOARD_FEED_POST_TYPE, SUREDASHBOARD_SUB_CONTENT_POST_TYPE ];
+			$hidden[ $key ] = in_array( get_post_type( $post_id ), $suredash_types, true )
+				&& ( ! suredash_community_accessible() || suredash_is_post_protected( $post_id ) || ! suredash_can_read_post( $post_id ) );
+		}
+
+		return $hidden[ $key ];
 	}
 }

@@ -32,6 +32,9 @@ use SureDashboard\Inc\Utils\Helper;
 function suredash_send_email( $to, $subject, $message ) {
 	$message = suredash_wrap_email_html( (string) $message );
 
+	// The subject is plain text, so show escaped shortcode brackets as [ and ]. Only those entities, so no other markup is decoded.
+	$subject = str_replace( [ '&#91;', '&#93;', '&#091;', '&#093;' ], [ '[', ']', '[', ']' ], (string) $subject );
+
 	$from_email_cb = static function () {
 		$email = Helper::get_option( 'email_from_mail_id', get_option( 'admin_email' ) );
 		return is_string( $email ) && $email !== '' ? $email : (string) get_option( 'admin_email' );

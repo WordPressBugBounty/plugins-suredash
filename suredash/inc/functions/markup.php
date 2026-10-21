@@ -233,6 +233,23 @@ function suredash_quick_view_likes_wrapper( $post_id ): void {
 }
 
 /**
+ * Comment query args that hide unapproved comments from everyone except moderators and the comment's own author.
+ *
+ * @return array<string, mixed>
+ * @since 1.12.3
+ */
+function suredash_comment_status_args() {
+	if ( current_user_can( 'moderate_comments' ) ) {
+		return [];
+	}
+
+	return [
+		'status'             => 'approve',
+		'include_unapproved' => is_user_logged_in() ? [ get_current_user_id() ] : [],
+	];
+}
+
+/**
  * Get Comments List.
  *
  * @param int          $post_id Post ID.
@@ -258,7 +275,7 @@ function suredash_get_comments_list( $post_id, $order = 'ASC', $params = null ):
 
 			$all_comments = []; // Initialize an empty array to store all comments.
 			foreach ( $params as $param ) {
-				$comments = get_comments( $param );
+				$comments = get_comments( array_merge( $param, suredash_comment_status_args() ) );
 				if ( is_array( $comments ) ) {
 					$existing_comment_ids = array_column( $all_comments, 'comment_ID' );
 					foreach ( $comments as $comment ) {

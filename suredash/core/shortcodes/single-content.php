@@ -219,6 +219,11 @@ class SingleContent {
 	public function render_single_content( $atts ) {
 		if ( ! empty( $atts['post_id'] ) ) {
 			$post_id = absint( $atts['post_id'] );
+
+			// An explicit post ID can point anywhere, so honour the post's own status, password and read access.
+			if ( ! suredash_can_read_post( $post_id ) ) {
+				return '';
+			}
 		} else {
 			global $post;
 			$post_id = ! empty( $post->ID ) ? absint( $post->ID ) : 0;

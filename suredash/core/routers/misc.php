@@ -113,14 +113,14 @@ class Misc {
 			switch ( $key ) {
 				case 'custom_post_title':
 					$post_name                   = sanitize_title( $value );
-					$filtered_data['post_title'] = strval( $value );
+					$filtered_data['post_title'] = suredash_escape_shortcodes( strval( $value ) );
 					break;
 
 				case 'custom_post_content':
 					// Run iframe-placeholder pass first so the `suredash_allowed_iframe_hosts`.
 					// filter gets to decide which iframes survive, matching the behavior of
 					// edit_post / submit_comment / edit_comment.
-					$filtered_data['post_content'] = do_shortcode( $this->strip_jodit_markers( $this->process_iframe_placeholders( strval( $value ) ) ) );
+					$filtered_data['post_content'] = suredash_escape_shortcodes( $this->strip_jodit_markers( $this->process_iframe_placeholders( strval( $value ) ) ) );
 					break;
 
 				case 'custom_post_tax_id':
@@ -646,7 +646,7 @@ class Misc {
 		$last_name          = ! empty( $_POST['last_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['last_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
 		$display_name       = ! empty( $_POST['display_name'] ) ? Sanitizer::sanitize_name( wp_unslash( $_POST['display_name'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized in Sanitizer::sanitize_name().
 		$user_url           = ! empty( $_POST['user_url'] ) ? esc_url_raw( wp_unslash( $_POST['user_url'] ) ) : '';
-		$description        = ! empty( $_POST['description'] ) ? sanitize_textarea_field( wp_unslash( $_POST['description'] ) ) : '';
+		$description        = ! empty( $_POST['description'] ) ? strip_shortcodes( sanitize_textarea_field( wp_unslash( $_POST['description'] ) ) ) : '';
 		$user_banner_image  = ! empty( $_POST['user_banner_image'] ) ? sanitize_text_field( wp_unslash( $_POST['user_banner_image'] ) ) : '';
 		$user_profile_photo = ! empty( $_FILES['user_profile_photo']['name'] ) ? sanitize_text_field( wp_unslash( $_FILES['user_profile_photo']['name'] ) ) : '';
 
@@ -1222,7 +1222,7 @@ class Misc {
 				'comment_post_ID'      => absint( $_POST['comment_post_ID'] ),
 				'comment_author'       => suredash_get_user_display_name(),
 				'comment_author_email' => wp_get_current_user()->user_email,
-				'comment_content'      => $filtered_comment,
+				'comment_content'      => suredash_escape_shortcodes( $filtered_comment ),
 				'comment_type'         => '',
 				'comment_author_url'   => '',
 				'user_id'              => $current_user_id,
@@ -1387,7 +1387,7 @@ class Misc {
 		$result = wp_update_comment(
 			[
 				'comment_ID'      => $comment_id,
-				'comment_content' => $filtered_comment,
+				'comment_content' => suredash_escape_shortcodes( $filtered_comment ),
 			]
 		);
 
@@ -1532,11 +1532,13 @@ class Misc {
 		}
 
 		// Process iframe placeholders using common method.
-		$filtered_title   = sanitize_text_field( $post_title );
+		// Shortcodes are escaped by the post author, so a manager's edit does not re-enable a member's shortcode.
+		$author_id        = absint( $post->post_author );
+		$filtered_title   = suredash_escape_shortcodes( sanitize_text_field( $post_title ), $author_id );
 		$filtered_content = $this->process_iframe_placeholders( $post_content );
 
 		// Strip Jodit editor internal selection marker spans before saving.
-		$filtered_content = $this->strip_jodit_markers( $filtered_content );
+		$filtered_content = suredash_escape_shortcodes( $this->strip_jodit_markers( $filtered_content ), $author_id );
 
 		// Update the post.
 		$result = wp_update_post(
@@ -1668,7 +1670,7 @@ class Misc {
 		wp_send_json_success(
 			[
 				'id'               => $post->ID,
-				'title'            => $post->post_title,
+				'title'            => html_entity_decode( $post->post_title, ENT_QUOTES, 'UTF-8' ), // Plain text for the edit input; escaped brackets are restored on save.
 				'content'          => $post->post_content,
 				'status'           => $post->post_status,
 				'cover_image_url'  => $cover_image_url,
@@ -2041,6 +2043,11 @@ class Misc {
 		// Portal managers can access everything.
 		if ( suredash_is_user_manager() ) {
 			return true;
+		}
+
+		// Honour the post's own status, password and read access (drafts, private posts, etc.).
+		if ( ! suredash_can_read_post( $post_id ) ) {
+			return false;
 		}
 
 		// Deny when the object is protected/hidden from the current user

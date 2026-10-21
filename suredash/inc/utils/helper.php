@@ -1325,7 +1325,15 @@ class Helper {
 			$post_content = get_post_field( 'post_content', $post_id );
 		}
 
-		$processed_content = do_shortcode( is_string( $post_content ) ? $post_content : '' );
+		$post_content = is_string( $post_content ) ? $post_content : '';
+
+		// Member posts saved before 1.12.3 may hold raw shortcodes, so escape them by author. Only community posts are
+		// member-written; other types (spaces, lessons) keep their shortcodes and block JSON untouched.
+		if ( get_post_type( $post_id ) === SUREDASHBOARD_FEED_POST_TYPE ) {
+			$post_content = suredash_escape_shortcodes( $post_content, absint( get_post_field( 'post_author', $post_id ) ) );
+		}
+
+		$processed_content = do_shortcode( $post_content );
 
 		// Apply image preview processing for full content only (not excerpts).
 		if ( $content_type !== 'excerpt' ) {
@@ -1588,13 +1596,9 @@ class Helper {
 					if ( preg_match( '/height=["\'](\d+)["\']/', $full_tag, $height_matches ) ) {
 						$image_height = (int) $height_matches[1];
 					} else {
-						// Fallback: get actual image dimensions (safely check for external images).
-						$image_size = false;
-						if ( function_exists( 'wp_check_filetype' ) && wp_check_filetype( $src_url )['ext'] ) {
-							// Only attempt to get image size if it appears to be a valid image file.
-							$image_size = getimagesize( $src_url );
-						}
-						$image_height = $image_size ? $image_size[1] : 0;
+						// SECURITY: never fetch a member-supplied URL on the server (SSRF). Mark the
+						// image so the browser measures it after load and adds the preview wrapper.
+						return '<img data-preview-threshold="' . (int) $height_threshold . '"' . substr( $full_tag, 4 );
 					}
 				}
 
@@ -2113,7 +2117,8 @@ class Helper {
 
 				$post_id = absint( $comment->comment_post_ID );
 
-				if ( suredash_is_post_protected( $post_id ) ) {
+				// Skip comments on posts the viewer cannot read (SureDash rules, then drafts, private and password-protected posts).
+				if ( suredash_is_post_protected( $post_id ) || ( ! suredash_is_user_manager() && ! suredash_can_read_post( $post_id ) ) ) {
 					continue;
 				}
 
