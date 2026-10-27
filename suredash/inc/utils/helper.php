@@ -118,14 +118,16 @@ class Helper {
 	 * Prevents path traversal in user-supplied media URLs. Returns the canonical
 	 * filesystem path only when the URL maps to a real file strictly inside the uploads
 	 * basedir. Any traversal sequence, encoded traversal, mismatched base URL, symlink,
-	 * or out-of-range realpath returns null.
+	 * or out-of-range realpath returns null. When an owner ID is given, the file must
+	 * also live inside that user's SureDash upload folder.
 	 *
 	 * @param string        $url                 Media URL to resolve.
 	 * @param array<string> $allowed_extensions  Optional. Lowercase file extensions to allow. Empty array allows any extension.
+	 * @param int           $owner_id            Optional. When greater than 0, only allow files inside that user's SureDash upload folder (uploads/suredashboard/<owner_id>/).
 	 * @return string|null Canonical absolute path inside the uploads directory, or null if unsafe.
 	 * @since 1.8.1
 	 */
-	public static function get_safe_uploads_path( $url, array $allowed_extensions = [] ) {
+	public static function get_safe_uploads_path( $url, array $allowed_extensions = [], int $owner_id = 0 ) {
 		if ( ! is_string( $url ) || $url === '' ) {
 			return null;
 		}
@@ -180,6 +182,11 @@ class Helper {
 
 		$real_candidate_norm = wp_normalize_path( $real_candidate );
 		if ( strpos( $real_candidate_norm, $real_basedir_norm ) !== 0 ) {
+			return null;
+		}
+
+		// Restrict to the owner's upload folder. The trailing slash stops user 14 matching folder 144.
+		if ( $owner_id > 0 && strpos( $real_candidate_norm, $real_basedir_norm . 'suredashboard/' . $owner_id . '/' ) !== 0 ) {
 			return null;
 		}
 
@@ -2128,7 +2135,8 @@ class Helper {
 					'author_id'       => $comment->user_id, // Use the actual comment author, not the profile user.
 					'post_id'         => $post_id,
 					'post_title'      => $post_title,
-					'comment_content' => $comment->comment_content,
+					// The whole comment HTML goes through do_shortcode() below, so the author's brackets must be inert.
+					'comment_content' => suredash_escape_shortcodes( $comment->comment_content, absint( $comment->user_id ) ),
 					'comment'         => $comment, // Pass full comment object for threading context.
 				];
 

@@ -9,6 +9,7 @@ namespace SureDashboard\Core\Routers;
 
 use SureDashboard\Core\Models\Controller;
 use SureDashboard\Core\Notifier\Base as Notifier_Base;
+use SureDashboard\Inc\Compatibility\Comment;
 use SureDashboard\Inc\Services\AI_Post_Summarizer;
 use SureDashboard\Inc\Traits\Get_Instance;
 use SureDashboard\Inc\Traits\Rest_Errors;
@@ -166,6 +167,9 @@ class Misc {
 			}
 			wp_send_json_error( [ 'message' => $post_id->get_error_message() ] );
 		}
+
+		// Record this post's uploads so only these files are deleted with it.
+		Comment::get_instance()->track_uploaded_media( 'post', $post_id, $uploaded_images );
 
 		do_action( 'suredash_after_post_submit', $post_id, $filtered_data );
 
@@ -1244,6 +1248,9 @@ class Misc {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'default' ) ] );
 		}
 
+		// Record this comment's uploads so only these files are deleted with it.
+		Comment::get_instance()->track_uploaded_media( 'comment', absint( $comment_id ), $uploaded_images );
+
 		// Generate HTML for the new comment.
 		$comment = \get_comment( absint( $comment_id ) );
 
@@ -1396,6 +1403,9 @@ class Misc {
 		}
 
 		update_comment_meta( $comment_id, 'suredash_comment_edited', current_time( 'mysql' ) );
+
+		// Record this comment's uploads so only these files are deleted with it.
+		Comment::get_instance()->track_uploaded_media( 'comment', $comment_id, $image_result['uploaded_images'], $comment->comment_content );
 
 		$updated_comment = get_comment( $comment_id );
 
@@ -1555,6 +1565,9 @@ class Misc {
 		}
 
 		update_post_meta( $post_id, 'suredash_post_edited', current_time( 'mysql' ) );
+
+		// Record this post's uploads so only these files are deleted with it.
+		Comment::get_instance()->track_uploaded_media( 'post', $post_id, $image_result['uploaded_images'], $post->post_content );
 
 		// Update visibility scope if provided.
 		if ( ! empty( $visibility_scope ) ) {

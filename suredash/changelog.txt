@@ -1,4 +1,8 @@
 *** SureDash Changelog ***
+= 2026-10-27 - version 1.12.4 =
+* Fix: Videos and embeds in the quick view kept playing after it was closed.
+* Fix: This update addressed security bugs. Props to Patchstack for reporting them responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-10-21 - version 1.12.3 =
 * Fix: This update addressed security bugs. Props to Patchstack for reporting them responsibly to our team. Please make sure you are using the latest version on your website.
 * Fix: This update addressed a security bug. Props to Peter Levashov for reporting it responsibly to our team. Please make sure you are using the latest version on your website.

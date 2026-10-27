@@ -1269,6 +1269,8 @@ class Login {
 			$turnstile_site_key = '';
 		}
 
+		$heading_tag = suredash_get_heading_tag( $attributes['formHeadingTag'] ?? 'h3' );
+
 		ob_start();
 
 		?>
@@ -1303,9 +1305,9 @@ class Login {
 							// Render forgot password form.
 							?>
 								<?php if ( ! empty( $attributes['showFormHeading'] ) ) { ?>
-									<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="suredash-login-form__heading">
+									<<?php echo tag_escape( $heading_tag ); ?> class="suredash-login-form__heading">
 										<?php echo esc_html( $attributes['lostPasswordHeading'] ); ?>
-									</<?php echo esc_attr( $attributes['formHeadingTag'] ); ?>>
+									</<?php echo tag_escape( $heading_tag ); ?>>
 								<?php } ?>
 								<div class="suredash-forgot-password-form-wrap">
 									<form
@@ -1333,9 +1335,9 @@ class Login {
 							// Render reset password form.
 							?>
 							<?php if ( ! empty( $attributes['showFormHeading'] ) ) { ?>
-								<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="suredash-login-form__heading">
+								<<?php echo tag_escape( $heading_tag ); ?> class="suredash-login-form__heading">
 									<?php echo esc_html( $attributes['resetPasswordHeading'] ); ?>
-								</<?php echo esc_attr( $attributes['formHeadingTag'] ); ?>>
+								</<?php echo tag_escape( $heading_tag ); ?>>
 							<?php } ?>
 							<div class="suredash-forgot-password-form-wrap">
 								<form
@@ -1394,9 +1396,9 @@ class Login {
 							if ( ! $attributes['disableFormFields'] ) {
 								?>
 									<?php if ( ! empty( $attributes['showFormHeading'] ) && ! empty( $attributes['formHeadingText'] ) ) { ?>
-										<<?php echo esc_attr( $attributes['formHeadingTag'] ); ?> class="suredash-login-form__heading">
+										<<?php echo tag_escape( $heading_tag ); ?> class="suredash-login-form__heading">
 											<?php echo wp_kses_post( $attributes['formHeadingText'] ); ?>
-										</<?php echo esc_attr( $attributes['formHeadingTag'] ); ?>>
+										</<?php echo tag_escape( $heading_tag ); ?>>
 										<?php
 										if ( $attributes['socialLoginPosition'] === 'above-form' ) {
 											echo do_shortcode( $this->social_render( $attributes ) ); // @phpstan-ignore-line

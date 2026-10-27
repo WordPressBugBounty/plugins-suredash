@@ -55,6 +55,18 @@ function suredash_clean_data( $var ) {
 }
 
 /**
+ * Get a safe heading tag for block output, falling back to h3 for unknown values.
+ *
+ * @param mixed $tag Tag name from block attributes.
+ * @return string
+ *
+ * @since 1.12.4
+ */
+function suredash_get_heading_tag( $tag ) {
+	$allowed_tags = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div' ];
+	return is_string( $tag ) && in_array( $tag, $allowed_tags, true ) ? $tag : 'h3';
+}
+/**
  * Make shortcode syntax in user-submitted content inert, so later do_shortcode() passes never run it.
  * Brackets become HTML entities, which still display as [ and ]. Portal managers keep shortcodes.
  *

@@ -484,10 +484,10 @@ class Register {
 
 		// Render heading server-side to handle HTML formatting properly.
 		if ( ! empty( $attributes['showFormHeading'] ) && ! empty( $attributes['formHeadingText'] ) ) {
-			$heading_tag  = ! empty( $attributes['formHeadingTag'] ) ? $attributes['formHeadingTag'] : 'h3';
+			$heading_tag  = suredash_get_heading_tag( $attributes['formHeadingTag'] ?? 'h3' );
 			$heading_html = sprintf(
 				'<%1$s class="suredash-register-form__heading">%2$s</%1$s>',
-				esc_attr( $heading_tag ),
+				tag_escape( $heading_tag ),
 				wp_kses_post( $attributes['formHeadingText'] )
 			);
 
