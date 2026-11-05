@@ -368,7 +368,8 @@ function suredash_get_user_avatar( $user_id, $echo = true, $size = 40, $add_data
 		$user_display_name = sd_get_user_meta( absint( $user_id ), 'display_name', true );
 		$alt_text          = ! empty( $user_display_name ) ? $user_display_name . ' profile photo' : 'User profile photo';
 
-		$markup = wp_kses_post( apply_filters( 'suredash_user_avatar_markup', '<img class="portal-user-avatar ' . esc_attr( $size_class ) . '" src="' . esc_url( $profile_photo ) . '" alt="' . esc_attr( $alt_text ) . '" />', $user_id ) );
+		// Lazy: visible avatars still load at once, the rest near the screen.
+		$markup = wp_kses_post( apply_filters( 'suredash_user_avatar_markup', '<img class="portal-user-avatar ' . esc_attr( $size_class ) . '" src="' . esc_url( $profile_photo ) . '" alt="' . esc_attr( $alt_text ) . '" loading="lazy" />', $user_id ) );
 	} else {
 		// No profile photo. Render the initials avatar as the base layer and
 		// overlay a Gravatar <img> on top using `?d=404`: when the user has
@@ -476,10 +477,16 @@ function suredash_get_user_avatar( $user_id, $echo = true, $size = 40, $add_data
  */
 function suredash_comment_box_markup( $post_id, $hidden = false, $comment_form_class = '', $comment_box_id_suffix = '' ): void {
 	$comment_box_final_id = $comment_box_id_suffix ? 'jodit-comment-' . $comment_box_id_suffix . '-' . $post_id : 'jodit-comment-' . $post_id;
+
 	ob_start();
 	?>
-		<?php // Same story as the form id below: one per post, so it was duplicated once per post. The class carries the styling that the id used to. ?>
-		<div class="inline-comment-box sd-flex sd-justify-between sd-items-start sd-gap-8 comment-markup sd-display-none <?php echo esc_attr( $hidden ? ' hidden-comment-markup ' : ' ' ); ?> <?php echo esc_attr( $comment_form_class ); ?>
+		<?php
+		// Same story as the form id below: one per post, so it was duplicated once per post. The class carries the styling that the id used to.
+		// The visible box paints with the post: it prints Jodit's idle markup, and
+		// portalLazyJoditEditor() starts the real editor on hover, focus or tap.
+		// The hidden reply template stays hidden; it is cloned on Reply.
+		?>
+		<div class="inline-comment-box sd-flex sd-justify-between sd-items-start sd-gap-8 comment-markup <?php echo esc_attr( $hidden ? ' sd-display-none hidden-comment-markup ' : ' ' ); ?> <?php echo esc_attr( $comment_form_class ); ?>
 	" id="inline-comment-box-<?php echo esc_attr( $comment_box_final_id ); ?>">
 			<?php suredash_get_user_avatar( get_current_user_id(), true, 32 ); ?>
 
@@ -494,9 +501,16 @@ function suredash_comment_box_markup( $post_id, $hidden = false, $comment_form_c
 					class="<?php echo esc_attr( $hidden ? 'hidden-jodit-comment' : 'jodit-comment' ); ?>"
 					name="comment"
 					id="<?php echo esc_attr( $comment_box_final_id ); ?>"
+					<?php echo $hidden ? '' : 'style="display: none;"'; ?>
 					autocomplete="off"></textarea>
 
-				<button type="submit" class="post-comment-box-submit" aria-label="<?php esc_attr_e( 'Submit Comment', 'suredash' ); ?>">
+				<?php
+				if ( ! $hidden ) {
+					echo wp_kses( suredash_get_jodit_idle_markup( Labels::get_label( 'comment_box_placeholder' ) ), suredash_jodit_idle_allowed_html() );
+				}
+				?>
+
+				<button type="submit" class="post-comment-box-submit" aria-label="<?php esc_attr_e( 'Submit Comment', 'suredash' ); ?>"<?php echo $hidden ? '' : ' style="display: none;"'; ?>>
 					<?php
 						Helper::get_library_icon( 'SendHorizontal', true, 'sm' );
 						Helper::get_library_icon( 'LoaderCircle', true, 'sm', 'sd-display-none' );
@@ -508,6 +522,58 @@ function suredash_comment_box_markup( $post_id, $hidden = false, $comment_form_c
 
 	<?php
 	echo do_shortcode( (string) ob_get_clean() );
+}
+
+/**
+ * Jodit's idle editor markup, used before the Jodit script has loaded.
+ *
+ * The single source for the idle box: comment boxes print it with the post,
+ * and the page prints it once as a template that JS copies for the other
+ * boxes (quick view, post modal). Only Jodit's classes are set, so its own
+ * styles decide the look, exactly as for the real editor. Kept on one line
+ * with no whitespace between tags to match the DOM Jodit builds.
+ *
+ * @param string $placeholder Placeholder text.
+ * @return string Markup.
+ * @since 1.13.0
+ */
+function suredash_get_jodit_idle_markup( $placeholder = '' ): string {
+	return sprintf(
+		'<div class="jodit-container jodit jodit_theme_default jodit_inline jodit-wysiwyg_mode" contenteditable="false" data-sd-jodit-skeleton="1"><div class="jodit-workplace" contenteditable="false" style="padding: 12px;"><div class="jodit-wysiwyg" contenteditable="true" tabindex="0" dir="auto" spellcheck="true"><p><br></p></div><span class="jodit-placeholder" data-ref="placeholder" style="display: block;">%s</span></div><div class="jodit-status-bar jodit_hidden"></div></div>',
+		esc_html( $placeholder )
+	);
+}
+
+/**
+ * Allowed HTML for suredash_get_jodit_idle_markup() output.
+ *
+ * @return array<string, array<string, bool>>
+ * @since 1.13.0
+ */
+function suredash_jodit_idle_allowed_html(): array {
+	static $allowed = null;
+	if ( $allowed !== null ) {
+		return $allowed;
+	}
+
+	$base = [
+		'class'           => true,
+		'style'           => true,
+		'contenteditable' => true,
+		'tabindex'        => true,
+		'dir'             => true,
+		'spellcheck'      => true,
+		'data-*'          => true,
+	];
+
+	$allowed = [
+		'div'  => $base,
+		'span' => $base,
+		'p'    => [],
+		'br'   => [],
+	];
+
+	return $allowed;
 }
 
 /**

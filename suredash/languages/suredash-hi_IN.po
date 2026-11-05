@@ -28,7 +28,7 @@ msgstr "https://suredash.com/"
 #: core/integrations/feeds.php:189
 #: core/integrations/feeds.php:305
 #: core/integrations/feeds.php:310
-#: core/shortcodes/home-content.php:1014
+#: core/shortcodes/home-content.php:1053
 msgid "Cover Image"
 msgstr "कवर छवि"
 
@@ -45,8 +45,8 @@ msgstr "सामग्री समूह"
 msgid "Topic Forums"
 msgstr "विषय फोरम"
 
-#: admin/menu.php:193
 #: admin/menu.php:194
+#: admin/menu.php:195
 #: admin/setup.php:65
 #: core/renderer.php:301
 #: assets/build/portals-app.js:13
@@ -74,8 +74,8 @@ msgstr "लिंक"
 msgid "Video"
 msgstr "वीडियो"
 
-#: admin/menu.php:715
-#: inc/utils/helper.php:2242
+#: admin/menu.php:720
+#: inc/utils/helper.php:2277
 #: assets/build/portals-app.js:34
 msgid "Uncategorized"
 msgstr "श्रेणीबद्ध नहीं"
@@ -160,23 +160,23 @@ msgstr "अमान्य सेटिंग्स डेटा।"
 msgid "Settings saved successfully."
 msgstr "सेटिंग्स सफलतापूर्वक सहेजी गईं।"
 
-#: core/routers/social-logins.php:76
-#: core/routers/social-logins.php:89
-#: core/routers/social-logins.php:410
-#: core/routers/social-logins.php:423
+#: core/routers/social-logins.php:77
+#: core/routers/social-logins.php:90
+#: core/routers/social-logins.php:411
+#: core/routers/social-logins.php:424
 msgid "Captcha is not matching, please try again."
 msgstr "कैप्चा मेल नहीं खा रहा है, कृपया फिर से प्रयास करें।"
 
-#: core/routers/social-logins.php:130
+#: core/routers/social-logins.php:131
 msgid "You have successfully logged in. Redirecting..."
 msgstr "आप सफलतापूर्वक लॉगिन कर चुके हैं। रीडायरेक्ट हो रहा है..."
 
-#: core/routers/social-logins.php:262
+#: core/routers/social-logins.php:263
 msgid "The username/password field is empty. Please add a valid username/email to reset your password."
 msgstr "उपयोगकर्ता नाम/पासवर्ड फ़ील्ड खाली है। कृपया अपना पासवर्ड रीसेट करने के लिए एक मान्य उपयोगकर्ता नाम/ईमेल जोड़ें।"
 
 #. translators: %s: Password reset.
-#: core/routers/social-logins.php:334
+#: core/routers/social-logins.php:335
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] पासवर्ड रीसेट"
@@ -185,61 +185,61 @@ msgstr "[%s] पासवर्ड रीसेट"
 msgid "Please check your email for the password reset link."
 msgstr "कृपया पासवर्ड रीसेट लिंक के लिए अपने ईमेल की जांच करें।"
 
-#: core/routers/social-logins.php:362
+#: core/routers/social-logins.php:363
 msgid "Sorry, the site admin has disabled new user registration"
 msgstr "क्षमा करें, साइट प्रशासक ने नए उपयोगकर्ता पंजीकरण को अक्षम कर दिया है।"
 
-#: core/routers/social-logins.php:376
+#: core/routers/social-logins.php:377
 msgid "Not a valid post."
 msgstr "मान्य पोस्ट नहीं।"
 
-#: core/routers/social-logins.php:433
+#: core/routers/social-logins.php:434
 msgid "Password may not contain the character \"\\\""
 msgstr "पासवर्ड में \"\\\" वर्ण नहीं हो सकता।"
 
-#: core/routers/social-logins.php:438
-#: core/routers/social-logins.php:441
+#: core/routers/social-logins.php:439
+#: core/routers/social-logins.php:442
 #: inc/functions/markup.php:41
 #: inc/functions/markup.php:80
 msgid "This field is required."
 msgstr "यह फ़ील्ड आवश्यक है।"
 
-#: core/routers/social-logins.php:526
+#: core/routers/social-logins.php:527
 msgid "Error in creating user."
 msgstr "उपयोगकर्ता बनाने में त्रुटि।"
 
-#: core/routers/social-logins.php:679
+#: core/routers/social-logins.php:680
 msgid "You are not registered. Please register first then try to login."
 msgstr "आप पंजीकृत नहीं हैं। कृपया पहले पंजीकरण करें फिर लॉगिन करने का प्रयास करें।"
 
-#: core/routers/social-logins.php:699
-#: core/routers/social-logins.php:736
-#: core/routers/social-logins.php:741
-#: core/routers/social-logins.php:847
-#: core/routers/social-logins.php:877
-#: core/routers/social-logins.php:882
+#: core/routers/social-logins.php:700
+#: core/routers/social-logins.php:737
+#: core/routers/social-logins.php:742
+#: core/routers/social-logins.php:848
+#: core/routers/social-logins.php:878
+#: core/routers/social-logins.php:883
 msgid "Invalid credentials."
 msgstr "अमान्य क्रेडेंशियल्स।"
 
-#: core/routers/social-logins.php:716
-#: core/routers/social-logins.php:722
-#: core/routers/social-logins.php:855
-#: core/routers/social-logins.php:862
+#: core/routers/social-logins.php:717
+#: core/routers/social-logins.php:723
+#: core/routers/social-logins.php:856
+#: core/routers/social-logins.php:863
 msgid "Token verification failed."
 msgstr "टोकन सत्यापन विफल।"
 
-#: core/routers/social-logins.php:757
-#: core/routers/social-logins.php:899
+#: core/routers/social-logins.php:758
+#: core/routers/social-logins.php:900
 msgid "Login Successful"
 msgstr "लॉगिन सफल"
 
-#: core/routers/social-logins.php:763
-#: core/routers/social-logins.php:904
-#: core/routers/social-logins.php:937
+#: core/routers/social-logins.php:764
+#: core/routers/social-logins.php:905
+#: core/routers/social-logins.php:938
 msgid "Registered & Login Successful"
 msgstr "पंजीकृत और लॉगिन सफल"
 
-#: core/routers/social-logins.php:766
+#: core/routers/social-logins.php:767
 msgid "Google API Error."
 msgstr "गूगल एपीआई त्रुटि।"
 
@@ -276,7 +276,7 @@ msgstr "पासवर्ड"
 msgid "You have logged in successfully. Redirecting…"
 msgstr "आप सफलतापूर्वक लॉगिन कर चुके हैं। रीडायरेक्ट हो रहा है…"
 
-#: core/blocks/login.php:1443
+#: core/blocks/login.php:1445
 #: assets/build/editor-app.js:6
 msgid "Show Password"
 msgstr "पासवर्ड दिखाएं"
@@ -388,23 +388,23 @@ msgstr "कुछ गलत हो गया! कृपया पुनः प�
 msgid "Registration successful. Please check your email inbox."
 msgstr "पंजीकरण सफल हुआ। कृपया अपने ईमेल इनबॉक्स की जांच करें।"
 
-#: core/blocks/social-login.php:85
+#: core/blocks/social-login.php:86
 msgid "You are already registered. Successfully logged in."
 msgstr "आप पहले से पंजीकृत हैं। सफलतापूर्वक लॉग इन हो गया।"
 
-#: core/blocks/social-login.php:90
+#: core/blocks/social-login.php:91
 msgid "Successfully logged in."
 msgstr "सफलतापूर्वक लॉग इन किया।"
 
-#: core/blocks/social-login.php:142
+#: core/blocks/social-login.php:143
 msgid "successfully logged in"
 msgstr "सफलतापूर्वक लॉग इन किया"
 
-#: core/blocks/social-login.php:150
+#: core/blocks/social-login.php:151
 msgid "You are not registered. please register first then try to login."
 msgstr "आप पंजीकृत नहीं हैं। कृपया पहले पंजीकरण करें, फिर लॉगिन करने का प्रयास करें।"
 
-#: core/blocks/social-login.php:241
+#: core/blocks/social-login.php:242
 msgid "Something went wrong while creating the new user!"
 msgstr "नए उपयोगकर्ता को बनाते समय कुछ गलत हो गया!"
 
@@ -422,7 +422,7 @@ msgstr "नया जोड़ें"
 msgid "Search Space"
 msgstr "खोज स्थान"
 
-#: core/assets.php:259
+#: core/assets.php:290
 #: core/cpt/portal.php:45
 msgid "Portal Spaces"
 msgstr "पोर्टल स्पेसेस"
@@ -544,11 +544,11 @@ msgstr "विषय:"
 msgid "No content found."
 msgstr "कोई सामग्री नहीं मिली।"
 
-#: core/shortcodes/home-content.php:844
-#: core/shortcodes/home-content.php:845
-#: inc/functions/functions.php:2260
-#: inc/functions/functions.php:2266
-#: inc/functions/functions.php:2272
+#: core/shortcodes/home-content.php:869
+#: core/shortcodes/home-content.php:870
+#: inc/functions/functions.php:2344
+#: inc/functions/functions.php:2350
+#: inc/functions/functions.php:2356
 msgid "Enter"
 msgstr "दर्ज करें"
 
@@ -556,8 +556,8 @@ msgstr "दर्ज करें"
 msgid "User"
 msgstr "उपयोगकर्ता"
 
-#: core/assets.php:107
-#: core/shortcodes/home-content.php:1000
+#: core/assets.php:112
+#: core/shortcodes/home-content.php:1039
 #: assets/build/portals-app.js:10
 msgid "Upload"
 msgstr "अपलोड करें"
@@ -572,68 +572,68 @@ msgstr "खोज कम से कम 3 वर्णों की होनी 
 msgid "Search"
 msgstr "खोजें"
 
-#: core/shortcodes/user-profile.php:169
-#: inc/functions/functions.php:3112
+#: core/shortcodes/user-profile.php:184
+#: inc/functions/functions.php:3196
 msgid "Guest User"
 msgstr "अतिथि उपयोगकर्ता"
 
 #. translators: %s is the page title
-#: inc/compatibility/page-builder.php:345
+#: inc/compatibility/page-builder.php:351
 #, php-format
 msgid "Edit %1$s with %2$s"
 msgstr "%2$s के साथ %1$s संपादित करें"
 
-#: inc/modules/email-notifications/emails.php:67
+#: inc/modules/email-notifications/emails.php:70
 msgid "Someone has requested a password reset for the following account:"
 msgstr "किसी ने निम्नलिखित खाते के लिए पासवर्ड रीसेट का अनुरोध किया है:"
 
 #. translators: %s: Username.
-#: inc/modules/email-notifications/emails.php:73
+#: inc/modules/email-notifications/emails.php:76
 msgid "Username:"
 msgstr "उपयोगकर्ता नाम:"
 
-#: inc/modules/email-notifications/emails.php:79
+#: inc/modules/email-notifications/emails.php:82
 msgid "If this was a mistake, just ignore this email and nothing will happen."
 msgstr "यदि यह एक गलती थी, तो बस इस ईमेल को अनदेखा करें और कुछ नहीं होगा।"
 
-#: inc/functions/functions.php:807
-#: inc/functions/functions.php:2734
+#: inc/functions/functions.php:888
+#: inc/functions/functions.php:2818
 #: assets/build/portals-app.js:10
 msgid "Just now"
 msgstr "अभी अभी"
 
-#: inc/functions/functions.php:888
+#: inc/functions/functions.php:969
 msgid "Pingback:"
 msgstr "पिंगबैक:"
 
-#: inc/functions/functions.php:888
+#: inc/functions/functions.php:969
 msgid "(Edit)"
 msgstr "(संपादित करें)"
 
 #. translators: 1: date, 2: time
-#: inc/functions/functions.php:901
+#: inc/functions/functions.php:982
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s पर %2$s"
 
-#: inc/functions/functions.php:978
-#: inc/functions/functions.php:979
+#: inc/functions/functions.php:1062
+#: inc/functions/functions.php:1063
 msgid "Your comment is awaiting moderation."
 msgstr "आपकी टिप्पणी की समीक्षा की जा रही है।"
 
-#: inc/functions/functions.php:1018
+#: inc/functions/functions.php:1102
 msgid "Reply"
 msgstr "जवाब दें"
 
-#: inc/functions/markup.php:899
-#: inc/utils/helper.php:1800
+#: inc/functions/markup.php:986
+#: inc/utils/helper.php:1818
 #: inc/utils/labels.php:57
 msgid "Like"
 msgid_plural "Likes"
 msgstr[0] "पसंद"
 msgstr[1] ""
 
-#: inc/functions/functions.php:1815
+#: inc/functions/functions.php:1899
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:35
 msgid "Unknown"
@@ -647,8 +647,8 @@ msgstr "अपलोड करने के लिए क्लिक करे�
 msgid "Allowed file formats:"
 msgstr "अनुमत फ़ाइल प्रारूप:"
 
-#: inc/functions/markup.php:917
-#: inc/utils/helper.php:1828
+#: inc/functions/markup.php:1004
+#: inc/utils/helper.php:1861
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "टिप्पणी"
@@ -687,8 +687,8 @@ msgstr "वर्तमान पोस्ट का पोस्ट प्र�
 msgid "Data saved successfully."
 msgstr "डेटा सफलतापूर्वक सहेजा गया।"
 
-#: core/assets.php:300
-#: inc/traits/post-type.php:141
+#: core/assets.php:332
+#: inc/traits/post-type.php:139
 #: inc/utils/labels.php:156
 msgid "All"
 msgstr "सभी"
@@ -697,7 +697,7 @@ msgstr "सभी"
 msgid "Back to"
 msgstr "वापस"
 
-#: core/shortcodes/home-content.php:1117
+#: core/shortcodes/home-content.php:1156
 #: inc/utils/labels.php:44
 #: assets/build/portals-app.js:38
 msgid "Portal"
@@ -717,8 +717,8 @@ msgstr "पोर्टल आइटम्स"
 msgid "User Profile"
 msgstr "उपयोगकर्ता प्रोफ़ाइल"
 
-#: admin/menu.php:169
 #: admin/menu.php:170
+#: admin/menu.php:171
 #: inc/services/search/search-response-builder.php:126
 #: inc/utils/labels.php:56
 #: assets/build/portals-app.js:10
@@ -732,8 +732,8 @@ msgstr "पोस्ट्स"
 msgid "Liked"
 msgstr "पसंद किया"
 
-#: inc/utils/helper.php:1468
-#: inc/utils/helper.php:1469
+#: inc/utils/helper.php:1487
+#: inc/utils/helper.php:1488
 #: inc/utils/labels.php:59
 #: assets/build/portals-app.js:10
 msgid "Likes"
@@ -779,7 +779,7 @@ msgstr "प्रोफ़ाइल फोटो"
 msgid "Username"
 msgstr "उपयोगकर्ता नाम"
 
-#: core/shortcodes/home-content.php:1115
+#: core/shortcodes/home-content.php:1154
 #: inc/utils/labels.php:74
 #: assets/build/editor-app.js:1
 #: assets/build/editor-app.js:2
@@ -874,7 +874,7 @@ msgid "If you want to sell products online, you need a sales funnel. A sales fun
 msgstr "यदि आप ऑनलाइन उत्पाद बेचना चाहते हैं, तो आपको एक बिक्री फ़नल की आवश्यकता है। एक बिक्री फ़नल वेबसाइट आगंतुक को भुगतान करने वाले ग्राहक में बदलने का सबसे आसान तरीका है। एक बिक्री फ़नल आपके व्यवसाय में संपत्ति का निर्माण करता है।"
 
 #: core/cpt/content.php:111
-#: inc/functions/markup.php:566
+#: inc/functions/markup.php:653
 #: inc/services/search/search-posts-service.php:501
 #: inc/utils/labels.php:107
 #: assets/build/portals-app.js:1
@@ -955,12 +955,12 @@ msgstr "इस सुविधा के लिए PrestoPlayer Pro की आ�
 msgid "The content will be available in"
 msgstr "सामग्री उपलब्ध होगी"
 
-#: admin/menu.php:185
 #: admin/menu.php:186
+#: admin/menu.php:187
 #: core/renderer.php:289
-#: core/shortcodes/home-content.php:906
-#: core/shortcodes/home-content.php:1112
-#: inc/utils/helper.php:2957
+#: core/shortcodes/home-content.php:937
+#: core/shortcodes/home-content.php:1151
+#: inc/utils/helper.php:2992
 #: inc/utils/labels.php:143
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
@@ -1063,33 +1063,34 @@ msgstr "फ़ाइल अपलोड नहीं हुई है"
 msgid "Powered by"
 msgstr "द्वारा संचालित"
 
-#: templates/quick-view/post.php:130
+#: templates/quick-view/post.php:134
 msgid "Open in full page"
 msgstr "पूर्ण पृष्ठ में खोलें"
 
-#: core/shortcodes/single-content.php:382
-#: templates/quick-view/post.php:118
-#: templates/single/post.php:146
+#: core/shortcodes/single-content.php:389
+#: templates/quick-view/post.php:122
+#: templates/single/post.php:155
 #: templates/single/simple-post.php:80
 msgid "Bookmark Post"
 msgstr "पोस्ट को बुकमार्क करें"
 
-#: inc/utils/helper.php:1840
+#: inc/utils/helper.php:1873
 msgid "Share Post"
 msgstr "पोस्ट साझा करें"
 
-#: core/assets.php:294
+#: core/assets.php:326
 #: core/integrations/feeds.php:183
 #: inc/utils/labels.php:119
 #: templates/parts/sm-locked-modal.php:13
-#: templates/quick-view/post.php:141
+#: templates/quick-view/post.php:149
+#: templates/quick-view/post.php:150
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:41
 #: assets/build/portals-app.js:55
 msgid "Close"
 msgstr "बंद करें"
 
-#: admin/menu.php:217
+#: admin/menu.php:218
 #: core/renderer.php:241
 #: assets/build/portals-app.js:52
 msgid "Dashboard"
@@ -1103,9 +1104,9 @@ msgstr "डैशबोर्ड"
 msgid "V %s"
 msgstr "वी %s"
 
-#: core/shortcodes/single-content.php:402
-#: inc/functions/functions.php:954
-#: templates/single/post.php:166
+#: core/shortcodes/single-content.php:409
+#: inc/functions/functions.php:1038
+#: templates/single/post.php:175
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:21
 #: assets/build/portals-app.js:35
@@ -1175,7 +1176,7 @@ msgstr "क्या आप वाकई इस अनुभाग को हट
 msgid "You can not remove the last section."
 msgstr "आप अंतिम अनुभाग को नहीं हटा सकते।"
 
-#: core/shortcodes/home-content.php:1005
+#: core/shortcodes/home-content.php:1044
 #: assets/build/portals-app.js:10
 #: assets/build/portals-app.js:19
 #: assets/build/portals-app.js:21
@@ -1251,9 +1252,9 @@ msgstr "सहेजने में विफल।"
 msgid "Error updating settings: "
 msgstr "सेटिंग्स अपडेट करने में त्रुटि:"
 
-#: core/shortcodes/single-content.php:407
-#: inc/functions/functions.php:959
-#: templates/single/post.php:171
+#: core/shortcodes/single-content.php:414
+#: inc/functions/functions.php:1043
+#: templates/single/post.php:180
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:31
@@ -1291,7 +1292,7 @@ msgstr "नया स्पेस ग्रुप"
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: inc/functions/markup.php:563
+#: inc/functions/markup.php:650
 #: inc/services/search/search-posts-service.php:507
 #: inc/utils/labels.php:117
 msgid "Post"
@@ -1337,7 +1338,7 @@ msgstr "यह सुविधा केवल SureDash Pro में उपल�
 msgid "Portal Name"
 msgstr "पोर्टल नाम"
 
-#: inc/functions/functions.php:2493
+#: inc/functions/functions.php:2577
 msgid "Branding"
 msgstr "ब्रांडिंग"
 
@@ -1399,7 +1400,7 @@ msgstr "कंटेनर रिक्ति"
 msgid "Select Color"
 msgstr "रंग चुनें"
 
-#: core/shortcodes/home-content.php:1018
+#: core/shortcodes/home-content.php:1057
 #: assets/build/editor-app.js:2
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:57
@@ -1555,7 +1556,7 @@ msgstr "लाइसेंसिंग"
 msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
 msgstr "%1$s %2$s %3$s प्लगइन को %1$s %4$s %3$s प्लगइन को संस्करण %5$s या उससे अधिक में अपडेट करने की आवश्यकता है!"
 
-#: core/routes.php:72
+#: core/routes.php:80
 msgid "Oops! Something wrong here..."
 msgstr "अरे! यहाँ कुछ गलत है..."
 
@@ -1564,21 +1565,21 @@ msgstr "अरे! यहाँ कुछ गलत है..."
 msgid "Copied!"
 msgstr "कॉपी किया गया!"
 
-#: inc/utils/helper.php:2276
+#: inc/utils/helper.php:2311
 msgid "This discussion is only available for VIP members."
 msgstr "यह चर्चा केवल वीआईपी सदस्यों के लिए उपलब्ध है।"
 
-#: inc/utils/helper.php:2278
+#: inc/utils/helper.php:2313
 msgid "Please upgrade to add response."
 msgstr "कृपया प्रतिक्रिया जोड़ने के लिए अपग्रेड करें।"
 
-#: inc/utils/helper.php:2279
+#: inc/utils/helper.php:2314
 #: assets/build/portals-app.js:10
 msgid "Upgrade Now"
 msgstr "अभी उन्नयन करें"
 
-#: core/shortcodes/user-profile.php:163
-#: inc/utils/helper.php:2290
+#: core/shortcodes/user-profile.php:178
+#: inc/utils/helper.php:2325
 #: templates/parts/404.php:68
 #: assets/build/editor-app.js:6
 msgid "Login"
@@ -1596,7 +1597,7 @@ msgstr "यह सामग्री प्रतिबंधित है औ�
 msgid "What would you like to share today?"
 msgstr "आज आप क्या साझा करना चाहेंगे?"
 
-#: loader.php:453
+#: loader.php:456
 msgid "Portal Menu"
 msgstr "पोर्टल मेनू"
 
@@ -1744,7 +1745,7 @@ msgstr "फ़ॉन्ट परिवार"
 msgid "Weight"
 msgstr "वजन"
 
-#: core/assets.php:98
+#: core/assets.php:103
 #: assets/build/editor-app.js:4
 msgid "Italic"
 msgstr "इटैलिक"
@@ -1793,7 +1794,7 @@ msgstr "सजावट"
 msgid "None"
 msgstr "कोई नहीं"
 
-#: core/assets.php:99
+#: core/assets.php:104
 #: assets/build/editor-app.js:4
 msgid "Underline"
 msgstr "रेखांकित करें"
@@ -2326,7 +2327,7 @@ msgstr "फ़ील्ड लेबल्स"
 msgid "Typography"
 msgstr "टाइपोग्राफी"
 
-#: inc/functions/functions.php:2496
+#: inc/functions/functions.php:2580
 #: assets/build/editor-app.js:6
 msgid "Text"
 msgstr "पाठ"
@@ -2858,13 +2859,13 @@ msgstr "वर्डप्रेस इंटरैक्शन को बाय
 msgid "Enabling this option will bypass WordPress interactions within the portal and improve performance."
 msgstr "इस विकल्प को सक्षम करने से पोर्टल के भीतर वर्डप्रेस इंटरैक्शन को बायपास किया जाएगा और प्रदर्शन में सुधार होगा।"
 
-#: core/blocks/social-login.php:46
+#: core/blocks/social-login.php:47
 msgid "Invalid Data"
 msgstr "अमान्य डेटा"
 
-#: core/blocks/social-login.php:58
-#: core/blocks/social-login.php:63
-#: core/blocks/social-login.php:72
+#: core/blocks/social-login.php:59
+#: core/blocks/social-login.php:64
+#: core/blocks/social-login.php:73
 msgid "Invalid Authorization"
 msgstr "अमान्य प्राधिकरण"
 
@@ -2875,50 +2876,50 @@ msgstr "अमान्य प्राधिकरण"
 msgid "Invalid post type."
 msgstr "अमान्य पोस्ट प्रकार।"
 
-#: admin/menu.php:202
 #: admin/menu.php:203
+#: admin/menu.php:204
 #: inc/modules/learn/chapters.php:127
 #: assets/build/portals-app.js:35
 msgid "Customize Portal"
 msgstr "पोर्टल को अनुकूलित करें"
 
-#: core/assets.php:97
+#: core/assets.php:102
 msgid "Bold"
 msgstr "बोल्ड"
 
-#: core/assets.php:100
+#: core/assets.php:105
 msgid "Attach an Image"
 msgstr "एक छवि संलग्न करें"
 
-#: core/assets.php:101
+#: core/assets.php:106
 msgid "Attach a Video"
 msgstr "एक वीडियो संलग्न करें"
 
-#: core/assets.php:102
+#: core/assets.php:107
 msgid "Image URL"
 msgstr "छवि URL"
 
-#: core/assets.php:103
+#: core/assets.php:108
 msgid "Image Alt Text"
 msgstr "छवि वैकल्पिक पाठ"
 
-#: core/assets.php:104
+#: core/assets.php:109
 msgid "Attach Image"
 msgstr "छवि संलग्न करें"
 
-#: core/assets.php:106
+#: core/assets.php:111
 msgid "Drag and drop or browse files"
 msgstr "फ़ाइलों को खींचें और छोड़ें या ब्राउज़ करें"
 
-#: core/assets.php:108
+#: core/assets.php:113
 msgid "From URL"
 msgstr "यूआरएल से"
 
-#: core/assets.php:109
+#: core/assets.php:114
 msgid "Attach Video"
 msgstr "वीडियो संलग्न करें"
 
-#: core/assets.php:110
+#: core/assets.php:115
 msgid "Video URL"
 msgstr "वीडियो URL"
 
@@ -2943,15 +2944,15 @@ msgstr "स्पेस ग्रुप टेक्स्ट"
 msgid "Space Group Background"
 msgstr "स्पेस ग्रुप पृष्ठभूमि"
 
-#: core/routers/misc.php:2227
+#: core/routers/misc.php:2384
 msgid "Uploaded file is not a valid image."
 msgstr "अपलोड की गई फ़ाइल एक मान्य छवि नहीं है।"
 
-#: core/routers/misc.php:2231
+#: core/routers/misc.php:2388
 msgid "File size larger than permissible."
 msgstr "फ़ाइल का आकार अनुमेय से बड़ा है।"
 
-#: inc/functions/functions.php:1914
+#: inc/functions/functions.php:1998
 msgid "No matching template found."
 msgstr "कोई मिलान टेम्पलेट नहीं मिला।"
 
@@ -3022,8 +3023,9 @@ msgstr "आधुनिक लेआउट"
 msgid "Thumbnail Image"
 msgstr "थंबनेल छवि"
 
-#: admin/menu.php:161
 #: admin/menu.php:162
+#: admin/menu.php:163
+#: core/blocks/interactivity/build/Navigation/view.php:60
 #: inc/services/search/search-response-builder.php:132
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
@@ -3032,17 +3034,17 @@ msgid "Spaces"
 msgstr "स्पेस"
 
 #. translators: %s: version number
-#: admin/menu.php:333
-#: admin/menu.php:338
+#: admin/menu.php:334
+#: admin/menu.php:339
 #, php-format
 msgid "Version %1$s or higher required!"
 msgstr "संस्करण %1$s या उच्चतर आवश्यक है!"
 
-#: core/assets.php:105
+#: core/assets.php:110
 msgid "Attach GIF"
 msgstr "GIF संलग्न करें"
 
-#: core/assets.php:168
+#: core/assets.php:174
 msgid "No comments yet, be the first to comment!"
 msgstr "अभी तक कोई टिप्पणी नहीं, पहले टिप्पणी करें!"
 
@@ -3248,16 +3250,16 @@ msgstr "अमान्य प्लगइन।"
 msgid "Plugin activated successfully."
 msgstr "प्लगइन सफलतापूर्वक सक्रिय किया गया।"
 
-#: core/shortcodes/single-content.php:71
-#: core/shortcodes/single-content.php:95
-#: core/shortcodes/single-content.php:119
-#: core/shortcodes/single-content.php:178
-msgid "Premium Integration"
-msgstr "प्रीमियम एकीकरण"
-
 #: core/shortcodes/single-content.php:72
 #: core/shortcodes/single-content.php:96
 #: core/shortcodes/single-content.php:120
+#: core/shortcodes/single-content.php:179
+msgid "Premium Integration"
+msgstr "प्रीमियम एकीकरण"
+
+#: core/shortcodes/single-content.php:73
+#: core/shortcodes/single-content.php:97
+#: core/shortcodes/single-content.php:121
 msgid "This feature is available in the premium version of SureDash."
 msgstr "यह सुविधा SureDash के प्रीमियम संस्करण में उपलब्ध है।"
 
@@ -3290,7 +3292,7 @@ msgstr "नई पोस्ट बनाएं"
 msgid "No post found, create a new one!"
 msgstr "कोई पोस्ट नहीं मिली, एक नई बनाएं!"
 
-#: inc/utils/helper.php:2949
+#: inc/utils/helper.php:2984
 #: inc/utils/settings.php:335
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:38
@@ -3679,12 +3681,12 @@ msgstr "प्रकाशित"
 msgid "Access Group"
 msgstr "एक्सेस समूह"
 
-#: core/assets.php:302
+#: core/assets.php:334
 #: core/integrations/feeds.php:652
 #: core/integrations/feeds.php:704
-#: core/routers/misc.php:410
-#: core/routers/misc.php:461
-#: core/shortcodes/home-content.php:786
+#: core/routers/misc.php:431
+#: core/routers/misc.php:482
+#: core/shortcodes/home-content.php:811
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:35
 msgid "View"
@@ -3814,8 +3816,8 @@ msgstr "कचरे में"
 msgid "Pending Review"
 msgstr "समीक्षा के लिए लंबित"
 
-#: inc/functions/markup.php:580
-#: inc/functions/markup.php:758
+#: inc/functions/markup.php:667
+#: inc/functions/markup.php:845
 #: assets/build/portals-app.js:35
 msgid "Private"
 msgstr "निजी"
@@ -4021,8 +4023,8 @@ msgstr "सामान्य कंटेनर चौड़ाई"
 msgid "Design Settings"
 msgstr "डिज़ाइन सेटिंग्स"
 
-#: admin/menu.php:177
 #: admin/menu.php:178
+#: admin/menu.php:179
 #: core/renderer.php:277
 #: assets/build/portals-app.js:38
 #: assets/build/portals-app.js:41
@@ -4058,11 +4060,17 @@ msgstr "यह चर्चा स्थान निजी है। कृप�
 
 #: core/integrations/sure-members.php:251
 #: core/integrations/sure-members.php:277
+#: core/shortcodes/home-content.php:286
+#: inc/functions/locked-markup.php:191
 msgid "content requires membership access"
 msgstr "सामग्री के लिए सदस्यता पहुंच आवश्यक है"
 
 #. translators: 1: Post title, 2: Restriction type
+#. translators: 1: Space title, 2: Restriction type
+#. translators: 1: Item title, 2: Restriction type
 #: core/integrations/sure-members.php:850
+#: core/shortcodes/home-content.php:290
+#: inc/functions/locked-markup.php:187
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
@@ -4122,38 +4130,38 @@ msgstr "(कोई शीर्षक नहीं)"
 msgid "Unknown post"
 msgstr "अज्ञात पोस्ट"
 
-#: core/shortcodes/home-content.php:161
-#: core/shortcodes/home-content.php:371
+#: core/shortcodes/home-content.php:162
+#: core/shortcodes/home-content.php:396
 msgid "Visit Lesson"
 msgstr "पाठ का दौरा करें"
 
-#: core/shortcodes/home-content.php:165
-#: core/shortcodes/home-content.php:377
+#: core/shortcodes/home-content.php:166
+#: core/shortcodes/home-content.php:402
 msgid "Visit Post"
 msgstr "पोस्ट देखें"
 
-#: core/shortcodes/home-content.php:169
-#: core/shortcodes/home-content.php:181
-#: core/shortcodes/home-content.php:400
+#: core/shortcodes/home-content.php:170
+#: core/shortcodes/home-content.php:182
+#: core/shortcodes/home-content.php:425
 msgid "Read Post"
 msgstr "पोस्ट पढ़ें"
 
-#: core/shortcodes/home-content.php:172
-#: core/shortcodes/home-content.php:187
+#: core/shortcodes/home-content.php:173
+#: core/shortcodes/home-content.php:188
 msgid "Visit Space"
 msgstr "अंतरिक्ष की यात्रा करें"
 
-#: core/shortcodes/home-content.php:178
+#: core/shortcodes/home-content.php:179
 #: assets/build/portals-app.js:35
 msgid "Resume Course"
 msgstr "पाठ्यक्रम फिर से शुरू करें"
 
-#: core/shortcodes/home-content.php:184
+#: core/shortcodes/home-content.php:185
 msgid "View Discussion"
 msgstr "चर्चा देखें"
 
 #. translators: %s: Space group name
-#: core/shortcodes/navigation.php:179
+#: core/shortcodes/navigation.php:177
 #, php-format
 msgid "Toggle %s group"
 msgstr "%s समूह टॉगल करें"
@@ -4162,19 +4170,7 @@ msgstr "%s समूह टॉगल करें"
 msgid "Close Notification"
 msgstr "सूचना बंद करें"
 
-#: core/shortcodes/notification.php:102
-msgid "All Notification"
-msgstr "सभी सूचनाएं"
-
-#: core/shortcodes/notification.php:110
-msgid "Unread Notification"
-msgstr "अपठित सूचना"
-
-#: core/shortcodes/notification.php:125
-msgid "Mark all notifications as read"
-msgstr "सभी सूचनाओं को पढ़ा हुआ चिह्नित करें"
-
-#: inc/functions/markup.php:478
+#: inc/functions/markup.php:513
 msgid "Submit Comment"
 msgstr "टिप्पणी सबमिट करें"
 
@@ -4427,12 +4423,12 @@ msgstr "अभी तक कोई टिप्पणी नहीं की ग
 msgid "Incompatible %s Version"
 msgstr "असंगत %s संस्करण"
 
-#: core/assets.php:260
+#: core/assets.php:291
 #: inc/services/search/search-posts-service.php:58
 msgid "Portal Posts"
 msgstr "पोर्टल पोस्ट"
 
-#: core/assets.php:261
+#: core/assets.php:292
 #: inc/services/search/search-posts-service.php:59
 msgid "Portal Contents"
 msgstr "पोर्टल सामग्री"
@@ -4521,75 +4517,75 @@ msgstr "वर्डप्रेस सामान्य सेटिंग्�
 msgid "SureDash turns your WordPress site into a community hub with unified login, custom dashboard, and improved user engagement."
 msgstr "SureDash आपके WordPress साइट को एक सामुदायिक केंद्र में बदल देता है जिसमें एकीकृत लॉगिन, कस्टम डैशबोर्ड और बेहतर उपयोगकर्ता सहभागिता होती है।"
 
-#: core/assets.php:121
+#: core/assets.php:126
 msgid "Direct URL to image file (JPG, PNG, GIF, WebP, SVG). Must start with http:// or https:// and end with image extension."
 msgstr "छवि फ़ाइल (JPG, PNG, GIF, WebP, SVG) के लिए प्रत्यक्ष URL। http:// या https:// से शुरू होना चाहिए और छवि एक्सटेंशन के साथ समाप्त होना चाहिए।"
 
-#: core/assets.php:123
+#: core/assets.php:128
 msgid "Please enter a valid URL."
 msgstr "कृपया एक मान्य URL दर्ज करें।"
 
-#: core/assets.php:124
+#: core/assets.php:129
 msgid "Invalid protocol. Please use HTTP or HTTPS URLs only."
 msgstr "अमान्य प्रोटोकॉल। कृपया केवल HTTP या HTTPS URL का उपयोग करें।"
 
-#: core/assets.php:125
+#: core/assets.php:130
 msgid "Failed to load image. Please check the URL and try again."
 msgstr "छवि लोड करने में विफल। कृपया URL की जांच करें और फिर से प्रयास करें।"
 
-#: core/assets.php:126
+#: core/assets.php:131
 msgid "Image loading timed out. Please try again."
 msgstr "छवि लोडिंग समय समाप्त हो गया। कृपया फिर से प्रयास करें।"
 
-#: core/assets.php:127
+#: core/assets.php:132
 msgid "Invalid image dimensions."
 msgstr "अमान्य छवि आयाम।"
 
-#: core/assets.php:128
+#: core/assets.php:133
 msgid "Please enter a valid video URL."
 msgstr "कृपया एक मान्य वीडियो URL दर्ज करें।"
 
 #. translators: %1$s: file name, %2$s: allowed file types
-#: core/assets.php:131
+#: core/assets.php:136
 #, php-format
 msgid "File \"%1$s\" has an invalid type. Please upload %2$s"
 msgstr "फ़ाइल \"%1$s\" का प्रकार अमान्य है। कृपया %2$s अपलोड करें।"
 
 #. translators: %1$s: file name, %2$s: maximum file size in MB
-#: core/assets.php:133
+#: core/assets.php:138
 #, php-format
 msgid "File \"%1$s\" exceeds the maximum size of %2$s MB."
 msgstr "फ़ाइल \"%1$s\" अधिकतम आकार %2$s MB से अधिक है।"
 
-#: core/assets.php:134
+#: core/assets.php:139
 msgid "Invalid file type"
 msgstr "अमान्य फ़ाइल प्रकार"
 
-#: core/assets.php:135
+#: core/assets.php:140
 msgid "Invalid file types"
 msgstr "अमान्य फ़ाइल प्रकार"
 
-#: core/assets.php:136
+#: core/assets.php:141
 msgid "Exceeds size limit"
 msgstr "आकार सीमा से अधिक"
 
 #. translators: %s: list of allowed file formats
-#: core/assets.php:138
+#: core/assets.php:143
 #, php-format
 msgid "Allowed formats: %s"
 msgstr "अनुमत प्रारूप: %s"
 
 #. translators: %s: maximum file size in MB
-#: core/assets.php:140
+#: core/assets.php:145
 #, php-format
 msgid "Maximum file size: %s MB"
 msgstr "अधिकतम फ़ाइल आकार: %s MB"
 
-#: core/assets.php:141
+#: core/assets.php:146
 msgid "Show details"
 msgstr "विवरण दिखाएँ"
 
-#: core/assets.php:142
+#: core/assets.php:147
 msgid "Loading..."
 msgstr "लोड हो रहा है..."
 
@@ -4642,80 +4638,80 @@ msgstr "टिप्पणी स्थिति अपडेट की गई�
 msgid "No icons found."
 msgstr "कोई आइकन नहीं मिला।"
 
-#: core/routers/misc.php:1339
-#: core/routers/misc.php:1416
+#: core/routers/misc.php:1366
+#: core/routers/misc.php:1446
 msgid "Comment not found."
 msgstr "टिप्पणी नहीं मिली।"
 
-#: core/routers/misc.php:1344
+#: core/routers/misc.php:1371
 msgid "You are not authorized to edit this comment."
 msgstr "आपको इस टिप्पणी को संपादित करने की अनुमति नहीं है।"
 
-#: core/routers/misc.php:1375
+#: core/routers/misc.php:1402
 msgid "Failed to update comment."
 msgstr "टिप्पणी को अपडेट करने में विफल।"
 
-#: core/routers/misc.php:1385
+#: core/routers/misc.php:1415
 msgid "Comment Updated Successfully!"
 msgstr "टिप्पणी सफलतापूर्वक अपडेट की गई!"
 
-#: core/routers/misc.php:1425
+#: core/routers/misc.php:1455
 msgid "You are not authorized to delete this comment."
 msgstr "आपको इस टिप्पणी को हटाने की अनुमति नहीं है।"
 
-#: core/routers/misc.php:1432
+#: core/routers/misc.php:1462
 msgid "Failed to delete comment."
 msgstr "टिप्पणी को हटाने में विफल।"
 
-#: core/routers/misc.php:1436
+#: core/routers/misc.php:1466
 msgid "Comment deleted successfully!"
 msgstr "टिप्पणी सफलतापूर्वक हटा दी गई!"
 
-#: core/routers/misc.php:2222
+#: core/routers/misc.php:2379
 msgid "Invalid file type. Only GIF, PNG, JPEG, JPG, and WEBP are allowed."
 msgstr "अमान्य फ़ाइल प्रकार। केवल GIF, PNG, JPEG, JPG, और WEBP की अनुमति है।"
 
-#: core/routers/social-logins.php:320
-#: core/routers/social-logins.php:323
+#: core/routers/social-logins.php:321
+#: core/routers/social-logins.php:324
 msgid "Reset your password here"
 msgstr "यहाँ अपना पासवर्ड रीसेट करें"
 
-#: core/shortcodes/home-content.php:860
+#: core/shortcodes/home-content.php:885
 msgid "Create a new password"
 msgstr "एक नया पासवर्ड बनाएं"
 
-#: core/shortcodes/home-content.php:866
+#: core/shortcodes/home-content.php:891
 msgid "Re-enter your new password"
 msgstr "अपना नया पासवर्ड फिर से दर्ज करें"
 
-#: core/shortcodes/single-content.php:363
-#: inc/functions/functions.php:996
+#: core/shortcodes/single-content.php:369
+#: inc/functions/functions.php:1080
 #: templates/quick-view/post.php:87
-#: templates/single/post.php:103
+#: templates/single/post.php:104
 msgid "Edited"
 msgstr "संपादित किया गया"
 
-#: inc/functions/functions.php:943
+#: inc/functions/functions.php:1027
 msgid "Comment actions"
 msgstr "टिप्पणी क्रियाएँ"
 
-#: core/shortcodes/single-content.php:412
-#: inc/functions/functions.php:963
-#: templates/single/post.php:176
+#: core/shortcodes/single-content.php:419
+#: inc/functions/functions.php:1047
+#: templates/single/post.php:185
 msgid "Copy URL"
 msgstr "URL कॉपी करें"
 
-#: inc/functions/functions.php:2279
+#: inc/functions/functions.php:2363
 msgid "Write a short bio about yourself..."
 msgstr "अपने बारे में एक संक्षिप्त जीवनी लिखें..."
 
-#: inc/functions/markup.php:560
+#: inc/functions/markup.php:647
 #: inc/services/search/search-posts-service.php:505
 #: assets/build/portals-app.js:3
 msgid "Discussion"
 msgstr "चर्चा"
 
-#: inc/functions/markup.php:1024
+#: inc/functions/markup.php:1111
 msgid "Options"
 msgstr "विकल्प"
 
@@ -5011,56 +5007,56 @@ msgid "Resources"
 msgstr "संसाधन"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:980
+#: inc/functions/markup.php:1067
 msgid "Remove bookmark"
 msgstr "बुकमार्क हटाएं"
 
 #: core/shortcodes/endpoint-navigation.php:163
-#: inc/functions/markup.php:980
+#: inc/functions/markup.php:1067
 msgid "Add bookmark"
 msgstr "बुकमार्क जोड़ें"
 
-#: core/shortcodes/single-content.php:179
+#: core/shortcodes/single-content.php:180
 msgid "Resource Space is available in the premium version of SureDash."
 msgstr "संसाधन स्थान केवल SureDash के प्रीमियम संस्करण में उपलब्ध है।"
 
-#: inc/modules/email-notifications/emails.php:81
+#: inc/modules/email-notifications/emails.php:84
 msgid "To reset your password, visit the following URL:"
 msgstr "अपने पासवर्ड को रीसेट करने के लिए, निम्नलिखित URL पर जाएं:"
 
-#: inc/functions/functions.php:2494
+#: inc/functions/functions.php:2578
 #: assets/build/portals-app.js:57
 msgid "Links"
 msgstr "लिंक"
 
-#: inc/functions/functions.php:2495
+#: inc/functions/functions.php:2579
 msgid "Headings"
 msgstr "शीर्षक"
 
-#: inc/functions/functions.php:2497
+#: inc/functions/functions.php:2581
 #: assets/build/portals-app.js:57
 msgid "Content Background"
 msgstr "सामग्री पृष्ठभूमि"
 
-#: inc/functions/functions.php:2498
+#: inc/functions/functions.php:2582
 #: assets/build/portals-app.js:57
 msgid "Portal Background"
 msgstr "पोर्टल पृष्ठभूमि"
 
-#: inc/functions/functions.php:2499
+#: inc/functions/functions.php:2583
 msgid "Alternate Background"
 msgstr "वैकल्पिक पृष्ठभूमि"
 
-#: inc/functions/functions.php:2500
+#: inc/functions/functions.php:2584
 msgid "Subtle Background"
 msgstr "सूक्ष्म पृष्ठभूमि"
 
-#: inc/functions/functions.php:2501
+#: inc/functions/functions.php:2585
 msgid "Other Supporting"
 msgstr "अन्य सहायक"
 
 #. translators: %1$d: hours, %2$d: minutes
-#: inc/functions/functions.php:2669
+#: inc/functions/functions.php:2753
 #, php-format
 msgid "%1$d hr %2$d min"
 msgid_plural "%1$d hrs %2$d mins"
@@ -5068,7 +5064,7 @@ msgstr[0] "%1$d घंटा %2$d मिनट"
 msgstr[1] ""
 
 #. translators: %d: hours
-#: inc/functions/functions.php:2673
+#: inc/functions/functions.php:2757
 #, php-format
 msgid "%d hr"
 msgid_plural "%d hrs"
@@ -5076,14 +5072,14 @@ msgstr[0] "%d घंटा"
 msgstr[1] ""
 
 #. translators: %d: minutes
-#: inc/functions/functions.php:2677
+#: inc/functions/functions.php:2761
 #, php-format
 msgid "%d min"
 msgid_plural "%d mins"
 msgstr[0] "%d मिनट"
 msgstr[1] ""
 
-#: inc/functions/markup.php:569
+#: inc/functions/markup.php:656
 #: assets/build/portals-app.js:1
 #: assets/build/portals-app.js:3
 #: assets/build/portals-app.js:10
@@ -5093,12 +5089,12 @@ msgstr[1] ""
 msgid "Resource Library"
 msgstr "संसाधन पुस्तकालय"
 
-#: inc/functions/markup.php:950
+#: inc/functions/markup.php:1037
 #: assets/build/portals-app.js:41
 msgid "Visit"
 msgstr "जाएं"
 
-#: inc/functions/markup.php:980
+#: inc/functions/markup.php:1067
 msgid "Bookmark"
 msgstr "बुकमार्क"
 
@@ -5110,7 +5106,7 @@ msgstr "संसाधन आइटम"
 msgid "Resource Items"
 msgstr "संसाधन आइटम"
 
-#: loader.php:701
+#: loader.php:704
 msgid "Rate our plugin"
 msgstr "हमारे प्लगइन की रेटिंग करें"
 
@@ -5269,7 +5265,7 @@ msgstr "डाउनलोड अनुपलब्ध"
 msgid "Access Resource"
 msgstr "संसाधन तक पहुँचें"
 
-#: inc/utils/helper.php:2941
+#: inc/utils/helper.php:2976
 #: assets/build/portals-app.js:35
 #: assets/build/portals-app.js:38
 msgid "Resource History"
@@ -5924,36 +5920,36 @@ msgid "Integrates SureCart customer area with SureDash spaces."
 msgstr "SureCart ग्राहक क्षेत्र को SureDash स्थानों के साथ एकीकृत करता है।"
 
 #: core/routers/backend.php:3337
-#: core/routers/misc.php:1483
-#: core/routers/misc.php:1583
+#: core/routers/misc.php:1513
+#: core/routers/misc.php:1618
 msgid "Post not found."
 msgstr "पोस्ट नहीं मिली।"
 
-#: core/routers/misc.php:1490
+#: core/routers/misc.php:1520
 msgid "You are not authorized to edit this post."
 msgstr "आपको इस पोस्ट को संपादित करने की अनुमति नहीं है।"
 
-#: core/routers/misc.php:1532
+#: core/routers/misc.php:1564
 msgid "Failed to update post."
 msgstr "पोस्ट अपडेट करने में विफल।"
 
-#: core/routers/misc.php:1551
+#: core/routers/misc.php:1586
 msgid "Post Updated Successfully!"
 msgstr "पोस्ट सफलतापूर्वक अपडेट किया गया!"
 
-#: core/routers/misc.php:1587
+#: core/routers/misc.php:1622
 msgid "Invalid Post."
 msgstr "अमान्य पोस्ट।"
 
-#: core/routers/misc.php:1596
+#: core/routers/misc.php:1631
 msgid "You are not authorized to delete this post."
 msgstr "आपको इस पोस्ट को हटाने की अनुमति नहीं है।"
 
-#: core/routers/misc.php:1603
+#: core/routers/misc.php:1638
 msgid "Failed to delete post."
 msgstr "पोस्ट हटाने में विफल।"
 
-#: core/routers/misc.php:1607
+#: core/routers/misc.php:1642
 msgid "Post deleted successfully!"
 msgstr "पोस्ट सफलतापूर्वक हटाई गई!"
 
@@ -5966,13 +5962,13 @@ msgstr "पोस्ट सफलतापूर्वक हटाई गई!"
 msgid "Events"
 msgstr "इवेंट्स"
 
-#: core/shortcodes/home-content.php:394
+#: core/shortcodes/home-content.php:419
 #: assets/build/portals-app.js:35
 msgid "View Event"
 msgstr "इवेंट देखें"
 
-#: core/shortcodes/single-content.php:396
-#: templates/single/post.php:160
+#: core/shortcodes/single-content.php:403
+#: templates/single/post.php:169
 msgid "Post actions"
 msgstr "पोस्ट क्रियाएँ"
 
@@ -6345,24 +6341,24 @@ msgstr[1] ""
 msgid "Failed to delete email triggers."
 msgstr "ईमेल ट्रिगर हटाने में विफल।"
 
-#: core/routers/misc.php:768
-#: core/routers/misc.php:1780
-#: core/routers/misc.php:1810
+#: core/routers/misc.php:789
+#: core/routers/misc.php:1815
+#: core/routers/misc.php:1845
 msgid "User not logged in."
 msgstr "उपयोगकर्ता लॉग इन नहीं है।"
 
-#: core/routers/misc.php:773
+#: core/routers/misc.php:794
 msgid "User not found."
 msgstr "उपयोगकर्ता नहीं मिला।"
 
 #. translators: %s: Site name
-#: core/routers/misc.php:793
+#: core/routers/misc.php:814
 #, php-format
 msgid "Test Email from %s"
 msgstr "टेस्ट ईमेल %s से"
 
 #. translators: %1$s: User name, %2$s: Site name
-#: core/routers/misc.php:809
+#: core/routers/misc.php:830
 #, php-format
 msgid ""
 "Hi %1$s,\n"
@@ -6375,35 +6371,35 @@ msgstr ""
 "\t\t\t\t\tयदि आपने यह ईमेल प्राप्त किया है, तो आपकी अधिसूचना सेटिंग्स सही ढंग से कॉन्फ़िगर की गई हैं!\n"
 "\t\t\t\t\t--- यह ईमेल %2$s से भेजा गया था"
 
-#: core/routers/misc.php:828
+#: core/routers/misc.php:849
 msgid "Test email sent successfully! Please check your inbox."
 msgstr "परीक्षण ईमेल सफलतापूर्वक भेजा गया! कृपया अपने इनबॉक्स की जांच करें।"
 
-#: core/routers/misc.php:835
+#: core/routers/misc.php:856
 msgid "Failed to send test email. Please check your email configuration."
 msgstr "परीक्षण ईमेल भेजने में विफल। कृपया अपनी ईमेल कॉन्फ़िगरेशन की जांच करें।"
 
-#: core/routers/misc.php:877
+#: core/routers/misc.php:898
 msgid "Failed to update notification settings."
 msgstr "अधिसूचना सेटिंग्स अपडेट करने में विफल।"
 
-#: core/routers/misc.php:882
+#: core/routers/misc.php:903
 msgid "Notification settings updated successfully!"
 msgstr "अधिसूचना सेटिंग्स सफलतापूर्वक अपडेट की गईं!"
 
-#: core/shortcodes/home-content.php:1123
+#: core/shortcodes/home-content.php:1162
 msgid "Receive all notifications"
 msgstr "सभी अधिसूचनाएँ प्राप्त करें"
 
-#: core/shortcodes/home-content.php:1157
+#: core/shortcodes/home-content.php:1196
 msgid "When someone replies to my post"
 msgstr "जब कोई मेरे पोस्ट का उत्तर देता है"
 
-#: core/shortcodes/home-content.php:1174
+#: core/shortcodes/home-content.php:1213
 msgid "When someone replies to my comment"
 msgstr "जब कोई मेरी टिप्पणी का उत्तर देता है"
 
-#: core/shortcodes/home-content.php:1191
+#: core/shortcodes/home-content.php:1230
 msgid "When I'm mentioned"
 msgstr "जब मेरा उल्लेख किया जाता है"
 
@@ -6416,7 +6412,7 @@ msgid "Open notification settings in new tab"
 msgstr "नई टैब में अधिसूचना सेटिंग्स खोलें"
 
 #: inc/functions/markup.php:159
-#: inc/functions/markup.php:1600
+#: inc/functions/markup.php:1687
 #: inc/services/search/search-people-service.php:256
 #: inc/services/search/search-people-service.php:262
 msgid "Member"
@@ -6578,15 +6574,15 @@ msgstr "टैग"
 msgid "Please select a space."
 msgstr "कृपया एक स्पेस चुनें।"
 
-#: inc/utils/settings.php:439
+#: inc/utils/settings.php:454
 msgid "Newbie"
 msgstr "नवागंतुक"
 
-#: inc/utils/settings.php:448
+#: inc/utils/settings.php:463
 msgid "Manager"
 msgstr "प्रबंधक"
 
-#: inc/utils/settings.php:457
+#: inc/utils/settings.php:472
 msgid "Active Member"
 msgstr "सक्रिय सदस्य"
 
@@ -6977,15 +6973,15 @@ msgstr "बैज को पुनर्व्यवस्थित करने
 msgid "Registered"
 msgstr "पंजीकृत"
 
-#: core/assets.php:167
+#: core/assets.php:173
 msgid "No likes yet, be the first to like!"
 msgstr "अभी तक कोई पसंद नहीं, सबसे पहले पसंद करें!"
 
 #. translators: %s: Human-readable time difference (e.g., "5 days", "2 hours")
 #. translators: %s: time ago
-#: core/notifier/base.php:204
+#: core/notifier/base.php:287
 #: core/shortcodes/widgets/recent-activities.php:96
-#: inc/functions/functions.php:2738
+#: inc/functions/functions.php:2822
 #, php-format
 msgid "%s ago"
 msgstr "%s पहले"
@@ -6998,39 +6994,39 @@ msgstr "सभी उपयोगकर्ताओं के पृष्ठ �
 msgid "Go to Notifications Page"
 msgstr "सूचनाएं पृष्ठ पर जाएं"
 
-#: core/routers/social-logins.php:116
+#: core/routers/social-logins.php:117
 msgid "Lost your password?"
 msgstr "क्या आपने अपना पासवर्ड खो दिया है?"
 
 #. translators: %1$s: Username, %2$s: Forgot password link.
-#: core/routers/social-logins.php:119
+#: core/routers/social-logins.php:120
 #, php-format
 msgid "The password you entered for the username %1$s is incorrect. %2$s"
 msgstr "आपने उपयोगकर्ता नाम %1$s के लिए जो पासवर्ड दर्ज किया है वह गलत है। %2$s"
 
-#: core/shortcodes/home-content.php:1140
+#: core/shortcodes/home-content.php:1179
 msgid "Receive admin notifications"
 msgstr "प्रशासनिक सूचनाएं प्राप्त करें"
 
-#: inc/functions/functions.php:3115
+#: inc/functions/functions.php:3199
 msgid "Anonymous"
 msgstr "अनाम"
 
-#: inc/utils/helper.php:1806
+#: inc/utils/helper.php:1824
 msgid "No likes yet."
 msgstr "अभी तक कोई पसंद नहीं।"
 
-#: inc/utils/helper.php:1842
+#: inc/utils/helper.php:1875
 msgid "Share"
 msgstr "साझा करें"
 
-#: inc/utils/helper.php:2979
+#: inc/utils/helper.php:3014
 #: inc/utils/settings.php:323
 #: assets/build/portals-app.js:38
 msgid "View Profile"
 msgstr "प्रोफ़ाइल देखें"
 
-#: inc/utils/helper.php:2967
+#: inc/utils/helper.php:3002
 #: inc/utils/settings.php:329
 msgid "Edit Profile"
 msgstr "प्रोफ़ाइल संपादित करें"
@@ -7075,7 +7071,8 @@ msgstr "कोई बैज असाइन नहीं किया गया"
 msgid "Badges:"
 msgstr "बैज:"
 
-#: core/assets.php:210
+#: core/assets.php:216
+#: core/notifier/base.php:360
 #: assets/build/portals-app.js:41
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
@@ -7088,27 +7085,27 @@ msgstr "कोई बैज असाइन नहीं किए गए।"
 msgid "Preview is disabled in the editor to prevent conflicts with color settings."
 msgstr "संपादक में पूर्वावलोकन को रंग सेटिंग्स के साथ संघर्ष से बचने के लिए अक्षम कर दिया गया है।"
 
-#: core/assets.php:179
+#: core/assets.php:185
 msgid "All Members"
 msgstr "सभी सदस्य"
 
-#: core/assets.php:180
+#: core/assets.php:186
 msgid "Searching users..."
 msgstr "उपयोगकर्ताओं की खोज की जा रही है..."
 
-#: core/assets.php:181
+#: core/assets.php:187
 msgid "No members found"
 msgstr "कोई सदस्य नहीं मिला"
 
-#: core/assets.php:182
+#: core/assets.php:188
 msgid "Error searching users"
 msgstr "उपयोगकर्ताओं की खोज में त्रुटि"
 
-#: core/assets.php:183
+#: core/assets.php:189
 msgid "No access groups found"
 msgstr "कोई एक्सेस समूह नहीं मिला"
 
-#: core/rewrite-rules.php:380
+#: core/rewrite-rules.php:388
 #: assets/build/portals-app.js:21
 msgid "Post Visibility"
 msgstr "पोस्ट दृश्यता"
@@ -7117,15 +7114,15 @@ msgstr "पोस्ट दृश्यता"
 msgid "SureMembers plugin is not active."
 msgstr "SureMembers प्लगइन सक्रिय नहीं है।"
 
-#: core/routers/misc.php:1814
+#: core/routers/misc.php:1849
 msgid "Space ID is required."
 msgstr "स्पेस आईडी आवश्यक है।"
 
-#: core/routers/misc.php:1823
+#: core/routers/misc.php:1858
 msgid "Space marked as read."
 msgstr "स्थान को पढ़ा हुआ चिह्नित किया गया।"
 
-#: core/routers/misc.php:1827
+#: core/routers/misc.php:1862
 msgid "Failed to mark space as read."
 msgstr "स्थान को पढ़ा हुआ चिह्नित करने में विफल।"
 
@@ -7624,7 +7621,7 @@ msgstr "विशिष्ट उपयोगकर्ताओं को बा
 msgid "Unsaved Settings"
 msgstr "असहेजित सेटिंग्स"
 
-#: inc/utils/helper.php:2925
+#: inc/utils/helper.php:2960
 #: assets/build/portals-app.js:38
 msgid "Leaderboard"
 msgstr "लीडरबोर्ड"
@@ -7653,47 +7650,48 @@ msgstr "अभी तक कोई कार्यक्रम शामिल �
 #. translators: %1$s: author name, %2$s: post date
 #: core/integrations/feeds.php:630
 #: core/integrations/feeds.php:683
-#: core/routers/misc.php:390
-#: core/routers/misc.php:438
-#: core/shortcodes/home-content.php:765
+#: core/routers/misc.php:411
+#: core/routers/misc.php:459
+#: core/shortcodes/home-content.php:790
 #, php-format
 msgid "%1$s • %2$s"
 msgstr "%1$s • %2$s"
 
-#: inc/utils/helper.php:1456
-#: inc/utils/helper.php:1457
-#: inc/utils/helper.php:1481
+#: inc/utils/helper.php:1475
+#: inc/utils/helper.php:1476
+#: inc/utils/helper.php:1500
 msgid "Latest"
 msgstr "नवीनतम"
 
-#: inc/utils/helper.php:1460
-#: inc/utils/helper.php:1461
+#: inc/utils/helper.php:1479
+#: inc/utils/helper.php:1480
 msgid "Oldest"
 msgstr "पुराना"
 
-#: inc/utils/helper.php:1464
-#: inc/utils/helper.php:1465
+#: inc/utils/helper.php:1483
+#: inc/utils/helper.php:1484
 msgid "Popular"
 msgstr "लोकप्रिय"
 
-#: inc/utils/helper.php:1472
+#: inc/utils/helper.php:1491
 msgid "New Activity"
 msgstr "नई गतिविधि"
 
-#: inc/utils/helper.php:1476
+#: inc/utils/helper.php:1495
 msgid "Alphabetical"
 msgstr "वर्णानुक्रमिक"
 
-#: inc/utils/helper.php:1503
+#: inc/utils/helper.php:1523
+#: inc/utils/helper.php:1552
 msgid "Sort options"
 msgstr "क्रमबद्ध विकल्प"
 
-#: core/shortcodes/navigation.php:294
+#: core/shortcodes/navigation.php:296
 msgid "This community's portal spaces will be listed here."
 msgstr "इस समुदाय के पोर्टल स्थान यहाँ सूचीबद्ध किए जाएंगे।"
 
 #. translators: %s: Discussion space name
-#: inc/functions/functions.php:2760
+#: inc/functions/functions.php:2844
 #, php-format
 msgid "in %s"
 msgstr "में %s"
@@ -7731,7 +7729,7 @@ msgstr "शीर्षक लेबल"
 msgid "Container Width is not applicable when using grid layout."
 msgstr "ग्रिड लेआउट का उपयोग करते समय कंटेनर चौड़ाई लागू नहीं होती है।"
 
-#: core/assets.php:293
+#: core/assets.php:325
 #: assets/build/portals-app.js:13
 #: assets/build/portals-app.js:16
 #: assets/build/portals-app.js:35
@@ -7850,7 +7848,7 @@ msgstr "नोट: यह केवल एकल पोस्ट/पृष्ठ
 msgid "Invalid plugin path."
 msgstr "अमान्य प्लगइन पथ।"
 
-#: admin/menu.php:210
+#: admin/menu.php:211
 msgid "SureDash Onboarding"
 msgstr "SureDash ऑनबोर्डिंग"
 
@@ -7870,14 +7868,14 @@ msgstr "यह फोरम समूह स्पेस के लिए बन
 msgid "%s - Copy"
 msgstr "%s - कॉपी"
 
-#: core/routers/misc.php:554
+#: core/routers/misc.php:575
 msgid "User ID is required."
 msgstr "उपयोगकर्ता आईडी आवश्यक है।"
 
 #. translators: %s: author name
-#: core/shortcodes/single-content.php:341
+#: core/shortcodes/single-content.php:347
 #: templates/quick-view/post.php:67
-#: templates/single/post.php:83
+#: templates/single/post.php:84
 #, php-format
 msgid "Post author %s"
 msgstr "पोस्ट लेखक %s"
@@ -8047,7 +8045,7 @@ msgstr "%s एमबी"
 msgid "Unknown size"
 msgstr "अज्ञात आकार"
 
-#: assets/js/unminified/post-actions.js:511
+#: assets/js/unminified/post-actions.js:520
 msgid "Edit your post content…"
 msgstr "अपने पोस्ट की सामग्री संपादित करें…"
 
@@ -8091,19 +8089,19 @@ msgstr "%s हटाएँ"
 msgid "Deleted %s file"
 msgstr "%s फ़ाइल हटा दी गई"
 
-#: core/assets.php:111
+#: core/assets.php:116
 msgid "Supports YouTube, Vimeo, Dailymotion, VideoPress, and more"
 msgstr "YouTube, Vimeo, Dailymotion, VideoPress और अधिक का समर्थन करता है"
 
-#: core/routers/misc.php:1847
+#: core/routers/misc.php:1882
 msgid "A valid URL is required."
 msgstr "एक मान्य URL आवश्यक है।"
 
-#: core/routers/misc.php:1858
+#: core/routers/misc.php:1893
 msgid "This URL is not from a supported video provider."
 msgstr "यह URL समर्थित वीडियो प्रदाता से नहीं है।"
 
-#: core/routers/misc.php:1870
+#: core/routers/misc.php:1905
 msgid "Could not resolve video. Please check the URL and try again."
 msgstr "वीडियो को हल नहीं किया जा सका। कृपया URL की जांच करें और फिर से प्रयास करें।"
 
@@ -8668,56 +8666,56 @@ msgstr "लीडरबोर्ड खोलें"
 msgid "Invalid chapter or step identifier."
 msgstr "अमान्य अध्याय या चरण पहचानकर्ता।"
 
-#: inc/utils/helper.php:1473
+#: inc/utils/helper.php:1492
 msgid "Activity"
 msgstr "गतिविधि"
 
-#: inc/utils/helper.php:1477
+#: inc/utils/helper.php:1496
 msgid "A→Z"
 msgstr "A→Z"
 
-#: inc/utils/helper.php:1506
+#: inc/utils/helper.php:1526
 msgid "Sort:"
 msgstr "क्रमबद्ध करें:"
 
-#: inc/utils/helper.php:1517
+#: inc/utils/helper.php:1537
 msgid "List view"
 msgstr "सूची दृश्य"
 
-#: inc/utils/helper.php:1526
+#: inc/utils/helper.php:1546
 msgid "Grid view"
 msgstr "ग्रिड दृश्य"
 
-#: inc/utils/helper.php:2930
+#: inc/utils/helper.php:2965
 msgid "Points ranking of portal members."
 msgstr "पोर्टल सदस्यों की अंक रैंकिंग।"
 
-#: inc/utils/helper.php:2933
+#: inc/utils/helper.php:2968
 #: assets/build/portals-app.js:1
 msgid "Member Directory"
 msgstr "सदस्य निर्देशिका"
 
-#: inc/utils/helper.php:2938
+#: inc/utils/helper.php:2973
 msgid "Browse and search portal members."
 msgstr "पोर्टल सदस्यों को ब्राउज़ और खोजें।"
 
-#: inc/utils/helper.php:2946
+#: inc/utils/helper.php:2981
 msgid "Resources the user has accessed."
 msgstr "उपयोगकर्ता द्वारा एक्सेस की गई संसाधन।"
 
-#: inc/utils/helper.php:2954
+#: inc/utils/helper.php:2989
 msgid "User's saved posts and content."
 msgstr "उपयोगकर्ता के सहेजे गए पोस्ट और सामग्री।"
 
-#: inc/utils/helper.php:2964
+#: inc/utils/helper.php:2999
 msgid "User's notification preferences."
 msgstr "उपयोगकर्ता की अधिसूचना प्राथमिकताएँ।"
 
-#: inc/utils/helper.php:2972
+#: inc/utils/helper.php:3007
 msgid "Form to update profile details."
 msgstr "प्रोफ़ाइल विवरण अपडेट करने के लिए फॉर्म।"
 
-#: inc/utils/helper.php:2984
+#: inc/utils/helper.php:3019
 msgid "User's public, read-only profile."
 msgstr "उपयोगकर्ता की सार्वजनिक, केवल-पढ़ने योग्य प्रोफ़ाइल।"
 
@@ -8850,7 +8848,7 @@ msgstr "— एक अनुभाग चुनें —"
 msgid "This lesson is already in the selected section."
 msgstr "यह पाठ पहले से चयनित अनुभाग में है।"
 
-#: core/assets.php:292
+#: core/assets.php:324
 #: assets/build/portals-app.js:35
 msgid "Move"
 msgstr "स्थानांतरित करें"
@@ -9018,91 +9016,91 @@ msgstr "अभी कोई सीखने के अध्याय उपल�
 msgid "Dismiss Learn tab"
 msgstr "सीखने के टैब को बंद करें"
 
-#: core/assets.php:279
+#: core/assets.php:310
 msgid "Search posts, people, lessons…"
 msgstr "पोस्ट, लोगों, पाठों की खोज करें…"
 
-#: core/assets.php:280
+#: core/assets.php:311
 msgid "Clear search"
 msgstr "खोज साफ करें"
 
-#: core/assets.php:281
+#: core/assets.php:312
 msgid "Search across posts, comments, people, lessons, events, spaces and more."
 msgstr "पोस्ट, टिप्पणियाँ, लोग, पाठ, घटनाएँ, स्थान और अधिक में खोजें।"
 
-#: core/assets.php:282
+#: core/assets.php:313
 msgid "We couldn't find anything matching your search."
 msgstr "हम आपकी खोज से मेल खाने वाली कोई चीज़ नहीं ढूंढ सके।"
 
-#: core/assets.php:283
+#: core/assets.php:314
 msgid "Try again with a different term."
 msgstr "एक अलग शब्द के साथ फिर से प्रयास करें।"
 
 #. translators: %s: search query
-#: core/assets.php:285
+#: core/assets.php:316
 #, php-format
 msgid "Search results for \"%s\""
 msgstr "\"%s\" के लिए खोज परिणाम"
 
 #. translators: %d: number of results
-#: core/assets.php:287
+#: core/assets.php:318
 #, php-format
 msgid "%d result"
 msgstr "%d परिणाम"
 
 #. translators: %d: number of results
-#: core/assets.php:289
+#: core/assets.php:320
 #, php-format
 msgid "%d results"
 msgstr "%d परिणाम"
 
-#: core/assets.php:290
+#: core/assets.php:321
 msgid "Newest first"
 msgstr "नवीनतम पहले"
 
-#: core/assets.php:291
+#: core/assets.php:322
 msgid "Oldest first"
 msgstr "पुराने पहले"
 
-#: core/assets.php:295
+#: core/assets.php:327
 msgid "ESC"
 msgstr "ESC"
 
-#: core/assets.php:296
+#: core/assets.php:328
 msgid "Previous page"
 msgstr "पिछला पृष्ठ"
 
-#: core/assets.php:297
+#: core/assets.php:329
 msgid "Next page"
 msgstr "अगला पृष्ठ"
 
 #. translators: %d: result count
-#: core/assets.php:299
+#: core/assets.php:331
 #, php-format
 msgid "View all %d"
 msgstr "सभी %d देखें"
 
-#: core/assets.php:301
+#: core/assets.php:333
 msgid "Search all content"
 msgstr "सभी सामग्री की खोज करें"
 
-#: core/assets.php:303
+#: core/assets.php:335
 msgid "Recent searches"
 msgstr "हाल की खोजें"
 
-#: core/assets.php:304
+#: core/assets.php:336
 msgid "Clear all"
 msgstr "सभी साफ करें"
 
-#: core/assets.php:305
+#: core/assets.php:337
 msgid "Remove from recent searches"
 msgstr "हाल की खोजों से हटाएँ"
 
-#: core/assets.php:306
+#: core/assets.php:338
 msgid "commented on"
 msgstr "पर टिप्पणी की"
 
-#: core/assets.php:307
+#: core/assets.php:339
 msgid "in"
 msgstr "में"
 
@@ -9116,7 +9114,7 @@ msgstr "एक खोज शब्द आवश्यक है।"
 msgid "Search query must be at least %d characters."
 msgstr "खोज क्वेरी में कम से कम %d वर्ण होने चाहिए।"
 
-#: inc/functions/functions.php:798
+#: inc/functions/functions.php:879
 msgid "Some time ago"
 msgstr "कुछ समय पहले"
 
@@ -9126,21 +9124,21 @@ msgstr "कुछ समय पहले"
 msgid "[%1$s] New community post: %2$s"
 msgstr "[%1$s] नया सामुदायिक पोस्ट: %2$s"
 
-#: inc/modules/email-notifications/emails.php:112
+#: inc/modules/email-notifications/emails.php:115
 msgid "A community member"
 msgstr "एक सामुदायिक सदस्य"
 
-#: inc/modules/email-notifications/emails.php:122
+#: inc/modules/email-notifications/emails.php:125
 msgid "Hi Admin,"
 msgstr "नमस्ते व्यवस्थापक,"
 
 #. translators: %1$s: author name, %2$s: portal name.
-#: inc/modules/email-notifications/emails.php:128
+#: inc/modules/email-notifications/emails.php:131
 #, php-format
 msgid "%1$s just submitted a new community post on <strong>%2$s</strong>."
 msgstr "%1$s ने <strong>%2$s</strong> पर एक नया सामुदायिक पोस्ट प्रस्तुत किया।"
 
-#: inc/modules/email-notifications/emails.php:141
+#: inc/modules/email-notifications/emails.php:144
 msgid "View the post"
 msgstr "पोस्ट देखें"
 
@@ -9349,7 +9347,7 @@ msgid "This is the first post in this space. Edit or delete it, then invite memb
 msgstr "यह इस स्थान में पहला पोस्ट है। इसे संपादित या हटाएँ, फिर सदस्यों को चैट शुरू करने के लिए आमंत्रित करें।"
 
 #. translators: %s: URL to the email notification settings.
-#: inc/modules/email-notifications/emails.php:149
+#: inc/modules/email-notifications/emails.php:152
 #, php-format
 msgid "You are receiving this because you are an admin or portal manager. <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">Change recipients or disable these emails</a> from the SureDash email settings."
 msgstr "आप यह प्राप्त कर रहे हैं क्योंकि आप एक व्यवस्थापक या पोर्टल प्रबंधक हैं। <a href=\"%s\" style=\"color:#2563eb;text-decoration:underline;\">प्राप्तकर्ताओं को बदलें या इन ईमेल को बंद करें</a> SureDash ईमेल सेटिंग्स से।"
@@ -9373,6 +9371,7 @@ msgid "AI features require WordPress 7.0 or higher. Update WordPress to use AI p
 msgstr "एआई सुविधाओं के लिए वर्डप्रेस 7.0 या उच्चतर की आवश्यकता है। एआई पोर्टल निर्माण के लिए वर्डप्रेस को अपडेट करें।"
 
 #: inc/services/ai-portal-generator.php:180
+#: inc/services/ai-post-summarizer.php:334
 msgid "AI features are disabled in the current environment."
 msgstr "वर्तमान वातावरण में एआई सुविधाएँ अक्षम हैं।"
 
@@ -10633,30 +10632,26 @@ msgstr "SureDash क्षमताओं का दस्तावेज़ी�
 msgid "."
 msgstr "।"
 
-#: assets/build/portals-app.js:38
-msgid "AI Abilities & MCP"
-msgstr "AI क्षमताएँ और MCP"
-
-#: core/assets.php:211
+#: core/assets.php:218
 msgid "Unable to load content."
 msgstr "सामग्री लोड करने में असमर्थ।"
 
-#: core/routers/misc.php:1680
-#: core/routers/misc.php:1736
+#: core/routers/misc.php:1715
+#: core/routers/misc.php:1771
 msgid "No preview available."
 msgstr "कोई पूर्वावलोकन उपलब्ध नहीं है।"
 
-#: core/routers/misc.php:1741
+#: core/routers/misc.php:1776
 msgid "Preview not found."
 msgstr "पूर्वावलोकन नहीं मिला।"
 
-#: inc/functions/functions.php:1727
+#: inc/functions/functions.php:1811
 msgid "This content is restricted to members. Unlock access to view the full post."
 msgstr "यह सामग्री सदस्यों के लिए प्रतिबंधित है। पूरा पोस्ट देखने के लिए पहुँच अनलॉक करें।"
 
 #. translators: %s: number of lessons.
-#: inc/functions/markup.php:588
-#: inc/functions/markup.php:805
+#: inc/functions/markup.php:675
+#: inc/functions/markup.php:892
 #, php-format
 msgid "%s lesson"
 msgid_plural "%s lessons"
@@ -10664,8 +10659,8 @@ msgstr[0] "%s पाठ"
 msgstr[1] ""
 
 #. translators: %s: number of quizzes.
-#: inc/functions/markup.php:594
-#: inc/functions/markup.php:810
+#: inc/functions/markup.php:681
+#: inc/functions/markup.php:897
 #, php-format
 msgid "%s quiz"
 msgid_plural "%s quizzes"
@@ -10673,8 +10668,8 @@ msgstr[0] "%s क्विज़"
 msgstr[1] ""
 
 #. translators: %s: number of threads.
-#: inc/functions/markup.php:600
-#: inc/functions/markup.php:769
+#: inc/functions/markup.php:687
+#: inc/functions/markup.php:856
 #, php-format
 msgid "%s thread"
 msgid_plural "%s threads"
@@ -10682,7 +10677,7 @@ msgstr[0] "%s थ्रेड"
 msgstr[1] ""
 
 #. translators: %s: number of modules (may be a "lessons + quizzes" expression, e.g. "3 + 2").
-#: inc/functions/markup.php:798
+#: inc/functions/markup.php:885
 #, php-format
 msgid "%s module"
 msgid_plural "%s modules"
@@ -10709,11 +10704,11 @@ msgstr "SureDash Pro स्थापित है लेकिन सक्र�
 msgid "You do not have permission to activate plugins."
 msgstr "आपको प्लगइन्स सक्रिय करने की अनुमति नहीं है।"
 
-#: core/routers/social-logins.php:275
+#: core/routers/social-logins.php:276
 msgid "Too many password reset requests. Please try again in a few minutes."
 msgstr "बहुत अधिक पासवर्ड रीसेट अनुरोध। कृपया कुछ मिनटों में फिर से प्रयास करें।"
 
-#: core/routers/social-logins.php:294
+#: core/routers/social-logins.php:295
 msgid "If an account matching that username or email exists, a password reset link has been sent. Please check your email."
 msgstr "यदि उस उपयोगकर्ता नाम या ईमेल से मेल खाता हुआ खाता मौजूद है, तो एक पासवर्ड रीसेट लिंक भेजा गया है। कृपया अपने ईमेल की जांच करें।"
 
@@ -11258,10 +11253,6 @@ msgid "Button text"
 msgstr "बटन पाठ"
 
 #: assets/build/portals-app.js:13
-msgid "Buy Now shows only to visitors locked out by an access group rule. Point the checkout at that group to grant access on purchase."
-msgstr "खरीदें अब केवल उन विज़िटर्स को दिखाता है जो पहुँच समूह नियम द्वारा लॉक किए गए हैं। खरीद पर पहुँच देने के लिए चेकआउट को उस समूह पर इंगित करें।"
-
-#: assets/build/portals-app.js:13
 msgid "A sales or checkout link is required for paid spaces."
 msgstr "भुगतान किए गए स्थानों के लिए एक बिक्री या चेकआउट लिंक आवश्यक है।"
 
@@ -11308,6 +11299,249 @@ msgstr "मूल्य निर्धारण"
 #: assets/build/portals-app.js:35
 msgid "Edit Pricing"
 msgstr "मूल्य निर्धारण संपादित करें"
+
+#: core/assets.php:54
+msgid "Skip to main content"
+msgstr "मुख्य सामग्री पर जाएं"
+
+#: core/assets.php:55
+msgid "Comment on post"
+msgstr "पोस्ट पर टिप्पणी करें"
+
+#: core/assets.php:56
+msgid "Post content"
+msgstr "पोस्ट सामग्री"
+
+#: core/assets.php:217
+msgid "Restricted content"
+msgstr "प्रतिबंधित सामग्री"
+
+#: core/assets.php:233
+#: assets/js/unminified/summarize-post.js:93
+#: assets/js/unminified/summarize-post.js:105
+msgid "Summary of"
+msgstr "का सारांश"
+
+#: core/assets.php:234
+#: assets/js/unminified/summarize-post.js:134
+msgid "Loading summary…"
+msgstr "सारांश लोड हो रहा है…"
+
+#: core/assets.php:235
+#: assets/js/unminified/summarize-post.js:118
+msgid "Close summary"
+msgstr "सारांश बंद करें"
+
+#: core/assets.php:236
+msgid "Could not summarize this post. Please try again."
+msgstr "इस पोस्ट का सारांश नहीं बना सके। कृपया फिर से प्रयास करें।"
+
+#: core/assets.php:323
+msgid "Sort results"
+msgstr "परिणामों को क्रमबद्ध करें"
+
+#. translators: %s: Number of posts
+#: core/assets.php:480
+#, php-format
+msgid "%s more posts loaded"
+msgstr "%s और पोस्ट लोड किए गए"
+
+#: core/assets.php:487
+msgid "Could not load more posts. Please try again."
+msgstr "अधिक पोस्ट लोड नहीं कर सके। कृपया फिर से प्रयास करें।"
+
+#: core/blocks/interactivity/build/DynamicIcons/view.php:29
+msgid "Main"
+msgstr "मुख्य"
+
+#: core/integrations/feeds.php:200
+#: core/integrations/feeds.php:321
+#: templates/parts/footer.php:23
+msgid "(opens in new tab)"
+msgstr "(नए टैब में खुलता है)"
+
+#: core/notifier/base.php:358
+#: core/notifier/base.php:376
+msgid "Load more"
+msgstr "अधिक लोड करें"
+
+#: core/notifier/base.php:359
+#: core/notifier/base.php:377
+msgid "See older notifications"
+msgstr "पुरानी सूचनाएं देखें"
+
+#: core/notifier/base.php:361
+msgid "Fetching older notifications"
+msgstr "पुरानी सूचनाएं प्राप्त कर रहा है"
+
+#: core/rewrite-rules.php:336
+msgid "View who liked this"
+msgstr "देखें कि किसने इसे पसंद किया"
+
+#: core/routers/misc.php:1953
+msgid "You have requested a lot of summaries just now. Please try again in a few minutes."
+msgstr "आपने अभी बहुत सारे सारांशों का अनुरोध किया है। कृपया कुछ मिनटों में फिर से प्रयास करें।"
+
+#. translators: %s: underlying error message from the AI provider.
+#: core/routers/misc.php:2020
+#, php-format
+msgid "The AI provider could not be reached: %s"
+msgstr "AI प्रदाता से संपर्क नहीं किया जा सका: %s"
+
+#: core/routers/misc.php:2025
+msgid "Could not summarize this post right now. Please try again later."
+msgstr "इस पोस्ट का सारांश अभी नहीं बना सके। कृपया बाद में फिर से प्रयास करें।"
+
+#: core/routes.php:701
+#: core/routes.php:772
+msgid "Sorry, you are not allowed to do that."
+msgstr "क्षमा करें, आपको ऐसा करने की अनुमति नहीं है।"
+
+#: core/shortcodes/home-content.php:285
+#: inc/functions/locked-markup.php:190
+msgid "scheduled content"
+msgstr "निर्धारित सामग्री"
+
+#: core/shortcodes/home-content.php:949
+msgid "by email"
+msgstr "ईमेल द्वारा"
+
+#: core/shortcodes/home-content.php:950
+msgid "in the portal"
+msgstr "पोर्टल में"
+
+#: core/shortcodes/home-content.php:1057
+msgid "Remove cover image"
+msgstr "कवर छवि हटाएं"
+
+#: core/shortcodes/search.php:57
+msgid "Search the community"
+msgstr "समुदाय में खोजें"
+
+#: core/shortcodes/user-profile.php:104
+msgid "Account menu"
+msgstr "खाता मेनू"
+
+#: inc/functions/markup.php:39
+#: inc/functions/markup.php:72
+msgid "Upload an image"
+msgstr "एक छवि अपलोड करें"
+
+#: inc/modules/announcements/releases.php:86
+msgid "New in SureDash"
+msgstr "SureDash में नया"
+
+#: inc/modules/announcements/releases.php:87
+msgid "Introducing AI Post Summaries"
+msgstr "AI पोस्ट सारांशों का परिचय"
+
+#: inc/modules/announcements/releases.php:88
+msgid "Turn long discussion posts into a quick, AI-written recap. Members tap Summarize and read the key points right above the post. The summary is generated once and reused for everyone until the post is edited."
+msgstr "लंबे चर्चा पोस्ट को एक त्वरित, AI-लिखित सारांश में बदलें। सदस्य सारांश पर टैप करते हैं और पोस्ट के ठीक ऊपर मुख्य बिंदुओं को पढ़ते हैं। सारांश एक बार उत्पन्न होता है और पोस्ट संपादित होने तक सभी के लिए पुन: उपयोग किया जाता है।"
+
+#: inc/modules/announcements/releases.php:92
+msgid "Summarize button on long posts"
+msgstr "लंबे पोस्ट पर सारांश बटन"
+
+#: inc/modules/announcements/releases.php:96
+msgid "AI recap sits above the post content"
+msgstr "AI सारांश पोस्ट सामग्री के ऊपर होता है"
+
+#: inc/modules/announcements/releases.php:100
+msgid "Generated once, reused until edited"
+msgstr "एक बार उत्पन्न, संपादित होने तक पुन: उपयोग किया जाता है"
+
+#: inc/modules/announcements/releases.php:111
+#: assets/build/portals-app.js:38
+msgid "Summarize Posts"
+msgstr "पोस्ट का सारांश बनाएं"
+
+#: inc/modules/announcements/releases.php:112
+msgid "Switch this on to add a Summarize button to long discussion posts."
+msgstr "इसको चालू करें ताकि लंबे चर्चा पोस्ट पर सारांश बटन जोड़ा जा सके।"
+
+#: inc/services/ai-post-summarizer.php:233
+msgid "Summarize"
+msgstr "सारांश बनाएं"
+
+#: inc/services/ai-post-summarizer.php:286
+msgid "Post summaries are turned off for this portal."
+msgstr "इस पोर्टल के लिए पोस्ट सारांश बंद हैं।"
+
+#: inc/services/ai-post-summarizer.php:293
+#: inc/services/ai-post-summarizer.php:305
+msgid "Only discussion posts can be summarized."
+msgstr "केवल चर्चा पोस्ट का सारांश बनाया जा सकता है।"
+
+#: inc/services/ai-post-summarizer.php:314
+msgid "This post is already short enough to read in full."
+msgstr "यह पोस्ट पहले से ही पूरी तरह से पढ़ने के लिए पर्याप्त छोटी है।"
+
+#: inc/services/ai-post-summarizer.php:327
+msgid "AI features require WordPress 7.0 or higher. Update WordPress to summarize posts."
+msgstr "AI सुविधाओं के लिए WordPress 7.0 या उच्चतर की आवश्यकता है। पोस्ट का सारांश बनाने के लिए WordPress को अपडेट करें।"
+
+#: inc/services/ai-post-summarizer.php:342
+msgid "No AI provider is connected. Connect one from Settings → Connectors."
+msgstr "कोई AI प्रदाता कनेक्ट नहीं है। सेटिंग्स → कनेक्टर्स से एक कनेक्ट करें।"
+
+#: inc/services/ai-post-summarizer.php:362
+msgid "This summary is being written right now. Try again in a moment."
+msgstr "यह सारांश अभी लिखा जा रहा है। थोड़ी देर में फिर से प्रयास करें।"
+
+#: inc/services/ai-post-summarizer.php:410
+#: inc/services/ai-post-summarizer.php:530
+msgid "The AI returned an empty summary. Please try again."
+msgstr "AI ने एक खाली सारांश लौटाया। कृपया फिर से प्रयास करें।"
+
+#: inc/services/ai-post-summarizer.php:421
+msgid "The AI returned malformed output. Please try again."
+msgstr "AI ने गलत प्रारूपित आउटपुट लौटाया। कृपया फिर से प्रयास करें।"
+
+#: templates/parts/sidebar-widgets.php:83
+msgid "Space details"
+msgstr "स्थान विवरण"
+
+#: templates/quick-view/container.php:14
+msgid "Post preview"
+msgstr "पोस्ट पूर्वावलोकन"
+
+#: assets/build/portals-app.js:13
+msgid "Buy Now shows only to visitors locked out by an access membership rule. Point the checkout at that membership to grant access on purchase."
+msgstr "Buy Now केवल उन आगंतुकों को दिखाता है जो एक पहुंच सदस्यता नियम द्वारा लॉक किए गए हैं। खरीद पर पहुंच प्रदान करने के लिए चेकआउट को उस सदस्यता पर इंगित करें।"
+
+#: assets/build/portals-app.js:38
+msgid "No AI provider is connected yet, so the Summarize button stays hidden."
+msgstr "अभी तक कोई AI प्रदाता कनेक्ट नहीं है, इसलिए सारांश बटन छिपा रहता है।"
+
+#: assets/build/portals-app.js:38
+msgid "Connect a provider in Settings → Connectors"
+msgstr "सेटिंग्स → कनेक्टर्स में एक प्रदाता कनेक्ट करें"
+
+#: assets/build/portals-app.js:38
+msgid "Automatic"
+msgstr "स्वचालित"
+
+#: assets/build/portals-app.js:38
+msgid "Adds a Summarize button to long discussion posts. Members get an AI-written recap of the post above its content. The summary is generated once and reused until the post is edited."
+msgstr "लंबे चर्चा पोस्ट पर एक सारांश बटन जोड़ता है। सदस्यों को इसकी सामग्री के ऊपर पोस्ट का AI-लिखित सारांश मिलता है। सारांश एक बार उत्पन्न होता है और पोस्ट संपादित होने तक पुन: उपयोग किया जाता है।"
+
+#: assets/build/portals-app.js:38
+msgid "Summary Provider"
+msgstr "सारांश प्रदाता"
+
+#: assets/build/portals-app.js:38
+msgid "Which connected provider writes the summaries. Automatic uses the first one available."
+msgstr "कौन सा कनेक्टेड प्रदाता सारांश लिखता है। स्वचालित पहले उपलब्ध का उपयोग करता है।"
+
+#: assets/build/portals-app.js:38
+msgid "AI Features & MCP"
+msgstr "एआई सुविधाएँ और एमसीपी"
+
+#: assets/js/unminified/summarize-post.js:294
+#: assets/js/unminified/summarize-post.js:302
+msgid "Could not summarize this post."
+msgstr "इस पोस्ट का सारांश नहीं बना सका।"
 
 #: core/cpt/portal.php:91
 msgctxt "Admin menu name"

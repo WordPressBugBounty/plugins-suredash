@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.12.4
+Stable tag: 1.13.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -161,6 +161,16 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-11-05 - version 1.13.0 =
+* Improvement: Improved overall portal performance. Pages now do less work on every load, and profile photos load only when they come into view.
+* Improvement: Improved notifications in the header bell, the mobile menu and the Notifications page. They now load faster, 10 at a time, with a redesigned Load more button that matches your portal colors and shows a clear loading state.
+* Improvement: Notifications for deleted posts, comments and users are now removed automatically, and only the newest notifications are kept. Use the suredash_notifications_max_stored filter to change how many are kept.
+* Improvement: The comment and post editor now loads only when you start to write, so portal pages are lighter. The comment box looks the same as before.
+* Improvement: Feed loading is smoother. Switching between list and grid view or changing the sort shows placeholder cards while posts load, and new posts fade in.
+* Improvement: Added the suredash_supports() function so add-ons can check for SureDash features.
+* Fix: Fixed loading issues in space feeds and on profile pages when switching view, changing the sort or loading more posts and comments.
+* Fix: On sites that load plugins only on some pages, links from other plugins, such as SureMembers downloads, could return a 404 error.
+
 = 2026-10-27 - version 1.12.4 =
 * Fix: Videos and embeds in the quick view kept playing after it was closed.
 * Fix: This update addressed security bugs. Props to Patchstack for reporting them responsibly to our team. Please make sure you are using the latest version on your website.

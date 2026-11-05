@@ -391,6 +391,11 @@ class Routes {
 					'callback'            => [ UserRoute::get_instance(), 'update_notifications' ],
 					'permission_callback' => 'user',
 				],
+				'get-notifications'                  => [
+					'method'              => 'GET',
+					'callback'            => [ UserRoute::get_instance(), 'get_notifications' ],
+					'permission_callback' => 'user',
+				],
 				'update-user-data'                   => [
 					'method'              => 'POST',
 					'callback'            => [ UserRoute::get_instance(), 'update_user_data' ],

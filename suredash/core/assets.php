@@ -166,6 +166,7 @@ class Assets {
 				'like_text'                     => Labels::get_label( 'like' ),
 				'likes_text'                    => Labels::get_label( 'likes' ),
 				'wp_rest_nonce'                 => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
+				'jodit_script_url'              => esc_url_raw( SUREDASHBOARD_JS_ASSETS_FOLDER . 'jodit' . SUREDASHBOARD_JS_SUFFIX . '?ver=' . SUREDASHBOARD_VER ),
 				'social_login_nonce'            => wp_create_nonce( 'social_login_nonce' ),
 				'comment_box_placeholder'       => Labels::get_label( 'comment_box_placeholder' ),
 				'comment_reply_box_placeholder' => Labels::get_label( 'comment_reply_box_placeholder' ),
@@ -244,14 +245,13 @@ class Assets {
 
 		wp_enqueue_style( 'portal-blocks', esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'blocks-rtl' : 'blocks' ) . SUREDASHBOARD_CSS_SUFFIX ), [], SUREDASHBOARD_VER );
 
-		wp_enqueue_script(
-			'portal-jodit',
-			esc_url( SUREDASHBOARD_JS_ASSETS_FOLDER . 'jodit' . SUREDASHBOARD_JS_SUFFIX ),
-			[],
-			SUREDASHBOARD_VER,
-			true
-		);
+		// Idle editor markup that JS copies for boxes it paints itself.
+		add_action( 'wp_footer', [ $this, 'print_jodit_idle_template' ], 5 );
 
+		// The Jodit script (about 630 KB) is not printed on the page. It is
+		// prefetched when the browser is idle and run the first time a comment
+		// box or post editor is hovered, focused or tapped, via `jodit_script_url`
+		// above. The styles stay here so the idle boxes paint exactly as before.
 		wp_enqueue_style(
 			'portal-jodit',
 			esc_url( SUREDASHBOARD_CSS_ASSETS_FOLDER . ( is_rtl() ? 'jodit-rtl' : 'jodit' ) . SUREDASHBOARD_CSS_SUFFIX ),
@@ -265,6 +265,16 @@ class Assets {
 			[ 'portal-jodit' ],
 			SUREDASHBOARD_VER
 		);
+	}
+
+	/**
+	 * Print the idle editor markup once as a template for portalLazyJoditEditor().
+	 *
+	 * @since 1.13.0
+	 * @return void
+	 */
+	public function print_jodit_idle_template(): void {
+		echo '<template id="suredash-jodit-idle-template">' . wp_kses( suredash_get_jodit_idle_markup(), suredash_jodit_idle_allowed_html() ) . '</template>';
 	}
 
 	/**
@@ -470,10 +480,11 @@ class Assets {
 				'a11y_posts_loaded'       => __( '%s more posts loaded', 'suredash' ),
 				'comments_loaded_message' => '<div class="portal-no-more-posts">' . Labels::get_label( 'no_more_comments_to_load' ) . '</div>',
 				'insufficient_data_error' => Labels::get_label( 'insufficient_data_error' ),
-				'infinite_scroll_loading' => false,
 				'user_logged_in'          => is_user_logged_in(),
 				'sub_queried_page'        => suredash_get_sub_queried_page(),
 				'feeds_default_view'      => Helper::get_option( 'feeds_default_view', 'grid' ),
+				'feeds_per_page'          => (int) Helper::get_option( 'feeds_per_page', 5 ),
+				'load_posts_error'        => __( 'Could not load more posts. Please try again.', 'suredash' ),
 			]
 		);
 

@@ -618,8 +618,8 @@ class Settings {
 		// Fire action hook with old and new settings for comparison.
 		do_action( 'suredash_settings_updated', $old_settings, $settings );
 
-		// Flush the rewrite rules.
-		flush_rewrite_rules();
+		// New slugs register on the next request: let CPTs rebuild the rules there.
+		delete_option( \SureDashboard\Core\CPTs::REWRITE_SIGNATURE_OPTION );
 	}
 
 	/**

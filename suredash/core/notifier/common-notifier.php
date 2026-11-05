@@ -168,7 +168,7 @@ class Common_Notifier extends Base {
 			}
 
 			$notifications_data[ $timestamp ] = $notifiable;
-			update_option( $this->option, $notifications_data );
+			update_option( $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 
@@ -219,7 +219,7 @@ class Common_Notifier extends Base {
 			}
 
 			$notifications_data[ $timestamp ] = $notifiable;
-			sd_update_user_meta( $user_id, $this->option, $notifications_data );
+			sd_update_user_meta( $user_id, $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 
@@ -289,7 +289,7 @@ class Common_Notifier extends Base {
 			$current_timestamp                        = suredash_get_timestamp();
 			$notifications_data[ $current_timestamp ] = $notifiable;
 
-			sd_update_user_meta( $topic_author, $this->option, $notifications_data );
+			sd_update_user_meta( $topic_author, $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 
@@ -350,7 +350,7 @@ class Common_Notifier extends Base {
 			$current_timestamp                        = suredash_get_timestamp();
 			$notifications_data[ $current_timestamp ] = $notifiable;
 
-			sd_update_user_meta( $author, $this->option, $notifications_data );
+			sd_update_user_meta( $author, $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 
@@ -469,7 +469,7 @@ class Common_Notifier extends Base {
 	 */
 	public function topic_comment_format( $args, $value ) {
 		$icon = ! empty( $args['icon'] ) ? $args['icon'] : '';
-		if ( ! sd_specific_comment_exists( $value['comment_id'] ) ) {
+		if ( ! $this->is_live_comment( $value['comment_id'] ) ) {
 			return false;
 		}
 
@@ -537,7 +537,7 @@ class Common_Notifier extends Base {
 	public function entity_like_format( $args, $value ) {
 		$icon = ! empty( $args['icon'] ) ? $args['icon'] : '';
 
-		if ( $value['entity'] === 'comment' && ! sd_specific_comment_exists( $value['entity_id'] ) ) {
+		if ( $value['entity'] === 'comment' && ! $this->is_live_comment( $value['entity_id'] ) ) {
 			return false;
 		}
 

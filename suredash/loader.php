@@ -398,6 +398,9 @@ class Portals_Loader {
 			update_option( 'suredash_usage_installed_time', time() );
 		}
 
+		// This flush runs before SureDash registers its rules on this request.
+		// Clearing the signature makes the next request rebuild them.
+		delete_option( CPTs::REWRITE_SIGNATURE_OPTION );
 		flush_rewrite_rules();
 	}
 

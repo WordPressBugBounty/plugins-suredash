@@ -155,7 +155,7 @@ class Admin_Notifier extends Base {
 			];
 
 			$notifications_data[ $timestamp ] = $notifiable;
-			update_option( $this->option, $notifications_data );
+			update_option( $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 
@@ -232,7 +232,7 @@ class Admin_Notifier extends Base {
 			}
 
 			$notifications_data[ $timestamp ] = $notifiable;
-			update_option( $this->option, $notifications_data );
+			update_option( $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 

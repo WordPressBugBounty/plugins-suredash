@@ -38,7 +38,7 @@ class Feeds {
 		$meta_key    = $args['meta_key'] ?? '';
 
 		// Build SELECT with computed columns for sorting.
-		$select_fields = 'p.ID, p.post_title, p.post_type, p.post_status, p.post_date, p.post_author, p.comment_count';
+		$select_fields = 'p.ID, p.post_title, p.post_type, p.post_status, p.comment_status, p.post_date, p.post_author, p.comment_count';
 
 		// Special handling for new_activity sort - query comments table directly.
 		$is_new_activity_sort = $order_by === 'meta_value' && $meta_key === 'portal_last_comment_date';

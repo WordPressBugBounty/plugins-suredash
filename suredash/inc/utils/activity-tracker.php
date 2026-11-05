@@ -127,14 +127,28 @@ class Activity_Tracker {
 		}
 
 		$meta_key     = 'suredash_viewed_count_' . $space_id;
-		$viewed_count = absint( sd_get_user_meta( $user_id, $meta_key, true ) );
+		$stored_value = sd_get_user_meta( $user_id, $meta_key, true );
+		$viewed_count = absint( $stored_value );
 
 		if ( ! empty( $post_id ) ) {
 			// Increment counter by 1 for single post view.
 			$viewed_count++;
 		} else {
 			// Mark ALL visible posts in space as viewed.
-			$viewed_count = $this->get_visible_posts_count_in_space( $space_id, $user_id );
+			$visible_count = $this->get_visible_posts_count_in_space( $space_id, $user_id );
+
+			// Nothing new since the last visit: skip the write. Clear the cached
+			// unread count only if it still says something is unread (e.g. posts
+			// were removed since it was cached), so the next page does not
+			// recount the whole space for nothing.
+			if ( $stored_value !== '' && $viewed_count === $visible_count ) {
+				$cached_unread = get_transient( $this->get_cache_key( $user_id, $space_id ) );
+				if ( $cached_unread !== false && absint( $cached_unread ) !== 0 ) {
+					$this->clear_cache( $user_id, $space_id );
+				}
+				return true;
+			}
+			$viewed_count = $visible_count;
 		}
 
 		// Update user meta with new count.

@@ -165,7 +165,7 @@ class User_Notifier extends Base {
 			}
 
 			$notifications_data[ $timestamp ] = $notifiable;
-			sd_update_user_meta( $user_id, $this->option, $notifications_data );
+			sd_update_user_meta( $user_id, $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 
@@ -258,7 +258,7 @@ class User_Notifier extends Base {
 			}
 
 			$notifications_data[ $timestamp - $user_mentioned ] = $notifiable; // Subtract 1 second to make sure it's unique, because topic submission with user mention can be at the same time.
-			sd_update_user_meta( $user_id, $this->option, $notifications_data );
+			sd_update_user_meta( $user_id, $this->option, $this->trim_stored_notifications( $notifications_data ) );
 		}
 	}
 

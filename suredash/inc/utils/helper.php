@@ -1373,21 +1373,25 @@ class Helper {
 	 * @since 0.0.1
 	 */
 	public static function render_post( $post, $base_post_id = 0, $is_pinned = false, $is_feeds = false ) {
+		$post_id = absint( $post['ID'] ?? 0 );
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		// Feed rows from this request carry the status; others are checked in the
+		// database (a published post also exists).
+		$is_published = isset( $post['post_status'] ) ? $post['post_status'] === 'publish' : sd_is_post_publish( $post_id );
+		if ( ! $is_published ) {
+			return '';
+		}
+
 		$args = [
 			'post'         => $post,
 			'base_post_id' => $base_post_id,
 			'is_pinned'    => $is_pinned,
-			'comments'     => sd_get_post_field( $post['ID'] ?? 0, 'comment_status' ),
+			'comments'     => $post['comment_status'] ?? sd_get_post_field( $post_id, 'comment_status' ),
 			'is_feeds'     => $is_feeds,
 		];
-
-		$post_id = absint( $post['ID'] ?? 0 );
-		if ( ! $post_id || ! sd_post_exists( $post_id ) ) {
-			return '';
-		}
-		if ( ! sd_is_post_publish( $post_id ) ) {
-			return '';
-		}
 
 		$lock_action = suredash_sm_item_action( $post_id );
 		$is_locked   = ! empty( $lock_action );
@@ -2226,7 +2230,7 @@ class Helper {
 		$posts    = [];
 		$category = $args['category'] ?? 0;
 		if ( $category ) {
-			$query = sd_query()->select( 'p.ID, p.post_title, p.post_type, p.post_status, p.post_date, p.post_author, p.comment_count' )
+			$query = sd_query()->select( 'p.ID, p.post_title, p.post_type, p.post_status, p.comment_status, p.post_date, p.post_author, p.comment_count' )
 				->from( 'posts AS p' )
 				->join( 'term_relationships AS tr', 'p.ID', '=', 'tr.object_id' )
 				->join( 'term_taxonomy AS tt', 'tr.term_taxonomy_id', '=', 'tt.term_taxonomy_id' )
@@ -2238,7 +2242,7 @@ class Helper {
 				->order_by( 'p.post_date', 'DESC' )
 				->get( ARRAY_A );
 		} else {
-			$query = sd_query()->select( 'p.ID, p.post_title, p.post_type, p.post_status, p.post_date, p.post_author, p.comment_count' )
+			$query = sd_query()->select( 'p.ID, p.post_title, p.post_type, p.post_status, p.comment_status, p.post_date, p.post_author, p.comment_count' )
 				->from( 'posts AS p' )
 				->where( 'p.post_type', '=', SUREDASHBOARD_FEED_POST_TYPE )
 				->where( 'p.post_status', '!=', 'auto-draft' )

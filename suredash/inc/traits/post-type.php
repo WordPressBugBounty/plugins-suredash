@@ -99,8 +99,6 @@ trait Post_Type {
 
 		register_post_type( $this->post_type, $args ); // @phpstan-ignore-line
 
-		flush_rewrite_rules();
-
 		do_action( 'suredash_after_register_' . $this->post_type . '_post_type' );
 	}
 

@@ -40,6 +40,31 @@ function suredash_is_suremembers_active() {
 }
 
 /**
+ * Whether this SureDash has a feature that add-ons may need to adapt to.
+ *
+ * Public: add-ons call this, so a feature name is never renamed, and stays
+ * listed for as long as the feature exists. Each value must reflect what
+ * SureDash really does on this request, so the list is not filterable.
+ *
+ * Features:
+ * - 'lazy-jodit': the Jodit editor script loads on first use, not with the
+ *   page. Code that needs `Jodit` calls portalLoadJodit() or listens for the
+ *   `suredash:jodit-ready` event.
+ *
+ * @param string $feature Feature name.
+ * @return bool True when the feature is active.
+ *
+ * @since 1.13.0
+ */
+function suredash_supports( string $feature ): bool {
+	$features = [
+		'lazy-jodit' => true,
+	];
+
+	return ! empty( $features[ $feature ] );
+}
+
+/**
  * Clean variables using sanitize_text_field.
  *
  * @param mixed $var Data to sanitize.
