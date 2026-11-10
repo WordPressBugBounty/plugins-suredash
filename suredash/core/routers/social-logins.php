@@ -468,9 +468,9 @@ class Social_Logins {
 			}
 		}
 
-		// role.
-		$role = Helper::get_option( 'default_role', 'suredash_user' );
-		$role = apply_filters( 'suredashboard_social_registration_form_change_new_user_role', $role );
+		// role. Not read from settings: no UI sets it, and a stored value could
+		// be attacker supplied (CVE-2026-123769). Use the filter to change it.
+		$role = apply_filters( 'suredashboard_social_registration_form_change_new_user_role', 'suredash_user' );
 
 		// Email.
 		if (

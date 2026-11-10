@@ -91,11 +91,14 @@ class Onboarding {
 				$portal_as_homepage       = ! empty( $_POST['portal_as_homepage'] ) && sanitize_text_field( $_POST['portal_as_homepage'] ) === 'on';
 				$override_wp_registration = ! empty( $_POST['override_wp_registration'] ) && sanitize_text_field( $_POST['override_wp_registration'] ) === 'on';
 
-				$settings                             = Settings::get_suredash_settings();
-				$settings['portal_name']              = $portal_name;
-				$settings['hidden_community']         = $hidden_community;
-				$settings['portal_as_homepage']       = $portal_as_homepage;
-				$settings['override_wp_registration'] = $override_wp_registration;
+				$settings                       = Settings::get_suredash_settings();
+				$settings['portal_name']        = $portal_name;
+				$settings['hidden_community']   = $hidden_community;
+				$settings['portal_as_homepage'] = $portal_as_homepage;
+				// Opening registration is admin-only, see Settings::ADMIN_ONLY_KEYS.
+				if ( current_user_can( 'manage_options' ) ) {
+					$settings['override_wp_registration'] = $override_wp_registration;
+				}
 				update_option( SUREDASHBOARD_SETTINGS, $settings );
 				break;
 			case 'scaffold_portal':

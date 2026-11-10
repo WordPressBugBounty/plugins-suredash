@@ -17,6 +17,14 @@ defined( 'ABSPATH' ) || exit;
  */
 class Settings {
 	/**
+	 * Settings that decide what new registrants get. Only users with
+	 * `manage_options` may change them; Portal Managers cannot.
+	 *
+	 * @since 1.13.1
+	 */
+	public const ADMIN_ONLY_KEYS = [ 'user_capability', 'override_wp_registration' ];
+
+	/**
 	 * Cache the DB options
 	 *
 	 * @since 0.0.1
@@ -80,6 +88,26 @@ class Settings {
 				'preserve_excerpt_html'                => [
 					'default' => true,
 					'type'    => 'boolean',
+				],
+				'enable_feeds'                         => [
+					'default' => false,
+					'type'    => 'boolean',
+				],
+				'feeds_content_type'                   => [
+					'default' => 'excerpt',
+					'type'    => 'string',
+				],
+				'feeds_default_view'                   => [
+					'default' => 'grid',
+					'type'    => 'string',
+				],
+				'feeds_default_sort'                   => [
+					'default' => 'date_desc',
+					'type'    => 'string',
+				],
+				'feeds_icon'                           => [
+					'default' => 'Newspaper',
+					'type'    => 'string',
 				],
 				'notify_admins_on_new_post'            => [
 					'default' => true,
@@ -198,6 +226,11 @@ class Settings {
 				'color_palette'                        => [
 					'default' => suredash_get_color_palette_defaults(),
 					'type'    => 'array',
+				],
+				// Set to true by the 1.3.0 migration; the dashboard clears it once the legacy colors notice is handled.
+				'backward_color_options'               => [
+					'default' => false,
+					'type'    => 'boolean',
 				],
 				'accent_color'                         => [
 					'default' => '#2563EB',

@@ -422,6 +422,8 @@ class Menu {
 					],
 					'onboarding_image'              => SUREDASHBOARD_URL . 'assets/images/onboarding.svg',
 					'can_user_register'             => boolval( get_option( 'users_can_register', false ) ),
+					// Role settings (Settings::ADMIN_ONLY_KEYS) are read-only for Portal Managers.
+					'can_manage_options'            => current_user_can( 'manage_options' ),
 					'suremembers_active'            => suredash_is_suremembers_active(),
 					'suremembers_access_groups'     => Helper::get_suremembers_access_groups(),
 					'learn_dismissed'               => \SureDashboard\Inc\Modules\Learn\Learn::is_learn_dismissed(),

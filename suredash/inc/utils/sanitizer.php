@@ -102,10 +102,18 @@ class Sanitizer {
 		$output = '';
 
 		if ( is_array( $dataset ) ) {
-			$output = [];
+			$output          = [];
+			$settings_schema = Settings::get_settings_dataset();
 
 			foreach ( $dataset as $key => $value ) {
-				$datatype = Settings::get_setting_type( $key );
+				// Only keys defined in the settings dataset can be saved. Unknown
+				// keys would otherwise land in the option, where code that reads
+				// them (such as the old `default_role`) trusts them blindly.
+				if ( ! array_key_exists( $key, $settings_schema ) ) {
+					continue;
+				}
+
+				$datatype = $settings_schema[ $key ]['type'] ?? 'string';
 
 				switch ( $datatype ) {
 					case 'html':

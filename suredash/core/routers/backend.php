@@ -1297,7 +1297,16 @@ class Backend {
 			wp_send_json_error( [ 'message' => $this->get_rest_event_error( 'nonce' ) ] );
 		}
 
-		$settings = ! empty( $_POST['settings'] ) ? Sanitizer::sanitize_settings_data( json_decode( wp_unslash( $_POST['settings'] ), true ) ) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Data is sanitized in the Sanitizer::sanitize_settings_data() method.
+		$settings = ! empty( $_POST['settings'] ) ? json_decode( wp_unslash( $_POST['settings'] ), true ) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Data is sanitized below in the Sanitizer::sanitize_settings_data() method.
+
+		// Portal Managers can save settings, but not the ones that decide what
+		// new registrants get. Drop them before sanitizing, so their values never
+		// reach the sanitize hooks. The stored values are kept as they are.
+		if ( is_array( $settings ) && ! current_user_can( 'manage_options' ) ) {
+			$settings = array_diff_key( $settings, array_flip( Settings::ADMIN_ONLY_KEYS ) );
+		}
+
+		$settings = Sanitizer::sanitize_settings_data( $settings );
 
 		$settings = $this->update_bsf_analytics_settings( $settings );
 

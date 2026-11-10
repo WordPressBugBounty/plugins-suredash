@@ -4,7 +4,7 @@ Tags: community, membership, courses, user dashboard, discussion forum
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.13.0
+Stable tag: 1.13.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -161,6 +161,9 @@ We take plugin security seriously. Report vulnerabilities through our [Bug Bount
 * [Try Live Demo](https://zipwp.org/plugins/suredash/)
 
 == Changelog ==
+= 2026-11-10 - version 1.13.1 =
+* Fix: This update addressed a security bug. Props to Wordfence for reporting it responsibly to our team. Please make sure you are using the latest version on your website.
+
 = 2026-11-05 - version 1.13.0 =
 * Improvement: Improved overall portal performance. Pages now do less work on every load, and profile photos load only when they come into view.
 * Improvement: Improved notifications in the header bell, the mobile menu and the Notifications page. They now load faster, 10 at a time, with a redesigned Load more button that matches your portal colors and shows a clear loading state.
